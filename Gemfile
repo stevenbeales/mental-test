@@ -8,6 +8,7 @@ gem "multi_json" #common interface to load json
 gem "rack-protection" #protect against web attacks
 gem "oj" #faster json parsing
 gem "logging" #logging
+gem "ralyxa" #ruby alexa framework
 
 group :development, :test do
     gem "rerun"
