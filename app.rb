@@ -1,7 +1,6 @@
 require "sinatra"
 require 'sinatra/activerecord'
 require './app'
-require_relative 'routes/init'
 require_relative 'helpers/init'
 require_relative 'models/init'
 
