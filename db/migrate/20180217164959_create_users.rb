@@ -6,8 +6,8 @@ class CreateUsers < ActiveRecord::Migration[5.1]
       t.text :username, null: false
       t.text :firstname, null: false
       t.text :lastname, null: false
-      t.jsonb :preferences, null: false, default: '{}'
       t.timestamps
+      t.jsonb :preferences, null: false, default: '{}'
     end
 
     add_index  :users, :preferences, using: :gin

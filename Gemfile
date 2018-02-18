@@ -11,7 +11,12 @@ gem "logging" #logging
 gem "ralyxa" #ruby alexa framework
 
 group :development, :test do
-    gem "rerun"
+   gem "rerun"
+   gem "wdm" #enables rerun to hot load code on Windows
 end
 
-gem "wdm" #enables rerun to hot load code
+group :test do
+  gem "rspec"
+  gem "rack-test"
+end
+

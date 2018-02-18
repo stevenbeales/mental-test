@@ -4,8 +4,8 @@ class CreateInstruments < ActiveRecord::Migration[5.1]
 
     create_table :instruments do |t|
       t.text :name, null: false
-      t.jsonb :content, null: false, default: '{}'
       t.timestamps
+      t.jsonb :content, null: false, default: '{}'
     end
 
     add_index  :instruments, :content, using: :gin
