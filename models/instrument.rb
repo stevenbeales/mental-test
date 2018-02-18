@@ -19,6 +19,7 @@ class Instrument < ActiveRecord::Base
       item.name = i['name']
       item.type = i['type']
       item.title = i['title']
+      item.isRequired = i['isRequired']
       item.choices = i['choices']
       @items << item
     end
