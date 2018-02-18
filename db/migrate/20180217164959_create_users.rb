@@ -7,8 +7,10 @@ class CreateUsers < ActiveRecord::Migration[5.1]
       t.text :firstname, null: false
       t.text :lastname, null: false
       t.jsonb :preferences, null: false, default: '{}'
+      t.timestamps
     end
 
     add_index  :users, :preferences, using: :gin
+    add_index :instruments, :username, unique: true
   end
 end

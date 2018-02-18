@@ -1,591 +1,591 @@
 {
- title: "Center for Epidemiologic Studies Depression Scale – Revised (CESD-R)",
- pages: [
+ "title": "Center for Epidemiologic Studies Depression Scale – Revised (CESD-R)",
+ "pages": [
   {
-   name: "page1",
-   elements: [
+   "name": "page1",
+   "elements": [
     {
-     type: "radiogroup",
-     name: "Appetite1",
-     title: "My appetite was poor.",
-     isRequired: true,
-     choices: [
+     "type": "radiogroup",
+     "name": "Appetite1",
+     "title": "My appetite was poor.",
+     "isRequired": true,
+     "choices": [
       {
-       value: "0",
-       text: "Not at all or Less than 1 day"
+       "value": "0",
+       "text": "Not at all or Less than 1 day"
       },
       {
-       value: "1",
-       text: "1 - 2 days"
+       "value": "1",
+       "text": "1 - 2 days"
       },
       {
-       value: "2",
-       text: "3 - 4 days"
+       "value": "2",
+       "text": "3 - 4 days"
       },
       {
-       value: "3",
-       text: "5 - 7 days"
+       "value": "3",
+       "text": "5 - 7 days"
       },
       {
-       value: "4",
-       text: "Nearly every day for 2 weeks"
+       "value": "4",
+       "text": "Nearly every day for 2 weeks"
       }
      ],
-     colCount: 5
+     "colCount": 5
     },
     {
-     type: "radiogroup",
-     name: "Sadness2",
-     title: "I could not shake off the blues.",
-     isRequired: true,
-     choices: [
+     "type": "radiogroup",
+     "name": "Sadness2",
+     "title": "I could not shake off the blues.",
+     "isRequired": true,
+     "choices": [
       {
-       value: "0",
-       text: "Not at all or Less than 1 day"
+       "value": "0",
+       "text": "Not at all or Less than 1 day"
       },
       {
-       value: "1",
-       text: "1 - 2 days"
+       "value": "1",
+       "text": "1 - 2 days"
       },
       {
-       value: "2",
-       text: "3 - 4 days"
+       "value": "2",
+       "text": "3 - 4 days"
       },
       {
-       value: "3",
-       text: "5 - 7 days"
+       "value": "3",
+       "text": "5 - 7 days"
       },
       {
-       value: "4",
-       text: "Nearly every day for 2 weeks"
+       "value": "4",
+       "text": "Nearly every day for 2 weeks"
       }
      ],
-     colCount: 5
+     "colCount": 5
     },
     {
-     type: "radiogroup",
-     name: "Concentration3",
-     title: "I had trouble keeping my mind on what I was doing.",
-     isRequired: true,
-     choices: [
+     "type": "radiogroup",
+     "name": "Concentration3",
+     "title": "I had trouble keeping my mind on what I was doing.",
+     "isRequired": true,
+     "choices": [
       {
-       value: "0",
-       text: "Not at all or Less than 1 day"
+       "value": "0",
+       "text": "Not at all or Less than 1 day"
       },
       {
-       value: "1",
-       text: "1 - 2 days"
+       "value": "1",
+       "text": "1 - 2 days"
       },
       {
-       value: "2",
-       text: "3 - 4 days"
+       "value": "2",
+       "text": "3 - 4 days"
       },
       {
-       value: "3",
-       text: "5 - 7 days"
+       "value": "3",
+       "text": "5 - 7 days"
       },
       {
-       value: "4",
-       text: "Nearly every day for 2 weeks"
+       "value": "4",
+       "text": "Nearly every day for 2 weeks"
       }
      ],
-     colCount: 5
+     "colCount": 5
     },
     {
-     type: "radiogroup",
-     name: "Sadness4",
-     title: "I felt depressed.",
-     isRequired: true,
-     choices: [
+     "type": "radiogroup",
+     "name": "Sadness4",
+     "title": "I felt depressed.",
+     "isRequired": true,
+     "choices": [
       {
-       value: "0",
-       text: "Not at all or Less than 1 day"
+       "value": "0",
+       "text": "Not at all or Less than 1 day"
       },
       {
-       value: "1",
-       text: "1 - 2 days"
+       "value": "1",
+       "text": "1 - 2 days"
       },
       {
-       value: "2",
-       text: "3 - 4 days"
+       "value": "2",
+       "text": "3 - 4 days"
       },
       {
-       value: "3",
-       text: "5 - 7 days"
+       "value": "3",
+       "text": "5 - 7 days"
       },
       {
-       value: "4",
-       text: "Nearly every day for 2 weeks"
+       "value": "4",
+       "text": "Nearly every day for 2 weeks"
       }
      ],
-     colCount: 5
+     "colCount": 5
     },
     {
-     type: "radiogroup",
-     name: "Sleep5",
-     title: "My sleep was restless.",
-     isRequired: true,
-     choices: [
+     "type": "radiogroup",
+     "name": "Sleep5",
+     "title": "My sleep was restless.",
+     "isRequired": true,
+     "choices": [
       {
-       value: "0",
-       text: "Not at all or Less than 1 day"
+       "value": "0",
+       "text": "Not at all or Less than 1 day"
       },
       {
-       value: "1",
-       text: "1 - 2 days"
+       "value": "1",
+       "text": "1 - 2 days"
       },
       {
-       value: "2",
-       text: "3 - 4 days"
+       "value": "2",
+       "text": "3 - 4 days"
       },
       {
-       value: "3",
-       text: "5 - 7 days"
+       "value": "3",
+       "text": "5 - 7 days"
       },
       {
-       value: "4",
-       text: "Nearly every day for 2 weeks"
+       "value": "4",
+       "text": "Nearly every day for 2 weeks"
       }
      ],
-     colCount: 5
+     "colCount": 5
     },
     {
-     type: "radiogroup",
-     name: "Sadness6",
-     title: "I felt sad.",
-     isRequired: true,
-     choices: [
+     "type": "radiogroup",
+     "name": "Sadness6",
+     "title": "I felt sad.",
+     "isRequired": true,
+     "choices": [
       {
-       value: "0",
-       text: "Not at all or Less than 1 day"
+       "value": "0",
+       "text": "Not at all or Less than 1 day"
       },
       {
-       value: "1",
-       text: "1 - 2 days"
+       "value": "1",
+       "text": "1 - 2 days"
       },
       {
-       value: "2",
-       text: "3 - 4 days"
+       "value": "2",
+       "text": "3 - 4 days"
       },
       {
-       value: "3",
-       text: "5 - 7 days"
+       "value": "3",
+       "text": "5 - 7 days"
       },
       {
-       value: "4",
-       text: "Nearly every day for 2 weeks"
+       "value": "4",
+       "text": "Nearly every day for 2 weeks"
       }
      ],
-     colCount: 5
+     "colCount": 5
     },
     {
-     type: "radiogroup",
-     name: "Tired7",
-     title: "I could not get going. ",
-     isRequired: true,
-     choices: [
+     "type": "radiogroup",
+     "name": "Tired7",
+     "title": "I could not get going. ",
+     "isRequired": true,
+     "choices": [
       {
-       value: "0",
-       text: "Not at all or Less than 1 day"
+       "value": "0",
+       "text": "Not at all or Less than 1 day"
       },
       {
-       value: "1",
-       text: "1 - 2 days"
+       "value": "1",
+       "text": "1 - 2 days"
       },
       {
-       value: "2",
-       text: "3 - 4 days"
+       "value": "2",
+       "text": "3 - 4 days"
       },
       {
-       value: "3",
-       text: "5 - 7 days"
+       "value": "3",
+       "text": "5 - 7 days"
       },
       {
-       value: "4",
-       text: "Nearly every day for 2 weeks"
+       "value": "4",
+       "text": "Nearly every day for 2 weeks"
       }
      ],
-     colCount: 5
+     "colCount": 5
     },
     {
-     type: "radiogroup",
-     name: "LossOfInterest8",
-     title: "Nothing made me happy.",
-     isRequired: true,
-     choices: [
+     "type": "radiogroup",
+     "name": "LossOfInterest8",
+     "title": "Nothing made me happy.",
+     "isRequired": true,
+     "choices": [
       {
-       value: "0",
-       text: "Not at all or Less than 1 day"
+       "value": "0",
+       "text": "Not at all or Less than 1 day"
       },
       {
-       value: "1",
-       text: "1 - 2 days"
+       "value": "1",
+       "text": "1 - 2 days"
       },
       {
-       value: "2",
-       text: "3 - 4 days"
+       "value": "2",
+       "text": "3 - 4 days"
       },
       {
-       value: "3",
-       text: "5 - 7 days"
+       "value": "3",
+       "text": "5 - 7 days"
       },
       {
-       value: "4",
-       text: "Nearly every day for 2 weeks"
+       "value": "4",
+       "text": "Nearly every day for 2 weeks"
       }
      ],
-     colCount: 5
+     "colCount": 5
     },
     {
-     type: "radiogroup",
-     name: "Guilt9",
-     title: "I felt like a bad person.",
-     isRequired: true,
-     choices: [
+     "type": "radiogroup",
+     "name": "Guilt9",
+     "title": "I felt like a bad person.",
+     "isRequired": true,
+     "choices": [
       {
-       value: "0",
-       text: "Not at all or Less than 1 day"
+       "value": "0",
+       "text": "Not at all or Less than 1 day"
       },
       {
-       value: "1",
-       text: "1 - 2 days"
+       "value": "1",
+       "text": "1 - 2 days"
       },
       {
-       value: "2",
-       text: "3 - 4 days"
+       "value": "2",
+       "text": "3 - 4 days"
       },
       {
-       value: "3",
-       text: "5 - 7 days"
+       "value": "3",
+       "text": "5 - 7 days"
       },
       {
-       value: "4",
-       text: "Nearly every day for 2 weeks"
+       "value": "4",
+       "text": "Nearly every day for 2 weeks"
       }
      ],
-     colCount: 5
+     "colCount": 5
     },
     {
-     type: "radiogroup",
-     name: "LossOfInterest10",
-     title: "I lost interest in my usual activities.",
-     isRequired: true,
-     choices: [
+     "type": "radiogroup",
+     "name": "LossOfInterest10",
+     "title": "I lost interest in my usual activities.",
+     "isRequired": true,
+     "choices": [
       {
-       value: "0",
-       text: "Not at all or Less than 1 day"
+       "value": "0",
+       "text": "Not at all or Less than 1 day"
       },
       {
-       value: "1",
-       text: "1 - 2 days"
+       "value": "1",
+       "text": "1 - 2 days"
       },
       {
-       value: "2",
-       text: "3 - 4 days"
+       "value": "2",
+       "text": "3 - 4 days"
       },
       {
-       value: "3",
-       text: "5 - 7 days"
+       "value": "3",
+       "text": "5 - 7 days"
       },
       {
-       value: "4",
-       text: "Nearly every day for 2 weeks"
+       "value": "4",
+       "text": "Nearly every day for 2 weeks"
       }
      ],
-     colCount: 5
+     "colCount": 5
     },
     {
-     type: "radiogroup",
-     name: "Sleep11",
-     title: "I slept much more than usual.",
-     isRequired: true,
-     choices: [
+     "type": "radiogroup",
+     "name": "Sleep11",
+     "title": "I slept much more than usual.",
+     "isRequired": true,
+     "choices": [
       {
-       value: "0",
-       text: "Not at all or Less than 1 day"
+       "value": "0",
+       "text": "Not at all or Less than 1 day"
       },
       {
-       value: "1",
-       text: "1 - 2 days"
+       "value": "1",
+       "text": "1 - 2 days"
       },
       {
-       value: "2",
-       text: "3 - 4 days"
+       "value": "2",
+       "text": "3 - 4 days"
       },
       {
-       value: "3",
-       text: "5 - 7 days"
+       "value": "3",
+       "text": "5 - 7 days"
       },
       {
-       value: "4",
-       text: "Nearly every day for 2 weeks"
+       "value": "4",
+       "text": "Nearly every day for 2 weeks"
       }
      ],
-     colCount: 5
+     "colCount": 5
     },
     {
-     type: "radiogroup",
-     name: "Movement12",
-     title: "I felt like I was moving too slowly.",
-     isRequired: true,
-     choices: [
+     "type": "radiogroup",
+     "name": "Movement12",
+     "title": "I felt like I was moving too slowly.",
+     "isRequired": true,
+     "choices": [
       {
-       value: "0",
-       text: "Not at all or Less than 1 day"
+       "value": "0",
+       "text": "Not at all or Less than 1 day"
       },
       {
-       value: "1",
-       text: "1 - 2 days"
+       "value": "1",
+       "text": "1 - 2 days"
       },
       {
-       value: "2",
-       text: "3 - 4 days"
+       "value": "2",
+       "text": "3 - 4 days"
       },
       {
-       value: "3",
-       text: "5 - 7 days"
+       "value": "3",
+       "text": "5 - 7 days"
       },
       {
-       value: "4",
-       text: "Nearly every day for 2 weeks"
+       "value": "4",
+       "text": "Nearly every day for 2 weeks"
       }
      ],
-     colCount: 5
+     "colCount": 5
     },
     {
-     type: "radiogroup",
-     name: "Movement13",
-     title: "I felt fidgety.",
-     isRequired: true,
-     choices: [
+     "type": "radiogroup",
+     "name": "Movement13",
+     "title": "I felt fidgety.",
+     "isRequired": true,
+     "choices": [
       {
-       value: "0",
-       text: "Not at all or Less than 1 day"
+       "value": "0",
+       "text": "Not at all or Less than 1 day"
       },
       {
-       value: "1",
-       text: "1 - 2 days"
+       "value": "1",
+       "text": "1 - 2 days"
       },
       {
-       value: "2",
-       text: "3 - 4 days"
+       "value": "2",
+       "text": "3 - 4 days"
       },
       {
-       value: "3",
-       text: "5 - 7 days"
+       "value": "3",
+       "text": "5 - 7 days"
       },
       {
-       value: "4",
-       text: "Nearly every day for 2 weeks"
+       "value": "4",
+       "text": "Nearly every day for 2 weeks"
       }
      ],
-     colCount: 5
+     "colCount": 5
     },
     {
-     type: "radiogroup",
-     name: "Suicidal14",
-     title: "I wished I were dead.",
-     isRequired: true,
-     choices: [
+     "type": "radiogroup",
+     "name": "Suicidal14",
+     "title": "I wished I were dead.",
+     "isRequired": true,
+     "choices": [
       {
-       value: "0",
-       text: "Not at all or Less than 1 day"
+       "value": "0",
+       "text": "Not at all or Less than 1 day"
       },
       {
-       value: "1",
-       text: "1 - 2 days"
+       "value": "1",
+       "text": "1 - 2 days"
       },
       {
-       value: "2",
-       text: "3 - 4 days"
+       "value": "2",
+       "text": "3 - 4 days"
       },
       {
-       value: "3",
-       text: "5 - 7 days"
+       "value": "3",
+       "text": "5 - 7 days"
       },
       {
-       value: "4",
-       text: "Nearly every day for 2 weeks"
+       "value": "4",
+       "text": "Nearly every day for 2 weeks"
       }
      ],
-     colCount: 5
+     "colCount": 5
     },
     {
-     type: "radiogroup",
-     name: "Suicidal15",
-     title: "I wanted to hurt myself.",
-     isRequired: true,
-     choices: [
+     "type": "radiogroup",
+     "name": "Suicidal15",
+     "title": "I wanted to hurt myself.",
+     "isRequired": true,
+     "choices": [
       {
-       value: "0",
-       text: "Not at all or Less than 1 day"
+       "value": "0",
+       "text": "Not at all or Less than 1 day"
       },
       {
-       value: "1",
-       text: "1 - 2 days"
+       "value": "1",
+       "text": "1 - 2 days"
       },
       {
-       value: "2",
-       text: "3 - 4 days"
+       "value": "2",
+       "text": "3 - 4 days"
       },
       {
-       value: "3",
-       text: "5 - 7 days"
+       "value": "3",
+       "text": "5 - 7 days"
       },
       {
-       value: "4",
-       text: "Nearly every day for 2 weeks"
+       "value": "4",
+       "text": "Nearly every day for 2 weeks"
       }
      ],
-     colCount: 5
+     "colCount": 5
     },
     {
-     type: "radiogroup",
-     name: "Tired16",
-     title: "I was tired all the time.",
-     isRequired: true,
-     choices: [
+     "type": "radiogroup",
+     "name": "Tired16",
+     "title": "I was tired all the time.",
+     "isRequired": true,
+     "choices": [
       {
-       value: "0",
-       text: "Not at all or Less than 1 day"
+       "value": "0",
+       "text": "Not at all or Less than 1 day"
       },
       {
-       value: "1",
-       text: "1 - 2 days"
+       "value": "1",
+       "text": "1 - 2 days"
       },
       {
-       value: "2",
-       text: "3 - 4 days"
+       "value": "2",
+       "text": "3 - 4 days"
       },
       {
-       value: "3",
-       text: "5 - 7 days"
+       "value": "3",
+       "text": "5 - 7 days"
       },
       {
-       value: "4",
-       text: "Nearly every day for 2 weeks"
+       "value": "4",
+       "text": "Nearly every day for 2 weeks"
       }
      ],
-     colCount: 5
+     "colCount": 5
     },
     {
-     type: "radiogroup",
-     name: "Guilt17",
-     title: "I did not like myself.",
-     isRequired: true,
-     choices: [
+     "type": "radiogroup",
+     "name": "Guilt17",
+     "title": "I did not like myself.",
+     "isRequired": true,
+     "choices": [
       {
-       value: "0",
-       text: "Not at all or Less than 1 day"
+       "value": "0",
+       "text": "Not at all or Less than 1 day"
       },
       {
-       value: "1",
-       text: "1 - 2 days"
+       "value": "1",
+       "text": "1 - 2 days"
       },
       {
-       value: "2",
-       text: "3 - 4 days"
+       "value": "2",
+       "text": "3 - 4 days"
       },
       {
-       value: "3",
-       text: "5 - 7 days"
+       "value": "3",
+       "text": "5 - 7 days"
       },
       {
-       value: "4",
-       text: "Nearly every day for 2 weeks"
+       "value": "4",
+       "text": "Nearly every day for 2 weeks"
       }
      ],
-     colCount: 5
+     "colCount": 5
     },
     {
-     type: "radiogroup",
-     name: "Appetite18",
-     title: "I lost a lot of weight without trying to.",
-     isRequired: true,
-     choices: [
+     "type": "radiogroup",
+     "name": "Appetite18",
+     "title": "I lost a lot of weight without trying to.",
+     "isRequired": true,
+     "choices": [
       {
-       value: "0",
-       text: "Not at all or Less than 1 day"
+       "value": "0",
+       "text": "Not at all or Less than 1 day"
       },
       {
-       value: "1",
-       text: "1 - 2 days"
+       "value": "1",
+       "text": "1 - 2 days"
       },
       {
-       value: "2",
-       text: "3 - 4 days"
+       "value": "2",
+       "text": "3 - 4 days"
       },
       {
-       value: "3",
-       text: "5 - 7 days"
+       "value": "3",
+       "text": "5 - 7 days"
       },
       {
-       value: "4",
-       text: "Nearly every day for 2 weeks"
+       "value": "4",
+       "text": "Nearly every day for 2 weeks"
       }
      ],
-     colCount: 5
+     "colCount": 5
     },
     {
-     type: "radiogroup",
-     name: "Sleep19",
-     title: "I had a lot of trouble getting to sleep.",
-     isRequired: true,
-     choices: [
+     "type": "radiogroup",
+     "name": "Sleep19",
+     "title": "I had a lot of trouble getting to sleep.",
+     "isRequired": true,
+     "choices": [
       {
-       value: "0",
-       text: "Not at all or Less than 1 day"
+       "value": "0",
+       "text": "Not at all or Less than 1 day"
       },
       {
-       value: "1",
-       text: "1 - 2 days"
+       "value": "1",
+       "text": "1 - 2 days"
       },
       {
-       value: "2",
-       text: "3 - 4 days"
+       "value": "2",
+       "text": "3 - 4 days"
       },
       {
-       value: "3",
-       text: "5 - 7 days"
+       "value": "3",
+       "text": "5 - 7 days"
       },
       {
-       value: "4",
-       text: "Nearly every day for 2 weeks"
+       "value": "4",
+       "text": "Nearly every day for 2 weeks"
       }
      ],
-     colCount: 5
+     "colCount": 5
     },
     {
-     type: "radiogroup",
-     name: "Concentration20",
-     title: "I could not focus on the important things.",
-     isRequired: true,
-     choices: [
+     "type": "radiogroup",
+     "name": "Concentration20",
+     "title": "I could not focus on the important things.",
+     "isRequired": true,
+     "choices": [
       {
-       value: "0",
-       text: "Not at all or Less than 1 day"
+       "value": "0",
+       "text": "Not at all or Less than 1 day"
       },
       {
-       value: "1",
-       text: "1 - 2 days"
+       "value": "1",
+       "text": "1 - 2 days"
       },
       {
-       value: "2",
-       text: "3 - 4 days"
+       "value": "2",
+       "text": "3 - 4 days"
       },
       {
-       value: "3",
-       text: "5 - 7 days"
+       "value": "3",
+       "text": "5 - 7 days"
       },
       {
-       value: "4",
-       text: "Nearly every day for 2 weeks"
+       "value": "4",
+       "text": "Nearly every day for 2 weeks"
       }
      ],
-     colCount: 5
+     "colCount": 5
     }
    ],
-   title: "Below is a list of the ways you might have felt or behaved. Please check the boxes to tell me how often you have felt this way in the past week or so."
+   "title": "Below is a list of the ways you might have felt or behaved. Please check the boxes to tell me how often you have felt this way in the past week or so."
   }
  ]
 }
