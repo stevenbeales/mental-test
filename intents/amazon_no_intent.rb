@@ -1,3 +1,3 @@
 intent 'AMAZON.NoIntent' do
-  respond('OK')
+  respond('No')
 end

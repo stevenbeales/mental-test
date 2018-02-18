@@ -24,4 +24,9 @@ class Instrument < ActiveRecord::Base
     end
     @items
   end
+
+  def find_item_by_name(name)
+    item = @items.find { |i| i.name == name}
+    item
+  end
 end

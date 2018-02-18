@@ -12,4 +12,11 @@ RSpec.describe Instrument do
       expect(ins.items.count).to eq(20)
     end
   end
+
+  describe '.find_item_by_name' do
+    it 'finds the item by item name' do
+      ins = Instrument.first
+      expect(ins.find_item_by_name('Appetite1').name).to eq('Appetite1')
+    end
+  end
 end
