@@ -1,7 +1,7 @@
 require 'jsonb_accessor'
 
 class Instrument < ActiveRecord::Base
-  
+  validates :name, presence: true
   validates_uniqueness_of :name
 
   jsonb_accessor :content,
@@ -25,5 +25,5 @@ class Instrument < ActiveRecord::Base
     end
     @items
   end
-  
+
 end
