@@ -1,9 +1,5 @@
 require "sinatra"
-require 'sinatra/activerecord'
-require './app'
-require_relative 'helpers/init'
 require_relative 'models/init'
-require 'multi_json'
 require 'ralyxa'
 
 AlexaVerifier.configure do |config|
@@ -20,5 +16,5 @@ class App < Sinatra::Base
   post '/' do
     Ralyxa::Skill.handle(request)
   end
-  
+
 end

@@ -1,12 +1,14 @@
 require 'jsonb_accessor'
 
 class Instrument < ActiveRecord::Base
+  
   validates_uniqueness_of :name
+
   jsonb_accessor :content,
     title: [:string, default: "Untitled"],
     pages: [:jsonb, array: true, default: []]
+  
   after_initialize :items
-
 
   #Returns an array of Items that represent the questions in an instrument.
   def items
@@ -23,4 +25,5 @@ class Instrument < ActiveRecord::Base
     end
     @items
   end
+  
 end
