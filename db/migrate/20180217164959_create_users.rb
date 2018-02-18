@@ -1,6 +1,6 @@
 class CreateUsers < ActiveRecord::Migration[5.1]
   def change
-   # enable_extension 'citext'
+    # enable_extension 'citext'
 
     create_table :users do |t|
       t.text :username, null: false
@@ -10,7 +10,7 @@ class CreateUsers < ActiveRecord::Migration[5.1]
       t.jsonb :preferences, null: false, default: '{}'
     end
 
-    add_index  :users, :preferences, using: :gin
-    add_index :instruments, :username, unique: true
+    add_index :users, :preferences, using: :gin
+    add_index :users, :username, unique: true
   end
 end

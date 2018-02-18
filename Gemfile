@@ -1,22 +1,22 @@
-source "https://rubygems.org"
-gem "sinatra" #Web server
-gem "pg"    # for Postgres
-gem "rake"  # so we can run Rake tasks
-gem "sinatra-activerecord"    # for Active Record models
-gem "jsonb_accessor", "~> 1.0.0" #adds methods to access Jsonb fields
-gem "multi_json" #common interface to load json
-gem "rack-protection" #protect against web attacks
-gem "oj" #faster json parsing
-gem "logging" #logging
-gem "ralyxa" #ruby alexa framework
+source 'https://rubygems.org'
+gem 'jsonb_accessor', '~> 1.0.0' # adds methods to access Jsonb fields
+gem 'logging' # logging
+gem 'multi_json' # common interface to load json
+gem 'oj' # faster json parsing
+gem 'pg' # for Postgres
+gem 'rack-protection' # protect against web attacks
+gem 'rake' # so we can run Rake tasks
+gem 'ralyxa' # ruby alexa framework
+gem 'sinatra' # Web server
+gem 'sinatra-activerecord' # for Active Record models
 
 group :development, :test do
-   gem "rerun"
-   gem "wdm" #enables rerun to hot load code on Windows
+  gem 'rerun'
+  gem 'rubocop', require: false # checks code quality
+  gem 'wdm' # enables rerun to hot load code on Windows
 end
 
 group :test do
-  gem "rspec"
-  gem "rack-test"
+  gem 'rack-test'
+  gem 'rspec'
 end
-

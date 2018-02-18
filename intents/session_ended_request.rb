@@ -1,3 +1,3 @@
-intent "SessionEndedRequest" do
+intent 'SessionEndedRequest' do
   respond
 end

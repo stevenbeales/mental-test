@@ -13,7 +13,7 @@ ENV['RACK_ENV'] = 'test'
 # the additional setup, and require it from the spec files that actually need
 # it.
 #
-require "./config/db"
+require './config/db'
 
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
 RSpec.configure do |config|

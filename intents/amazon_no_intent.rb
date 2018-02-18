@@ -1,3 +1,3 @@
-intent "AMAZON.NoIntent" do
-  respond("OK")
+intent 'AMAZON.NoIntent' do
+  respond('OK')
 end

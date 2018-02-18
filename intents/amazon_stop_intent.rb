@@ -1,3 +1,3 @@
-intent "AMAZON.StopIntent" do
-  tell("goodbye")
+intent 'AMAZON.StopIntent' do
+  tell('goodbye')
 end
