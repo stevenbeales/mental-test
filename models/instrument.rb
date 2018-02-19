@@ -27,7 +27,20 @@ class Instrument < ActiveRecord::Base
   end
 
   def find_item_by_name(name)
-    item = @items.find { |i| i.name == name}
-    item
+    @items.find { |i| i.name == name}
+  end
+
+  def self.list_tests
+    get_test_names(Instrument.all)
+  end
+
+  def to_s
+    name
+  end
+
+  private 
+
+  def self.get_test_names(tests)
+    tests.join(' ')
   end
 end

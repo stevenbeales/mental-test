@@ -13,4 +13,8 @@ class Item
   def initialize
     @choices = []
   end
+
+  def to_s
+    name
+  end
 end

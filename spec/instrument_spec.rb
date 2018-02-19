@@ -11,6 +11,10 @@ RSpec.describe Instrument do
       ins = Instrument.find_by_name('Cesd-r')
       expect(ins.items.count).to eq(20)
     end
+
+    it 'should return a list of instrument names' do
+      expect(Instrument.list_tests).to eq('Cesd-r')
+    end
   end
 
   describe '.find_item_by_name' do

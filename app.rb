@@ -1,6 +1,8 @@
 require 'sinatra'
 require_relative 'models/init'
 require 'ralyxa'
+require './config/db'
+
 
 AlexaVerifier.configure do |config|
   # Disables all checks, even though we enable them individually below
