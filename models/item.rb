@@ -9,4 +9,8 @@ class Item
     choice = @choices.find { |i| i["value"] == value}
     choice
   end
+
+  def initialize
+    @choices = []
+  end
 end

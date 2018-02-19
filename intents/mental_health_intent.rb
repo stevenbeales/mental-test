@@ -1,3 +1,3 @@
-intent 'AMAZON.MentalHealthIntent' do
+intent 'MentalHealthIntent' do
   ask('OK, what would you like to say?')
 end
