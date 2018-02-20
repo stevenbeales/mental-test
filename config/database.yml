@@ -9,7 +9,7 @@ development:
 test:
   adapter: postgresql
   encoding: unicode
-  database: mental_health
+  database: mental_health_test
   pool: 2
   username: mental
   password: health
