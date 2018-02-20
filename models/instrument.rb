@@ -15,30 +15,23 @@ class Instrument < ActiveRecord::Base
     elements = []
     pages.each { |p| elements += p['elements'] }
     elements.each do |i|
-      item = Item.new
-      item.name = i['name']
-      item.type = i['type']
-      item.title = i['title']
-      item.isRequired = i['isRequired']
-      item.choices = i['choices']
+      item = Item.create_item(i)
       @items << item
     end
     @items
   end
 
   def find_item_by_name(name)
-    @items.find { |i| i.name == name}
-  end
-
-  def self.list_tests
-    get_test_names(Instrument.all)
+    @items.find { |i| i.name == name }
   end
 
   def to_s
     name
   end
 
-  private 
+  def self.list_tests
+    get_test_names(Instrument.all)
+  end
 
   def self.get_test_names(tests)
     tests.join(' ')
