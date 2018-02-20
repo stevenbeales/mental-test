@@ -1,5 +1,9 @@
+# frozen_string_literal: true
+
 require 'jsonb_accessor'
 
+# Represents a psychometric instrument
+# Similar to a survey or questionnaire
 class Instrument < ActiveRecord::Base
   validates :name, presence: true
   validates_uniqueness_of :name

@@ -1,0 +1,5 @@
+AllCops:
+  Exclude:
+    - 'vendor/**/*'
+    - 'db/schema.rb'
+  TargetRubyVersion: 2.4

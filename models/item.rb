@@ -1,3 +1,7 @@
+# frozen_string_literal: true
+
+# Represents a psychometric item
+# Similar to a question with metadata
 class Item
   attr_accessor :name
   attr_accessor :type

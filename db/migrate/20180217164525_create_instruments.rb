@@ -1,10 +1,12 @@
+# frozen_string_literal: true
+
+# Migration to create instruments table
 class CreateInstruments < ActiveRecord::Migration[5.1]
   def change
-  
     create_table :instruments do |t|
-      t.text :name, null: false
+      t.string :name, null: false
       t.jsonb :content, null: false, default: '{}'
-      t.timestamps
+      t.timestamps null: false
     end
 
     add_index :instruments, :content, using: :gin

@@ -1,9 +1,13 @@
+# frozen_string_literal: true
+
+# Represents an application user/respondent
+# Users are linked to Alexa users via Account Linking
 class User < ActiveRecord::Base
   validates :username, presence: true
   validates_uniqueness_of :username
   attr_accessor :access_token
 
-  AMAZON_API_URL = 'https://api.amazon.com/user/profile'.freeze
+  AMAZON_API_URL = 'https://api.amazon.com/user/profile'
 
   def to_s
     username

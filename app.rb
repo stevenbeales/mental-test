@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'sinatra'
 require_relative 'models/init'
 require 'ralyxa'
@@ -13,6 +15,9 @@ AlexaVerifier.configure do |config|
   config.verify_signature   = false
 end
 
+# Main entry point to Application.
+# Takes an incoming Alexa requests and dispatches
+# to a matching intent in intents folder
 class App < Sinatra::Base
   post '/' do
     Ralyxa::Skill.handle(request)
