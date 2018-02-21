@@ -5,13 +5,20 @@ require 'jsonb_accessor'
 # Represents a psychometric instrument
 # Similar to a survey or questionnaire
 class Instrument < ActiveRecord::Base
-  validates :name, presence: true
-  validates_uniqueness_of :name
-
   jsonb_accessor :content,
                  title: [:string, default: 'Untitled'],
                  pages: [:jsonb, array: true, default: []]
+  validates :name, presence: true
+  validates_uniqueness_of :name
   after_initialize :items
+
+  def self.list_tests
+    get_test_names(Instrument.all)
+  end
+
+  def self.get_test_names(tests)
+    tests.join(' ')
+  end
 
   # Returns an array of Items that represent the questions in an instrument.
   def items
@@ -31,13 +38,5 @@ class Instrument < ActiveRecord::Base
 
   def to_s
     name
-  end
-
-  def self.list_tests
-    get_test_names(Instrument.all)
-  end
-
-  def self.get_test_names(tests)
-    tests.join(' ')
   end
 end

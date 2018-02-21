@@ -1,5 +1,27 @@
 AllCops:
   Exclude:
+    - 'node_modules/**/*'
     - 'vendor/**/*'
+    - '.git/**/*'
     - 'db/schema.rb'
   TargetRubyVersion: 2.4
+Metrics/LineLength:
+  Max: 100
+Layout/ClassStructure:
+  Description: 'Enforces a configured order of definitions within a class body.'
+  StyleGuide: 'https://github.com/bbatsov/ruby-style-guide#consistent-classes'
+  Enabled: true
+Style/CollectionMethods:
+  Description: 'Preferred collection methods.'
+  StyleGuide: '#map-find-select-reduce-size'
+  Enabled: true
+Style/ReturnNil:
+  Description: 'Use return instead of return nil.'
+  Enabled: true
+Style/StringMethods:
+  Description: 'Checks if configured preferred methods are used over non-preferred.'
+  Enabled: true
+Layout/TrailingWhitespace:
+  Description: 'Avoid trailing whitespace.'
+  StyleGuide: '#no-trailing-whitespace'
+  Enabled: false

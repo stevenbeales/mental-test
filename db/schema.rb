@@ -10,23 +10,43 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180217164959) do
+ActiveRecord::Schema.define(version: 20180220032110) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "instruments", force: :cascade do |t|
-    t.text "name", null: false
+    t.string "name", null: false
     t.jsonb "content", default: "{}", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["content"], name: "index_instruments_on_content", using: :gin
+    t.index ["name"], name: "index_instruments_on_name", unique: true
+  end
+
+  create_table "results", force: :cascade do |t|
+    t.bigint "instrument_id", null: false
+    t.bigint "user_id", null: false
+    t.jsonb "content", default: "{}", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["content"], name: "index_results_on_content", using: :gin
+    t.index ["instrument_id"], name: "index_results_on_instrument_id"
+    t.index ["user_id"], name: "index_results_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
-    t.text "username", null: false
-    t.text "firstname", null: false
-    t.text "lastname", null: false
+    t.string "username", null: false
+    t.string "firstname"
+    t.string "lastname"
+    t.string "access_token", null: false
     t.jsonb "preferences", default: "{}", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["preferences"], name: "index_users_on_preferences", using: :gin
+    t.index ["username"], name: "index_users_on_username", unique: true
   end
 
+  add_foreign_key "results", "instruments"
+  add_foreign_key "results", "users"
 end
