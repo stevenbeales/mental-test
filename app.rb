@@ -5,6 +5,8 @@ require_relative 'models/init'
 require 'ralyxa'
 require_relative 'config/db'
 
+APP_NAME = 'Mental Health'
+
 AlexaVerifier.configure do |config|
   # Disables all checks, even though we enable them individually below
   config.enabled            = false

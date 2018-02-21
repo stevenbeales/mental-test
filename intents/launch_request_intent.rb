@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
 intent 'LaunchRequest' do
-  ask('OK, what would you like to ask me about?')
+  # Authenticate user. If user doesn't exist, still authenticate user and add them to database
+  User.authenticate(request.user_id)
+  ask('What would you like to ask me about?')
 end

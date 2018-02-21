@@ -8,7 +8,7 @@ class CreateResults < ActiveRecord::Migration[5.1]
       t.references :instrument, null: false, index: true
       t.references :user, null: false, index: true
       t.jsonb :content, null: false, default: '{}'
-      t.timestamps null: false
+      t.timestamps null: false, default: Date.today
     end
 
     add_index :results, :content, using: :gin

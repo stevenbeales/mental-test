@@ -6,12 +6,9 @@ class User < ActiveRecord::Base
   validates :username, presence: true
   validates_uniqueness_of :username
 
-  AMAZON_API_URL = 'https://api.amazon.com/user/profile'
-
-  def self.authenticate(access_token, client = Net::HTTP)
-    uri = URI.parse("#{AMAZON_API_URL}?access_token=#{access_token}")
-    first_name = JSON.parse(client.get(uri))['name'].split(' ').first
-    first_or_create(username: first_name, access_token: access_token)
+  
+  def self.authenticate(user_id)
+    User.find_or_create_by(username: user_id)
   end
 
   def to_s

@@ -18,8 +18,8 @@ ActiveRecord::Schema.define(version: 20180220032110) do
   create_table "instruments", force: :cascade do |t|
     t.string "name", null: false
     t.jsonb "content", default: "{}", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", default: "2018-02-21 00:00:00", null: false
+    t.datetime "updated_at", default: "2018-02-21 00:00:00", null: false
     t.index ["content"], name: "index_instruments_on_content", using: :gin
     t.index ["name"], name: "index_instruments_on_name", unique: true
   end
@@ -28,8 +28,8 @@ ActiveRecord::Schema.define(version: 20180220032110) do
     t.bigint "instrument_id", null: false
     t.bigint "user_id", null: false
     t.jsonb "content", default: "{}", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", default: "2018-02-21 00:00:00", null: false
+    t.datetime "updated_at", default: "2018-02-21 00:00:00", null: false
     t.index ["content"], name: "index_results_on_content", using: :gin
     t.index ["instrument_id"], name: "index_results_on_instrument_id"
     t.index ["user_id"], name: "index_results_on_user_id"
@@ -39,10 +39,10 @@ ActiveRecord::Schema.define(version: 20180220032110) do
     t.string "username", null: false
     t.string "firstname"
     t.string "lastname"
-    t.string "access_token", null: false
+    t.text "access_token", default: "", null: false
     t.jsonb "preferences", default: "{}", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", default: "2018-02-21 00:00:00", null: false
+    t.datetime "updated_at", default: "2018-02-21 00:00:00", null: false
     t.index ["preferences"], name: "index_users_on_preferences", using: :gin
     t.index ["username"], name: "index_users_on_username", unique: true
   end
