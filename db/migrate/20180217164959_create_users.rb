@@ -10,9 +10,14 @@ class CreateUsers < ActiveRecord::Migration[5.1]
       t.string :lastname, null: true
       t.text :access_token, null: false, default: ''
       t.jsonb :preferences, null: false, default: '{}'
+      t.references :assessment, null: false, index: true
       t.timestamps null: false, default: Date.today
     end
 
+    add_indexes_and_keys
+  end
+
+  def add_indexes_and_keys
     add_index :users, :preferences, using: :gin
     add_index :users, :username, unique: true
   end
