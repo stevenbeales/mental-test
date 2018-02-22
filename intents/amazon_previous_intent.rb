@@ -1,5 +1,5 @@
 # frozen_string_literal: true
 
 intent 'AMAZON.PreviousIntent' do
-  respond('Previous')
+  respond('TBD Previous')
 end
