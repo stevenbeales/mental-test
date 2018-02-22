@@ -12,7 +12,8 @@ gem 'ralyxa' # ruby alexa framework
 gem 'sinatra' # Web server
 gem 'sinatra-activerecord' # for Active Record models
 
-group :development, :test do
+group :development do
+  gem 'guard-rspec', require: false
   gem 'rerun'
   gem 'rubocop', require: false # checks code quality
   gem 'wdm' # enables rerun to hot load code on Windows

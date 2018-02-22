@@ -15,24 +15,24 @@ ActiveRecord::Schema.define(version: 20180220032110) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "instruments", force: :cascade do |t|
-    t.string "name", null: false
-    t.jsonb "content", default: "{}", null: false
-    t.datetime "created_at", default: "2018-02-21 00:00:00", null: false
-    t.datetime "updated_at", default: "2018-02-21 00:00:00", null: false
-    t.index ["content"], name: "index_instruments_on_content", using: :gin
-    t.index ["name"], name: "index_instruments_on_name", unique: true
-  end
-
-  create_table "results", force: :cascade do |t|
+  create_table "assessments", force: :cascade do |t|
     t.bigint "instrument_id", null: false
     t.bigint "user_id", null: false
     t.jsonb "content", default: "{}", null: false
-    t.datetime "created_at", default: "2018-02-21 00:00:00", null: false
-    t.datetime "updated_at", default: "2018-02-21 00:00:00", null: false
-    t.index ["content"], name: "index_results_on_content", using: :gin
-    t.index ["instrument_id"], name: "index_results_on_instrument_id"
-    t.index ["user_id"], name: "index_results_on_user_id"
+    t.datetime "created_at", default: "2018-02-22 00:00:00", null: false
+    t.datetime "updated_at", default: "2018-02-22 00:00:00", null: false
+    t.index ["content"], name: "index_assessments_on_content", using: :gin
+    t.index ["instrument_id"], name: "index_assessments_on_instrument_id"
+    t.index ["user_id"], name: "index_assessments_on_user_id"
+  end
+
+  create_table "instruments", force: :cascade do |t|
+    t.string "name", null: false
+    t.jsonb "content", default: "{}", null: false
+    t.datetime "created_at", default: "2018-02-22 00:00:00", null: false
+    t.datetime "updated_at", default: "2018-02-22 00:00:00", null: false
+    t.index ["content"], name: "index_instruments_on_content", using: :gin
+    t.index ["name"], name: "index_instruments_on_name", unique: true
   end
 
   create_table "users", force: :cascade do |t|
@@ -41,12 +41,12 @@ ActiveRecord::Schema.define(version: 20180220032110) do
     t.string "lastname"
     t.text "access_token", default: "", null: false
     t.jsonb "preferences", default: "{}", null: false
-    t.datetime "created_at", default: "2018-02-21 00:00:00", null: false
-    t.datetime "updated_at", default: "2018-02-21 00:00:00", null: false
+    t.datetime "created_at", default: "2018-02-22 00:00:00", null: false
+    t.datetime "updated_at", default: "2018-02-22 00:00:00", null: false
     t.index ["preferences"], name: "index_users_on_preferences", using: :gin
     t.index ["username"], name: "index_users_on_username", unique: true
   end
 
-  add_foreign_key "results", "instruments"
-  add_foreign_key "results", "users"
+  add_foreign_key "assessments", "instruments"
+  add_foreign_key "assessments", "users"
 end
