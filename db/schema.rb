@@ -10,37 +10,43 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180223042846) do
+ActiveRecord::Schema.define(version: 20180223042848) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "assessments", force: :cascade do |t|
+  create_table "assessment_instruments", force: :cascade do |t|
+    t.bigint "assessment_id", null: false
     t.bigint "instrument_id", null: false
+    t.index ["assessment_id", "instrument_id"], name: "index_assessment_instruments_on_assessment_id_and_instrument_id", unique: true
+    t.index ["assessment_id"], name: "index_assessment_instruments_on_assessment_id"
+    t.index ["instrument_id"], name: "index_assessment_instruments_on_instrument_id"
+  end
+
+  create_table "assessments", force: :cascade do |t|
+    t.bigint "survey_id", null: false
     t.jsonb "content", default: "{}", null: false
-    t.datetime "created_at", default: "2018-02-22 00:00:00", null: false
-    t.datetime "updated_at", default: "2018-02-22 00:00:00", null: false
+    t.datetime "created_at", default: "2018-02-23 00:00:00", null: false
+    t.datetime "updated_at", default: "2018-02-23 00:00:00", null: false
     t.index ["content"], name: "index_assessments_on_content", using: :gin
-    t.index ["instrument_id"], name: "index_assessments_on_instrument_id"
+    t.index ["survey_id"], name: "index_assessments_on_survey_id"
   end
 
   create_table "instruments", force: :cascade do |t|
     t.string "name", null: false
     t.jsonb "content", default: "{}", null: false
-    t.datetime "created_at", default: "2018-02-22 00:00:00", null: false
-    t.datetime "updated_at", default: "2018-02-22 00:00:00", null: false
+    t.datetime "created_at", default: "2018-02-23 00:00:00", null: false
+    t.datetime "updated_at", default: "2018-02-23 00:00:00", null: false
     t.index ["content"], name: "index_instruments_on_content", using: :gin
     t.index ["name"], name: "index_instruments_on_name", unique: true
   end
 
   create_table "surveys", force: :cascade do |t|
     t.string "name", null: false
-    t.bigint "assessment_id", null: false
     t.boolean "is_active", default: true, null: false
     t.integer "max_attempts", default: 0, null: false
-    t.datetime "created_at", default: "2018-02-22 00:00:00", null: false
-    t.datetime "updated_at", default: "2018-02-22 00:00:00", null: false
-    t.index ["assessment_id"], name: "index_surveys_on_assessment_id"
+    t.datetime "created_at", default: "2018-02-23 00:00:00", null: false
+    t.datetime "updated_at", default: "2018-02-23 00:00:00", null: false
   end
 
   create_table "user_surveys", force: :cascade do |t|
@@ -57,12 +63,15 @@ ActiveRecord::Schema.define(version: 20180223042846) do
     t.string "lastname"
     t.text "access_token", default: "", null: false
     t.jsonb "preferences", default: "{}", null: false
-    t.datetime "created_at", default: "2018-02-22 00:00:00", null: false
-    t.datetime "updated_at", default: "2018-02-22 00:00:00", null: false
+    t.datetime "created_at", default: "2018-02-23 00:00:00", null: false
+    t.datetime "updated_at", default: "2018-02-23 00:00:00", null: false
     t.index ["preferences"], name: "index_users_on_preferences", using: :gin
     t.index ["username"], name: "index_users_on_username", unique: true
   end
 
-  add_foreign_key "assessments", "instruments"
-  add_foreign_key "surveys", "assessments"
+  add_foreign_key "assessment_instruments", "assessments"
+  add_foreign_key "assessment_instruments", "instruments"
+  add_foreign_key "assessments", "surveys"
+  add_foreign_key "user_surveys", "surveys"
+  add_foreign_key "user_surveys", "users"
 end
