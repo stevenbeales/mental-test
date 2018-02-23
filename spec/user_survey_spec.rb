@@ -2,5 +2,5 @@
 
 require './models/init'
 
-RSpec.describe Survey do
+RSpec.describe UserSurvey do
 end

@@ -2,5 +2,5 @@
 
 require './models/init'
 
-RSpec.describe Survey do
+RSpec.describe AssessmentInstrument do
 end

@@ -1,15 +1,15 @@
 example_id                       | status | run_time        |
 -------------------------------- | ------ | --------------- |
-./spec/instrument_spec.rb[1:1:1] | passed | 0.02301 seconds |
-./spec/instrument_spec.rb[1:1:2] | passed | 0.04642 seconds |
-./spec/instrument_spec.rb[1:1:3] | passed | 0.02149 seconds |
-./spec/instrument_spec.rb[1:2:1] | passed | 0.02507 seconds |
-./spec/item_spec.rb[1:1:1]       | passed | 0.02079 seconds |
-./spec/item_spec.rb[1:2:1]       | passed | 0.01236 seconds |
-./spec/user_spec.rb[1:1:1]       | passed | 0.07853 seconds |
-./spec/user_spec.rb[1:1:2]       | passed | 0.01406 seconds |
-./spec/user_spec.rb[1:1:3]       | passed | 0.00986 seconds |
-./spec/user_spec.rb[1:1:4]       | passed | 0.05271 seconds |
-./spec/user_spec.rb[2:1:1]       | passed | 0.001 seconds   |
-./spec/user_spec.rb[2:1:2]       | passed | 0.00715 seconds |
-./spec/user_spec.rb[2:1:3]       | passed | 0.00506 seconds |
+./spec/instrument_spec.rb[1:1:1] | passed | 0.02663 seconds |
+./spec/instrument_spec.rb[1:1:2] | passed | 0.01572 seconds |
+./spec/instrument_spec.rb[1:1:3] | passed | 0.0121 seconds  |
+./spec/instrument_spec.rb[1:2:1] | passed | 0.02883 seconds |
+./spec/item_spec.rb[1:1:1]       | passed | 0.02571 seconds |
+./spec/item_spec.rb[1:2:1]       | passed | 0.05387 seconds |
+./spec/user_spec.rb[1:1:1]       | passed | 0.01246 seconds |
+./spec/user_spec.rb[1:1:2]       | passed | 0.00968 seconds |
+./spec/user_spec.rb[1:1:3]       | passed | 0.05396 seconds |
+./spec/user_spec.rb[1:1:4]       | passed | 0.00702 seconds |
+./spec/user_spec.rb[2:1:1]       | passed | 0 seconds       |
+./spec/user_spec.rb[2:1:2]       | passed | 0.07019 seconds |
+./spec/user_spec.rb[2:1:3]       | passed | 0.01567 seconds |

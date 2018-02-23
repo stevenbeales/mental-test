@@ -5,12 +5,12 @@
 class CreateAssessments < ActiveRecord::Migration[5.1]
   def change
     create_table :assessments do |t|
-      t.references :instrument, null: false, index: true
+      t.references :survey, null: false, index: true
       t.jsonb :content, null: false, default: '{}'
       t.timestamps null: false, default: Date.today
     end
 
     add_index :assessments, :content, using: :gin
-    add_foreign_key :assessments, :instruments
+    add_foreign_key :assessments, :survey
   end
 end

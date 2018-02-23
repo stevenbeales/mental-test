@@ -3,5 +3,4 @@
 require './models/init'
 
 RSpec.describe Assessment do
-
 end

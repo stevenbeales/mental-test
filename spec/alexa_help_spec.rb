@@ -3,5 +3,4 @@
 require './models/init'
 
 RSpec.describe AlexaHelp do
-
 end
