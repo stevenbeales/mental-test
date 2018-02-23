@@ -16,6 +16,14 @@ RSpec.describe User do
       expect(User.authenticate('Timmy').username).to eq 'Timmy'
       expect(User.authenticate('Timmy').access_token).to eq 'AccessToken'
     end
+
+    it 'does not create a user without a username' do
+      expect { User.authenticate('') }.to change { User.count }.by(0)
+    end
+
+    it 'does not create a user with a name shorter than 5 characters' do
+      expect { User.authenticate('Lisa') }.to change { User.count }.by(0)
+    end
   end
 end
 
@@ -34,6 +42,10 @@ RSpec.describe User do
       expect(persisted_user.id).not_to be_nil
       expect(persisted_user.username).to eq 'Timmy'
       expect(persisted_user.access_token).to eq 'AccessToken'
+    end
+
+    it 'must have a unique name' do
+      expect { User.authenticate('Timmy') }.to change { User.count }.by(0)
     end
   end
 end

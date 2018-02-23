@@ -10,7 +10,6 @@ class CreateUsers < ActiveRecord::Migration[5.1]
       t.string :lastname, null: true
       t.text :access_token, null: false, default: ''
       t.jsonb :preferences, null: false, default: '{}'
-      t.references :assessment, null: false, index: true
       t.timestamps null: false, default: Date.today
     end
 

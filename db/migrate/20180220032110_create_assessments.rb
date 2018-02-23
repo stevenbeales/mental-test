@@ -12,6 +12,5 @@ class CreateAssessments < ActiveRecord::Migration[5.1]
 
     add_index :assessments, :content, using: :gin
     add_foreign_key :assessments, :instruments
-    add_foreign_key :users, :assessments
   end
 end

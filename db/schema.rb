@@ -49,15 +49,12 @@ ActiveRecord::Schema.define(version: 20180222183143) do
     t.string "lastname"
     t.text "access_token", default: "", null: false
     t.jsonb "preferences", default: "{}", null: false
-    t.bigint "assessment_id", null: false
     t.datetime "created_at", default: "2018-02-22 00:00:00", null: false
     t.datetime "updated_at", default: "2018-02-22 00:00:00", null: false
-    t.index ["assessment_id"], name: "index_users_on_assessment_id"
     t.index ["preferences"], name: "index_users_on_preferences", using: :gin
     t.index ["username"], name: "index_users_on_username", unique: true
   end
 
   add_foreign_key "assessments", "instruments"
   add_foreign_key "surveys", "assessments"
-  add_foreign_key "users", "assessments"
 end
