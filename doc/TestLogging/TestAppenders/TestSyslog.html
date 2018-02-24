@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class TestLogging::TestAppenders::TestSyslog - RDoc Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../../";
+  var index_rel_prefix = "../../";
+</script>
+
+<script src="../../js/jquery.js"></script>
+<script src="../../js/darkfish.js"></script>
+
+<link href="../../css/fonts.css" rel="stylesheet">
+<link href="../../css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../../table_of_contents.html#pages">Pages</a>
+    <a href="../../table_of_contents.html#classes">Classes</a>
+    <a href="../../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link">Test::Unit::TestCase
+  
+</div>
+
+    <div id="includes-section" class="nav-section">
+  <h3>Included Modules</h3>
+
+  <ul class="link-list">
+  
+  
+    <li><a class="include" href="../LoggingTestCase.html">TestLogging::LoggingTestCase</a>
+  
+  
+  
+    <li><span class="include">::Syslog::Constants</span>
+  
+  
+  </ul>
+</div>
+
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li class="calls-super" ><a href="#method-i-setup">#setup</a>
+    
+    <li ><a href="#method-i-test_append">#test_append</a>
+    
+    <li ><a href="#method-i-test_append_error">#test_append_error</a>
+    
+    <li ><a href="#method-i-test_close">#test_close</a>
+    
+    <li ><a href="#method-i-test_concat">#test_concat</a>
+    
+    <li ><a href="#method-i-test_concat_error">#test_concat_error</a>
+    
+    <li ><a href="#method-i-test_factory_method_validates_input">#test_factory_method_validates_input</a>
+    
+    <li ><a href="#method-i-test_initialize_map">#test_initialize_map</a>
+    
+    <li ><a href="#method-i-test_map_eq">#test_map_eq</a>
+    
+    <li ><a href="#method-i-test_map_eq_error">#test_map_eq_error</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-TestLogging::TestAppenders::TestSyslog">
+  <h1 id="class-TestLogging::TestAppenders::TestSyslog" class="class">
+    class TestLogging::TestAppenders::TestSyslog
+  </h1>
+
+  <section class="description">
+    
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+
+    
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-setup" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">setup</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+            <div class="method-calls-super">
+              Calls superclass method
+              <a href="../LoggingTestCase.html#method-i-setup">TestLogging::LoggingTestCase#setup</a>
+            </div>
+          
+
+          
+          <div class="method-source-code" id="setup-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/logging-2.2.2/test/appenders/test_syslog.rb, line 13</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">setup</span>
+  <span class="ruby-keyword">super</span>
+  <span class="ruby-constant">Logging</span>.<span class="ruby-identifier">init</span>
+  <span class="ruby-ivar">@levels</span> = <span class="ruby-constant">Logging</span><span class="ruby-operator">::</span><span class="ruby-constant">LEVELS</span>
+  <span class="ruby-ivar">@logopt</span>  = <span class="ruby-value">0</span>
+  <span class="ruby-ivar">@logopt</span> <span class="ruby-operator">|=</span> <span class="ruby-operator">::</span><span class="ruby-constant">Syslog</span><span class="ruby-operator">::</span><span class="ruby-constant">LOG_NDELAY</span> <span class="ruby-keyword">if</span> <span class="ruby-keyword">defined?</span>(<span class="ruby-operator">::</span><span class="ruby-constant">Syslog</span><span class="ruby-operator">::</span><span class="ruby-constant">LOG_NDELAY</span>)
+  <span class="ruby-ivar">@logopt</span> <span class="ruby-operator">|=</span> <span class="ruby-operator">::</span><span class="ruby-constant">Syslog</span><span class="ruby-operator">::</span><span class="ruby-constant">LOG_PERROR</span> <span class="ruby-keyword">if</span> <span class="ruby-keyword">defined?</span>(<span class="ruby-operator">::</span><span class="ruby-constant">Syslog</span><span class="ruby-operator">::</span><span class="ruby-constant">LOG_PERROR</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_append" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_append</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_append-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/logging-2.2.2/test/appenders/test_syslog.rb, line 28</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">test_append</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">if</span> <span class="ruby-constant">RUBY_PLATFORM</span> <span class="ruby-operator">=~</span> <span class="ruby-regexp">/cygwin|java/i</span>
+
+  <span class="ruby-identifier">stderr</span> = <span class="ruby-constant">IO</span><span class="ruby-operator">::</span><span class="ruby-identifier">pipe</span>
+
+  <span class="ruby-identifier">pid</span> = <span class="ruby-identifier">fork</span> <span class="ruby-keyword">do</span>
+    <span class="ruby-identifier">stderr</span>[<span class="ruby-value">0</span>].<span class="ruby-identifier">close</span>
+    <span class="ruby-constant">STDERR</span>.<span class="ruby-identifier">reopen</span>(<span class="ruby-identifier">stderr</span>[<span class="ruby-value">1</span>])
+    <span class="ruby-identifier">stderr</span>[<span class="ruby-value">1</span>].<span class="ruby-identifier">close</span>
+
+    <span class="ruby-identifier">appender</span> = <span class="ruby-identifier">create_syslog</span>
+    <span class="ruby-identifier">event</span> = <span class="ruby-constant">Logging</span><span class="ruby-operator">::</span><span class="ruby-constant">LogEvent</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&#39;TestLogger&#39;</span>, <span class="ruby-ivar">@levels</span>[<span class="ruby-string">&#39;info&#39;</span>],
+                                  [<span class="ruby-value">1</span>, <span class="ruby-value">2</span>, <span class="ruby-value">3</span>, <span class="ruby-value">4</span>], <span class="ruby-keyword">false</span>)
+    <span class="ruby-identifier">appender</span>.<span class="ruby-identifier">append</span> <span class="ruby-identifier">event</span>
+    <span class="ruby-identifier">event</span>.<span class="ruby-identifier">level</span> = <span class="ruby-ivar">@levels</span>[<span class="ruby-string">&#39;debug&#39;</span>]
+    <span class="ruby-identifier">event</span>.<span class="ruby-identifier">data</span> = <span class="ruby-string">&#39;the big log message&#39;</span>
+    <span class="ruby-identifier">appender</span>.<span class="ruby-identifier">append</span> <span class="ruby-identifier">event</span>
+
+    <span class="ruby-identifier">appender</span>.<span class="ruby-identifier">level</span> = <span class="ruby-value">:warn</span>
+    <span class="ruby-identifier">event</span>.<span class="ruby-identifier">level</span> = <span class="ruby-ivar">@levels</span>[<span class="ruby-string">&#39;info&#39;</span>]
+    <span class="ruby-identifier">event</span>.<span class="ruby-identifier">data</span> = <span class="ruby-string">&#39;this message should not get logged&#39;</span>
+    <span class="ruby-identifier">appender</span>.<span class="ruby-identifier">append</span> <span class="ruby-identifier">event</span>
+    <span class="ruby-identifier">event</span>.<span class="ruby-identifier">level</span> = <span class="ruby-ivar">@levels</span>[<span class="ruby-string">&#39;warn&#39;</span>]
+    <span class="ruby-identifier">event</span>.<span class="ruby-identifier">data</span> = <span class="ruby-string">&#39;this is your last warning&#39;</span>
+    <span class="ruby-identifier">appender</span>.<span class="ruby-identifier">append</span> <span class="ruby-identifier">event</span>
+
+    <span class="ruby-identifier">exit!</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">stderr</span>[<span class="ruby-value">1</span>].<span class="ruby-identifier">close</span>
+  <span class="ruby-constant">Process</span>.<span class="ruby-identifier">waitpid</span>(<span class="ruby-identifier">pid</span>)
+
+  <span class="ruby-keyword">if</span> <span class="ruby-keyword">defined?</span>(<span class="ruby-operator">::</span><span class="ruby-constant">Syslog</span><span class="ruby-operator">::</span><span class="ruby-constant">LOG_PERROR</span>)
+    <span class="ruby-identifier">assert_match</span>(<span class="ruby-node">/INFO  TestLogger : &lt;Array&gt; #{Regexp.escape [1,2,3,4].to_s}/</span>, <span class="ruby-identifier">stderr</span>[<span class="ruby-value">0</span>].<span class="ruby-identifier">gets</span>)
+    <span class="ruby-identifier">assert_match</span>(<span class="ruby-regexp">/DEBUG  TestLogger : the big log message/</span>, <span class="ruby-identifier">stderr</span>[<span class="ruby-value">0</span>].<span class="ruby-identifier">gets</span>)
+    <span class="ruby-identifier">assert_match</span>(<span class="ruby-regexp">/WARN  TestLogger : this is your last warning/</span>, <span class="ruby-identifier">stderr</span>[<span class="ruby-value">0</span>].<span class="ruby-identifier">gets</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_append_error" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_append_error</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_append_error-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/logging-2.2.2/test/appenders/test_syslog.rb, line 67</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">test_append_error</span>
+  <span class="ruby-identifier">appender</span> = <span class="ruby-identifier">create_syslog</span>
+  <span class="ruby-identifier">appender</span>.<span class="ruby-identifier">close</span> <span class="ruby-keyword">false</span>
+
+  <span class="ruby-identifier">event</span> = <span class="ruby-constant">Logging</span><span class="ruby-operator">::</span><span class="ruby-constant">LogEvent</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&#39;TestLogger&#39;</span>, <span class="ruby-ivar">@levels</span>[<span class="ruby-string">&#39;warn&#39;</span>],
+                                [<span class="ruby-value">1</span>, <span class="ruby-value">2</span>, <span class="ruby-value">3</span>, <span class="ruby-value">4</span>], <span class="ruby-keyword">false</span>)
+  <span class="ruby-identifier">assert_raise</span>(<span class="ruby-constant">RuntimeError</span>) {<span class="ruby-identifier">appender</span>.<span class="ruby-identifier">append</span> <span class="ruby-identifier">event</span>}
+  <span class="ruby-identifier">assert_equal</span> <span class="ruby-keyword">true</span>, <span class="ruby-identifier">appender</span>.<span class="ruby-identifier">closed?</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_close" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_close</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_close-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/logging-2.2.2/test/appenders/test_syslog.rb, line 77</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">test_close</span>
+  <span class="ruby-identifier">appender</span> = <span class="ruby-identifier">create_syslog</span>
+  <span class="ruby-identifier">assert_equal</span> <span class="ruby-keyword">false</span>, <span class="ruby-identifier">appender</span>.<span class="ruby-identifier">closed?</span>
+
+  <span class="ruby-identifier">appender</span>.<span class="ruby-identifier">close</span> <span class="ruby-keyword">false</span>
+  <span class="ruby-identifier">assert_equal</span> <span class="ruby-keyword">true</span>, <span class="ruby-identifier">appender</span>.<span class="ruby-identifier">closed?</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_concat" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_concat</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_concat-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/logging-2.2.2/test/appenders/test_syslog.rb, line 85</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">test_concat</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">if</span> <span class="ruby-constant">RUBY_PLATFORM</span> <span class="ruby-operator">=~</span> <span class="ruby-regexp">/cygwin|java/i</span>
+
+  <span class="ruby-identifier">stderr</span> = <span class="ruby-constant">IO</span><span class="ruby-operator">::</span><span class="ruby-identifier">pipe</span>
+
+  <span class="ruby-identifier">pid</span> = <span class="ruby-identifier">fork</span> <span class="ruby-keyword">do</span>
+    <span class="ruby-identifier">stderr</span>[<span class="ruby-value">0</span>].<span class="ruby-identifier">close</span>
+    <span class="ruby-constant">STDERR</span>.<span class="ruby-identifier">reopen</span>(<span class="ruby-identifier">stderr</span>[<span class="ruby-value">1</span>])
+    <span class="ruby-identifier">stderr</span>[<span class="ruby-value">1</span>].<span class="ruby-identifier">close</span>
+
+    <span class="ruby-identifier">appender</span> = <span class="ruby-identifier">create_syslog</span>
+    <span class="ruby-identifier">appender</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-string">&#39;this is a test message&#39;</span>
+    <span class="ruby-identifier">appender</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-string">&#39;this is another message&#39;</span>
+    <span class="ruby-identifier">appender</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-string">&#39;some other line&#39;</span>
+
+    <span class="ruby-identifier">exit!</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">stderr</span>[<span class="ruby-value">1</span>].<span class="ruby-identifier">close</span>
+  <span class="ruby-constant">Process</span>.<span class="ruby-identifier">waitpid</span>(<span class="ruby-identifier">pid</span>)
+
+  <span class="ruby-keyword">if</span> <span class="ruby-keyword">defined?</span>(<span class="ruby-operator">::</span><span class="ruby-constant">Syslog</span><span class="ruby-operator">::</span><span class="ruby-constant">LOG_PERROR</span>)
+    <span class="ruby-identifier">assert_match</span>(<span class="ruby-regexp">/this is a test message/</span>, <span class="ruby-identifier">stderr</span>[<span class="ruby-value">0</span>].<span class="ruby-identifier">gets</span>)
+    <span class="ruby-identifier">assert_match</span>(<span class="ruby-regexp">/this is another message/</span>, <span class="ruby-identifier">stderr</span>[<span class="ruby-value">0</span>].<span class="ruby-identifier">gets</span>)
+    <span class="ruby-identifier">assert_match</span>(<span class="ruby-regexp">/some other line/</span>, <span class="ruby-identifier">stderr</span>[<span class="ruby-value">0</span>].<span class="ruby-identifier">gets</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_concat_error" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_concat_error</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_concat_error-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/logging-2.2.2/test/appenders/test_syslog.rb, line 113</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">test_concat_error</span>
+  <span class="ruby-identifier">appender</span> = <span class="ruby-identifier">create_syslog</span>
+  <span class="ruby-identifier">appender</span>.<span class="ruby-identifier">close</span> <span class="ruby-keyword">false</span>
+
+  <span class="ruby-identifier">assert_raise</span>(<span class="ruby-constant">RuntimeError</span>) {<span class="ruby-identifier">appender</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-string">&#39;oopsy&#39;</span>}
+  <span class="ruby-identifier">assert_equal</span> <span class="ruby-keyword">true</span>, <span class="ruby-identifier">appender</span>.<span class="ruby-identifier">closed?</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_factory_method_validates_input" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_factory_method_validates_input</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_factory_method_validates_input-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/logging-2.2.2/test/appenders/test_syslog.rb, line 22</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">test_factory_method_validates_input</span>
+  <span class="ruby-identifier">assert_raise</span>(<span class="ruby-constant">ArgumentError</span>) <span class="ruby-keyword">do</span>
+    <span class="ruby-constant">Logging</span>.<span class="ruby-identifier">appenders</span>.<span class="ruby-identifier">syslog</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_initialize_map" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_initialize_map</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_initialize_map-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/logging-2.2.2/test/appenders/test_syslog.rb, line 158</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">test_initialize_map</span>
+  <span class="ruby-identifier">appender</span> = <span class="ruby-constant">Logging</span>.<span class="ruby-identifier">appenders</span>.<span class="ruby-identifier">syslog</span>(
+    <span class="ruby-string">&#39;syslog_test&#39;</span>,
+    <span class="ruby-value">:logopt</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-ivar">@logopt</span>,
+    <span class="ruby-value">:map</span> =<span class="ruby-operator">&gt;</span> {
+      <span class="ruby-value">:debug</span>  =<span class="ruby-operator">&gt;</span>  <span class="ruby-value">:log_debug</span>,
+      <span class="ruby-value">:info</span>   =<span class="ruby-operator">&gt;</span>  <span class="ruby-value">:log_info</span>,
+      <span class="ruby-value">:warn</span>   =<span class="ruby-operator">&gt;</span>  <span class="ruby-value">:log_warning</span>,
+      <span class="ruby-value">:error</span>  =<span class="ruby-operator">&gt;</span>  <span class="ruby-value">:log_err</span>,
+      <span class="ruby-value">:fatal</span>  =<span class="ruby-operator">&gt;</span>  <span class="ruby-value">:log_alert</span>
+    }
+  )
+
+  <span class="ruby-identifier">assert_equal</span>(
+    [<span class="ruby-constant">LOG_DEBUG</span>, <span class="ruby-constant">LOG_INFO</span>, <span class="ruby-constant">LOG_WARNING</span>, <span class="ruby-constant">LOG_ERR</span>, <span class="ruby-constant">LOG_ALERT</span>],
+    <span class="ruby-identifier">get_map_from</span>(<span class="ruby-identifier">appender</span>)
+  )
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_map_eq" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_map_eq</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_map_eq-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/logging-2.2.2/test/appenders/test_syslog.rb, line 121</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">test_map_eq</span>
+  <span class="ruby-identifier">appender</span> = <span class="ruby-identifier">create_syslog</span>
+
+  <span class="ruby-identifier">assert_equal</span>(
+    [<span class="ruby-constant">LOG_DEBUG</span>, <span class="ruby-constant">LOG_INFO</span>, <span class="ruby-constant">LOG_WARNING</span>, <span class="ruby-constant">LOG_ERR</span>, <span class="ruby-constant">LOG_CRIT</span>],
+    <span class="ruby-identifier">get_map_from</span>(<span class="ruby-identifier">appender</span>)
+  )
+
+  <span class="ruby-identifier">appender</span>.<span class="ruby-identifier">map</span> = {
+    <span class="ruby-value">:debug</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-constant">LOG_DEBUG</span>,
+    <span class="ruby-value">:info</span>  =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&#39;LOG_NOTICE&#39;</span>,
+    <span class="ruby-value">:warn</span>  =<span class="ruby-operator">&gt;</span> <span class="ruby-value">:LOG_WARNING</span>,
+    <span class="ruby-value">:error</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&#39;log_err&#39;</span>,
+    <span class="ruby-value">:fatal</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">:log_alert</span>
+  }
+
+  <span class="ruby-identifier">assert_equal</span>(
+    [<span class="ruby-constant">LOG_DEBUG</span>, <span class="ruby-constant">LOG_NOTICE</span>, <span class="ruby-constant">LOG_WARNING</span>, <span class="ruby-constant">LOG_ERR</span>, <span class="ruby-constant">LOG_ALERT</span>],
+    <span class="ruby-identifier">get_map_from</span>(<span class="ruby-identifier">appender</span>)
+  )
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_map_eq_error" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_map_eq_error</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_map_eq_error-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/logging-2.2.2/test/appenders/test_syslog.rb, line 143</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">test_map_eq_error</span>
+  <span class="ruby-identifier">appender</span> = <span class="ruby-identifier">create_syslog</span>
+
+  <span class="ruby-comment"># Object is not a valid syslog level</span>
+  <span class="ruby-identifier">assert_raise</span>(<span class="ruby-constant">ArgumentError</span>) <span class="ruby-keyword">do</span>
+    <span class="ruby-identifier">appender</span>.<span class="ruby-identifier">map</span> = {<span class="ruby-value">:debug</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-constant">Object</span>}
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-comment"># there is no syslog level named &quot;info&quot;</span>
+  <span class="ruby-comment"># it should be &quot;log_info&quot;</span>
+  <span class="ruby-identifier">assert_raise</span>(<span class="ruby-constant">NameError</span>) <span class="ruby-keyword">do</span>
+    <span class="ruby-identifier">appender</span>.<span class="ruby-identifier">map</span> = {<span class="ruby-value">:info</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&#39;lg_info&#39;</span>}
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="https://rdoc.github.io/rdoc">RDoc</a> 5.0.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

@@ -1,0 +1,1315 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class RuboCop::Cop::Cop - RDoc Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../../";
+  var index_rel_prefix = "../../";
+</script>
+
+<script src="../../js/jquery.js"></script>
+<script src="../../js/darkfish.js"></script>
+
+<link href="../../css/fonts.css" rel="stylesheet">
+<link href="../../css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../../table_of_contents.html#pages">Pages</a>
+    <a href="../../table_of_contents.html#classes">Classes</a>
+    <a href="../../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link"><a href="../../Object.html">Object</a>
+  
+</div>
+
+    <div id="includes-section" class="nav-section">
+  <h3>Included Modules</h3>
+
+  <ul class="link-list">
+  
+  
+    <li><a class="include" href="../AST/Sexp.html">RuboCop::AST::Sexp</a>
+  
+  
+  
+    <li><a class="include" href="Util.html">RuboCop::Cop::Util</a>
+  
+  
+  
+    <li><a class="include" href="IgnoredNode.html">RuboCop::Cop::IgnoredNode</a>
+  
+  
+  
+    <li><a class="include" href="AutocorrectLogic.html">RuboCop::Cop::AutocorrectLogic</a>
+  
+  
+  </ul>
+</div>
+
+    <div id="extends-section" class="nav-section">
+  <h3>Extended With Modules</h3>
+
+  <ul class="link-list">
+    
+  
+    <li><a class="extend" href="../AST/Sexp.html">RuboCop::AST::Sexp</a>
+  
+  
+  
+    <li><a class="extend" href="../NodePattern/Macros.html">RuboCop::NodePattern::Macros</a>
+  
+  
+  </ul>
+</div>
+
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-c-all">::all</a>
+    
+    <li ><a href="#method-c-autocorrect_incompatible_with">::autocorrect_incompatible_with</a>
+    
+    <li ><a href="#method-c-badge">::badge</a>
+    
+    <li ><a href="#method-c-cop_name">::cop_name</a>
+    
+    <li ><a href="#method-c-department">::department</a>
+    
+    <li ><a href="#method-c-inherited">::inherited</a>
+    
+    <li ><a href="#method-c-lint-3F">::lint?</a>
+    
+    <li ><a href="#method-c-match-3F">::match?</a>
+    
+    <li ><a href="#method-c-new">::new</a>
+    
+    <li ><a href="#method-c-non_rails">::non_rails</a>
+    
+    <li ><a href="#method-c-qualified_cop_name">::qualified_cop_name</a>
+    
+    <li ><a href="#method-i-add_offense">#add_offense</a>
+    
+    <li ><a href="#method-i-config_to_allow_offenses">#config_to_allow_offenses</a>
+    
+    <li ><a href="#method-i-config_to_allow_offenses-3D">#config_to_allow_offenses=</a>
+    
+    <li ><a href="#method-i-cop_config">#cop_config</a>
+    
+    <li ><a href="#method-i-cop_name">#cop_name</a>
+    
+    <li ><a href="#method-i-correct">#correct</a>
+    
+    <li ><a href="#method-i-duplicate_location-3F">#duplicate_location?</a>
+    
+    <li ><a href="#method-i-excluded_file-3F">#excluded_file?</a>
+    
+    <li ><a href="#method-i-find_location">#find_location</a>
+    
+    <li ><a href="#method-i-highlights">#highlights</a>
+    
+    <li ><a href="#method-i-join_force-3F">#join_force?</a>
+    
+    <li ><a href="#method-i-message">#message</a>
+    
+    <li ><a href="#method-i-messages">#messages</a>
+    
+    <li ><a href="#method-i-name">#name</a>
+    
+    <li ><a href="#method-i-parse">#parse</a>
+    
+    <li ><a href="#method-i-relevant_file-3F">#relevant_file?</a>
+    
+    <li ><a href="#method-i-target_rails_version">#target_rails_version</a>
+    
+    <li ><a href="#method-i-target_ruby_version">#target_ruby_version</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-RuboCop::Cop::Cop">
+  <h1 id="class-RuboCop::Cop::Cop" class="class">
+    class RuboCop::Cop::Cop
+  </h1>
+
+  <section class="description">
+    
+<p>A scaffold for concrete cops.</p>
+
+<p>The <a href="Cop.html">Cop</a> class is meant to be extended.</p>
+
+<p>Cops track offenses and can autocorrect them on the fly.</p>
+
+<p>A commissioner object is responsible for traversing the <a
+href="../AST.html">AST</a> and invoking the specific callbacks on each cop.
+If a cop needs to do its own processing of the <a
+href="../AST.html">AST</a> or depends on something else, it should define
+the `#investigate` method and do the processing there.</p>
+
+<p>@example</p>
+
+<pre class="ruby"><span class="ruby-keyword">class</span> <span class="ruby-constant">CustomCop</span> <span class="ruby-operator">&lt;</span> <span class="ruby-constant">Cop</span>
+  <span class="ruby-keyword">def</span> <span class="ruby-identifier">investigate</span>(<span class="ruby-identifier">processed_source</span>)
+    <span class="ruby-comment"># Do custom processing</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span>
+</pre>
+
+<p>Monkey-patch <a href="Cop.html">Cop</a> for tests to provide easy access to
+messages and highlights.</p>
+
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+    <section class="attribute-method-details" class="method-section">
+      <header>
+        <h3>Attributes</h3>
+      </header>
+
+      
+      <div id="attribute-c-registry" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">registry</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-config" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">config</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-corrections" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">corrections</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-offenses" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">offenses</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-processed_source" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">processed_source</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+    </section>
+    
+
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Class Methods</h3>
+       </header>
+
+    
+      <div id="method-c-all" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">all</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="all-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/rubocop-0.52.1/lib/rubocop/cop/cop.rb, line 42</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">all</span>
+  <span class="ruby-identifier">registry</span>.<span class="ruby-identifier">without_department</span>(<span class="ruby-value">:Test</span>).<span class="ruby-identifier">cops</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-autocorrect_incompatible_with" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">autocorrect_incompatible_with</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>List of cops that should not try to autocorrect at the same time as this
+cop</p>
+
+<p>@return [Array&lt;RuboCop::Cop::Cop&gt;]</p>
+
+<p>@api public</p>
+          
+          
+
+          
+          <div class="method-source-code" id="autocorrect_incompatible_with-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/rubocop-0.52.1/lib/rubocop/cop/cop.rb, line 89</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">autocorrect_incompatible_with</span>
+  []
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-badge" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">badge</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="badge-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/rubocop-0.52.1/lib/rubocop/cop/cop.rb, line 58</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">badge</span>
+  <span class="ruby-ivar">@badge</span> <span class="ruby-operator">||=</span> <span class="ruby-constant">Badge</span>.<span class="ruby-identifier">for</span>(<span class="ruby-identifier">name</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-cop_name" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">cop_name</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="cop_name-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/rubocop-0.52.1/lib/rubocop/cop/cop.rb, line 62</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">cop_name</span>
+  <span class="ruby-identifier">badge</span>.<span class="ruby-identifier">to_s</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-department" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">department</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="department-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/rubocop-0.52.1/lib/rubocop/cop/cop.rb, line 66</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">department</span>
+  <span class="ruby-identifier">badge</span>.<span class="ruby-identifier">department</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-inherited" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">inherited</span><span
+            class="method-args">(subclass)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="inherited-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/rubocop-0.52.1/lib/rubocop/cop/cop.rb, line 54</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">inherited</span>(<span class="ruby-identifier">subclass</span>)
+  <span class="ruby-identifier">registry</span>.<span class="ruby-identifier">enlist</span>(<span class="ruby-identifier">subclass</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-lint-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">lint?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="lint-3F-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/rubocop-0.52.1/lib/rubocop/cop/cop.rb, line 70</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">lint?</span>
+  <span class="ruby-identifier">department</span> <span class="ruby-operator">==</span> <span class="ruby-value">:Lint</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-match-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">match?</span><span
+            class="method-args">(given_names)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Returns true if the cop name or the cop namespace matches any of the given
+names.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="match-3F-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/rubocop-0.52.1/lib/rubocop/cop/cop.rb, line 76</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">match?</span>(<span class="ruby-identifier">given_names</span>)
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">false</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">given_names</span>
+
+  <span class="ruby-identifier">given_names</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">cop_name</span>) <span class="ruby-operator">||</span>
+    <span class="ruby-identifier">given_names</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">department</span>.<span class="ruby-identifier">to_s</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-new" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">new</span><span
+            class="method-args">(config = nil, options = nil)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="new-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/rubocop-0.52.1/lib/rubocop/cop/cop.rb, line 93</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">config</span> = <span class="ruby-keyword">nil</span>, <span class="ruby-identifier">options</span> = <span class="ruby-keyword">nil</span>)
+  <span class="ruby-ivar">@config</span> = <span class="ruby-identifier">config</span> <span class="ruby-operator">||</span> <span class="ruby-constant">Config</span>.<span class="ruby-identifier">new</span>
+  <span class="ruby-ivar">@options</span> = <span class="ruby-identifier">options</span> <span class="ruby-operator">||</span> { <span class="ruby-identifier">debug</span><span class="ruby-operator">:</span> <span class="ruby-keyword">false</span> }
+
+  <span class="ruby-ivar">@offenses</span> = []
+  <span class="ruby-ivar">@corrections</span> = []
+  <span class="ruby-ivar">@processed_source</span> = <span class="ruby-keyword">nil</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-non_rails" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">non_rails</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="non_rails-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/rubocop-0.52.1/lib/rubocop/cop/cop.rb, line 50</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">non_rails</span>
+  <span class="ruby-identifier">registry</span>.<span class="ruby-identifier">without_department</span>(<span class="ruby-value">:Rails</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-qualified_cop_name" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">qualified_cop_name</span><span
+            class="method-args">(name, origin)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="qualified_cop_name-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/rubocop-0.52.1/lib/rubocop/cop/cop.rb, line 46</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">qualified_cop_name</span>(<span class="ruby-identifier">name</span>, <span class="ruby-identifier">origin</span>)
+  <span class="ruby-identifier">registry</span>.<span class="ruby-identifier">qualified_cop_name</span>(<span class="ruby-identifier">name</span>, <span class="ruby-identifier">origin</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-add_offense" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">add_offense</span><span
+            class="method-args">(node, location: :expression, message: nil, severity: nil) { || ... }</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>rubocop:disable Metrics/CyclomaticComplexity</p>
+          
+          
+
+          
+          <div class="method-source-code" id="add_offense-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/rubocop-0.52.1/lib/rubocop/cop/cop.rb, line 118</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">add_offense</span>(<span class="ruby-identifier">node</span>, <span class="ruby-identifier">location</span><span class="ruby-operator">:</span> <span class="ruby-value">:expression</span>, <span class="ruby-identifier">message</span><span class="ruby-operator">:</span> <span class="ruby-keyword">nil</span>, <span class="ruby-identifier">severity</span><span class="ruby-operator">:</span> <span class="ruby-keyword">nil</span>)
+  <span class="ruby-identifier">loc</span> = <span class="ruby-identifier">find_location</span>(<span class="ruby-identifier">node</span>, <span class="ruby-identifier">location</span>)
+
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">duplicate_location?</span>(<span class="ruby-identifier">loc</span>)
+
+  <span class="ruby-identifier">severity</span> = <span class="ruby-identifier">custom_severity</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">severity</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">default_severity</span>
+
+  <span class="ruby-identifier">message</span> <span class="ruby-operator">||=</span> <span class="ruby-identifier">message</span>(<span class="ruby-identifier">node</span>)
+  <span class="ruby-identifier">message</span> = <span class="ruby-identifier">annotate</span>(<span class="ruby-identifier">message</span>)
+
+  <span class="ruby-identifier">status</span> = <span class="ruby-identifier">enabled_line?</span>(<span class="ruby-identifier">loc</span>.<span class="ruby-identifier">line</span>) <span class="ruby-operator">?</span> <span class="ruby-identifier">correct</span>(<span class="ruby-identifier">node</span>) <span class="ruby-operator">:</span> <span class="ruby-value">:disabled</span>
+
+  <span class="ruby-ivar">@offenses</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-constant">Offense</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">severity</span>, <span class="ruby-identifier">loc</span>, <span class="ruby-identifier">message</span>, <span class="ruby-identifier">name</span>, <span class="ruby-identifier">status</span>)
+  <span class="ruby-keyword">yield</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">block_given?</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">status</span> <span class="ruby-operator">!=</span> <span class="ruby-value">:disabled</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-config_to_allow_offenses" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">config_to_allow_offenses</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="config_to_allow_offenses-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/rubocop-0.52.1/lib/rubocop/cop/cop.rb, line 154</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">config_to_allow_offenses</span>
+  <span class="ruby-constant">Formatter</span><span class="ruby-operator">::</span><span class="ruby-constant">DisabledConfigFormatter</span>
+    .<span class="ruby-identifier">config_to_allow_offenses</span>[<span class="ruby-identifier">cop_name</span>] <span class="ruby-operator">||=</span> {}
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-config_to_allow_offenses-3D" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">config_to_allow_offenses=</span><span
+            class="method-args">(hash)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="config_to_allow_offenses-3D-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/rubocop-0.52.1/lib/rubocop/cop/cop.rb, line 159</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">config_to_allow_offenses=</span>(<span class="ruby-identifier">hash</span>)
+  <span class="ruby-constant">Formatter</span><span class="ruby-operator">::</span><span class="ruby-constant">DisabledConfigFormatter</span>.<span class="ruby-identifier">config_to_allow_offenses</span>[<span class="ruby-identifier">cop_name</span>] =
+    <span class="ruby-identifier">hash</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-cop_config" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">cop_config</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="cop_config-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/rubocop-0.52.1/lib/rubocop/cop/cop.rb, line 106</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">cop_config</span>
+  <span class="ruby-comment"># Use department configuration as basis, but let individual cop</span>
+  <span class="ruby-comment"># configuration override.</span>
+  <span class="ruby-ivar">@cop_config</span> <span class="ruby-operator">||=</span> <span class="ruby-ivar">@config</span>.<span class="ruby-identifier">for_cop</span>(<span class="ruby-keyword">self</span>.<span class="ruby-identifier">class</span>.<span class="ruby-identifier">department</span>.<span class="ruby-identifier">to_s</span>)
+                         .<span class="ruby-identifier">merge</span>(<span class="ruby-ivar">@config</span>.<span class="ruby-identifier">for_cop</span>(<span class="ruby-keyword">self</span>))
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-cop_name" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">cop_name</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="cop_name-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/rubocop-0.52.1/lib/rubocop/cop/cop.rb, line 176</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">cop_name</span>
+  <span class="ruby-ivar">@cop_name</span> <span class="ruby-operator">||=</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">class</span>.<span class="ruby-identifier">cop_name</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+        <div class="aliases">
+          Also aliased as: <a href="Cop.html#method-i-name">name</a>
+        </div>
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-correct" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">correct</span><span
+            class="method-args">(node)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="correct-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/rubocop-0.52.1/lib/rubocop/cop/cop.rb, line 144</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">correct</span>(<span class="ruby-identifier">node</span>)
+  <span class="ruby-keyword">return</span> <span class="ruby-value">:unsupported</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">support_autocorrect?</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-value">:uncorrected</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">autocorrect?</span>
+
+  <span class="ruby-identifier">correction</span> = <span class="ruby-identifier">autocorrect</span>(<span class="ruby-identifier">node</span>)
+  <span class="ruby-keyword">return</span> <span class="ruby-value">:uncorrected</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">correction</span>
+  <span class="ruby-ivar">@corrections</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">correction</span>
+  <span class="ruby-value">:corrected</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-duplicate_location-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">duplicate_location?</span><span
+            class="method-args">(location)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="duplicate_location-3F-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/rubocop-0.52.1/lib/rubocop/cop/cop.rb, line 140</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">duplicate_location?</span>(<span class="ruby-identifier">location</span>)
+  <span class="ruby-ivar">@offenses</span>.<span class="ruby-identifier">any?</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">o</span><span class="ruby-operator">|</span> <span class="ruby-identifier">o</span>.<span class="ruby-identifier">location</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">location</span> }
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-excluded_file-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">excluded_file?</span><span
+            class="method-args">(file)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="excluded_file-3F-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/rubocop-0.52.1/lib/rubocop/cop/cop.rb, line 187</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">excluded_file?</span>(<span class="ruby-identifier">file</span>)
+  <span class="ruby-operator">!</span><span class="ruby-identifier">relevant_file?</span>(<span class="ruby-identifier">file</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-find_location" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">find_location</span><span
+            class="method-args">(node, loc)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>rubocop:enable Metrics/CyclomaticComplexity</p>
+          
+          
+
+          
+          <div class="method-source-code" id="find_location-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/rubocop-0.52.1/lib/rubocop/cop/cop.rb, line 135</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">find_location</span>(<span class="ruby-identifier">node</span>, <span class="ruby-identifier">loc</span>)
+  <span class="ruby-comment"># Location can be provided as a symbol, e.g.: `:keyword`</span>
+  <span class="ruby-identifier">loc</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">Symbol</span>) <span class="ruby-operator">?</span> <span class="ruby-identifier">node</span>.<span class="ruby-identifier">loc</span>.<span class="ruby-identifier">public_send</span>(<span class="ruby-identifier">loc</span>) <span class="ruby-operator">:</span> <span class="ruby-identifier">loc</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-highlights" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">highlights</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="highlights-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/rubocop-0.52.1/lib/rubocop/rspec/cop_helper.rb, line 88</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">highlights</span>
+  <span class="ruby-identifier">offenses</span>.<span class="ruby-identifier">sort</span>.<span class="ruby-identifier">map</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">o</span><span class="ruby-operator">|</span> <span class="ruby-identifier">o</span>.<span class="ruby-identifier">location</span>.<span class="ruby-identifier">source</span> }
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-join_force-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">join_force?</span><span
+            class="method-args">(_force_class)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="join_force-3F-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/rubocop-0.52.1/lib/rubocop/cop/cop.rb, line 102</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">join_force?</span>(<span class="ruby-identifier">_force_class</span>)
+  <span class="ruby-keyword">false</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-message" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">message</span><span
+            class="method-args">(_node = nil)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="message-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/rubocop-0.52.1/lib/rubocop/cop/cop.rb, line 113</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">message</span>(<span class="ruby-identifier">_node</span> = <span class="ruby-keyword">nil</span>)
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">class</span><span class="ruby-operator">::</span><span class="ruby-constant">MSG</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-messages" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">messages</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="messages-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/rubocop-0.52.1/lib/rubocop/rspec/cop_helper.rb, line 84</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">messages</span>
+  <span class="ruby-identifier">offenses</span>.<span class="ruby-identifier">sort</span>.<span class="ruby-identifier">map</span>(<span class="ruby-operator">&amp;</span><span class="ruby-value">:message</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-name" class="method-detail method-alias">
+        
+        <div class="method-heading">
+          <span class="method-name">name</span><span
+            class="method-args">()</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+        </div>
+
+        
+
+        
+        <div class="aliases">
+          Alias for: <a href="Cop.html#method-i-cop_name">cop_name</a>
+        </div>
+        
+      </div>
+
+    
+      <div id="method-i-parse" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">parse</span><span
+            class="method-args">(source, path = nil)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="parse-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/rubocop-0.52.1/lib/rubocop/cop/cop.rb, line 172</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">parse</span>(<span class="ruby-identifier">source</span>, <span class="ruby-identifier">path</span> = <span class="ruby-keyword">nil</span>)
+  <span class="ruby-constant">ProcessedSource</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">source</span>, <span class="ruby-identifier">target_ruby_version</span>, <span class="ruby-identifier">path</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-relevant_file-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">relevant_file?</span><span
+            class="method-args">(file)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="relevant_file-3F-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/rubocop-0.52.1/lib/rubocop/cop/cop.rb, line 182</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">relevant_file?</span>(<span class="ruby-identifier">file</span>)
+  <span class="ruby-identifier">file_name_matches_any?</span>(<span class="ruby-identifier">file</span>, <span class="ruby-string">&#39;Include&#39;</span>, <span class="ruby-keyword">true</span>) <span class="ruby-operator">&amp;&amp;</span>
+    <span class="ruby-operator">!</span><span class="ruby-identifier">file_name_matches_any?</span>(<span class="ruby-identifier">file</span>, <span class="ruby-string">&#39;Exclude&#39;</span>, <span class="ruby-keyword">false</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-target_rails_version" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">target_rails_version</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="target_rails_version-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/rubocop-0.52.1/lib/rubocop/cop/cop.rb, line 168</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">target_rails_version</span>
+  <span class="ruby-ivar">@config</span>.<span class="ruby-identifier">target_rails_version</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-target_ruby_version" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">target_ruby_version</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="target_ruby_version-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/rubocop-0.52.1/lib/rubocop/cop/cop.rb, line 164</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">target_ruby_version</span>
+  <span class="ruby-ivar">@config</span>.<span class="ruby-identifier">target_ruby_version</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="https://rdoc.github.io/rdoc">RDoc</a> 5.0.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class Parser::TreeRewriter - RDoc Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../";
+  var index_rel_prefix = "../";
+</script>
+
+<script src="../js/jquery.js"></script>
+<script src="../js/darkfish.js"></script>
+
+<link href="../css/fonts.css" rel="stylesheet">
+<link href="../css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../table_of_contents.html#pages">Pages</a>
+    <a href="../table_of_contents.html#classes">Classes</a>
+    <a href="../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link"><a href="AST/Processor.html">Parser::AST::Processor</a>
+  
+</div>
+
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-i-assignment-3F">#assignment?</a>
+    
+    <li ><a href="#method-i-insert_after">#insert_after</a>
+    
+    <li ><a href="#method-i-insert_before">#insert_before</a>
+    
+    <li ><a href="#method-i-remove">#remove</a>
+    
+    <li ><a href="#method-i-replace">#replace</a>
+    
+    <li ><a href="#method-i-rewrite">#rewrite</a>
+    
+    <li ><a href="#method-i-wrap">#wrap</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-Parser::TreeRewriter">
+  <h1 id="class-Parser::TreeRewriter" class="class">
+    class Parser::TreeRewriter
+  </h1>
+
+  <section class="description">
+    
+<p>{Parser::TreeRewriter} offers a basic API that makes it easy to rewrite
+existing ASTs. It&#39;s built on top of {Parser::AST::Processor} and
+{Parser::Source::TreeRewriter}</p>
+
+<p>For example, assume you want to remove `do` tokens from a while statement.
+You can do this as following:</p>
+
+<pre class="ruby"><span class="ruby-identifier">require</span> <span class="ruby-string">&#39;parser/current&#39;</span>
+
+<span class="ruby-keyword">class</span> <span class="ruby-constant">RemoveDo</span> <span class="ruby-operator">&lt;</span> <span class="ruby-constant">Parser</span><span class="ruby-operator">::</span><span class="ruby-constant">TreeRewriter</span>
+  <span class="ruby-keyword">def</span> <span class="ruby-identifier">on_while</span>(<span class="ruby-identifier">node</span>)
+    <span class="ruby-comment"># Check if the statement starts with &quot;do&quot;</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">node</span>.<span class="ruby-identifier">location</span>.<span class="ruby-identifier">begin</span>.<span class="ruby-identifier">is?</span>(<span class="ruby-string">&#39;do&#39;</span>)
+      <span class="ruby-identifier">remove</span>(<span class="ruby-identifier">node</span>.<span class="ruby-identifier">location</span>.<span class="ruby-identifier">begin</span>)
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span>
+
+<span class="ruby-identifier">code</span> = <span class="ruby-value">&lt;&lt;-EOF
+while true do
+  puts &#39;hello&#39;
+end
+EOF</span>
+
+<span class="ruby-identifier">buffer</span>        = <span class="ruby-constant">Parser</span><span class="ruby-operator">::</span><span class="ruby-constant">Source</span><span class="ruby-operator">::</span><span class="ruby-constant">Buffer</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&#39;(example)&#39;</span>)
+<span class="ruby-identifier">buffer</span>.<span class="ruby-identifier">source</span> = <span class="ruby-identifier">code</span>
+<span class="ruby-identifier">rewriter</span>      = <span class="ruby-constant">RemoveDo</span>.<span class="ruby-identifier">new</span>
+
+<span class="ruby-comment"># Rewrite the AST, returns a String with the new form.</span>
+<span class="ruby-identifier">puts</span> <span class="ruby-identifier">rewriter</span>.<span class="ruby-identifier">rewrite</span>(<span class="ruby-identifier">buffer</span>)
+</pre>
+
+<p>This would result in the following Ruby code:</p>
+
+<pre class="ruby"><span class="ruby-keyword">while</span> <span class="ruby-keyword">true</span>
+  <span class="ruby-identifier">puts</span> <span class="ruby-string">&#39;hello&#39;</span>
+<span class="ruby-keyword">end</span>
+</pre>
+
+<p>Keep in mind that {Parser::TreeRewriter} does not take care of indentation
+when inserting/replacing code so you&#39;ll have to do this yourself.</p>
+
+<p>See also [a blog entry](<a
+href="http://whitequark.org/blog/2013/04/26/lets-play-with-ruby-code">whitequark.org/blog/2013/04/26/lets-play-with-ruby-code</a>/)
+describing rewriters in greater detail.</p>
+
+<p>@api public</p>
+
+<p>{Parser::TreeRewriter} offers a basic API that makes it easy to rewrite
+existing ASTs. It&#39;s built on top of {Parser::AST::Processor} and
+{Parser::Source::TreeRewriter}</p>
+
+<p>For example, assume you want to remove `do` tokens from a while statement.
+You can do this as following:</p>
+
+<pre class="ruby"><span class="ruby-identifier">require</span> <span class="ruby-string">&#39;parser/current&#39;</span>
+
+<span class="ruby-keyword">class</span> <span class="ruby-constant">RemoveDo</span> <span class="ruby-operator">&lt;</span> <span class="ruby-constant">Parser</span><span class="ruby-operator">::</span><span class="ruby-constant">TreeRewriter</span>
+  <span class="ruby-keyword">def</span> <span class="ruby-identifier">on_while</span>(<span class="ruby-identifier">node</span>)
+    <span class="ruby-comment"># Check if the statement starts with &quot;do&quot;</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">node</span>.<span class="ruby-identifier">location</span>.<span class="ruby-identifier">begin</span>.<span class="ruby-identifier">is?</span>(<span class="ruby-string">&#39;do&#39;</span>)
+      <span class="ruby-identifier">remove</span>(<span class="ruby-identifier">node</span>.<span class="ruby-identifier">location</span>.<span class="ruby-identifier">begin</span>)
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span>
+
+<span class="ruby-identifier">code</span> = <span class="ruby-value">&lt;&lt;-EOF
+while true do
+  puts &#39;hello&#39;
+end
+EOF</span>
+
+<span class="ruby-identifier">buffer</span>        = <span class="ruby-constant">Parser</span><span class="ruby-operator">::</span><span class="ruby-constant">Source</span><span class="ruby-operator">::</span><span class="ruby-constant">Buffer</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&#39;(example)&#39;</span>)
+<span class="ruby-identifier">buffer</span>.<span class="ruby-identifier">source</span> = <span class="ruby-identifier">code</span>
+<span class="ruby-identifier">rewriter</span>      = <span class="ruby-constant">RemoveDo</span>.<span class="ruby-identifier">new</span>
+
+<span class="ruby-comment"># Rewrite the AST, returns a String with the new form.</span>
+<span class="ruby-identifier">puts</span> <span class="ruby-identifier">rewriter</span>.<span class="ruby-identifier">rewrite</span>(<span class="ruby-identifier">buffer</span>)
+</pre>
+
+<p>This would result in the following Ruby code:</p>
+
+<pre class="ruby"><span class="ruby-keyword">while</span> <span class="ruby-keyword">true</span>
+  <span class="ruby-identifier">puts</span> <span class="ruby-string">&#39;hello&#39;</span>
+<span class="ruby-keyword">end</span>
+</pre>
+
+<p>Keep in mind that {Parser::TreeRewriter} does not take care of indentation
+when inserting/replacing code so you&#39;ll have to do this yourself.</p>
+
+<p>See also [a blog entry](<a
+href="http://whitequark.org/blog/2013/04/26/lets-play-with-ruby-code">whitequark.org/blog/2013/04/26/lets-play-with-ruby-code</a>/)
+describing rewriters in greater detail.</p>
+
+<p>@api public</p>
+
+<p>{Parser::TreeRewriter} offers a basic API that makes it easy to rewrite
+existing ASTs. It&#39;s built on top of {Parser::AST::Processor} and
+{Parser::Source::TreeRewriter}</p>
+
+<p>For example, assume you want to remove `do` tokens from a while statement.
+You can do this as following:</p>
+
+<pre class="ruby"><span class="ruby-identifier">require</span> <span class="ruby-string">&#39;parser/current&#39;</span>
+
+<span class="ruby-keyword">class</span> <span class="ruby-constant">RemoveDo</span> <span class="ruby-operator">&lt;</span> <span class="ruby-constant">Parser</span><span class="ruby-operator">::</span><span class="ruby-constant">TreeRewriter</span>
+  <span class="ruby-keyword">def</span> <span class="ruby-identifier">on_while</span>(<span class="ruby-identifier">node</span>)
+    <span class="ruby-comment"># Check if the statement starts with &quot;do&quot;</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">node</span>.<span class="ruby-identifier">location</span>.<span class="ruby-identifier">begin</span>.<span class="ruby-identifier">is?</span>(<span class="ruby-string">&#39;do&#39;</span>)
+      <span class="ruby-identifier">remove</span>(<span class="ruby-identifier">node</span>.<span class="ruby-identifier">location</span>.<span class="ruby-identifier">begin</span>)
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span>
+
+<span class="ruby-identifier">code</span> = <span class="ruby-value">&lt;&lt;-EOF
+while true do
+  puts &#39;hello&#39;
+end
+EOF</span>
+
+<span class="ruby-identifier">buffer</span>        = <span class="ruby-constant">Parser</span><span class="ruby-operator">::</span><span class="ruby-constant">Source</span><span class="ruby-operator">::</span><span class="ruby-constant">Buffer</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&#39;(example)&#39;</span>)
+<span class="ruby-identifier">buffer</span>.<span class="ruby-identifier">source</span> = <span class="ruby-identifier">code</span>
+<span class="ruby-identifier">rewriter</span>      = <span class="ruby-constant">RemoveDo</span>.<span class="ruby-identifier">new</span>
+
+<span class="ruby-comment"># Rewrite the AST, returns a String with the new form.</span>
+<span class="ruby-identifier">puts</span> <span class="ruby-identifier">rewriter</span>.<span class="ruby-identifier">rewrite</span>(<span class="ruby-identifier">buffer</span>)
+</pre>
+
+<p>This would result in the following Ruby code:</p>
+
+<pre class="ruby"><span class="ruby-keyword">while</span> <span class="ruby-keyword">true</span>
+  <span class="ruby-identifier">puts</span> <span class="ruby-string">&#39;hello&#39;</span>
+<span class="ruby-keyword">end</span>
+</pre>
+
+<p>Keep in mind that {Parser::TreeRewriter} does not take care of indentation
+when inserting/replacing code so you&#39;ll have to do this yourself.</p>
+
+<p>See also [a blog entry](<a
+href="http://whitequark.org/blog/2013/04/26/lets-play-with-ruby-code">whitequark.org/blog/2013/04/26/lets-play-with-ruby-code</a>/)
+describing rewriters in greater detail.</p>
+
+<p>@api public</p>
+
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+
+    
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-assignment-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">assignment?</span><span
+            class="method-args">(node)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Returns `true` if the specified node is an assignment node, returns false
+otherwise.</p>
+
+<p>@param [Parser::AST::Node] node @return [Boolean]</p>
+          
+          
+
+          
+          <div class="method-source-code" id="assignment-3F-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/parser-2.5.0.0/lib/parser/tree_rewriter.rb, line 78</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">assignment?</span>(<span class="ruby-identifier">node</span>)
+  [<span class="ruby-value">:lvasgn</span>, <span class="ruby-value">:ivasgn</span>, <span class="ruby-value">:gvasgn</span>, <span class="ruby-value">:cvasgn</span>, <span class="ruby-value">:casgn</span>].<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">node</span>.<span class="ruby-identifier">type</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-insert_after" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">insert_after</span><span
+            class="method-args">(range, content)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Inserts new code after the given source range.</p>
+
+<p>@param [Parser::Source::Range] range @param [String] content</p>
+          
+          
+
+          
+          <div class="method-source-code" id="insert_after-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/parser-2.5.0.0/lib/parser/tree_rewriter.rb, line 117</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">insert_after</span>(<span class="ruby-identifier">range</span>, <span class="ruby-identifier">content</span>)
+  <span class="ruby-ivar">@source_rewriter</span>.<span class="ruby-identifier">insert_after</span>(<span class="ruby-identifier">range</span>, <span class="ruby-identifier">content</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-insert_before" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">insert_before</span><span
+            class="method-args">(range, content)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Inserts new code before the given source range.</p>
+
+<p>@param [Parser::Source::Range] range @param [String] content</p>
+          
+          
+
+          
+          <div class="method-source-code" id="insert_before-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/parser-2.5.0.0/lib/parser/tree_rewriter.rb, line 107</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">insert_before</span>(<span class="ruby-identifier">range</span>, <span class="ruby-identifier">content</span>)
+  <span class="ruby-ivar">@source_rewriter</span>.<span class="ruby-identifier">insert_before</span>(<span class="ruby-identifier">range</span>, <span class="ruby-identifier">content</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-remove" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">remove</span><span
+            class="method-args">(range)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Removes the source range.</p>
+
+<p>@param [Parser::Source::Range] range</p>
+          
+          
+
+          
+          <div class="method-source-code" id="remove-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/parser-2.5.0.0/lib/parser/tree_rewriter.rb, line 87</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">remove</span>(<span class="ruby-identifier">range</span>)
+  <span class="ruby-ivar">@source_rewriter</span>.<span class="ruby-identifier">remove</span>(<span class="ruby-identifier">range</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-replace" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">replace</span><span
+            class="method-args">(range, content)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Replaces the code of the source range `range` with `content`.</p>
+
+<p>@param [Parser::Source::Range] range @param [String] content</p>
+          
+          
+
+          
+          <div class="method-source-code" id="replace-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/parser-2.5.0.0/lib/parser/tree_rewriter.rb, line 127</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">replace</span>(<span class="ruby-identifier">range</span>, <span class="ruby-identifier">content</span>)
+  <span class="ruby-ivar">@source_rewriter</span>.<span class="ruby-identifier">replace</span>(<span class="ruby-identifier">range</span>, <span class="ruby-identifier">content</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-rewrite" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">rewrite</span><span
+            class="method-args">(source_buffer, ast, **policy)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Rewrites the AST/source buffer and returns a <a
+href="../String.html">String</a> containing the new version.</p>
+
+<p>@param [Parser::Source::Buffer] source_buffer @param [Parser::AST::Node]
+ast @param [Symbol] crossing_deletions:, different_replacements:,
+swallowed_insertions:</p>
+
+<pre>policy arguments for TreeRewriter (optional)</pre>
+
+<p>@return [String]</p>
+          
+          
+
+          
+          <div class="method-source-code" id="rewrite-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/parser-2.5.0.0/lib/parser/tree_rewriter.rb, line 61</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">rewrite</span>(<span class="ruby-identifier">source_buffer</span>,
+            <span class="ruby-identifier">ast</span>,
+            <span class="ruby-operator">**</span><span class="ruby-identifier">policy</span>)
+  <span class="ruby-ivar">@source_rewriter</span> = <span class="ruby-constant">Parser</span><span class="ruby-operator">::</span><span class="ruby-constant">Source</span><span class="ruby-operator">::</span><span class="ruby-constant">TreeRewriter</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">source_buffer</span>, <span class="ruby-operator">**</span><span class="ruby-identifier">policy</span>)
+
+  <span class="ruby-identifier">process</span>(<span class="ruby-identifier">ast</span>)
+
+  <span class="ruby-ivar">@source_rewriter</span>.<span class="ruby-identifier">process</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-wrap" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">wrap</span><span
+            class="method-args">(range, before, after)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Wraps the given source range with the given values.</p>
+
+<p>@param [Parser::Source::Range] range @param [String] content</p>
+          
+          
+
+          
+          <div class="method-source-code" id="wrap-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/parser-2.5.0.0/lib/parser/tree_rewriter.rb, line 97</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">wrap</span>(<span class="ruby-identifier">range</span>, <span class="ruby-identifier">before</span>, <span class="ruby-identifier">after</span>)
+  <span class="ruby-ivar">@source_rewriter</span>.<span class="ruby-identifier">wrap</span>(<span class="ruby-identifier">range</span>, <span class="ruby-identifier">before</span>, <span class="ruby-identifier">after</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="https://rdoc.github.io/rdoc">RDoc</a> 5.0.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

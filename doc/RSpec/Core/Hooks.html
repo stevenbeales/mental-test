@@ -1,0 +1,731 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>module RSpec::Core::Hooks - RDoc Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../../";
+  var index_rel_prefix = "../../";
+</script>
+
+<script src="../../js/jquery.js"></script>
+<script src="../../js/darkfish.js"></script>
+
+<link href="../../css/fonts.css" rel="stylesheet">
+<link href="../../css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="module">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../../table_of_contents.html#pages">Pages</a>
+    <a href="../../table_of_contents.html#classes">Classes</a>
+    <a href="../../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-i-after">#after</a>
+    
+    <li ><a href="#method-i-append_after">#append_after</a>
+    
+    <li ><a href="#method-i-append_before">#append_before</a>
+    
+    <li ><a href="#method-i-around">#around</a>
+    
+    <li ><a href="#method-i-before">#before</a>
+    
+    <li ><a href="#method-i-hooks">#hooks</a>
+    
+    <li ><a href="#method-i-prepend_after">#prepend_after</a>
+    
+    <li ><a href="#method-i-prepend_before">#prepend_before</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="module-RSpec::Core::Hooks">
+  <h1 id="module-RSpec::Core::Hooks" class="module">
+    module RSpec::Core::Hooks
+  </h1>
+
+  <section class="description">
+    
+<p>Provides `before`, `after` and `around` hooks as a means of supporting
+common setup and teardown. This module is extended onto {ExampleGroup},
+making the methods available from any `describe` or `context` block and
+included in {Configuration}, making them available off of the configuration
+object to define global setup or teardown logic.</p>
+
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+    <section class="constants-list">
+      <header>
+        <h3>Constants</h3>
+      </header>
+      <dl>
+      
+        <dt id="Hook">Hook
+        
+        <dd><p>@private</p>
+        
+      
+      </dl>
+    </section>
+    
+
+    
+
+    
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-after" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">after</span><span
+            class="method-args">(*args, &block)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>@api public @overload after(&amp;block) @overload after(scope, &amp;block)</p>
+
+<pre>@param scope [Symbol] `:example`, `:context`, or `:suite` (defaults to
+  `:example`)</pre>
+
+<p>@overload after(scope, conditions, &amp;block)</p>
+
+<pre>@param scope [Symbol] `:example`, `:context`, or `:suite` (defaults to
+  `:example`)
+@param conditions [Hash]
+  constrains this hook to examples matching these conditions e.g.
+  `after(:example, :ui =&gt; true) { ... }` will only run with examples
+  or groups declared with `:ui =&gt; true`.</pre>
+
+<p>@overload after(conditions, &amp;block)</p>
+
+<pre>@param conditions [Hash]
+  constrains this hook to examples matching these conditions e.g.
+  `after(:example, :ui =&gt; true) { ... }` will only run with examples
+  or groups declared with `:ui =&gt; true`.</pre>
+
+<p>@see <a href="Hooks.html#method-i-before">before</a> @see <a
+href="Hooks.html#method-i-around">around</a> @see <a
+href="ExampleGroup.html">ExampleGroup</a> @see <a
+href="SharedContext.html">SharedContext</a> @see <a
+href="SharedExampleGroup.html">SharedExampleGroup</a> @see <a
+href="Configuration.html">Configuration</a></p>
+
+<p>Declare a block of code to be run after each example (using `:example`) or
+once after all examples n the context (using `:context`). See {#before} for
+more information about ordering.</p>
+
+<p>### Exceptions</p>
+
+<p>`after` hooks are guaranteed to run even when there are exceptions in
+`before` hooks or examples. When an exception is raised in an after block,
+the exception is captured for later reporting, and subsequent `after`
+blocks are run.</p>
+
+<p>### Order</p>
+
+<p>`after` hooks are stored in three scopes, which are run in order:
+`:example`, `:context`, and `:suite`. They can also be declared in several
+different places: `RSpec.configure`, a parent group, the current group.
+They are run in the following order:</p>
+
+<pre class="ruby"><span class="ruby-identifier">after</span>(:<span class="ruby-identifier">example</span>) <span class="ruby-comment"># Declared in the current group.</span>
+<span class="ruby-identifier">after</span>(:<span class="ruby-identifier">example</span>) <span class="ruby-comment"># Declared in a parent group.</span>
+<span class="ruby-identifier">after</span>(:<span class="ruby-identifier">example</span>) <span class="ruby-comment"># Declared in RSpec.configure.</span>
+<span class="ruby-identifier">after</span>(:<span class="ruby-identifier">context</span>) <span class="ruby-comment"># Declared in the current group.</span>
+<span class="ruby-identifier">after</span>(:<span class="ruby-identifier">context</span>) <span class="ruby-comment"># Declared in a parent group.</span>
+<span class="ruby-identifier">after</span>(:<span class="ruby-identifier">context</span>) <span class="ruby-comment"># Declared in RSpec.configure.</span>
+<span class="ruby-identifier">after</span>(:<span class="ruby-identifier">suite</span>)   <span class="ruby-comment"># Declared in RSpec.configure.</span>
+</pre>
+
+<p>This is the reverse of the order in which `before` hooks are run.
+Similarly, if more than one `after` is declared within any one scope, they
+are run in reverse order of that in which they are declared.</p>
+
+<p>@note The `:example` and `:context` scopes are also available as</p>
+
+<pre>`:each` and `:all`, respectively. Use whichever you prefer.</pre>
+
+<p>@note The `:suite` scope is only supported for hooks registered on</p>
+
+<pre>`RSpec.configuration` since they exist independently of any
+example or example group.</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="after-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/rspec-core-3.7.1/lib/rspec/core/hooks.rb, line 271</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">after</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+  <span class="ruby-identifier">hooks</span>.<span class="ruby-identifier">register</span> <span class="ruby-value">:prepend</span>, <span class="ruby-value">:after</span>, <span class="ruby-operator">*</span><span class="ruby-identifier">args</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+        <div class="aliases">
+          Also aliased as: <a href="Hooks.html#method-i-prepend_after">prepend_after</a>
+        </div>
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-append_after" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">append_after</span><span
+            class="method-args">(*args, &block)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Adds `block` to the back of the list of `after` blocks in the same scope
+(`:example`, `:context`, or `:suite`).</p>
+
+<p>See {#after} for scoping semantics.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="append_after-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/rspec-core-3.7.1/lib/rspec/core/hooks.rb, line 281</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">append_after</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+  <span class="ruby-identifier">hooks</span>.<span class="ruby-identifier">register</span> <span class="ruby-value">:append</span>, <span class="ruby-value">:after</span>, <span class="ruby-operator">*</span><span class="ruby-identifier">args</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-append_before" class="method-detail method-alias">
+        
+        <div class="method-heading">
+          <span class="method-name">append_before</span><span
+            class="method-args">(*args, &block)</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+        </div>
+
+        
+
+        
+        <div class="aliases">
+          Alias for: <a href="Hooks.html#method-i-before">before</a>
+        </div>
+        
+      </div>
+
+    
+      <div id="method-i-around" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">around</span><span
+            class="method-args">(*args, &block)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>@api public @overload around(&amp;block) @overload around(scope,
+&amp;block)</p>
+
+<pre>@param scope [Symbol] `:example` (defaults to `:example`)
+  present for syntax parity with `before` and `after`, but
+  `:example`/`:each` is the only supported value.</pre>
+
+<p>@overload around(scope, conditions, &amp;block)</p>
+
+<pre>@param scope [Symbol] `:example` (defaults to `:example`)
+  present for syntax parity with `before` and `after`, but
+  `:example`/`:each` is the only supported value.
+@param conditions [Hash] constrains this hook to examples matching
+  these conditions e.g. `around(:example, :ui =&gt; true) { ... }` will
+  only run with examples or groups declared with `:ui =&gt; true`.</pre>
+
+<p>@overload around(conditions, &amp;block)</p>
+
+<pre>@param conditions [Hash] constrains this hook to examples matching
+  these conditions e.g. `around(:example, :ui =&gt; true) { ... }` will
+  only run with examples or groups declared with `:ui =&gt; true`.</pre>
+
+<p>@yield [Example] the example to run</p>
+
+<p>@note the syntax of `around` is similar to that of `before` and `after`</p>
+
+<pre>but the semantics are quite different. `before` and `after` hooks are
+run in the context of of the examples with which they are associated,
+whereas `around` hooks are actually responsible for running the
+examples. Consequently, `around` hooks do not have direct access to
+resources that are made available within the examples and their
+associated `before` and `after` hooks.</pre>
+
+<p>@note `:example`/`:each` is the only supported scope.</p>
+
+<p>Declare a block of code, parts of which will be run before and parts after
+the example. It is your responsibility to run the example:</p>
+
+<pre class="ruby"><span class="ruby-identifier">around</span>(:<span class="ruby-identifier">example</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">ex</span><span class="ruby-operator">|</span>
+  <span class="ruby-comment"># Do some stuff before.</span>
+  <span class="ruby-identifier">ex</span>.<span class="ruby-identifier">run</span>
+  <span class="ruby-comment"># Do some stuff after.</span>
+<span class="ruby-keyword">end</span>
+</pre>
+
+<p>The yielded example aliases `run` with `call`, which lets you treat it like
+a `Proc`. This is especially handy when working with libaries that manage
+their own setup and teardown using a block or proc syntax, e.g.</p>
+
+<pre class="ruby"><span class="ruby-identifier">around</span>(:<span class="ruby-identifier">example</span>) {<span class="ruby-operator">|</span><span class="ruby-identifier">ex</span><span class="ruby-operator">|</span> <span class="ruby-constant">Database</span>.<span class="ruby-identifier">transaction</span>(<span class="ruby-operator">&amp;</span><span class="ruby-identifier">ex</span>)}
+<span class="ruby-identifier">around</span>(:<span class="ruby-identifier">example</span>) {<span class="ruby-operator">|</span><span class="ruby-identifier">ex</span><span class="ruby-operator">|</span> <span class="ruby-constant">FakeFS</span>(<span class="ruby-operator">&amp;</span><span class="ruby-identifier">ex</span>)}
+</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="around-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/rspec-core-3.7.1/lib/rspec/core/hooks.rb, line 332</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">around</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+  <span class="ruby-identifier">hooks</span>.<span class="ruby-identifier">register</span> <span class="ruby-value">:prepend</span>, <span class="ruby-value">:around</span>, <span class="ruby-operator">*</span><span class="ruby-identifier">args</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-before" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">before</span><span
+            class="method-args">(*args, &block)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>@api public</p>
+
+<p>@overload before(&amp;block) @overload before(scope, &amp;block)</p>
+
+<pre>@param scope [Symbol] `:example`, `:context`, or `:suite`
+  (defaults to `:example`)</pre>
+
+<p>@overload before(scope, conditions, &amp;block)</p>
+
+<pre>@param scope [Symbol] `:example`, `:context`, or `:suite`
+  (defaults to `:example`)
+@param conditions [Hash]
+  constrains this hook to examples matching these conditions e.g.
+  `before(:example, :ui =&gt; true) { ... }` will only run with examples
+  or groups declared with `:ui =&gt; true`.</pre>
+
+<p>@overload before(conditions, &amp;block)</p>
+
+<pre>@param conditions [Hash]
+  constrains this hook to examples matching these conditions e.g.
+  `before(:example, :ui =&gt; true) { ... }` will only run with examples
+  or groups declared with `:ui =&gt; true`.</pre>
+
+<p>@see <a href="Hooks.html#method-i-after">after</a> @see <a
+href="Hooks.html#method-i-around">around</a> @see <a
+href="ExampleGroup.html">ExampleGroup</a> @see <a
+href="SharedContext.html">SharedContext</a> @see <a
+href="SharedExampleGroup.html">SharedExampleGroup</a> @see <a
+href="Configuration.html">Configuration</a></p>
+
+<p>Declare a block of code to be run before each example (using `:example`) or
+once before any example (using `:context`). These are usually declared
+directly in the {ExampleGroup} to which they apply, but they can also be
+shared across multiple groups.</p>
+
+<p>You can also use `before(:suite)` to run a block of code before any example
+groups are run. This should be declared in {RSpec.configure}.</p>
+
+<p>Instance variables declared in `before(:example)` or `before(:context)` are
+accessible within each example.</p>
+
+<p>### Order</p>
+
+<p>`before` hooks are stored in three scopes, which are run in order:
+`:suite`, `:context`, and `:example`. They can also be declared in several
+different places: `RSpec.configure`, a parent group, the current group.
+They are run in the following order:</p>
+
+<pre class="ruby"><span class="ruby-identifier">before</span>(:<span class="ruby-identifier">suite</span>)    <span class="ruby-comment"># Declared in RSpec.configure.</span>
+<span class="ruby-identifier">before</span>(:<span class="ruby-identifier">context</span>)  <span class="ruby-comment"># Declared in RSpec.configure.</span>
+<span class="ruby-identifier">before</span>(:<span class="ruby-identifier">context</span>)  <span class="ruby-comment"># Declared in a parent group.</span>
+<span class="ruby-identifier">before</span>(:<span class="ruby-identifier">context</span>)  <span class="ruby-comment"># Declared in the current group.</span>
+<span class="ruby-identifier">before</span>(:<span class="ruby-identifier">example</span>)  <span class="ruby-comment"># Declared in RSpec.configure.</span>
+<span class="ruby-identifier">before</span>(:<span class="ruby-identifier">example</span>)  <span class="ruby-comment"># Declared in a parent group.</span>
+<span class="ruby-identifier">before</span>(:<span class="ruby-identifier">example</span>)  <span class="ruby-comment"># Declared in the current group.</span>
+</pre>
+
+<p>If more than one `before` is declared within any one scope, they are run in
+the order in which they are declared.</p>
+
+<p>### Conditions</p>
+
+<p>When you add a conditions hash to `before(:example)` or `before(:context)`,
+<a href="../../RSpec.html">RSpec</a> will only apply that hook to groups or
+examples that match the conditions. e.g.</p>
+
+<pre class="ruby"><span class="ruby-constant">RSpec</span>.<span class="ruby-identifier">configure</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">config</span><span class="ruby-operator">|</span>
+  <span class="ruby-identifier">config</span>.<span class="ruby-identifier">before</span>(:<span class="ruby-identifier">example</span>, :<span class="ruby-identifier">authorized</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword">true</span>) <span class="ruby-keyword">do</span>
+    <span class="ruby-identifier">log_in_as</span> :<span class="ruby-identifier">authorized_user</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span>
+
+<span class="ruby-identifier">describe</span> <span class="ruby-constant">Something</span>, :<span class="ruby-identifier">authorized</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword">true</span> <span class="ruby-keyword">do</span>
+  <span class="ruby-comment"># The before hook will run in before each example in this group.</span>
+<span class="ruby-keyword">end</span>
+
+<span class="ruby-identifier">describe</span> <span class="ruby-constant">SomethingElse</span> <span class="ruby-keyword">do</span>
+  <span class="ruby-identifier">it</span> <span class="ruby-string">&quot;does something&quot;</span>, :<span class="ruby-identifier">authorized</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword">true</span> <span class="ruby-keyword">do</span>
+    <span class="ruby-comment"># The before hook will run before this example.</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">it</span> <span class="ruby-string">&quot;does something else&quot;</span> <span class="ruby-keyword">do</span>
+    <span class="ruby-comment"># The hook will not run before this example.</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span>
+</pre>
+
+<p>Note that filtered config `:context` hooks can still be applied to
+individual examples that have matching metadata. Just like Ruby&#39;s
+object model is that every object has a singleton class which has only a
+single instance, RSpec&#39;s model is that every example has a singleton
+example group containing just the one example.</p>
+
+<p>### Warning: `before(:suite, :with =&gt; :conditions)`</p>
+
+<p>The conditions hash is used to match against specific examples. Since
+`before(:suite)` is not run in relation to any specific example or group,
+conditions passed along with `:suite` are effectively ignored.</p>
+
+<p>### Exceptions</p>
+
+<p>When an exception is raised in a `before` block, <a
+href="../../RSpec.html">RSpec</a> skips any subsequent `before` blocks and
+the example, but runs all of the `after(:example)` and `after(:context)`
+hooks.</p>
+
+<p>### Warning: implicit before blocks</p>
+
+<p>`before` hooks can also be declared in shared contexts which get included
+implicitly either by you or by extension libraries. Since <a
+href="../../RSpec.html">RSpec</a> runs these in the order in which they are
+declared within each scope, load order matters, and can lead to confusing
+results when one before block depends on state that is prepared in another
+before block that gets run later.</p>
+
+<p>### Warning: `before(:context)`</p>
+
+<p>It is very tempting to use `before(:context)` to speed things up, but we
+recommend that you avoid this as there are a number of gotchas, as well as
+things that simply don&#39;t work.</p>
+
+<p>#### Context</p>
+
+<p>`before(:context)` is run in an example that is generated to provide group
+context for the block.</p>
+
+<p>#### Instance variables</p>
+
+<p>Instance variables declared in `before(:context)` are shared across all the
+examples in the group. This means that each example can change the state of
+a shared object, resulting in an ordering dependency that can make it
+difficult to reason about failures.</p>
+
+<p>#### Unsupported <a href="../../RSpec.html">RSpec</a> constructs</p>
+
+<p><a href="../../RSpec.html">RSpec</a> has several constructs that reset
+state between each example automatically. These are not intended for use
+from within `before(:context)`:</p>
+
+<pre>* `let` declarations
+* `subject` declarations
+* Any mocking, stubbing or test double declaration</pre>
+
+<p>### other frameworks</p>
+
+<p>Mock object frameworks and database transaction managers (like <a
+href="../../ActiveRecord.html">ActiveRecord</a>) are typically designed
+around the idea of setting up before an example, running that one example,
+and then tearing down. This means that mocks and stubs can (sometimes) be
+declared in `before(:context)`, but get torn down before the first real
+example is ever run.</p>
+
+<p>You <em>can</em> create database-backed model objects in a
+`before(:context)` in rspec-rails, but it will not be wrapped in a
+transaction for you, so you are on your own to clean up in an
+`after(:context)` block.</p>
+
+<p>@example before(:example) declared in an {ExampleGroup}</p>
+
+<pre class="ruby"><span class="ruby-identifier">describe</span> <span class="ruby-constant">Thing</span> <span class="ruby-keyword">do</span>
+  <span class="ruby-identifier">before</span>(:<span class="ruby-identifier">example</span>) <span class="ruby-keyword">do</span>
+    <span class="ruby-ivar">@thing</span> = <span class="ruby-constant">Thing</span>.<span class="ruby-identifier">new</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">it</span> <span class="ruby-string">&quot;does something&quot;</span> <span class="ruby-keyword">do</span>
+    <span class="ruby-comment"># Here you can access @thing.</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span>
+</pre>
+
+<p>@example before(:context) declared in an {ExampleGroup}</p>
+
+<pre class="ruby"><span class="ruby-identifier">describe</span> <span class="ruby-constant">Parser</span> <span class="ruby-keyword">do</span>
+  <span class="ruby-identifier">before</span>(:<span class="ruby-identifier">context</span>) <span class="ruby-keyword">do</span>
+    <span class="ruby-constant">File</span>.<span class="ruby-identifier">open</span>(<span class="ruby-identifier">file_to_parse</span>, <span class="ruby-string">&#39;w&#39;</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">f</span><span class="ruby-operator">|</span>
+      <span class="ruby-identifier">f</span>.<span class="ruby-identifier">write</span> <span class="ruby-value">&lt;&lt;-CONTENT
+        stuff in the file
+      CONTENT</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">it</span> <span class="ruby-string">&quot;parses the file&quot;</span> <span class="ruby-keyword">do</span>
+    <span class="ruby-constant">Parser</span>.<span class="ruby-identifier">parse</span>(<span class="ruby-identifier">file_to_parse</span>)
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">after</span>(:<span class="ruby-identifier">context</span>) <span class="ruby-keyword">do</span>
+    <span class="ruby-constant">File</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-identifier">file_to_parse</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span>
+</pre>
+
+<p>@note The `:example` and `:context` scopes are also available as</p>
+
+<pre>`:each` and `:all`, respectively. Use whichever you prefer.</pre>
+
+<p>@note The `:suite` scope is only supported for hooks registered on</p>
+
+<pre>`RSpec.configuration` since they exist independently of any
+example or example group.</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="before-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/rspec-core-3.7.1/lib/rspec/core/hooks.rb, line 197</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">before</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+  <span class="ruby-identifier">hooks</span>.<span class="ruby-identifier">register</span> <span class="ruby-value">:append</span>, <span class="ruby-value">:before</span>, <span class="ruby-operator">*</span><span class="ruby-identifier">args</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+        <div class="aliases">
+          Also aliased as: <a href="Hooks.html#method-i-append_before">append_before</a>
+        </div>
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-hooks" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">hooks</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>@private Holds the various registered hooks.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="hooks-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/rspec-core-3.7.1/lib/rspec/core/hooks.rb, line 338</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">hooks</span>
+  <span class="ruby-ivar">@hooks</span> <span class="ruby-operator">||=</span> <span class="ruby-constant">HookCollections</span>.<span class="ruby-identifier">new</span>(<span class="ruby-keyword">self</span>, <span class="ruby-constant">FilterableItemRepository</span><span class="ruby-operator">::</span><span class="ruby-constant">UpdateOptimized</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-prepend_after" class="method-detail method-alias">
+        
+        <div class="method-heading">
+          <span class="method-name">prepend_after</span><span
+            class="method-args">(*args, &block)</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+        </div>
+
+        
+
+        
+        <div class="aliases">
+          Alias for: <a href="Hooks.html#method-i-after">after</a>
+        </div>
+        
+      </div>
+
+    
+      <div id="method-i-prepend_before" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">prepend_before</span><span
+            class="method-args">(*args, &block)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Adds `block` to the front of the list of `before` blocks in the same scope
+(`:example`, `:context`, or `:suite`).</p>
+
+<p>See {#before} for scoping semantics.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="prepend_before-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/rspec-core-3.7.1/lib/rspec/core/hooks.rb, line 207</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">prepend_before</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+  <span class="ruby-identifier">hooks</span>.<span class="ruby-identifier">register</span> <span class="ruby-value">:prepend</span>, <span class="ruby-value">:before</span>, <span class="ruby-operator">*</span><span class="ruby-identifier">args</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="https://rdoc.github.io/rdoc">RDoc</a> 5.0.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

@@ -1,0 +1,3202 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>CHANGELOG - RDoc Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../../../../../../";
+  var index_rel_prefix = "../../../../../../";
+</script>
+
+<script src="../../../../../../js/jquery.js"></script>
+<script src="../../../../../../js/darkfish.js"></script>
+
+<link href="../../../../../../css/fonts.css" rel="stylesheet">
+<link href="../../../../../../css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="file">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../../../../../../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../../../../../../table_of_contents.html#pages">Pages</a>
+    <a href="../../../../../../table_of_contents.html#classes">Classes</a>
+    <a href="../../../../../../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+<div class="nav-section">
+  <h3>Table of Contents</h3>
+
+  <ul class="link-list" role="directory">
+    <li><a href="#label-2.0.1+-2F+2018-02-17">2.0.1 / 2018-02-17</a>
+    <li><a href="#label-2.0.0+-2F+2017-04-10">2.0.0 / 2017-04-10</a>
+    <li><a href="#label-1.4.8+-2F+2017-01-30">1.4.8 / 2017-01-30</a>
+    <li><a href="#label-1.4.7+-2F+2016-01-24">1.4.7 / 2016-01-24</a>
+    <li><a href="#label-1.4.6+-2F+2015-03-23">1.4.6 / 2015-03-23</a>
+    <li><a href="#label-1.4.5+-2F+2014-04-08">1.4.5 / 2014-04-08</a>
+    <li><a href="#label-1.4.4+-2F+2013-10-21">1.4.4 / 2013-10-21</a>
+    <li><a href="#label-1.4.3+-2F+2013-06-07">1.4.3 / 2013-06-07</a>
+    <li><a href="#label-1.4.2+-2F+2013-03-21">1.4.2 / 2013-03-21</a>
+    <li><a href="#label-1.4.1+-2F+2013-03-15">1.4.1 / 2013-03-15</a>
+    <li><a href="#label-1.4.0+-2F+2013-03-15">1.4.0 / 2013-03-15</a>
+    <li><a href="#label-1.3.6+-28backport+release-29+-2F+2013-03-15">1.3.6 (backport release) / 2013-03-15</a>
+    <li><a href="#label-1.3.5+-2F+2013-02-25">1.3.5 / 2013-02-25</a>
+    <li><a href="#label-1.3.4+-2F+2013-01-26">1.3.4 / 2013-01-26</a>
+    <li><a href="#label-1.3.3+-2F+2012-08-19">1.3.3 / 2012-08-19</a>
+    <li><a href="#label-1.3.2+-2F+2011-12-30">1.3.2 / 2011-12-30</a>
+    <li><a href="#label-1.3.1+-2F+2011-10-05">1.3.1 / 2011-10-05</a>
+    <li><a href="#label-1.3.0+-2F+2011-09-30">1.3.0 / 2011-09-30</a>
+    <li><a href="#label-1.2.9+-28backports+release-29+-2F+2013-03-15">1.2.9 (backports release) / 2013-03-15</a>
+    <li><a href="#label-1.2.8+-28backports+release-29+-2F+2011-12-30">1.2.8 (backports release) / 2011-12-30</a>
+    <li><a href="#label-1.2.7+-28backports+release-29+-2F+2011-09-30">1.2.7 (backports release) / 2011-09-30</a>
+    <li><a href="#label-1.2.6+-2F+2011-05-01">1.2.6 / 2011-05-01</a>
+    <li><a href="#label-1.2.5+-2F+2011-04-30">1.2.5 / 2011-04-30</a>
+    <li><a href="#label-1.2.4+-2F+2011-04-30">1.2.4 / 2011-04-30</a>
+    <li><a href="#label-1.2.3+-2F+2011-04-13">1.2.3 / 2011-04-13</a>
+    <li><a href="#label-1.2.2+-2F+2011-04-08">1.2.2 / 2011-04-08</a>
+    <li><a href="#label-1.2.1+-2F+2011-03-17">1.2.1 / 2011-03-17</a>
+    <li><a href="#label-1.2.0+-2F+2011-03-03">1.2.0 / 2011-03-03</a>
+    <li><a href="#label-1.1.4+-28backports+release-29+-2F+2011-04-13">1.1.4 (backports release) / 2011-04-13</a>
+    <li><a href="#label-1.1.3+-2F+2011-02-20">1.1.3 / 2011-02-20</a>
+    <li><a href="#label-1.1.2+-2F+2010-10-25">1.1.2 / 2010-10-25</a>
+    <li><a href="#label-1.1.1+-2F+2010-10-25">1.1.1 / 2010-10-25</a>
+    <li><a href="#label-1.1.0+-2F+2010-10-24">1.1.0 / 2010-10-24</a>
+    <li><a href="#label-1.0+-2F+2010-03-23">1.0 / 2010-03-23</a>
+    <li><a href="#label-0.9.2+-2F+2009-05-18">0.9.2 / 2009-05-18</a>
+    <li><a href="#label-0.9.1.1+-2F+2009-03-09">0.9.1.1 / 2009-03-09</a>
+    <li><a href="#label-0.9.1+-2F+2009-03-01">0.9.1 / 2009-03-01</a>
+    <li><a href="#label-0.9.0.4+-2F+2009-01-25">0.9.0.4 / 2009-01-25</a>
+    <li><a href="#label-0.9.0.3+-2F+2009-01-21">0.9.0.3 / 2009-01-21</a>
+    <li><a href="#label-0.9.0.2+-2F+2009-01-18">0.9.0.2 / 2009-01-18</a>
+    <li><a href="#label-0.9.0+-2F+2009-01-18">0.9.0 / 2009-01-18</a>
+    <li><a href="#label-0.3.3+-2F+2009-01-06">0.3.3 / 2009-01-06</a>
+    <li><a href="#label-0.3.2">0.3.2</a>
+    <li><a href="#label-0.3.1">0.3.1</a>
+    <li><a href="#label-0.3.0">0.3.0</a>
+    <li><a href="#label-0.2.1">0.2.1</a>
+    <li><a href="#label-0.2.0">0.2.0</a>
+  </ul>
+</div>
+
+
+  <div id="project-metadata">
+    <div id="fileindex-section" class="nav-section">
+  <h3>Pages</h3>
+
+  <ul class="link-list">
+  
+    <li><a href="../../../../../../Gemfile.html">Gemfile</a>
+  
+    <li><a href="../../../../../../Gemfile_lock.html">Gemfile.lock</a>
+  
+    <li><a href="../../../../../../Guardfile.html">Guardfile</a>
+  
+    <li><a href="../../../../../../Rakefile.html">Rakefile</a>
+  
+    <li><a href="../../../../../../config_ru.html">config.ru</a>
+  
+    <li><a href="../../../../../../db/cesdr_json.html">cesdr.json</a>
+  
+    <li><a href="../../../../../../gitpush_bat.html">gitpush.bat</a>
+  
+    <li><a href="../../../../../../run_bat.html">run.bat</a>
+  
+    <li><a href="../../../../../../spec/examples_txt.html">examples</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/bin/_guard-core.html">_guard-core</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/bin/_guard-core_bat.html">_guard-core.bat</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/bin/coderay.html">coderay</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/bin/coderay_bat.html">coderay.bat</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/bin/guard.html">guard</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/bin/guard_bat.html">guard.bat</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/bin/htmldiff.html">htmldiff</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/bin/htmldiff_bat.html">htmldiff.bat</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/bin/ldiff.html">ldiff</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/bin/ldiff_bat.html">ldiff.bat</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/bin/listen.html">listen</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/bin/listen_bat.html">listen.bat</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/bin/pry.html">pry</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/bin/pry_bat.html">pry.bat</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/bin/rackup.html">rackup</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/bin/rackup_bat.html">rackup.bat</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/bin/rake.html">rake</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/bin/rake_bat.html">rake.bat</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/bin/rerun.html">rerun</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/bin/rerun_bat.html">rerun.bat</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/bin/rspec.html">rspec</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/bin/rspec_bat.html">rspec.bat</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/bin/rubocop.html">rubocop</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/bin/rubocop_bat.html">rubocop.bat</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/bin/ruby-parse.html">ruby-parse</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/bin/ruby-parse_bat.html">ruby-parse.bat</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/bin/ruby-rewrite.html">ruby-rewrite</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/bin/ruby-rewrite_bat.html">ruby-rewrite.bat</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/bin/thor.html">thor</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/bin/thor_bat.html">thor.bat</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/bin/tilt.html">tilt</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/bin/tilt_bat.html">tilt.bat</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/extensions/x64-mingw32/2_4_0/oj-3_4_0/gem_build_complete.html">gem.build_complete</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/extensions/x64-mingw32/2_4_0/oj-3_4_0/gem_make_out.html">gem_make.out</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/extensions/x64-mingw32/2_4_0/rainbow-2_2_2/gem_build_complete.html">gem.build_complete</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/extensions/x64-mingw32/2_4_0/rainbow-2_2_2/gem_make_out.html">gem_make.out</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/extensions/x64-mingw32/2_4_0/wdm-0_1_1/gem_build_complete.html">gem.build_complete</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/extensions/x64-mingw32/2_4_0/wdm-0_1_1/gem_make_out.html">gem_make.out</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/extensions/x64-mingw32/2_4_0/wdm-0_1_1/mkmf_log.html">mkmf.log</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/activemodel-5_1_5/CHANGELOG_md.html">CHANGELOG</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/activemodel-5_1_5/MIT-LICENSE.html">MIT-LICENSE</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/activemodel-5_1_5/README_rdoc.html">README</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/activerecord-5_1_5/CHANGELOG_md.html">CHANGELOG</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/activerecord-5_1_5/MIT-LICENSE.html">MIT-LICENSE</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/activerecord-5_1_5/README_rdoc.html">README</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/activerecord-5_1_5/lib/active_record/railties/databases_rake.html">databases.rake</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/activesupport-5_1_5/CHANGELOG_md.html">CHANGELOG</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/activesupport-5_1_5/MIT-LICENSE.html">MIT-LICENSE</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/activesupport-5_1_5/README_rdoc.html">README</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/alexa_verifier-1_0_0/CODE_OF_CONDUCT_md.html">CODE_OF_CONDUCT</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/alexa_verifier-1_0_0/Gemfile.html">Gemfile</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/alexa_verifier-1_0_0/LICENSE.html">LICENSE</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/alexa_verifier-1_0_0/README_md.html">README</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/alexa_verifier-1_0_0/Rakefile.html">Rakefile</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/alexa_verifier-1_0_0/alexa_verifier_gemspec.html">alexa_verifier.gemspec</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/alexa_verifier-1_0_0/bin/setup.html">setup</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/arel-8_0_0/History_txt.html">History</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/arel-8_0_0/MIT-LICENSE_txt.html">MIT-LICENSE</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/arel-8_0_0/README_md.html">README</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ast-2_4_0/CHANGELOG_md.html">CHANGELOG</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ast-2_4_0/Gemfile.html">Gemfile</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ast-2_4_0/LICENSE_MIT.html">LICENSE.MIT</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ast-2_4_0/README_YARD_md.html">README.YARD</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ast-2_4_0/README_md.html">README</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ast-2_4_0/Rakefile.html">Rakefile</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ast-2_4_0/ast_gemspec.html">ast.gemspec</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/coderay-1_1_2/MIT-LICENSE.html">MIT-LICENSE</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/coderay-1_1_2/README_INDEX_rdoc.html">README_INDEX</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/concurrent-ruby-1_0_5/CHANGELOG_md.html">CHANGELOG</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/concurrent-ruby-1_0_5/LICENSE_txt.html">LICENSE</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/concurrent-ruby-1_0_5/README_md.html">README</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/database_cleaner-1_6_1/CONTRIBUTE_markdown.html">CONTRIBUTE.markdown</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/database_cleaner-1_6_1/Gemfile_lock.html">Gemfile.lock</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/database_cleaner-1_6_1/History_rdoc.html">History</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/database_cleaner-1_6_1/LICENSE.html">LICENSE</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/database_cleaner-1_6_1/README_markdown.html">README.markdown</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/database_cleaner-1_6_1/Rakefile.html">Rakefile</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/database_cleaner-1_6_1/TODO.html">TODO</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/database_cleaner-1_6_1/examples/Gemfile.html">Gemfile</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/database_cleaner-1_6_1/examples/Gemfile_lock.html">Gemfile.lock</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/database_cleaner-1_6_1/examples/config/database_yml_example.html">database.yml.example</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/database_cleaner-1_6_1/examples/db/sqlite_databases_go_here.html">sqlite_databases_go_here</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/database_cleaner-1_6_1/examples/features/example_feature.html">example.feature</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/database_cleaner-1_6_1/examples/features/example_multiple_db_feature.html">example_multiple_db.feature</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/database_cleaner-1_6_1/examples/features/example_multiple_orm_feature.html">example_multiple_orm.feature</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/database_cleaner-1_6_1/features/cleaning_feature.html">cleaning.feature</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/database_cleaner-1_6_1/features/cleaning_default_strategy_feature.html">cleaning_default_strategy.feature</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/database_cleaner-1_6_1/features/cleaning_multiple_dbs_feature.html">cleaning_multiple_dbs.feature</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/database_cleaner-1_6_1/features/cleaning_multiple_orms_feature.html">cleaning_multiple_orms.feature</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/database_cleaner-1_6_1/spec/rcov_opts.html">rcov.opts</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/database_cleaner-1_6_2/CONTRIBUTE_markdown.html">CONTRIBUTE.markdown</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/database_cleaner-1_6_2/Gemfile_lock.html">Gemfile.lock</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/database_cleaner-1_6_2/History_rdoc.html">History</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/database_cleaner-1_6_2/LICENSE.html">LICENSE</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/database_cleaner-1_6_2/README_markdown.html">README.markdown</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/database_cleaner-1_6_2/Rakefile.html">Rakefile</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/database_cleaner-1_6_2/TODO.html">TODO</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/diff-lcs-1_3/Code-of-Conduct_md.html">Code-of-Conduct</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/diff-lcs-1_3/Contributing_md.html">Contributing</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/diff-lcs-1_3/History_md.html">History</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/diff-lcs-1_3/License_md.html">License</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/diff-lcs-1_3/Manifest_txt.html">Manifest</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/diff-lcs-1_3/README_rdoc.html">README</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/diff-lcs-1_3/Rakefile.html">Rakefile</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/diff-lcs-1_3/bin/htmldiff.html">htmldiff</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/diff-lcs-1_3/bin/ldiff.html">ldiff</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/diff-lcs-1_3/docs/COPYING_txt.html">COPYING</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/diff-lcs-1_3/docs/artistic_txt.html">artistic</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/diff-lcs-1_3/spec/fixtures/ds1_csv.html">ds1.csv</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/diff-lcs-1_3/spec/fixtures/ds2_csv.html">ds2.csv</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/COPYING.html">COPYING</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/LICENSE.html">LICENSE</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/README_md.html">README</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/Rakefile.html">Rakefile</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/ext/ffi_c/libffi/ChangeLog_libffi.html">ChangeLog.libffi</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/ext/ffi_c/libffi/ChangeLog_libffi-3_1.html">ChangeLog.libffi-3.1</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/ext/ffi_c/libffi/ChangeLog_libgcj.html">ChangeLog.libgcj</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/ext/ffi_c/libffi/ChangeLog_v1.html">ChangeLog.v1</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/ext/ffi_c/libffi/LICENSE.html">LICENSE</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/ext/ffi_c/libffi/Makefile_am.html">Makefile.am</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/ext/ffi_c/libffi/Makefile_in.html">Makefile.in</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/ext/ffi_c/libffi/README.html">README</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/ext/ffi_c/libffi/acinclude_m4.html">acinclude.m4</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/ext/ffi_c/libffi/autogen_sh.html">autogen.sh</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/ext/ffi_c/libffi/autom4te_cache/output_0.html">output.0</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/ext/ffi_c/libffi/autom4te_cache/output_1.html">output.1</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/ext/ffi_c/libffi/autom4te_cache/output_2.html">output.2</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/ext/ffi_c/libffi/autom4te_cache/output_3.html">output.3</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/ext/ffi_c/libffi/autom4te_cache/requests.html">requests</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/ext/ffi_c/libffi/autom4te_cache/traces_0.html">traces.0</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/ext/ffi_c/libffi/autom4te_cache/traces_1.html">traces.1</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/ext/ffi_c/libffi/autom4te_cache/traces_2.html">traces.2</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/ext/ffi_c/libffi/autom4te_cache/traces_3.html">traces.3</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/ext/ffi_c/libffi/compile.html">compile</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/ext/ffi_c/libffi/config_guess.html">config.guess</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/ext/ffi_c/libffi/config_sub.html">config.sub</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/ext/ffi_c/libffi/configure.html">configure</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/ext/ffi_c/libffi/configure_ac.html">configure.ac</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/ext/ffi_c/libffi/configure_host.html">configure.host</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/ext/ffi_c/libffi/depcomp.html">depcomp</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/ext/ffi_c/libffi/doc/Makefile_am.html">Makefile.am</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/ext/ffi_c/libffi/doc/Makefile_in.html">Makefile.in</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/ext/ffi_c/libffi/doc/mdate-sh.html">mdate-sh</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/ext/ffi_c/libffi/doc/texinfo_tex.html">texinfo.tex</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/ext/ffi_c/libffi/doc/version_texi.html">version.texi</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/ext/ffi_c/libffi/fficonfig_h_in.html">fficonfig.h.in</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/ext/ffi_c/libffi/fficonfig_h_in~.html">fficonfig.h.in~</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/ext/ffi_c/libffi/generate-darwin-source-and-headers_py.html">generate-darwin-source-and-headers.py</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/ext/ffi_c/libffi/include/Makefile_am.html">Makefile.am</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/ext/ffi_c/libffi/include/Makefile_in.html">Makefile.in</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/ext/ffi_c/libffi/install-sh.html">install-sh</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/ext/ffi_c/libffi/libffi_map_in.html">libffi.map.in</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/ext/ffi_c/libffi/libffi_pc_in.html">libffi.pc.in</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/ext/ffi_c/libffi/libffi_xcodeproj/project_pbxproj.html">project.pbxproj</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/ext/ffi_c/libffi/libtool-ldflags.html">libtool-ldflags</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/ext/ffi_c/libffi/libtool-version.html">libtool-version</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/ext/ffi_c/libffi/ltmain_sh.html">ltmain.sh</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/ext/ffi_c/libffi/m4/asmcfi_m4.html">asmcfi.m4</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/ext/ffi_c/libffi/m4/ax_append_flag_m4.html">ax_append_flag.m4</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/ext/ffi_c/libffi/m4/ax_cc_maxopt_m4.html">ax_cc_maxopt.m4</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/ext/ffi_c/libffi/m4/ax_cflags_warn_all_m4.html">ax_cflags_warn_all.m4</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/ext/ffi_c/libffi/m4/ax_check_compile_flag_m4.html">ax_check_compile_flag.m4</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/ext/ffi_c/libffi/m4/ax_compiler_vendor_m4.html">ax_compiler_vendor.m4</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/ext/ffi_c/libffi/m4/ax_configure_args_m4.html">ax_configure_args.m4</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/ext/ffi_c/libffi/m4/ax_enable_builddir_m4.html">ax_enable_builddir.m4</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/ext/ffi_c/libffi/m4/ax_gcc_archflag_m4.html">ax_gcc_archflag.m4</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/ext/ffi_c/libffi/m4/ax_gcc_x86_cpuid_m4.html">ax_gcc_x86_cpuid.m4</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/ext/ffi_c/libffi/man/Makefile_am.html">Makefile.am</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/ext/ffi_c/libffi/man/Makefile_in.html">Makefile.in</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/ext/ffi_c/libffi/man/ffi_3.html">ffi.3</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/ext/ffi_c/libffi/man/ffi_call_3.html">ffi_call.3</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/ext/ffi_c/libffi/man/ffi_prep_cif_3.html">ffi_prep_cif.3</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/ext/ffi_c/libffi/man/ffi_prep_cif_var_3.html">ffi_prep_cif_var.3</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/ext/ffi_c/libffi/missing.html">missing</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/ext/ffi_c/libffi/msvcc_sh.html">msvcc.sh</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/ext/ffi_c/libffi/src/aarch64/sysv_S.html">sysv.S</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/ext/ffi_c/libffi/src/alpha/osf_S.html">osf.S</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/ext/ffi_c/libffi/src/arc/arcompact_S.html">arcompact.S</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/ext/ffi_c/libffi/src/arm/sysv_S.html">sysv.S</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/ext/ffi_c/libffi/src/avr32/sysv_S.html">sysv.S</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/ext/ffi_c/libffi/src/bfin/sysv_S.html">sysv.S</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/ext/ffi_c/libffi/src/cris/sysv_S.html">sysv.S</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/ext/ffi_c/libffi/src/frv/eabi_S.html">eabi.S</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/ext/ffi_c/libffi/src/ia64/unix_S.html">unix.S</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/ext/ffi_c/libffi/src/m32r/sysv_S.html">sysv.S</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/ext/ffi_c/libffi/src/m68k/sysv_S.html">sysv.S</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/ext/ffi_c/libffi/src/m88k/obsd_S.html">obsd.S</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/ext/ffi_c/libffi/src/metag/sysv_S.html">sysv.S</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/ext/ffi_c/libffi/src/microblaze/sysv_S.html">sysv.S</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/ext/ffi_c/libffi/src/mips/n32_S.html">n32.S</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/ext/ffi_c/libffi/src/mips/o32_S.html">o32.S</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/ext/ffi_c/libffi/src/moxie/eabi_S.html">eabi.S</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/ext/ffi_c/libffi/src/nios2/sysv_S.html">sysv.S</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/ext/ffi_c/libffi/src/or1k/sysv_S.html">sysv.S</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/ext/ffi_c/libffi/src/pa/hpux32_S.html">hpux32.S</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/ext/ffi_c/libffi/src/pa/linux_S.html">linux.S</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/ext/ffi_c/libffi/src/powerpc/aix_S.html">aix.S</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/ext/ffi_c/libffi/src/powerpc/aix_closure_S.html">aix_closure.S</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/ext/ffi_c/libffi/src/powerpc/darwin_S.html">darwin.S</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/ext/ffi_c/libffi/src/powerpc/darwin_closure_S.html">darwin_closure.S</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/ext/ffi_c/libffi/src/powerpc/linux64_S.html">linux64.S</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/ext/ffi_c/libffi/src/powerpc/linux64_closure_S.html">linux64_closure.S</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/ext/ffi_c/libffi/src/powerpc/ppc_closure_S.html">ppc_closure.S</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/ext/ffi_c/libffi/src/powerpc/sysv_S.html">sysv.S</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/ext/ffi_c/libffi/src/s390/sysv_S.html">sysv.S</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/ext/ffi_c/libffi/src/sh/sysv_S.html">sysv.S</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/ext/ffi_c/libffi/src/sh64/sysv_S.html">sysv.S</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/ext/ffi_c/libffi/src/sparc/v8_S.html">v8.S</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/ext/ffi_c/libffi/src/sparc/v9_S.html">v9.S</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/ext/ffi_c/libffi/src/tile/tile_S.html">tile.S</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/ext/ffi_c/libffi/src/vax/elfbsd_S.html">elfbsd.S</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/ext/ffi_c/libffi/src/x86/sysv_S.html">sysv.S</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/ext/ffi_c/libffi/src/x86/unix64_S.html">unix64.S</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/ext/ffi_c/libffi/src/x86/win64_S.html">win64.S</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/ext/ffi_c/libffi/src/x86/win64_intel_S.html">win64_intel.S</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/ext/ffi_c/libffi/src/xtensa/sysv_S.html">sysv.S</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/ext/ffi_c/libffi/stamp-h_in.html">stamp-h.in</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/ext/ffi_c/libffi/testsuite/Makefile_am.html">Makefile.am</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/ext/ffi_c/libffi/testsuite/Makefile_in.html">Makefile.in</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/ext/ffi_c/libffi/testsuite/config/default_exp.html">default.exp</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/ext/ffi_c/libffi/testsuite/lib/libffi_exp.html">libffi.exp</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/ext/ffi_c/libffi/testsuite/lib/target-libpath_exp.html">target-libpath.exp</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/ext/ffi_c/libffi/testsuite/lib/wrapper_exp.html">wrapper.exp</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/ext/ffi_c/libffi/testsuite/libffi_call/call_exp.html">call.exp</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/ext/ffi_c/libffi/testsuite/libffi_complex/complex_exp.html">complex.exp</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/ext/ffi_c/libffi/testsuite/libffi_go/go_exp.html">go.exp</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/ffi_gemspec.html">ffi.gemspec</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/gen/Rakefile.html">Rakefile</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/lib/ffi/platform/aarch64-linux/types_conf.html">types.conf</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/lib/ffi/platform/arm-linux/types_conf.html">types.conf</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/lib/ffi/platform/i386-cygwin/types_conf.html">types.conf</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/lib/ffi/platform/i386-darwin/types_conf.html">types.conf</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/lib/ffi/platform/i386-freebsd/types_conf.html">types.conf</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/lib/ffi/platform/i386-gnu/types_conf.html">types.conf</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/lib/ffi/platform/i386-linux/types_conf.html">types.conf</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/lib/ffi/platform/i386-netbsd/types_conf.html">types.conf</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/lib/ffi/platform/i386-openbsd/types_conf.html">types.conf</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/lib/ffi/platform/i386-solaris/types_conf.html">types.conf</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/lib/ffi/platform/i386-windows/types_conf.html">types.conf</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/lib/ffi/platform/ia64-linux/types_conf.html">types.conf</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/lib/ffi/platform/mips-linux/types_conf.html">types.conf</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/lib/ffi/platform/mips64el-linux/types_conf.html">types.conf</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/lib/ffi/platform/mipsel-linux/types_conf.html">types.conf</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/lib/ffi/platform/powerpc-aix/types_conf.html">types.conf</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/lib/ffi/platform/powerpc-darwin/types_conf.html">types.conf</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/lib/ffi/platform/powerpc-linux/types_conf.html">types.conf</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/lib/ffi/platform/powerpc64-linux/types_conf.html">types.conf</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/lib/ffi/platform/s390-linux/types_conf.html">types.conf</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/lib/ffi/platform/s390x-linux/types_conf.html">types.conf</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/lib/ffi/platform/sparc-linux/types_conf.html">types.conf</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/lib/ffi/platform/sparc-solaris/types_conf.html">types.conf</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/lib/ffi/platform/sparc64-linux/types_conf.html">types.conf</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/lib/ffi/platform/sparcv9-solaris/types_conf.html">types.conf</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/lib/ffi/platform/x86_64-cygwin/types_conf.html">types.conf</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/lib/ffi/platform/x86_64-darwin/types_conf.html">types.conf</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/lib/ffi/platform/x86_64-freebsd/types_conf.html">types.conf</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/lib/ffi/platform/x86_64-linux/types_conf.html">types.conf</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/lib/ffi/platform/x86_64-netbsd/types_conf.html">types.conf</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/lib/ffi/platform/x86_64-openbsd/types_conf.html">types.conf</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/lib/ffi/platform/x86_64-solaris/types_conf.html">types.conf</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/lib/ffi/platform/x86_64-windows/types_conf.html">types.conf</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/libtest/GNUmakefile.html">GNUmakefile</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/spec/ffi/LICENSE_SPECS.html">LICENSE.SPECS</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/spec/ffi/embed-test/ext/Makefile.html">Makefile</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/spec/ffi/fixtures/GNUmakefile.html">GNUmakefile</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/spec/spec_opts.html">spec.opts</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/formatador-0_2_5/CONTRIBUTING_md.html">CONTRIBUTING</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/formatador-0_2_5/CONTRIBUTORS_md.html">CONTRIBUTORS</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/formatador-0_2_5/Gemfile.html">Gemfile</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/formatador-0_2_5/LICENSE_md.html">LICENSE</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/formatador-0_2_5/README_rdoc.html">README</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/formatador-0_2_5/Rakefile.html">Rakefile</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/formatador-0_2_5/changelog_txt.html">changelog</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/formatador-0_2_5/formatador_gemspec.html">formatador.gemspec</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/guard-2_14_2/CHANGELOG_md.html">CHANGELOG</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/guard-2_14_2/LICENSE.html">LICENSE</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/guard-2_14_2/README_md.html">README</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/guard-2_14_2/lib/guard/templates/Guardfile.html">Guardfile</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/guard-2_14_2/man/guard_1.html">guard.1</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/guard-2_14_2/man/guard_1_html.html">guard.1.html</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/guard-compat-1_2_1/Gemfile.html">Gemfile</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/guard-compat-1_2_1/LICENSE_txt.html">LICENSE</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/guard-compat-1_2_1/README_md.html">README</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/guard-compat-1_2_1/Rakefile.html">Rakefile</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/guard-compat-1_2_1/guard-compat_gemspec.html">guard-compat.gemspec</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/guard-rspec-4_7_3/CONTRIBUTING_md.html">CONTRIBUTING</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/guard-rspec-4_7_3/Gemfile.html">Gemfile</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/guard-rspec-4_7_3/Guardfile.html">Guardfile</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/guard-rspec-4_7_3/LICENSE_txt.html">LICENSE</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/guard-rspec-4_7_3/README_md.html">README</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/guard-rspec-4_7_3/Rakefile.html">Rakefile</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/guard-rspec-4_7_3/gemfiles/Gemfile_rspec-2_99.html">Gemfile.rspec-2.99</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/guard-rspec-4_7_3/gemfiles/Gemfile_rspec-3_4.html">Gemfile.rspec-3.4</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/guard-rspec-4_7_3/gemfiles/common.html">common</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/guard-rspec-4_7_3/guard-rspec_gemspec.html">guard-rspec.gemspec</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/guard-rspec-4_7_3/lib/guard/rspec/templates/Guardfile.html">Guardfile</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/i18n-0_9_5/MIT-LICENSE.html">MIT-LICENSE</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/i18n-0_9_5/README_md.html">README</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/i18n-0_9_5/gemfiles/Gemfile_rails-3_2_x.html">Gemfile.rails-3.2.x</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/i18n-0_9_5/gemfiles/Gemfile_rails-4_0_x.html">Gemfile.rails-4.0.x</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/i18n-0_9_5/gemfiles/Gemfile_rails-4_1_x.html">Gemfile.rails-4.1.x</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/i18n-0_9_5/gemfiles/Gemfile_rails-4_2_x.html">Gemfile.rails-4.2.x</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/i18n-0_9_5/gemfiles/Gemfile_rails-5_0_x.html">Gemfile.rails-5.0.x</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/i18n-0_9_5/gemfiles/Gemfile_rails-5_1_x.html">Gemfile.rails-5.1.x</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/i18n-0_9_5/gemfiles/Gemfile_rails-master.html">Gemfile.rails-master</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/i18n-0_9_5/test/test_data/locales/de_po.html">de.po</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/jsonb_accessor-1_0_0/Appraisals.html">Appraisals</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/jsonb_accessor-1_0_0/CODE_OF_CONDUCT_md.html">CODE_OF_CONDUCT</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/jsonb_accessor-1_0_0/Gemfile.html">Gemfile</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/jsonb_accessor-1_0_0/LICENSE_txt.html">LICENSE</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/jsonb_accessor-1_0_0/README_md.html">README</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/jsonb_accessor-1_0_0/Rakefile.html">Rakefile</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/jsonb_accessor-1_0_0/UPGRADE_GUIDE_md.html">UPGRADE_GUIDE</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/jsonb_accessor-1_0_0/bin/setup.html">setup</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/jsonb_accessor-1_0_0/gemfiles/activerecord_5_0_0_gemfile.html">activerecord_5.0.0.gemfile</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/jsonb_accessor-1_0_0/gemfiles/activerecord_5_0_0_gemfile_lock.html">activerecord_5.0.0.gemfile.lock</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/jsonb_accessor-1_0_0/gemfiles/activerecord_5_1_0_gemfile.html">activerecord_5.1.0.gemfile</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/jsonb_accessor-1_0_0/gemfiles/activerecord_5_1_0_gemfile_lock.html">activerecord_5.1.0.gemfile.lock</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/jsonb_accessor-1_0_0/jsonb_accessor_gemspec.html">jsonb_accessor.gemspec</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/listen-3_1_5/CHANGELOG_md.html">CHANGELOG</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/listen-3_1_5/CONTRIBUTING_md.html">CONTRIBUTING</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/listen-3_1_5/LICENSE_txt.html">LICENSE</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/listen-3_1_5/README_md.html">README</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/little-plugger-1_1_4/History_txt.html">History</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/little-plugger-1_1_4/README_rdoc.html">README</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/little-plugger-1_1_4/Rakefile.html">Rakefile</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/logging-2_2_2/History_txt.html">History</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/logging-2_2_2/LICENSE.html">LICENSE</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/logging-2_2_2/README_md.html">README</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/logging-2_2_2/Rakefile.html">Rakefile</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/logging-2_2_2/logging_gemspec.html">logging.gemspec</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/logging-2_2_2/script/bootstrap.html">bootstrap</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/lumberjack-1_0_12/MIT_LICENSE.html">MIT_LICENSE</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/lumberjack-1_0_12/README_md.html">README</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/lumberjack-1_0_12/Rakefile.html">Rakefile</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/lumberjack-1_0_12/VERSION.html">VERSION</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/method_source-0_9_0/Gemfile.html">Gemfile</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/method_source-0_9_0/LICENSE.html">LICENSE</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/method_source-0_9_0/README_markdown.html">README.markdown</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/method_source-0_9_0/Rakefile.html">Rakefile</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/method_source-0_9_0/method_source_gemspec.html">method_source.gemspec</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/minitest-5_11_3/History_rdoc.html">History</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/minitest-5_11_3/Manifest_txt.html">Manifest</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/minitest-5_11_3/README_rdoc.html">README</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/minitest-5_11_3/Rakefile.html">Rakefile</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/multi_json-1_13_1/CHANGELOG_md.html">CHANGELOG</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/multi_json-1_13_1/CONTRIBUTING_md.html">CONTRIBUTING</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/multi_json-1_13_1/LICENSE_md.html">LICENSE</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/multi_json-1_13_1/README_md.html">README</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/mustermann-1_0_2/LICENSE.html">LICENSE</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/mustermann-1_0_2/README_md.html">README</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/mustermann-1_0_2/mustermann_gemspec.html">mustermann.gemspec</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/nenv-0_3_0/LICENSE_txt.html">LICENSE</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/nenv-0_3_0/README_md.html">README</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/nenv-0_3_0/nenv_gemspec.html">nenv.gemspec</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/notiffany-0_1_1/LICENSE_txt.html">LICENSE</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/notiffany-0_1_1/README_md.html">README</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/oj-3_4_0/LICENSE.html">LICENSE</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/oj-3_4_0/README_md.html">README</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/oj-3_4_0/ext/oj/Makefile.html">Makefile</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/oj-3_4_0/ext/oj/oj-x64-mingw32_def.html">oj-x64-mingw32.def</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/oj-3_4_0/pages/Advanced_md.html">Advanced</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/oj-3_4_0/pages/Compatibility_md.html">Compatibility</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/oj-3_4_0/pages/Custom_md.html">Custom</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/oj-3_4_0/pages/Encoding_md.html">Encoding</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/oj-3_4_0/pages/JsonGem_md.html">JsonGem</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/oj-3_4_0/pages/Modes_md.html">Modes</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/oj-3_4_0/pages/Options_md.html">Options</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/oj-3_4_0/pages/Rails_md.html">Rails</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/oj-3_4_0/pages/Security_md.html">Security</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/oj-3_4_0/pages/WAB_md.html">WAB</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/parallel-1_12_1/MIT-LICENSE_txt.html">MIT-LICENSE</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/parser-2_5_0_0/CHANGELOG_md.html">CHANGELOG</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/parser-2_5_0_0/CONTRIBUTING_md.html">CONTRIBUTING</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/parser-2_5_0_0/Gemfile.html">Gemfile</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/parser-2_5_0_0/LICENSE_txt.html">LICENSE</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/parser-2_5_0_0/README_md.html">README</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/parser-2_5_0_0/Rakefile.html">Rakefile</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/parser-2_5_0_0/doc/AST_FORMAT_md.html">AST_FORMAT</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/parser-2_5_0_0/doc/CUSTOMIZATION_md.html">CUSTOMIZATION</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/parser-2_5_0_0/doc/INTERNALS_md.html">INTERNALS</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/parser-2_5_0_0/doc/css/common_css.html">common.css</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/parser-2_5_0_0/lib/parser/lexer_rl.html">lexer.rl</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/parser-2_5_0_0/parser_gemspec.html">parser.gemspec</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/parser-2_5_0_1/CHANGELOG_md.html">CHANGELOG</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/parser-2_5_0_1/CONTRIBUTING_md.html">CONTRIBUTING</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/parser-2_5_0_1/Gemfile.html">Gemfile</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/parser-2_5_0_1/LICENSE_txt.html">LICENSE</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/parser-2_5_0_1/README_md.html">README</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/parser-2_5_0_1/Rakefile.html">Rakefile</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/parser-2_5_0_1/doc/AST_FORMAT_md.html">AST_FORMAT</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/parser-2_5_0_1/doc/CUSTOMIZATION_md.html">CUSTOMIZATION</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/parser-2_5_0_1/doc/INTERNALS_md.html">INTERNALS</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/parser-2_5_0_1/doc/css/common_css.html">common.css</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/parser-2_5_0_1/lib/parser/lexer_rl.html">lexer.rl</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/parser-2_5_0_1/parser_gemspec.html">parser.gemspec</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/parser-2_5_0_2/CHANGELOG_md.html">CHANGELOG</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/parser-2_5_0_2/CONTRIBUTING_md.html">CONTRIBUTING</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/parser-2_5_0_2/Gemfile.html">Gemfile</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/parser-2_5_0_2/LICENSE_txt.html">LICENSE</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/parser-2_5_0_2/README_md.html">README</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/parser-2_5_0_2/Rakefile.html">Rakefile</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/parser-2_5_0_2/doc/AST_FORMAT_md.html">AST_FORMAT</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/parser-2_5_0_2/doc/CUSTOMIZATION_md.html">CUSTOMIZATION</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/parser-2_5_0_2/doc/INTERNALS_md.html">INTERNALS</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/parser-2_5_0_2/doc/css/common_css.html">common.css</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/parser-2_5_0_2/lib/parser/lexer_rl.html">lexer.rl</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/parser-2_5_0_2/parser_gemspec.html">parser.gemspec</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/pg-1_0_0-x64-mingw32/BSDL.html">BSDL</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/pg-1_0_0-x64-mingw32/ChangeLog.html">ChangeLog</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/pg-1_0_0-x64-mingw32/Contributors_rdoc.html">Contributors</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/pg-1_0_0-x64-mingw32/History_rdoc.html">History</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/pg-1_0_0-x64-mingw32/LICENSE.html">LICENSE</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/pg-1_0_0-x64-mingw32/Manifest_txt.html">Manifest</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/pg-1_0_0-x64-mingw32/POSTGRES.html">POSTGRES</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/pg-1_0_0-x64-mingw32/README-OS_X_rdoc.html">README-OS_X</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/pg-1_0_0-x64-mingw32/README-Windows_rdoc.html">README-Windows</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/pg-1_0_0-x64-mingw32/README_ja_rdoc.html">README.ja</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/pg-1_0_0-x64-mingw32/README_rdoc.html">README</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/pg-1_0_0-x64-mingw32/Rakefile.html">Rakefile</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/pg-1_0_0-x64-mingw32/Rakefile_cross.html">Rakefile.cross</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/pg-1_0_0-x64-mingw32/ext/errorcodes_def.html">errorcodes.def</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/pg-1_0_0-x64-mingw32/ext/errorcodes_txt.html">errorcodes</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/pg-1_0_0-x64-mingw32/ext/vc/pg_sln.html">pg.sln</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/pg-1_0_0-x64-mingw32/ext/vc/pg_18/pg_vcproj.html">pg.vcproj</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/pg-1_0_0-x64-mingw32/ext/vc/pg_19/pg_19_vcproj.html">pg_19.vcproj</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/pg-1_0_0-x64-mingw32/spec/data/expected_trace_out.html">expected_trace.out</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/powerpack-0_1_1/CHANGELOG_md.html">CHANGELOG</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/powerpack-0_1_1/Gemfile.html">Gemfile</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/powerpack-0_1_1/LICENSE_txt.html">LICENSE</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/powerpack-0_1_1/README_md.html">README</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/powerpack-0_1_1/Rakefile.html">Rakefile</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/powerpack-0_1_1/powerpack_gemspec.html">powerpack.gemspec</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/pry-0_11_3/CHANGELOG_md.html">CHANGELOG</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/pry-0_11_3/LICENSE.html">LICENSE</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/pry-0_11_3/README_md.html">README</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/pry-0_11_3/lib/pry/slop/LICENSE.html">LICENSE</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/rack-2_0_4/COPYING.html">COPYING</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/rack-2_0_4/HISTORY_md.html">HISTORY</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/rack-2_0_4/README_rdoc.html">README</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/rack-2_0_4/Rakefile.html">Rakefile</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/rack-2_0_4/SPEC.html">SPEC</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/rack-2_0_4/contrib/rdoc_css.html">rdoc.css</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/rack-2_0_4/example/lobster_ru.html">lobster.ru</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/rack-2_0_4/example/protectedlobster_ru.html">protectedlobster.ru</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/rack-2_0_4/rack_gemspec.html">rack.gemspec</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/rack-2_0_4/test/builder/comment_ru.html">comment.ru</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/rack-2_0_4/test/builder/end_ru.html">end.ru</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/rack-2_0_4/test/builder/line_ru.html">line.ru</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/rack-2_0_4/test/builder/options_ru.html">options.ru</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/rack-2_0_4/test/cgi/assets/folder/test_js.html">test.js</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/rack-2_0_4/test/cgi/assets/fonts/font_eot.html">font.eot</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/rack-2_0_4/test/cgi/assets/images/image_png.html">image.png</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/rack-2_0_4/test/cgi/assets/index_html.html">index.html</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/rack-2_0_4/test/cgi/assets/javascripts/app_js.html">app.js</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/rack-2_0_4/test/cgi/assets/stylesheets/app_css.html">app.css</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/rack-2_0_4/test/cgi/lighttpd_conf.html">lighttpd.conf</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/rack-2_0_4/test/cgi/test+directory/test+file.html">test+file</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/rack-2_0_4/test/cgi/test_fcgi.html">test.fcgi</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/rack-2_0_4/test/cgi/test_ru.html">test.ru</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/rack-2_0_4/test/multipart/bad_robots.html">bad_robots</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/rack-2_0_4/test/multipart/content_type_and_no_filename.html">content_type_and_no_filename</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/rack-2_0_4/test/multipart/empty.html">empty</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/rack-2_0_4/test/multipart/fail_16384_nofile.html">fail_16384_nofile</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/rack-2_0_4/test/multipart/file1_txt.html">file1</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/rack-2_0_4/test/multipart/filename_and_modification_param.html">filename_and_modification_param</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/rack-2_0_4/test/multipart/filename_and_no_name.html">filename_and_no_name</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/rack-2_0_4/test/multipart/filename_with_encoded_words.html">filename_with_encoded_words</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/rack-2_0_4/test/multipart/filename_with_escaped_quotes.html">filename_with_escaped_quotes</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/rack-2_0_4/test/multipart/filename_with_escaped_quotes_and_modification_param.html">filename_with_escaped_quotes_and_modification_param</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/rack-2_0_4/test/multipart/filename_with_null_byte.html">filename_with_null_byte</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/rack-2_0_4/test/multipart/filename_with_percent_escaped_quotes.html">filename_with_percent_escaped_quotes</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/rack-2_0_4/test/multipart/filename_with_single_quote.html">filename_with_single_quote</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/rack-2_0_4/test/multipart/filename_with_unescaped_percentages.html">filename_with_unescaped_percentages</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/rack-2_0_4/test/multipart/filename_with_unescaped_percentages2.html">filename_with_unescaped_percentages2</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/rack-2_0_4/test/multipart/filename_with_unescaped_percentages3.html">filename_with_unescaped_percentages3</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/rack-2_0_4/test/multipart/filename_with_unescaped_quotes.html">filename_with_unescaped_quotes</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/rack-2_0_4/test/multipart/ie.html">ie</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/rack-2_0_4/test/multipart/mixed_files.html">mixed_files</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/rack-2_0_4/test/multipart/nested.html">nested</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/rack-2_0_4/test/multipart/none.html">none</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/rack-2_0_4/test/multipart/quoted.html">quoted</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/rack-2_0_4/test/multipart/semicolon.html">semicolon</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/rack-2_0_4/test/multipart/text.html">text</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/rack-2_0_4/test/multipart/three_files_three_fields.html">three_files_three_fields</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/rack-2_0_4/test/multipart/unity3d_wwwform.html">unity3d_wwwform</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/rack-2_0_4/test/multipart/webkit.html">webkit</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/rack-2_0_4/test/rackup/config_ru.html">config.ru</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/rack-2_0_4/test/static/another/index_html.html">index.html</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/rack-2_0_4/test/static/foo_html.html">foo.html</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/rack-2_0_4/test/static/index_html.html">index.html</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/rack-protection-2_0_1/Gemfile.html">Gemfile</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/rack-protection-2_0_1/License.html">License</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/rack-protection-2_0_1/README_md.html">README</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/rack-protection-2_0_1/Rakefile.html">Rakefile</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/rack-protection-2_0_1/rack-protection_gemspec.html">rack-protection.gemspec</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/rack-test-0_8_2/History_md.html">History</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/rack-test-0_8_2/MIT-LICENSE_txt.html">MIT-LICENSE</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/rack-test-0_8_2/README_md.html">README</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/rainbow-3_0_0/Changelog_md.html">Changelog</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/rainbow-3_0_0/Gemfile.html">Gemfile</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/rainbow-3_0_0/Guardfile.html">Guardfile</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/rainbow-3_0_0/LICENSE.html">LICENSE</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/rainbow-3_0_0/README_markdown.html">README.markdown</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/rainbow-3_0_0/Rakefile.html">Rakefile</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/rainbow-3_0_0/rainbow_gemspec.html">rainbow.gemspec</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/rake-12_3_0/CONTRIBUTING_rdoc.html">CONTRIBUTING</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/rake-12_3_0/Gemfile.html">Gemfile</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/rake-12_3_0/History_rdoc.html">History</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/rake-12_3_0/MIT-LICENSE.html">MIT-LICENSE</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/rake-12_3_0/README_rdoc.html">README</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/rake-12_3_0/Rakefile.html">Rakefile</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/rake-12_3_0/bin/setup.html">setup</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/rake-12_3_0/doc/command_line_usage_rdoc.html">command_line_usage</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/rake-12_3_0/doc/example/Rakefile1.html">Rakefile1</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/rake-12_3_0/doc/example/Rakefile2.html">Rakefile2</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/rake-12_3_0/doc/glossary_rdoc.html">glossary</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/rake-12_3_0/doc/proto_rake_rdoc.html">proto_rake</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/rake-12_3_0/doc/rake_1.html">rake.1</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/rake-12_3_0/doc/rakefile_rdoc.html">rakefile</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/rake-12_3_0/doc/rational_rdoc.html">rational</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/rake-12_3_0/rake_gemspec.html">rake.gemspec</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ralyxa-1_6_2/CODE_OF_CONDUCT_md.html">CODE_OF_CONDUCT</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ralyxa-1_6_2/Gemfile.html">Gemfile</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ralyxa-1_6_2/LICENSE_txt.html">LICENSE</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ralyxa-1_6_2/README_md.html">README</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ralyxa-1_6_2/Rakefile.html">Rakefile</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ralyxa-1_6_2/bin/setup.html">setup</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ralyxa-1_6_2/ralyxa_gemspec.html">ralyxa.gemspec</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/rb-fsevent-0_10_2/Gemfile.html">Gemfile</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/rb-fsevent-0_10_2/Guardfile.html">Guardfile</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/rb-fsevent-0_10_2/LICENSE_txt.html">LICENSE</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/rb-fsevent-0_10_2/README_md.html">README</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/rb-fsevent-0_10_2/Rakefile.html">Rakefile</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/rb-fsevent-0_10_2/ext/LICENSE.html">LICENSE</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/rb-fsevent-0_10_2/rb-fsevent_gemspec.html">rb-fsevent.gemspec</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/rb-inotify-0_9_10/Gemfile.html">Gemfile</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/rb-inotify-0_9_10/README_md.html">README</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/rb-inotify-0_9_10/Rakefile.html">Rakefile</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/rb-inotify-0_9_10/rb-inotify_gemspec.html">rb-inotify.gemspec</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/rerun-0_13_0/LICENSE.html">LICENSE</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/rerun-0_13_0/README_md.html">README</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/rerun-0_13_0/Rakefile.html">Rakefile</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/rerun-0_13_0/rerun_gemspec.html">rerun.gemspec</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/rspec-3_7_0/LICENSE_md.html">LICENSE</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/rspec-3_7_0/README_md.html">README</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/rspec-core-3_7_1/Changelog_md.html">Changelog</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/rspec-core-3_7_1/LICENSE_md.html">LICENSE</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/rspec-core-3_7_1/README_md.html">README</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/rspec-expectations-3_7_0/Changelog_md.html">Changelog</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/rspec-expectations-3_7_0/LICENSE_md.html">LICENSE</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/rspec-expectations-3_7_0/README_md.html">README</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/rspec-mocks-3_7_0/Changelog_md.html">Changelog</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/rspec-mocks-3_7_0/LICENSE_md.html">LICENSE</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/rspec-mocks-3_7_0/README_md.html">README</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/rspec-support-3_7_1/Changelog_md.html">Changelog</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/rspec-support-3_7_1/LICENSE_md.html">LICENSE</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/rspec-support-3_7_1/README_md.html">README</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/rubocop-0_52_1/LICENSE_txt.html">LICENSE</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/rubocop-0_52_1/README_md.html">README</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ruby-progressbar-1_9_0/LICENSE_txt.html">LICENSE</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ruby-progressbar-1_9_0/README_md.html">README</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ruby-progressbar-1_9_0/Rakefile.html">Rakefile</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ruby_dep-1_5_0/LICENSE_txt.html">LICENSE</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ruby_dep-1_5_0/README_md.html">README</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/shellany-0_0_1/Gemfile.html">Gemfile</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/shellany-0_0_1/LICENSE_txt.html">LICENSE</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/shellany-0_0_1/README_md.html">README</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/shellany-0_0_1/Rakefile.html">Rakefile</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/shellany-0_0_1/shellany_gemspec.html">shellany.gemspec</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/sinatra-2_0_1/AUTHORS_md.html">AUTHORS</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/sinatra-2_0_1/CHANGELOG_md.html">CHANGELOG</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/sinatra-2_0_1/CONTRIBUTING_md.html">CONTRIBUTING</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/sinatra-2_0_1/Gemfile.html">Gemfile</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/sinatra-2_0_1/LICENSE.html">LICENSE</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/sinatra-2_0_1/MAINTENANCE_md.html">MAINTENANCE</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/sinatra-2_0_1/README_de_md.html">README.de</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/sinatra-2_0_1/README_es_md.html">README.es</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/sinatra-2_0_1/README_fr_md.html">README.fr</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/sinatra-2_0_1/README_hu_md.html">README.hu</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/sinatra-2_0_1/README_ja_md.html">README.ja</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/sinatra-2_0_1/README_ko_md.html">README.ko</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/sinatra-2_0_1/README_md.html">README</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/sinatra-2_0_1/README_pt-br_md.html">README.pt-br</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/sinatra-2_0_1/README_pt-pt_md.html">README.pt-pt</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/sinatra-2_0_1/README_ru_md.html">README.ru</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/sinatra-2_0_1/README_zh_md.html">README.zh</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/sinatra-2_0_1/Rakefile.html">Rakefile</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/sinatra-2_0_1/SECURITY_md.html">SECURITY</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/sinatra-2_0_1/VERSION.html">VERSION</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/sinatra-2_0_1/examples/stream_ru.html">stream.ru</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/sinatra-2_0_1/sinatra_gemspec.html">sinatra.gemspec</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/sinatra-activerecord-2_0_13/LICENSE.html">LICENSE</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/sinatra-activerecord-2_0_13/README_md.html">README</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/sinatra-activerecord-2_0_13/lib/sinatra/activerecord/tasks_rake.html">tasks.rake</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/thor-0_20_0/LICENSE_md.html">LICENSE</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/thread_safe-0_3_6/Gemfile.html">Gemfile</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/thread_safe-0_3_6/LICENSE.html">LICENSE</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/thread_safe-0_3_6/README_md.html">README</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/thread_safe-0_3_6/Rakefile.html">Rakefile</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/thread_safe-0_3_6/ext/org/jruby/ext/thread_safe/JRubyCacheBackendLibrary_java.html">JRubyCacheBackendLibrary.java</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/thread_safe-0_3_6/ext/org/jruby/ext/thread_safe/jsr166e/ConcurrentHashMap_java.html">ConcurrentHashMap.java</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/thread_safe-0_3_6/ext/org/jruby/ext/thread_safe/jsr166e/ConcurrentHashMapV8_java.html">ConcurrentHashMapV8.java</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/thread_safe-0_3_6/ext/org/jruby/ext/thread_safe/jsr166e/LongAdder_java.html">LongAdder.java</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/thread_safe-0_3_6/ext/org/jruby/ext/thread_safe/jsr166e/Striped64_java.html">Striped64.java</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/thread_safe-0_3_6/ext/org/jruby/ext/thread_safe/jsr166e/nounsafe/ConcurrentHashMapV8_java.html">ConcurrentHashMapV8.java</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/thread_safe-0_3_6/ext/org/jruby/ext/thread_safe/jsr166e/nounsafe/LongAdder_java.html">LongAdder.java</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/thread_safe-0_3_6/ext/org/jruby/ext/thread_safe/jsr166e/nounsafe/Striped64_java.html">Striped64.java</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/thread_safe-0_3_6/ext/org/jruby/ext/thread_safe/jsr166y/ThreadLocalRandom_java.html">ThreadLocalRandom.java</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/thread_safe-0_3_6/ext/thread_safe/JrubyCacheBackendService_java.html">JrubyCacheBackendService.java</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/thread_safe-0_3_6/spec/src/thread_safe/SecurityManager_java.html">SecurityManager.java</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/thread_safe-0_3_6/tasks/update_doc_rake.html">update_doc.rake</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/thread_safe-0_3_6/thread_safe_gemspec.html">thread_safe.gemspec</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/thread_safe-0_3_6/yard-template/default/fulldoc/html/css/common_css.html">common.css</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/tilt-2_0_8/CHANGELOG_md.html">CHANGELOG</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/tilt-2_0_8/COPYING.html">COPYING</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/tilt-2_0_8/Gemfile.html">Gemfile</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/tilt-2_0_8/HACKING.html">HACKING</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/tilt-2_0_8/README_md.html">README</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/tilt-2_0_8/Rakefile.html">Rakefile</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/tilt-2_0_8/docs/TEMPLATES_md.html">TEMPLATES</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/tilt-2_0_8/docs/common_css.html">common.css</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/tilt-2_0_8/man/index_txt.html">index</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/tilt-2_0_8/man/tilt_1_ronn.html">tilt.1.ronn</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/tilt-2_0_8/test/markaby/locals_mab.html">locals.mab</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/tilt-2_0_8/test/markaby/markaby_mab.html">markaby.mab</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/tilt-2_0_8/test/markaby/markaby_other_static_mab.html">markaby_other_static.mab</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/tilt-2_0_8/test/markaby/render_twice_mab.html">render_twice.mab</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/tilt-2_0_8/test/markaby/scope_mab.html">scope.mab</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/tilt-2_0_8/test/markaby/yielding_mab.html">yielding.mab</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/tilt-2_0_8/test/tilt_lesstemplate_test_less.html">tilt_lesstemplate_test.less</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/tilt-2_0_8/test/tilt_prawntemplate_prawn.html">tilt_prawntemplate.prawn</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/tilt-2_0_8/tilt_gemspec.html">tilt.gemspec</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/tzinfo-1_2_5/CHANGES_md.html">CHANGES</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/tzinfo-1_2_5/LICENSE.html">LICENSE</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/tzinfo-1_2_5/README_md.html">README</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/tzinfo-1_2_5/Rakefile.html">Rakefile</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/tzinfo-1_2_5/test/zoneinfo/iso3166_tab.html">iso3166.tab</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/tzinfo-1_2_5/test/zoneinfo/leapseconds.html">leapseconds</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/tzinfo-1_2_5/test/zoneinfo/zone_tab.html">zone.tab</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/tzinfo-1_2_5/test/zoneinfo/zone1970_tab.html">zone1970.tab</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/tzinfo-1_2_5/tzinfo_gemspec.html">tzinfo.gemspec</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/unicode-display_width-1_3_0/CHANGELOG_md.html">CHANGELOG</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/unicode-display_width-1_3_0/MIT-LICENSE_txt.html">MIT-LICENSE</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/unicode-display_width-1_3_0/README_md.html">README</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/unicode-display_width-1_3_0/Rakefile.html">Rakefile</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/unicode-display_width-1_3_0/unicode-display_width_gemspec.html">unicode-display_width.gemspec</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/wdm-0_1_1/LICENSE.html">LICENSE</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/wdm-0_1_1/README_md.html">README</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/wdm-0_1_1/ext/wdm/Makefile.html">Makefile</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/wdm-0_1_1/ext/wdm/wdm_sln.html">wdm.sln</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/wdm-0_1_1/ext/wdm/wdm_vcxproj.html">wdm.vcxproj</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/wdm-0_1_1/ext/wdm/wdm_vcxproj_filters.html">wdm.vcxproj.filters</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/wdm-0_1_1/ext/wdm/wdm_ext-x64-mingw32_def.html">wdm_ext-x64-mingw32.def</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/specifications/activemodel-5_1_5_gemspec.html">activemodel-5.1.5.gemspec</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/specifications/activerecord-5_1_5_gemspec.html">activerecord-5.1.5.gemspec</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/specifications/activesupport-5_1_5_gemspec.html">activesupport-5.1.5.gemspec</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/specifications/alexa_verifier-1_0_0_gemspec.html">alexa_verifier-1.0.0.gemspec</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/specifications/arel-8_0_0_gemspec.html">arel-8.0.0.gemspec</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/specifications/ast-2_4_0_gemspec.html">ast-2.4.0.gemspec</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/specifications/coderay-1_1_2_gemspec.html">coderay-1.1.2.gemspec</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/specifications/concurrent-ruby-1_0_5_gemspec.html">concurrent-ruby-1.0.5.gemspec</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/specifications/database_cleaner-1_6_1_gemspec.html">database_cleaner-1.6.1.gemspec</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/specifications/diff-lcs-1_3_gemspec.html">diff-lcs-1.3.gemspec</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/specifications/ffi-1_9_21-x64-mingw32_gemspec.html">ffi-1.9.21-x64-mingw32.gemspec</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/specifications/formatador-0_2_5_gemspec.html">formatador-0.2.5.gemspec</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/specifications/guard-2_14_2_gemspec.html">guard-2.14.2.gemspec</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/specifications/guard-compat-1_2_1_gemspec.html">guard-compat-1.2.1.gemspec</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/specifications/guard-rspec-4_7_3_gemspec.html">guard-rspec-4.7.3.gemspec</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/specifications/i18n-0_9_5_gemspec.html">i18n-0.9.5.gemspec</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/specifications/jsonb_accessor-1_0_0_gemspec.html">jsonb_accessor-1.0.0.gemspec</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/specifications/listen-3_1_5_gemspec.html">listen-3.1.5.gemspec</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/specifications/little-plugger-1_1_4_gemspec.html">little-plugger-1.1.4.gemspec</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/specifications/logging-2_2_2_gemspec.html">logging-2.2.2.gemspec</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/specifications/lumberjack-1_0_12_gemspec.html">lumberjack-1.0.12.gemspec</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/specifications/method_source-0_9_0_gemspec.html">method_source-0.9.0.gemspec</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/specifications/minitest-5_11_3_gemspec.html">minitest-5.11.3.gemspec</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/specifications/multi_json-1_13_1_gemspec.html">multi_json-1.13.1.gemspec</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/specifications/mustermann-1_0_2_gemspec.html">mustermann-1.0.2.gemspec</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/specifications/nenv-0_3_0_gemspec.html">nenv-0.3.0.gemspec</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/specifications/notiffany-0_1_1_gemspec.html">notiffany-0.1.1.gemspec</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/specifications/oj-3_4_0_gemspec.html">oj-3.4.0.gemspec</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/specifications/parallel-1_12_1_gemspec.html">parallel-1.12.1.gemspec</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/specifications/parser-2_5_0_0_gemspec.html">parser-2.5.0.0.gemspec</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/specifications/parser-2_5_0_1_gemspec.html">parser-2.5.0.1.gemspec</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/specifications/parser-2_5_0_2_gemspec.html">parser-2.5.0.2.gemspec</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/specifications/pg-1_0_0-x64-mingw32_gemspec.html">pg-1.0.0-x64-mingw32.gemspec</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/specifications/powerpack-0_1_1_gemspec.html">powerpack-0.1.1.gemspec</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/specifications/pry-0_11_3_gemspec.html">pry-0.11.3.gemspec</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/specifications/rack-2_0_4_gemspec.html">rack-2.0.4.gemspec</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/specifications/rack-protection-2_0_1_gemspec.html">rack-protection-2.0.1.gemspec</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/specifications/rack-test-0_8_2_gemspec.html">rack-test-0.8.2.gemspec</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/specifications/rainbow-3_0_0_gemspec.html">rainbow-3.0.0.gemspec</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/specifications/rake-12_3_0_gemspec.html">rake-12.3.0.gemspec</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/specifications/ralyxa-1_6_2_gemspec.html">ralyxa-1.6.2.gemspec</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/specifications/rb-fsevent-0_10_2_gemspec.html">rb-fsevent-0.10.2.gemspec</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/specifications/rb-inotify-0_9_10_gemspec.html">rb-inotify-0.9.10.gemspec</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/specifications/rerun-0_13_0_gemspec.html">rerun-0.13.0.gemspec</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/specifications/rspec-3_7_0_gemspec.html">rspec-3.7.0.gemspec</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/specifications/rspec-core-3_7_1_gemspec.html">rspec-core-3.7.1.gemspec</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/specifications/rspec-expectations-3_7_0_gemspec.html">rspec-expectations-3.7.0.gemspec</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/specifications/rspec-mocks-3_7_0_gemspec.html">rspec-mocks-3.7.0.gemspec</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/specifications/rspec-support-3_7_1_gemspec.html">rspec-support-3.7.1.gemspec</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/specifications/rubocop-0_52_1_gemspec.html">rubocop-0.52.1.gemspec</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/specifications/ruby-progressbar-1_9_0_gemspec.html">ruby-progressbar-1.9.0.gemspec</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/specifications/ruby_dep-1_5_0_gemspec.html">ruby_dep-1.5.0.gemspec</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/specifications/shellany-0_0_1_gemspec.html">shellany-0.0.1.gemspec</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/specifications/sinatra-2_0_1_gemspec.html">sinatra-2.0.1.gemspec</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/specifications/sinatra-activerecord-2_0_13_gemspec.html">sinatra-activerecord-2.0.13.gemspec</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/specifications/thor-0_20_0_gemspec.html">thor-0.20.0.gemspec</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/specifications/thread_safe-0_3_6_gemspec.html">thread_safe-0.3.6.gemspec</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/specifications/tilt-2_0_8_gemspec.html">tilt-2.0.8.gemspec</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/specifications/tzinfo-1_2_5_gemspec.html">tzinfo-1.2.5.gemspec</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/specifications/unicode-display_width-1_3_0_gemspec.html">unicode-display_width-1.3.0.gemspec</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/specifications/wdm-0_1_1_gemspec.html">wdm-0.1.1.gemspec</a>
+  
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-label="Page vendor/bundle/ruby/2.4.0/gems/sinatra-2.0.1/CHANGELOG.md">
+
+<h2 id="label-2.0.1+-2F+2018-02-17">2.0.1 / 2018-02-17<span><a href="#label-2.0.1+-2F+2018-02-17">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<p>Repair nested namespaces, by avoiding prefix duplication #1322. Fixes #1310
+by Kunpei Sakai</p>
+
+<p>Add pattern matches to values for <a
+href="../../../../../../Mustermann/Concat.html">Mustermann::Concat</a>
+#1333. Fixes #1332 by Dawa Ometto</p>
+
+<p>Ship the <a href="../lumberjack-1_0_12/VERSION.html">VERSION</a> file with
+the gem, to allow local unpacking #1338 by Olle Jonsson</p>
+
+<p>Fix issue with custom error handler on bad request #1351. Fixes #1350 by
+Jordan Owens</p>
+
+<p>Override <a
+href="../../../../../../Rack/ShowExceptions.html#method-i-pretty">Rack::ShowExceptions#pretty</a>
+to set custom template #1377. Fixes #1376 by Jordan Owens</p>
+
+<p>Enhanced path validation in Windows #1379 by Orange Tsai</p>
+
+<p>Improve development support and documentation by Faheel Ahmad, Shota
+Iguchi, Olle Jonsson, Manabu Niseki, John Hope, Horacio, Ice-Storm,
+GraniteRock, Raman Skaskevich, Carlos Azuaje, 284km, Dan Rice and Zachary
+Scott</p>
+
+<h2 id="label-2.0.0+-2F+2017-04-10">2.0.0 / 2017-04-10<span><a href="#label-2.0.0+-2F+2017-04-10">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<p>Use <a href="../../../../../../Mustermann.html">Mustermann</a> for patterns
+#1086 by Konstantin Haase</p>
+
+<p>Server now provides <code>-q</code> flag for quiet mode, which disables
+start/stop messages #1153 by Vasiliy.</p>
+
+<p>Session middleware can now be specified with <code>:session_store</code>
+setting #1161 by Jordan Owens.</p>
+
+<p><code>APP_ENV</code> is now preferred and recommended over
+<code>RACK_ENV</code> for setting environment #984 by Damien Mathieu.</p>
+
+<p>Add Reel support #793 by Patricio Mac Adden.</p>
+
+<p>Make route params available during error handling #895 by Jeremy Evans.</p>
+
+<p>Unify <code>not_found</code> and <code>error</code> 404 behavior #896 by
+Jeremy Evans.</p>
+
+<p>Enable Ruby 2.3 <code>frozen_string_literal</code> feature #1076 by
+Vladimir Kochnev.</p>
+
+<p>Add Sinatra::ShowExceptions::TEMPLATE and patched <a
+href="../../../../../../Rack/ShowExceptions.html">Rack::ShowExceptions</a>
+to prefer <a href="../../../../../../Sinatra.html">Sinatra</a> template by
+Zachary Scott.</p>
+
+<p>Sinatra::Runner is used internally for integration tests #840 by Nick
+Sutterer.</p>
+
+<p>Fix case-sensitivity issue in <code>uri</code> method #889 by rennex.</p>
+
+<p>Use <code>Rack::Utils.status_code</code> to allow <code>status</code>
+helper to use symbol as well as numeric codes #968 by Tobias H. Michaelsen.</p>
+
+<p>Improved error handling for invalid params through <a
+href="../../../../../../Rack.html">Rack</a> #1070 by Jordan Owens.</p>
+
+<p>Ensure template is cached only once #1021 by Patrik Rak.</p>
+
+<p><a href="../../../../../../Rack.html">Rack</a> middleware is initialized at
+server runtime rather than after receiving first request #1205 by Itamar
+Turner-Trauring.</p>
+
+<p>Improve Session Secret documentation to encourage better security practices
+#1218 by Glenn Rempe</p>
+
+<p>Exposed global and per-route options for <a
+href="../../../../../../Mustermann.html">Mustermann</a> route parsing #1233
+by Mike Pastore</p>
+
+<p>Use same <code>session_secret</code> for classic and modular apps in
+development #1245 by Marcus Stollsteimer</p>
+
+<p>Make authenticity token length a fixed value of 32 #1181 by Jordan Owens</p>
+
+<p>Modernize <a
+href="../../../../../../Rack/Protection/ContentSecurityPolicy.html">Rack::Protection::ContentSecurityPolicy</a>
+with CSP Level 2 and 3 Directives #1202 by Glenn Rempe</p>
+
+<p>Adds preload option to Rack:Protection:StrictTransport #1209 by Ed Robinson</p>
+
+<p>Improve BadRequest logic. Raise and handle exceptions if status is 400
+#1212 by Mike Pastore</p>
+
+<p>Make <a href="../../../../../../Rack/Test.html">Rack::Test</a> a
+development dependency #1232 by Mike Pastore</p>
+
+<p>Capture exception messages of raised NotFound and BadRequest #1210 by Mike
+Pastore</p>
+
+<p>Add explicit set method to contrib/cookies to override cookie settings
+#1240 by Andrew Allen</p>
+
+<p>Avoid executing filters even if prefix matches with other namespace #1253
+by namusyaka</p>
+
+<p>Make <code>#has_key?</code> also indifferent in access, can accept <a
+href="../../../../../../String.html">String</a> or <a
+href="../../../../../../Symbol.html">Symbol</a> #1262 by Stephen Paul Weber</p>
+
+<p>Add <code>allow_if</code> option to bypass json csrf protection #1265 by
+Jordan Owens</p>
+
+<p>rack-protection: Bundle StrictTransport, CookieTossing, and CSP #1267 by
+Mike Pastore</p>
+
+<p>Add <code>:strict_paths</code> option for managing trailing slashes #1273
+by namusyaka</p>
+
+<p>Add full IndifferentHash implementation to params #1279 by Mike Pastore</p>
+
+<h2 id="label-1.4.8+-2F+2017-01-30">1.4.8 / 2017-01-30<span><a href="#label-1.4.8+-2F+2017-01-30">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<p>Fix the deprecation warning from Ruby about Fixnum. #1235 by Akira Matsuda</p>
+
+<h2 id="label-1.4.7+-2F+2016-01-24">1.4.7 / 2016-01-24<span><a href="#label-1.4.7+-2F+2016-01-24">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<p>Add Ashley Williams, Trevor Bramble, and Kashyap Kondamudi to team <a
+href="../../../../../../Sinatra.html">Sinatra</a>.</p>
+
+<p>Correctly handle encoded colons in routes. (Jeremy Evans)</p>
+
+<p>Rename <a href="../tzinfo-1_2_5/CHANGES_md.html">CHANGES</a> to
+CHANGELOG.md and update <a
+href="../../../../../../Rakefile.html">Rakefile</a>. #1043 (Eliza Sorensen)</p>
+
+<p>Improve documentation. #941, #1069, #1075, #1025, #1052 (Many great folks)</p>
+
+<p>Introduce <code>Sinatra::Ext</code> to workaround <a
+href="../../../../../../Rack.html">Rack</a> 1.6 bug to fix Ruby 1.8.7 
+support. #1080 (Zachary Scott)</p>
+
+<p>Add <a href="../formatador-0_2_5/CONTRIBUTING_md.html">CONTRIBUTING</a>
+guide. #987 (Katrina Owen)</p>
+
+<h2 id="label-1.4.6+-2F+2015-03-23">1.4.6 / 2015-03-23<span><a href="#label-1.4.6+-2F+2015-03-23">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<p>Improve tests and documentation. (Darío Hereñú, Seiichi Yonezawa, kyoendo, 
+John Voloski, Ferenc-, Renaud Martinet, Christian Haase, marocchino, 
+huoxito, Damir Svrtan, Amaury Medeiros, Jeremy Evans, Kashyap, shenqihui, 
+Ausmarton Fernandes, kami, Vipul A <a
+href="../../../../../../M.html">M</a>, Lei Wu, 7stud, Taylor Shuler, 
+namusyaka, burningTyger, Cornelius Bock, detomastah, hakeda, John Hope, 
+Ruben Gonzalez, Andrey Deryabin, attilaolah, Anton Davydov, Nikita Penzin, 
+Dyego Costa)</p>
+
+<p>Remove duplicate require of sinatra/base. (Alexey Muranov)</p>
+
+<p>Escape HTML in 404 error page. (Andy Brody)</p>
+
+<p>Refactor to method call in <code>Stream#close</code> and
+<code>#callback</code>. (Damir Svrtan)</p>
+
+<p>Depend on latest version of Slim. (Damir Svrtan)</p>
+
+<p>Fix compatibility with <a href="../../../../../../Tilt.html">Tilt</a>
+version 2. (Yegor Timoschenko)</p>
+
+<p>Fix compatibility issue with <a href="../../../../../../Rack.html">Rack</a>
+<code>pretty</code> method from ShowExceptions.  (Kashyap)</p>
+
+<p>Show date in local time in exception messages. (tayler1)</p>
+
+<p>Fix logo on error pages when using Ruby 1.8. (Jeremy Evans)</p>
+
+<p>Upgrade test suite to Minitest version 5 and fix Ruby 2.2 compatibility. 
+(Vipul A <a href="../../../../../../M.html">M</a>)</p>
+
+<h2 id="label-1.4.5+-2F+2014-04-08">1.4.5 / 2014-04-08<span><a href="#label-1.4.5+-2F+2014-04-08">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<p>Improve tests and documentation. (Seiichi Yonezawa, Mike Gehard, Andrew 
+Deitrick, Matthew Nicholas Bradley, GoGo tanaka, Carlos Lazo, Shim Tw, 
+kyoendo, Roman Kuznietsov, Stanislav Chistenko, Ryunosuke SATO, Ben Lewis, 
+wuleicanada, Patricio Mac Adden, Thais Camilo)</p>
+
+<p>Fix Ruby warnings. (Vipul A <a href="../../../../../../M.html">M</a>, Piotr
+Szotkowski)</p>
+
+<p>Fix template cache memory leak. (Scott Holden)</p>
+
+<p>Work around UTF-8 bug in JRuby. (namusyaka)</p>
+
+<p>Don&#39;t set charset for <a href="../../../../../../JSON.html">JSON</a>
+mime-type (Sebastian Borrazas)</p>
+
+<p>Fix bug in request.accept? that might trigger a NoMethodError. (sbonami)</p>
+
+<h2 id="label-1.4.4+-2F+2013-10-21">1.4.4 / 2013-10-21<span><a href="#label-1.4.4+-2F+2013-10-21">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<p>Allow setting layout to false specifically for a single rendering engine. 
+(Matt Wildig)</p>
+
+<p>Allow using wildcard in argument passed to <code>request.accept?</code>.
+(wilkie)</p>
+
+<p>Treat missing Accept header like wild card. (Patricio Mac Adden)</p>
+
+<p>Improve tests and documentation. (Darío Javier Cravero, Armen P., michelc, 
+Patricio Mac Adden, Matt Wildig, Vipul A <a
+href="../../../../../../M.html">M</a>, utenmiki, George Timoschenko,  Diogo
+Scudelletti)</p>
+
+<p>Fix Ruby warnings. (Vipul A <a href="../../../../../../M.html">M</a>,
+Patricio Mac Adden)</p>
+
+<p>Improve self-hosted server started by <code>run!</code> method or in
+classic mode.  (Tobias Bühlmann)</p>
+
+<p>Reduce objects allocated per request. (Vipul A <a
+href="../../../../../../M.html">M</a>)</p>
+
+<p>Drop unused, undocumented options hash from Sinatra.new. (George
+Timoschenko)</p>
+
+<p>Keep Content-Length header when response is a <code>Rack::File</code> or
+when streaming.  (Patricio Mac Adden, George Timoschenko)</p>
+
+<p>Use reel if it&#39;s the only server available besides webrick. (Tobias
+Bühlmann)</p>
+
+<p>Add <code>disable :traps</code> so setting up signal traps for self hosted
+server can be  skipped. (George Timoschenko)</p>
+
+<p>The <code>status</code> option passed to <code>send_file</code> may now be
+a string. (George  Timoschenko)</p>
+
+<p>Reduce file size of dev mode images for 404 and 500 pages. (Francis Go)</p>
+
+<h2 id="label-1.4.3+-2F+2013-06-07">1.4.3 / 2013-06-07<span><a href="#label-1.4.3+-2F+2013-06-07">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<p>Running a <a href="../../../../../../Sinatra.html">Sinatra</a> file
+directly or via <code>run!</code> it will now ignore an  empty $PORT env
+variable. (noxqsgit)</p>
+
+<p>Improve documentation. (burningTyger, Patricio Mac Adden,  Konstantin
+Haase, Diogo Scudelletti, Dominic Imhof)</p>
+
+<p>Expose matched pattern as <a href=""sinatra.route"">env</a>. (Aman Gupta)</p>
+
+<p>Fix warning on Ruby 2.0. (Craig Little)</p>
+
+<p>Improve running subset of tests in isolation. (Viliam Pucik)</p>
+
+<p>Reorder private/public methods. (Patricio Mac Adden)</p>
+
+<p>Loosen version dependency for rack, so it runs with <a
+href="../../../../../../Rails.html">Rails</a> 3.2.  (Konstantin Haase)</p>
+
+<p>Request#accept? now returns true instead of a truthy value. (Alan Harris)</p>
+
+<h2 id="label-1.4.2+-2F+2013-03-21">1.4.2 / 2013-03-21<span><a href="#label-1.4.2+-2F+2013-03-21">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<p>Fix parsing error for case where both the pattern and the captured part 
+contain a dot. (Florian Hanke, Konstantin Haase)</p>
+
+<p>Missing Accept header is treated like * . (Greg Denton)</p>
+
+<p>Improve documentation. (Patricio Mac Adden, Joe Bottigliero)</p>
+
+<h2 id="label-1.4.1+-2F+2013-03-15">1.4.1 / 2013-03-15<span><a href="#label-1.4.1+-2F+2013-03-15">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<p>Make delegated methods available in <a
+href="../../../../../../config_ru.html">config.ru</a> (Konstantin Haase)</p>
+
+<h2 id="label-1.4.0+-2F+2013-03-15">1.4.0 / 2013-03-15<span><a href="#label-1.4.0+-2F+2013-03-15">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<p>Add support for LINK and UNLINK requests. (Konstantin Haase)</p>
+
+<p>Add support for <a href="../../../../../../Yajl.html">Yajl</a> templates.
+(Jamie Hodge)</p>
+
+<p>Add support for Rabl templates. (Jesse Cooke)</p>
+
+<p>Add support for Wlang templates. (Bernard Lambeau)</p>
+
+<p>Add support for Stylus templates. (Juan David Pastas, Konstantin Haase)</p>
+
+<p>You can now pass a block to ERb, Haml, Slim, Liquid and Wlang templates, 
+which will be used when calling <code>yield</code> in the template. (Alexey
+Muranov)</p>
+
+<p>When running in classic mode, no longer include Sinatra::Delegator in <a
+href="../../../../../../Object.html">Object</a>,  instead extend the main
+object only. (Konstantin Haase)</p>
+
+<p>Improved route parsing: “/:name.?:format?” with “/foo.png” now matches to 
+{name: “foo”, format: “png”} instead of {name: “foo.png”}. (Florian Hanke)</p>
+
+<p>Add :status option support to send_file. (Konstantin Haase)</p>
+
+<p>The <code>provides</code> condition now respects an earlier set content
+type.  (Konstantin Haase)</p>
+
+<p>Exception#code is only used when :use_code is enabled. Moreover, it will 
+be ignored if the value is not between 400 and 599. You should use 
+Exception#http_status instead. (Konstantin Haase)</p>
+
+<p>Status, headers and body will be set correctly in an after filter when
+using  halt in a before filter or route. (Konstantin Haase)</p>
+
+<p>Sinatra::Base.new now returns a Sinatra::Wrapper instance, exposing 
+<code>#settings</code> and <code>#helpers</code>, yet going through the
+middleware stack on  <code>#call</code>. It also implements a nice
+<code>#inspect</code>, so it plays nice with  Rails&#39; <code>rake
+routes</code>. (Konstantin Haase)</p>
+
+<p>In addition to WebRick, <a href="../../../../../../Thin.html">Thin</a> and
+Mongrel, <a href="../../../../../../Sinatra.html">Sinatra</a> will now
+automatically pick  up Puma, Trinidad, ControlTower or Net::HTTP::Server
+when installed. The  logic for picking the server has been improved and now
+depends on the Ruby  implementation used. (Mark Rada, Konstantin Haase,
+Patricio Mac Adden)</p>
+
+<p>“Sinatra doesn&#39;t know this ditty” pages now show the app class when
+running  a modular application. This helps detecting where the response
+came from when  combining multiple modular apps. (Konstantin Haase)</p>
+
+<p>When port is not set explicitly, use $PORT env variable if set and only 
+default to 4567 if not. Plays nice with foreman. (Konstantin Haase)</p>
+
+<p>Allow setting layout on a per engine basis. (Zachary Scott, Konstantin
+Haase)</p>
+
+<p>You can now use <code>register</code> directly in a classic app.
+(Konstantin Haase)</p>
+
+<p><code>redirect</code> now accepts URI or Addressable::URI instances.
+(Nicolas  Sanguinetti)</p>
+
+<p>Have Content-Disposition header also include file name for
+<code>inline</code>, not  just for <code>attachment</code>. (Konstantin
+Haase)</p>
+
+<p>Better compatibility to <a href="../../../../../../Rack.html">Rack</a> 1.5.
+(James Tucker, Konstantin Haase)</p>
+
+<p>Make route parsing regex more robust. (Zoltan Dezso, Konstantin Haase)</p>
+
+<p>Improve Accept header parsing, expose parameters. (Pieter van de Bruggen, 
+Konstantin Haase)</p>
+
+<p>Add <code>layout_options</code> render option. Allows you, amongst other
+things, to  render a layout from a different folder. (Konstantin Haase)</p>
+
+<p>Explicitly setting <code>layout</code> to <code>nil</code> is treated like
+setting it to <code>false</code>.  (richo)</p>
+
+<p>Properly escape attributes in Content-Type header. (Pieter van de Bruggen)</p>
+
+<p>Default to only serving localhost in development mode. (Postmodern)</p>
+
+<p>Setting status code to 404 in error handler no longer triggers not_found 
+handler. (Konstantin Haase)</p>
+
+<p>The <code>protection</code> option now takes a <code>session</code> key for
+force  disabling/enabling session based protections. (Konstantin Haase)</p>
+
+<p>Add <code>x_cascade</code> option to disable <code>X-Cascade</code> header
+on missing route.  (Konstantin Haase)</p>
+
+<p>Improve documentation. (Kashyap, Stanislav Chistenko, Zachary Scott, 
+Anthony Accomazzo, Peter Suschlik, Rachel Mehl, ymmtmsys, Anurag Priyam, 
+burningTyger, Tony Miller, akicho8, Vasily Polovnyov, Markus Prinz,  Alexey
+Muranov, Erik Johnson, Vipul A <a href="../../../../../../M.html">M</a>,
+Konstantin Haase)</p>
+
+<p>Convert documentation to Markdown. (Kashyap, Robin Dupret, burningTyger, 
+Vasily Polovnyov, Iain Barnett, Giuseppe Capizzi, Neil West)</p>
+
+<p>Don&#39;t set not_found content type to HTML in development mode with
+custom  not_found handler. (Konstantin Haase)</p>
+
+<p>Fix mixed indentation for private methods. (Robin Dupret)</p>
+
+<p>Recalculate Content-Length even if hard coded if body is reset. Relevant 
+mostly for error handlers. (Nathan Esquenazi, Konstantin Haase)</p>
+
+<p>Plus sign is once again kept as such when used for URL matches. (Konstantin
+Haase)</p>
+
+<p>Take views option into account for template caching. (Konstantin Haase)</p>
+
+<p>Consistent use of <code>headers</code> instead of <code>header</code>
+internally. (Patricio Mac Adden)</p>
+
+<p>Fix compatibility to <a href="../../../../../../RDoc.html">RDoc</a> 4.
+(Bohuslav Kabrda)</p>
+
+<p>Make chat example work with latest jQuery. (loveky, Tony Miller)</p>
+
+<p>Make tests run without warnings. (Patricio Mac Adden)</p>
+
+<p>Make sure value returned by <code>mime_type</code> is a <a
+href="../../../../../../String.html">String</a> or nil, even when a 
+different object is passed in, like an AcceptEntry. (Konstantin Haase)</p>
+
+<p>Exceptions in <code>after</code> filter are now handled like any other
+exception.  (Nathan Esquenazi)</p>
+
+<h2 id="label-1.3.6+-28backport+release-29+-2F+2013-03-15">1.3.6 (backport release) / 2013-03-15<span><a href="#label-1.3.6+-28backport+release-29+-2F+2013-03-15">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<p>Backported from 1.4.0:</p>
+
+<p>Take views option into account for template caching. (Konstantin Haase)</p>
+
+<p>Improve documentation (Konstantin Haase)</p>
+
+<p>No longer override <code>define_singleton_method</code>. (Konstantin Haase)</p>
+
+<h2 id="label-1.3.5+-2F+2013-02-25">1.3.5 / 2013-02-25<span><a href="#label-1.3.5+-2F+2013-02-25">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<p>Fix for RubyGems 2.0 (Uchio KONDO)</p>
+
+<p>Improve documentation (Konstantin Haase)</p>
+
+<p>No longer override <code>define_singleton_method</code>. (Konstantin Haase)</p>
+
+<h2 id="label-1.3.4+-2F+2013-01-26">1.3.4 / 2013-01-26<span><a href="#label-1.3.4+-2F+2013-01-26">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<p>Improve documentation. (Kashyap, Stanislav Chistenko, Konstantin Haase, 
+ymmtmsys, Anurag Priyam)</p>
+
+<p>Adjustments to template system to work with <a
+href="../../../../../../Tilt.html">Tilt</a> edge. (Konstantin Haase)</p>
+
+<p>Fix streaming with latest <a href="../../../../../../Rack.html">Rack</a>
+release. (Konstantin Haase)</p>
+
+<p>Fix default content type for <a
+href="../../../../../../Sinatra/Response.html">Sinatra::Response</a> with
+latest <a href="../../../../../../Rack.html">Rack</a> release.  (Konstantin
+Haase)</p>
+
+<p>Fix regression where + was no longer treated like space. (Ross Boucher)</p>
+
+<p>Status, headers and body will be set correctly in an after filter when
+using  halt in a before filter or route. (Konstantin Haase)</p>
+
+<h2 id="label-1.3.3+-2F+2012-08-19">1.3.3 / 2012-08-19<span><a href="#label-1.3.3+-2F+2012-08-19">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<p>Improved documentation. (burningTyger, Konstantin Haase, Gabriel Andretta, 
+Anurag Priyam, michelc)</p>
+
+<p>No longer modify the load path. (Konstantin Haase)</p>
+
+<p>When keeping a stream open, set up callback/errback correctly to deal with 
+clients closing the connection. (Konstantin Haase)</p>
+
+<p>Fix bug where having a query param and a URL param by the same name would 
+concatenate the two values. (Konstantin Haase)</p>
+
+<p>Prevent duplicated log output when application is already wrapped in a 
+<code>Rack::CommonLogger</code>. (Konstantin Haase)</p>
+
+<p>Fix issue where <code>Rack::Link</code> and <a
+href="../../../../../../Rails.html">Rails</a> were preventing indefinite
+streaming.  (Konstantin Haase)</p>
+
+<p>No longer cause warnings when running Ruby with <code>-w</code>.
+(Konstantin Haase)</p>
+
+<p>HEAD requests on static files no longer report a Content-Length of 0, but 
+instead the proper length. (Konstantin Haase)</p>
+
+<p>When protecting against CSRF attacks, drop the session instead of refusing 
+the request. (Konstantin Haase)</p>
+
+<h2 id="label-1.3.2+-2F+2011-12-30">1.3.2 / 2011-12-30<span><a href="#label-1.3.2+-2F+2011-12-30">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<p>Don&#39;t automatically add <code>Rack::CommonLogger</code> if
+<code>Rack::Server</code> is adding it,  too. (Konstantin Haase)</p>
+
+<p>Setting <code>logging</code> to <code>nil</code> will avoid setting up
+<code>Rack::NullLogger</code>.  (Konstantin Haase)</p>
+
+<p>Route specific params are now available in the block passed to stream. 
+(Konstantin Haase)</p>
+
+<p>Fix bug where rendering a second template in the same request, after the 
+first one raised an exception, skipped the default layout. (Nathan Baum)</p>
+
+<p>Fix bug where parameter escaping got enabled when disabling a different 
+protection. (Konstantin Haase)</p>
+
+<p>Fix regression: Filters without a pattern may now again manipulate the
+params  hash. (Konstantin Haase)</p>
+
+<p>Added examples directory. (Konstantin Haase)</p>
+
+<p>Improved documentation. (Gabriel Andretta, Markus Prinz, Erick Zetta, Just 
+Lest, Adam Vaughan, Aleksander Dąbrowski)</p>
+
+<p>Improved MagLev support. (Tim Felgentreff)</p>
+
+<h2 id="label-1.3.1+-2F+2011-10-05">1.3.1 / 2011-10-05<span><a href="#label-1.3.1+-2F+2011-10-05">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<p>Support adding more than one callback to the stream object. (Konstantin 
+Haase)</p>
+
+<p>Fix for infinite loop when streaming on 1.9.2 with <a
+href="../../../../../../Thin.html">Thin</a> from a modular  application
+(Konstantin Haase)</p>
+
+<h2 id="label-1.3.0+-2F+2011-09-30">1.3.0 / 2011-09-30<span><a href="#label-1.3.0+-2F+2011-09-30">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<p>Added <code>stream</code> helper method for easily creating streaming APIs,
+Server  Sent Events or even WebSockets. See <a
+href="../activemodel-5_1_5/README_rdoc.html">README</a> for more on that
+topic.  (Konstantin Haase)</p>
+
+<p>If a HTTP 1.1 client is redirected from a different verb than GET, use 303 
+instead of 302 by default. You may still pass 302 explicitly. Fixes AJAX 
+redirects in Internet Explorer 9 (to be fair, everyone else is doing it 
+wrong and IE is behaving correct). (Konstantin Haase)</p>
+
+<p>Added support for HTTP PATCH requests. (Konstantin Haase)</p>
+
+<p>Use rack-protection to defend against common opportunistic attacks.  (Josh
+Lane, Jacob Burkhart, Konstantin Haase)</p>
+
+<p>Support for Creole templates, Creole is a standardized wiki markup, 
+supported by many wiki implementations. (Konstanin Haase)</p>
+
+<p>The <code>erubis</code> method has been deprecated. If Erubis is available,
+<a href="../../../../../../Sinatra.html">Sinatra</a>  will automatically
+use it for rendering <a href="../../../../../../ERB.html">ERB</a>
+templates. <code>require &#39;erb&#39;</code>  explicitly to prevent that
+behavior. (Magnus Holm, Ryan Tomayko, Konstantin  Haase)</p>
+
+<p>Patterns now match against the escaped URLs rather than the unescaped 
+version. This makes <a href="../../../../../../Sinatra.html">Sinatra</a>
+confirm with RFC 2396 section 2.2 and RFC 2616  section 3.2.3 (escaped
+reserved characters should not be treated like the  unescaped version),
+meaning that “/:name” will also match <code>/foo%2Fbar</code>, but  not
+<code>/foo/bar</code>. To avoid incompatibility, pattern matching has been 
+adjusted. Moreover, since we do no longer need to keep an unescaped version
+of path_info around, we handle all changes to <code>env['PATH_INFO']</code>
+correctly.  (Konstantin Haase)</p>
+
+<p><code>settings.app_file</code> now defaults to the file subclassing
+<code>Sinatra::Base</code> in  modular applications. (Konstantin Haase)</p>
+
+<p>Set up <code>Rack::Logger</code> or <code>Rack::NullLogger</code> depending
+on whether logging  was enabled or not. Also, expose that logger with the
+<code>logger</code> helper  method. (Konstantin Haase)</p>
+
+<p>The sessions setting may be an options hash now. (Konstantin Haase)</p>
+
+<p>Important: Ruby 1.8.6 support has been dropped. This version also depends 
+on at least <a href="../../../../../../Rack.html">Rack</a> 1.3.0. This
+means that it is incompatible with <a
+href="../../../../../../Rails.html">Rails</a> prior  to 3.1.0. Please use
+1.2.x if you require an earlier version of Ruby or  <a
+href="../../../../../../Rack.html">Rack</a>, which we will continue to
+supply with bug fixes. (Konstantin Haase)</p>
+
+<p>Renamed <code>:public</code> to <code>:public_folder</code> to avoid
+overriding Ruby&#39;s built-in  <code>public</code> method/keyword.
+<code>set(:public, ...)</code> is still possible but shows a  warning.
+(Konstantin Haase)</p>
+
+<p>It is now possible to use a different target class for the top level DSL 
+(aka classic style) than <code>Sinatra::Application</code> by setting 
+<code>Delegator.target</code>. This was mainly introduced to ease testing.
+(Konstantin  Haase)</p>
+
+<p><a href="../../../../../../Error.html">Error</a> handlers defined for an
+error class will now also handle subclasses  of that class, unless more
+specific error handlers exist. (Konstantin  Haase)</p>
+
+<p><a href="../../../../../../Error.html">Error</a> handling respects
+Exception#code, again. (Konstantin Haase)</p>
+
+<p>Changing a setting will merge hashes: <code>set(:x, :a =&gt; 1); set(:x :b
+=&gt; 2)</code>  will result in <code>{:a =&gt; 1, :b =&gt; 2}</code>. Use
+<code>set(:x, {:a =&gt; 1}, true)</code> to  avoid this behavior.
+(Konstantin Haase)</p>
+
+<p>Added <code>request.accept?</code> and <code>request.preferred_type</code>
+to ease dealing with  <code>Accept</code> headers. (Konstantin Haase)</p>
+
+<p>Added <code>:static_cache_control</code> setting to automatically set cache
+control  headers to static files. (Kenichi Nakamura)</p>
+
+<p>Added <code>informal?</code>, <code>success?</code>,
+<code>redirect?</code>, <code>client_error?</code>, 
+<code>server_error?</code> and <code>not_found?</code> helper methods to
+ease dealing with status  codes. (Konstantin Haase)</p>
+
+<p>Uses <a href="../../../../../../SecureRandom.html">SecureRandom</a> to
+generate default session secret. (Konstantin Haase)</p>
+
+<p>The <code>attachment</code> helper will set Content-Type (if it hasn&#39;t
+been set yet)  depending on the supplied file name. (Vasiliy Ermolovich)</p>
+
+<p>Conditional requests on <code>etag</code> helper now work properly for
+unsafe HTTP  methods. (Matthew Schinckel, Konstantin Haase)</p>
+
+<p>The <code>last_modified</code> helper does not stop execution and change
+the status code  if the status code is something different than 200.
+(Konstantin Haase)</p>
+
+<p>Added support for If-Unmodified-Since header. (Konstantin Haase)</p>
+
+<p><code>Sinatra::Base.run!</code> now prints to stderr rather than stdout.
+(Andrew  Armenia)</p>
+
+<p><code>Sinatra::Base.run!</code> takes a block allowing access to the <a
+href="../../../../../../Rack.html">Rack</a> handler.  (David Waite)</p>
+
+<p>Automatic <code>app_file</code> detection now works in directories
+containing brackets  (Konstantin Haase)</p>
+
+<p><a href="../../../../../../Exception.html">Exception</a> objects are now
+passed to error handlers. (Konstantin Haase)</p>
+
+<p>Improved documentation. (Emanuele Vicentini, Peter Higgins, Takanori 
+Ishikawa, Konstantin Haase)</p>
+
+<p>Also specify charset in Content-Type header for <a
+href="../../../../../../JSON.html">JSON</a>. (Konstantin Haase)</p>
+
+<p><a href="../../../../../../Rack.html">Rack</a> handler names will not be
+converted to lower case internally, this  allows you to run <a
+href="../../../../../../Sinatra.html">Sinatra</a> with custom <a
+href="../../../../../../Rack.html">Rack</a> handlers, like Kirk or
+Mongrel2.  Example: <code>ruby app.rb -s Mongrel2</code> (Konstantin Haase)</p>
+
+<p>Ignore <code>to_ary</code> on response bodies. Fixes compatibility to <a
+href="../../../../../../Rails.html">Rails</a> 3.1.  (Konstantin Haase)</p>
+
+<p>Middleware setup is now distributed across multiple methods, allowing  <a
+href="../../../../../../Sinatra.html">Sinatra</a> extensions to easily hook
+into the setup process. (Konstantin  Haase)</p>
+
+<p>Internal refactoring and minor performance improvements. (Konstantin Haase)</p>
+
+<p>Move Sinatra::VERSION to separate file, so it can be checked without 
+loading <a href="../../../../../../Sinatra.html">Sinatra</a>. (Konstantin
+Haase)</p>
+
+<p>Command line options now complain if value passed to <code>-p</code> is not
+a valid  integer. (Konstantin Haase)</p>
+
+<p>Fix handling of broken query params when displaying exceptions. (Luke 
+Jahnke)</p>
+
+<h2 id="label-1.2.9+-28backports+release-29+-2F+2013-03-15">1.2.9 (backports release) / 2013-03-15<span><a href="#label-1.2.9+-28backports+release-29+-2F+2013-03-15">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<p>IMPORTANT: THIS IS THE LAST 1.2.x RELEASE, PLEASE UPGRADE.</p>
+
+<p>Display EOL warning when loading <a
+href="../../../../../../Sinatra.html">Sinatra</a>. (Konstantin Haase)</p>
+
+<p>Improve documentation. (Anurag Priyam, Konstantin Haase)</p>
+
+<p>Do not modify the load path. (Konstantin Haase)</p>
+
+<p>Display deprecation warning if RUBY_IGNORE_CALLERS is used. (Konstantin
+Haase)</p>
+
+<p>Add backports library so we can still run on Ruby 1.8.6. (Konstantin Haase)</p>
+
+<h2 id="label-1.2.8+-28backports+release-29+-2F+2011-12-30">1.2.8 (backports release) / 2011-12-30<span><a href="#label-1.2.8+-28backports+release-29+-2F+2011-12-30">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<p>Backported from 1.3.2:</p>
+
+<p>Fix bug where rendering a second template in the same request after the 
+first one raised an exception skipped the default layout (Nathan Baum)</p>
+
+<h2 id="label-1.2.7+-28backports+release-29+-2F+2011-09-30">1.2.7 (backports release) / 2011-09-30<span><a href="#label-1.2.7+-28backports+release-29+-2F+2011-09-30">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<p><a href="../oj-3_4_0/pages/Custom_md.html">Custom</a> changes:</p>
+
+<p>Fix Ruby 1.8.6 issue with Accept header parsing. (Konstantin Haase)</p>
+
+<p>Backported from 1.3.0:</p>
+
+<p>Ignore <code>to_ary</code> on response bodies. Fixes compatibility to <a
+href="../../../../../../Rails.html">Rails</a> 3.1.  (Konstantin Haase)</p>
+
+<p><code>Sinatra.run!</code> now prints to stderr rather than stdout. (Andrew
+Armenia)</p>
+
+<p>Automatic <code>app_file</code> detection now works in directories
+containing brackets  (Konstantin Haase)</p>
+
+<p>Improved documentation. (Emanuele Vicentini, Peter Higgins, Takanori 
+Ishikawa, Konstantin Haase)</p>
+
+<p>Also specify charset in Content-Type header for <a
+href="../../../../../../JSON.html">JSON</a>. (Konstantin Haase)</p>
+
+<p><a href="../../../../../../Rack.html">Rack</a> handler names will not be
+converted to lower case internally, this  allows you to run <a
+href="../../../../../../Sinatra.html">Sinatra</a> with custom <a
+href="../../../../../../Rack.html">Rack</a> handlers, like Kirk or
+Mongrel2.  Example: <code>ruby app.rb -s Mongrel2</code> (Konstantin Haase)</p>
+
+<p>Fix uninitialized instance variable warning. (David Kellum)</p>
+
+<p>Command line options now complain if value passed to <code>-p</code> is not
+a valid  integer. (Konstantin Haase)</p>
+
+<p>Fix handling of broken query params when displaying exceptions. (Luke 
+Jahnke)</p>
+
+<h2 id="label-1.2.6+-2F+2011-05-01">1.2.6 / 2011-05-01<span><a href="#label-1.2.6+-2F+2011-05-01">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<p>Fix broken delegation, backport delegation tests from <a
+href="../../../../../../Sinatra.html">Sinatra</a> 1.3.  (Konstantin Haase)</p>
+
+<h2 id="label-1.2.5+-2F+2011-04-30">1.2.5 / 2011-04-30<span><a href="#label-1.2.5+-2F+2011-04-30">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<p>Restore compatibility with Ruby 1.8.6. (Konstantin Haase)</p>
+
+<h2 id="label-1.2.4+-2F+2011-04-30">1.2.4 / 2011-04-30<span><a href="#label-1.2.4+-2F+2011-04-30">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<p><a
+href="../../../../../../Sinatra/Application.html">Sinatra::Application</a>
+(classic style) does not use a session secret in  development mode, so
+sessions are not invalidated after every request when  using Shotgun.
+(Konstantin Haase)</p>
+
+<p>The request object was shared between multiple <a
+href="../../../../../../Sinatra.html">Sinatra</a> instances in the  same
+middleware chain. This caused issues if any non-sinatra routing  happened
+in-between two of those instances, or running a request twice  against an
+application (described in the <a
+href="../activemodel-5_1_5/README_rdoc.html">README</a>). The caching was
+reverted.  See GH#239 and GH#256 for more infos. (Konstantin Haase)</p>
+
+<p>Fixes issues where the top level DSL was interfering with method_missing 
+proxies. This issue surfaced when <a
+href="../../../../../../Rails.html">Rails</a> 3 was used with older Sass
+versions  and <a href="../../../../../../Sinatra.html">Sinatra</a> &gt;=
+1.2.0. (Konstantin Haase)</p>
+
+<p>Sinatra::Delegator.delegate is now able to delegate any method names, even 
+those containing special characters. This allows better integration into 
+other programming languages on Rubinius (probably on the JVM, too), like 
+Fancy. (Konstantin Haase)</p>
+
+<p>Remove HEAD request logic and let <a
+href="../../../../../../Rack/Head.html">Rack::Head</a> handle it instead.
+(Paolo  “Nusco” Perrotta)</p>
+
+<h2 id="label-1.2.3+-2F+2011-04-13">1.2.3 / 2011-04-13<span><a href="#label-1.2.3+-2F+2011-04-13">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<p>This release is compatible with <a
+href="../../../../../../Tilt.html">Tilt</a> 1.3, it will still work with <a
+href="../../../../../../Tilt.html">Tilt</a> 1.2.2,  however, if you want to
+use a newer <a href="../../../../../../Tilt.html">Tilt</a> version, you
+have to upgrade to at  least this version of <a
+href="../../../../../../Sinatra.html">Sinatra</a>. (Konstantin Haase)</p>
+
+<p>Helpers dealing with time, like <code>expires</code>, handle objects that
+pretend to be  numbers, like <code>ActiveSupport::Duration</code>, better.
+(Konstantin Haase)</p>
+
+<h2 id="label-1.2.2+-2F+2011-04-08">1.2.2 / 2011-04-08<span><a href="#label-1.2.2+-2F+2011-04-08">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<p>The <code>:provides =&gt; :js</code> condition now matches both
+<code>application/javascript</code>  and <code>text/javascript</code>. The
+<code>:provides =&gt; :xml</code> condition now matches both 
+<code>application/xml</code> and <code>text/xml</code>. The
+<code>Content-Type</code> header is set  accordingly. If the client accepts
+both, the <code>application/*</code> version is  preferred, since the
+<code>text/*</code> versions are deprecated. (Konstantin Haase)</p>
+
+<p>The <code>provides</code> condition now handles wildcards in
+<code>Accept</code> headers correctly.  Thus <code>:provides =&gt;
+:html</code> matches <code>text/html</code>, <code>text/*</code> and
+<code>*</code>.  (Konstantin Haase)</p>
+
+<p>When parsing <code>Accept</code> headers, <code>Content-Type</code>
+preferences are honored  according to RFC 2616 section 14.1. (Konstantin
+Haase)</p>
+
+<p>URIs passed to the <code>url</code> helper or <code>redirect</code> may now
+use any schema to be  identified as absolute URIs, not only
+<code>http</code> or <code>https</code>. (Konstantin Haase)</p>
+
+<p>Handles <code>Content-Type</code> strings that already contain parameters
+correctly in  <code>content_type</code> (example: <code>content_type
+&quot;text/plain; charset=utf-16&quot;</code>).  (Konstantin Haase)</p>
+
+<p>If a route with an empty pattern is defined (<code>get(&quot;&quot;) { ...
+}</code>) requests with  an empty path info match this route instead of
+“/”. (Konstantin Haase)</p>
+
+<p>In development environment, when running under a nested path, the image
+URIs  on the error pages are set properly. (Konstantin Haase)</p>
+
+<h2 id="label-1.2.1+-2F+2011-03-17">1.2.1 / 2011-03-17<span><a href="#label-1.2.1+-2F+2011-03-17">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<p>Use a generated session secret when using <code>enable :sessions</code>.
+(Konstantin  Haase)</p>
+
+<p>Fixed a bug where the wrong content type was used if no content type was
+set  and a template engine was used with a different engine for the layout
+with  different default content types, say Less embedded in Slim.
+(Konstantin  Haase)</p>
+
+<p><a href="../activemodel-5_1_5/README_rdoc.html">README</a> translations
+improved (Gabriel Andretta, burningTyger, Sylvain Desvé,  Gregor Schmidt)</p>
+
+<h2 id="label-1.2.0+-2F+2011-03-03">1.2.0 / 2011-03-03<span><a href="#label-1.2.0+-2F+2011-03-03">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<p>Added <code>slim</code> rendering method for rendering Slim templates.
+(Steve  Hodgkiss)</p>
+
+<p>The <code>markaby</code> rendering method now allows passing a block,
+making inline  usage possible. Requires <a
+href="../../../../../../Tilt.html">Tilt</a> 1.2 or newer. (Konstantin
+Haase)</p>
+
+<p>All render methods now take a <code>:layout_engine</code> option, allowing
+to use a  layout in a different template language. Even more useful than
+using this  directly (<code>erb :index, :layout_engine =&gt; :haml</code>)
+is setting this globally for  a template engine that otherwise does not
+support layouts, like Markdown or  Textile (<code>set :markdown,
+:layout_engine =&gt; :erb</code>). (Konstantin Haase)</p>
+
+<p>Before and after filters now support conditions, both with and without 
+patterns (<code>before &#39;/api/*&#39;, :agent =&gt; /Songbird/</code>).
+(Konstantin Haase)</p>
+
+<p>Added a <code>url</code> helper method which constructs absolute URLs.
+Copes with  reverse proxies and <a
+href="../../../../../../Rack.html">Rack</a> handlers correctly. Aliased to
+<code>to</code>, so you can  write <code>redirect
+to(&#39;/foo&#39;)</code>. (Konstantin Haase)</p>
+
+<p>If running on 1.9, patterns for routes and filters now support named 
+captures: <code>get(%r{/hi/(?<name>[^/?#]+)}) { &quot;Hi
+#{params['name']}&quot; }</code>.  (Steve Price)</p>
+
+<p>All rendering methods now take a <code>:scope</code> option, which renders
+them in  another context. Note that helpers and instance variables will be 
+unavailable if you use this feature. (Paul Walker)</p>
+
+<p>The behavior of <code>redirect</code> can now be configured with
+<code>absolute_redirects</code>  and <code>prefixed_redirects</code>.
+(Konstantin Haase)</p>
+
+<p><code>send_file</code> now allows overriding the Last-Modified header,
+which defaults  to the file&#39;s mtime, by passing a
+<code>:last_modified</code> option. (Konstantin Haase)</p>
+
+<p>You can use your own template lookup method by defining
+<code>find_template</code>.  This allows, among other things, using more
+than one views folder.  (Konstantin Haase)</p>
+
+<p>Largely improved documentation. (burningTyger, Vasily Polovnyov, Gabriel 
+Andretta, Konstantin Haase)</p>
+
+<p>Improved error handling. (cactus, Konstantin Haase)</p>
+
+<p>Skip missing template engines in tests correctly. (cactus)</p>
+
+<p><a href="../../../../../../Sinatra.html">Sinatra</a> now ships with a <a
+href="../../../../../../Gemfile.html">Gemfile</a> for development
+dependencies, since it eases  supporting different platforms, like JRuby.
+(Konstantin Haase)</p>
+
+<h2 id="label-1.1.4+-28backports+release-29+-2F+2011-04-13">1.1.4 (backports release) / 2011-04-13<span><a href="#label-1.1.4+-28backports+release-29+-2F+2011-04-13">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<p>Compatible with <a href="../../../../../../Tilt.html">Tilt</a> 1.3.
+(Konstantin Haase)</p>
+
+<h2 id="label-1.1.3+-2F+2011-02-20">1.1.3 / 2011-02-20<span><a href="#label-1.1.3+-2F+2011-02-20">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<p>Fixed issues with <code>user_agent</code> condition if the user agent
+header is missing.  (Konstantin Haase)</p>
+
+<p>Fix some routing tests that have been skipped by accident (Ross A. Baker)</p>
+
+<p>Fix rendering issues with Builder and Nokogiri (Konstantin Haase)</p>
+
+<p>Replace last_modified helper with better implementation. (cactus, 
+Konstantin Haase)</p>
+
+<p>Fix issue with charset not being set when using <code>provides</code>
+condition.  (Konstantin Haase)</p>
+
+<p>Fix issue with <code>render</code> not picking up all alternative file
+extensions for  a rendering engine - it was not possible to register
+“.html.erb” without  tricks. (Konstantin Haase)</p>
+
+<h2 id="label-1.1.2+-2F+2010-10-25">1.1.2 / 2010-10-25<span><a href="#label-1.1.2+-2F+2010-10-25">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<p>Like 1.1.1, but with proper <a
+href="../tzinfo-1_2_5/CHANGES_md.html">CHANGES</a> file.</p>
+
+<h2 id="label-1.1.1+-2F+2010-10-25">1.1.1 / 2010-10-25<span><a href="#label-1.1.1+-2F+2010-10-25">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<p><a href="../activemodel-5_1_5/README_rdoc.html">README</a> has been
+translated to Russian (Nickolay Schwarz, Vasily Polovnyov)  and Portuguese
+(Luciano Sousa).</p>
+
+<p>Nested templates without a <code>:layout</code> option can now be used from
+the layout  template without causing an infinite loop. (Konstantin Haase)</p>
+
+<p>Inline templates are now encoding aware and can therefore be used with 
+unicode characters on Ruby 1.9. Magic comments at the beginning of the file
+will be honored. (Konstantin Haase)</p>
+
+<p>Default <code>app_file</code> is set correctly when running with bundler.
+Using  bundler caused <a href="../../../../../../Sinatra.html">Sinatra</a>
+not to find the <code>app_file</code> and therefore not to find  the
+<code>views</code> folder on it&#39;s own. (Konstantin Haase)</p>
+
+<p>Better handling of Content-Type when using <code>send_file</code>: If file
+extension  is unknown, fall back to <code>application/octet-stream</code>
+and do not override  content type if it has already been set, except if
+<code>:type</code> is passed  explicitly (Konstantin Haase)</p>
+
+<p>Path is no longer cached if changed between handlers that do pattern 
+matching. This means you can change <code>request.path_info</code> in a
+pattern  matching before filter. (Konstantin Haase)</p>
+
+<p>Headers set by cache_control now always set max_age as an <a
+href="../../../../../../Integer.html">Integer</a>, making  sure it is
+compatible with RFC2616. (Konstantin Haase)</p>
+
+<p>Further improved handling of string encodings on Ruby 1.9, templates now 
+honor default_encoding and URLs support unicode characters. (Konstantin 
+Haase)</p>
+
+<h2 id="label-1.1.0+-2F+2010-10-24">1.1.0 / 2010-10-24<span><a href="#label-1.1.0+-2F+2010-10-24">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<p>Before and after filters now support pattern matching, including the 
+ability to use captures: “before(&#39;/user/:name&#39;) { |name| … }”. This
+avoids manual path checking. No performance loss if patterns are avoided. 
+(Konstantin Haase)</p>
+
+<p>It is now possible to render SCSS files with the <code>scss</code> method,
+which  behaves exactly like <code>sass</code> except for the different file
+extension and  assuming the SCSS syntax. (Pedro Menezes, Konstantin Haase)</p>
+
+<p>Added <code>liquid</code>, <code>markdown</code>, <code>nokogiri</code>,
+<code>textile</code>, <code>rdoc</code>, <code>radius</code>, 
+<code>markaby</code>, and <code>coffee</code> rendering methods for
+rendering Liquid, Markdown,  Nokogiri, Textile, <a
+href="../../../../../../RDoc.html">RDoc</a>, Radius, Markaby and
+CoffeeScript templates.  (Konstantin Haase)</p>
+
+<p>Now supports byte-range requests (the HTTP_RANGE header) for static files. 
+Multi-range requests are not supported, however. (Jens Alfke)</p>
+
+<p>You can now use settings method from class and top level for convenience. 
+(Konstantin Haase)</p>
+
+<p>Setting multiple values now no longer relies on to_hash and therefore 
+accepts any <a href="../../../../../../Enumerable.html">Enumerable</a> as
+parameter. (Simon Rozet)</p>
+
+<p>Nested templates default the <code>layout</code> option to
+<code>false</code> rather than <code>true</code>.  This eases the use of
+partials. If you wanted to render one haml template  embedded in another,
+you had to call <code>haml :partial, {}, :layout =&gt; false</code>.  As
+you almost never want the partial to be wrapped in the standard layout  in
+this situation, you now only have to call <code>haml :partial</code>.
+Passing in  <code>layout</code> explicitly is still possible. (Konstantin
+Haase)</p>
+
+<p>If a the return value of one of the render functions is used as a response 
+body and the content type has not been set explicitly, <a
+href="../../../../../../Sinatra.html">Sinatra</a> chooses a  content type
+corresponding to the rendering engine rather than just using  “text/html”.
+(Konstantin Haase)</p>
+
+<p><a href="../activemodel-5_1_5/README_rdoc.html">README</a> is now available
+in Chinese (Wu Jiang), French (Mickael Riga),  German (Bernhard Essl,
+Konstantin Haase, burningTyger), Hungarian (Janos  Hardi) and Spanish
+(Gabriel Andretta). The extremely outdated Japanese  <a
+href="../activemodel-5_1_5/README_rdoc.html">README</a> has been updated
+(Kouhei Yanagita).</p>
+
+<p>It is now possible to access Sinatra&#39;s template_cache from the outside.
+(Nick Sutterer)</p>
+
+<p>The <code>last_modified</code> method now also accepts <a
+href="../../../../../../DateTime.html">DateTime</a> instances and makes 
+sure the header will always be set to a string. (Konstantin Haase)</p>
+
+<p>599 now is a legal status code. (Steve Shreeve)</p>
+
+<p>This release is compatible with Ruby 1.9.2. <a
+href="../../../../../../Sinatra.html">Sinatra</a> was trying to read  non
+existent files Ruby added to the call stack. (Shota Fukumori,  Konstantin
+Haase)</p>
+
+<p>Prevents a memory leak on 1.8.6 in production mode. Note, however, that 
+this is due to a bug in 1.8.6 and request will have the additional overhead
+of parsing templates again on that version. It is recommended to use at 
+least Ruby 1.8.7. (Konstantin Haase)</p>
+
+<p>Compares last modified date correctly. <code>last_modified</code> was
+halting only  when the &#39;If-Modified-Since&#39; header date was equal to
+the time specified.  Now, it halts when is equal or later than the time
+specified (Gabriel  Andretta).</p>
+
+<p><a href="../../../../../../Sinatra.html">Sinatra</a> is now usable in
+combination with <a href="../../../../../../Rails.html">Rails</a> 3. When
+mounting a <a href="../../../../../../Sinatra.html">Sinatra</a> 
+application under a subpath in <a
+href="../../../../../../Rails.html">Rails</a> 3, the PATH_INFO is not
+prefixed with  a slash and no routes did match. (José Valim)</p>
+
+<p>Better handling of encodings in 1.9, defaults params encoding to UTF-8. 
+(Konstantin Haase)</p>
+
+<p><code>show_exceptions</code> handling is now triggered after custom error
+handlers, if  it is set to <code>:after_handlers</code>, thus not disabling
+those handler in  development mode. (pangel, Konstantin Haase)</p>
+
+<p>Added ability to handle weighted HTTP_ACCEPT headers. (Davide
+D&#39;Agostino)</p>
+
+<p><code>send_file</code> now always respects the <code>:type</code> option if
+set. Previously it  was discarded if no matching mime type was found, which
+made it impossible  to directly pass a mime type. (Konstantin Haase)</p>
+
+<p><code>redirect</code> always redirects to an absolute URI, even if a
+relative URI was  passed. Ensures compatibility with RFC 2616 section
+14.30. (Jean-Philippe  Garcia Ballester, Anthony Williams)</p>
+
+<p>Broken examples for using Erubis, Haml and <a
+href="../../../../../../Test/Unit.html">Test::Unit</a> in <a
+href="../activemodel-5_1_5/README_rdoc.html">README</a> have been  fixed.
+(Nick Sutterer, Doug Ireton, Jason Stewart, Eric Marden)</p>
+
+<p><a href="../../../../../../Sinatra.html">Sinatra</a> now handles SIGTERM
+correctly. (Patrick Collison)</p>
+
+<p>Fixes an issue with inline templates in modular applications that manually 
+call <code>run!</code>. (Konstantin Haase)</p>
+
+<p>Spaces after inline template names are now ignored (Konstantin Haase)</p>
+
+<p>It&#39;s now possible to use <a
+href="../../../../../../Sinatra.html">Sinatra</a> with different package
+management  systems defining a custom require. (Konstantin Haase)</p>
+
+<p>Lighthouse has been dropped in favor of GitHub issues.</p>
+
+<p><a href="../../../../../../Tilt.html">Tilt</a> is now a dependency and
+therefore no longer ships bundled with  <a
+href="../../../../../../Sinatra.html">Sinatra</a>. (Ryan Tomayko,
+Konstantin Haase)</p>
+
+<p><a href="../../../../../../Sinatra.html">Sinatra</a> now depends on <a
+href="../../../../../../Rack.html">Rack</a> 1.1 or higher. <a
+href="../../../../../../Rack.html">Rack</a> 1.0 is no longer supported. 
+(Konstantin Haase)</p>
+
+<h2 id="label-1.0+-2F+2010-03-23">1.0 / 2010-03-23<span><a href="#label-1.0+-2F+2010-03-23">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<p>It&#39;s now possible to register blocks to run after each request using 
+after filters. After filters run at the end of each request, after  routes
+and error handlers. (Jimmy Schementi)</p>
+
+<p><a href="../../../../../../Sinatra.html">Sinatra</a> now uses <a
+href="../../../../../../Tilt.html">Tilt</a> <a
+href="http://github.com/rtomayko/tilt">github.com/rtomayko/tilt</a> for
+rendering  templates. This adds support for template caching, consistent 
+template backtraces, and support for new template engines, like  mustache
+and liquid. (Ryan Tomayko)</p>
+
+<p><a href="../../../../../../ERB.html">ERB</a>, Erubis, and Haml templates
+are now compiled the first time  they&#39;re rendered instead of being
+string eval&#39;d on each invocation.  Benchmarks show a 5x-10x improvement
+in render time. This also  reduces the number of objects created,
+decreasing pressure on Ruby&#39;s  GC. (Ryan Tomayko)</p>
+
+<p>New &#39;settings&#39; method gives access to options in both class and
+request  scopes. This replaces the &#39;options&#39; method. (Chris
+Wanstrath)</p>
+
+<p>New boolean &#39;reload_templates&#39; setting controls whether template
+files  are reread from disk and recompiled on each request. <a
+href="../../../../../../Template.html">Template</a> read/compile  is cached
+by default in all environments except development. (Ryan Tomayko)</p>
+
+<p>New &#39;erubis&#39; helper method for rendering <a
+href="../../../../../../ERB.html">ERB</a> template with Erubis. The  erubis
+gem is required. (Dylan Egan)</p>
+
+<p>New &#39;cache_control&#39; helper method provides a convenient way of 
+setting the Cache-Control response header. Takes a variable number  of
+boolean directives followed by a hash of value directives, like  this:
+cache_control :public, :must_revalidate, :max_age =&gt; 60  (Ryan Tomayko)</p>
+
+<p>New &#39;expires&#39; helper method is like cache_control but takes an 
+integer number of seconds or <a href="../../../../../../Time.html">Time</a>
+object:  expires 300, :public, :must_revalidate  (Ryan Tomayko)</p>
+
+<p>New request.secure? method for checking for an SSL connection.  (Adam
+Wiggins)</p>
+
+<p><a href="../../../../../../Sinatra.html">Sinatra</a> apps can now be run
+with a <code>-o &lt;addr&gt;</code> argument to specify  the address to
+bind to. (Ryan Tomayko)</p>
+
+<p><a
+href="../../../../../../Rack/Session/Cookie.html">Rack::Session::Cookie</a>
+is now added to the middleware pipeline when  running in test environments
+if the :sessions option is set.  (Simon Rozet)</p>
+
+<p>Route handlers, before filters, templates, error mappings, and  middleware
+are now resolved dynamically up the inheritance hierarchy  when needed
+instead of duplicating the superclass&#39;s version when  a new
+Sinatra::Base subclass is created. This should fix a variety  of issues
+with extensions that need to add any of these things  to the base class.
+(Ryan Tomayko)</p>
+
+<p><a href="../../../../../../Exception.html">Exception</a> error handlers
+always override the raise_errors option now.  Previously, all exceptions
+would be raised outside of the application  when the raise_errors option
+was enabled, even if an error handler was  defined for that exception. The
+raise_errors option now controls  whether unhandled exceptions are raised
+(enabled) or if a generic 500  error is returned (disabled). (Ryan Tomayko)</p>
+
+<p>The X-Cascade response header is set to &#39;pass&#39; when no matching
+route  is found or all routes pass. (Josh Peek)</p>
+
+<p>Filters do not run when serving static files anymore. (Ryan Tomayko)</p>
+
+<p>pass takes an optional block to be used as the route handler if no 
+subsequent route matches the request. (Blake Mizerany)</p>
+
+<p>The following <a href="../../../../../../Sinatra.html">Sinatra</a> features
+have been obsoleted (removed entirely) in the 1.0 release:</p>
+
+<p>The <code>sinatra/test</code> library is obsolete. This includes the
+<code>Sinatra::Test</code>  module, the <code>Sinatra::TestHarness</code>
+class, and the <code>get_it</code>, <code>post_it</code>, 
+<code>put_it</code>, <code>delete_it</code>, and <code>head_it</code>
+helper methods. The  <a
+href="http://gitrdoc.com/brynary/rack-test">Rack::Test library</a> should 
+be used instead.</p>
+
+<p><a href="../../../../../../Test.html">Test</a> framework specific libraries
+(<code>sinatra/test/spec</code>, 
+<code>sinatra/test/bacon</code>,<code>sinatra/test/rspec</code>, etc.) are
+obsolete. See  <a
+href="http://www.sinatrarb.com/testing.html">www.sinatrarb.com/testing.html</a>
+for instructions on setting up a  testing environment under each of these
+frameworks.</p>
+
+<p><code>Sinatra::Default</code> is obsolete; use <code>Sinatra::Base</code>
+instead.  <code>Sinatra::Base</code> acts more like
+<code>Sinatra::Default</code> in development mode.  For example, static
+file serving and sexy development error pages are  enabled by default.</p>
+
+<p>Auto-requiring template libraries in the <code>erb</code>,
+<code>builder</code>, <code>haml</code>,  and <code>sass</code> methods is
+obsolete due to thread-safety issues. You must  require the template
+libraries explicitly in your app.</p>
+
+<p>The <code>:views_directory</code> option to rendering methods is obsolete;
+use  <code>:views</code> instead.</p>
+
+<p>The <code>:haml</code> and <code>:sass</code> options to rendering methods
+are obsolete.  <a href="../../../../../../Template.html">Template</a>
+engine options should be passed in the second <a
+href="../../../../../../Hash.html">Hash</a> argument  instead.</p>
+
+<p>The <code>use_in_file_templates</code> method is obsolete. Use 
+<code>enable :inline_templates</code> or <code>set :inline_templates,
+&#39;path/to/file&#39;</code></p>
+
+<p>The &#39;media_type&#39; helper method is obsolete. Use &#39;mime_type&#39;
+instead.</p>
+
+<p>The &#39;mime&#39; main and class method is obsolete. Use
+&#39;mime_type&#39; instead.</p>
+
+<p>The request-level <code>send_data</code> method is no longer supported.</p>
+
+<p>The <code>Sinatra::Event</code> and <code>Sinatra::EventContext</code>
+classes are no longer  supported. This may effect extensions written for
+versions prior to 0.9.2.  See <a
+href="http://www.sinatrarb.com/extensions.html">Writing Sinatra
+Extensions</a>  for the officially supported extensions API.</p>
+
+<p>The <code>set_option</code> and <code>set_options</code> methods are
+obsolete; use <code>set</code>  instead.</p>
+
+<p>The <code>:env</code> setting (<code>settings.env</code>) is obsolete; use
+<code>:environment</code>  instead.</p>
+
+<p>The request level <code>stop</code> method is obsolete; use
+<code>halt</code> instead.</p>
+
+<p>The request level <code>entity_tag</code> method is obsolete; use
+<code>etag</code>  instead.</p>
+
+<p>The request level <code>headers</code> method (HTTP response headers) is
+obsolete;  use <code>response['Header-Name']</code> instead.</p>
+
+<p><code>Sinatra.application</code> is obsolete; use
+<code>Sinatra::Application</code> instead.</p>
+
+<p>Using <code>Sinatra.application = nil</code> to reset an application is
+obsolete.  This should no longer be necessary.</p>
+
+<p>Using <code>Sinatra.default_options</code> to set base configuration items
+is  obsolete; use <code>Sinatra::Base.set(key, value)</code> instead.</p>
+
+<p>The <code>Sinatra::ServerError</code> exception is obsolete. All exceptions
+raised  within a request are now treated as internal server errors and
+result in  a 500 response status.</p>
+
+<p>The <code>:methodoverride&#39; option to enable/disable the POST _method
+hack is    obsolete; use</code>:method_override` instead.</p>
+
+<h2 id="label-0.9.2+-2F+2009-05-18">0.9.2 / 2009-05-18<span><a href="#label-0.9.2+-2F+2009-05-18">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<p>This version is compatible with <a
+href="../../../../../../Rack.html">Rack</a> 1.0. [Rein Henrichs]</p>
+
+<p>The development-mode unhandled exception / error page has been  greatly
+enhanced, functionally and aesthetically. The error  page is used when the
+:show_exceptions option is enabled and an  exception propagates outside of
+a route handler or before filter.  [Simon Rozet / Matte Noble / Ryan
+Tomayko]</p>
+
+<p>Backtraces that move through templates now include filenames and  line
+numbers where possible. [#51 / <a href="../../../../../../S.html">S</a>.
+Brent Faulkner]</p>
+
+<p>All templates now have an app-level option for setting default  template
+options (:haml, :sass, :erb, :builder). The app-level  option value must be
+a <a href="../../../../../../Hash.html">Hash</a> if set and is merged with
+the  template options specified to the render method (Base#haml,  Base#erb,
+Base#builder). [S. Brent Faulkner, Ryan Tomayko]</p>
+
+<p>The method signature for all template rendering methods has  been unified:
+“def engine(template, options={}, locals={})”.  The options <a
+href="../../../../../../Hash.html">Hash</a> now takes the generic :views,
+:layout, and  :locals options but also any template-specific options. The 
+generic options are removed before calling the template specific  render
+method. Locals may be specified using either the  :locals key in the
+options hash or a second <a href="../../../../../../Hash.html">Hash</a>
+option to the  rendering method. [#191 / Ryan Tomayko]</p>
+
+<p>The receiver is now passed to “configure” blocks. This  allows for the
+following idiom in top-level apps:  configure { |app| set :foo, app.root +
+&#39;/foo&#39; }  [TJ Holowaychuck / Ryan Tomayko]</p>
+
+<p>The “sinatra/test” lib is deprecated and will be removed in  <a
+href="../../../../../../Sinatra.html">Sinatra</a> 1.0. This includes the
+Sinatra::Test module and  Sinatra::TestHarness class in addition to all the
+framework  test helpers that were deprecated in 0.9.1. The <a
+href="../../../../../../Rack/Test.html">Rack::Test</a>  lib should be used
+instead: <a
+href="http://gitrdoc.com/brynary/rack-test">gitrdoc.com/brynary/rack-test</a>
+[#176 / Simon Rozet]</p>
+
+<p>Development mode source file reloading has been removed. The  “shotgun” (<a
+href="http://rtomayko.github.com/shotgun">rtomayko.github.com/shotgun</a>/)
+program can be  used to achieve the same basic functionality in most
+situations.  Passenger users should use the “tmp/always_restart.txt”  file
+(<a href="http://tinyurl.com/c67o4h">tinyurl.com/c67o4h</a>). [#166 / Ryan
+Tomayko]</p>
+
+<p>Auto-requiring template libs in the erb, builder, haml, and  sass methods
+is deprecated due to thread-safety issues. You must  require the template
+libs explicitly in your app file. [Simon Rozet]</p>
+
+<p>A new Sinatra::Base#route_missing method was added. route_missing  is sent
+when no route matches the request or all route handlers  pass. The default
+implementation forwards the request to the  downstream app when running as
+middleware (i.e., “@app” is  non-nil), or raises a NotFound exception when
+no downstream app  is defined. Subclasses can override this method to
+perform custom  route miss logic. [Jon Crosby]</p>
+
+<p>A new Sinatra::Base#route_eval method was added. The method  yields to the
+block and throws :halt with the result. Subclasses  can override this
+method to tap into the route execution logic.  [TJ Holowaychuck]</p>
+
+<p>Fix the “-x” (enable request mutex / locking) command line  argument.
+Passing -x now properly sets the :lock option.  [S. Brent Faulkner, Ryan
+Tomayko]</p>
+
+<p>Fix writer (“foo=”) and predicate (“foo?”) methods in extension  modules
+not being added to the registering class.  [#172 / Pat Nakajima]</p>
+
+<p>Fix in-file templates when running alongside activesupport and  fatal
+errors when requiring activesupport before sinatra  [#178 / Brian Candler]</p>
+
+<p>Fix various issues running on Google AppEngine.  [Samuel Goebert, Simon
+Rozet]</p>
+
+<p>Fix in-file templates <strong>END</strong> detection when
+<strong>END</strong> exists with  other stuff on a line [Yoji Shidara]</p>
+
+<h2 id="label-0.9.1.1+-2F+2009-03-09">0.9.1.1 / 2009-03-09<span><a href="#label-0.9.1.1+-2F+2009-03-09">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<p>Fix directory traversal vulnerability in default static files  route. See
+[#177] for more info.</p>
+
+<h2 id="label-0.9.1+-2F+2009-03-01">0.9.1 / 2009-03-01<span><a href="#label-0.9.1+-2F+2009-03-01">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<p><a href="../../../../../../Sinatra.html">Sinatra</a> now runs under Ruby
+1.9.1 [#61]</p>
+
+<p>Route patterns (splats, :named, or Regexp captures) are now  passed as
+arguments to the block. [#140]</p>
+
+<p>The “helpers” method now takes a variable number of modules  along with the
+normal block syntax. [#133]</p>
+
+<p>New request-level forward method for middleware components: passes  the env
+to the downstream app and merges the response status, headers,  and body
+into the current context. [#126]</p>
+
+<p>Requests are now automatically forwarded to the downstream app when 
+running as middleware and no matching route is found or all routes  pass.</p>
+
+<p>New simple API for extensions/plugins to add DSL-level and  request-level
+methods. Use Sinatra.register(mixin) to extend  the DSL with all public
+methods defined in the mixin module;  use Sinatra.helpers(mixin) to make
+all public methods defined  in the mixin module available at the request
+level. [#138]  See <a
+href="http://www.sinatrarb.com/extensions.html">www.sinatrarb.com/extensions.html</a>
+for details.</p>
+
+<p>Named parameters in routes now capture the “.” character. This makes 
+routes like “/:path/:filename” match against requests like  “/foo/bar.txt”;
+in this case, “<a href=":filename">params</a>” is “bar.txt”.  Previously,
+the route would not match at all.</p>
+
+<p>Added request-level “redirect back” to redirect to the referring  URL.</p>
+
+<p>Added a new “clean_trace” option that causes backtraces dumped  to
+rack.errors and displayed on the development error page to  omit framework
+and core library backtrace lines. The option is  enabled by default. [#77]</p>
+
+<p>The <a href="../../../../../../ERB.html">ERB</a> output buffer is now
+available to helpers via the @_out_buf  instance variable.</p>
+
+<p>It&#39;s now much easier to test sessions in unit tests by passing a 
+“:session” option to any of the mock request methods. e.g.,  get
+&#39;/&#39;, {}, :session =&gt; { &#39;foo&#39; =&gt; &#39;bar&#39; }</p>
+
+<p>The testing framework specific files (&#39;sinatra/test/spec&#39;, 
+&#39;sinatra/test/bacon&#39;, &#39;sinatra/test/rspec&#39;, etc.) have been
+deprecated.  See <a
+href="http://sinatrarb.com/testing.html">sinatrarb.com/testing.html</a> for
+instructions on setting up  a testing environment with these frameworks.</p>
+
+<p>The request-level send_data method from <a
+href="../../../../../../Sinatra.html">Sinatra</a> 0.3.3 has been added  for
+compatibility but is deprecated.</p>
+
+<p>Fix :provides causing crash on any request when request has no  Accept
+header [#139]</p>
+
+<p>Fix that <a href="../../../../../../ERB.html">ERB</a> templates were
+evaluated twice per “erb” call.</p>
+
+<p>Fix app-level middleware not being run when the <a
+href="../../../../../../Sinatra.html">Sinatra</a> application is  run as
+middleware.</p>
+
+<p>Fixed some issues with running under Rack&#39;s CGI handler caused by 
+writing informational stuff to stdout.</p>
+
+<p>Fixed that reloading was sometimes enabled when starting from a  rackup
+file [#110]</p>
+
+<p>Fixed that “.” in route patterns erroneously matched any character  instead
+of a literal “.”. [#124]</p>
+
+<h2 id="label-0.9.0.4+-2F+2009-01-25">0.9.0.4 / 2009-01-25<span><a href="#label-0.9.0.4+-2F+2009-01-25">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<p>Using halt with more than 1 args causes ArgumentError [#131]  using halt in
+a before filter doesn&#39;t modify response [#127]  Add deprecated
+Sinatra::EventContext to unbreak plugins [#130]  Give access to GET/POST
+params in filters [#129]  Preserve non-nested params in nested params hash
+[#117]  Fix backtrace dump with <a
+href="../../../../../../Rack/Lint.html">Rack::Lint</a> [#116]</p>
+
+<h2 id="label-0.9.0.3+-2F+2009-01-21">0.9.0.3 / 2009-01-21<span><a href="#label-0.9.0.3+-2F+2009-01-21">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<p>Fall back on mongrel then webrick when thin not found. [#75]  Use
+:environment instead of :env in test helpers to  fix deprecation warnings
+coming from framework.  Make sinatra/test/rspec work again [#113]  Fix
+app_file detection on windows [#118]  Fix static files with <a
+href="../../../../../../Rack/Lint.html">Rack::Lint</a> in pipeline [#121]</p>
+
+<h2 id="label-0.9.0.2+-2F+2009-01-18">0.9.0.2 / 2009-01-18<span><a href="#label-0.9.0.2+-2F+2009-01-18">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<p>Halting a before block should stop processing of routes [#85]  Fix
+redirect/halt in before filters [#85]</p>
+
+<h2 id="label-0.9.0+-2F+2009-01-18">0.9.0 / 2009-01-18<span><a href="#label-0.9.0+-2F+2009-01-18">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<p>Works with and requires <a href="../../../../../../Rack.html">Rack</a>
+&gt;= 0.9.1</p>
+
+<p>Multiple <a href="../../../../../../Sinatra.html">Sinatra</a> applications
+can now co-exist peacefully within a  single process. The new
+“Sinatra::Base” class can be subclassed to  establish a blank-slate <a
+href="../../../../../../Rack.html">Rack</a> application or middleware
+component.  Documentation on using these features is forth-coming; the
+following  provides the basic gist: <a
+href="http://gist.github.com/38605">gist.github.com/38605</a></p>
+
+<p>Parameters with subscripts are now parsed into a nested/recursive  <a
+href="../../../../../../Hash.html">Hash</a> structure. e.g., “<a
+href="title">post</a>=<a href="body">Hello&post</a>=World” yields  params:
+{&#39;post&#39; =&gt; {&#39;title&#39; =&gt; &#39;Hello&#39;,
+&#39;body&#39; =&gt; &#39;World&#39;}}.</p>
+
+<p>Regular expressions may now be used in route pattens; captures are 
+available at “<a href=":captures">params</a>”.</p>
+
+<p>New “:provides” route condition takes an array of mime types and  matches
+only when an Accept request header is present with a  corresponding type.
+[cypher]</p>
+
+<p>New request-level “pass” method; immediately exits the current block  and
+passes control to the next matching route.</p>
+
+<p>The request-level “body” method now takes a block; evaluation is  deferred
+until an attempt is made to read the body. The block must  return a <a
+href="../../../../../../String.html">String</a> or <a
+href="../../../../../../Array.html">Array</a>.</p>
+
+<p>New “route conditions” system for attaching rules for when a route 
+matches. The :agent and :host route options now use this system.</p>
+
+<p>New “dump_errors” option controls whether the backtrace is dumped to 
+rack.errors when an exception is raised from a route. The option is 
+enabled by default for top-level apps.</p>
+
+<p>Better default “app_file”, “root”, “public”, and “views” location 
+detection; changes to “root” and “app_file” automatically cascade to  other
+options that depend on them.</p>
+
+<p><a href="../../../../../../Error.html">Error</a> mappings are now split
+into two distinct layers: exception  mappings and custom error pages. <a
+href="../../../../../../Exception.html">Exception</a> mappings are
+registered  with “error(Exception)” and are run only when the app raises an
+exception. <a href="../oj-3_4_0/pages/Custom_md.html">Custom</a> error
+pages are registered with “error(status_code)”,  where “status_code” is an
+integer, and are run any time the response  has the status code specified.
+It&#39;s also possible to register an error  page for a range of status
+codes: “error(500..599)”.</p>
+
+<p>In-file templates are now automatically imported from the file that 
+requires &#39;sinatra&#39;. The use_in_file_templates! method is still
+available  for loading templates from other files.</p>
+
+<p>Sinatra&#39;s testing support is no longer dependent on <a
+href="../../../../../../Test/Unit.html">Test::Unit</a>. Requiring 
+&#39;sinatra/test&#39; adds the Sinatra::Test module and
+Sinatra::TestHarness  class, which can be used with any test framework. The
+&#39;sinatra/test/unit&#39;,  &#39;sinatra/test/spec&#39;,
+&#39;sinatra/test/rspec&#39;, or &#39;sinatra/test/bacon&#39; files  can be
+required to setup a framework-specific testing environment. See the  <a
+href="../activemodel-5_1_5/README_rdoc.html">README</a> for more
+information.</p>
+
+<p>Added support for Bacon (test framework). The &#39;sinatra/test/bacon&#39;
+file  can be required to setup <a
+href="../../../../../../Sinatra.html">Sinatra</a> test helpers on
+Bacon::Context.</p>
+
+<p>Deprecated “set_option” and “set_options”; use “set” instead.</p>
+
+<p>Deprecated the “env” option (“options.env”); use “environment” instead.</p>
+
+<p>Deprecated the request level “stop” method; use “halt” instead.</p>
+
+<p>Deprecated the request level “entity_tag” method; use “etag” instead.  Both
+“entity_tag” and “etag” were previously supported.</p>
+
+<p>Deprecated the request level “headers” method (HTTP response headers);  use
+“<a href="'Header-Name'">response</a>” instead.</p>
+
+<p>Deprecated “Sinatra.application”; use “Sinatra::Application” instead.</p>
+
+<p>Deprecated setting Sinatra.application = nil to reset an application.  This
+should no longer be necessary.</p>
+
+<p>Deprecated “Sinatra.default_options”; use  “Sinatra::Default.set(key,
+value)” instead.</p>
+
+<p>Deprecated the “ServerError” exception. All Exceptions are now  treated as
+internal server errors and result in a 500 response  status.</p>
+
+<p>Deprecated the “get_it”, “post_it”, “put_it”, “delete_it”, and “head_it” 
+test helper methods. Use “get”, “post”, “put”, “delete”, and “head”, 
+respectively, instead.</p>
+
+<p>Removed Event and EventContext classes. Applications are defined in a 
+subclass of Sinatra::Base; each request is processed within an  instance.</p>
+
+<h2 id="label-0.3.3+-2F+2009-01-06">0.3.3 / 2009-01-06<span><a href="#label-0.3.3+-2F+2009-01-06">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<p>Pin to <a href="../../../../../../Rack.html">Rack</a> 0.4.0 (this is the
+last release on <a href="../../../../../../Rack.html">Rack</a> 0.4)</p>
+
+<p>Log unhandled exception backtraces to rack.errors.</p>
+
+<p>Use RACK_ENV environment variable to establish <a
+href="../../../../../../Sinatra.html">Sinatra</a>  environment when given.
+<a href="../../../../../../Thin.html">Thin</a> sets this when started with 
+the -e argument.</p>
+
+<p>BUG: raising Sinatra::NotFound resulted in a 500 response  code instead of
+404.</p>
+
+<p>BUG: use_in_file_templates! fails with CR/LF (#45)</p>
+
+<p>BUG: <a href="../../../../../../Sinatra.html">Sinatra</a> detects the app
+file and root path when run under  thin/passenger.</p>
+
+<h2 id="label-0.3.2">0.3.2<span><a href="#label-0.3.2">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<p>BUG: Static and send_file read entire file into <a
+href="../../../../../../String.html">String</a> before  sending. Updated to
+stream with 8K chunks instead.</p>
+
+<p>Rake tasks and assets for building basic documentation website.  See <a
+href="http://sinatra.rubyforge.org">sinatra.rubyforge.org</a></p>
+
+<p>Various minor doc fixes.</p>
+
+<h2 id="label-0.3.1">0.3.1<span><a href="#label-0.3.1">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<p>Unbreak optional path parameters [jeremyevans]</p>
+
+<h2 id="label-0.3.0">0.3.0<span><a href="#label-0.3.0">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<p>Add sinatra.gemspec w/ support for github gem builds. Forks can now  enable
+the build gem option in github to get free username-sinatra.gem  builds:
+gem install username-sinatra.gem –source=<a
+href="http://gems.github.com">gems.github.com</a>/</p>
+
+<p>Require rack-0.4 gem; removes frozen rack dir.</p>
+
+<p>Basic <a href="../../../../../../RSpec.html">RSpec</a> support; require
+&#39;sinatra/test/rspec&#39; instead of  &#39;sinatra/test/spec&#39; to
+use. [avdi]</p>
+
+<p>before filters can modify request environment vars used for  routing (e.g.,
+PATH_INFO, REQUEST_METHOD, etc.) for URL rewriting  type functionality.</p>
+
+<p>In-file templates now uses @@ instead of ## as template separator.</p>
+
+<p>Top-level environment test predicates: development?, test?, production?</p>
+
+<p>Top-level “set”, “enable”, and “disable” methods for tweaking  app options.
+[rtomayko]</p>
+
+<p>Top-level “use” method for building <a
+href="../../../../../../Rack.html">Rack</a> middleware pipelines  leading
+to app. See <a href="../activemodel-5_1_5/README_rdoc.html">README</a> for
+usage. [rtomayko]</p>
+
+<p>New “reload” option - set false to disable reloading in development.</p>
+
+<p>New “host” option - host/ip to bind to [cschneid]</p>
+
+<p>New “app_file” option - override the file to reload in development  mode
+[cschneid]</p>
+
+<p>Development error/not_found page cleanup [sr, adamwiggins]</p>
+
+<p>Remove a bunch of core extensions (String#to_param, String#from_param, 
+Hash#from_params, Hash#to_params, <a
+href="../../../../../../Hash.html#method-i-symbolize_keys">Hash#symbolize_keys</a>,
+Hash#pass)</p>
+
+<p>Various grammar and formatting fixes to <a
+href="../activemodel-5_1_5/README_rdoc.html">README</a>; additions on 
+community and contributing [cypher]</p>
+
+<p>Build <a href="../../../../../../RDoc.html">RDoc</a> using Hanna template:
+<a
+href="http://sinatrarb.rubyforge.org/api">sinatrarb.rubyforge.org/api</a></p>
+
+<p>Specs, documentation and fixes for splat&#39;n routes [vic]</p>
+
+<p>Fix whitespace errors across all source files. [rtomayko]</p>
+
+<p>Fix streaming issues with Mongrel (body not closed). [bmizerany]</p>
+
+<p>Fix various issues with environment not being set properly (configure 
+blocks not running, error pages not registering, etc.) [cypher]</p>
+
+<p>Fix to allow locals to be passed to <a
+href="../../../../../../ERB.html">ERB</a> templates [cschneid]</p>
+
+<p>Fix locking issues causing random errors during reload in development.</p>
+
+<p>Fix for escaped paths not resolving static files [Matthew Walker]</p>
+
+<h2 id="label-0.2.1">0.2.1<span><a href="#label-0.2.1">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<p><a href="../../../../../../File.html">File</a> upload fix and minor tweaks.</p>
+
+<h2 id="label-0.2.0">0.2.0<span><a href="#label-0.2.0">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<p>Initial gem release of 0.2 codebase.</p>
+</main>
+
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="https://rdoc.github.io/rdoc">RDoc</a> 5.0.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

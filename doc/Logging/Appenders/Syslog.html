@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class Logging::Appenders::Syslog - RDoc Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../../";
+  var index_rel_prefix = "../../";
+</script>
+
+<script src="../../js/jquery.js"></script>
+<script src="../../js/darkfish.js"></script>
+
+<link href="../../css/fonts.css" rel="stylesheet">
+<link href="../../css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../../table_of_contents.html#pages">Pages</a>
+    <a href="../../table_of_contents.html#classes">Classes</a>
+    <a href="../../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link"><a href="../Appender.html">Logging::Appender</a>
+  
+</div>
+
+    <div id="includes-section" class="nav-section">
+  <h3>Included Modules</h3>
+
+  <ul class="link-list">
+  
+  
+    <li><span class="include">::Syslog::Constants</span>
+  
+  
+  </ul>
+</div>
+
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li class="calls-super" ><a href="#method-c-new">::new</a>
+    
+    <li class="calls-super" ><a href="#method-i-close">#close</a>
+    
+    <li ><a href="#method-i-closed-3F">#closed?</a>
+    
+    <li ><a href="#method-i-map-3D">#map=</a>
+    
+    <li class="calls-super" ><a href="#method-i-reopen">#reopen</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-Logging::Appenders::Syslog">
+  <h1 id="class-Logging::Appenders::Syslog" class="class">
+    class Logging::Appenders::Syslog
+  </h1>
+
+  <section class="description">
+    
+<p>This class provides an <a href="../Appender.html">Appender</a> that can
+write to the UNIX syslog daemon.</p>
+
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Class Methods</h3>
+       </header>
+
+    
+      <div id="method-c-new" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            new( name, opts = {} )
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Create an appender that will log messages to the system message logger. The
+message is then written to the system console, log files, logged-in users,
+or forwarded to other machines as appropriate. The options that can be used
+to configure the appender are as follows:</p>
+
+<pre>:ident     =&gt; identifier string (name is used by default)
+:logopt    =&gt; options used when opening the connection
+:facility  =&gt; the syslog facility to use</pre>
+
+<p>The parameter :ident is a string that will be prepended to every message.
+The :logopt argument is a bit field specifying logging options, which is
+formed by OR&#39;ing one or more of the following values:</p>
+
+<pre>LOG_CONS      If syslog() cannot pass the message to syslogd(8) it
+              wil attempt to write the message to the console
+              (&#39;/dev/console&#39;).
+
+LOG_NDELAY    Open the connection to syslogd(8) immediately. Normally
+              the open is delayed until the first message is logged.
+              Useful for programs that need to manage the order in
+              which file descriptors are allocated.
+
+LOG_PERROR    Write the message to standard error output as well to
+              the system log.  Not available on Solaris.
+
+LOG_PID       Log the process id with each message: useful for
+              identifying instantiations of daemons.</pre>
+
+<p>The :facility parameter encodes a default facility to be assigned to all
+messages that do not have an explicit facility encoded:</p>
+
+<pre>LOG_AUTH      The authorization system: login(1), su(1), getty(8),
+              etc.
+
+LOG_AUTHPRIV  The same as LOG_AUTH, but logged to a file readable
+              only by selected individuals.
+
+LOG_CONSOLE   Messages written to /dev/console by the kernel console
+              output driver.
+
+LOG_CRON      The cron daemon: cron(8).
+
+LOG_DAEMON    System daemons, such as routed(8), that are not
+              provided for explicitly by other facilities.
+
+LOG_FTP       The file transfer protocol daemons: ftpd(8), tftpd(8).
+
+LOG_KERN      Messages generated by the kernel. These cannot be
+              generated by any user processes.
+
+LOG_LPR       The line printer spooling system: lpr(1), lpc(8),
+              lpd(8), etc.
+
+LOG_MAIL      The mail system.
+
+LOG_NEWS      The network news system.
+
+LOG_SECURITY  Security subsystems, such as ipfw(4).
+
+LOG_SYSLOG    Messages generated internally by syslogd(8).
+
+LOG_USER      Messages generated by random user processes. This is
+              the default facility identifier if none is specified.
+
+LOG_UUCP      The uucp system.
+
+LOG_LOCAL0    Reserved for local use. Similarly for LOG_LOCAL1
+              through LOG_LOCAL7.</pre>
+          
+          
+            <div class="method-calls-super">
+              Calls superclass method
+              <a href="../Appender.html#method-c-new">Logging::Appender.new</a>
+            </div>
+          
+
+          
+          <div class="method-source-code" id="new-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/logging-2.2.2/lib/logging/appenders/syslog.rb, line 95</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span>( <span class="ruby-identifier">name</span>, <span class="ruby-identifier">opts</span> = {} )
+  <span class="ruby-ivar">@ident</span> = <span class="ruby-identifier">opts</span>.<span class="ruby-identifier">fetch</span>(<span class="ruby-value">:ident</span>, <span class="ruby-identifier">name</span>)
+  <span class="ruby-ivar">@logopt</span> = <span class="ruby-constant">Integer</span>(<span class="ruby-identifier">opts</span>.<span class="ruby-identifier">fetch</span>(<span class="ruby-value">:logopt</span>, (<span class="ruby-constant">LOG_PID</span> <span class="ruby-operator">|</span> <span class="ruby-constant">LOG_CONS</span>)))
+  <span class="ruby-ivar">@facility</span> = <span class="ruby-constant">Integer</span>(<span class="ruby-identifier">opts</span>.<span class="ruby-identifier">fetch</span>(<span class="ruby-value">:facility</span>, <span class="ruby-constant">LOG_USER</span>))
+  <span class="ruby-ivar">@syslog</span> = <span class="ruby-operator">::</span><span class="ruby-constant">Syslog</span>.<span class="ruby-identifier">open</span>(<span class="ruby-ivar">@ident</span>, <span class="ruby-ivar">@logopt</span>, <span class="ruby-ivar">@facility</span>)
+
+  <span class="ruby-comment"># provides a mapping from the default Logging levels</span>
+  <span class="ruby-comment"># to the syslog levels</span>
+  <span class="ruby-ivar">@map</span> = [<span class="ruby-constant">LOG_DEBUG</span>, <span class="ruby-constant">LOG_INFO</span>, <span class="ruby-constant">LOG_WARNING</span>, <span class="ruby-constant">LOG_ERR</span>, <span class="ruby-constant">LOG_CRIT</span>]
+
+  <span class="ruby-identifier">map</span> = <span class="ruby-identifier">opts</span>.<span class="ruby-identifier">fetch</span>(<span class="ruby-value">:map</span>, <span class="ruby-keyword">nil</span>)
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">map</span> = <span class="ruby-identifier">map</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">map</span>.<span class="ruby-identifier">nil?</span>
+
+  <span class="ruby-keyword">super</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-close" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            close
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Closes the connection to the syslog facility.</p>
+          
+          
+            <div class="method-calls-super">
+              Calls superclass method
+              <a href="../Appender.html#method-i-close">Logging::Appender#close</a>
+            </div>
+          
+
+          
+          <div class="method-source-code" id="close-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/logging-2.2.2/lib/logging/appenders/syslog.rb, line 139</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">close</span>( <span class="ruby-identifier">footer</span> = <span class="ruby-keyword">true</span> )
+  <span class="ruby-keyword">super</span>
+  <span class="ruby-ivar">@syslog</span>.<span class="ruby-identifier">close</span> <span class="ruby-keyword">if</span> <span class="ruby-ivar">@syslog</span>.<span class="ruby-identifier">opened?</span>
+  <span class="ruby-keyword">self</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-closed-3F" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            closed?    &rarr; true or false
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Queries the connection to the syslog facility and returns <code>true</code>
+if the connection is closed.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="closed-3F-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/logging-2.2.2/lib/logging/appenders/syslog.rb, line 151</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">closed?</span>
+  <span class="ruby-operator">!</span><span class="ruby-ivar">@syslog</span>.<span class="ruby-identifier">opened?</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-map-3D" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            map = { logging_levels &rarr; syslog_levels }
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Configure the mapping from the <a href="../../Logging.html">Logging</a>
+levels to the syslog levels. This is needed in order to log events at the
+proper syslog level.</p>
+
+<p>Without any configuration, the following mapping will be used:</p>
+
+<pre>:debug  =&gt;  LOG_DEBUG
+:info   =&gt;  LOG_INFO
+:warn   =&gt;  LOG_WARNING
+:error  =&gt;  LOG_ERR
+:fatal  =&gt;  LOG_CRIT</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="map-3D-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/logging-2.2.2/lib/logging/appenders/syslog.rb, line 125</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">map=</span>( <span class="ruby-identifier">levels</span> )
+  <span class="ruby-identifier">map</span> = []
+  <span class="ruby-identifier">levels</span>.<span class="ruby-identifier">keys</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">lvl</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">num</span> = <span class="ruby-operator">::</span><span class="ruby-constant">Logging</span>.<span class="ruby-identifier">level_num</span>(<span class="ruby-identifier">lvl</span>)
+    <span class="ruby-identifier">map</span>[<span class="ruby-identifier">num</span>] = <span class="ruby-identifier">syslog_level_num</span>(<span class="ruby-identifier">levels</span>[<span class="ruby-identifier">lvl</span>])
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-ivar">@map</span> = <span class="ruby-identifier">map</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-reopen" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">reopen</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Reopen the connection to the underlying logging destination. If the
+connection is currently closed then it will be opened. If the connection is
+currently open then it will be closed and immediately opened.</p>
+          
+          
+            <div class="method-calls-super">
+              Calls superclass method
+              <a href="../Appender.html#method-i-reopen">Logging::Appender#reopen</a>
+            </div>
+          
+
+          
+          <div class="method-source-code" id="reopen-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/logging-2.2.2/lib/logging/appenders/syslog.rb, line 159</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">reopen</span>
+  <span class="ruby-ivar">@mutex</span>.<span class="ruby-identifier">synchronize</span> {
+    <span class="ruby-keyword">if</span> <span class="ruby-ivar">@syslog</span>.<span class="ruby-identifier">opened?</span>
+      <span class="ruby-identifier">flush</span>
+      <span class="ruby-ivar">@syslog</span>.<span class="ruby-identifier">close</span>
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-ivar">@syslog</span> = <span class="ruby-operator">::</span><span class="ruby-constant">Syslog</span>.<span class="ruby-identifier">open</span>(<span class="ruby-ivar">@ident</span>, <span class="ruby-ivar">@logopt</span>, <span class="ruby-ivar">@facility</span>)
+  }
+  <span class="ruby-keyword">super</span>
+  <span class="ruby-keyword">self</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="https://rdoc.github.io/rdoc">RDoc</a> 5.0.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

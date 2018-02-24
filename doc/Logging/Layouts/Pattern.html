@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class Logging::Layouts::Pattern - RDoc Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../../";
+  var index_rel_prefix = "../../";
+</script>
+
+<script src="../../js/jquery.js"></script>
+<script src="../../js/darkfish.js"></script>
+
+<link href="../../css/fonts.css" rel="stylesheet">
+<link href="../../css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../../table_of_contents.html#pages">Pages</a>
+    <a href="../../table_of_contents.html#classes">Classes</a>
+    <a href="../../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link"><a href="../Layout.html">Logging::Layout</a>
+  
+</div>
+
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li class="calls-super" ><a href="#method-c-new">::new</a>
+    
+    <li ><a href="#method-i-date_method-3D">#date_method=</a>
+    
+    <li ><a href="#method-i-date_pattern-3D">#date_pattern=</a>
+    
+    <li ><a href="#method-i-pattern-3D">#pattern=</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-Logging::Layouts::Pattern">
+  <h1 id="class-Logging::Layouts::Pattern" class="class">
+    class Logging::Layouts::Pattern
+  </h1>
+
+  <section class="description">
+    
+<p>A flexible layout configurable via a conversion pattern string.</p>
+
+<p>The goal of this class is to format a <a
+href="../LogEvent.html">LogEvent</a> and return the results as a <a
+href="../../String.html">String</a>. The results depend on the conversion
+pattern.</p>
+
+<p>The conversion pattern is closely related to the conversion pattern of the
+sprintf function. A conversion pattern is composed of literal text and
+format control expressions called conversion specifiers.</p>
+
+<p>You are free to insert any literal text within the conversion pattern.</p>
+
+<p>Each conversion specifier starts with a percent sign (%) and is followed by
+optional format modifiers and a conversion character. The conversion
+character specifies the type of data, e.g. logger, level, date, thread ID.
+The format modifiers control such things as field width, padding, left and
+right justification. The following is a simple example.</p>
+
+<p>Let the conversion pattern be “%-5l [%c]: %mn” and assume that the logging
+environment was set to use a <a href="Pattern.html">Pattern</a> layout.
+Then the statements</p>
+
+<pre class="ruby"><span class="ruby-identifier">root</span> = <span class="ruby-constant">Logging</span>.<span class="ruby-identifier">logger</span>[:<span class="ruby-identifier">root</span>]
+<span class="ruby-identifier">root</span>.<span class="ruby-identifier">debug</span>(<span class="ruby-string">&quot;Message 1&quot;</span>)
+<span class="ruby-identifier">root</span>.<span class="ruby-identifier">warn</span>(<span class="ruby-string">&quot;Message 2&quot;</span>)
+</pre>
+
+<p>would yield the output</p>
+
+<pre>DEBUG [root]: Message 1
+WARN  [root]: Message 2</pre>
+
+<p>Note that there is no explicit separator between text and conversion
+specifiers. The pattern parser knows when it has reached the end of a
+conversion specifier when it reads a conversion character. In the example
+above the conversion specifier %-5l means the level of the logging event
+should be left justified to a width of five characters. The recognized
+conversion characters are</p>
+
+<pre>[c]  Used to output the name of the logger that generated the log
+     event. Supports an optional &quot;precision&quot; described further below.
+[d]  Used to output the date of the log event. The format of the
+     date is specified using the :date_pattern option when the Layout
+     is created. ISO8601 format is assumed if not date pattern is given.
+[F]  Used to output the file name where the logging request was issued.
+[l]  Used to output the level of the log event.
+[L]  Used to output the line number where the logging request was
+     issued.
+[m]  Used to output the application supplied message associated with
+     the log event.
+[M]  Used to output the method name where the logging request was
+     issued.
+[h]  Used to output the hostname
+[p]  Used to output the process ID of the currently running program.
+[r]  Used to output the number of milliseconds elapsed from the
+     construction of the Layout until creation of the log event.
+[t]  Used to output the object ID of the thread that generated the
+     log event.
+[T]  Used to output the name of the thread that generated the log event.
+     Name can be specified using Thread.current[:name] notation. Output
+     empty string if name not specified. This option helps to create
+     more human readable output for multi-threaded application logs.
+[X]  Used to output values from the Mapped Diagnostic Context. Requires
+     a key name to lookup the value from the context. More details are
+     listed below.
+[x]  Used to output values from the Nested Diagnostic Context. Supports
+     an optional context separator string. More details are listed below.
+[%]  The sequence &#39;%%&#39; outputs a single percent sign.</pre>
+
+<p>The logger name directive &#39;c&#39; accepts an optional precision that
+will only print the rightmost number of name space identifiers for the
+logger. By default the logger name is printed in full. For example, for the
+logger name “Foo::Bar::Baz” the pattern %c{2} will output “Bar::Baz”.</p>
+
+<p>The directives F, L, and <a href="../../M.html">M</a> will only work if the
+<a href="../Logger.html">Logger</a> generating the events is configured to
+generate tracing information. If this is not the case these fields will
+always be empty.</p>
+
+<p>The directives for including diagnostic context information in the log
+messages are X and x. For the Mapped Diagnostic Context the directive must
+be accompanied by the key identifying the value to insert into the log
+message. The X directive can appear multiple times to include multiple
+values from the mapped context.</p>
+
+<pre>%X{Cookie}      Insert the current session cookie
+%X{X-Session}   Insert a session identifier</pre>
+
+<p>For the Nested Diagnostic Context you need only include the directive once.
+All contexts currently in the stack will be added to the log message
+separated by spaces. If spaces are not your style, a separator string can
+be given, too.</p>
+
+<pre>%x      Insert all contexts separated by spaces
+%x{, }  Insert all contexts separate by a comma and a space</pre>
+
+<p>By default the relevant information is output as is. However, with the aid
+of format modifiers it is possible to change the minimum field width, the
+maximum field width and justification.</p>
+
+<p>The optional format modifier is placed between the percent sign and the
+conversion character.</p>
+
+<p>The first optional format modifier is the left justification flag which is
+just the minus (-) character. Then comes the optional minimum field width
+modifier. This is a decimal constant that represents the minimum number of
+characters to output. If the data item requires fewer characters, it is
+padded on either the left or the right until the minimum width is reached.
+The default is to pad on the left (right justify) but you can specify right
+padding with the left justification flag. The padding character is space.
+If the data item is larger than the minimum field width, the field is
+expanded to accommodate the data. The value is never truncated.</p>
+
+<p>This behavior can be changed using the maximum field width modifier which
+is designated by a period followed by a decimal constant. If the data item
+is longer than the maximum field, then the extra characters are removed
+from the end of the data item.</p>
+
+<p>Below are various format modifier examples for the category conversion
+specifier.</p>
+
+<pre>%20c       Left pad with spaces if the logger name is less than 20
+           characters long
+%-20c      Right pad with spaces if the logger name is less than 20
+           characters long
+%.30c      Truncates the logger name if it is longer than 30 characters
+%20.30c    Left pad with spaces if the logger name is shorter than
+           20 characters. However, if the logger name is longer than
+           30 characters, then truncate the name.
+%-20.30c   Right pad with spaces if the logger name is shorter than
+           20 characters. However, if the logger name is longer than
+           30 characters, then truncate the name.</pre>
+
+<p>Below are examples of some conversion patterns.</p>
+
+<pre>%.1l, [%d] %5l -- %c: %m\n</pre>
+
+<p>This is how the <a href="../Logger.html">Logger</a> class in the Ruby
+standard library formats messages. The main difference will be in the date
+format (the <a href="Pattern.html">Pattern</a> <a
+href="../Layout.html">Layout</a> uses the ISO8601 date format). Set the
+:date_method on the <a href="Pattern.html">Pattern</a> <a
+href="../Layout.html">Layout</a> to be &#39;to_s&#39; and then the date
+formats will agree.</p>
+
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+    <section class="attribute-method-details" class="method-section">
+      <header>
+        <h3>Attributes</h3>
+      </header>
+
+      
+      <div id="attribute-i-color_scheme" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">color_scheme</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-date_method" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">date_method</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-date_pattern" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">date_pattern</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-pattern" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">pattern</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+    </section>
+    
+
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Class Methods</h3>
+       </header>
+
+    
+      <div id="method-c-new" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            new( opts )
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Creates a new <a href="Pattern.html">Pattern</a> layout using the following
+options.</p>
+
+<pre>:pattern       =&gt;  &quot;[%d] %-5l -- %c : %m\n&quot;
+:date_pattern  =&gt;  &quot;%Y-%m-%d %H:%M:%S&quot;
+:date_method   =&gt;  &quot;usec&quot; or &quot;to_s&quot;
+:utc_offset    =&gt;  &quot;-06:00&quot; or -21600 or &quot;UTC&quot;
+:color_scheme  =&gt;  :default</pre>
+
+<p>If used, :date_method will supersede :date_pattern.</p>
+
+<p>The :color_scheme is used to apply color formatting to the log messages.
+Individual tokens can be colorized witch the level token [%l] receiving
+distinct colors based on the level of the log event. The entire generated
+log message can also be colorized based on the level of the log event. See
+the <a href="../ColorScheme.html">ColorScheme</a> documentation for more
+details.</p>
+          
+          
+            <div class="method-calls-super">
+              Calls superclass method
+              <a href="../Layout.html#method-c-new">Logging::Layout.new</a>
+            </div>
+          
+
+          
+          <div class="method-source-code" id="new-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/logging-2.2.2/lib/logging/layouts/pattern.rb, line 219</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span>( <span class="ruby-identifier">opts</span> = {} )
+  <span class="ruby-keyword">super</span>
+  <span class="ruby-ivar">@created_at</span> = <span class="ruby-constant">Time</span>.<span class="ruby-identifier">now</span>.<span class="ruby-identifier">freeze</span>
+
+  <span class="ruby-ivar">@date_pattern</span> = <span class="ruby-identifier">opts</span>.<span class="ruby-identifier">fetch</span>(<span class="ruby-value">:date_pattern</span>, <span class="ruby-keyword">nil</span>)
+  <span class="ruby-ivar">@date_method</span> = <span class="ruby-identifier">opts</span>.<span class="ruby-identifier">fetch</span>(<span class="ruby-value">:date_method</span>, <span class="ruby-keyword">nil</span>)
+  <span class="ruby-ivar">@date_pattern</span> = <span class="ruby-constant">ISO8601</span> <span class="ruby-keyword">if</span> <span class="ruby-ivar">@date_pattern</span>.<span class="ruby-identifier">nil?</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-ivar">@date_method</span>.<span class="ruby-identifier">nil?</span>
+
+  <span class="ruby-ivar">@pattern</span> = <span class="ruby-identifier">opts</span>.<span class="ruby-identifier">fetch</span>(<span class="ruby-value">:pattern</span>,
+      <span class="ruby-node">&quot;[%d] %-#{::Logging::MAX_LEVEL_LENGTH}l -- %c : %m\n&quot;</span>)
+
+  <span class="ruby-identifier">cs_name</span> = <span class="ruby-identifier">opts</span>.<span class="ruby-identifier">fetch</span>(<span class="ruby-value">:color_scheme</span>, <span class="ruby-keyword">nil</span>)
+  <span class="ruby-ivar">@color_scheme</span> =
+      <span class="ruby-keyword">case</span> <span class="ruby-identifier">cs_name</span>
+      <span class="ruby-keyword">when</span> <span class="ruby-keyword">false</span>, <span class="ruby-keyword">nil</span>; <span class="ruby-keyword">nil</span>
+      <span class="ruby-keyword">when</span> <span class="ruby-keyword">true</span>; <span class="ruby-operator">::</span><span class="ruby-constant">Logging</span><span class="ruby-operator">::</span><span class="ruby-constant">ColorScheme</span>[<span class="ruby-value">:default</span>]
+      <span class="ruby-keyword">else</span> <span class="ruby-operator">::</span><span class="ruby-constant">Logging</span><span class="ruby-operator">::</span><span class="ruby-constant">ColorScheme</span>[<span class="ruby-identifier">cs_name</span>] <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">class</span>.<span class="ruby-identifier">create_date_format_methods</span>(<span class="ruby-keyword">self</span>)
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">class</span>.<span class="ruby-identifier">create_format_method</span>(<span class="ruby-keyword">self</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-date_method-3D" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            date_method = &#39;to_s&#39;
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            date_method = :usec
+          </span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Set the date method to be used when outputting timestamps in the log
+messages. If a date method is configured, the output of that method will be
+used in leu of the date pattern.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="date_method-3D-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/logging-2.2.2/lib/logging/layouts/pattern.rb, line 272</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">date_method=</span>( <span class="ruby-identifier">var</span> )
+  <span class="ruby-ivar">@date_method</span> = <span class="ruby-identifier">var</span>
+  <span class="ruby-constant">Pattern</span>.<span class="ruby-identifier">create_date_format_methods</span>(<span class="ruby-keyword">self</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-date_pattern-3D" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            date_pattern = &quot;%Y-%m-%d %H:%M:%S&quot;
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Set the date formatting pattern to be used when outputting timestamps in
+the log messages.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="date_pattern-3D-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/logging-2.2.2/lib/logging/layouts/pattern.rb, line 259</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">date_pattern=</span>( <span class="ruby-identifier">var</span> )
+  <span class="ruby-ivar">@date_pattern</span> = <span class="ruby-identifier">var</span>
+  <span class="ruby-constant">Pattern</span>.<span class="ruby-identifier">create_date_format_methods</span>(<span class="ruby-keyword">self</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-pattern-3D" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            pattern = &quot;[%d] %-5l -- %c : %m\n&quot;
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Set the message formatting pattern to be used by the layout.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="pattern-3D-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/logging-2.2.2/lib/logging/layouts/pattern.rb, line 248</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">pattern=</span>( <span class="ruby-identifier">var</span> )
+  <span class="ruby-ivar">@pattern</span> = <span class="ruby-identifier">var</span>
+  <span class="ruby-constant">Pattern</span>.<span class="ruby-identifier">create_format_method</span>(<span class="ruby-keyword">self</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="https://rdoc.github.io/rdoc">RDoc</a> 5.0.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

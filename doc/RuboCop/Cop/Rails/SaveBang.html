@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class RuboCop::Cop::Rails::SaveBang - RDoc Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../../../";
+  var index_rel_prefix = "../../../";
+</script>
+
+<script src="../../../js/jquery.js"></script>
+<script src="../../../js/darkfish.js"></script>
+
+<link href="../../../css/fonts.css" rel="stylesheet">
+<link href="../../../css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../../../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../../../table_of_contents.html#pages">Pages</a>
+    <a href="../../../table_of_contents.html#classes">Classes</a>
+    <a href="../../../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link"><a href="../Cop.html">RuboCop::Cop::Cop</a>
+  
+</div>
+
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-i-after_leaving_scope">#after_leaving_scope</a>
+    
+    <li ><a href="#method-i-autocorrect">#autocorrect</a>
+    
+    <li ><a href="#method-i-check_assignment">#check_assignment</a>
+    
+    <li ><a href="#method-i-join_force-3F">#join_force?</a>
+    
+    <li ><a href="#method-i-on_send">#on_send</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-RuboCop::Cop::Rails::SaveBang">
+  <h1 id="class-RuboCop::Cop::Rails::SaveBang" class="class">
+    class RuboCop::Cop::Rails::SaveBang
+  </h1>
+
+  <section class="description">
+    
+<p>This cop identifies possible cases where Active Record save! or related
+should be used instead of save because the model might have failed to save
+and an exception is better than unhandled failure.</p>
+
+<p>This will ignore calls that return a boolean for success if the result is
+assigned to a variable or used as the condition in an if/unless statement. 
+It will also ignore calls that return a model assigned to a variable that
+has a call to `persisted?`. Finally, it will ignore any call with more than
+2 arguments as that is likely not an Active Record call or a
+Model.update(id, attributes) call.</p>
+
+<p>@example</p>
+
+<pre class="ruby"><span class="ruby-comment"># bad</span>
+<span class="ruby-identifier">user</span>.<span class="ruby-identifier">save</span>
+<span class="ruby-identifier">user</span>.<span class="ruby-identifier">update</span>(<span class="ruby-identifier">name</span><span class="ruby-operator">:</span> <span class="ruby-string">&#39;Joe&#39;</span>)
+<span class="ruby-identifier">user</span>.<span class="ruby-identifier">find_or_create_by</span>(<span class="ruby-identifier">name</span><span class="ruby-operator">:</span> <span class="ruby-string">&#39;Joe&#39;</span>)
+<span class="ruby-identifier">user</span>.<span class="ruby-identifier">destroy</span>
+
+<span class="ruby-comment"># good</span>
+<span class="ruby-keyword">unless</span> <span class="ruby-identifier">user</span>.<span class="ruby-identifier">save</span>
+  <span class="ruby-comment"># ...</span>
+<span class="ruby-keyword">end</span>
+<span class="ruby-identifier">user</span>.<span class="ruby-identifier">save!</span>
+<span class="ruby-identifier">user</span>.<span class="ruby-identifier">update!</span>(<span class="ruby-identifier">name</span><span class="ruby-operator">:</span> <span class="ruby-string">&#39;Joe&#39;</span>)
+<span class="ruby-identifier">user</span>.<span class="ruby-identifier">find_or_create_by!</span>(<span class="ruby-identifier">name</span><span class="ruby-operator">:</span> <span class="ruby-string">&#39;Joe&#39;</span>)
+<span class="ruby-identifier">user</span>.<span class="ruby-identifier">destroy!</span>
+
+<span class="ruby-identifier">user</span> = <span class="ruby-constant">User</span>.<span class="ruby-identifier">find_or_create_by</span>(<span class="ruby-identifier">name</span><span class="ruby-operator">:</span> <span class="ruby-string">&#39;Joe&#39;</span>)
+<span class="ruby-keyword">unless</span> <span class="ruby-identifier">user</span>.<span class="ruby-identifier">persisted?</span>
+  <span class="ruby-comment"># ...</span>
+<span class="ruby-keyword">end</span>
+</pre>
+
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+    <section class="constants-list">
+      <header>
+        <h3>Constants</h3>
+      </header>
+      <dl>
+      
+        <dt id="CREATE_CONDITIONAL_MSG">CREATE_CONDITIONAL_MSG
+        
+        <dd>
+        
+      
+        <dt id="CREATE_MSG">CREATE_MSG
+        
+        <dd>
+        
+      
+        <dt id="CREATE_PERSIST_METHODS">CREATE_PERSIST_METHODS
+        
+        <dd>
+        
+      
+        <dt id="MODIFY_PERSIST_METHODS">MODIFY_PERSIST_METHODS
+        
+        <dd>
+        
+      
+        <dt id="MSG">MSG
+        
+        <dd>
+        
+      
+        <dt id="PERSIST_METHODS">PERSIST_METHODS
+        
+        <dd>
+        
+      
+      </dl>
+    </section>
+    
+
+    
+
+    
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-after_leaving_scope" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">after_leaving_scope</span><span
+            class="method-args">(scope, _variable_table)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="after_leaving_scope-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/rubocop-0.52.1/lib/rubocop/cop/rails/save_bang.rb, line 57</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">after_leaving_scope</span>(<span class="ruby-identifier">scope</span>, <span class="ruby-identifier">_variable_table</span>)
+  <span class="ruby-identifier">scope</span>.<span class="ruby-identifier">variables</span>.<span class="ruby-identifier">each_value</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">variable</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">variable</span>.<span class="ruby-identifier">assignments</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">assignment</span><span class="ruby-operator">|</span>
+      <span class="ruby-identifier">check_assignment</span>(<span class="ruby-identifier">assignment</span>)
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-autocorrect" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">autocorrect</span><span
+            class="method-args">(node)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="autocorrect-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/rubocop-0.52.1/lib/rubocop/cop/rails/save_bang.rb, line 92</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">autocorrect</span>(<span class="ruby-identifier">node</span>)
+  <span class="ruby-identifier">save_loc</span> = <span class="ruby-identifier">node</span>.<span class="ruby-identifier">loc</span>.<span class="ruby-identifier">selector</span>
+  <span class="ruby-identifier">new_method</span> = <span class="ruby-node">&quot;#{node.method_name}!&quot;</span>
+
+  <span class="ruby-operator">-</span><span class="ruby-operator">&gt;</span>(<span class="ruby-identifier">corrector</span>) { <span class="ruby-identifier">corrector</span>.<span class="ruby-identifier">replace</span>(<span class="ruby-identifier">save_loc</span>, <span class="ruby-identifier">new_method</span>) }
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-check_assignment" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">check_assignment</span><span
+            class="method-args">(assignment)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="check_assignment-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/rubocop-0.52.1/lib/rubocop/cop/rails/save_bang.rb, line 65</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">check_assignment</span>(<span class="ruby-identifier">assignment</span>)
+  <span class="ruby-identifier">node</span> = <span class="ruby-identifier">right_assignment_node</span>(<span class="ruby-identifier">assignment</span>)
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">node</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">unless</span> <span class="ruby-constant">CREATE_PERSIST_METHODS</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">node</span>.<span class="ruby-identifier">method_name</span>)
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">expected_signature?</span>(<span class="ruby-identifier">node</span>)
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">persisted_referenced?</span>(<span class="ruby-identifier">assignment</span>)
+
+  <span class="ruby-identifier">add_offense</span>(<span class="ruby-identifier">node</span>, <span class="ruby-identifier">location</span><span class="ruby-operator">:</span> <span class="ruby-value">:selector</span>,
+                    <span class="ruby-identifier">message</span><span class="ruby-operator">:</span> <span class="ruby-identifier">format</span>(<span class="ruby-constant">CREATE_MSG</span>,
+                                    <span class="ruby-node">&quot;#{node.method_name}!&quot;</span>,
+                                    <span class="ruby-identifier">node</span>.<span class="ruby-identifier">method_name</span>.<span class="ruby-identifier">to_s</span>,
+                                    <span class="ruby-identifier">node</span>.<span class="ruby-identifier">method_name</span>.<span class="ruby-identifier">to_s</span>))
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-join_force-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">join_force?</span><span
+            class="method-args">(force_class)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="join_force-3F-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/rubocop-0.52.1/lib/rubocop/cop/rails/save_bang.rb, line 53</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">join_force?</span>(<span class="ruby-identifier">force_class</span>)
+  <span class="ruby-identifier">force_class</span> <span class="ruby-operator">==</span> <span class="ruby-constant">VariableForce</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-on_send" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">on_send</span><span
+            class="method-args">(node)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="on_send-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/rubocop-0.52.1/lib/rubocop/cop/rails/save_bang.rb, line 79</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">on_send</span>(<span class="ruby-identifier">node</span>)
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">unless</span> <span class="ruby-constant">PERSIST_METHODS</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">node</span>.<span class="ruby-identifier">method_name</span>)
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">expected_signature?</span>(<span class="ruby-identifier">node</span>)
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">return_value_assigned?</span>(<span class="ruby-identifier">node</span>)
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">check_used_in_conditional</span>(<span class="ruby-identifier">node</span>)
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">last_call_of_method?</span>(<span class="ruby-identifier">node</span>)
+
+  <span class="ruby-identifier">add_offense</span>(<span class="ruby-identifier">node</span>, <span class="ruby-identifier">location</span><span class="ruby-operator">:</span> <span class="ruby-value">:selector</span>,
+                    <span class="ruby-identifier">message</span><span class="ruby-operator">:</span> <span class="ruby-identifier">format</span>(<span class="ruby-constant">MSG</span>,
+                                    <span class="ruby-node">&quot;#{node.method_name}!&quot;</span>,
+                                    <span class="ruby-identifier">node</span>.<span class="ruby-identifier">method_name</span>.<span class="ruby-identifier">to_s</span>))
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="https://rdoc.github.io/rdoc">RDoc</a> 5.0.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

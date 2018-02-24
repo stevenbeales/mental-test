@@ -1,0 +1,2298 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class TestJSONEncoding - RDoc Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "./";
+  var index_rel_prefix = "./";
+</script>
+
+<script src="./js/jquery.js"></script>
+<script src="./js/darkfish.js"></script>
+
+<link href="./css/fonts.css" rel="stylesheet">
+<link href="./css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="./index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="./table_of_contents.html#pages">Pages</a>
+    <a href="./table_of_contents.html#classes">Classes</a>
+    <a href="./table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link"><a href="ActiveSupport/TestCase.html">ActiveSupport::TestCase</a>
+  
+</div>
+
+    <div id="includes-section" class="nav-section">
+  <h3>Included Modules</h3>
+
+  <ul class="link-list">
+  
+  
+    <li><a class="include" href="TimeZoneTestHelpers.html">TimeZoneTestHelpers</a>
+  
+  
+  </ul>
+</div>
+
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-i-object_keys">#object_keys</a>
+    
+    <li ><a href="#method-i-sorted_json">#sorted_json</a>
+    
+    <li ><a href="#method-i-test_array_as_json_without_options">#test_array_as_json_without_options</a>
+    
+    <li ><a href="#method-i-test_array_should_pass_encoding_options_to_children_in_as_json">#test_array_should_pass_encoding_options_to_children_in_as_json</a>
+    
+    <li ><a href="#method-i-test_array_should_pass_encoding_options_to_children_in_to_json">#test_array_should_pass_encoding_options_to_children_in_to_json</a>
+    
+    <li ><a href="#method-i-test_array_to_json_should_not_keep_options_around">#test_array_to_json_should_not_keep_options_around</a>
+    
+    <li ><a href="#method-i-test_datetime_to_json_with_custom_time_precision">#test_datetime_to_json_with_custom_time_precision</a>
+    
+    <li ><a href="#method-i-test_enumerable_should_generate_json_with_as_json">#test_enumerable_should_generate_json_with_as_json</a>
+    
+    <li ><a href="#method-i-test_enumerable_should_generate_json_with_to_json">#test_enumerable_should_generate_json_with_to_json</a>
+    
+    <li ><a href="#method-i-test_enumerable_should_pass_encoding_options_to_children_in_as_json">#test_enumerable_should_pass_encoding_options_to_children_in_as_json</a>
+    
+    <li ><a href="#method-i-test_enumerable_should_pass_encoding_options_to_children_in_to_json">#test_enumerable_should_pass_encoding_options_to_children_in_to_json</a>
+    
+    <li ><a href="#method-i-test_exception_raised_when_encoding_circular_reference_in_array">#test_exception_raised_when_encoding_circular_reference_in_array</a>
+    
+    <li ><a href="#method-i-test_exception_raised_when_encoding_circular_reference_in_hash">#test_exception_raised_when_encoding_circular_reference_in_hash</a>
+    
+    <li ><a href="#method-i-test_exception_raised_when_encoding_circular_reference_in_hash_inside_array">#test_exception_raised_when_encoding_circular_reference_in_hash_inside_array</a>
+    
+    <li ><a href="#method-i-test_exception_to_json">#test_exception_to_json</a>
+    
+    <li ><a href="#method-i-test_hash_as_json_without_options">#test_hash_as_json_without_options</a>
+    
+    <li ><a href="#method-i-test_hash_encoding">#test_hash_encoding</a>
+    
+    <li ><a href="#method-i-test_hash_key_identifiers_are_always_quoted">#test_hash_key_identifiers_are_always_quoted</a>
+    
+    <li ><a href="#method-i-test_hash_keys_encoding">#test_hash_keys_encoding</a>
+    
+    <li ><a href="#method-i-test_hash_like_with_options">#test_hash_like_with_options</a>
+    
+    <li ><a href="#method-i-test_hash_should_allow_key_filtering_with_except">#test_hash_should_allow_key_filtering_with_except</a>
+    
+    <li ><a href="#method-i-test_hash_should_allow_key_filtering_with_only">#test_hash_should_allow_key_filtering_with_only</a>
+    
+    <li ><a href="#method-i-test_hash_should_pass_encoding_options_to_children_in_as_json">#test_hash_should_pass_encoding_options_to_children_in_as_json</a>
+    
+    <li ><a href="#method-i-test_hash_should_pass_encoding_options_to_children_in_to_json">#test_hash_should_pass_encoding_options_to_children_in_to_json</a>
+    
+    <li ><a href="#method-i-test_hash_to_json_should_not_keep_options_around">#test_hash_to_json_should_not_keep_options_around</a>
+    
+    <li ><a href="#method-i-test_hash_with_time_to_json">#test_hash_with_time_to_json</a>
+    
+    <li ><a href="#method-i-test_json_gem_dump_by_passing_active_support_encoder">#test_json_gem_dump_by_passing_active_support_encoder</a>
+    
+    <li ><a href="#method-i-test_json_gem_generate_by_passing_active_support_encoder">#test_json_gem_generate_by_passing_active_support_encoder</a>
+    
+    <li ><a href="#method-i-test_json_gem_pretty_generate_by_passing_active_support_encoder">#test_json_gem_pretty_generate_by_passing_active_support_encoder</a>
+    
+    <li ><a href="#method-i-test_nested_hash_with_float">#test_nested_hash_with_float</a>
+    
+    <li ><a href="#method-i-test_nil_true_and_false_represented_as_themselves">#test_nil_true_and_false_represented_as_themselves</a>
+    
+    <li ><a href="#method-i-test_non_utf8_string_transcodes">#test_non_utf8_string_transcodes</a>
+    
+    <li ><a href="#method-i-test_object_to_json_with_options">#test_object_to_json_with_options</a>
+    
+    <li ><a href="#method-i-test_process_status">#test_process_status</a>
+    
+    <li ><a href="#method-i-test_reading_encode_big_decimal_as_string_option">#test_reading_encode_big_decimal_as_string_option</a>
+    
+    <li ><a href="#method-i-test_setting_deprecated_encode_big_decimal_as_string_option">#test_setting_deprecated_encode_big_decimal_as_string_option</a>
+    
+    <li ><a href="#method-i-test_struct_encoding">#test_struct_encoding</a>
+    
+    <li ><a href="#method-i-test_struct_to_json_with_options">#test_struct_to_json_with_options</a>
+    
+    <li ><a href="#method-i-test_time_to_json_includes_local_offset">#test_time_to_json_includes_local_offset</a>
+    
+    <li ><a href="#method-i-test_time_to_json_with_custom_time_precision">#test_time_to_json_with_custom_time_precision</a>
+    
+    <li ><a href="#method-i-test_to_json_works_when_as_json_returns_NaN_number">#test_to_json_works_when_as_json_returns_NaN_number</a>
+    
+    <li ><a href="#method-i-test_to_json_works_when_as_json_returns_infinite_number">#test_to_json_works_when_as_json_returns_infinite_number</a>
+    
+    <li ><a href="#method-i-test_twz_to_json_when_wrapping_a_date_time">#test_twz_to_json_when_wrapping_a_date_time</a>
+    
+    <li ><a href="#method-i-test_twz_to_json_with_custom_time_precision">#test_twz_to_json_with_custom_time_precision</a>
+    
+    <li ><a href="#method-i-test_twz_to_json_with_use_standard_json_time_format_config_set_to_false">#test_twz_to_json_with_use_standard_json_time_format_config_set_to_false</a>
+    
+    <li ><a href="#method-i-test_twz_to_json_with_use_standard_json_time_format_config_set_to_true">#test_twz_to_json_with_use_standard_json_time_format_config_set_to_true</a>
+    
+    <li ><a href="#method-i-test_utf8_string_encoded_properly">#test_utf8_string_encoded_properly</a>
+    
+    <li ><a href="#method-i-test_wide_utf8_chars">#test_wide_utf8_chars</a>
+    
+    <li ><a href="#method-i-test_wide_utf8_roundtrip">#test_wide_utf8_roundtrip</a>
+    
+    <li ><a href="#method-i-with_env_tz">#with_env_tz</a>
+    
+    <li ><a href="#method-i-with_standard_json_time_format">#with_standard_json_time_format</a>
+    
+    <li ><a href="#method-i-with_time_precision">#with_time_precision</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-TestJSONEncoding">
+  <h1 id="class-TestJSONEncoding" class="class">
+    class TestJSONEncoding
+  </h1>
+
+  <section class="description">
+    
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+    <section class="constants-list">
+      <header>
+        <h3>Constants</h3>
+      </header>
+      <dl>
+      
+        <dt id="ArrayTests">ArrayTests
+        
+        <dd>
+        
+      
+        <dt id="CustomTests">CustomTests
+        
+        <dd>
+        
+      
+        <dt id="DateTests">DateTests
+        
+        <dd>
+        
+      
+        <dt id="DateTimeTests">DateTimeTests
+        
+        <dd>
+        
+      
+        <dt id="FalseTests">FalseTests
+        
+        <dd>
+        
+      
+        <dt id="HashlikeTests">HashlikeTests
+        
+        <dd>
+        
+      
+        <dt id="NilTests">NilTests
+        
+        <dd>
+        
+      
+        <dt id="NumericTests">NumericTests
+        
+        <dd>
+        
+      
+        <dt id="ObjectTests">ObjectTests
+        
+        <dd>
+        
+      
+        <dt id="People">People
+        
+        <dd>
+        
+      
+        <dt id="RangeTests">RangeTests
+        
+        <dd>
+        
+      
+        <dt id="RegexpTests">RegexpTests
+        
+        <dd>
+        
+      
+        <dt id="StandardDateTests">StandardDateTests
+        
+        <dd>
+        
+      
+        <dt id="StandardDateTimeTests">StandardDateTimeTests
+        
+        <dd>
+        
+      
+        <dt id="StandardStringTests">StandardStringTests
+        
+        <dd>
+        
+      
+        <dt id="StandardTimeTests">StandardTimeTests
+        
+        <dd>
+        
+      
+        <dt id="StringTests">StringTests
+        
+        <dd>
+        
+      
+        <dt id="SymbolTests">SymbolTests
+        
+        <dd>
+        
+      
+        <dt id="TimeTests">TimeTests
+        
+        <dd>
+        
+      
+        <dt id="TrueTests">TrueTests
+        
+        <dd>
+        
+      
+      </dl>
+    </section>
+    
+
+    
+
+    
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-sorted_json" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">sorted_json</span><span
+            class="method-args">(json)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="sorted_json-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/oj-3.4.0/test/activesupport4/encoding_test.rb, line 108</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">sorted_json</span>(<span class="ruby-identifier">json</span>)
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">json</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">json</span> <span class="ruby-operator">=~</span> <span class="ruby-regexp">/^\{.*\}$/</span>
+  <span class="ruby-string">&#39;{&#39;</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">json</span>[<span class="ruby-value">1</span><span class="ruby-operator">..</span><span class="ruby-value">-2</span>].<span class="ruby-identifier">split</span>(<span class="ruby-string">&#39;,&#39;</span>).<span class="ruby-identifier">sort</span>.<span class="ruby-identifier">join</span>(<span class="ruby-string">&#39;,&#39;</span>) <span class="ruby-operator">+</span> <span class="ruby-string">&#39;}&#39;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_array_as_json_without_options" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_array_as_json_without_options</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_array_as_json_without_options-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/oj-3.4.0/test/activesupport4/encoding_test.rb, line 386</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">test_array_as_json_without_options</span>
+  <span class="ruby-identifier">json</span> = [ <span class="ruby-constant">OptionsTest</span>.<span class="ruby-identifier">new</span> ].<span class="ruby-identifier">as_json</span>
+  <span class="ruby-identifier">assert_equal</span>([<span class="ruby-value">:default</span>], <span class="ruby-identifier">json</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_array_should_pass_encoding_options_to_children_in_as_json" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_array_should_pass_encoding_options_to_children_in_as_json</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_array_should_pass_encoding_options_to_children_in_as_json-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/oj-3.4.0/test/activesupport4/encoding_test.rb, line 313</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">test_array_should_pass_encoding_options_to_children_in_as_json</span>
+  <span class="ruby-identifier">people</span> = [
+    { <span class="ruby-value">:name</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&#39;John&#39;</span>, <span class="ruby-value">:address</span> =<span class="ruby-operator">&gt;</span> { <span class="ruby-value">:city</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&#39;London&#39;</span>, <span class="ruby-value">:country</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&#39;UK&#39;</span> }},
+    { <span class="ruby-value">:name</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&#39;Jean&#39;</span>, <span class="ruby-value">:address</span> =<span class="ruby-operator">&gt;</span> { <span class="ruby-value">:city</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&#39;Paris&#39;</span> , <span class="ruby-value">:country</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&#39;France&#39;</span> }}
+  ]
+  <span class="ruby-identifier">json</span> = <span class="ruby-identifier">people</span>.<span class="ruby-identifier">as_json</span> <span class="ruby-value">:only</span> =<span class="ruby-operator">&gt;</span> [<span class="ruby-value">:address</span>, <span class="ruby-value">:city</span>]
+  <span class="ruby-identifier">expected</span> = [
+    { <span class="ruby-string">&#39;address&#39;</span> =<span class="ruby-operator">&gt;</span> { <span class="ruby-string">&#39;city&#39;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&#39;London&#39;</span> }},
+    { <span class="ruby-string">&#39;address&#39;</span> =<span class="ruby-operator">&gt;</span> { <span class="ruby-string">&#39;city&#39;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&#39;Paris&#39;</span> }}
+  ]
+
+  <span class="ruby-identifier">assert_equal</span>(<span class="ruby-identifier">expected</span>, <span class="ruby-identifier">json</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_array_should_pass_encoding_options_to_children_in_to_json" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_array_should_pass_encoding_options_to_children_in_to_json</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_array_should_pass_encoding_options_to_children_in_to_json-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/oj-3.4.0/test/activesupport4/encoding_test.rb, line 327</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">test_array_should_pass_encoding_options_to_children_in_to_json</span>
+  <span class="ruby-identifier">people</span> = [
+    { <span class="ruby-value">:name</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&#39;John&#39;</span>, <span class="ruby-value">:address</span> =<span class="ruby-operator">&gt;</span> { <span class="ruby-value">:city</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&#39;London&#39;</span>, <span class="ruby-value">:country</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&#39;UK&#39;</span> }},
+    { <span class="ruby-value">:name</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&#39;Jean&#39;</span>, <span class="ruby-value">:address</span> =<span class="ruby-operator">&gt;</span> { <span class="ruby-value">:city</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&#39;Paris&#39;</span> , <span class="ruby-value">:country</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&#39;France&#39;</span> }}
+  ]
+  <span class="ruby-identifier">json</span> = <span class="ruby-identifier">people</span>.<span class="ruby-identifier">to_json</span> <span class="ruby-value">:only</span> =<span class="ruby-operator">&gt;</span> [<span class="ruby-value">:address</span>, <span class="ruby-value">:city</span>]
+
+  <span class="ruby-identifier">assert_equal</span>(<span class="ruby-string">%Q([{&quot;address&quot;:{&quot;city&quot;:&quot;London&quot;}},{&quot;address&quot;:{&quot;city&quot;:&quot;Paris&quot;}}])</span>, <span class="ruby-identifier">json</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_array_to_json_should_not_keep_options_around" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_array_to_json_should_not_keep_options_around</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_array_to_json_should_not_keep_options_around-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/oj-3.4.0/test/activesupport4/encoding_test.rb, line 371</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">test_array_to_json_should_not_keep_options_around</span>
+  <span class="ruby-identifier">f</span> = <span class="ruby-constant">CustomWithOptions</span>.<span class="ruby-identifier">new</span>
+  <span class="ruby-identifier">f</span>.<span class="ruby-identifier">foo</span> = <span class="ruby-string">&quot;hello&quot;</span>
+  <span class="ruby-identifier">f</span>.<span class="ruby-identifier">bar</span> = <span class="ruby-string">&quot;world&quot;</span>
+
+  <span class="ruby-identifier">array</span> = [<span class="ruby-identifier">f</span>, {<span class="ruby-string">&quot;foo&quot;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;other_foo&quot;</span>, <span class="ruby-string">&quot;test&quot;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;other_test&quot;</span>}]
+  <span class="ruby-identifier">assert_equal</span>([{<span class="ruby-string">&quot;foo&quot;</span>=<span class="ruby-operator">&gt;</span><span class="ruby-string">&quot;hello&quot;</span>,<span class="ruby-string">&quot;bar&quot;</span>=<span class="ruby-operator">&gt;</span><span class="ruby-string">&quot;world&quot;</span>},
+                {<span class="ruby-string">&quot;foo&quot;</span>=<span class="ruby-operator">&gt;</span><span class="ruby-string">&quot;other_foo&quot;</span>,<span class="ruby-string">&quot;test&quot;</span>=<span class="ruby-operator">&gt;</span><span class="ruby-string">&quot;other_test&quot;</span>}], <span class="ruby-constant">ActiveSupport</span><span class="ruby-operator">::</span><span class="ruby-constant">JSON</span>.<span class="ruby-identifier">decode</span>(<span class="ruby-identifier">array</span>.<span class="ruby-identifier">to_json</span>))
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_datetime_to_json_with_custom_time_precision" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_datetime_to_json_with_custom_time_precision</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_datetime_to_json_with_custom_time_precision-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/oj-3.4.0/test/activesupport4/encoding_test.rb, line 496</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">test_datetime_to_json_with_custom_time_precision</span>
+  <span class="ruby-identifier">with_standard_json_time_format</span>(<span class="ruby-keyword">true</span>) <span class="ruby-keyword">do</span>
+    <span class="ruby-constant">ActiveSupport</span><span class="ruby-operator">::</span><span class="ruby-constant">JSON</span><span class="ruby-operator">::</span><span class="ruby-constant">Encoding</span>.<span class="ruby-identifier">time_precision</span> = <span class="ruby-value">0</span>
+    <span class="ruby-identifier">assert_equal</span> <span class="ruby-string">&quot;\&quot;2000-01-01T00:00:00+00:00\&quot;&quot;</span>, <span class="ruby-constant">ActiveSupport</span><span class="ruby-operator">::</span><span class="ruby-constant">JSON</span>.<span class="ruby-identifier">encode</span>(<span class="ruby-constant">DateTime</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">2000</span>))
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">ensure</span>
+  <span class="ruby-constant">ActiveSupport</span><span class="ruby-operator">::</span><span class="ruby-constant">JSON</span><span class="ruby-operator">::</span><span class="ruby-constant">Encoding</span>.<span class="ruby-identifier">time_precision</span> = <span class="ruby-value">3</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_enumerable_should_generate_json_with_as_json" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_enumerable_should_generate_json_with_as_json</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_enumerable_should_generate_json_with_as_json-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/oj-3.4.0/test/activesupport5/encoding_test.rb, line 233</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">test_enumerable_should_generate_json_with_as_json</span>
+  <span class="ruby-identifier">json</span> = <span class="ruby-constant">People</span>.<span class="ruby-identifier">new</span>.<span class="ruby-identifier">as_json</span> <span class="ruby-value">:only</span> =<span class="ruby-operator">&gt;</span> [<span class="ruby-value">:address</span>, <span class="ruby-value">:city</span>]
+  <span class="ruby-identifier">expected</span> = [
+    { <span class="ruby-string">&#39;address&#39;</span> =<span class="ruby-operator">&gt;</span> { <span class="ruby-string">&#39;city&#39;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&#39;London&#39;</span> }},
+    { <span class="ruby-string">&#39;address&#39;</span> =<span class="ruby-operator">&gt;</span> { <span class="ruby-string">&#39;city&#39;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&#39;Paris&#39;</span> }}
+  ]
+
+  <span class="ruby-identifier">assert_equal</span>(<span class="ruby-identifier">expected</span>, <span class="ruby-identifier">json</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_enumerable_should_generate_json_with_to_json" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_enumerable_should_generate_json_with_to_json</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_enumerable_should_generate_json_with_to_json-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/oj-3.4.0/test/activesupport5/encoding_test.rb, line 243</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">test_enumerable_should_generate_json_with_to_json</span>
+  <span class="ruby-identifier">json</span> = <span class="ruby-constant">People</span>.<span class="ruby-identifier">new</span>.<span class="ruby-identifier">to_json</span> <span class="ruby-value">:only</span> =<span class="ruby-operator">&gt;</span> [<span class="ruby-value">:address</span>, <span class="ruby-value">:city</span>]
+  <span class="ruby-identifier">assert_equal</span>(<span class="ruby-string">%Q([{&quot;address&quot;:{&quot;city&quot;:&quot;London&quot;}},{&quot;address&quot;:{&quot;city&quot;:&quot;Paris&quot;}}])</span>, <span class="ruby-identifier">json</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_enumerable_should_pass_encoding_options_to_children_in_as_json" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_enumerable_should_pass_encoding_options_to_children_in_as_json</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_enumerable_should_pass_encoding_options_to_children_in_as_json-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/oj-3.4.0/test/activesupport4/encoding_test.rb, line 337</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">test_enumerable_should_pass_encoding_options_to_children_in_as_json</span>
+  <span class="ruby-identifier">people</span> = [
+    { <span class="ruby-value">:name</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&#39;John&#39;</span>, <span class="ruby-value">:address</span> =<span class="ruby-operator">&gt;</span> { <span class="ruby-value">:city</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&#39;London&#39;</span>, <span class="ruby-value">:country</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&#39;UK&#39;</span> }},
+    { <span class="ruby-value">:name</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&#39;Jean&#39;</span>, <span class="ruby-value">:address</span> =<span class="ruby-operator">&gt;</span> { <span class="ruby-value">:city</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&#39;Paris&#39;</span> , <span class="ruby-value">:country</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&#39;France&#39;</span> }}
+  ]
+  <span class="ruby-identifier">json</span> = <span class="ruby-identifier">people</span>.<span class="ruby-identifier">each</span>.<span class="ruby-identifier">as_json</span> <span class="ruby-value">:only</span> =<span class="ruby-operator">&gt;</span> [<span class="ruby-value">:address</span>, <span class="ruby-value">:city</span>]
+  <span class="ruby-identifier">expected</span> = [
+    { <span class="ruby-string">&#39;address&#39;</span> =<span class="ruby-operator">&gt;</span> { <span class="ruby-string">&#39;city&#39;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&#39;London&#39;</span> }},
+    { <span class="ruby-string">&#39;address&#39;</span> =<span class="ruby-operator">&gt;</span> { <span class="ruby-string">&#39;city&#39;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&#39;Paris&#39;</span> }}
+  ]
+
+  <span class="ruby-identifier">assert_equal</span>(<span class="ruby-identifier">expected</span>, <span class="ruby-identifier">json</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_enumerable_should_pass_encoding_options_to_children_in_to_json" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_enumerable_should_pass_encoding_options_to_children_in_to_json</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_enumerable_should_pass_encoding_options_to_children_in_to_json-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/oj-3.4.0/test/activesupport4/encoding_test.rb, line 351</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">test_enumerable_should_pass_encoding_options_to_children_in_to_json</span>
+  <span class="ruby-identifier">people</span> = [
+    { <span class="ruby-value">:name</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&#39;John&#39;</span>, <span class="ruby-value">:address</span> =<span class="ruby-operator">&gt;</span> { <span class="ruby-value">:city</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&#39;London&#39;</span>, <span class="ruby-value">:country</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&#39;UK&#39;</span> }},
+    { <span class="ruby-value">:name</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&#39;Jean&#39;</span>, <span class="ruby-value">:address</span> =<span class="ruby-operator">&gt;</span> { <span class="ruby-value">:city</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&#39;Paris&#39;</span> , <span class="ruby-value">:country</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&#39;France&#39;</span> }}
+  ]
+  <span class="ruby-identifier">json</span> = <span class="ruby-identifier">people</span>.<span class="ruby-identifier">each</span>.<span class="ruby-identifier">to_json</span> <span class="ruby-value">:only</span> =<span class="ruby-operator">&gt;</span> [<span class="ruby-value">:address</span>, <span class="ruby-value">:city</span>]
+
+  <span class="ruby-identifier">assert_equal</span>(<span class="ruby-string">%Q([{&quot;address&quot;:{&quot;city&quot;:&quot;London&quot;}},{&quot;address&quot;:{&quot;city&quot;:&quot;Paris&quot;}}])</span>, <span class="ruby-identifier">json</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_exception_raised_when_encoding_circular_reference_in_array" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_exception_raised_when_encoding_circular_reference_in_array</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_exception_raised_when_encoding_circular_reference_in_array-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/oj-3.4.0/test/activesupport4/encoding_test.rb, line 199</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">test_exception_raised_when_encoding_circular_reference_in_array</span>
+  <span class="ruby-identifier">a</span> = [<span class="ruby-value">1</span>]
+  <span class="ruby-identifier">a</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">a</span>
+  <span class="ruby-identifier">assert_deprecated</span> <span class="ruby-keyword">do</span>
+    <span class="ruby-identifier">assert_raise</span>(<span class="ruby-constant">ActiveSupport</span><span class="ruby-operator">::</span><span class="ruby-constant">JSON</span><span class="ruby-operator">::</span><span class="ruby-constant">Encoding</span><span class="ruby-operator">::</span><span class="ruby-constant">CircularReferenceError</span>) { <span class="ruby-constant">ActiveSupport</span><span class="ruby-operator">::</span><span class="ruby-constant">JSON</span>.<span class="ruby-identifier">encode</span>(<span class="ruby-identifier">a</span>) }
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_exception_raised_when_encoding_circular_reference_in_hash" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_exception_raised_when_encoding_circular_reference_in_hash</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_exception_raised_when_encoding_circular_reference_in_hash-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/oj-3.4.0/test/activesupport4/encoding_test.rb, line 207</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">test_exception_raised_when_encoding_circular_reference_in_hash</span>
+  <span class="ruby-identifier">a</span> = { <span class="ruby-value">:name</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&#39;foo&#39;</span> }
+  <span class="ruby-identifier">a</span>[<span class="ruby-value">:next</span>] = <span class="ruby-identifier">a</span>
+  <span class="ruby-identifier">assert_deprecated</span> <span class="ruby-keyword">do</span>
+    <span class="ruby-identifier">assert_raise</span>(<span class="ruby-constant">ActiveSupport</span><span class="ruby-operator">::</span><span class="ruby-constant">JSON</span><span class="ruby-operator">::</span><span class="ruby-constant">Encoding</span><span class="ruby-operator">::</span><span class="ruby-constant">CircularReferenceError</span>) { <span class="ruby-constant">ActiveSupport</span><span class="ruby-operator">::</span><span class="ruby-constant">JSON</span>.<span class="ruby-identifier">encode</span>(<span class="ruby-identifier">a</span>) }
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_exception_raised_when_encoding_circular_reference_in_hash_inside_array" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_exception_raised_when_encoding_circular_reference_in_hash_inside_array</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_exception_raised_when_encoding_circular_reference_in_hash_inside_array-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/oj-3.4.0/test/activesupport4/encoding_test.rb, line 215</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">test_exception_raised_when_encoding_circular_reference_in_hash_inside_array</span>
+  <span class="ruby-identifier">a</span> = { <span class="ruby-value">:name</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&#39;foo&#39;</span>, <span class="ruby-value">:sub</span> =<span class="ruby-operator">&gt;</span> [] }
+  <span class="ruby-identifier">a</span>[<span class="ruby-value">:sub</span>] <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">a</span>
+  <span class="ruby-identifier">assert_deprecated</span> <span class="ruby-keyword">do</span>
+    <span class="ruby-identifier">assert_raise</span>(<span class="ruby-constant">ActiveSupport</span><span class="ruby-operator">::</span><span class="ruby-constant">JSON</span><span class="ruby-operator">::</span><span class="ruby-constant">Encoding</span><span class="ruby-operator">::</span><span class="ruby-constant">CircularReferenceError</span>) { <span class="ruby-constant">ActiveSupport</span><span class="ruby-operator">::</span><span class="ruby-constant">JSON</span>.<span class="ruby-identifier">encode</span>(<span class="ruby-identifier">a</span>) }
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_exception_to_json" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_exception_to_json</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_exception_to_json-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/oj-3.4.0/test/activesupport5/encoding_test.rb, line 439</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">test_exception_to_json</span>
+  <span class="ruby-identifier">exception</span> = <span class="ruby-constant">Exception</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&quot;foo&quot;</span>)
+  <span class="ruby-identifier">assert_equal</span> <span class="ruby-string">&#39;&quot;foo&quot;&#39;</span>, <span class="ruby-constant">ActiveSupport</span><span class="ruby-operator">::</span><span class="ruby-constant">JSON</span>.<span class="ruby-identifier">encode</span>(<span class="ruby-identifier">exception</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_hash_as_json_without_options" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_hash_as_json_without_options</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_hash_as_json_without_options-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/oj-3.4.0/test/activesupport4/encoding_test.rb, line 381</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">test_hash_as_json_without_options</span>
+  <span class="ruby-identifier">json</span> = { <span class="ruby-identifier">foo</span><span class="ruby-operator">:</span> <span class="ruby-constant">OptionsTest</span>.<span class="ruby-identifier">new</span> }.<span class="ruby-identifier">as_json</span>
+  <span class="ruby-identifier">assert_equal</span>({<span class="ruby-string">&quot;foo&quot;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">:default</span>}, <span class="ruby-identifier">json</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_hash_encoding" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_hash_encoding</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_hash_encoding-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/oj-3.4.0/test/activesupport4/encoding_test.rb, line 137</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">test_hash_encoding</span>
+  <span class="ruby-identifier">assert_equal</span> <span class="ruby-string">%Q({\&quot;a\&quot;:\&quot;b\&quot;})</span>, <span class="ruby-constant">ActiveSupport</span><span class="ruby-operator">::</span><span class="ruby-constant">JSON</span>.<span class="ruby-identifier">encode</span>(<span class="ruby-value">:a</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">:b</span>)
+  <span class="ruby-identifier">assert_equal</span> <span class="ruby-string">%Q({\&quot;a\&quot;:1})</span>, <span class="ruby-constant">ActiveSupport</span><span class="ruby-operator">::</span><span class="ruby-constant">JSON</span>.<span class="ruby-identifier">encode</span>(<span class="ruby-string">&#39;a&#39;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">1</span>)
+  <span class="ruby-identifier">assert_equal</span> <span class="ruby-string">%Q({\&quot;a\&quot;:[1,2]})</span>, <span class="ruby-constant">ActiveSupport</span><span class="ruby-operator">::</span><span class="ruby-constant">JSON</span>.<span class="ruby-identifier">encode</span>(<span class="ruby-string">&#39;a&#39;</span> =<span class="ruby-operator">&gt;</span> [<span class="ruby-value">1</span>,<span class="ruby-value">2</span>])
+  <span class="ruby-identifier">assert_equal</span> <span class="ruby-string">%Q({&quot;1&quot;:2})</span>, <span class="ruby-constant">ActiveSupport</span><span class="ruby-operator">::</span><span class="ruby-constant">JSON</span>.<span class="ruby-identifier">encode</span>(<span class="ruby-value">1</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">2</span>)
+
+  <span class="ruby-identifier">assert_equal</span> <span class="ruby-string">%Q({\&quot;a\&quot;:\&quot;b\&quot;,\&quot;c\&quot;:\&quot;d\&quot;})</span>, <span class="ruby-identifier">sorted_json</span>(<span class="ruby-constant">ActiveSupport</span><span class="ruby-operator">::</span><span class="ruby-constant">JSON</span>.<span class="ruby-identifier">encode</span>(<span class="ruby-value">:a</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">:b</span>, <span class="ruby-value">:c</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">:d</span>))
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_hash_key_identifiers_are_always_quoted" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_hash_key_identifiers_are_always_quoted</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_hash_key_identifiers_are_always_quoted-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/oj-3.4.0/test/activesupport4/encoding_test.rb, line 223</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">test_hash_key_identifiers_are_always_quoted</span>
+  <span class="ruby-identifier">values</span> = {<span class="ruby-value">0</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">0</span>, <span class="ruby-value">1</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">1</span>, <span class="ruby-value">:_</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">:_</span>, <span class="ruby-string">&quot;$&quot;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;$&quot;</span>, <span class="ruby-string">&quot;a&quot;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;a&quot;</span>, <span class="ruby-value">:A</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">:A</span>, <span class="ruby-value">:A0</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">:A0</span>, <span class="ruby-string">&quot;A0B&quot;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;A0B&quot;</span>}
+  <span class="ruby-identifier">assert_equal</span> <span class="ruby-node">%w( &quot;$&quot; &quot;A&quot; &quot;A0&quot; &quot;A0B&quot; &quot;_&quot; &quot;a&quot; &quot;0&quot; &quot;1&quot; )</span>.<span class="ruby-identifier">sort</span>, <span class="ruby-identifier">object_keys</span>(<span class="ruby-constant">ActiveSupport</span><span class="ruby-operator">::</span><span class="ruby-constant">JSON</span>.<span class="ruby-identifier">encode</span>(<span class="ruby-identifier">values</span>))
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_hash_keys_encoding" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_hash_keys_encoding</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_hash_keys_encoding-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/oj-3.4.0/test/activesupport4/encoding_test.rb, line 146</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">test_hash_keys_encoding</span>
+  <span class="ruby-constant">ActiveSupport</span>.<span class="ruby-identifier">escape_html_entities_in_json</span> = <span class="ruby-keyword">true</span>
+  <span class="ruby-identifier">assert_equal</span> <span class="ruby-string">&quot;{\&quot;\\u003c\\u003e\&quot;:\&quot;\\u003c\\u003e\&quot;}&quot;</span>, <span class="ruby-constant">ActiveSupport</span><span class="ruby-operator">::</span><span class="ruby-constant">JSON</span>.<span class="ruby-identifier">encode</span>(<span class="ruby-string">&quot;&lt;&gt;&quot;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;&lt;&gt;&quot;</span>)
+<span class="ruby-keyword">ensure</span>
+  <span class="ruby-constant">ActiveSupport</span>.<span class="ruby-identifier">escape_html_entities_in_json</span> = <span class="ruby-keyword">false</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_hash_like_with_options" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_hash_like_with_options</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_hash_like_with_options-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/oj-3.4.0/test/activesupport4/encoding_test.rb, line 262</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">test_hash_like_with_options</span>
+  <span class="ruby-identifier">h</span> = <span class="ruby-constant">Hashlike</span>.<span class="ruby-identifier">new</span>
+  <span class="ruby-identifier">json</span> = <span class="ruby-identifier">h</span>.<span class="ruby-identifier">to_json</span> <span class="ruby-value">:only</span> =<span class="ruby-operator">&gt;</span> [<span class="ruby-value">:foo</span>]
+
+  <span class="ruby-identifier">assert_equal</span>({<span class="ruby-string">&quot;foo&quot;</span>=<span class="ruby-operator">&gt;</span><span class="ruby-string">&quot;hello&quot;</span>}, <span class="ruby-constant">JSON</span>.<span class="ruby-identifier">parse</span>(<span class="ruby-identifier">json</span>))
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_hash_should_allow_key_filtering_with_except" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_hash_should_allow_key_filtering_with_except</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_hash_should_allow_key_filtering_with_except-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/oj-3.4.0/test/activesupport4/encoding_test.rb, line 232</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">test_hash_should_allow_key_filtering_with_except</span>
+  <span class="ruby-identifier">assert_equal</span> <span class="ruby-string">%Q({&quot;b&quot;:2})</span>, <span class="ruby-constant">ActiveSupport</span><span class="ruby-operator">::</span><span class="ruby-constant">JSON</span>.<span class="ruby-identifier">encode</span>({<span class="ruby-string">&#39;foo&#39;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&#39;bar&#39;</span>, <span class="ruby-value">:b</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">2</span>, <span class="ruby-value">:c</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">3</span>}, <span class="ruby-value">:except</span> =<span class="ruby-operator">&gt;</span> [<span class="ruby-string">&#39;foo&#39;</span>, <span class="ruby-value">:c</span>])
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_hash_should_allow_key_filtering_with_only" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_hash_should_allow_key_filtering_with_only</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_hash_should_allow_key_filtering_with_only-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/oj-3.4.0/test/activesupport4/encoding_test.rb, line 228</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">test_hash_should_allow_key_filtering_with_only</span>
+  <span class="ruby-identifier">assert_equal</span> <span class="ruby-string">%Q({&quot;a&quot;:1})</span>, <span class="ruby-constant">ActiveSupport</span><span class="ruby-operator">::</span><span class="ruby-constant">JSON</span>.<span class="ruby-identifier">encode</span>({<span class="ruby-string">&#39;a&#39;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">1</span>, <span class="ruby-value">:b</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">2</span>, <span class="ruby-value">:c</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">3</span>}, <span class="ruby-value">:only</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&#39;a&#39;</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_hash_should_pass_encoding_options_to_children_in_as_json" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_hash_should_pass_encoding_options_to_children_in_as_json</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_hash_should_pass_encoding_options_to_children_in_as_json-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/oj-3.4.0/test/activesupport4/encoding_test.rb, line 287</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">test_hash_should_pass_encoding_options_to_children_in_as_json</span>
+  <span class="ruby-identifier">person</span> = {
+    <span class="ruby-value">:name</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&#39;John&#39;</span>,
+    <span class="ruby-value">:address</span> =<span class="ruby-operator">&gt;</span> {
+      <span class="ruby-value">:city</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&#39;London&#39;</span>,
+      <span class="ruby-value">:country</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&#39;UK&#39;</span>
+    }
+  }
+  <span class="ruby-identifier">json</span> = <span class="ruby-identifier">person</span>.<span class="ruby-identifier">as_json</span> <span class="ruby-value">:only</span> =<span class="ruby-operator">&gt;</span> [<span class="ruby-value">:address</span>, <span class="ruby-value">:city</span>]
+
+  <span class="ruby-identifier">assert_equal</span>({ <span class="ruby-string">&#39;address&#39;</span> =<span class="ruby-operator">&gt;</span> { <span class="ruby-string">&#39;city&#39;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&#39;London&#39;</span> }}, <span class="ruby-identifier">json</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_hash_should_pass_encoding_options_to_children_in_to_json" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_hash_should_pass_encoding_options_to_children_in_to_json</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_hash_should_pass_encoding_options_to_children_in_to_json-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/oj-3.4.0/test/activesupport4/encoding_test.rb, line 300</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">test_hash_should_pass_encoding_options_to_children_in_to_json</span>
+  <span class="ruby-identifier">person</span> = {
+    <span class="ruby-value">:name</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&#39;John&#39;</span>,
+    <span class="ruby-value">:address</span> =<span class="ruby-operator">&gt;</span> {
+      <span class="ruby-value">:city</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&#39;London&#39;</span>,
+      <span class="ruby-value">:country</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&#39;UK&#39;</span>
+    }
+  }
+  <span class="ruby-identifier">json</span> = <span class="ruby-identifier">person</span>.<span class="ruby-identifier">to_json</span> <span class="ruby-value">:only</span> =<span class="ruby-operator">&gt;</span> [<span class="ruby-value">:address</span>, <span class="ruby-value">:city</span>]
+
+  <span class="ruby-identifier">assert_equal</span>(<span class="ruby-string">%Q({&quot;address&quot;:{&quot;city&quot;:&quot;London&quot;}})</span>, <span class="ruby-identifier">json</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_hash_to_json_should_not_keep_options_around" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_hash_to_json_should_not_keep_options_around</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_hash_to_json_should_not_keep_options_around-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/oj-3.4.0/test/activesupport4/encoding_test.rb, line 361</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">test_hash_to_json_should_not_keep_options_around</span>
+  <span class="ruby-identifier">f</span> = <span class="ruby-constant">CustomWithOptions</span>.<span class="ruby-identifier">new</span>
+  <span class="ruby-identifier">f</span>.<span class="ruby-identifier">foo</span> = <span class="ruby-string">&quot;hello&quot;</span>
+  <span class="ruby-identifier">f</span>.<span class="ruby-identifier">bar</span> = <span class="ruby-string">&quot;world&quot;</span>
+
+  <span class="ruby-identifier">hash</span> = {<span class="ruby-string">&quot;foo&quot;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">f</span>, <span class="ruby-string">&quot;other_hash&quot;</span> =<span class="ruby-operator">&gt;</span> {<span class="ruby-string">&quot;foo&quot;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;other_foo&quot;</span>, <span class="ruby-string">&quot;test&quot;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;other_test&quot;</span>}}
+  <span class="ruby-identifier">assert_equal</span>({<span class="ruby-string">&quot;foo&quot;</span>=<span class="ruby-operator">&gt;</span>{<span class="ruby-string">&quot;foo&quot;</span>=<span class="ruby-operator">&gt;</span><span class="ruby-string">&quot;hello&quot;</span>,<span class="ruby-string">&quot;bar&quot;</span>=<span class="ruby-operator">&gt;</span><span class="ruby-string">&quot;world&quot;</span>},
+                <span class="ruby-string">&quot;other_hash&quot;</span> =<span class="ruby-operator">&gt;</span> {<span class="ruby-string">&quot;foo&quot;</span>=<span class="ruby-operator">&gt;</span><span class="ruby-string">&quot;other_foo&quot;</span>,<span class="ruby-string">&quot;test&quot;</span>=<span class="ruby-operator">&gt;</span><span class="ruby-string">&quot;other_test&quot;</span>}}, <span class="ruby-constant">ActiveSupport</span><span class="ruby-operator">::</span><span class="ruby-constant">JSON</span>.<span class="ruby-identifier">decode</span>(<span class="ruby-identifier">hash</span>.<span class="ruby-identifier">to_json</span>))
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_hash_with_time_to_json" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_hash_with_time_to_json</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_hash_with_time_to_json-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/oj-3.4.0/test/activesupport4/encoding_test.rb, line 244</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">test_hash_with_time_to_json</span>
+  <span class="ruby-identifier">with_standard_json_time_format</span>(<span class="ruby-keyword">false</span>) <span class="ruby-keyword">do</span>
+    <span class="ruby-identifier">assert_equal</span> <span class="ruby-string">&#39;{&quot;time&quot;:&quot;2009/01/01 00:00:00 +0000&quot;}&#39;</span>, { <span class="ruby-value">:time</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-constant">Time</span>.<span class="ruby-identifier">utc</span>(<span class="ruby-value">2009</span>) }.<span class="ruby-identifier">to_json</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_json_gem_dump_by_passing_active_support_encoder" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_json_gem_dump_by_passing_active_support_encoder</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_json_gem_dump_by_passing_active_support_encoder-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/oj-3.4.0/test/activesupport4/encoding_test.rb, line 428</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">test_json_gem_dump_by_passing_active_support_encoder</span>
+  <span class="ruby-identifier">h</span> = <span class="ruby-constant">HashWithAsJson</span>.<span class="ruby-identifier">new</span>
+  <span class="ruby-identifier">h</span>[<span class="ruby-value">:foo</span>] = <span class="ruby-string">&quot;hello&quot;</span>
+  <span class="ruby-identifier">h</span>[<span class="ruby-value">:bar</span>] = <span class="ruby-string">&quot;world&quot;</span>
+
+  <span class="ruby-identifier">assert_equal</span> <span class="ruby-string">%Q({&quot;foo&quot;:&quot;hello&quot;,&quot;bar&quot;:&quot;world&quot;})</span>, <span class="ruby-constant">JSON</span>.<span class="ruby-identifier">dump</span>(<span class="ruby-identifier">h</span>)
+  <span class="ruby-identifier">assert_nil</span> <span class="ruby-identifier">h</span>.<span class="ruby-identifier">as_json_called</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_json_gem_generate_by_passing_active_support_encoder" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_json_gem_generate_by_passing_active_support_encoder</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_json_gem_generate_by_passing_active_support_encoder-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/oj-3.4.0/test/activesupport4/encoding_test.rb, line 437</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">test_json_gem_generate_by_passing_active_support_encoder</span>
+  <span class="ruby-identifier">h</span> = <span class="ruby-constant">HashWithAsJson</span>.<span class="ruby-identifier">new</span>
+  <span class="ruby-identifier">h</span>[<span class="ruby-value">:foo</span>] = <span class="ruby-string">&quot;hello&quot;</span>
+  <span class="ruby-identifier">h</span>[<span class="ruby-value">:bar</span>] = <span class="ruby-string">&quot;world&quot;</span>
+
+  <span class="ruby-identifier">assert_equal</span> <span class="ruby-string">%Q({&quot;foo&quot;:&quot;hello&quot;,&quot;bar&quot;:&quot;world&quot;})</span>, <span class="ruby-constant">JSON</span>.<span class="ruby-identifier">generate</span>(<span class="ruby-identifier">h</span>)
+  <span class="ruby-identifier">assert_nil</span> <span class="ruby-identifier">h</span>.<span class="ruby-identifier">as_json_called</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_json_gem_pretty_generate_by_passing_active_support_encoder" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_json_gem_pretty_generate_by_passing_active_support_encoder</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_json_gem_pretty_generate_by_passing_active_support_encoder-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/oj-3.4.0/test/activesupport4/encoding_test.rb, line 446</span>
+  <span class="ruby-keyword">def</span> <span class="ruby-identifier">test_json_gem_pretty_generate_by_passing_active_support_encoder</span>
+    <span class="ruby-identifier">h</span> = <span class="ruby-constant">HashWithAsJson</span>.<span class="ruby-identifier">new</span>
+    <span class="ruby-identifier">h</span>[<span class="ruby-value">:foo</span>] = <span class="ruby-string">&quot;hello&quot;</span>
+    <span class="ruby-identifier">h</span>[<span class="ruby-value">:bar</span>] = <span class="ruby-string">&quot;world&quot;</span>
+
+    <span class="ruby-identifier">assert_equal</span> <span class="ruby-string">&quot;{
+  &quot;foo&quot;: &quot;hello&quot;,
+  &quot;bar&quot;: &quot;world&quot;
+}
+&quot;</span>.<span class="ruby-identifier">chomp</span>, <span class="ruby-constant">JSON</span>.<span class="ruby-identifier">pretty_generate</span>(<span class="ruby-identifier">h</span>)
+    <span class="ruby-identifier">assert_nil</span> <span class="ruby-identifier">h</span>.<span class="ruby-identifier">as_json_called</span>
+  <span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_nested_hash_with_float" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_nested_hash_with_float</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_nested_hash_with_float-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/oj-3.4.0/test/activesupport4/encoding_test.rb, line 250</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">test_nested_hash_with_float</span>
+  <span class="ruby-identifier">assert_nothing_raised</span> <span class="ruby-keyword">do</span>
+    <span class="ruby-identifier">hash</span> = {
+      <span class="ruby-string">&quot;CHI&quot;</span> =<span class="ruby-operator">&gt;</span> {
+        <span class="ruby-value">:display_name</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;chicago&quot;</span>,
+        <span class="ruby-value">:latitude</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">123.234</span>
+      }
+    }
+    <span class="ruby-constant">ActiveSupport</span><span class="ruby-operator">::</span><span class="ruby-constant">JSON</span>.<span class="ruby-identifier">encode</span>(<span class="ruby-identifier">hash</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_nil_true_and_false_represented_as_themselves" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_nil_true_and_false_represented_as_themselves</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_nil_true_and_false_represented_as_themselves-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/oj-3.4.0/test/activesupport4/encoding_test.rb, line 422</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">test_nil_true_and_false_represented_as_themselves</span>
+  <span class="ruby-identifier">assert_nil</span>(<span class="ruby-keyword">nil</span>.<span class="ruby-identifier">as_json</span>)
+  <span class="ruby-identifier">assert_equal</span> <span class="ruby-keyword">true</span>,  <span class="ruby-keyword">true</span>.<span class="ruby-identifier">as_json</span>
+  <span class="ruby-identifier">assert_equal</span> <span class="ruby-keyword">false</span>, <span class="ruby-keyword">false</span>.<span class="ruby-identifier">as_json</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_non_utf8_string_transcodes" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_non_utf8_string_transcodes</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_non_utf8_string_transcodes-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/oj-3.4.0/test/activesupport4/encoding_test.rb, line 163</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">test_non_utf8_string_transcodes</span>
+  <span class="ruby-identifier">s</span> = <span class="ruby-string">&#39;二&#39;</span>.<span class="ruby-identifier">encode</span>(<span class="ruby-string">&#39;Shift_JIS&#39;</span>)
+  <span class="ruby-identifier">result</span> = <span class="ruby-constant">ActiveSupport</span><span class="ruby-operator">::</span><span class="ruby-constant">JSON</span>.<span class="ruby-identifier">encode</span>(<span class="ruby-identifier">s</span>)
+  <span class="ruby-identifier">assert_equal</span> <span class="ruby-string">&#39;&quot;二&quot;&#39;</span>, <span class="ruby-identifier">result</span>
+  <span class="ruby-identifier">assert_equal</span> <span class="ruby-constant">Encoding</span><span class="ruby-operator">::</span><span class="ruby-constant">UTF_8</span>, <span class="ruby-identifier">result</span>.<span class="ruby-identifier">encoding</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_object_to_json_with_options" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_object_to_json_with_options</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_object_to_json_with_options-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/oj-3.4.0/test/activesupport4/encoding_test.rb, line 269</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">test_object_to_json_with_options</span>
+  <span class="ruby-identifier">obj</span> = <span class="ruby-constant">Object</span>.<span class="ruby-identifier">new</span>
+  <span class="ruby-identifier">obj</span>.<span class="ruby-identifier">instance_variable_set</span> <span class="ruby-value">:@foo</span>, <span class="ruby-string">&quot;hello&quot;</span>
+  <span class="ruby-identifier">obj</span>.<span class="ruby-identifier">instance_variable_set</span> <span class="ruby-value">:@bar</span>, <span class="ruby-string">&quot;world&quot;</span>
+  <span class="ruby-identifier">json</span> = <span class="ruby-identifier">obj</span>.<span class="ruby-identifier">to_json</span> <span class="ruby-value">:only</span> =<span class="ruby-operator">&gt;</span> [<span class="ruby-string">&quot;foo&quot;</span>]
+
+  <span class="ruby-identifier">assert_equal</span>({<span class="ruby-string">&quot;foo&quot;</span>=<span class="ruby-operator">&gt;</span><span class="ruby-string">&quot;hello&quot;</span>}, <span class="ruby-constant">JSON</span>.<span class="ruby-identifier">parse</span>(<span class="ruby-identifier">json</span>))
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_process_status" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_process_status</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_process_status-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/oj-3.4.0/test/activesupport4/encoding_test.rb, line 130</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">test_process_status</span>
+  <span class="ruby-comment"># There doesn&#39;t seem to be a good way to get a handle on a Process::Status object without actually</span>
+  <span class="ruby-comment"># creating a child process, hence this to populate $?</span>
+  <span class="ruby-identifier">system</span>(<span class="ruby-node">&quot;not_a_real_program_#{SecureRandom.hex}&quot;</span>)
+  <span class="ruby-identifier">assert_equal</span> <span class="ruby-node">%Q({&quot;exitstatus&quot;:#{$?.exitstatus},&quot;pid&quot;:#{$?.pid}})</span>, <span class="ruby-constant">ActiveSupport</span><span class="ruby-operator">::</span><span class="ruby-constant">JSON</span>.<span class="ruby-identifier">encode</span>(<span class="ruby-identifier">$?</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_reading_encode_big_decimal_as_string_option" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_reading_encode_big_decimal_as_string_option</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_reading_encode_big_decimal_as_string_option-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/oj-3.4.0/test/activesupport4/encoding_test.rb, line 183</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">test_reading_encode_big_decimal_as_string_option</span>
+  <span class="ruby-identifier">assert_deprecated</span> <span class="ruby-keyword">do</span>
+    <span class="ruby-identifier">assert</span> <span class="ruby-constant">ActiveSupport</span>.<span class="ruby-identifier">encode_big_decimal_as_string</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_setting_deprecated_encode_big_decimal_as_string_option" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_setting_deprecated_encode_big_decimal_as_string_option</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_setting_deprecated_encode_big_decimal_as_string_option-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/oj-3.4.0/test/activesupport4/encoding_test.rb, line 189</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">test_setting_deprecated_encode_big_decimal_as_string_option</span>
+  <span class="ruby-identifier">assert_raise</span>(<span class="ruby-constant">NotImplementedError</span>) <span class="ruby-keyword">do</span>
+    <span class="ruby-constant">ActiveSupport</span>.<span class="ruby-identifier">encode_big_decimal_as_string</span> = <span class="ruby-keyword">true</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">assert_raise</span>(<span class="ruby-constant">NotImplementedError</span>) <span class="ruby-keyword">do</span>
+    <span class="ruby-constant">ActiveSupport</span>.<span class="ruby-identifier">encode_big_decimal_as_string</span> = <span class="ruby-keyword">false</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_struct_encoding" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_struct_encoding</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_struct_encoding-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/oj-3.4.0/test/activesupport4/encoding_test.rb, line 391</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">test_struct_encoding</span>
+  <span class="ruby-constant">Struct</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&#39;UserNameAndEmail&#39;</span>, <span class="ruby-value">:name</span>, <span class="ruby-value">:email</span>)
+  <span class="ruby-constant">Struct</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&#39;UserNameAndDate&#39;</span>, <span class="ruby-value">:name</span>, <span class="ruby-value">:date</span>)
+  <span class="ruby-constant">Struct</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&#39;Custom&#39;</span>, <span class="ruby-value">:name</span>, <span class="ruby-value">:sub</span>)
+  <span class="ruby-identifier">user_email</span> = <span class="ruby-constant">Struct</span><span class="ruby-operator">::</span><span class="ruby-constant">UserNameAndEmail</span>.<span class="ruby-identifier">new</span> <span class="ruby-string">&#39;David&#39;</span>, <span class="ruby-string">&#39;sample@example.com&#39;</span>
+  <span class="ruby-identifier">user_birthday</span> = <span class="ruby-constant">Struct</span><span class="ruby-operator">::</span><span class="ruby-constant">UserNameAndDate</span>.<span class="ruby-identifier">new</span> <span class="ruby-string">&#39;David&#39;</span>, <span class="ruby-constant">Date</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">2010</span>, <span class="ruby-value">01</span>, <span class="ruby-value">01</span>)
+  <span class="ruby-identifier">custom</span> = <span class="ruby-constant">Struct</span><span class="ruby-operator">::</span><span class="ruby-constant">Custom</span>.<span class="ruby-identifier">new</span> <span class="ruby-string">&#39;David&#39;</span>, <span class="ruby-identifier">user_birthday</span>
+
+
+  <span class="ruby-identifier">json_strings</span> = <span class="ruby-string">&quot;&quot;</span>
+  <span class="ruby-identifier">json_string_and_date</span> = <span class="ruby-string">&quot;&quot;</span>
+  <span class="ruby-identifier">json_custom</span> = <span class="ruby-string">&quot;&quot;</span>
+
+  <span class="ruby-identifier">assert_nothing_raised</span> <span class="ruby-keyword">do</span>
+    <span class="ruby-identifier">json_strings</span> = <span class="ruby-identifier">user_email</span>.<span class="ruby-identifier">to_json</span>
+    <span class="ruby-identifier">json_string_and_date</span> = <span class="ruby-identifier">user_birthday</span>.<span class="ruby-identifier">to_json</span>
+    <span class="ruby-identifier">json_custom</span> = <span class="ruby-identifier">custom</span>.<span class="ruby-identifier">to_json</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">assert_equal</span>({<span class="ruby-string">&quot;name&quot;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;David&quot;</span>,
+                <span class="ruby-string">&quot;sub&quot;</span> =<span class="ruby-operator">&gt;</span> {
+                  <span class="ruby-string">&quot;name&quot;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;David&quot;</span>,
+                  <span class="ruby-string">&quot;date&quot;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;2010-01-01&quot;</span> }}, <span class="ruby-constant">ActiveSupport</span><span class="ruby-operator">::</span><span class="ruby-constant">JSON</span>.<span class="ruby-identifier">decode</span>(<span class="ruby-identifier">json_custom</span>))
+
+  <span class="ruby-identifier">assert_equal</span>({<span class="ruby-string">&quot;name&quot;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;David&quot;</span>, <span class="ruby-string">&quot;email&quot;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;sample@example.com&quot;</span>},
+               <span class="ruby-constant">ActiveSupport</span><span class="ruby-operator">::</span><span class="ruby-constant">JSON</span>.<span class="ruby-identifier">decode</span>(<span class="ruby-identifier">json_strings</span>))
+
+  <span class="ruby-identifier">assert_equal</span>({<span class="ruby-string">&quot;name&quot;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;David&quot;</span>, <span class="ruby-string">&quot;date&quot;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;2010-01-01&quot;</span>},
+               <span class="ruby-constant">ActiveSupport</span><span class="ruby-operator">::</span><span class="ruby-constant">JSON</span>.<span class="ruby-identifier">decode</span>(<span class="ruby-identifier">json_string_and_date</span>))
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_struct_to_json_with_options" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_struct_to_json_with_options</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_struct_to_json_with_options-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/oj-3.4.0/test/activesupport4/encoding_test.rb, line 278</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">test_struct_to_json_with_options</span>
+  <span class="ruby-identifier">struct</span> = <span class="ruby-constant">Struct</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">:foo</span>, <span class="ruby-value">:bar</span>).<span class="ruby-identifier">new</span>
+  <span class="ruby-identifier">struct</span>.<span class="ruby-identifier">foo</span> = <span class="ruby-string">&quot;hello&quot;</span>
+  <span class="ruby-identifier">struct</span>.<span class="ruby-identifier">bar</span> = <span class="ruby-string">&quot;world&quot;</span>
+  <span class="ruby-identifier">json</span> = <span class="ruby-identifier">struct</span>.<span class="ruby-identifier">to_json</span> <span class="ruby-value">:only</span> =<span class="ruby-operator">&gt;</span> [<span class="ruby-value">:foo</span>]
+
+  <span class="ruby-identifier">assert_equal</span>({<span class="ruby-string">&quot;foo&quot;</span>=<span class="ruby-operator">&gt;</span><span class="ruby-string">&quot;hello&quot;</span>}, <span class="ruby-constant">JSON</span>.<span class="ruby-identifier">parse</span>(<span class="ruby-identifier">json</span>))
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_time_to_json_includes_local_offset" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_time_to_json_includes_local_offset</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_time_to_json_includes_local_offset-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/oj-3.4.0/test/activesupport4/encoding_test.rb, line 236</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">test_time_to_json_includes_local_offset</span>
+  <span class="ruby-identifier">with_standard_json_time_format</span>(<span class="ruby-keyword">true</span>) <span class="ruby-keyword">do</span>
+    <span class="ruby-identifier">with_env_tz</span> <span class="ruby-string">&#39;US/Eastern&#39;</span> <span class="ruby-keyword">do</span>
+      <span class="ruby-identifier">assert_equal</span> <span class="ruby-string">%Q(&quot;2005-02-01T15:15:10.000-05:00&quot;)</span>, <span class="ruby-constant">ActiveSupport</span><span class="ruby-operator">::</span><span class="ruby-constant">JSON</span>.<span class="ruby-identifier">encode</span>(<span class="ruby-constant">Time</span>.<span class="ruby-identifier">local</span>(<span class="ruby-value">2005</span>,<span class="ruby-value">2</span>,<span class="ruby-value">1</span>,<span class="ruby-value">15</span>,<span class="ruby-value">15</span>,<span class="ruby-value">10</span>))
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_time_to_json_with_custom_time_precision" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_time_to_json_with_custom_time_precision</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_time_to_json_with_custom_time_precision-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/oj-3.4.0/test/activesupport4/encoding_test.rb, line 487</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">test_time_to_json_with_custom_time_precision</span>
+  <span class="ruby-identifier">with_standard_json_time_format</span>(<span class="ruby-keyword">true</span>) <span class="ruby-keyword">do</span>
+    <span class="ruby-constant">ActiveSupport</span><span class="ruby-operator">::</span><span class="ruby-constant">JSON</span><span class="ruby-operator">::</span><span class="ruby-constant">Encoding</span>.<span class="ruby-identifier">time_precision</span> = <span class="ruby-value">0</span>
+    <span class="ruby-identifier">assert_equal</span> <span class="ruby-string">&quot;\&quot;2000-01-01T00:00:00Z\&quot;&quot;</span>, <span class="ruby-constant">ActiveSupport</span><span class="ruby-operator">::</span><span class="ruby-constant">JSON</span>.<span class="ruby-identifier">encode</span>(<span class="ruby-constant">Time</span>.<span class="ruby-identifier">utc</span>(<span class="ruby-value">2000</span>))
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">ensure</span>
+  <span class="ruby-constant">ActiveSupport</span><span class="ruby-operator">::</span><span class="ruby-constant">JSON</span><span class="ruby-operator">::</span><span class="ruby-constant">Encoding</span>.<span class="ruby-identifier">time_precision</span> = <span class="ruby-value">3</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_to_json_works_when_as_json_returns_NaN_number" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_to_json_works_when_as_json_returns_NaN_number</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_to_json_works_when_as_json_returns_NaN_number-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/oj-3.4.0/test/activesupport5/encoding_test.rb, line 460</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">test_to_json_works_when_as_json_returns_NaN_number</span>
+  <span class="ruby-identifier">assert_equal</span> <span class="ruby-string">&#39;{&quot;number&quot;:null}&#39;</span>, <span class="ruby-constant">NaNNumber</span>.<span class="ruby-identifier">new</span>.<span class="ruby-identifier">to_json</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_to_json_works_when_as_json_returns_infinite_number" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_to_json_works_when_as_json_returns_infinite_number</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_to_json_works_when_as_json_returns_infinite_number-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/oj-3.4.0/test/activesupport5/encoding_test.rb, line 450</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">test_to_json_works_when_as_json_returns_infinite_number</span>
+  <span class="ruby-identifier">assert_equal</span> <span class="ruby-string">&#39;{&quot;number&quot;:null}&#39;</span>, <span class="ruby-constant">InfiniteNumber</span>.<span class="ruby-identifier">new</span>.<span class="ruby-identifier">to_json</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_twz_to_json_when_wrapping_a_date_time" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_twz_to_json_when_wrapping_a_date_time</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_twz_to_json_when_wrapping_a_date_time-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/oj-3.4.0/test/activesupport4/encoding_test.rb, line 505</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">test_twz_to_json_when_wrapping_a_date_time</span>
+  <span class="ruby-identifier">zone</span> = <span class="ruby-constant">ActiveSupport</span><span class="ruby-operator">::</span><span class="ruby-constant">TimeZone</span>[<span class="ruby-string">&#39;Eastern Time (US &amp; Canada)&#39;</span>]
+  <span class="ruby-identifier">time</span> = <span class="ruby-constant">ActiveSupport</span><span class="ruby-operator">::</span><span class="ruby-constant">TimeWithZone</span>.<span class="ruby-identifier">new</span>(<span class="ruby-constant">DateTime</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">2000</span>), <span class="ruby-identifier">zone</span>)
+  <span class="ruby-identifier">assert_equal</span> <span class="ruby-string">&#39;&quot;1999-12-31T19:00:00.000-05:00&quot;&#39;</span>, <span class="ruby-constant">ActiveSupport</span><span class="ruby-operator">::</span><span class="ruby-constant">JSON</span>.<span class="ruby-identifier">encode</span>(<span class="ruby-identifier">time</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_twz_to_json_with_custom_time_precision" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_twz_to_json_with_custom_time_precision</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_twz_to_json_with_custom_time_precision-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/oj-3.4.0/test/activesupport4/encoding_test.rb, line 476</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">test_twz_to_json_with_custom_time_precision</span>
+  <span class="ruby-identifier">with_standard_json_time_format</span>(<span class="ruby-keyword">true</span>) <span class="ruby-keyword">do</span>
+    <span class="ruby-constant">ActiveSupport</span><span class="ruby-operator">::</span><span class="ruby-constant">JSON</span><span class="ruby-operator">::</span><span class="ruby-constant">Encoding</span>.<span class="ruby-identifier">time_precision</span> = <span class="ruby-value">0</span>
+    <span class="ruby-identifier">zone</span> = <span class="ruby-constant">ActiveSupport</span><span class="ruby-operator">::</span><span class="ruby-constant">TimeZone</span>[<span class="ruby-string">&#39;Eastern Time (US &amp; Canada)&#39;</span>]
+    <span class="ruby-identifier">time</span> = <span class="ruby-constant">ActiveSupport</span><span class="ruby-operator">::</span><span class="ruby-constant">TimeWithZone</span>.<span class="ruby-identifier">new</span>(<span class="ruby-constant">Time</span>.<span class="ruby-identifier">utc</span>(<span class="ruby-value">2000</span>), <span class="ruby-identifier">zone</span>)
+    <span class="ruby-identifier">assert_equal</span> <span class="ruby-string">&quot;\&quot;1999-12-31T19:00:00-05:00\&quot;&quot;</span>, <span class="ruby-constant">ActiveSupport</span><span class="ruby-operator">::</span><span class="ruby-constant">JSON</span>.<span class="ruby-identifier">encode</span>(<span class="ruby-identifier">time</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">ensure</span>
+  <span class="ruby-constant">ActiveSupport</span><span class="ruby-operator">::</span><span class="ruby-constant">JSON</span><span class="ruby-operator">::</span><span class="ruby-constant">Encoding</span>.<span class="ruby-identifier">time_precision</span> = <span class="ruby-value">3</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_twz_to_json_with_use_standard_json_time_format_config_set_to_false" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_twz_to_json_with_use_standard_json_time_format_config_set_to_false</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_twz_to_json_with_use_standard_json_time_format_config_set_to_false-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/oj-3.4.0/test/activesupport4/encoding_test.rb, line 460</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">test_twz_to_json_with_use_standard_json_time_format_config_set_to_false</span>
+  <span class="ruby-identifier">with_standard_json_time_format</span>(<span class="ruby-keyword">false</span>) <span class="ruby-keyword">do</span>
+    <span class="ruby-identifier">zone</span> = <span class="ruby-constant">ActiveSupport</span><span class="ruby-operator">::</span><span class="ruby-constant">TimeZone</span>[<span class="ruby-string">&#39;Eastern Time (US &amp; Canada)&#39;</span>]
+    <span class="ruby-identifier">time</span> = <span class="ruby-constant">ActiveSupport</span><span class="ruby-operator">::</span><span class="ruby-constant">TimeWithZone</span>.<span class="ruby-identifier">new</span>(<span class="ruby-constant">Time</span>.<span class="ruby-identifier">utc</span>(<span class="ruby-value">2000</span>), <span class="ruby-identifier">zone</span>)
+    <span class="ruby-identifier">assert_equal</span> <span class="ruby-string">&quot;\&quot;1999/12/31 19:00:00 -0500\&quot;&quot;</span>, <span class="ruby-constant">ActiveSupport</span><span class="ruby-operator">::</span><span class="ruby-constant">JSON</span>.<span class="ruby-identifier">encode</span>(<span class="ruby-identifier">time</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_twz_to_json_with_use_standard_json_time_format_config_set_to_true" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_twz_to_json_with_use_standard_json_time_format_config_set_to_true</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_twz_to_json_with_use_standard_json_time_format_config_set_to_true-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/oj-3.4.0/test/activesupport4/encoding_test.rb, line 468</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">test_twz_to_json_with_use_standard_json_time_format_config_set_to_true</span>
+  <span class="ruby-identifier">with_standard_json_time_format</span>(<span class="ruby-keyword">true</span>) <span class="ruby-keyword">do</span>
+    <span class="ruby-identifier">zone</span> = <span class="ruby-constant">ActiveSupport</span><span class="ruby-operator">::</span><span class="ruby-constant">TimeZone</span>[<span class="ruby-string">&#39;Eastern Time (US &amp; Canada)&#39;</span>]
+    <span class="ruby-identifier">time</span> = <span class="ruby-constant">ActiveSupport</span><span class="ruby-operator">::</span><span class="ruby-constant">TimeWithZone</span>.<span class="ruby-identifier">new</span>(<span class="ruby-constant">Time</span>.<span class="ruby-identifier">utc</span>(<span class="ruby-value">2000</span>), <span class="ruby-identifier">zone</span>)
+    <span class="ruby-identifier">assert_equal</span> <span class="ruby-string">&quot;\&quot;1999-12-31T19:00:00.000-05:00\&quot;&quot;</span>, <span class="ruby-constant">ActiveSupport</span><span class="ruby-operator">::</span><span class="ruby-constant">JSON</span>.<span class="ruby-identifier">encode</span>(<span class="ruby-identifier">time</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_utf8_string_encoded_properly" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_utf8_string_encoded_properly</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_utf8_string_encoded_properly-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/oj-3.4.0/test/activesupport4/encoding_test.rb, line 153</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">test_utf8_string_encoded_properly</span>
+  <span class="ruby-identifier">result</span> = <span class="ruby-constant">ActiveSupport</span><span class="ruby-operator">::</span><span class="ruby-constant">JSON</span>.<span class="ruby-identifier">encode</span>(<span class="ruby-string">&#39;€2.99&#39;</span>)
+  <span class="ruby-identifier">assert_equal</span> <span class="ruby-string">&#39;&quot;€2.99&quot;&#39;</span>, <span class="ruby-identifier">result</span>
+  <span class="ruby-identifier">assert_equal</span>(<span class="ruby-constant">Encoding</span><span class="ruby-operator">::</span><span class="ruby-constant">UTF_8</span>, <span class="ruby-identifier">result</span>.<span class="ruby-identifier">encoding</span>)
+
+  <span class="ruby-identifier">result</span> = <span class="ruby-constant">ActiveSupport</span><span class="ruby-operator">::</span><span class="ruby-constant">JSON</span>.<span class="ruby-identifier">encode</span>(<span class="ruby-string">&#39;✎☺&#39;</span>)
+  <span class="ruby-identifier">assert_equal</span> <span class="ruby-string">&#39;&quot;✎☺&quot;&#39;</span>, <span class="ruby-identifier">result</span>
+  <span class="ruby-identifier">assert_equal</span>(<span class="ruby-constant">Encoding</span><span class="ruby-operator">::</span><span class="ruby-constant">UTF_8</span>, <span class="ruby-identifier">result</span>.<span class="ruby-identifier">encoding</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_wide_utf8_chars" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_wide_utf8_chars</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_wide_utf8_chars-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/oj-3.4.0/test/activesupport4/encoding_test.rb, line 170</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">test_wide_utf8_chars</span>
+  <span class="ruby-identifier">w</span> = <span class="ruby-string">&#39;𠜎&#39;</span>
+  <span class="ruby-identifier">result</span> = <span class="ruby-constant">ActiveSupport</span><span class="ruby-operator">::</span><span class="ruby-constant">JSON</span>.<span class="ruby-identifier">encode</span>(<span class="ruby-identifier">w</span>)
+  <span class="ruby-identifier">assert_equal</span> <span class="ruby-string">&#39;&quot;𠜎&quot;&#39;</span>, <span class="ruby-identifier">result</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_wide_utf8_roundtrip" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_wide_utf8_roundtrip</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_wide_utf8_roundtrip-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/oj-3.4.0/test/activesupport4/encoding_test.rb, line 176</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">test_wide_utf8_roundtrip</span>
+  <span class="ruby-identifier">hash</span> = { <span class="ruby-identifier">string</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;𐒑&quot;</span> }
+  <span class="ruby-identifier">json</span> = <span class="ruby-constant">ActiveSupport</span><span class="ruby-operator">::</span><span class="ruby-constant">JSON</span>.<span class="ruby-identifier">encode</span>(<span class="ruby-identifier">hash</span>)
+  <span class="ruby-identifier">decoded_hash</span> = <span class="ruby-constant">ActiveSupport</span><span class="ruby-operator">::</span><span class="ruby-constant">JSON</span>.<span class="ruby-identifier">decode</span>(<span class="ruby-identifier">json</span>)
+  <span class="ruby-identifier">assert_equal</span> <span class="ruby-string">&quot;𐒑&quot;</span>, <span class="ruby-identifier">decoded_hash</span>[<span class="ruby-string">&#39;string&#39;</span>]
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="protected-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Protected Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-object_keys" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">object_keys</span><span
+            class="method-args">(json_object)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="object_keys-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/oj-3.4.0/test/activesupport4/encoding_test.rb, line 513</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">object_keys</span>(<span class="ruby-identifier">json_object</span>)
+  <span class="ruby-identifier">json_object</span>[<span class="ruby-value">1</span><span class="ruby-operator">..</span><span class="ruby-value">-2</span>].<span class="ruby-identifier">scan</span>(<span class="ruby-regexp">/([^{}:,\s]+):/</span>).<span class="ruby-identifier">flatten</span>.<span class="ruby-identifier">sort</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-with_env_tz" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">with_env_tz</span><span
+            class="method-args">(new_tz = 'US/Eastern') { || ... }</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="with_env_tz-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/oj-3.4.0/test/activesupport4/encoding_test.rb, line 517</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">with_env_tz</span>(<span class="ruby-identifier">new_tz</span> = <span class="ruby-string">&#39;US/Eastern&#39;</span>)
+  <span class="ruby-identifier">old_tz</span>, <span class="ruby-constant">ENV</span>[<span class="ruby-string">&#39;TZ&#39;</span>] = <span class="ruby-constant">ENV</span>[<span class="ruby-string">&#39;TZ&#39;</span>], <span class="ruby-identifier">new_tz</span>
+  <span class="ruby-keyword">yield</span>
+<span class="ruby-keyword">ensure</span>
+  <span class="ruby-identifier">old_tz</span> <span class="ruby-operator">?</span> <span class="ruby-constant">ENV</span>[<span class="ruby-string">&#39;TZ&#39;</span>] = <span class="ruby-identifier">old_tz</span> <span class="ruby-operator">:</span> <span class="ruby-constant">ENV</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-string">&#39;TZ&#39;</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-with_standard_json_time_format" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">with_standard_json_time_format</span><span
+            class="method-args">(boolean = true) { || ... }</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="with_standard_json_time_format-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/oj-3.4.0/test/activesupport4/encoding_test.rb, line 524</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">with_standard_json_time_format</span>(<span class="ruby-identifier">boolean</span> = <span class="ruby-keyword">true</span>)
+  <span class="ruby-identifier">old</span>, <span class="ruby-constant">ActiveSupport</span>.<span class="ruby-identifier">use_standard_json_time_format</span> = <span class="ruby-constant">ActiveSupport</span>.<span class="ruby-identifier">use_standard_json_time_format</span>, <span class="ruby-identifier">boolean</span>
+  <span class="ruby-keyword">yield</span>
+<span class="ruby-keyword">ensure</span>
+  <span class="ruby-constant">ActiveSupport</span>.<span class="ruby-identifier">use_standard_json_time_format</span> = <span class="ruby-identifier">old</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-with_time_precision" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">with_time_precision</span><span
+            class="method-args">(value) { || ... }</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="with_time_precision-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/oj-3.4.0/test/activesupport5/encoding_test.rb, line 477</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">with_time_precision</span>(<span class="ruby-identifier">value</span>)
+  <span class="ruby-identifier">old_value</span> = <span class="ruby-constant">ActiveSupport</span><span class="ruby-operator">::</span><span class="ruby-constant">JSON</span><span class="ruby-operator">::</span><span class="ruby-constant">Encoding</span>.<span class="ruby-identifier">time_precision</span>
+  <span class="ruby-constant">ActiveSupport</span><span class="ruby-operator">::</span><span class="ruby-constant">JSON</span><span class="ruby-operator">::</span><span class="ruby-constant">Encoding</span>.<span class="ruby-identifier">time_precision</span> = <span class="ruby-identifier">value</span>
+  <span class="ruby-keyword">yield</span>
+<span class="ruby-keyword">ensure</span>
+  <span class="ruby-constant">ActiveSupport</span><span class="ruby-operator">::</span><span class="ruby-constant">JSON</span><span class="ruby-operator">::</span><span class="ruby-constant">Encoding</span>.<span class="ruby-identifier">time_precision</span> = <span class="ruby-identifier">old_value</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="https://rdoc.github.io/rdoc">RDoc</a> 5.0.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

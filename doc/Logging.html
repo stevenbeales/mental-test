@@ -1,0 +1,1295 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>module Logging - RDoc Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "./";
+  var index_rel_prefix = "./";
+</script>
+
+<script src="./js/jquery.js"></script>
+<script src="./js/darkfish.js"></script>
+
+<link href="./css/fonts.css" rel="stylesheet">
+<link href="./css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="module">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="./index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="./table_of_contents.html#pages">Pages</a>
+    <a href="./table_of_contents.html#classes">Classes</a>
+    <a href="./table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    
+    
+    <div id="extends-section" class="nav-section">
+  <h3>Extended With Modules</h3>
+
+  <ul class="link-list">
+    
+  
+    <li><a class="extend" href="LittlePlugger.html">LittlePlugger</a>
+  
+  
+  </ul>
+</div>
+
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-c-appenders">::appenders</a>
+    
+    <li ><a href="#method-c-backtrace">::backtrace</a>
+    
+    <li ><a href="#method-c-basepath-3D">::basepath=</a>
+    
+    <li ><a href="#method-c-cause_depth-3D">::cause_depth=</a>
+    
+    <li ><a href="#method-c-clear_diagnostic_contexts">::clear_diagnostic_contexts</a>
+    
+    <li ><a href="#method-c-color_scheme">::color_scheme</a>
+    
+    <li ><a href="#method-c-format_as">::format_as</a>
+    
+    <li ><a href="#method-c-globally">::globally</a>
+    
+    <li ><a href="#method-c-init">::init</a>
+    
+    <li ><a href="#method-c-layouts">::layouts</a>
+    
+    <li ><a href="#method-c-libpath">::libpath</a>
+    
+    <li ><a href="#method-c-logger">::logger</a>
+    
+    <li ><a href="#method-c-mdc">::mdc</a>
+    
+    <li ><a href="#method-c-ndc">::ndc</a>
+    
+    <li ><a href="#method-c-path">::path</a>
+    
+    <li ><a href="#method-c-reopen">::reopen</a>
+    
+    <li ><a href="#method-c-show_configuration">::show_configuration</a>
+    
+    <li ><a href="#method-c-utc_offset-3D">::utc_offset=</a>
+    
+    <li ><a href="#method-c-version">::version</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="module-Logging">
+  <h1 id="module-Logging" class="module">
+    module Logging
+  </h1>
+
+  <section class="description">
+    
+<p>color_scheme.rb</p>
+
+<p>Created by Jeremy Hinegardner on 2007-01-24 Copyright 2007.  All rights
+reserved</p>
+
+<p>This file is licensed under the terms of the MIT <a
+href="vendor/bundle/ruby/2_4_0/gems/diff-lcs-1_3/License_md.html">License</a>.
+See the <a
+href="vendor/bundle/ruby/2_4_0/gems/activemodel-5_1_5/README_rdoc.html">README</a>
+for licensing details.</p>
+
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+    <section class="constants-list">
+      <header>
+        <h3>Constants</h3>
+      </header>
+      <dl>
+      
+        <dt id="DIAGNOSTIC_MUTEX">DIAGNOSTIC_MUTEX
+        
+        <dd>
+        
+      
+        <dt id="INHERIT_CONTEXT">INHERIT_CONTEXT
+        
+        <dd>
+        
+      
+        <dt id="VERSION">VERSION
+        
+        <dd>
+        
+      
+      </dl>
+    </section>
+    
+
+    
+    <section class="attribute-method-details" class="method-section">
+      <header>
+        <h3>Attributes</h3>
+      </header>
+
+      
+      <div id="attribute-c-basepath" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">basepath</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+      <div id="attribute-c-cause_depth" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">cause_depth</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+      <div id="attribute-c-utc_offset" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">utc_offset</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+    </section>
+    
+
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Class Methods</h3>
+       </header>
+
+    
+      <div id="method-c-appenders" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">appenders</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Access to the appenders.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="appenders-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/logging-2.2.2/lib/logging.rb, line 139</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">appenders</span>
+  <span class="ruby-operator">::</span><span class="ruby-constant">Logging</span><span class="ruby-operator">::</span><span class="ruby-constant">Appenders</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-backtrace" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            backtrace             #&rarr; true or false
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            backtrace( value )    #&rarr; true or false
+          </span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Without any arguments, returns the global exception backtrace logging
+value. When set to <code>true</code> backtraces will be written to the
+logs; when set to <code>false</code> backtraces will be suppressed.</p>
+
+<p>When an argument is given the global exception backtrace setting will be
+changed. Value values are <code>&quot;on&quot;</code>, <code>:on&lt;tt&gt;
+and true to turn on backtraces and &lt;tt&gt;&quot;off&quot;</code>,
+<code>:off</code> and <code>false</code> to turn off backtraces.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="backtrace-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/logging-2.2.2/lib/logging.rb, line 306</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">backtrace</span>( <span class="ruby-identifier">b</span> = <span class="ruby-keyword">nil</span> )
+  <span class="ruby-ivar">@backtrace</span> = <span class="ruby-keyword">true</span> <span class="ruby-keyword">unless</span> <span class="ruby-keyword">defined?</span> <span class="ruby-ivar">@backtrace</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-ivar">@backtrace</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">b</span>.<span class="ruby-identifier">nil?</span>
+
+  <span class="ruby-ivar">@backtrace</span> = <span class="ruby-keyword">case</span> <span class="ruby-identifier">b</span>
+      <span class="ruby-keyword">when</span> <span class="ruby-value">:on</span>, <span class="ruby-string">&#39;on&#39;</span>, <span class="ruby-keyword">true</span>;    <span class="ruby-keyword">true</span>
+      <span class="ruby-keyword">when</span> <span class="ruby-value">:off</span>, <span class="ruby-string">&#39;off&#39;</span>, <span class="ruby-keyword">false</span>; <span class="ruby-keyword">false</span>
+      <span class="ruby-keyword">else</span>
+        <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>, <span class="ruby-string">&quot;backtrace must be true or false&quot;</span>
+      <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-basepath-3D" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">basepath=</span><span
+            class="method-args">( path )</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Used to define a `basepath` that will be removed from filenames when
+reporting tracing information for log events. Normally you would set this
+to the root of your project:</p>
+
+<pre class="ruby"><span class="ruby-constant">Logging</span>.<span class="ruby-identifier">basepath</span> = <span class="ruby-string">&quot;/home/user/nifty_project&quot;</span>
+</pre>
+
+<p>Or if you are in a <a href="Rails.html">Rails</a> environment:</p>
+
+<pre class="ruby"><span class="ruby-constant">Logging</span>.<span class="ruby-identifier">basepath</span> = <span class="ruby-constant">Rails</span>.<span class="ruby-identifier">root</span>.<span class="ruby-identifier">to_s</span>
+</pre>
+
+<p>The basepath is expanded to a full path with trailing slashes removed. This
+setting will be cleared by a call to `Logging.reset`.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="basepath-3D-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/logging-2.2.2/lib/logging.rb, line 376</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">basepath=</span>( <span class="ruby-identifier">path</span> )
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">path</span>.<span class="ruby-identifier">nil?</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">path</span>.<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">empty?</span>
+    <span class="ruby-ivar">@basepath</span> = <span class="ruby-keyword">nil</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-ivar">@basepath</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">expand_path</span>(<span class="ruby-identifier">path</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-cause_depth-3D" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">cause_depth=</span><span
+            class="method-args">( value )</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Set the default Exception#cause depth used when formatting Exceptions. This
+sets the maximum number of nested errors that will be formatted by the
+layouts before giving up. This is used to avoid extremely large outputs.</p>
+
+<pre class="ruby"><span class="ruby-constant">Logging</span>.<span class="ruby-identifier">cause_depth</span> = <span class="ruby-keyword">nil</span>    <span class="ruby-comment"># set to the DEFAULT_CAUSE_DEPTH</span>
+<span class="ruby-constant">Logging</span>.<span class="ruby-identifier">cause_depth</span> = <span class="ruby-value">0</span>      <span class="ruby-comment"># do not show any exception causes</span>
+<span class="ruby-constant">Logging</span>.<span class="ruby-identifier">cause_depth</span> = <span class="ruby-value">1024</span>   <span class="ruby-comment"># show up to 1024 causes</span>
+<span class="ruby-constant">Logging</span>.<span class="ruby-identifier">cause_depth</span> = <span class="ruby-value">-1</span>     <span class="ruby-comment"># results in the DEFAULT_CAUSE_DEPTH</span>
+</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="cause_depth-3D-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/logging-2.2.2/lib/logging.rb, line 353</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">cause_depth=</span>( <span class="ruby-identifier">value</span> )
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">value</span>.<span class="ruby-identifier">nil?</span>
+    <span class="ruby-ivar">@cause_depth</span> = <span class="ruby-constant">DEFAULT_CAUSE_DEPTH</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">value</span> = <span class="ruby-constant">Integer</span>(<span class="ruby-identifier">value</span>)
+    <span class="ruby-ivar">@cause_depth</span> = <span class="ruby-identifier">value</span> <span class="ruby-operator">&lt;</span> <span class="ruby-value">0</span> <span class="ruby-operator">?</span> <span class="ruby-constant">DEFAULT_CAUSE_DEPTH</span> <span class="ruby-operator">:</span> <span class="ruby-identifier">value</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-clear_diagnostic_contexts" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">clear_diagnostic_contexts</span><span
+            class="method-args">( all = false )</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Public: Convenience method that will clear both the Mapped Diagnostic
+Context and the Nested Diagnostic Context of the current thread. If the
+`all` flag passed to this method is true, then the diagnostic contexts for
+<em>every</em> thread in the application will be cleared.</p>
+
+<p>all - Boolean flag used to clear the context of every Thread (default is
+false)</p>
+
+<p>Returns the <a href="Logging.html">Logging</a> module.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="clear_diagnostic_contexts-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/logging-2.2.2/lib/logging/diagnostic_context.rb, line 397</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">clear_diagnostic_contexts</span>( <span class="ruby-identifier">all</span> = <span class="ruby-keyword">false</span> )
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">all</span>
+    <span class="ruby-constant">DIAGNOSTIC_MUTEX</span>.<span class="ruby-identifier">synchronize</span> <span class="ruby-keyword">do</span>
+      <span class="ruby-constant">Thread</span>.<span class="ruby-identifier">list</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">t</span><span class="ruby-operator">|</span>
+        <span class="ruby-identifier">t</span>.<span class="ruby-identifier">thread_variable_set</span>(<span class="ruby-constant">MappedDiagnosticContext</span><span class="ruby-operator">::</span><span class="ruby-constant">NAME</span>, <span class="ruby-keyword">nil</span>)       <span class="ruby-keyword">if</span> <span class="ruby-identifier">t</span>.<span class="ruby-identifier">thread_variable?</span>(<span class="ruby-constant">MappedDiagnosticContext</span><span class="ruby-operator">::</span><span class="ruby-constant">NAME</span>)
+        <span class="ruby-identifier">t</span>.<span class="ruby-identifier">thread_variable_set</span>(<span class="ruby-constant">NestedDiagnosticContext</span><span class="ruby-operator">::</span><span class="ruby-constant">NAME</span>, <span class="ruby-keyword">nil</span>)       <span class="ruby-keyword">if</span> <span class="ruby-identifier">t</span>.<span class="ruby-identifier">thread_variable?</span>(<span class="ruby-constant">NestedDiagnosticContext</span><span class="ruby-operator">::</span><span class="ruby-constant">NAME</span>)
+        <span class="ruby-identifier">t</span>.<span class="ruby-identifier">thread_variable_set</span>(<span class="ruby-constant">MappedDiagnosticContext</span><span class="ruby-operator">::</span><span class="ruby-constant">STACK_NAME</span>, <span class="ruby-keyword">nil</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">t</span>.<span class="ruby-identifier">thread_variable?</span>(<span class="ruby-constant">MappedDiagnosticContext</span><span class="ruby-operator">::</span><span class="ruby-constant">STACK_NAME</span>)
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-constant">MappedDiagnosticContext</span>.<span class="ruby-identifier">clear</span>
+    <span class="ruby-constant">NestedDiagnosticContext</span>.<span class="ruby-identifier">clear</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">self</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-color_scheme" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">color_scheme</span><span
+            class="method-args">( name, opts = {} )</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Returns the color scheme identified by the given <em>name</em>. If there is
+no color scheme <code>nil</code> is returned.</p>
+
+<p>If color scheme options are supplied then a new color scheme is created.
+Any existing color scheme with the given <em>name</em> will be replaced by
+the new color scheme.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="color_scheme-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/logging-2.2.2/lib/logging.rb, line 150</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">color_scheme</span>( <span class="ruby-identifier">name</span>, <span class="ruby-identifier">opts</span> = {} )
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">opts</span>.<span class="ruby-identifier">empty?</span>
+    <span class="ruby-operator">::</span><span class="ruby-constant">Logging</span><span class="ruby-operator">::</span><span class="ruby-constant">ColorScheme</span>[<span class="ruby-identifier">name</span>]
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-operator">::</span><span class="ruby-constant">Logging</span><span class="ruby-operator">::</span><span class="ruby-constant">ColorScheme</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">name</span>, <span class="ruby-identifier">opts</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-format_as" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            format_as( obj_format )
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Defines the default <em>obj_format</em> method to use when converting
+objects into string representations for logging. <em>obj_format</em> can be
+one of <code>:string</code>, <code>:inspect</code>, or <code>:yaml</code>.
+These formatting commands map to the following object methods</p>
+<ul><li>
+<p>:string  =&gt; to_s</p>
+</li><li>
+<p>:inspect =&gt; inspect</p>
+</li><li>
+<p>:yaml    =&gt; to_yaml</p>
+</li><li>
+<p>:json    =&gt; <a
+href="MultiJson.html#method-i-encode">MultiJson#encode</a></p>
+</li></ul>
+
+<p>An <code>ArgumentError</code> is raised if anything other than
+<code>:string</code>, <code>:inspect</code>, <code>:yaml</code> is passed
+to this method.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="format_as-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/logging-2.2.2/lib/logging.rb, line 282</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">format_as</span>( <span class="ruby-identifier">f</span> )
+  <span class="ruby-identifier">f</span> = <span class="ruby-identifier">f</span>.<span class="ruby-identifier">intern</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">f</span>.<span class="ruby-identifier">instance_of?</span> <span class="ruby-constant">String</span>
+
+  <span class="ruby-keyword">unless</span> [<span class="ruby-value">:string</span>, <span class="ruby-value">:inspect</span>, <span class="ruby-value">:yaml</span>, <span class="ruby-value">:json</span>].<span class="ruby-identifier">include?</span> <span class="ruby-identifier">f</span>
+    <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>, <span class="ruby-node">&quot;unknown object format &#39;#{f}&#39;&quot;</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">module_eval</span> <span class="ruby-node">&quot;OBJ_FORMAT = :#{f}&quot;</span>, <span class="ruby-keyword">__FILE__</span>, <span class="ruby-keyword">__LINE__</span>
+  <span class="ruby-keyword">self</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-globally" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            include Logging.globally
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            include Logging.globally( :logger )
+          </span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Add a “logger” method to the including context. If included from <a
+href="Object.html">Object</a> or <a href="Kernel.html">Kernel</a>, the
+logger method will be available to all objects.</p>
+
+<p>Optionally, a method name can be given and that will be used to provided
+access to the logger:</p>
+
+<pre class="ruby"><span class="ruby-identifier">include</span> <span class="ruby-constant">Logging</span>.<span class="ruby-identifier">globally</span>( :<span class="ruby-identifier">log</span> )
+<span class="ruby-identifier">log</span>.<span class="ruby-identifier">info</span> <span class="ruby-string">&quot;Just using a shorter method name&quot;</span>
+</pre>
+
+<p>If you prefer to use the shorter “log” to access the logger.</p>
+
+<h4 id="method-c-globally-label-Example">Example<span><a href="#method-c-globally-label-Example">&para;</a> <a href="#top">&uarr;</a></span></h4>
+
+<pre class="ruby"><span class="ruby-identifier">include</span> <span class="ruby-constant">Logging</span>.<span class="ruby-identifier">globally</span>
+
+<span class="ruby-keyword">class</span> <span class="ruby-constant">Foo</span>
+  <span class="ruby-identifier">logger</span>.<span class="ruby-identifier">debug</span> <span class="ruby-string">&quot;Loading the Foo class&quot;</span>
+  <span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span>
+    <span class="ruby-identifier">logger</span>.<span class="ruby-identifier">info</span> <span class="ruby-string">&quot;Creating some new foo&quot;</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span>
+
+<span class="ruby-identifier">logger</span>.<span class="ruby-identifier">fatal</span> <span class="ruby-string">&quot;End of example&quot;</span>
+</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="globally-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/logging-2.2.2/lib/logging.rb, line 196</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">globally</span>( <span class="ruby-identifier">name</span> = <span class="ruby-value">:logger</span> )
+  <span class="ruby-constant">Module</span>.<span class="ruby-identifier">new</span> {
+    <span class="ruby-identifier">eval</span> <span class="ruby-node">&quot;def #{name}() @_logging_logger ||= ::Logging::Logger[self] end&quot;</span>
+  }
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-init" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            init( levels )
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Defines the levels available to the loggers. The <em>levels</em> is an
+array of strings and symbols. Each element in the array is downcased and
+converted to a symbol; these symbols are used to create the logging methods
+in the loggers.</p>
+
+<p>The first element in the array is the lowest logging level. Setting the
+logging level to this value will enable all log messages. The last element
+in the array is the highest logging level. Setting the logging level to
+this value will disable all log messages except this highest level.</p>
+
+<p>This method should be invoked only once to configure the logging levels. It
+is automatically invoked with the default logging levels when the first
+logger is created.</p>
+
+<p>The levels “all” and “off” are reserved and will be ignored if passed to
+this method.</p>
+
+<p>Example:</p>
+
+<pre class="ruby"><span class="ruby-constant">Logging</span>.<span class="ruby-identifier">init</span> :<span class="ruby-identifier">debug</span>, :<span class="ruby-identifier">info</span>, :<span class="ruby-identifier">warn</span>, :<span class="ruby-identifier">error</span>, :<span class="ruby-identifier">fatal</span>
+<span class="ruby-identifier">log</span> = <span class="ruby-constant">Logging</span><span class="ruby-operator">::</span><span class="ruby-constant">Logger</span>[<span class="ruby-string">&#39;my logger&#39;</span>]
+<span class="ruby-identifier">log</span>.<span class="ruby-identifier">level</span> = :<span class="ruby-identifier">warn</span>
+<span class="ruby-identifier">log</span>.<span class="ruby-identifier">warn</span> <span class="ruby-string">&#39;Danger! Danger! Will Robinson&#39;</span>
+<span class="ruby-identifier">log</span>.<span class="ruby-identifier">info</span> <span class="ruby-string">&#39;Just FYI&#39;</span>                        <span class="ruby-comment"># =&gt; not logged</span>
+</pre>
+
+<p>or</p>
+
+<pre class="ruby"><span class="ruby-constant">Logging</span>.<span class="ruby-identifier">init</span> <span class="ruby-node">%w(DEBUG INFO NOTICE WARNING ERR CRIT ALERT EMERG)</span>
+<span class="ruby-identifier">log</span> = <span class="ruby-constant">Logging</span><span class="ruby-operator">::</span><span class="ruby-constant">Logger</span>[<span class="ruby-string">&#39;syslog&#39;</span>]
+<span class="ruby-identifier">log</span>.<span class="ruby-identifier">level</span> = :<span class="ruby-identifier">notice</span>
+<span class="ruby-identifier">log</span>.<span class="ruby-identifier">warning</span> <span class="ruby-string">&#39;This is your first warning&#39;</span>
+<span class="ruby-identifier">log</span>.<span class="ruby-identifier">info</span> <span class="ruby-string">&#39;Just FYI&#39;</span>                        <span class="ruby-comment"># =&gt; not logged</span>
+</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="init-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/logging-2.2.2/lib/logging.rb, line 239</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">init</span>( <span class="ruby-operator">*</span><span class="ruby-identifier">args</span> )
+  <span class="ruby-identifier">args</span> = <span class="ruby-node">%w(debug info warn error fatal)</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">args</span>.<span class="ruby-identifier">empty?</span>
+
+  <span class="ruby-identifier">args</span>.<span class="ruby-identifier">flatten!</span>
+  <span class="ruby-identifier">levels</span> = <span class="ruby-constant">LEVELS</span>.<span class="ruby-identifier">clear</span>
+  <span class="ruby-identifier">names</span> = <span class="ruby-constant">LNAMES</span>.<span class="ruby-identifier">clear</span>
+
+  <span class="ruby-identifier">id</span> = <span class="ruby-value">0</span>
+  <span class="ruby-identifier">args</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">lvl</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">lvl</span> = <span class="ruby-identifier">levelify</span> <span class="ruby-identifier">lvl</span>
+    <span class="ruby-keyword">unless</span> <span class="ruby-identifier">levels</span>.<span class="ruby-identifier">has_key?</span>(<span class="ruby-identifier">lvl</span>) <span class="ruby-keyword">or</span> <span class="ruby-identifier">lvl</span> <span class="ruby-operator">==</span> <span class="ruby-string">&#39;all&#39;</span> <span class="ruby-keyword">or</span> <span class="ruby-identifier">lvl</span> <span class="ruby-operator">==</span> <span class="ruby-string">&#39;off&#39;</span>
+      <span class="ruby-identifier">levels</span>[<span class="ruby-identifier">lvl</span>] = <span class="ruby-identifier">id</span>
+      <span class="ruby-identifier">names</span>[<span class="ruby-identifier">id</span>] = <span class="ruby-identifier">lvl</span>.<span class="ruby-identifier">upcase</span>
+      <span class="ruby-identifier">id</span> <span class="ruby-operator">+=</span> <span class="ruby-value">1</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">longest</span> = <span class="ruby-identifier">names</span>.<span class="ruby-identifier">inject</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">x</span>,<span class="ruby-identifier">y</span><span class="ruby-operator">|</span> (<span class="ruby-identifier">x</span>.<span class="ruby-identifier">length</span> <span class="ruby-operator">&gt;</span> <span class="ruby-identifier">y</span>.<span class="ruby-identifier">length</span>) <span class="ruby-operator">?</span> <span class="ruby-identifier">x</span> <span class="ruby-operator">:</span> <span class="ruby-identifier">y</span>}
+  <span class="ruby-identifier">longest</span> = <span class="ruby-string">&#39;off&#39;</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">longest</span>.<span class="ruby-identifier">length</span> <span class="ruby-operator">&lt;</span> <span class="ruby-value">3</span>
+  <span class="ruby-identifier">module_eval</span> <span class="ruby-node">&quot;MAX_LEVEL_LENGTH = #{longest.length}&quot;</span>, <span class="ruby-keyword">__FILE__</span>, <span class="ruby-keyword">__LINE__</span>
+
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">cause_depth</span> = <span class="ruby-keyword">nil</span> <span class="ruby-keyword">unless</span> <span class="ruby-keyword">defined?</span> <span class="ruby-ivar">@cause_depth</span>
+
+  <span class="ruby-identifier">initialize_plugins</span>
+  <span class="ruby-identifier">levels</span>.<span class="ruby-identifier">keys</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-layouts" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">layouts</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Access to the layouts.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="layouts-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/logging-2.2.2/lib/logging.rb, line 133</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">layouts</span>
+  <span class="ruby-operator">::</span><span class="ruby-constant">Logging</span><span class="ruby-operator">::</span><span class="ruby-constant">Layouts</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-libpath" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">libpath</span><span
+            class="method-args">( *args, &block )</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Returns the library path for the module. If any arguments are given, they
+will be joined to the end of the library path using <code>File.join</code>.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="libpath-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/logging-2.2.2/lib/logging.rb, line 390</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">libpath</span>( <span class="ruby-operator">*</span><span class="ruby-identifier">args</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span> )
+  <span class="ruby-identifier">rv</span> = <span class="ruby-identifier">args</span>.<span class="ruby-identifier">empty?</span> <span class="ruby-operator">?</span> <span class="ruby-constant">LIBPATH</span> <span class="ruby-operator">:</span> <span class="ruby-operator">::</span><span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span>(<span class="ruby-constant">LIBPATH</span>, <span class="ruby-identifier">args</span>.<span class="ruby-identifier">flatten</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">block</span>
+    <span class="ruby-keyword">begin</span>
+      <span class="ruby-identifier">$LOAD_PATH</span>.<span class="ruby-identifier">unshift</span> <span class="ruby-constant">LIBPATH</span>
+      <span class="ruby-identifier">rv</span> = <span class="ruby-identifier">block</span>.<span class="ruby-identifier">call</span>
+    <span class="ruby-keyword">ensure</span>
+      <span class="ruby-identifier">$LOAD_PATH</span>.<span class="ruby-identifier">shift</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">rv</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-logger" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            logger( device, age = 7, size = 1048576 )
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            logger( device, age = &#39;weekly&#39; )
+          </span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>This convenience method returns a <a href="Logging/Logger.html">Logger</a>
+instance configured to behave similarly to a core Ruby <a
+href="Logging/Logger.html">Logger</a> instance.</p>
+
+<p>The <em>device</em> is the logging destination. This can be a filename
+(String) or an IO object (STDERR, STDOUT, an open <a
+href="File.html">File</a>, etc.). The <em>age</em> is the number of old log
+files to keep or the frequency of rotation (<code>daily</code>,
+<code>weekly</code>, or <code>monthly</code>). The <em>size</em> is the
+maximum logfile size and is only used when <em>age</em> is a number.</p>
+
+<p>Using the same <em>device</em> twice will result in the same <a
+href="Logging/Logger.html">Logger</a> instance being returned. For example,
+if a <a href="Logging/Logger.html">Logger</a> is created using STDOUT then
+the same <a href="Logging/Logger.html">Logger</a> instance will be returned
+the next time STDOUT is used. A new <a
+href="Logging/Logger.html">Logger</a> instance can be obtained by closing
+the previous logger instance.</p>
+
+<pre class="ruby"><span class="ruby-identifier">log1</span> = <span class="ruby-constant">Logging</span>.<span class="ruby-identifier">logger</span>(<span class="ruby-constant">STDOUT</span>)
+<span class="ruby-identifier">log2</span> = <span class="ruby-constant">Logging</span>.<span class="ruby-identifier">logger</span>(<span class="ruby-constant">STDOUT</span>)
+<span class="ruby-identifier">log1</span>.<span class="ruby-identifier">object_id</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">log2</span>.<span class="ruby-identifier">object_id</span>  <span class="ruby-comment">#=&gt; true</span>
+
+<span class="ruby-identifier">log1</span>.<span class="ruby-identifier">close</span>
+<span class="ruby-identifier">log2</span> = <span class="ruby-constant">Logging</span>.<span class="ruby-identifier">logger</span>(<span class="ruby-constant">STDOUT</span>)
+<span class="ruby-identifier">log1</span>.<span class="ruby-identifier">object_id</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">log2</span>.<span class="ruby-identifier">object_id</span>  <span class="ruby-comment">#=&gt; false</span>
+</pre>
+
+<p>The format of the log messages can be changed using a few optional
+parameters. The <code>:pattern</code> can be used to change the log message
+format. The <code>:date_pattern</code> can be used to change how timestamps
+are formatted.</p>
+
+<pre class="ruby"><span class="ruby-identifier">log</span> = <span class="ruby-constant">Logging</span>.<span class="ruby-identifier">logger</span>(<span class="ruby-constant">STDOUT</span>,
+          :<span class="ruby-identifier">pattern</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;[%d] %-5l : %m\n&quot;</span>,
+          :<span class="ruby-identifier">date_pattern</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;%Y-%m-%d %H:%M:%S.%s&quot;</span>)
+</pre>
+
+<p>See the documentation for the <a
+href="Logging/Layouts/Pattern.html">Logging::Layouts::Pattern</a> class for
+a full description of the :pattern and :date_pattern formatting strings.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="logger-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/logging-2.2.2/lib/logging.rb, line 72</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">logger</span>( <span class="ruby-operator">*</span><span class="ruby-identifier">args</span> )
+  <span class="ruby-keyword">return</span> <span class="ruby-operator">::</span><span class="ruby-constant">Logging</span><span class="ruby-operator">::</span><span class="ruby-constant">Logger</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">args</span>.<span class="ruby-identifier">empty?</span>
+
+  <span class="ruby-identifier">opts</span> = <span class="ruby-identifier">args</span>.<span class="ruby-identifier">pop</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">args</span>.<span class="ruby-identifier">last</span>.<span class="ruby-identifier">instance_of?</span>(<span class="ruby-constant">Hash</span>)
+  <span class="ruby-identifier">opts</span> <span class="ruby-operator">||=</span> <span class="ruby-constant">Hash</span>.<span class="ruby-identifier">new</span>
+
+  <span class="ruby-identifier">dev</span> = <span class="ruby-identifier">args</span>.<span class="ruby-identifier">shift</span>
+  <span class="ruby-identifier">keep</span> = <span class="ruby-identifier">age</span> = <span class="ruby-identifier">args</span>.<span class="ruby-identifier">shift</span>
+  <span class="ruby-identifier">size</span> = <span class="ruby-identifier">args</span>.<span class="ruby-identifier">shift</span>
+
+  <span class="ruby-identifier">name</span> = <span class="ruby-keyword">case</span> <span class="ruby-identifier">dev</span>
+         <span class="ruby-keyword">when</span> <span class="ruby-constant">String</span>; <span class="ruby-identifier">dev</span>
+         <span class="ruby-keyword">when</span> <span class="ruby-constant">File</span>; <span class="ruby-identifier">dev</span>.<span class="ruby-identifier">path</span>
+         <span class="ruby-keyword">else</span> <span class="ruby-identifier">dev</span>.<span class="ruby-identifier">object_id</span>.<span class="ruby-identifier">to_s</span> <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">repo</span> = <span class="ruby-operator">::</span><span class="ruby-constant">Logging</span><span class="ruby-operator">::</span><span class="ruby-constant">Repository</span>.<span class="ruby-identifier">instance</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">repo</span>[<span class="ruby-identifier">name</span>] <span class="ruby-keyword">if</span> <span class="ruby-identifier">repo</span>.<span class="ruby-identifier">has_logger?</span> <span class="ruby-identifier">name</span>
+
+  <span class="ruby-identifier">l_opts</span> = {
+    <span class="ruby-value">:pattern</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-node">&quot;%.1l, [%d #%p] %#{::Logging::MAX_LEVEL_LENGTH}l : %m\n&quot;</span>,
+    <span class="ruby-value">:date_pattern</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&#39;%Y-%m-%dT%H:%M:%S.%s&#39;</span>
+  }
+  [<span class="ruby-value">:pattern</span>, <span class="ruby-value">:date_pattern</span>, <span class="ruby-value">:date_method</span>].<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">o</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">l_opts</span>[<span class="ruby-identifier">o</span>] = <span class="ruby-identifier">opts</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-identifier">o</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">opts</span>.<span class="ruby-identifier">has_key?</span> <span class="ruby-identifier">o</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">layout</span> = <span class="ruby-operator">::</span><span class="ruby-constant">Logging</span><span class="ruby-operator">::</span><span class="ruby-constant">Layouts</span><span class="ruby-operator">::</span><span class="ruby-constant">Pattern</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">l_opts</span>)
+
+  <span class="ruby-identifier">a_opts</span> = <span class="ruby-constant">Hash</span>.<span class="ruby-identifier">new</span>
+  <span class="ruby-identifier">a_opts</span>[<span class="ruby-value">:size</span>] = <span class="ruby-identifier">size</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">size</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">Integer</span>)
+  <span class="ruby-identifier">a_opts</span>[<span class="ruby-value">:age</span>]  = <span class="ruby-identifier">age</span>  <span class="ruby-keyword">if</span> <span class="ruby-identifier">age</span>.<span class="ruby-identifier">instance_of?</span>(<span class="ruby-constant">String</span>)
+  <span class="ruby-identifier">a_opts</span>[<span class="ruby-value">:keep</span>] = <span class="ruby-identifier">keep</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">keep</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">Integer</span>)
+  <span class="ruby-identifier">a_opts</span>[<span class="ruby-value">:filename</span>] = <span class="ruby-identifier">dev</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">dev</span>.<span class="ruby-identifier">instance_of?</span>(<span class="ruby-constant">String</span>)
+  <span class="ruby-identifier">a_opts</span>[<span class="ruby-value">:layout</span>] = <span class="ruby-identifier">layout</span>
+  <span class="ruby-identifier">a_opts</span>.<span class="ruby-identifier">merge!</span> <span class="ruby-identifier">opts</span>
+
+  <span class="ruby-identifier">appender</span> =
+      <span class="ruby-keyword">case</span> <span class="ruby-identifier">dev</span>
+      <span class="ruby-keyword">when</span> <span class="ruby-constant">String</span>
+        <span class="ruby-operator">::</span><span class="ruby-constant">Logging</span><span class="ruby-operator">::</span><span class="ruby-constant">Appenders</span><span class="ruby-operator">::</span><span class="ruby-constant">RollingFile</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">name</span>, <span class="ruby-identifier">a_opts</span>)
+      <span class="ruby-keyword">else</span>
+        <span class="ruby-operator">::</span><span class="ruby-constant">Logging</span><span class="ruby-operator">::</span><span class="ruby-constant">Appenders</span><span class="ruby-operator">::</span><span class="ruby-constant">IO</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">name</span>, <span class="ruby-identifier">dev</span>, <span class="ruby-identifier">a_opts</span>)
+      <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">logger</span> = <span class="ruby-operator">::</span><span class="ruby-constant">Logging</span><span class="ruby-operator">::</span><span class="ruby-constant">Logger</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">name</span>)
+  <span class="ruby-identifier">logger</span>.<span class="ruby-identifier">add_appenders</span> <span class="ruby-identifier">appender</span>
+  <span class="ruby-identifier">logger</span>.<span class="ruby-identifier">additive</span> = <span class="ruby-keyword">false</span>
+
+  <span class="ruby-keyword">class</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">logger</span>
+    <span class="ruby-keyword">def</span> <span class="ruby-identifier">close</span>
+      <span class="ruby-ivar">@appenders</span>.<span class="ruby-identifier">each</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">a</span><span class="ruby-operator">|</span> <span class="ruby-identifier">a</span>.<span class="ruby-identifier">close</span>}
+      <span class="ruby-identifier">h</span> = <span class="ruby-operator">::</span><span class="ruby-constant">Logging</span><span class="ruby-operator">::</span><span class="ruby-constant">Repository</span>.<span class="ruby-identifier">instance</span>.<span class="ruby-identifier">instance_variable_get</span> <span class="ruby-value">:@h</span>
+      <span class="ruby-identifier">h</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-ivar">@name</span>)
+      <span class="ruby-keyword">class</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-keyword">self</span>; <span class="ruby-keyword">undef</span> <span class="ruby-value">:close</span>; <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">logger</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-mdc" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">mdc</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Public: Accessor method for getting the current Thread&#39;s <a
+href="Logging/MappedDiagnosticContext.html">MappedDiagnosticContext</a>.</p>
+
+<p>Returns <a
+href="Logging/MappedDiagnosticContext.html">MappedDiagnosticContext</a></p>
+          
+          
+
+          
+          <div class="method-source-code" id="mdc-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/logging-2.2.2/lib/logging/diagnostic_context.rb, line 379</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">mdc</span>() <span class="ruby-constant">MappedDiagnosticContext</span> <span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-ndc" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">ndc</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Public: Accessor method for getting the current Thread&#39;s <a
+href="Logging/NestedDiagnosticContext.html">NestedDiagnosticContext</a>.</p>
+
+<p>Returns <a
+href="Logging/NestedDiagnosticContext.html">NestedDiagnosticContext</a></p>
+          
+          
+
+          
+          <div class="method-source-code" id="ndc-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/logging-2.2.2/lib/logging/diagnostic_context.rb, line 386</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">ndc</span>() <span class="ruby-constant">NestedDiagnosticContext</span> <span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-path" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">path</span><span
+            class="method-args">( *args, &block )</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Returns the lpath for the module. If any arguments are given, they will be
+joined to the end of the path using <code>File.join</code>.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="path-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/logging-2.2.2/lib/logging.rb, line 407</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">path</span>( <span class="ruby-operator">*</span><span class="ruby-identifier">args</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span> )
+  <span class="ruby-identifier">rv</span> = <span class="ruby-identifier">args</span>.<span class="ruby-identifier">empty?</span> <span class="ruby-operator">?</span> <span class="ruby-constant">PATH</span> <span class="ruby-operator">:</span> <span class="ruby-operator">::</span><span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span>(<span class="ruby-constant">PATH</span>, <span class="ruby-identifier">args</span>.<span class="ruby-identifier">flatten</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">block</span>
+    <span class="ruby-keyword">begin</span>
+      <span class="ruby-identifier">$LOAD_PATH</span>.<span class="ruby-identifier">unshift</span> <span class="ruby-constant">PATH</span>
+      <span class="ruby-identifier">rv</span> = <span class="ruby-identifier">block</span>.<span class="ruby-identifier">call</span>
+    <span class="ruby-keyword">ensure</span>
+      <span class="ruby-identifier">$LOAD_PATH</span>.<span class="ruby-identifier">shift</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">rv</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-reopen" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">reopen</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Reopen all appenders. This method should be called immediately after a fork
+to ensure no conflict with file descriptors and calls to fcntl or flock.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="reopen-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/logging-2.2.2/lib/logging.rb, line 162</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">reopen</span>
+  <span class="ruby-identifier">log_internal</span> {<span class="ruby-string">&#39;re-opening all appenders&#39;</span>}
+  <span class="ruby-operator">::</span><span class="ruby-constant">Logging</span><span class="ruby-operator">::</span><span class="ruby-constant">Appenders</span>.<span class="ruby-identifier">each</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">appender</span><span class="ruby-operator">|</span> <span class="ruby-identifier">appender</span>.<span class="ruby-identifier">reopen</span>}
+  <span class="ruby-keyword">self</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-show_configuration" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            show_configuration( io = STDOUT, logger = &#39;root&#39; )
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>This method is used to show the configuration of the logging framework. The
+information is written to the given <em>io</em> stream (defaulting to
+stdout). Normally the configuration is dumped starting with the root
+logger, but any logger name can be given.</p>
+
+<p>Each line contains information for a single logger and it&#39;s appenders.
+A child logger is indented two spaces from it&#39;s parent logger. Each
+line contains the logger name, level, additivity, and trace settings. Here
+is a brief example:</p>
+
+<pre>root  ...........................   *info      -T
+  LoggerA  ......................    info  +A  -T
+    LoggerA::LoggerB  ...........    info  +A  -T
+    LoggerA::LoggerC  ...........  *debug  +A  -T
+  LoggerD  ......................   *warn  -A  +T</pre>
+
+<p>The lines can be deciphered as follows:</p>
+
+<pre>1) name       - the name of the logger
+
+2) level      - the logger level; if it is preceded by an
+                asterisk then the level was explicitly set for that
+                logger (as opposed to being inherited from the parent
+                logger)
+
+3) additivity - a &quot;+A&quot; shows the logger is additive, and log events
+                will be passed up to the parent logger; &quot;-A&quot; shows
+                that the logger will *not* pass log events up to the
+                parent logger
+
+4) tracing    - a &quot;+T&quot; shows that the logger will include caller
+                tracing information in generated log events (this
+                includes filename and line number of the log
+                message); &quot;-T&quot; shows that the logger does not include
+                caller tracing information in the log events</pre>
+
+<p>If a logger has appenders then they are listed, one per line, immediately
+below the logger. <a href="Logging/Appender.html">Appender</a> lines are
+pre-pended with a single dash:</p>
+
+<pre>root  ...........................   *info      -T
+- &lt;Appenders::Stdout:0x8b02a4 name=&quot;stdout&quot;&gt;
+  LoggerA  ......................    info  +A  -T
+    LoggerA::LoggerB  ...........    info  +A  -T
+    LoggerA::LoggerC  ...........  *debug  +A  -T
+  LoggerD  ......................   *warn  -A  +T
+  - &lt;Appenders::Stderr:0x8b04ca name=&quot;stderr&quot;&gt;</pre>
+
+<p>We can see in this configuration dump that all the loggers will append to
+stdout via the Stdout appender configured in the root logger. All the
+loggers are additive, and so their generated log events will be passed up
+to the root logger.</p>
+
+<p>The exception in this configuration is LoggerD. Its additivity is set to
+false. It uses its own appender to send messages to stderr.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="show_configuration-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/logging-2.2.2/lib/logging.rb, line 479</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">show_configuration</span>( <span class="ruby-identifier">io</span> = <span class="ruby-constant">STDOUT</span>, <span class="ruby-identifier">logger</span> = <span class="ruby-string">&#39;root&#39;</span>, <span class="ruby-identifier">indent</span> = <span class="ruby-value">0</span> )
+  <span class="ruby-identifier">logger</span> = <span class="ruby-operator">::</span><span class="ruby-constant">Logging</span><span class="ruby-operator">::</span><span class="ruby-constant">Logger</span>[<span class="ruby-identifier">logger</span>] <span class="ruby-keyword">unless</span> <span class="ruby-identifier">logger</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-operator">::</span><span class="ruby-constant">Logging</span><span class="ruby-operator">::</span><span class="ruby-constant">Logger</span>)
+
+  <span class="ruby-identifier">io</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">logger</span>.<span class="ruby-identifier">_dump_configuration</span>(<span class="ruby-identifier">indent</span>)
+
+  <span class="ruby-identifier">indent</span> <span class="ruby-operator">+=</span> <span class="ruby-value">2</span>
+  <span class="ruby-identifier">children</span> = <span class="ruby-operator">::</span><span class="ruby-constant">Logging</span><span class="ruby-operator">::</span><span class="ruby-constant">Repository</span>.<span class="ruby-identifier">instance</span>.<span class="ruby-identifier">children</span>(<span class="ruby-identifier">logger</span>.<span class="ruby-identifier">name</span>)
+  <span class="ruby-identifier">children</span>.<span class="ruby-identifier">sort</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">a</span>,<span class="ruby-identifier">b</span><span class="ruby-operator">|</span> <span class="ruby-identifier">a</span>.<span class="ruby-identifier">name</span> <span class="ruby-operator">&lt;=&gt;</span> <span class="ruby-identifier">b</span>.<span class="ruby-identifier">name</span>}.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">child</span><span class="ruby-operator">|</span>
+    <span class="ruby-operator">::</span><span class="ruby-constant">Logging</span>.<span class="ruby-identifier">show_configuration</span>(<span class="ruby-identifier">io</span>, <span class="ruby-identifier">child</span>, <span class="ruby-identifier">indent</span>)
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">io</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-utc_offset-3D" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">utc_offset=</span><span
+            class="method-args">( value )</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Set the default UTC offset used when formatting time values sent to the
+appenders. If left unset, the default local time zone will be used for time
+values. This method accepts the `utc_offset` format supported by the
+`Time#localtime` method in Ruby.</p>
+
+<p>Passing “UTC” or `0` as the UTC offset will cause all times to be reported
+in the UTC timezone.</p>
+
+<pre class="ruby"><span class="ruby-constant">Logging</span>.<span class="ruby-identifier">utc_offset</span> = <span class="ruby-string">&quot;-07:00&quot;</span>  <span class="ruby-comment"># Mountain Standard Time in North America</span>
+<span class="ruby-constant">Logging</span>.<span class="ruby-identifier">utc_offset</span> = <span class="ruby-string">&quot;+01:00&quot;</span>  <span class="ruby-comment"># Central European Time</span>
+<span class="ruby-constant">Logging</span>.<span class="ruby-identifier">utc_offset</span> = <span class="ruby-string">&quot;UTC&quot;</span>     <span class="ruby-comment"># UTC</span>
+<span class="ruby-constant">Logging</span>.<span class="ruby-identifier">utc_offset</span> = <span class="ruby-value">0</span>         <span class="ruby-comment"># UTC</span>
+</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="utc_offset-3D-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/logging-2.2.2/lib/logging.rb, line 331</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">utc_offset=</span>( <span class="ruby-identifier">value</span> )
+  <span class="ruby-ivar">@utc_offset</span> = <span class="ruby-keyword">case</span> <span class="ruby-identifier">value</span>
+    <span class="ruby-keyword">when</span> <span class="ruby-keyword">nil</span>;             <span class="ruby-keyword">nil</span>
+    <span class="ruby-keyword">when</span> <span class="ruby-string">&quot;UTC&quot;</span>, <span class="ruby-string">&quot;GMT&quot;</span>, <span class="ruby-value">0</span>; <span class="ruby-value">0</span>
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-constant">Time</span>.<span class="ruby-identifier">now</span>.<span class="ruby-identifier">localtime</span>(<span class="ruby-identifier">value</span>)
+      <span class="ruby-identifier">value</span>
+    <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-version" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">version</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Returns the version string for the library.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="version-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/logging-2.2.2/lib/logging/version.rb, line 5</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">version</span>
+  <span class="ruby-constant">VERSION</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="https://rdoc.github.io/rdoc">RDoc</a> 5.0.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

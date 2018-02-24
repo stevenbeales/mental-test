@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>module MethodSource - RDoc Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "./";
+  var index_rel_prefix = "./";
+</script>
+
+<script src="./js/jquery.js"></script>
+<script src="./js/darkfish.js"></script>
+
+<link href="./css/fonts.css" rel="stylesheet">
+<link href="./css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="module">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="./index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="./table_of_contents.html#pages">Pages</a>
+    <a href="./table_of_contents.html#classes">Classes</a>
+    <a href="./table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    
+    
+    <div id="extends-section" class="nav-section">
+  <h3>Extended With Modules</h3>
+
+  <ul class="link-list">
+    
+  
+    <li><a class="extend" href="MethodSource/CodeHelpers.html">MethodSource::CodeHelpers</a>
+  
+  
+  </ul>
+</div>
+
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-c-comment_helper">::comment_helper</a>
+    
+    <li ><a href="#method-c-extract_code">::extract_code</a>
+    
+    <li ><a href="#method-c-lines_for">::lines_for</a>
+    
+    <li ><a href="#method-c-source_helper">::source_helper</a>
+    
+    <li ><a href="#method-c-valid_expression-3F">::valid_expression?</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="module-MethodSource">
+  <h1 id="module-MethodSource" class="module">
+    module MethodSource
+  </h1>
+
+  <section class="description">
+    
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+    <section class="constants-list">
+      <header>
+        <h3>Constants</h3>
+      </header>
+      <dl>
+      
+        <dt id="VERSION">VERSION
+        
+        <dd>
+        
+      
+      </dl>
+    </section>
+    
+
+    
+
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Class Methods</h3>
+       </header>
+
+    
+      <div id="method-c-comment_helper" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">comment_helper</span><span
+            class="method-args">(source_location, name=nil)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Helper method responsible for opening source file and buffering up the
+comments for a specified method. Defined here to avoid polluting `Method`
+class. @param [Array] source_location The array returned by <a
+href="MethodSource/SourceLocation/MethodExtensions.html#method-i-source_location">MethodSource::SourceLocation::MethodExtensions#source_location</a>
+@param [String]  method_name @return [String] The comments up to the point
+of the method.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="comment_helper-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/method_source-0.9.0/lib/method_source.rb, line 38</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">comment_helper</span>(<span class="ruby-identifier">source_location</span>, <span class="ruby-identifier">name</span>=<span class="ruby-keyword">nil</span>)
+  <span class="ruby-identifier">raise</span> <span class="ruby-constant">SourceNotFoundError</span>, <span class="ruby-node">&quot;Could not locate source for #{name}!&quot;</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">source_location</span>
+  <span class="ruby-identifier">file</span>, <span class="ruby-identifier">line</span> = <span class="ruby-operator">*</span><span class="ruby-identifier">source_location</span>
+
+  <span class="ruby-identifier">comment_describing</span>(<span class="ruby-identifier">lines_for</span>(<span class="ruby-identifier">file</span>), <span class="ruby-identifier">line</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-extract_code" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">extract_code</span><span
+            class="method-args">(source_location)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>@deprecated — use <a
+href="MethodSource/CodeHelpers.html#method-i-expression_at">MethodSource::CodeHelpers#expression_at</a></p>
+          
+          
+
+          
+          <div class="method-source-code" id="extract_code-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/method_source-0.9.0/lib/method_source.rb, line 66</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">extract_code</span>(<span class="ruby-identifier">source_location</span>)
+  <span class="ruby-identifier">source_helper</span>(<span class="ruby-identifier">source_location</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-lines_for" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">lines_for</span><span
+            class="method-args">(file_name, name=nil)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Load a memoized copy of the lines in a file.</p>
+
+<p>@param [String]  file_name @param [String]  method_name @return
+[Array&lt;String&gt;]  the contents of the file @raise
+[SourceNotFoundError]</p>
+          
+          
+
+          
+          <div class="method-source-code" id="lines_for-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/method_source-0.9.0/lib/method_source.rb, line 51</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">lines_for</span>(<span class="ruby-identifier">file_name</span>, <span class="ruby-identifier">name</span>=<span class="ruby-keyword">nil</span>)
+  <span class="ruby-ivar">@lines_for_file</span> <span class="ruby-operator">||=</span> {}
+  <span class="ruby-ivar">@lines_for_file</span>[<span class="ruby-identifier">file_name</span>] <span class="ruby-operator">||=</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">readlines</span>(<span class="ruby-identifier">file_name</span>)
+<span class="ruby-keyword">rescue</span> <span class="ruby-constant">Errno</span><span class="ruby-operator">::</span><span class="ruby-constant">ENOENT</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">e</span>
+  <span class="ruby-identifier">raise</span> <span class="ruby-constant">SourceNotFoundError</span>, <span class="ruby-node">&quot;Could not load source for #{name}: #{e.message}&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-source_helper" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">source_helper</span><span
+            class="method-args">(source_location, name=nil)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Helper method responsible for extracting method body. Defined here to avoid
+polluting `Method` class. @param [Array] source_location The array returned
+by <a
+href="MethodSource/SourceLocation/MethodExtensions.html#method-i-source_location">MethodSource::SourceLocation::MethodExtensions#source_location</a>
+@param [String]  method_name @return [String] The method body</p>
+          
+          
+
+          
+          <div class="method-source-code" id="source_helper-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/method_source-0.9.0/lib/method_source.rb, line 23</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">source_helper</span>(<span class="ruby-identifier">source_location</span>, <span class="ruby-identifier">name</span>=<span class="ruby-keyword">nil</span>)
+  <span class="ruby-identifier">raise</span> <span class="ruby-constant">SourceNotFoundError</span>, <span class="ruby-node">&quot;Could not locate source for #{name}!&quot;</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">source_location</span>
+  <span class="ruby-identifier">file</span>, <span class="ruby-identifier">line</span> = <span class="ruby-operator">*</span><span class="ruby-identifier">source_location</span>
+
+  <span class="ruby-identifier">expression_at</span>(<span class="ruby-identifier">lines_for</span>(<span class="ruby-identifier">file</span>), <span class="ruby-identifier">line</span>)
+<span class="ruby-keyword">rescue</span> <span class="ruby-constant">SyntaxError</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">e</span>
+  <span class="ruby-identifier">raise</span> <span class="ruby-constant">SourceNotFoundError</span>, <span class="ruby-node">&quot;Could not parse source for #{name}: #{e.message}&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-valid_expression-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">valid_expression?</span><span
+            class="method-args">(str)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>@deprecated — use <a
+href="MethodSource/CodeHelpers.html#method-i-complete_expression-3F">MethodSource::CodeHelpers#complete_expression?</a></p>
+          
+          
+
+          
+          <div class="method-source-code" id="valid_expression-3F-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/method_source-0.9.0/lib/method_source.rb, line 59</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">valid_expression?</span>(<span class="ruby-identifier">str</span>)
+  <span class="ruby-identifier">complete_expression?</span>(<span class="ruby-identifier">str</span>)
+<span class="ruby-keyword">rescue</span> <span class="ruby-constant">SyntaxError</span>
+  <span class="ruby-keyword">false</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="https://rdoc.github.io/rdoc">RDoc</a> 5.0.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

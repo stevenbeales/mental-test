@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class Mustermann::PatternCache - RDoc Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../";
+  var index_rel_prefix = "../";
+</script>
+
+<script src="../js/jquery.js"></script>
+<script src="../js/darkfish.js"></script>
+
+<link href="../css/fonts.css" rel="stylesheet">
+<link href="../css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../table_of_contents.html#pages">Pages</a>
+    <a href="../table_of_contents.html#classes">Classes</a>
+    <a href="../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link"><a href="../Object.html">Object</a>
+  
+</div>
+
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-c-new">::new</a>
+    
+    <li ><a href="#method-i-clear">#clear</a>
+    
+    <li ><a href="#method-i-create_pattern">#create_pattern</a>
+    
+    <li ><a href="#method-i-size">#size</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-Mustermann::PatternCache">
+  <h1 id="class-Mustermann::PatternCache" class="class">
+    class Mustermann::PatternCache
+  </h1>
+
+  <section class="description">
+    
+<p>A simple, persistent cache for creating repositories.</p>
+
+<p>@example</p>
+
+<pre class="ruby"><span class="ruby-identifier">require</span> <span class="ruby-string">&#39;mustermann/pattern_cache&#39;</span>
+<span class="ruby-identifier">cache</span> = <span class="ruby-constant">Mustermann</span><span class="ruby-operator">::</span><span class="ruby-constant">PatternCache</span>.<span class="ruby-identifier">new</span>
+
+<span class="ruby-comment"># use this instead of Mustermann.new</span>
+<span class="ruby-identifier">pattern</span> = <span class="ruby-identifier">cache</span>.<span class="ruby-identifier">create_pattern</span>(<span class="ruby-string">&quot;/:name&quot;</span>, <span class="ruby-identifier">type</span><span class="ruby-operator">:</span> :<span class="ruby-identifier">rails</span>)
+</pre>
+
+<p>@note</p>
+
+<pre>{Mustermann::Pattern.new} (which is used by {Mustermann.new}) will reuse instances that have
+not yet been garbage collected. You only need an extra cache if you do not keep a reference to
+the patterns around.</pre>
+
+<p>@api private</p>
+
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Class Methods</h3>
+       </header>
+
+    
+      <div id="method-c-new" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">new</span><span
+            class="method-args">(**pattern_options)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>@param [Hash] pattern_options default options used for {#create_pattern}</p>
+          
+          
+
+          
+          <div class="method-source-code" id="new-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/mustermann-1.0.2/lib/mustermann/pattern_cache.rb, line 23</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-operator">**</span><span class="ruby-identifier">pattern_options</span>)
+  <span class="ruby-ivar">@cached</span>          = <span class="ruby-constant">Set</span>.<span class="ruby-identifier">new</span>
+  <span class="ruby-ivar">@mutex</span>           = <span class="ruby-constant">Mutex</span>.<span class="ruby-identifier">new</span>
+  <span class="ruby-ivar">@pattern_options</span> = <span class="ruby-identifier">pattern_options</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-clear" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">clear</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Removes all pattern instances from the cache.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="clear-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/mustermann-1.0.2/lib/mustermann/pattern_cache.rb, line 40</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">clear</span>
+  <span class="ruby-ivar">@mutex</span>.<span class="ruby-identifier">synchronize</span> { <span class="ruby-ivar">@cached</span>.<span class="ruby-identifier">clear</span> }
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-create_pattern" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">create_pattern</span><span
+            class="method-args">(string, **pattern_options)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>@param (see <a href="../Mustermann.html#method-c-new">Mustermann.new</a>)
+@return (see <a href="../Mustermann.html#method-c-new">Mustermann.new</a>)
+@raise (see <a href="../Mustermann.html#method-c-new">Mustermann.new</a>)
+@see <a href="../Mustermann.html#method-c-new">Mustermann.new</a></p>
+          
+          
+
+          
+          <div class="method-source-code" id="create_pattern-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/mustermann-1.0.2/lib/mustermann/pattern_cache.rb, line 33</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">create_pattern</span>(<span class="ruby-identifier">string</span>, <span class="ruby-operator">**</span><span class="ruby-identifier">pattern_options</span>)
+  <span class="ruby-identifier">pattern</span> = <span class="ruby-constant">Mustermann</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">string</span>, <span class="ruby-operator">**</span><span class="ruby-identifier">pattern_options</span>, <span class="ruby-operator">**</span><span class="ruby-ivar">@pattern_options</span>)
+  <span class="ruby-ivar">@mutex</span>.<span class="ruby-identifier">synchronize</span> { <span class="ruby-ivar">@cached</span>.<span class="ruby-identifier">add</span>(<span class="ruby-identifier">pattern</span>) } <span class="ruby-keyword">unless</span> <span class="ruby-ivar">@cached</span>.<span class="ruby-identifier">include?</span> <span class="ruby-identifier">pattern</span>
+  <span class="ruby-identifier">pattern</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-size" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">size</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>@return [Integer] number of currently cached patterns</p>
+          
+          
+
+          
+          <div class="method-source-code" id="size-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/mustermann-1.0.2/lib/mustermann/pattern_cache.rb, line 45</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">size</span>
+  <span class="ruby-ivar">@mutex</span>.<span class="ruby-identifier">synchronize</span> { <span class="ruby-ivar">@cached</span>.<span class="ruby-identifier">size</span> }
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="https://rdoc.github.io/rdoc">RDoc</a> 5.0.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

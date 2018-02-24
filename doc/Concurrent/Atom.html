@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class Concurrent::Atom - RDoc Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../";
+  var index_rel_prefix = "../";
+</script>
+
+<script src="../js/jquery.js"></script>
+<script src="../js/darkfish.js"></script>
+
+<link href="../css/fonts.css" rel="stylesheet">
+<link href="../css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../table_of_contents.html#pages">Pages</a>
+    <a href="../table_of_contents.html#classes">Classes</a>
+    <a href="../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link">Synchronization::Object
+  
+</div>
+
+    <div id="includes-section" class="nav-section">
+  <h3>Included Modules</h3>
+
+  <ul class="link-list">
+  
+  
+    <li><a class="include" href="Concern/Observable.html">Concurrent::Concern::Observable</a>
+  
+  
+  </ul>
+</div>
+
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li class="calls-super" ><a href="#method-c-new">::new</a>
+    
+    <li ><a href="#method-i-compare_and_set">#compare_and_set</a>
+    
+    <li ><a href="#method-i-reset">#reset</a>
+    
+    <li ><a href="#method-i-swap">#swap</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-Concurrent::Atom">
+  <h1 id="class-Concurrent::Atom" class="class">
+    class Concurrent::Atom
+  </h1>
+
+  <section class="description">
+    
+<p>Atoms provide a way to manage shared, synchronous, independent state.</p>
+
+<p>An atom is initialized with an initial value and an optional validation
+proc. At any time the value of the atom can be synchronously and safely
+changed. If a validator is given at construction then any new value will be
+checked against the validator and will be rejected if the validator returns
+false or raises an exception.</p>
+
+<p>There are two ways to change the value of an atom: {#compare_and_set} and
+{#swap}. The former will set the new value if and only if it validates and
+the current value matches the new value. The latter will atomically set the
+new value to the result of running the given block if and only if that
+value validates.</p>
+
+<p>## Example</p>
+
+<p>“` def next_fibonacci(set = nil)</p>
+
+<pre class="ruby"><span class="ruby-keyword">return</span> [<span class="ruby-value">0</span>, <span class="ruby-value">1</span>] <span class="ruby-keyword">if</span> <span class="ruby-identifier">set</span>.<span class="ruby-identifier">nil?</span>
+<span class="ruby-identifier">set</span> <span class="ruby-operator">+</span> [<span class="ruby-identifier">set</span>[<span class="ruby-value">-2</span><span class="ruby-operator">..</span><span class="ruby-value">-1</span>].<span class="ruby-identifier">reduce</span>{<span class="ruby-operator">|</span><span class="ruby-identifier">sum</span>,<span class="ruby-identifier">x</span><span class="ruby-operator">|</span> <span class="ruby-identifier">sum</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">x</span> }]
+</pre>
+
+<p>end</p>
+
+<p># create an atom with an initial value atom = <a
+href="Atom.html#method-c-new">::new</a></p>
+
+<p># send a few update requests 5.times do</p>
+
+<pre class="ruby"><span class="ruby-identifier">atom</span>.<span class="ruby-identifier">swap</span>{<span class="ruby-operator">|</span><span class="ruby-identifier">set</span><span class="ruby-operator">|</span> <span class="ruby-identifier">next_fibonacci</span>(<span class="ruby-identifier">set</span>) }
+</pre>
+
+<p>end</p>
+
+<p># get the current value atom.value #=&gt; [0, 1, 1, 2, 3, 5, 8] “`</p>
+
+<p>## Observation</p>
+
+<p>Atoms support observers through the {Concurrent::Observable} mixin module.
+Notification of observers occurs every time the value of the <a
+href="Atom.html">Atom</a> changes. When notified the observer will receive
+three arguments: `time`, `old_value`, and `new_value`. The `time` argument
+is the time at which the value change occurred. The `old_value` is the
+value of the <a href="Atom.html">Atom</a> when the change began The
+`new_value` is the value to which the <a href="Atom.html">Atom</a> was set
+when the change completed. Note that `old_value` and `new_value` may be the
+same. This is not an error. It simply means that the change operation
+returned the same value.</p>
+
+<p>Unlike in Clojure, `Atom` cannot participate in {Concurrent::TVar}
+transactions.</p>
+
+<p>@!macro thread_safe_variable_comparison</p>
+
+<p>@see <a href="http://clojure.org/atoms">clojure.org/atoms</a> Clojure Atoms
+@see <a href="http://clojure.org/state">clojure.org/state</a> Values and
+Change - Clojure&#39;s approach to Identity and State</p>
+
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Class Methods</h3>
+       </header>
+
+    
+      <div id="method-c-new" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">new</span><span
+            class="method-args">(value, opts = {})</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Create a new atom with the given initial value.</p>
+
+<p>@param [Object] value The initial value @param [Hash] opts The options used
+to configure the atom @option opts [Proc] :validator (nil) Optional proc
+used to validate new</p>
+
+<pre>values. It must accept one and only one argument which will be the
+intended new value. The validator will return true if the new value
+is acceptable else return false (preferrably) or raise an exception.</pre>
+
+<p>@!macro deref_options</p>
+
+<p>@raise [ArgumentError] if the validator is not a `Proc` (when given)</p>
+          
+          
+            <div class="method-calls-super">
+              Calls superclass method
+              
+            </div>
+          
+
+          
+          <div class="method-source-code" id="new-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/concurrent-ruby-1.0.5/lib/concurrent/atom.rb, line 114</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">value</span>, <span class="ruby-identifier">opts</span> = {})
+  <span class="ruby-keyword">super</span>()
+  <span class="ruby-ivar">@Validator</span>     = <span class="ruby-identifier">opts</span>.<span class="ruby-identifier">fetch</span>(<span class="ruby-value">:validator</span>, <span class="ruby-operator">-</span><span class="ruby-operator">&gt;</span> <span class="ruby-identifier">v</span> { <span class="ruby-keyword">true</span> })
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">observers</span> = <span class="ruby-constant">Collection</span><span class="ruby-operator">::</span><span class="ruby-constant">CopyOnNotifyObserverSet</span>.<span class="ruby-identifier">new</span>
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">value</span>     = <span class="ruby-identifier">value</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-compare_and_set" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">compare_and_set</span><span
+            class="method-args">(old_value, new_value)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Atomically sets the value of atom to the new value if and only if the
+current value of the atom is identical to the old value and the new value
+successfully validates against the (optional) validator given at
+construction.</p>
+
+<p>@param [Object] old_value The expected current value. @param [Object]
+new_value The intended new value.</p>
+
+<p>@return [Boolean] True if the value is changed else false.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="compare_and_set-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/concurrent-ruby-1.0.5/lib/concurrent/atom.rb, line 181</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">compare_and_set</span>(<span class="ruby-identifier">old_value</span>, <span class="ruby-identifier">new_value</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">valid?</span>(<span class="ruby-identifier">new_value</span>) <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">compare_and_set_value</span>(<span class="ruby-identifier">old_value</span>, <span class="ruby-identifier">new_value</span>)
+    <span class="ruby-identifier">observers</span>.<span class="ruby-identifier">notify_observers</span>(<span class="ruby-constant">Time</span>.<span class="ruby-identifier">now</span>, <span class="ruby-identifier">old_value</span>, <span class="ruby-identifier">new_value</span>)
+    <span class="ruby-keyword">true</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-keyword">false</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-reset" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">reset</span><span
+            class="method-args">(new_value)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Atomically sets the value of atom to the new value without regard for the
+current value so long as the new value successfully validates against the
+(optional) validator given at construction.</p>
+
+<p>@param [Object] new_value The intended new value.</p>
+
+<p>@return [Object] The final value of the atom after all operations and</p>
+
+<pre>validations are complete.</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="reset-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/concurrent-ruby-1.0.5/lib/concurrent/atom.rb, line 198</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">reset</span>(<span class="ruby-identifier">new_value</span>)
+  <span class="ruby-identifier">old_value</span> = <span class="ruby-identifier">value</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">valid?</span>(<span class="ruby-identifier">new_value</span>)
+    <span class="ruby-keyword">self</span>.<span class="ruby-identifier">value</span> = <span class="ruby-identifier">new_value</span>
+    <span class="ruby-identifier">observers</span>.<span class="ruby-identifier">notify_observers</span>(<span class="ruby-constant">Time</span>.<span class="ruby-identifier">now</span>, <span class="ruby-identifier">old_value</span>, <span class="ruby-identifier">new_value</span>)
+    <span class="ruby-identifier">new_value</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">old_value</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-swap" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">swap</span><span
+            class="method-args">(*args) { |old_value, *args| ... }</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Atomically swaps the value of atom using the given block. The current value
+will be passed to the block, as will any arguments passed as arguments to
+the function. The new value will be validated against the (optional)
+validator proc given at construction. If validation fails the value will
+not be changed.</p>
+
+<p>Internally, {#swap} reads the current value, applies the block to it, and
+attempts to compare-and-set it in. Since another thread may have changed
+the value in the intervening time, it may have to retry, and does so in a
+spin loop. The net effect is that the value will always be the result of
+the application of the supplied block to a current value, atomically.
+However, because the block might be called multiple times, it must be free
+of side effects.</p>
+
+<p>@note The given block may be called multiple times, and thus should be free</p>
+
+<pre>of side effects.</pre>
+
+<p>@param [Object] args Zero or more arguments passed to the block.</p>
+
+<p>@yield [value, args] Calculates a new value for the atom based on the</p>
+
+<pre>current value and any supplied arguments.</pre>
+
+<p>@yieldparam value [Object] The current value of the atom. @yieldparam args
+[Object] All arguments passed to the function, in order. @yieldreturn
+[Object] The intended new value of the atom.</p>
+
+<p>@return [Object] The final value of the atom after all operations and</p>
+
+<pre>validations are complete.</pre>
+
+<p>@raise [ArgumentError] When no block is given.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="swap-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/concurrent-ruby-1.0.5/lib/concurrent/atom.rb, line 157</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">swap</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
+  <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&#39;no block given&#39;</span>) <span class="ruby-keyword">unless</span> <span class="ruby-identifier">block_given?</span>
+
+  <span class="ruby-identifier">loop</span> <span class="ruby-keyword">do</span>
+    <span class="ruby-identifier">old_value</span> = <span class="ruby-identifier">value</span>
+    <span class="ruby-identifier">new_value</span> = <span class="ruby-keyword">yield</span>(<span class="ruby-identifier">old_value</span>, <span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
+    <span class="ruby-keyword">begin</span>
+      <span class="ruby-keyword">break</span> <span class="ruby-identifier">old_value</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">valid?</span>(<span class="ruby-identifier">new_value</span>)
+      <span class="ruby-keyword">break</span> <span class="ruby-identifier">new_value</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">compare_and_set</span>(<span class="ruby-identifier">old_value</span>, <span class="ruby-identifier">new_value</span>)
+    <span class="ruby-keyword">rescue</span>
+      <span class="ruby-keyword">break</span> <span class="ruby-identifier">old_value</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="https://rdoc.github.io/rdoc">RDoc</a> 5.0.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

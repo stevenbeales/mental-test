@@ -1,0 +1,1285 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>module Guard::Deprecated::Guard::ClassMethods - RDoc Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../../../";
+  var index_rel_prefix = "../../../";
+</script>
+
+<script src="../../../js/jquery.js"></script>
+<script src="../../../js/darkfish.js"></script>
+
+<link href="../../../css/fonts.css" rel="stylesheet">
+<link href="../../../css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="module">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../../../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../../../table_of_contents.html#pages">Pages</a>
+    <a href="../../../table_of_contents.html#classes">Classes</a>
+    <a href="../../../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    
+    
+    <div id="extends-section" class="nav-section">
+  <h3>Extended With Modules</h3>
+
+  <ul class="link-list">
+    
+  
+    <li><span class="extend">Forwardable</span>
+  
+  
+  </ul>
+</div>
+
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li class="calls-super" ><a href="#method-c-new">::new</a>
+    
+    <li ><a href="#method-i-5B-5D-3D">#[]=</a>
+    
+    <li ><a href="#method-i-add_group">#add_group</a>
+    
+    <li ><a href="#method-i-add_guard">#add_guard</a>
+    
+    <li ><a href="#method-i-add_plugin">#add_plugin</a>
+    
+    <li ><a href="#method-i-evaluate_guardfile">#evaluate_guardfile</a>
+    
+    <li ><a href="#method-i-evaluator">#evaluator</a>
+    
+    <li ><a href="#method-i-fetch">#fetch</a>
+    
+    <li ><a href="#method-i-get_guard_class">#get_guard_class</a>
+    
+    <li ><a href="#method-i-group">#group</a>
+    
+    <li ><a href="#method-i-groups">#groups</a>
+    
+    <li ><a href="#method-i-guard_gem_names">#guard_gem_names</a>
+    
+    <li ><a href="#method-i-guards">#guards</a>
+    
+    <li ><a href="#method-i-listener-3D">#listener=</a>
+    
+    <li ><a href="#method-i-locate_guard">#locate_guard</a>
+    
+    <li ><a href="#method-i-lock">#lock</a>
+    
+    <li ><a href="#method-i-options">#options</a>
+    
+    <li ><a href="#method-i-plugin">#plugin</a>
+    
+    <li ><a href="#method-i-plugins">#plugins</a>
+    
+    <li ><a href="#method-i-reset_evaluator">#reset_evaluator</a>
+    
+    <li ><a href="#method-i-runner">#runner</a>
+    
+    <li ><a href="#method-i-running">#running</a>
+    
+    <li ><a href="#method-i-scope">#scope</a>
+    
+    <li ><a href="#method-i-scope-3D">#scope=</a>
+    
+    <li ><a href="#method-i-to_hash">#to_hash</a>
+    
+    <li ><a href="#method-i-verify_key-21">#verify_key!</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="module-Guard::Deprecated::Guard::ClassMethods">
+  <h1 id="module-Guard::Deprecated::Guard::ClassMethods" class="module">
+    module Guard::Deprecated::Guard::ClassMethods
+  </h1>
+
+  <section class="description">
+    
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+    <section class="constants-list">
+      <header>
+        <h3>Constants</h3>
+      </header>
+      <dl>
+      
+        <dt id="ADD_GROUP">ADD_GROUP
+        
+        <dd>
+        
+      
+        <dt id="ADD_GUARD">ADD_GUARD
+        
+        <dd><p>@deprecated Use `Guard.add_plugin(name, options = {})` instead.</p>
+
+<p>@see <a
+href="https://github.com/guard/guard/wiki/Upgrading-to-Guard-2.0">github.com/guard/guard/wiki/Upgrading-to-Guard-2.0</a>
+How to</p>
+
+<pre>upgrade for Guard 2.0</pre>
+        
+      
+        <dt id="ADD_PLUGIN">ADD_PLUGIN
+        
+        <dd>
+        
+      
+        <dt id="EVALUATE_GUARDFILE">EVALUATE_GUARDFILE
+        
+        <dd>
+        
+      
+        <dt id="EVALUATOR">EVALUATOR
+        
+        <dd>
+        
+      
+        <dt id="GET_GUARD_CLASS">GET_GUARD_CLASS
+        
+        <dd><p>@deprecated Use</p>
+
+<pre>`Guard::PluginUtil.new(name).plugin_class(fail_gracefully:
+fail_gracefully)` instead.</pre>
+
+<p>@see <a
+href="https://github.com/guard/guard/wiki/Upgrading-to-Guard-2.0">github.com/guard/guard/wiki/Upgrading-to-Guard-2.0</a>
+How to</p>
+
+<pre>upgrade for Guard 2.0</pre>
+        
+      
+        <dt id="GROUP">GROUP
+        
+        <dd>
+        
+      
+        <dt id="GROUPS">GROUPS
+        
+        <dd>
+        
+      
+        <dt id="GUARDS">GUARDS
+        
+        <dd><p>@deprecated Use `Guard.plugins(filter)` instead.</p>
+
+<p>@see <a
+href="https://github.com/guard/guard/wiki/Upgrading-to-Guard-2.0">github.com/guard/guard/wiki/Upgrading-to-Guard-2.0</a>
+How to</p>
+
+<pre>upgrade for Guard 2.0</pre>
+        
+      
+        <dt id="GUARD_GEM_NAMES">GUARD_GEM_NAMES
+        
+        <dd><p>@deprecated Use `Guard::PluginUtil.plugin_names` instead.</p>
+
+<p>@see <a
+href="https://github.com/guard/guard/wiki/Upgrading-to-Guard-2.0">github.com/guard/guard/wiki/Upgrading-to-Guard-2.0</a>
+How to</p>
+
+<pre>upgrade for Guard 2.0</pre>
+
+<p>Deprecator message for the `Guard.guard_gem_names` method</p>
+        
+      
+        <dt id="LISTENER_ASSIGN">LISTENER_ASSIGN
+        
+        <dd>
+        
+      
+        <dt id="LOCATE_GUARD">LOCATE_GUARD
+        
+        <dd><p>@deprecated Use `Guard::PluginUtil.new(name).plugin_location` instead.</p>
+
+<p>@see <a
+href="https://github.com/guard/guard/wiki/Upgrading-to-Guard-2.0">github.com/guard/guard/wiki/Upgrading-to-Guard-2.0</a>
+How to</p>
+
+<pre>upgrade for Guard 2.0</pre>
+        
+      
+        <dt id="LOCK">LOCK
+        
+        <dd>
+        
+      
+        <dt id="MORE_INFO_ON_UPGRADING_TO_GUARD_2">MORE_INFO_ON_UPGRADING_TO_GUARD_2
+        
+        <dd>
+        
+      
+        <dt id="OPTIONS">OPTIONS
+        
+        <dd>
+        
+      
+        <dt id="PLUGIN">PLUGIN
+        
+        <dd>
+        
+      
+        <dt id="PLUGINS">PLUGINS
+        
+        <dd>
+        
+      
+        <dt id="RESET_EVALUATOR">RESET_EVALUATOR
+        
+        <dd>
+        
+      
+        <dt id="RUNNER">RUNNER
+        
+        <dd>
+        
+      
+        <dt id="RUNNING">RUNNING
+        
+        <dd>
+        
+      
+        <dt id="SCOPE">SCOPE
+        
+        <dd>
+        
+      
+        <dt id="SCOPE_ASSIGN">SCOPE_ASSIGN
+        
+        <dd>
+        
+      
+      </dl>
+    </section>
+    
+
+    
+
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Class Methods</h3>
+       </header>
+
+    
+      <div id="method-c-new" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">new</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+            <div class="method-calls-super">
+              Calls superclass method
+              
+            </div>
+          
+
+          
+          <div class="method-source-code" id="new-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/guard-2.14.2/lib/guard/deprecated/guard.rb, line 199</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span>
+  <span class="ruby-keyword">super</span>(<span class="ruby-identifier">to_hash</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-5B-5D-3D" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">[]=</span><span
+            class="method-args">(key, value)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="5B-5D-3D-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/guard-2.14.2/lib/guard/deprecated/guard.rb, line 224</span>
+<span class="ruby-keyword">def</span> <span class="ruby-operator">[]=</span>(<span class="ruby-identifier">key</span>, <span class="ruby-identifier">value</span>)
+  <span class="ruby-keyword">case</span> <span class="ruby-identifier">key</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-value">:clear</span>
+    <span class="ruby-operator">::</span><span class="ruby-constant">Guard</span>.<span class="ruby-identifier">state</span>.<span class="ruby-identifier">session</span>.<span class="ruby-identifier">clearing</span>(<span class="ruby-identifier">value</span>)
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">msg</span> = <span class="ruby-string">&quot;Oops! Guard.option[%s]= is unhandled or unsupported.&quot;</span>                    <span class="ruby-string">&quot;Please file an issue if you rely on this option working.&quot;</span>
+    <span class="ruby-identifier">fail</span> <span class="ruby-constant">NotImplementedError</span>, <span class="ruby-identifier">format</span>(<span class="ruby-identifier">msg</span>, <span class="ruby-identifier">key</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-add_group" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">add_group</span><span
+            class="method-args">(name, options = {})</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="add_group-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/guard-2.14.2/lib/guard/deprecated/guard.rb, line 251</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">add_group</span>(<span class="ruby-identifier">name</span>, <span class="ruby-identifier">options</span> = {})
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">deprecation</span>(<span class="ruby-constant">ADD_GROUP</span>)
+  <span class="ruby-operator">::</span><span class="ruby-constant">Guard</span>.<span class="ruby-identifier">state</span>.<span class="ruby-identifier">session</span>.<span class="ruby-identifier">groups</span>.<span class="ruby-identifier">add</span>(<span class="ruby-identifier">name</span>, <span class="ruby-identifier">options</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-add_guard" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">add_guard</span><span
+            class="method-args">(*args)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="add_guard-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/guard-2.14.2/lib/guard/deprecated/guard.rb, line 57</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">add_guard</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
+  <span class="ruby-operator">::</span><span class="ruby-constant">Guard</span><span class="ruby-operator">::</span><span class="ruby-constant">UI</span>.<span class="ruby-identifier">deprecation</span>(<span class="ruby-constant">ADD_GUARD</span>)
+  <span class="ruby-identifier">add_plugin</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-add_plugin" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">add_plugin</span><span
+            class="method-args">(name, options = {})</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="add_plugin-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/guard-2.14.2/lib/guard/deprecated/guard.rb, line 261</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">add_plugin</span>(<span class="ruby-identifier">name</span>, <span class="ruby-identifier">options</span> = {})
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">deprecation</span>(<span class="ruby-constant">ADD_PLUGIN</span>)
+  <span class="ruby-operator">::</span><span class="ruby-constant">Guard</span>.<span class="ruby-identifier">state</span>.<span class="ruby-identifier">session</span>.<span class="ruby-identifier">plugins</span>.<span class="ruby-identifier">add</span>(<span class="ruby-identifier">name</span>, <span class="ruby-identifier">options</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-evaluate_guardfile" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">evaluate_guardfile</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="evaluate_guardfile-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/guard-2.14.2/lib/guard/deprecated/guard.rb, line 179</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">evaluate_guardfile</span>
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">deprecation</span>(<span class="ruby-constant">EVALUATE_GUARDFILE</span>)
+  <span class="ruby-identifier">options</span> = <span class="ruby-operator">::</span><span class="ruby-constant">Guard</span>.<span class="ruby-identifier">state</span>.<span class="ruby-identifier">session</span>.<span class="ruby-identifier">evaluator_options</span>
+  <span class="ruby-identifier">evaluator</span> = <span class="ruby-operator">::</span><span class="ruby-constant">Guard</span><span class="ruby-operator">::</span><span class="ruby-constant">Guardfile</span><span class="ruby-operator">::</span><span class="ruby-constant">Evaluator</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">options</span>)
+  <span class="ruby-identifier">evaluator</span>.<span class="ruby-identifier">evaluate</span>
+  <span class="ruby-identifier">msg</span> = <span class="ruby-string">&quot;No plugins found in Guardfile, please add at least one.&quot;</span>
+  <span class="ruby-operator">::</span><span class="ruby-constant">Guard</span><span class="ruby-operator">::</span><span class="ruby-constant">UI</span>.<span class="ruby-identifier">error</span> <span class="ruby-identifier">msg</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">_pluginless_guardfile?</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-evaluator" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">evaluator</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="evaluator-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/guard-2.14.2/lib/guard/deprecated/guard.rb, line 152</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">evaluator</span>
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">deprecation</span>(<span class="ruby-constant">EVALUATOR</span>)
+  <span class="ruby-identifier">options</span> = <span class="ruby-operator">::</span><span class="ruby-constant">Guard</span>.<span class="ruby-identifier">state</span>.<span class="ruby-identifier">session</span>.<span class="ruby-identifier">evaluator_options</span>
+  <span class="ruby-operator">::</span><span class="ruby-constant">Guard</span><span class="ruby-operator">::</span><span class="ruby-constant">Guardfile</span><span class="ruby-operator">::</span><span class="ruby-constant">Evaluator</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">options</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-fetch" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">fetch</span><span
+            class="method-args">(key, *args)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="fetch-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/guard-2.14.2/lib/guard/deprecated/guard.rb, line 218</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">fetch</span>(<span class="ruby-identifier">key</span>, <span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
+  <span class="ruby-identifier">hash</span> = <span class="ruby-identifier">to_hash</span>
+  <span class="ruby-identifier">verify_key!</span>(<span class="ruby-identifier">hash</span>, <span class="ruby-identifier">key</span>)
+  <span class="ruby-identifier">hash</span>.<span class="ruby-identifier">fetch</span>(<span class="ruby-identifier">key</span>, <span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-get_guard_class" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">get_guard_class</span><span
+            class="method-args">(name, fail_gracefully = false)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="get_guard_class-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/guard-2.14.2/lib/guard/deprecated/guard.rb, line 79</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">get_guard_class</span>(<span class="ruby-identifier">name</span>, <span class="ruby-identifier">fail_gracefully</span> = <span class="ruby-keyword">false</span>)
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">deprecation</span>(<span class="ruby-constant">GET_GUARD_CLASS</span>)
+  <span class="ruby-constant">PluginUtil</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">name</span>).<span class="ruby-identifier">plugin_class</span>(<span class="ruby-identifier">fail_gracefully</span><span class="ruby-operator">:</span> <span class="ruby-identifier">fail_gracefully</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-group" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">group</span><span
+            class="method-args">(filter)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="group-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/guard-2.14.2/lib/guard/deprecated/guard.rb, line 271</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">group</span>(<span class="ruby-identifier">filter</span>)
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">deprecation</span>(<span class="ruby-constant">GROUP</span>)
+  <span class="ruby-operator">::</span><span class="ruby-constant">Guard</span>.<span class="ruby-identifier">state</span>.<span class="ruby-identifier">session</span>.<span class="ruby-identifier">groups</span>.<span class="ruby-identifier">all</span>(<span class="ruby-identifier">filter</span>).<span class="ruby-identifier">first</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-groups" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">groups</span><span
+            class="method-args">(filter)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="groups-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/guard-2.14.2/lib/guard/deprecated/guard.rb, line 291</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">groups</span>(<span class="ruby-identifier">filter</span>)
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">deprecation</span>(<span class="ruby-constant">GROUPS</span>)
+  <span class="ruby-operator">::</span><span class="ruby-constant">Guard</span>.<span class="ruby-identifier">state</span>.<span class="ruby-identifier">session</span>.<span class="ruby-identifier">groups</span>.<span class="ruby-identifier">all</span>(<span class="ruby-identifier">filter</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-guard_gem_names" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">guard_gem_names</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="guard_gem_names-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/guard-2.14.2/lib/guard/deprecated/guard.rb, line 116</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">guard_gem_names</span>
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">deprecation</span>(<span class="ruby-constant">GUARD_GEM_NAMES</span>)
+  <span class="ruby-constant">PluginUtil</span>.<span class="ruby-identifier">plugin_names</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-guards" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">guards</span><span
+            class="method-args">(filter = nil)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="guards-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/guard-2.14.2/lib/guard/deprecated/guard.rb, line 38</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">guards</span>(<span class="ruby-identifier">filter</span> = <span class="ruby-keyword">nil</span>)
+  <span class="ruby-operator">::</span><span class="ruby-constant">Guard</span><span class="ruby-operator">::</span><span class="ruby-constant">UI</span>.<span class="ruby-identifier">deprecation</span>(<span class="ruby-constant">GUARDS</span>)
+  <span class="ruby-operator">::</span><span class="ruby-constant">Guard</span>.<span class="ruby-identifier">state</span>.<span class="ruby-identifier">session</span>.<span class="ruby-identifier">plugins</span>.<span class="ruby-identifier">all</span>(<span class="ruby-identifier">filter</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-listener-3D" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">listener=</span><span
+            class="method-args">(_)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="listener-3D-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/guard-2.14.2/lib/guard/deprecated/guard.rb, line 143</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">listener=</span>(<span class="ruby-identifier">_</span>)
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">deprecation</span>(<span class="ruby-constant">LISTENER_ASSIGN</span>)
+  <span class="ruby-operator">::</span><span class="ruby-constant">Guard</span>.<span class="ruby-identifier">listener</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-locate_guard" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">locate_guard</span><span
+            class="method-args">(name)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="locate_guard-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/guard-2.14.2/lib/guard/deprecated/guard.rb, line 97</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">locate_guard</span>(<span class="ruby-identifier">name</span>)
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">deprecation</span>(<span class="ruby-constant">LOCATE_GUARD</span>)
+  <span class="ruby-constant">PluginUtil</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">name</span>).<span class="ruby-identifier">plugin_location</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-lock" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">lock</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="lock-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/guard-2.14.2/lib/guard/deprecated/guard.rb, line 135</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">lock</span>
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">deprecation</span>(<span class="ruby-constant">LOCK</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-options" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">options</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="options-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/guard-2.14.2/lib/guard/deprecated/guard.rb, line 195</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">options</span>
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">deprecation</span>(<span class="ruby-constant">OPTIONS</span>)
+
+  <span class="ruby-constant">Class</span>.<span class="ruby-identifier">new</span>(<span class="ruby-constant">Hash</span>) <span class="ruby-keyword">do</span>
+    <span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span>
+      <span class="ruby-keyword">super</span>(<span class="ruby-identifier">to_hash</span>)
+    <span class="ruby-keyword">end</span>
+
+    <span class="ruby-keyword">def</span> <span class="ruby-identifier">to_hash</span>
+      <span class="ruby-identifier">session</span> = <span class="ruby-operator">::</span><span class="ruby-constant">Guard</span>.<span class="ruby-identifier">state</span>.<span class="ruby-identifier">session</span>
+      {
+        <span class="ruby-identifier">clear</span><span class="ruby-operator">:</span> <span class="ruby-identifier">session</span>.<span class="ruby-identifier">clearing?</span>,
+        <span class="ruby-identifier">debug</span><span class="ruby-operator">:</span> <span class="ruby-identifier">session</span>.<span class="ruby-identifier">debug?</span>,
+        <span class="ruby-identifier">watchdir</span><span class="ruby-operator">:</span> <span class="ruby-constant">Array</span>(<span class="ruby-identifier">session</span>.<span class="ruby-identifier">watchdirs</span>).<span class="ruby-identifier">map</span>(<span class="ruby-operator">&amp;</span><span class="ruby-value">:to_s</span>),
+        <span class="ruby-identifier">notify</span><span class="ruby-operator">:</span> <span class="ruby-identifier">session</span>.<span class="ruby-identifier">notify_options</span>[<span class="ruby-value">:notify</span>],
+        <span class="ruby-identifier">no_interactions</span><span class="ruby-operator">:</span> (<span class="ruby-identifier">session</span>.<span class="ruby-identifier">interactor_name</span> <span class="ruby-operator">==</span> <span class="ruby-value">:sleep</span>)
+      }
+    <span class="ruby-keyword">end</span>
+
+    <span class="ruby-identifier">extend</span> <span class="ruby-constant">Forwardable</span>
+    <span class="ruby-identifier">delegate</span> [<span class="ruby-value">:to_a</span>, <span class="ruby-value">:keys</span>] =<span class="ruby-operator">&gt;</span> <span class="ruby-value">:to_hash</span>
+    <span class="ruby-identifier">delegate</span> [<span class="ruby-value">:include?</span>] =<span class="ruby-operator">&gt;</span> <span class="ruby-value">:keys</span>
+
+    <span class="ruby-keyword">def</span> <span class="ruby-identifier">fetch</span>(<span class="ruby-identifier">key</span>, <span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
+      <span class="ruby-identifier">hash</span> = <span class="ruby-identifier">to_hash</span>
+      <span class="ruby-identifier">verify_key!</span>(<span class="ruby-identifier">hash</span>, <span class="ruby-identifier">key</span>)
+      <span class="ruby-identifier">hash</span>.<span class="ruby-identifier">fetch</span>(<span class="ruby-identifier">key</span>, <span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
+    <span class="ruby-keyword">end</span>
+
+    <span class="ruby-keyword">def</span> <span class="ruby-operator">[]=</span>(<span class="ruby-identifier">key</span>, <span class="ruby-identifier">value</span>)
+      <span class="ruby-keyword">case</span> <span class="ruby-identifier">key</span>
+      <span class="ruby-keyword">when</span> <span class="ruby-value">:clear</span>
+        <span class="ruby-operator">::</span><span class="ruby-constant">Guard</span>.<span class="ruby-identifier">state</span>.<span class="ruby-identifier">session</span>.<span class="ruby-identifier">clearing</span>(<span class="ruby-identifier">value</span>)
+      <span class="ruby-keyword">else</span>
+        <span class="ruby-identifier">msg</span> = <span class="ruby-string">&quot;Oops! Guard.option[%s]= is unhandled or unsupported.&quot;</span>                    <span class="ruby-string">&quot;Please file an issue if you rely on this option working.&quot;</span>
+        <span class="ruby-identifier">fail</span> <span class="ruby-constant">NotImplementedError</span>, <span class="ruby-identifier">format</span>(<span class="ruby-identifier">msg</span>, <span class="ruby-identifier">key</span>)
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">end</span>
+
+    <span class="ruby-identifier">private</span>
+
+    <span class="ruby-keyword">def</span> <span class="ruby-identifier">verify_key!</span>(<span class="ruby-identifier">hash</span>, <span class="ruby-identifier">key</span>)
+      <span class="ruby-keyword">return</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">hash</span>.<span class="ruby-identifier">key?</span>(<span class="ruby-identifier">key</span>)
+      <span class="ruby-identifier">msg</span> = <span class="ruby-string">&quot;Oops! Guard.option[%s] is unhandled or unsupported.&quot;</span>                  <span class="ruby-string">&quot;Please file an issue if you rely on this option working.&quot;</span>
+      <span class="ruby-identifier">fail</span> <span class="ruby-constant">NotImplementedError</span>, <span class="ruby-identifier">format</span>(<span class="ruby-identifier">msg</span>, <span class="ruby-identifier">key</span>)
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>.<span class="ruby-identifier">new</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-plugin" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">plugin</span><span
+            class="method-args">(filter)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="plugin-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/guard-2.14.2/lib/guard/deprecated/guard.rb, line 281</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">plugin</span>(<span class="ruby-identifier">filter</span>)
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">deprecation</span>(<span class="ruby-constant">PLUGIN</span>)
+  <span class="ruby-operator">::</span><span class="ruby-constant">Guard</span>.<span class="ruby-identifier">state</span>.<span class="ruby-identifier">session</span>.<span class="ruby-identifier">plugins</span>.<span class="ruby-identifier">all</span>(<span class="ruby-identifier">filter</span>).<span class="ruby-identifier">first</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-plugins" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">plugins</span><span
+            class="method-args">(filter)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="plugins-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/guard-2.14.2/lib/guard/deprecated/guard.rb, line 301</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">plugins</span>(<span class="ruby-identifier">filter</span>)
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">deprecation</span>(<span class="ruby-constant">PLUGINS</span>)
+  <span class="ruby-operator">::</span><span class="ruby-constant">Guard</span>.<span class="ruby-identifier">state</span>.<span class="ruby-identifier">session</span>.<span class="ruby-identifier">plugins</span>.<span class="ruby-identifier">all</span>(<span class="ruby-identifier">filter</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-reset_evaluator" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">reset_evaluator</span><span
+            class="method-args">(_options)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="reset_evaluator-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/guard-2.14.2/lib/guard/deprecated/guard.rb, line 162</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">reset_evaluator</span>(<span class="ruby-identifier">_options</span>)
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">deprecation</span>(<span class="ruby-constant">RESET_EVALUATOR</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-runner" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">runner</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="runner-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/guard-2.14.2/lib/guard/deprecated/guard.rb, line 170</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">runner</span>
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">deprecation</span>(<span class="ruby-constant">RUNNER</span>)
+  <span class="ruby-operator">::</span><span class="ruby-constant">Guard</span><span class="ruby-operator">::</span><span class="ruby-constant">Runner</span>.<span class="ruby-identifier">new</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-running" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">running</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="running-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/guard-2.14.2/lib/guard/deprecated/guard.rb, line 126</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">running</span>
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">deprecation</span>(<span class="ruby-constant">RUNNING</span>)
+  <span class="ruby-keyword">nil</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-scope" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">scope</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="scope-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/guard-2.14.2/lib/guard/deprecated/guard.rb, line 311</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">scope</span>
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">deprecation</span>(<span class="ruby-constant">SCOPE</span>)
+  <span class="ruby-operator">::</span><span class="ruby-constant">Guard</span>.<span class="ruby-identifier">state</span>.<span class="ruby-identifier">scope</span>.<span class="ruby-identifier">to_hash</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-scope-3D" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">scope=</span><span
+            class="method-args">(scope)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="scope-3D-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/guard-2.14.2/lib/guard/deprecated/guard.rb, line 321</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">scope=</span>(<span class="ruby-identifier">scope</span>)
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">deprecation</span>(<span class="ruby-constant">SCOPE_ASSIGN</span>)
+  <span class="ruby-operator">::</span><span class="ruby-constant">Guard</span>.<span class="ruby-identifier">state</span>.<span class="ruby-identifier">scope</span>.<span class="ruby-identifier">from_interactor</span>(<span class="ruby-identifier">scope</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-to_hash" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">to_hash</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="to_hash-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/guard-2.14.2/lib/guard/deprecated/guard.rb, line 203</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">to_hash</span>
+  <span class="ruby-identifier">session</span> = <span class="ruby-operator">::</span><span class="ruby-constant">Guard</span>.<span class="ruby-identifier">state</span>.<span class="ruby-identifier">session</span>
+  {
+    <span class="ruby-identifier">clear</span><span class="ruby-operator">:</span> <span class="ruby-identifier">session</span>.<span class="ruby-identifier">clearing?</span>,
+    <span class="ruby-identifier">debug</span><span class="ruby-operator">:</span> <span class="ruby-identifier">session</span>.<span class="ruby-identifier">debug?</span>,
+    <span class="ruby-identifier">watchdir</span><span class="ruby-operator">:</span> <span class="ruby-constant">Array</span>(<span class="ruby-identifier">session</span>.<span class="ruby-identifier">watchdirs</span>).<span class="ruby-identifier">map</span>(<span class="ruby-operator">&amp;</span><span class="ruby-value">:to_s</span>),
+    <span class="ruby-identifier">notify</span><span class="ruby-operator">:</span> <span class="ruby-identifier">session</span>.<span class="ruby-identifier">notify_options</span>[<span class="ruby-value">:notify</span>],
+    <span class="ruby-identifier">no_interactions</span><span class="ruby-operator">:</span> (<span class="ruby-identifier">session</span>.<span class="ruby-identifier">interactor_name</span> <span class="ruby-operator">==</span> <span class="ruby-value">:sleep</span>)
+  }
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-verify_key-21" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">verify_key!</span><span
+            class="method-args">(hash, key)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="verify_key-21-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/guard-2.14.2/lib/guard/deprecated/guard.rb, line 237</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">verify_key!</span>(<span class="ruby-identifier">hash</span>, <span class="ruby-identifier">key</span>)
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">hash</span>.<span class="ruby-identifier">key?</span>(<span class="ruby-identifier">key</span>)
+  <span class="ruby-identifier">msg</span> = <span class="ruby-string">&quot;Oops! Guard.option[%s] is unhandled or unsupported.&quot;</span>                  <span class="ruby-string">&quot;Please file an issue if you rely on this option working.&quot;</span>
+  <span class="ruby-identifier">fail</span> <span class="ruby-constant">NotImplementedError</span>, <span class="ruby-identifier">format</span>(<span class="ruby-identifier">msg</span>, <span class="ruby-identifier">key</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="https://rdoc.github.io/rdoc">RDoc</a> 5.0.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

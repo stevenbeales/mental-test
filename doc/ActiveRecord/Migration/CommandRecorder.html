@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class ActiveRecord::Migration::CommandRecorder - RDoc Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../../";
+  var index_rel_prefix = "../../";
+</script>
+
+<script src="../../js/jquery.js"></script>
+<script src="../../js/darkfish.js"></script>
+
+<link href="../../css/fonts.css" rel="stylesheet">
+<link href="../../css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../../table_of_contents.html#pages">Pages</a>
+    <a href="../../table_of_contents.html#classes">Classes</a>
+    <a href="../../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link"><a href="../../Object.html">Object</a>
+  
+</div>
+
+    <div id="includes-section" class="nav-section">
+  <h3>Included Modules</h3>
+
+  <ul class="link-list">
+  
+  
+    <li><a class="include" href="CommandRecorder/StraightReversions.html">ActiveRecord::Migration::CommandRecorder::StraightReversions</a>
+  
+  
+  </ul>
+</div>
+
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-c-new">::new</a>
+    
+    <li ><a href="#method-i-inverse_of">#inverse_of</a>
+    
+    <li ><a href="#method-i-record">#record</a>
+    
+    <li ><a href="#method-i-revert">#revert</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-ActiveRecord::Migration::CommandRecorder">
+  <h1 id="class-ActiveRecord::Migration::CommandRecorder" class="class">
+    class ActiveRecord::Migration::CommandRecorder
+  </h1>
+
+  <section class="description">
+    
+<p><code>ActiveRecord::Migration::CommandRecorder</code> records commands done
+during a migration and knows how to reverse those commands. The <a
+href="CommandRecorder.html">CommandRecorder</a> knows how to invert the
+following commands:</p>
+<ul><li>
+<p>add_column</p>
+</li><li>
+<p>add_foreign_key</p>
+</li><li>
+<p>add_index</p>
+</li><li>
+<p>add_reference</p>
+</li><li>
+<p>add_timestamps</p>
+</li><li>
+<p>change_column</p>
+</li><li>
+<p>change_column_default (must supply a :from and :to option)</p>
+</li><li>
+<p>change_column_null</p>
+</li><li>
+<p>create_join_table</p>
+</li><li>
+<p>create_table</p>
+</li><li>
+<p>disable_extension</p>
+</li><li>
+<p>drop_join_table</p>
+</li><li>
+<p>drop_table (must supply a block)</p>
+</li><li>
+<p>enable_extension</p>
+</li><li>
+<p>remove_column (must supply a type)</p>
+</li><li>
+<p>remove_columns (must specify at least one column name or more)</p>
+</li><li>
+<p>remove_foreign_key (must supply a second table)</p>
+</li><li>
+<p>remove_index</p>
+</li><li>
+<p>remove_reference</p>
+</li><li>
+<p>remove_timestamps</p>
+</li><li>
+<p>rename_column</p>
+</li><li>
+<p>rename_index</p>
+</li><li>
+<p>rename_table</p>
+</li></ul>
+
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+    <section class="constants-list">
+      <header>
+        <h3>Constants</h3>
+      </header>
+      <dl>
+      
+        <dt id="ReversibleAndIrreversibleMethods">ReversibleAndIrreversibleMethods
+        
+        <dd>
+        
+      
+      </dl>
+    </section>
+    
+
+    
+    <section class="attribute-method-details" class="method-section">
+      <header>
+        <h3>Attributes</h3>
+      </header>
+
+      
+      <div id="attribute-i-commands" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">commands</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-delegate" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">delegate</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-reverting" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">reverting</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+    </section>
+    
+
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Class Methods</h3>
+       </header>
+
+    
+      <div id="method-c-new" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">new</span><span
+            class="method-args">(delegate = nil)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="new-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/activerecord-5.1.5/lib/active_record/migration/command_recorder.rb, line 42</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">delegate</span> = <span class="ruby-keyword">nil</span>)
+  <span class="ruby-ivar">@commands</span> = []
+  <span class="ruby-ivar">@delegate</span> = <span class="ruby-identifier">delegate</span>
+  <span class="ruby-ivar">@reverting</span> = <span class="ruby-keyword">false</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-inverse_of" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">inverse_of</span><span
+            class="method-args">(command, args, &block)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Returns the inverse of the given command. For example:</p>
+
+<pre class="ruby"><span class="ruby-identifier">recorder</span>.<span class="ruby-identifier">inverse_of</span>(:<span class="ruby-identifier">rename_table</span>, [:<span class="ruby-identifier">old</span>, :<span class="ruby-identifier">new</span>])
+<span class="ruby-comment"># =&gt; [:rename_table, [:new, :old]]</span>
+</pre>
+
+<p>This method will raise an <code>IrreversibleMigration</code> exception if
+it cannot invert the <code>command</code>.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="inverse_of-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/activerecord-5.1.5/lib/active_record/migration/command_recorder.rb, line 84</span>
+      <span class="ruby-keyword">def</span> <span class="ruby-identifier">inverse_of</span>(<span class="ruby-identifier">command</span>, <span class="ruby-identifier">args</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+        <span class="ruby-identifier">method</span> = <span class="ruby-value">:&quot;invert_#{command}&quot;</span>
+        <span class="ruby-identifier">raise</span> <span class="ruby-constant">IrreversibleMigration</span>, <span class="ruby-string">&quot;          This migration uses #{command}, which is not automatically reversible.
+          To make the migration reversible you can either:
+          1. Define #up and #down methods in place of the #change method.
+          2. Use the #reversible method to define reversible behavior.
+&quot;</span>.<span class="ruby-identifier">strip_heredoc</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">respond_to?</span>(<span class="ruby-identifier">method</span>, <span class="ruby-keyword">true</span>)
+        <span class="ruby-identifier">send</span>(<span class="ruby-identifier">method</span>, <span class="ruby-identifier">args</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+      <span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-record" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">record</span><span
+            class="method-args">(*command, &block)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Record <code>command</code>. <code>command</code> should be a method name
+and arguments. For example:</p>
+
+<pre class="ruby"><span class="ruby-identifier">recorder</span>.<span class="ruby-identifier">record</span>(:<span class="ruby-identifier">method_name</span>, [:<span class="ruby-identifier">arg1</span>, :<span class="ruby-identifier">arg2</span>])
+</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="record-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/activerecord-5.1.5/lib/active_record/migration/command_recorder.rb, line 69</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">record</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">command</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-ivar">@reverting</span>
+    <span class="ruby-ivar">@commands</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">inverse_of</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">command</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-ivar">@commands</span> <span class="ruby-operator">&lt;&lt;</span> (<span class="ruby-identifier">command</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">block</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-revert" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">revert</span><span
+            class="method-args">() { || ... }</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>While executing the given block, the recorded will be in reverting mode.
+All commands recorded will end up being recorded reverted and in reverse
+order. For example:</p>
+
+<pre class="ruby"><span class="ruby-identifier">recorder</span>.<span class="ruby-identifier">revert</span>{ <span class="ruby-identifier">recorder</span>.<span class="ruby-identifier">record</span>(:<span class="ruby-identifier">rename_table</span>, [:<span class="ruby-identifier">old</span>, :<span class="ruby-identifier">new</span>]) }
+<span class="ruby-comment"># same effect as recorder.record(:rename_table, [:new, :old])</span>
+</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="revert-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/activerecord-5.1.5/lib/active_record/migration/command_recorder.rb, line 55</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">revert</span>
+  <span class="ruby-ivar">@reverting</span> = <span class="ruby-operator">!</span><span class="ruby-ivar">@reverting</span>
+  <span class="ruby-identifier">previous</span> = <span class="ruby-ivar">@commands</span>
+  <span class="ruby-ivar">@commands</span> = []
+  <span class="ruby-keyword">yield</span>
+<span class="ruby-keyword">ensure</span>
+  <span class="ruby-ivar">@commands</span> = <span class="ruby-identifier">previous</span>.<span class="ruby-identifier">concat</span>(<span class="ruby-ivar">@commands</span>.<span class="ruby-identifier">reverse</span>)
+  <span class="ruby-ivar">@reverting</span> = <span class="ruby-operator">!</span><span class="ruby-ivar">@reverting</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="https://rdoc.github.io/rdoc">RDoc</a> 5.0.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

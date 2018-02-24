@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class Listen::Adapter::Base - RDoc Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../../";
+  var index_rel_prefix = "../../";
+</script>
+
+<script src="../../js/jquery.js"></script>
+<script src="../../js/darkfish.js"></script>
+
+<link href="../../css/fonts.css" rel="stylesheet">
+<link href="../../css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../../table_of_contents.html#pages">Pages</a>
+    <a href="../../table_of_contents.html#classes">Classes</a>
+    <a href="../../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link"><a href="../../Object.html">Object</a>
+  
+</div>
+
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-c-new">::new</a>
+    
+    <li ><a href="#method-c-usable-3F">::usable?</a>
+    
+    <li ><a href="#method-i-configure">#configure</a>
+    
+    <li ><a href="#method-i-start">#start</a>
+    
+    <li ><a href="#method-i-started-3F">#started?</a>
+    
+    <li ><a href="#method-i-stop">#stop</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-Listen::Adapter::Base">
+  <h1 id="class-Listen::Adapter::Base" class="class">
+    class Listen::Adapter::Base
+  </h1>
+
+  <section class="description">
+    
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+    <section class="constants-list">
+      <header>
+        <h3>Constants</h3>
+      </header>
+      <dl>
+      
+        <dt id="DEFAULTS">DEFAULTS
+        
+        <dd><p>TODO: only used by tests</p>
+        
+      
+      </dl>
+    </section>
+    
+
+    
+    <section class="attribute-method-details" class="method-section">
+      <header>
+        <h3>Attributes</h3>
+      </header>
+
+      
+      <div id="attribute-i-config" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">config</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-options" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">options</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+    </section>
+    
+
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Class Methods</h3>
+       </header>
+
+    
+      <div id="method-c-new" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">new</span><span
+            class="method-args">(config)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="new-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/listen-3.1.5/lib/listen/adapter/base.rb, line 15</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">config</span>)
+  <span class="ruby-ivar">@started</span> = <span class="ruby-keyword">false</span>
+  <span class="ruby-ivar">@config</span> = <span class="ruby-identifier">config</span>
+
+  <span class="ruby-ivar">@configured</span> = <span class="ruby-keyword">nil</span>
+
+  <span class="ruby-identifier">fail</span> <span class="ruby-string">&#39;No directories to watch!&#39;</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">config</span>.<span class="ruby-identifier">directories</span>.<span class="ruby-identifier">empty?</span>
+
+  <span class="ruby-identifier">defaults</span> = <span class="ruby-keyword">self</span>.<span class="ruby-identifier">class</span>.<span class="ruby-identifier">const_get</span>(<span class="ruby-string">&#39;DEFAULTS&#39;</span>)
+  <span class="ruby-ivar">@options</span> = <span class="ruby-constant">Listen</span><span class="ruby-operator">::</span><span class="ruby-constant">Options</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">config</span>.<span class="ruby-identifier">adapter_options</span>, <span class="ruby-identifier">defaults</span>)
+<span class="ruby-keyword">rescue</span>
+  <span class="ruby-identifier">_log_exception</span> <span class="ruby-string">&#39;adapter config failed: %s:%s called from: %s&#39;</span>, <span class="ruby-identifier">caller</span>
+  <span class="ruby-identifier">raise</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-usable-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">usable?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="usable-3F-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/listen-3.1.5/lib/listen/adapter/base.rb, line 92</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">usable?</span>
+  <span class="ruby-identifier">const_get</span>(<span class="ruby-string">&#39;OS_REGEXP&#39;</span>) <span class="ruby-operator">=~</span> <span class="ruby-constant">RbConfig</span><span class="ruby-operator">::</span><span class="ruby-constant">CONFIG</span>[<span class="ruby-string">&#39;target_os&#39;</span>]
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-configure" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">configure</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>TODO: it&#39;s a separate method as a temporary workaround for tests</p>
+          
+          
+
+          
+          <div class="method-source-code" id="configure-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/listen-3.1.5/lib/listen/adapter/base.rb, line 31</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">configure</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-ivar">@configured</span>
+    <span class="ruby-identifier">_log</span>(<span class="ruby-value">:warn</span>, <span class="ruby-string">&#39;Adapter already configured!&#39;</span>)
+    <span class="ruby-keyword">return</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-ivar">@configured</span> = <span class="ruby-keyword">true</span>
+
+  <span class="ruby-ivar">@callbacks</span> <span class="ruby-operator">||=</span> {}
+  <span class="ruby-identifier">config</span>.<span class="ruby-identifier">directories</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">dir</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">callback</span> = <span class="ruby-ivar">@callbacks</span>[<span class="ruby-identifier">dir</span>] <span class="ruby-operator">||</span> <span class="ruby-identifier">lambda</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">event</span><span class="ruby-operator">|</span>
+      <span class="ruby-identifier">_process_event</span>(<span class="ruby-identifier">dir</span>, <span class="ruby-identifier">event</span>)
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-ivar">@callbacks</span>[<span class="ruby-identifier">dir</span>] = <span class="ruby-identifier">callback</span>
+    <span class="ruby-identifier">_configure</span>(<span class="ruby-identifier">dir</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">callback</span>)
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-ivar">@snapshots</span> <span class="ruby-operator">||=</span> {}
+  <span class="ruby-comment"># TODO: separate config per directory (some day maybe)</span>
+  <span class="ruby-identifier">change_config</span> = <span class="ruby-constant">Change</span><span class="ruby-operator">::</span><span class="ruby-constant">Config</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">config</span>.<span class="ruby-identifier">queue</span>, <span class="ruby-identifier">config</span>.<span class="ruby-identifier">silencer</span>)
+  <span class="ruby-identifier">config</span>.<span class="ruby-identifier">directories</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">dir</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">record</span> = <span class="ruby-constant">Record</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">dir</span>)
+    <span class="ruby-identifier">snapshot</span> = <span class="ruby-constant">Change</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">change_config</span>, <span class="ruby-identifier">record</span>)
+    <span class="ruby-ivar">@snapshots</span>[<span class="ruby-identifier">dir</span>] = <span class="ruby-identifier">snapshot</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-start" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">start</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="start-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/listen-3.1.5/lib/listen/adapter/base.rb, line 62</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">start</span>
+  <span class="ruby-identifier">configure</span>
+
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">started?</span>
+    <span class="ruby-identifier">_log</span>(<span class="ruby-value">:warn</span>, <span class="ruby-string">&#39;Adapter already started!&#39;</span>)
+    <span class="ruby-keyword">return</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-ivar">@started</span> = <span class="ruby-keyword">true</span>
+
+  <span class="ruby-identifier">calling_stack</span> = <span class="ruby-identifier">caller</span>.<span class="ruby-identifier">dup</span>
+  <span class="ruby-constant">Listen</span><span class="ruby-operator">::</span><span class="ruby-constant">Internals</span><span class="ruby-operator">::</span><span class="ruby-constant">ThreadPool</span>.<span class="ruby-identifier">add</span> <span class="ruby-keyword">do</span>
+    <span class="ruby-keyword">begin</span>
+      <span class="ruby-ivar">@snapshots</span>.<span class="ruby-identifier">values</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">snapshot</span><span class="ruby-operator">|</span>
+        <span class="ruby-identifier">_timed</span>(<span class="ruby-string">&#39;Record.build()&#39;</span>) { <span class="ruby-identifier">snapshot</span>.<span class="ruby-identifier">record</span>.<span class="ruby-identifier">build</span> }
+      <span class="ruby-keyword">end</span>
+      <span class="ruby-identifier">_run</span>
+    <span class="ruby-keyword">rescue</span>
+      <span class="ruby-identifier">msg</span> = <span class="ruby-string">&#39;run() in thread failed: %s:\n&#39;</span>               <span class="ruby-string">&#39; %s\n\ncalled from:\n %s&#39;</span>
+      <span class="ruby-identifier">_log_exception</span>(<span class="ruby-identifier">msg</span>, <span class="ruby-identifier">calling_stack</span>)
+      <span class="ruby-identifier">raise</span> <span class="ruby-comment"># for unit tests mostly</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-started-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">started?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="started-3F-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/listen-3.1.5/lib/listen/adapter/base.rb, line 58</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">started?</span>
+  <span class="ruby-ivar">@started</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-stop" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">stop</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="stop-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/listen-3.1.5/lib/listen/adapter/base.rb, line 88</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">stop</span>
+  <span class="ruby-identifier">_stop</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="https://rdoc.github.io/rdoc">RDoc</a> 5.0.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

@@ -1,0 +1,1079 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class Parser::Lexer::Literal - RDoc Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../../";
+  var index_rel_prefix = "../../";
+</script>
+
+<script src="../../js/jquery.js"></script>
+<script src="../../js/darkfish.js"></script>
+
+<link href="../../css/fonts.css" rel="stylesheet">
+<link href="../../css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../../table_of_contents.html#pages">Pages</a>
+    <a href="../../table_of_contents.html#classes">Classes</a>
+    <a href="../../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link"><a href="../../Object.html">Object</a>
+  
+</div>
+
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-c-new">::new</a>
+    
+    <li ><a href="#method-i-backslash_delimited-3F">#backslash_delimited?</a>
+    
+    <li ><a href="#method-i-clear_buffer">#clear_buffer</a>
+    
+    <li ><a href="#method-i-coerce_encoding">#coerce_encoding</a>
+    
+    <li ><a href="#method-i-delimiter-3F">#delimiter?</a>
+    
+    <li ><a href="#method-i-emit">#emit</a>
+    
+    <li ><a href="#method-i-emit_start_tok">#emit_start_tok</a>
+    
+    <li ><a href="#method-i-end_interp_brace_and_try_closing">#end_interp_brace_and_try_closing</a>
+    
+    <li ><a href="#method-i-extend_content">#extend_content</a>
+    
+    <li ><a href="#method-i-extend_space">#extend_space</a>
+    
+    <li ><a href="#method-i-extend_string">#extend_string</a>
+    
+    <li ><a href="#method-i-flush_string">#flush_string</a>
+    
+    <li ><a href="#method-i-heredoc-3F">#heredoc?</a>
+    
+    <li ><a href="#method-i-infer_indent_level">#infer_indent_level</a>
+    
+    <li ><a href="#method-i-interpolate-3F">#interpolate?</a>
+    
+    <li ><a href="#method-i-munge_escape-3F">#munge_escape?</a>
+    
+    <li ><a href="#method-i-nest_and_try_closing">#nest_and_try_closing</a>
+    
+    <li ><a href="#method-i-regexp-3F">#regexp?</a>
+    
+    <li ><a href="#method-i-start_interp_brace">#start_interp_brace</a>
+    
+    <li ><a href="#method-i-type">#type</a>
+    
+    <li ><a href="#method-i-words-3F">#words?</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-Parser::Lexer::Literal">
+  <h1 id="class-Parser::Lexer::Literal" class="class">
+    class Parser::Lexer::Literal
+  </h1>
+
+  <section class="description">
+    
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+    <section class="constants-list">
+      <header>
+        <h3>Constants</h3>
+      </header>
+      <dl>
+      
+        <dt id="DELIMITERS">DELIMITERS
+        
+        <dd>
+        
+      
+        <dt id="TYPES">TYPES
+        
+        <dd>
+        
+      
+      </dl>
+    </section>
+    
+
+    
+    <section class="attribute-method-details" class="method-section">
+      <header>
+        <h3>Attributes</h3>
+      </header>
+
+      
+      <div id="attribute-i-dedent_level" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">dedent_level</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-heredoc_e" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">heredoc_e</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-saved_herebody_s" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">saved_herebody_s</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-str_s" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">str_s</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+    </section>
+    
+
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Class Methods</h3>
+       </header>
+
+    
+      <div id="method-c-new" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">new</span><span
+            class="method-args">(lexer, str_type, delimiter, str_s, heredoc_e = nil, indent = false, dedent_body = false, label_allowed = false)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="new-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/parser-2.5.0.0/lib/parser/lexer/literal.rb, line 38</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">lexer</span>, <span class="ruby-identifier">str_type</span>, <span class="ruby-identifier">delimiter</span>, <span class="ruby-identifier">str_s</span>, <span class="ruby-identifier">heredoc_e</span> = <span class="ruby-keyword">nil</span>,
+               <span class="ruby-identifier">indent</span> = <span class="ruby-keyword">false</span>, <span class="ruby-identifier">dedent_body</span> = <span class="ruby-keyword">false</span>, <span class="ruby-identifier">label_allowed</span> = <span class="ruby-keyword">false</span>)
+  <span class="ruby-ivar">@lexer</span>       = <span class="ruby-identifier">lexer</span>
+  <span class="ruby-ivar">@nesting</span>     = <span class="ruby-value">1</span>
+
+  <span class="ruby-comment"># DELIMITERS and TYPES are hashes with keys encoded in binary.</span>
+  <span class="ruby-comment"># Coerce incoming data to the same encoding.</span>
+  <span class="ruby-identifier">str_type</span>     = <span class="ruby-identifier">coerce_encoding</span>(<span class="ruby-identifier">str_type</span>)
+  <span class="ruby-identifier">delimiter</span>    = <span class="ruby-identifier">coerce_encoding</span>(<span class="ruby-identifier">delimiter</span>)
+
+  <span class="ruby-keyword">unless</span> <span class="ruby-constant">TYPES</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">str_type</span>)
+    <span class="ruby-identifier">lexer</span>.<span class="ruby-identifier">send</span>(<span class="ruby-value">:diagnostic</span>, <span class="ruby-value">:error</span>, <span class="ruby-value">:unexpected_percent_str</span>,
+               { <span class="ruby-value">:type</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">str_type</span> }, <span class="ruby-ivar">@lexer</span>.<span class="ruby-identifier">send</span>(<span class="ruby-value">:range</span>, <span class="ruby-identifier">str_s</span>, <span class="ruby-identifier">str_s</span> <span class="ruby-operator">+</span> <span class="ruby-value">2</span>))
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-comment"># String type. For :&#39;foo&#39;, it is :&#39;</span>
+  <span class="ruby-ivar">@str_type</span>    = <span class="ruby-identifier">str_type</span>
+  <span class="ruby-comment"># Start of the string type specifier.</span>
+  <span class="ruby-ivar">@str_s</span>       = <span class="ruby-identifier">str_s</span>
+
+  <span class="ruby-ivar">@start_tok</span>, <span class="ruby-ivar">@interpolate</span> = <span class="ruby-constant">TYPES</span>[<span class="ruby-identifier">str_type</span>]
+  <span class="ruby-ivar">@start_delim</span> = <span class="ruby-constant">DELIMITERS</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">delimiter</span>) <span class="ruby-operator">?</span> <span class="ruby-identifier">delimiter</span> <span class="ruby-operator">:</span> <span class="ruby-keyword">nil</span>
+  <span class="ruby-ivar">@end_delim</span>   = <span class="ruby-constant">DELIMITERS</span>.<span class="ruby-identifier">fetch</span>(<span class="ruby-identifier">delimiter</span>, <span class="ruby-identifier">delimiter</span>)
+
+  <span class="ruby-ivar">@heredoc_e</span>     = <span class="ruby-identifier">heredoc_e</span>
+  <span class="ruby-ivar">@indent</span>        = <span class="ruby-identifier">indent</span>
+  <span class="ruby-ivar">@label_allowed</span> = <span class="ruby-identifier">label_allowed</span>
+
+  <span class="ruby-ivar">@dedent_body</span>   = <span class="ruby-identifier">dedent_body</span>
+  <span class="ruby-ivar">@dedent_level</span>  = <span class="ruby-keyword">nil</span>
+
+  <span class="ruby-ivar">@interp_braces</span> = <span class="ruby-value">0</span>
+
+  <span class="ruby-ivar">@space_emitted</span> = <span class="ruby-keyword">true</span>
+
+  <span class="ruby-comment"># Monolithic strings are glued into a single token, e.g.</span>
+  <span class="ruby-comment"># tSTRING_BEG tSTRING_CONTENT tSTRING_END -&gt; tSTRING.</span>
+  <span class="ruby-ivar">@monolithic</span>  = (<span class="ruby-ivar">@start_tok</span> <span class="ruby-operator">==</span> <span class="ruby-value">:tSTRING_BEG</span>  <span class="ruby-operator">&amp;&amp;</span>
+                  <span class="ruby-node">%w(&#39; &quot;)</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">str_type</span>) <span class="ruby-operator">&amp;&amp;</span>
+                  <span class="ruby-operator">!</span><span class="ruby-identifier">heredoc?</span>)
+
+  <span class="ruby-comment"># Capture opening delimiter in percent-literals.</span>
+  <span class="ruby-ivar">@str_type</span> <span class="ruby-operator">+=</span> <span class="ruby-identifier">delimiter</span> <span class="ruby-keyword">if</span> <span class="ruby-ivar">@str_type</span>.<span class="ruby-identifier">start_with?</span>(<span class="ruby-string">&#39;%&#39;</span>.<span class="ruby-identifier">freeze</span>)
+
+  <span class="ruby-identifier">clear_buffer</span>
+
+  <span class="ruby-identifier">emit_start_tok</span> <span class="ruby-keyword">unless</span> <span class="ruby-ivar">@monolithic</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-backslash_delimited-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">backslash_delimited?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="backslash_delimited-3F-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/parser-2.5.0.0/lib/parser/lexer/literal.rb, line 104</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">backslash_delimited?</span>
+  <span class="ruby-ivar">@end_delim</span> <span class="ruby-operator">==</span> <span class="ruby-string">&#39;\&#39;</span>.<span class="ruby-identifier">freeze</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-end_interp_brace_and_try_closing" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">end_interp_brace_and_try_closing</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="end_interp_brace_and_try_closing-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/parser-2.5.0.0/lib/parser/lexer/literal.rb, line 179</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">end_interp_brace_and_try_closing</span>
+  <span class="ruby-ivar">@interp_braces</span> <span class="ruby-operator">-=</span> <span class="ruby-value">1</span>
+
+  (<span class="ruby-ivar">@interp_braces</span> <span class="ruby-operator">==</span> <span class="ruby-value">0</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-extend_content" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">extend_content</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="extend_content-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/parser-2.5.0.0/lib/parser/lexer/literal.rb, line 206</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">extend_content</span>
+  <span class="ruby-ivar">@space_emitted</span> = <span class="ruby-keyword">false</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-extend_space" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">extend_space</span><span
+            class="method-args">(ts, te)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="extend_space-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/parser-2.5.0.0/lib/parser/lexer/literal.rb, line 210</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">extend_space</span>(<span class="ruby-identifier">ts</span>, <span class="ruby-identifier">te</span>)
+  <span class="ruby-identifier">flush_string</span>
+
+  <span class="ruby-keyword">unless</span> <span class="ruby-ivar">@space_emitted</span>
+    <span class="ruby-identifier">emit</span>(<span class="ruby-value">:tSPACE</span>, <span class="ruby-keyword">nil</span>, <span class="ruby-identifier">ts</span>, <span class="ruby-identifier">te</span>)
+
+    <span class="ruby-ivar">@space_emitted</span> = <span class="ruby-keyword">true</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-extend_string" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">extend_string</span><span
+            class="method-args">(string, ts, te)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="extend_string-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/parser-2.5.0.0/lib/parser/lexer/literal.rb, line 185</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">extend_string</span>(<span class="ruby-identifier">string</span>, <span class="ruby-identifier">ts</span>, <span class="ruby-identifier">te</span>)
+  <span class="ruby-ivar">@buffer_s</span> <span class="ruby-operator">||=</span> <span class="ruby-identifier">ts</span>
+  <span class="ruby-ivar">@buffer_e</span> = <span class="ruby-identifier">te</span>
+
+  <span class="ruby-ivar">@buffer</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">string</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-flush_string" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">flush_string</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="flush_string-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/parser-2.5.0.0/lib/parser/lexer/literal.rb, line 192</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">flush_string</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-ivar">@monolithic</span>
+    <span class="ruby-identifier">emit_start_tok</span>
+    <span class="ruby-ivar">@monolithic</span> = <span class="ruby-keyword">false</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">unless</span> <span class="ruby-ivar">@buffer</span>.<span class="ruby-identifier">empty?</span>
+    <span class="ruby-identifier">emit</span>(<span class="ruby-value">:tSTRING_CONTENT</span>, <span class="ruby-ivar">@buffer</span>, <span class="ruby-ivar">@buffer_s</span>, <span class="ruby-ivar">@buffer_e</span>)
+
+    <span class="ruby-identifier">clear_buffer</span>
+    <span class="ruby-identifier">extend_content</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-heredoc-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">heredoc?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="heredoc-3F-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/parser-2.5.0.0/lib/parser/lexer/literal.rb, line 100</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">heredoc?</span>
+  <span class="ruby-operator">!</span><span class="ruby-operator">!</span><span class="ruby-ivar">@heredoc_e</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-infer_indent_level" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">infer_indent_level</span><span
+            class="method-args">(line)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="infer_indent_level-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/parser-2.5.0.0/lib/parser/lexer/literal.rb, line 156</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">infer_indent_level</span>(<span class="ruby-identifier">line</span>)
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">if</span> <span class="ruby-operator">!</span><span class="ruby-ivar">@dedent_body</span>
+
+  <span class="ruby-identifier">indent_level</span> = <span class="ruby-value">0</span>
+  <span class="ruby-identifier">line</span>.<span class="ruby-identifier">each_char</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">char</span><span class="ruby-operator">|</span>
+    <span class="ruby-keyword">case</span> <span class="ruby-identifier">char</span>
+    <span class="ruby-keyword">when</span> <span class="ruby-value">?\</span><span class="ruby-identifier">s</span>
+      <span class="ruby-identifier">indent_level</span> <span class="ruby-operator">+=</span> <span class="ruby-value">1</span>
+    <span class="ruby-keyword">when</span> <span class="ruby-value">?\</span><span class="ruby-identifier">t</span>
+      <span class="ruby-identifier">indent_level</span> <span class="ruby-operator">+=</span> (<span class="ruby-value">8</span> <span class="ruby-operator">-</span> <span class="ruby-identifier">indent_level</span> <span class="ruby-operator">%</span> <span class="ruby-value">8</span>)
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-keyword">if</span> <span class="ruby-ivar">@dedent_level</span>.<span class="ruby-identifier">nil?</span> <span class="ruby-operator">||</span> <span class="ruby-ivar">@dedent_level</span> <span class="ruby-operator">&gt;</span> <span class="ruby-identifier">indent_level</span>
+        <span class="ruby-ivar">@dedent_level</span> = <span class="ruby-identifier">indent_level</span>
+      <span class="ruby-keyword">end</span>
+      <span class="ruby-keyword">break</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-interpolate-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">interpolate?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="interpolate-3F-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/parser-2.5.0.0/lib/parser/lexer/literal.rb, line 87</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">interpolate?</span>
+  <span class="ruby-ivar">@interpolate</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-munge_escape-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">munge_escape?</span><span
+            class="method-args">(character)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="munge_escape-3F-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/parser-2.5.0.0/lib/parser/lexer/literal.rb, line 112</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">munge_escape?</span>(<span class="ruby-identifier">character</span>)
+  <span class="ruby-identifier">character</span> = <span class="ruby-identifier">coerce_encoding</span>(<span class="ruby-identifier">character</span>)
+
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">words?</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">character</span> <span class="ruby-operator">=~</span> <span class="ruby-regexp">/[ \t\v\r\f\n]/</span>
+    <span class="ruby-keyword">true</span>
+  <span class="ruby-keyword">else</span>
+    [<span class="ruby-string">&#39;\&#39;</span>.<span class="ruby-identifier">freeze</span>, <span class="ruby-ivar">@start_delim</span>, <span class="ruby-ivar">@end_delim</span>].<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">character</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-nest_and_try_closing" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">nest_and_try_closing</span><span
+            class="method-args">(delimiter, ts, te, lookahead=nil)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="nest_and_try_closing-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/parser-2.5.0.0/lib/parser/lexer/literal.rb, line 122</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">nest_and_try_closing</span>(<span class="ruby-identifier">delimiter</span>, <span class="ruby-identifier">ts</span>, <span class="ruby-identifier">te</span>, <span class="ruby-identifier">lookahead</span>=<span class="ruby-keyword">nil</span>)
+  <span class="ruby-identifier">delimiter</span> = <span class="ruby-identifier">coerce_encoding</span>(<span class="ruby-identifier">delimiter</span>)
+
+  <span class="ruby-keyword">if</span> <span class="ruby-ivar">@start_delim</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-ivar">@start_delim</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">delimiter</span>
+    <span class="ruby-ivar">@nesting</span> <span class="ruby-operator">+=</span> <span class="ruby-value">1</span>
+  <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">delimiter?</span>(<span class="ruby-identifier">delimiter</span>)
+    <span class="ruby-ivar">@nesting</span> <span class="ruby-operator">-=</span> <span class="ruby-value">1</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-comment"># Finalize if last matching delimiter is closed.</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-ivar">@nesting</span> <span class="ruby-operator">==</span> <span class="ruby-value">0</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">words?</span>
+      <span class="ruby-identifier">extend_space</span>(<span class="ruby-identifier">ts</span>, <span class="ruby-identifier">ts</span>)
+    <span class="ruby-keyword">end</span>
+
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">lookahead</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-ivar">@label_allowed</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">lookahead</span>[<span class="ruby-value">0</span>] <span class="ruby-operator">==</span> <span class="ruby-value">?:</span> <span class="ruby-operator">&amp;&amp;</span>
+       <span class="ruby-identifier">lookahead</span>[<span class="ruby-value">1</span>] <span class="ruby-operator">!=</span> <span class="ruby-value">?:</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-ivar">@start_tok</span> <span class="ruby-operator">==</span> <span class="ruby-value">:tSTRING_BEG</span>
+      <span class="ruby-comment"># This is a quoted label.</span>
+      <span class="ruby-identifier">flush_string</span>
+      <span class="ruby-identifier">emit</span>(<span class="ruby-value">:tLABEL_END</span>, <span class="ruby-ivar">@end_delim</span>, <span class="ruby-identifier">ts</span>, <span class="ruby-identifier">te</span> <span class="ruby-operator">+</span> <span class="ruby-value">1</span>)
+    <span class="ruby-keyword">elsif</span> <span class="ruby-ivar">@monolithic</span>
+      <span class="ruby-comment"># Emit the string as a single token.</span>
+      <span class="ruby-identifier">emit</span>(<span class="ruby-value">:tSTRING</span>, <span class="ruby-ivar">@buffer</span>, <span class="ruby-ivar">@str_s</span>, <span class="ruby-identifier">te</span>)
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-comment"># If this is a heredoc, @buffer contains the sentinel now.</span>
+      <span class="ruby-comment"># Just throw it out. Lexer flushes the heredoc after each</span>
+      <span class="ruby-comment"># non-heredoc-terminating \n anyway, so no data will be lost.</span>
+      <span class="ruby-identifier">flush_string</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">heredoc?</span>
+
+      <span class="ruby-identifier">emit</span>(<span class="ruby-value">:tSTRING_END</span>, <span class="ruby-ivar">@end_delim</span>, <span class="ruby-identifier">ts</span>, <span class="ruby-identifier">te</span>)
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-regexp-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">regexp?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="regexp-3F-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/parser-2.5.0.0/lib/parser/lexer/literal.rb, line 96</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">regexp?</span>
+  <span class="ruby-identifier">type</span> <span class="ruby-operator">==</span> <span class="ruby-value">:tREGEXP_BEG</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-start_interp_brace" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">start_interp_brace</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="start_interp_brace-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/parser-2.5.0.0/lib/parser/lexer/literal.rb, line 175</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">start_interp_brace</span>
+  <span class="ruby-ivar">@interp_braces</span> <span class="ruby-operator">+=</span> <span class="ruby-value">1</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-type" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">type</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="type-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/parser-2.5.0.0/lib/parser/lexer/literal.rb, line 108</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">type</span>
+  <span class="ruby-ivar">@start_tok</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-words-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">words?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="words-3F-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/parser-2.5.0.0/lib/parser/lexer/literal.rb, line 91</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">words?</span>
+  <span class="ruby-identifier">type</span> <span class="ruby-operator">==</span> <span class="ruby-value">:tWORDS_BEG</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">type</span> <span class="ruby-operator">==</span> <span class="ruby-value">:tQWORDS_BEG</span> <span class="ruby-operator">||</span>
+    <span class="ruby-identifier">type</span> <span class="ruby-operator">==</span> <span class="ruby-value">:tSYMBOLS_BEG</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">type</span> <span class="ruby-operator">==</span> <span class="ruby-value">:tQSYMBOLS_BEG</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="protected-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Protected Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-clear_buffer" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">clear_buffer</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="clear_buffer-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/parser-2.5.0.0/lib/parser/lexer/literal.rb, line 234</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">clear_buffer</span>
+  <span class="ruby-ivar">@buffer</span> = <span class="ruby-string">&#39;&#39;</span>.<span class="ruby-identifier">dup</span>
+
+  <span class="ruby-comment"># Prime the buffer with lexer encoding; otherwise,</span>
+  <span class="ruby-comment"># concatenation will produce varying results.</span>
+  <span class="ruby-ivar">@buffer</span>.<span class="ruby-identifier">force_encoding</span>(<span class="ruby-ivar">@lexer</span>.<span class="ruby-identifier">source_buffer</span>.<span class="ruby-identifier">source</span>.<span class="ruby-identifier">encoding</span>)
+
+  <span class="ruby-ivar">@buffer_s</span> = <span class="ruby-keyword">nil</span>
+  <span class="ruby-ivar">@buffer_e</span> = <span class="ruby-keyword">nil</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-coerce_encoding" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">coerce_encoding</span><span
+            class="method-args">(string)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="coerce_encoding-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/parser-2.5.0.0/lib/parser/lexer/literal.rb, line 230</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">coerce_encoding</span>(<span class="ruby-identifier">string</span>)
+  <span class="ruby-identifier">string</span>.<span class="ruby-identifier">dup</span>.<span class="ruby-identifier">force_encoding</span>(<span class="ruby-constant">Encoding</span><span class="ruby-operator">::</span><span class="ruby-constant">BINARY</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-delimiter-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">delimiter?</span><span
+            class="method-args">(delimiter)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="delimiter-3F-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/parser-2.5.0.0/lib/parser/lexer/literal.rb, line 222</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">delimiter?</span>(<span class="ruby-identifier">delimiter</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-ivar">@indent</span>
+    <span class="ruby-ivar">@end_delim</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">delimiter</span>.<span class="ruby-identifier">lstrip</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-ivar">@end_delim</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">delimiter</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-emit" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">emit</span><span
+            class="method-args">(token, type, s, e)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="emit-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/parser-2.5.0.0/lib/parser/lexer/literal.rb, line 250</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">emit</span>(<span class="ruby-identifier">token</span>, <span class="ruby-identifier">type</span>, <span class="ruby-identifier">s</span>, <span class="ruby-identifier">e</span>)
+  <span class="ruby-ivar">@lexer</span>.<span class="ruby-identifier">send</span>(<span class="ruby-value">:emit</span>, <span class="ruby-identifier">token</span>, <span class="ruby-identifier">type</span>, <span class="ruby-identifier">s</span>, <span class="ruby-identifier">e</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-emit_start_tok" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">emit_start_tok</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="emit_start_tok-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/parser-2.5.0.0/lib/parser/lexer/literal.rb, line 245</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">emit_start_tok</span>
+  <span class="ruby-identifier">str_e</span> = <span class="ruby-ivar">@heredoc_e</span> <span class="ruby-operator">||</span> <span class="ruby-ivar">@str_s</span> <span class="ruby-operator">+</span> <span class="ruby-ivar">@str_type</span>.<span class="ruby-identifier">length</span>
+  <span class="ruby-identifier">emit</span>(<span class="ruby-ivar">@start_tok</span>, <span class="ruby-ivar">@str_type</span>, <span class="ruby-ivar">@str_s</span>, <span class="ruby-identifier">str_e</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="https://rdoc.github.io/rdoc">RDoc</a> 5.0.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

@@ -25,4 +25,16 @@ RSpec.describe Instrument do
       expect(ins.find_item_by_name('Appetite1').name).to eq('Appetite1')
     end
   end
+
+  describe '.name' do
+    it 'cannot save without a name' do
+      ins = Instrument.new
+      expect { ins.save! }.to raise_error ActiveRecord::RecordInvalid
+    end
+
+    it 'cannot save without a single character name' do
+      ins = Instrument.new name: 'a'
+      expect { ins.save! }.to raise_error ActiveRecord::RecordInvalid
+    end
+  end
 end

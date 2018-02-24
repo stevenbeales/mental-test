@@ -1,14 +1,13 @@
 # frozen_string_literal: true
 
 require 'jsonb_accessor'
-require './lib/shared_methods'
 
 # Represents a psychometric instrument
 # Similar to a survey or questionnaire
 class Instrument < ActiveRecord::Base
-  extend SharedMethods
-
-  belongs_to :assessment
+ 
+  has_many :assessments, through: :assessment_instruments
+  has_many :assessment_instruments
   
   jsonb_accessor :content,
                  title: [:string, default: 'Untitled'],
@@ -16,6 +15,11 @@ class Instrument < ActiveRecord::Base
   
   validates :name, presence: true
   validates_uniqueness_of :name
+  validates_length_of :name, \
+  within: 2..50, \
+  too_long: 'pick a shorter name', \
+  too_short: 'pick a longer name'
+
   
   after_initialize :items
 

@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class ParserGauntlet - RDoc Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "./";
+  var index_rel_prefix = "./";
+</script>
+
+<script src="./js/jquery.js"></script>
+<script src="./js/darkfish.js"></script>
+
+<link href="./css/fonts.css" rel="stylesheet">
+<link href="./css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="./index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="./table_of_contents.html#pages">Pages</a>
+    <a href="./table_of_contents.html#classes">Classes</a>
+    <a href="./table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link">Gauntlet
+  
+</div>
+
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li class="calls-super" ><a href="#method-i-load_yaml">#load_yaml</a>
+    
+    <li ><a href="#method-i-parse">#parse</a>
+    
+    <li ><a href="#method-i-run">#run</a>
+    
+    <li ><a href="#method-i-should_skip-3F">#should_skip?</a>
+    
+    <li class="calls-super" ><a href="#method-i-shutdown">#shutdown</a>
+    
+    <li ><a href="#method-i-try">#try</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-ParserGauntlet">
+  <h1 id="class-ParserGauntlet" class="class">
+    class ParserGauntlet
+  </h1>
+
+  <section class="description">
+    
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+    <section class="constants-list">
+      <header>
+        <h3>Constants</h3>
+      </header>
+      <dl>
+      
+        <dt id="RUBY18">RUBY18
+        
+        <dd>
+        
+      
+        <dt id="RUBY19">RUBY19
+        
+        <dd>
+        
+      
+        <dt id="RUBY20">RUBY20
+        
+        <dd>
+        
+      
+      </dl>
+    </section>
+    
+
+    
+
+    
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-load_yaml" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">load_yaml</span><span
+            class="method-args">(*)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+            <div class="method-calls-super">
+              Calls superclass method
+              
+            </div>
+          
+
+          
+          <div class="method-source-code" id="load_yaml-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/parser-2.5.0.0/lib/gauntlet_parser.rb, line 95</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">load_yaml</span>(<span class="ruby-operator">*</span>)
+  <span class="ruby-identifier">data</span> = <span class="ruby-keyword">super</span>
+  <span class="ruby-ivar">@was_errors</span> = <span class="ruby-identifier">data</span>.<span class="ruby-identifier">count</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">_name</span>, <span class="ruby-identifier">errs</span><span class="ruby-operator">|</span> <span class="ruby-identifier">errs</span> <span class="ruby-operator">!=</span> {} }
+
+  <span class="ruby-identifier">data</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-parse" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">parse</span><span
+            class="method-args">(name)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="parse-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/parser-2.5.0.0/lib/gauntlet_parser.rb, line 56</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">parse</span>(<span class="ruby-identifier">name</span>)
+  <span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;GEM: #{name}&quot;</span>
+
+  <span class="ruby-ivar">@result</span> = {}
+
+  <span class="ruby-keyword">if</span> <span class="ruby-constant">ENV</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-string">&#39;FAST&#39;</span>)
+    <span class="ruby-identifier">total_size</span> = <span class="ruby-constant">Dir</span>[<span class="ruby-string">&quot;**/*.rb&quot;</span>].<span class="ruby-identifier">map</span>(<span class="ruby-operator">&amp;</span><span class="ruby-constant">File</span>.<span class="ruby-identifier">method</span>(<span class="ruby-value">:size</span>)).<span class="ruby-identifier">reduce</span>(<span class="ruby-value">:+</span>)
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">total_size</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">300_000</span>
+      <span class="ruby-identifier">puts</span> <span class="ruby-string">&quot;Skip.&quot;</span>
+      <span class="ruby-keyword">return</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-constant">Dir</span>[<span class="ruby-string">&quot;**/*.rb&quot;</span>].<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">file</span><span class="ruby-operator">|</span>
+    <span class="ruby-keyword">next</span> <span class="ruby-keyword">if</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">directory?</span> <span class="ruby-identifier">file</span>
+
+    <span class="ruby-identifier">try</span>(<span class="ruby-constant">Parser</span><span class="ruby-operator">::</span><span class="ruby-constant">Ruby20</span>, <span class="ruby-constant">RUBY20</span>, <span class="ruby-identifier">file</span>) <span class="ruby-keyword">do</span>
+      <span class="ruby-identifier">puts</span> <span class="ruby-string">&quot;Trying 1.9:&quot;</span>
+      <span class="ruby-identifier">try</span>(<span class="ruby-constant">Parser</span><span class="ruby-operator">::</span><span class="ruby-constant">Ruby19</span>, <span class="ruby-constant">RUBY19</span>, <span class="ruby-identifier">file</span>, <span class="ruby-identifier">show_ok</span><span class="ruby-operator">:</span> <span class="ruby-keyword">true</span>) <span class="ruby-keyword">do</span>
+        <span class="ruby-identifier">puts</span> <span class="ruby-string">&quot;Trying 1.8:&quot;</span>
+        <span class="ruby-identifier">try</span>(<span class="ruby-constant">Parser</span><span class="ruby-operator">::</span><span class="ruby-constant">Ruby18</span>, <span class="ruby-constant">RUBY18</span>, <span class="ruby-identifier">file</span>, <span class="ruby-identifier">show_ok</span><span class="ruby-operator">:</span> <span class="ruby-keyword">true</span>) <span class="ruby-keyword">do</span>
+          <span class="ruby-identifier">puts</span> <span class="ruby-string">&quot;Invalid syntax.&quot;</span>
+        <span class="ruby-keyword">end</span>
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-ivar">@result</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-run" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">run</span><span
+            class="method-args">(name)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="run-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/parser-2.5.0.0/lib/gauntlet_parser.rb, line 86</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">run</span>(<span class="ruby-identifier">name</span>)
+  <span class="ruby-identifier">data</span>[<span class="ruby-identifier">name</span>] = <span class="ruby-identifier">parse</span>(<span class="ruby-identifier">name</span>)
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">dirty</span> = <span class="ruby-keyword">true</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-should_skip-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">should_skip?</span><span
+            class="method-args">(name)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="should_skip-3F-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/parser-2.5.0.0/lib/gauntlet_parser.rb, line 91</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">should_skip?</span>(<span class="ruby-identifier">name</span>)
+  <span class="ruby-identifier">data</span>[<span class="ruby-identifier">name</span>] <span class="ruby-operator">==</span> {}
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-shutdown" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">shutdown</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+            <div class="method-calls-super">
+              Calls superclass method
+              
+            </div>
+          
+
+          
+          <div class="method-source-code" id="shutdown-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/parser-2.5.0.0/lib/gauntlet_parser.rb, line 102</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">shutdown</span>
+  <span class="ruby-keyword">super</span>
+
+  <span class="ruby-identifier">errors</span>  = <span class="ruby-identifier">data</span>.<span class="ruby-identifier">count</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">_name</span>, <span class="ruby-identifier">errs</span><span class="ruby-operator">|</span> <span class="ruby-identifier">errs</span> <span class="ruby-operator">!=</span> {} }
+  <span class="ruby-identifier">total</span>   = <span class="ruby-identifier">data</span>.<span class="ruby-identifier">count</span>
+  <span class="ruby-identifier">percent</span> = <span class="ruby-string">&quot;%.5f&quot;</span> <span class="ruby-operator">%</span> [<span class="ruby-value">100</span> <span class="ruby-operator">-</span> <span class="ruby-identifier">errors</span>.<span class="ruby-identifier">to_f</span> <span class="ruby-operator">/</span> <span class="ruby-identifier">total</span> <span class="ruby-operator">*</span> <span class="ruby-value">100</span>]
+  <span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;!!! was: #{@was_errors} now: #{errors} total: #{total} frac: #{percent}%&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-try" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">try</span><span
+            class="method-args">(parser, ruby, file, show_ok: false) { || ... }</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="try-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/parser-2.5.0.0/lib/gauntlet_parser.rb, line 11</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">try</span>(<span class="ruby-identifier">parser</span>, <span class="ruby-identifier">ruby</span>, <span class="ruby-identifier">file</span>, <span class="ruby-identifier">show_ok</span><span class="ruby-operator">:</span> <span class="ruby-keyword">false</span>)
+  <span class="ruby-identifier">try_ruby</span> = <span class="ruby-identifier">lambda</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">e</span><span class="ruby-operator">|</span>
+    <span class="ruby-constant">Process</span>.<span class="ruby-identifier">spawn</span>(<span class="ruby-node">%Q{#{ruby} -c #{Shellwords.escape file}}</span>,
+                  <span class="ruby-value">:err</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&#39;/dev/null&#39;</span>, <span class="ruby-value">:out</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&#39;/dev/null&#39;</span>)
+    <span class="ruby-identifier">_</span>, <span class="ruby-identifier">status</span> = <span class="ruby-constant">Process</span>.<span class="ruby-identifier">wait2</span>
+
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">status</span>.<span class="ruby-identifier">success?</span>
+      <span class="ruby-comment"># Bug in Parser.</span>
+      <span class="ruby-identifier">puts</span> <span class="ruby-string">&quot;Parser bug.&quot;</span>
+      <span class="ruby-ivar">@result</span>[<span class="ruby-identifier">file</span>] = { <span class="ruby-identifier">parser</span>.<span class="ruby-identifier">to_s</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-node">&quot;#{e.class}: #{e.to_s}&quot;</span> }
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-comment"># No, this file is not Ruby.</span>
+      <span class="ruby-keyword">yield</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">block_given?</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">begin</span>
+    <span class="ruby-identifier">parser</span>.<span class="ruby-identifier">parse_file</span>(<span class="ruby-identifier">file</span>)
+
+  <span class="ruby-keyword">rescue</span> <span class="ruby-constant">Parser</span><span class="ruby-operator">::</span><span class="ruby-constant">SyntaxError</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">e</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">e</span>.<span class="ruby-identifier">diagnostic</span>.<span class="ruby-identifier">location</span>.<span class="ruby-identifier">resize</span>(<span class="ruby-value">2</span>).<span class="ruby-identifier">is?</span>(<span class="ruby-string">&#39;&lt;%&#39;</span>)
+      <span class="ruby-identifier">puts</span> <span class="ruby-string">&quot;ERb.&quot;</span>
+      <span class="ruby-keyword">return</span>
+    <span class="ruby-keyword">end</span>
+
+    <span class="ruby-identifier">try_ruby</span>.<span class="ruby-identifier">call</span>(<span class="ruby-identifier">e</span>)
+
+  <span class="ruby-keyword">rescue</span> <span class="ruby-constant">ArgumentError</span>, <span class="ruby-constant">RegexpError</span>,
+         <span class="ruby-constant">Encoding</span><span class="ruby-operator">::</span><span class="ruby-constant">UndefinedConversionError</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">e</span>
+    <span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;#{file}: #{e.class}: #{e.to_s}&quot;</span>
+
+    <span class="ruby-identifier">try_ruby</span>.<span class="ruby-identifier">call</span>(<span class="ruby-identifier">e</span>)
+
+  <span class="ruby-keyword">rescue</span> <span class="ruby-constant">Interrupt</span>
+    <span class="ruby-identifier">raise</span>
+
+  <span class="ruby-keyword">rescue</span> <span class="ruby-constant">Exception</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">e</span>
+    <span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;Parser bug: #{file} #{e.class}: #{e.to_s}&quot;</span>
+    <span class="ruby-ivar">@result</span>[<span class="ruby-identifier">file</span>] = { <span class="ruby-identifier">parser</span>.<span class="ruby-identifier">to_s</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-node">&quot;#{e.class}: #{e.to_s}&quot;</span> }
+
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">puts</span> <span class="ruby-string">&quot;Ok.&quot;</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">show_ok</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="https://rdoc.github.io/rdoc">RDoc</a> 5.0.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

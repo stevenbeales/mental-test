@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class Listen::File - RDoc Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../";
+  var index_rel_prefix = "../";
+</script>
+
+<script src="../js/jquery.js"></script>
+<script src="../js/darkfish.js"></script>
+
+<link href="../css/fonts.css" rel="stylesheet">
+<link href="../css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../table_of_contents.html#pages">Pages</a>
+    <a href="../table_of_contents.html#classes">Classes</a>
+    <a href="../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link"><a href="../Object.html">Object</a>
+  
+</div>
+
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-c-change">::change</a>
+    
+    <li ><a href="#method-c-inaccurate_mac_time-3F">::inaccurate_mac_time?</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-Listen::File">
+  <h1 id="class-Listen::File" class="class">
+    class Listen::File
+  </h1>
+
+  <section class="description">
+    
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Class Methods</h3>
+       </header>
+
+    
+      <div id="method-c-change" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">change</span><span
+            class="method-args">(record, rel_path)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="change-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/listen-3.1.5/lib/listen/file.rb, line 5</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">change</span>(<span class="ruby-identifier">record</span>, <span class="ruby-identifier">rel_path</span>)
+  <span class="ruby-identifier">path</span> = <span class="ruby-constant">Pathname</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">record</span>.<span class="ruby-identifier">root</span>) <span class="ruby-operator">+</span> <span class="ruby-identifier">rel_path</span>
+  <span class="ruby-identifier">lstat</span> = <span class="ruby-identifier">path</span>.<span class="ruby-identifier">lstat</span>
+
+  <span class="ruby-identifier">data</span> = { <span class="ruby-identifier">mtime</span><span class="ruby-operator">:</span> <span class="ruby-identifier">lstat</span>.<span class="ruby-identifier">mtime</span>.<span class="ruby-identifier">to_f</span>, <span class="ruby-identifier">mode</span><span class="ruby-operator">:</span> <span class="ruby-identifier">lstat</span>.<span class="ruby-identifier">mode</span> }
+
+  <span class="ruby-identifier">record_data</span> = <span class="ruby-identifier">record</span>.<span class="ruby-identifier">file_data</span>(<span class="ruby-identifier">rel_path</span>)
+
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">record_data</span>.<span class="ruby-identifier">empty?</span>
+    <span class="ruby-identifier">record</span>.<span class="ruby-identifier">update_file</span>(<span class="ruby-identifier">rel_path</span>, <span class="ruby-identifier">data</span>)
+    <span class="ruby-keyword">return</span> <span class="ruby-value">:added</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">data</span>[<span class="ruby-value">:mode</span>] <span class="ruby-operator">!=</span> <span class="ruby-identifier">record_data</span>[<span class="ruby-value">:mode</span>]
+    <span class="ruby-identifier">record</span>.<span class="ruby-identifier">update_file</span>(<span class="ruby-identifier">rel_path</span>, <span class="ruby-identifier">data</span>)
+    <span class="ruby-keyword">return</span> <span class="ruby-value">:modified</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">data</span>[<span class="ruby-value">:mtime</span>] <span class="ruby-operator">!=</span> <span class="ruby-identifier">record_data</span>[<span class="ruby-value">:mtime</span>]
+    <span class="ruby-identifier">record</span>.<span class="ruby-identifier">update_file</span>(<span class="ruby-identifier">rel_path</span>, <span class="ruby-identifier">data</span>)
+    <span class="ruby-keyword">return</span> <span class="ruby-value">:modified</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">if</span> <span class="ruby-regexp">/1|true/</span> <span class="ruby-operator">=~</span> <span class="ruby-constant">ENV</span>[<span class="ruby-string">&#39;LISTEN_GEM_DISABLE_HASHING&#39;</span>]
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">inaccurate_mac_time?</span>(<span class="ruby-identifier">lstat</span>)
+
+  <span class="ruby-comment"># Check if change happened within 1 second (maybe it&#39;s even</span>
+  <span class="ruby-comment"># too much, e.g. 0.3-0.5 could be sufficient).</span>
+  <span class="ruby-comment">#</span>
+  <span class="ruby-comment"># With rb-fsevent, there&#39;s a (configurable) latency between</span>
+  <span class="ruby-comment"># when file was changed and when the event was triggered.</span>
+  <span class="ruby-comment">#</span>
+  <span class="ruby-comment"># If a file is saved at ???14.998, by the time the event is</span>
+  <span class="ruby-comment"># actually received by Listen, the time could already be e.g.</span>
+  <span class="ruby-comment"># ???15.7.</span>
+  <span class="ruby-comment">#</span>
+  <span class="ruby-comment"># And since Darwin adapter uses directory scanning, the file</span>
+  <span class="ruby-comment"># mtime may be the same (e.g. file was changed at ???14.001,</span>
+  <span class="ruby-comment"># then at ???14.998, but the fstat time would be ???14.0 in</span>
+  <span class="ruby-comment"># both cases).</span>
+  <span class="ruby-comment">#</span>
+  <span class="ruby-comment"># If change happend at ???14.999997, the mtime is 14.0, so for</span>
+  <span class="ruby-comment"># an mtime=???14.0 we assume it could even be almost ???15.0</span>
+  <span class="ruby-comment">#</span>
+  <span class="ruby-comment"># So if Time.now.to_f is ???15.999998 and stat reports mtime</span>
+  <span class="ruby-comment"># at ???14.0, then event was due to that file&#39;d change when:</span>
+  <span class="ruby-comment">#</span>
+  <span class="ruby-comment"># ???15.999997 - ???14.999998 &lt; 1.0s</span>
+  <span class="ruby-comment">#</span>
+  <span class="ruby-comment"># So the &quot;2&quot; is &quot;1 + 1&quot; (1s to cover rb-fsevent latency +</span>
+  <span class="ruby-comment"># 1s maximum difference between real mtime and that recorded</span>
+  <span class="ruby-comment"># in the file system)</span>
+  <span class="ruby-comment">#</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">data</span>[<span class="ruby-value">:mtime</span>].<span class="ruby-identifier">to_i</span> <span class="ruby-operator">+</span> <span class="ruby-value">2</span> <span class="ruby-operator">&lt;=</span> <span class="ruby-constant">Time</span>.<span class="ruby-identifier">now</span>.<span class="ruby-identifier">to_f</span>
+
+  <span class="ruby-identifier">md5</span> = <span class="ruby-constant">Digest</span><span class="ruby-operator">::</span><span class="ruby-constant">MD5</span>.<span class="ruby-identifier">file</span>(<span class="ruby-identifier">path</span>).<span class="ruby-identifier">digest</span>
+  <span class="ruby-identifier">record</span>.<span class="ruby-identifier">update_file</span>(<span class="ruby-identifier">rel_path</span>, <span class="ruby-identifier">data</span>.<span class="ruby-identifier">merge</span>(<span class="ruby-identifier">md5</span><span class="ruby-operator">:</span> <span class="ruby-identifier">md5</span>))
+  <span class="ruby-value">:modified</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">record_data</span>[<span class="ruby-value">:md5</span>] <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">md5</span> <span class="ruby-operator">!=</span> <span class="ruby-identifier">record_data</span>[<span class="ruby-value">:md5</span>]
+<span class="ruby-keyword">rescue</span> <span class="ruby-constant">SystemCallError</span>
+  <span class="ruby-identifier">record</span>.<span class="ruby-identifier">unset_path</span>(<span class="ruby-identifier">rel_path</span>)
+  <span class="ruby-value">:removed</span>
+<span class="ruby-keyword">rescue</span>
+  <span class="ruby-constant">Listen</span><span class="ruby-operator">::</span><span class="ruby-constant">Logger</span>.<span class="ruby-identifier">debug</span> <span class="ruby-node">&quot;lstat failed for: #{rel_path} (#{$ERROR_INFO})&quot;</span>
+  <span class="ruby-identifier">raise</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-inaccurate_mac_time-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">inaccurate_mac_time?</span><span
+            class="method-args">(stat)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="inaccurate_mac_time-3F-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/listen-3.1.5/lib/listen/file.rb, line 71</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">inaccurate_mac_time?</span>(<span class="ruby-identifier">stat</span>)
+  <span class="ruby-comment"># &#39;mac&#39; means Modified/Accessed/Created</span>
+
+  <span class="ruby-comment"># Since precision depends on mounted FS (e.g. you can have a FAT partiion</span>
+  <span class="ruby-comment"># mounted on Linux), check for fields with a remainder to detect this</span>
+
+  [<span class="ruby-identifier">stat</span>.<span class="ruby-identifier">mtime</span>, <span class="ruby-identifier">stat</span>.<span class="ruby-identifier">ctime</span>, <span class="ruby-identifier">stat</span>.<span class="ruby-identifier">atime</span>].<span class="ruby-identifier">map</span>(<span class="ruby-operator">&amp;</span><span class="ruby-value">:usec</span>).<span class="ruby-identifier">all?</span>(<span class="ruby-operator">&amp;</span><span class="ruby-value">:zero?</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="https://rdoc.github.io/rdoc">RDoc</a> 5.0.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

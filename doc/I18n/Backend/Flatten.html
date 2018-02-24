@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>module I18n::Backend::Flatten - RDoc Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../../";
+  var index_rel_prefix = "../../";
+</script>
+
+<script src="../../js/jquery.js"></script>
+<script src="../../js/darkfish.js"></script>
+
+<link href="../../css/fonts.css" rel="stylesheet">
+<link href="../../css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="module">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../../table_of_contents.html#pages">Pages</a>
+    <a href="../../table_of_contents.html#classes">Classes</a>
+    <a href="../../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-c-normalize_flat_keys">::normalize_flat_keys</a>
+    
+    <li ><a href="#method-i-flatten_keys">#flatten_keys</a>
+    
+    <li ><a href="#method-i-flatten_translations">#flatten_translations</a>
+    
+    <li ><a href="#method-i-links">#links</a>
+    
+    <li ><a href="#method-i-normalize_flat_keys">#normalize_flat_keys</a>
+    
+    <li ><a href="#method-i-resolve_link">#resolve_link</a>
+    
+    <li ><a href="#method-i-store_link">#store_link</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="module-I18n::Backend::Flatten">
+  <h1 id="module-I18n::Backend::Flatten" class="module">
+    module I18n::Backend::Flatten
+  </h1>
+
+  <section class="description">
+    
+<p>This module contains several helpers to assist flattening translations. You
+may want to flatten translations for:</p>
+
+<pre>1) speed up lookups, as in the Memoize backend;
+2) In case you want to store translations in a data store, as in ActiveRecord backend;</pre>
+
+<p>You can check both backends above for some examples. This module also keeps
+all links in a hash so they can be properly resolved when flattened.</p>
+
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+    <section class="constants-list">
+      <header>
+        <h3>Constants</h3>
+      </header>
+      <dl>
+      
+        <dt id="FLATTEN_SEPARATOR">FLATTEN_SEPARATOR
+        
+        <dd>
+        
+      
+        <dt id="SEPARATOR_ESCAPE_CHAR">SEPARATOR_ESCAPE_CHAR
+        
+        <dd>
+        
+      
+      </dl>
+    </section>
+    
+
+    
+
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Class Methods</h3>
+       </header>
+
+    
+      <div id="method-c-normalize_flat_keys" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">normalize_flat_keys</span><span
+            class="method-args">(locale, key, scope, separator)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>normalize_keys the flatten way. This method is significantly faster and
+creates way less objects than the one at I18n.normalize_keys. It also
+handles escaping the translation keys.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="normalize_flat_keys-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/i18n-0.9.5/lib/i18n/backend/flatten.rb, line 18</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">normalize_flat_keys</span>(<span class="ruby-identifier">locale</span>, <span class="ruby-identifier">key</span>, <span class="ruby-identifier">scope</span>, <span class="ruby-identifier">separator</span>)
+  <span class="ruby-identifier">keys</span> = [<span class="ruby-identifier">scope</span>, <span class="ruby-identifier">key</span>].<span class="ruby-identifier">flatten</span>.<span class="ruby-identifier">compact</span>
+  <span class="ruby-identifier">separator</span> <span class="ruby-operator">||=</span> <span class="ruby-constant">I18n</span>.<span class="ruby-identifier">default_separator</span>
+
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">separator</span> <span class="ruby-operator">!=</span> <span class="ruby-constant">FLATTEN_SEPARATOR</span>
+    <span class="ruby-identifier">keys</span>.<span class="ruby-identifier">map!</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">k</span><span class="ruby-operator">|</span>
+      <span class="ruby-identifier">k</span>.<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">tr</span>(<span class="ruby-node">&quot;#{FLATTEN_SEPARATOR}#{separator}&quot;</span>,
+        <span class="ruby-node">&quot;#{SEPARATOR_ESCAPE_CHAR}#{FLATTEN_SEPARATOR}&quot;</span>)
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">keys</span>.<span class="ruby-identifier">join</span>(<span class="ruby-string">&quot;.&quot;</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-flatten_keys" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">flatten_keys</span><span
+            class="method-args">(hash, escape, prev_key=nil) { |curr_key, value| ... }</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p><a href="Flatten.html">Flatten</a> keys for nested Hashes by chaining up
+keys:</p>
+
+<pre>&gt;&gt; { &quot;a&quot; =&gt; { &quot;b&quot; =&gt; { &quot;c&quot; =&gt; &quot;d&quot;, &quot;e&quot; =&gt; &quot;f&quot; }, &quot;g&quot; =&gt; &quot;h&quot; }, &quot;i&quot; =&gt; &quot;j&quot;}.wind
+=&gt; { &quot;a.b.c&quot; =&gt; &quot;d&quot;, &quot;a.b.e&quot; =&gt; &quot;f&quot;, &quot;a.g&quot; =&gt; &quot;h&quot;, &quot;i&quot; =&gt; &quot;j&quot; }</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="flatten_keys-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/i18n-0.9.5/lib/i18n/backend/flatten.rb, line 54</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">flatten_keys</span>(<span class="ruby-identifier">hash</span>, <span class="ruby-identifier">escape</span>, <span class="ruby-identifier">prev_key</span>=<span class="ruby-keyword">nil</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+  <span class="ruby-identifier">hash</span>.<span class="ruby-identifier">each_pair</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">key</span>, <span class="ruby-identifier">value</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">key</span> = <span class="ruby-identifier">escape_default_separator</span>(<span class="ruby-identifier">key</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">escape</span>
+    <span class="ruby-identifier">curr_key</span> = [<span class="ruby-identifier">prev_key</span>, <span class="ruby-identifier">key</span>].<span class="ruby-identifier">compact</span>.<span class="ruby-identifier">join</span>(<span class="ruby-constant">FLATTEN_SEPARATOR</span>).<span class="ruby-identifier">to_sym</span>
+    <span class="ruby-keyword">yield</span> <span class="ruby-identifier">curr_key</span>, <span class="ruby-identifier">value</span>
+    <span class="ruby-identifier">flatten_keys</span>(<span class="ruby-identifier">value</span>, <span class="ruby-identifier">escape</span>, <span class="ruby-identifier">curr_key</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">value</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">Hash</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-flatten_translations" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">flatten_translations</span><span
+            class="method-args">(locale, data, escape, subtree)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Receives a hash of translations (where the key is a locale and the value is
+another hash) and return a hash with all translations flattened.</p>
+
+<p>Nested hashes are included in the flattened hash just if subtree is true
+and Symbols are automatically stored as links.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="flatten_translations-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/i18n-0.9.5/lib/i18n/backend/flatten.rb, line 69</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">flatten_translations</span>(<span class="ruby-identifier">locale</span>, <span class="ruby-identifier">data</span>, <span class="ruby-identifier">escape</span>, <span class="ruby-identifier">subtree</span>)
+  <span class="ruby-identifier">hash</span> = {}
+  <span class="ruby-identifier">flatten_keys</span>(<span class="ruby-identifier">data</span>, <span class="ruby-identifier">escape</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">key</span>, <span class="ruby-identifier">value</span><span class="ruby-operator">|</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">value</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">Hash</span>)
+      <span class="ruby-identifier">hash</span>[<span class="ruby-identifier">key</span>] = <span class="ruby-identifier">value</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">subtree</span>
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-identifier">store_link</span>(<span class="ruby-identifier">locale</span>, <span class="ruby-identifier">key</span>, <span class="ruby-identifier">value</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">value</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">Symbol</span>)
+      <span class="ruby-identifier">hash</span>[<span class="ruby-identifier">key</span>] = <span class="ruby-identifier">value</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">hash</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-links" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">links</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Store flattened links.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="links-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/i18n-0.9.5/lib/i18n/backend/flatten.rb, line 45</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">links</span>
+  <span class="ruby-ivar">@links</span> <span class="ruby-operator">||=</span> <span class="ruby-constant">I18n</span>.<span class="ruby-identifier">new_double_nested_cache</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-normalize_flat_keys" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">normalize_flat_keys</span><span
+            class="method-args">(locale, key, scope, separator)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Shortcut to <a
+href="Flatten.html#method-c-normalize_flat_keys">::normalize_flat_keys</a>
+and then resolve_links.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="normalize_flat_keys-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/i18n-0.9.5/lib/i18n/backend/flatten.rb, line 39</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">normalize_flat_keys</span>(<span class="ruby-identifier">locale</span>, <span class="ruby-identifier">key</span>, <span class="ruby-identifier">scope</span>, <span class="ruby-identifier">separator</span>)
+  <span class="ruby-identifier">key</span> = <span class="ruby-constant">I18n</span><span class="ruby-operator">::</span><span class="ruby-constant">Backend</span><span class="ruby-operator">::</span><span class="ruby-constant">Flatten</span>.<span class="ruby-identifier">normalize_flat_keys</span>(<span class="ruby-identifier">locale</span>, <span class="ruby-identifier">key</span>, <span class="ruby-identifier">scope</span>, <span class="ruby-identifier">separator</span>)
+  <span class="ruby-identifier">resolve_link</span>(<span class="ruby-identifier">locale</span>, <span class="ruby-identifier">key</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="protected-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Protected Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-resolve_link" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">resolve_link</span><span
+            class="method-args">(locale, key)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="resolve_link-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/i18n-0.9.5/lib/i18n/backend/flatten.rb, line 88</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">resolve_link</span>(<span class="ruby-identifier">locale</span>, <span class="ruby-identifier">key</span>)
+  <span class="ruby-identifier">key</span>, <span class="ruby-identifier">locale</span> = <span class="ruby-identifier">key</span>.<span class="ruby-identifier">to_s</span>, <span class="ruby-identifier">locale</span>.<span class="ruby-identifier">to_sym</span>
+  <span class="ruby-identifier">links</span> = <span class="ruby-keyword">self</span>.<span class="ruby-identifier">links</span>[<span class="ruby-identifier">locale</span>]
+
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">links</span>.<span class="ruby-identifier">key?</span>(<span class="ruby-identifier">key</span>)
+    <span class="ruby-identifier">links</span>[<span class="ruby-identifier">key</span>]
+  <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">link</span> = <span class="ruby-identifier">find_link</span>(<span class="ruby-identifier">locale</span>, <span class="ruby-identifier">key</span>)
+    <span class="ruby-identifier">store_link</span>(<span class="ruby-identifier">locale</span>, <span class="ruby-identifier">key</span>, <span class="ruby-identifier">key</span>.<span class="ruby-identifier">gsub</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">link</span>))
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">key</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-store_link" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">store_link</span><span
+            class="method-args">(locale, key, link)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="store_link-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/i18n-0.9.5/lib/i18n/backend/flatten.rb, line 84</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">store_link</span>(<span class="ruby-identifier">locale</span>, <span class="ruby-identifier">key</span>, <span class="ruby-identifier">link</span>)
+  <span class="ruby-identifier">links</span>[<span class="ruby-identifier">locale</span>.<span class="ruby-identifier">to_sym</span>][<span class="ruby-identifier">key</span>.<span class="ruby-identifier">to_s</span>] = <span class="ruby-identifier">link</span>.<span class="ruby-identifier">to_s</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="https://rdoc.github.io/rdoc">RDoc</a> 5.0.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

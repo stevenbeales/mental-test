@@ -1,0 +1,1198 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class RSpec::Mocks::Proxy - RDoc Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../../";
+  var index_rel_prefix = "../../";
+</script>
+
+<script src="../../js/jquery.js"></script>
+<script src="../../js/darkfish.js"></script>
+
+<link href="../../css/fonts.css" rel="stylesheet">
+<link href="../../css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../../table_of_contents.html#pages">Pages</a>
+    <a href="../../table_of_contents.html#classes">Classes</a>
+    <a href="../../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link"><a href="../../Object.html">Object</a>
+  
+</div>
+
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-c-new">::new</a>
+    
+    <li ><a href="#method-c-prepended_modules_of">::prepended_modules_of</a>
+    
+    <li ><a href="#method-i-add_message_expectation">#add_message_expectation</a>
+    
+    <li ><a href="#method-i-add_simple_expectation">#add_simple_expectation</a>
+    
+    <li ><a href="#method-i-add_simple_stub">#add_simple_stub</a>
+    
+    <li ><a href="#method-i-add_stub">#add_stub</a>
+    
+    <li ><a href="#method-i-as_null_object">#as_null_object</a>
+    
+    <li ><a href="#method-i-build_expectation">#build_expectation</a>
+    
+    <li ><a href="#method-i-check_for_unexpected_arguments">#check_for_unexpected_arguments</a>
+    
+    <li ><a href="#method-i-ensure_implemented">#ensure_implemented</a>
+    
+    <li ><a href="#method-i-has_negative_expectation-3F">#has_negative_expectation?</a>
+    
+    <li ><a href="#method-i-message_received">#message_received</a>
+    
+    <li ><a href="#method-i-messages_arg_list">#messages_arg_list</a>
+    
+    <li ><a href="#method-i-method_double_if_exists_for_message">#method_double_if_exists_for_message</a>
+    
+    <li ><a href="#method-i-null_object-3F">#null_object?</a>
+    
+    <li ><a href="#method-i-original_method_handle_for">#original_method_handle_for</a>
+    
+    <li ><a href="#method-i-prepended_modules_of_singleton_class">#prepended_modules_of_singleton_class</a>
+    
+    <li ><a href="#method-i-raise_missing_default_stub_error">#raise_missing_default_stub_error</a>
+    
+    <li ><a href="#method-i-raise_unexpected_message_error">#raise_unexpected_message_error</a>
+    
+    <li ><a href="#method-i-received_message-3F">#received_message?</a>
+    
+    <li ><a href="#method-i-record_message_received">#record_message_received</a>
+    
+    <li ><a href="#method-i-remove_stub">#remove_stub</a>
+    
+    <li ><a href="#method-i-remove_stub_if_present">#remove_stub_if_present</a>
+    
+    <li ><a href="#method-i-replay_received_message_on">#replay_received_message_on</a>
+    
+    <li ><a href="#method-i-reset">#reset</a>
+    
+    <li ><a href="#method-i-verify">#verify</a>
+    
+    <li ><a href="#method-i-visibility_for">#visibility_for</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-RSpec::Mocks::Proxy">
+  <h1 id="class-RSpec::Mocks::Proxy" class="class">
+    class RSpec::Mocks::Proxy
+  </h1>
+
+  <section class="description">
+    
+<p>@private</p>
+
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+    <section class="constants-list">
+      <header>
+        <h3>Constants</h3>
+      </header>
+      <dl>
+      
+        <dt id="DEFAULT_MESSAGE_EXPECTATION_OPTS">DEFAULT_MESSAGE_EXPECTATION_OPTS
+        
+        <dd>
+        
+      
+        <dt id="SpecificMessage">SpecificMessage
+        
+        <dd>
+        
+      
+      </dl>
+    </section>
+    
+
+    
+    <section class="attribute-method-details" class="method-section">
+      <header>
+        <h3>Attributes</h3>
+      </header>
+
+      
+      <div id="attribute-i-object" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">object</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        <p>@private</p>
+        
+        </div>
+      </div>
+      
+    </section>
+    
+
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Class Methods</h3>
+       </header>
+
+    
+      <div id="method-c-new" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">new</span><span
+            class="method-args">(object, order_group, options={})</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>@private</p>
+          
+          
+
+          
+          <div class="method-source-code" id="new-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/rspec-mocks-3.7.0/lib/rspec/mocks/proxy.rb, line 17</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">object</span>, <span class="ruby-identifier">order_group</span>, <span class="ruby-identifier">options</span>={})
+  <span class="ruby-ivar">@object</span> = <span class="ruby-identifier">object</span>
+  <span class="ruby-ivar">@order_group</span> = <span class="ruby-identifier">order_group</span>
+  <span class="ruby-ivar">@error_generator</span> = <span class="ruby-constant">ErrorGenerator</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">object</span>)
+  <span class="ruby-ivar">@messages_received</span> = []
+  <span class="ruby-ivar">@options</span> = <span class="ruby-identifier">options</span>
+  <span class="ruby-ivar">@null_object</span> = <span class="ruby-keyword">false</span>
+  <span class="ruby-ivar">@method_doubles</span> = <span class="ruby-constant">Hash</span>.<span class="ruby-identifier">new</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">h</span>, <span class="ruby-identifier">k</span><span class="ruby-operator">|</span> <span class="ruby-identifier">h</span>[<span class="ruby-identifier">k</span>] = <span class="ruby-constant">MethodDouble</span>.<span class="ruby-identifier">new</span>(<span class="ruby-ivar">@object</span>, <span class="ruby-identifier">k</span>, <span class="ruby-keyword">self</span>) }
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-prepended_modules_of" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">prepended_modules_of</span><span
+            class="method-args">(klass)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="prepended_modules_of-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/rspec-mocks-3.7.0/lib/rspec/mocks/proxy.rb, line 216</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">prepended_modules_of</span>(<span class="ruby-identifier">klass</span>)
+  <span class="ruby-identifier">ancestors</span> = <span class="ruby-identifier">klass</span>.<span class="ruby-identifier">ancestors</span>
+
+  <span class="ruby-comment"># `|| 0` is necessary for Ruby 2.0, where the singleton class</span>
+  <span class="ruby-comment"># is only in the ancestor list when there are prepended modules.</span>
+  <span class="ruby-identifier">singleton_index</span> = <span class="ruby-identifier">ancestors</span>.<span class="ruby-identifier">index</span>(<span class="ruby-identifier">klass</span>) <span class="ruby-operator">||</span> <span class="ruby-value">0</span>
+
+  <span class="ruby-identifier">ancestors</span>[<span class="ruby-value">0</span>, <span class="ruby-identifier">singleton_index</span>]
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-add_message_expectation" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">add_message_expectation</span><span
+            class="method-args">(method_name, opts=DEFAULT_MESSAGE_EXPECTATION_OPTS, &block)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>@private</p>
+          
+          
+
+          
+          <div class="method-source-code" id="add_message_expectation-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/rspec-mocks-3.7.0/lib/rspec/mocks/proxy.rb, line 51</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">add_message_expectation</span>(<span class="ruby-identifier">method_name</span>, <span class="ruby-identifier">opts</span>=<span class="ruby-constant">DEFAULT_MESSAGE_EXPECTATION_OPTS</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+  <span class="ruby-identifier">location</span> = <span class="ruby-identifier">opts</span>.<span class="ruby-identifier">fetch</span>(<span class="ruby-value">:expected_from</span>) { <span class="ruby-constant">CallerFilter</span>.<span class="ruby-identifier">first_non_rspec_line</span> }
+  <span class="ruby-identifier">meth_double</span> = <span class="ruby-identifier">method_double_for</span>(<span class="ruby-identifier">method_name</span>)
+
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">null_object?</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-operator">!</span><span class="ruby-identifier">block</span>
+    <span class="ruby-identifier">meth_double</span>.<span class="ruby-identifier">add_default_stub</span>(<span class="ruby-ivar">@error_generator</span>, <span class="ruby-ivar">@order_group</span>, <span class="ruby-identifier">location</span>, <span class="ruby-identifier">opts</span>) <span class="ruby-keyword">do</span>
+      <span class="ruby-ivar">@object</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">meth_double</span>.<span class="ruby-identifier">add_expectation</span> <span class="ruby-ivar">@error_generator</span>, <span class="ruby-ivar">@order_group</span>, <span class="ruby-identifier">location</span>, <span class="ruby-identifier">opts</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-add_simple_expectation" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">add_simple_expectation</span><span
+            class="method-args">(method_name, response, location)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>@private</p>
+          
+          
+
+          
+          <div class="method-source-code" id="add_simple_expectation-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/rspec-mocks-3.7.0/lib/rspec/mocks/proxy.rb, line 65</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">add_simple_expectation</span>(<span class="ruby-identifier">method_name</span>, <span class="ruby-identifier">response</span>, <span class="ruby-identifier">location</span>)
+  <span class="ruby-identifier">method_double_for</span>(<span class="ruby-identifier">method_name</span>).<span class="ruby-identifier">add_simple_expectation</span> <span class="ruby-identifier">method_name</span>, <span class="ruby-identifier">response</span>, <span class="ruby-ivar">@error_generator</span>, <span class="ruby-identifier">location</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-add_simple_stub" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">add_simple_stub</span><span
+            class="method-args">(method_name, response)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>@private</p>
+          
+          
+
+          
+          <div class="method-source-code" id="add_simple_stub-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/rspec-mocks-3.7.0/lib/rspec/mocks/proxy.rb, line 122</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">add_simple_stub</span>(<span class="ruby-identifier">method_name</span>, <span class="ruby-identifier">response</span>)
+  <span class="ruby-identifier">method_double_for</span>(<span class="ruby-identifier">method_name</span>).<span class="ruby-identifier">add_simple_stub</span> <span class="ruby-identifier">method_name</span>, <span class="ruby-identifier">response</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-add_stub" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">add_stub</span><span
+            class="method-args">(method_name, opts={}, &implementation)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>@private</p>
+          
+          
+
+          
+          <div class="method-source-code" id="add_stub-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/rspec-mocks-3.7.0/lib/rspec/mocks/proxy.rb, line 116</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">add_stub</span>(<span class="ruby-identifier">method_name</span>, <span class="ruby-identifier">opts</span>={}, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">implementation</span>)
+  <span class="ruby-identifier">location</span> = <span class="ruby-identifier">opts</span>.<span class="ruby-identifier">fetch</span>(<span class="ruby-value">:expected_from</span>) { <span class="ruby-constant">CallerFilter</span>.<span class="ruby-identifier">first_non_rspec_line</span> }
+  <span class="ruby-identifier">method_double_for</span>(<span class="ruby-identifier">method_name</span>).<span class="ruby-identifier">add_stub</span> <span class="ruby-ivar">@error_generator</span>, <span class="ruby-ivar">@order_group</span>, <span class="ruby-identifier">location</span>, <span class="ruby-identifier">opts</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">implementation</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-as_null_object" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">as_null_object</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>@private Tells the object to ignore any messages that aren&#39;t explicitly
+set as stubs or message expectations.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="as_null_object-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/rspec-mocks-3.7.0/lib/rspec/mocks/proxy.rb, line 38</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">as_null_object</span>
+  <span class="ruby-ivar">@null_object</span> = <span class="ruby-keyword">true</span>
+  <span class="ruby-ivar">@object</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-build_expectation" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">build_expectation</span><span
+            class="method-args">(method_name)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>@private</p>
+          
+          
+
+          
+          <div class="method-source-code" id="build_expectation-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/rspec-mocks-3.7.0/lib/rspec/mocks/proxy.rb, line 70</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">build_expectation</span>(<span class="ruby-identifier">method_name</span>)
+  <span class="ruby-identifier">meth_double</span> = <span class="ruby-identifier">method_double_for</span>(<span class="ruby-identifier">method_name</span>)
+
+  <span class="ruby-identifier">meth_double</span>.<span class="ruby-identifier">build_expectation</span>(
+    <span class="ruby-ivar">@error_generator</span>,
+    <span class="ruby-ivar">@order_group</span>
+  )
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-check_for_unexpected_arguments" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">check_for_unexpected_arguments</span><span
+            class="method-args">(expectation)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>@private</p>
+          
+          
+
+          
+          <div class="method-source-code" id="check_for_unexpected_arguments-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/rspec-mocks-3.7.0/lib/rspec/mocks/proxy.rb, line 101</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">check_for_unexpected_arguments</span>(<span class="ruby-identifier">expectation</span>)
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">if</span> <span class="ruby-ivar">@messages_received</span>.<span class="ruby-identifier">empty?</span>
+
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">if</span> <span class="ruby-ivar">@messages_received</span>.<span class="ruby-identifier">any?</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">method_name</span>, <span class="ruby-identifier">args</span>, <span class="ruby-identifier">_</span><span class="ruby-operator">|</span> <span class="ruby-identifier">expectation</span>.<span class="ruby-identifier">matches?</span>(<span class="ruby-identifier">method_name</span>, <span class="ruby-operator">*</span><span class="ruby-identifier">args</span>) }
+
+  <span class="ruby-identifier">name_but_not_args</span>, <span class="ruby-identifier">others</span> = <span class="ruby-ivar">@messages_received</span>.<span class="ruby-identifier">partition</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span>(<span class="ruby-identifier">method_name</span>, <span class="ruby-identifier">args</span>, <span class="ruby-identifier">_</span>)<span class="ruby-operator">|</span>
+    <span class="ruby-identifier">expectation</span>.<span class="ruby-identifier">matches_name_but_not_args</span>(<span class="ruby-identifier">method_name</span>, <span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">name_but_not_args</span>.<span class="ruby-identifier">empty?</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-operator">!</span><span class="ruby-identifier">others</span>.<span class="ruby-identifier">empty?</span>
+
+  <span class="ruby-identifier">expectation</span>.<span class="ruby-identifier">raise_unexpected_message_args_error</span>(<span class="ruby-identifier">name_but_not_args</span>.<span class="ruby-identifier">map</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">args</span><span class="ruby-operator">|</span> <span class="ruby-identifier">args</span>[<span class="ruby-value">1</span>] })
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-ensure_implemented" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">ensure_implemented</span><span
+            class="method-args">(*_args)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>@private</p>
+          
+          
+
+          
+          <div class="method-source-code" id="ensure_implemented-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/rspec-mocks-3.7.0/lib/rspec/mocks/proxy.rb, line 12</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">ensure_implemented</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">_args</span>)
+  <span class="ruby-comment"># noop for basic proxies, see VerifyingProxy for behaviour.</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-has_negative_expectation-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">has_negative_expectation?</span><span
+            class="method-args">(message)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>@private</p>
+          
+          
+
+          
+          <div class="method-source-code" id="has_negative_expectation-3F-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/rspec-mocks-3.7.0/lib/rspec/mocks/proxy.rb, line 157</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">has_negative_expectation?</span>(<span class="ruby-identifier">message</span>)
+  <span class="ruby-identifier">method_double_for</span>(<span class="ruby-identifier">message</span>).<span class="ruby-identifier">expectations</span>.<span class="ruby-identifier">find</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">expectation</span><span class="ruby-operator">|</span> <span class="ruby-identifier">expectation</span>.<span class="ruby-identifier">negative_expectation_for?</span>(<span class="ruby-identifier">message</span>) }
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-message_received" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">message_received</span><span
+            class="method-args">(message, *args, &block)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>@private</p>
+          
+          
+
+          
+          <div class="method-source-code" id="message_received-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/rspec-mocks-3.7.0/lib/rspec/mocks/proxy.rb, line 168</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">message_received</span>(<span class="ruby-identifier">message</span>, <span class="ruby-operator">*</span><span class="ruby-identifier">args</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+  <span class="ruby-identifier">record_message_received</span> <span class="ruby-identifier">message</span>, <span class="ruby-operator">*</span><span class="ruby-identifier">args</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>
+
+  <span class="ruby-identifier">expectation</span> = <span class="ruby-identifier">find_matching_expectation</span>(<span class="ruby-identifier">message</span>, <span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
+  <span class="ruby-identifier">stub</span> = <span class="ruby-identifier">find_matching_method_stub</span>(<span class="ruby-identifier">message</span>, <span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
+
+  <span class="ruby-keyword">if</span> (<span class="ruby-identifier">stub</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">expectation</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">expectation</span>.<span class="ruby-identifier">called_max_times?</span>) <span class="ruby-operator">||</span> (<span class="ruby-identifier">stub</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-operator">!</span><span class="ruby-identifier">expectation</span>)
+    <span class="ruby-identifier">expectation</span>.<span class="ruby-identifier">increase_actual_received_count!</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">expectation</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">expectation</span>.<span class="ruby-identifier">actual_received_count_matters?</span>
+    <span class="ruby-keyword">if</span> (<span class="ruby-identifier">expectation</span> = <span class="ruby-identifier">find_almost_matching_expectation</span>(<span class="ruby-identifier">message</span>, <span class="ruby-operator">*</span><span class="ruby-identifier">args</span>))
+      <span class="ruby-identifier">expectation</span>.<span class="ruby-identifier">advise</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>) <span class="ruby-keyword">unless</span> <span class="ruby-identifier">expectation</span>.<span class="ruby-identifier">expected_messages_received?</span>
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-identifier">stub</span>.<span class="ruby-identifier">invoke</span>(<span class="ruby-keyword">nil</span>, <span class="ruby-operator">*</span><span class="ruby-identifier">args</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+  <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">expectation</span>
+    <span class="ruby-identifier">expectation</span>.<span class="ruby-identifier">unadvise</span>(<span class="ruby-identifier">messages_arg_list</span>)
+    <span class="ruby-identifier">expectation</span>.<span class="ruby-identifier">invoke</span>(<span class="ruby-identifier">stub</span>, <span class="ruby-operator">*</span><span class="ruby-identifier">args</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+  <span class="ruby-keyword">elsif</span> (<span class="ruby-identifier">expectation</span> = <span class="ruby-identifier">find_almost_matching_expectation</span>(<span class="ruby-identifier">message</span>, <span class="ruby-operator">*</span><span class="ruby-identifier">args</span>))
+    <span class="ruby-identifier">expectation</span>.<span class="ruby-identifier">advise</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">null_object?</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">expectation</span>.<span class="ruby-identifier">expected_messages_received?</span>
+
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">null_object?</span> <span class="ruby-operator">||</span> <span class="ruby-operator">!</span><span class="ruby-identifier">has_negative_expectation?</span>(<span class="ruby-identifier">message</span>)
+      <span class="ruby-identifier">expectation</span>.<span class="ruby-identifier">raise_unexpected_message_args_error</span>([<span class="ruby-identifier">args</span>])
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">elsif</span> (<span class="ruby-identifier">stub</span> = <span class="ruby-identifier">find_almost_matching_stub</span>(<span class="ruby-identifier">message</span>, <span class="ruby-operator">*</span><span class="ruby-identifier">args</span>))
+    <span class="ruby-identifier">stub</span>.<span class="ruby-identifier">advise</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
+    <span class="ruby-identifier">raise_missing_default_stub_error</span>(<span class="ruby-identifier">stub</span>, [<span class="ruby-identifier">args</span>])
+  <span class="ruby-keyword">elsif</span> <span class="ruby-constant">Class</span> <span class="ruby-operator">===</span> <span class="ruby-ivar">@object</span>
+    <span class="ruby-ivar">@object</span>.<span class="ruby-identifier">superclass</span>.<span class="ruby-identifier">__send__</span>(<span class="ruby-identifier">message</span>, <span class="ruby-operator">*</span><span class="ruby-identifier">args</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-ivar">@object</span>.<span class="ruby-identifier">__send__</span>(<span class="ruby-value">:method_missing</span>, <span class="ruby-identifier">message</span>, <span class="ruby-operator">*</span><span class="ruby-identifier">args</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-messages_arg_list" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">messages_arg_list</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>@private</p>
+          
+          
+
+          
+          <div class="method-source-code" id="messages_arg_list-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/rspec-mocks-3.7.0/lib/rspec/mocks/proxy.rb, line 152</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">messages_arg_list</span>
+  <span class="ruby-ivar">@messages_received</span>.<span class="ruby-identifier">map</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">_</span>, <span class="ruby-identifier">args</span>, <span class="ruby-identifier">_</span><span class="ruby-operator">|</span> <span class="ruby-identifier">args</span> }
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-method_double_if_exists_for_message" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">method_double_if_exists_for_message</span><span
+            class="method-args">(message)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>@private</p>
+          
+          
+
+          
+          <div class="method-source-code" id="method_double_if_exists_for_message-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/rspec-mocks-3.7.0/lib/rspec/mocks/proxy.rb, line 232</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">method_double_if_exists_for_message</span>(<span class="ruby-identifier">message</span>)
+  <span class="ruby-identifier">method_double_for</span>(<span class="ruby-identifier">message</span>) <span class="ruby-keyword">if</span> <span class="ruby-ivar">@method_doubles</span>.<span class="ruby-identifier">key?</span>(<span class="ruby-identifier">message</span>.<span class="ruby-identifier">to_sym</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-null_object-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">null_object?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>@private</p>
+          
+          
+
+          
+          <div class="method-source-code" id="null_object-3F-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/rspec-mocks-3.7.0/lib/rspec/mocks/proxy.rb, line 31</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">null_object?</span>
+  <span class="ruby-ivar">@null_object</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-original_method_handle_for" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">original_method_handle_for</span><span
+            class="method-args">(_message)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>@private</p>
+          
+          
+
+          
+          <div class="method-source-code" id="original_method_handle_for-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/rspec-mocks-3.7.0/lib/rspec/mocks/proxy.rb, line 44</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">original_method_handle_for</span>(<span class="ruby-identifier">_message</span>)
+  <span class="ruby-keyword">nil</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-prepended_modules_of_singleton_class" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">prepended_modules_of_singleton_class</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="prepended_modules_of_singleton_class-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/rspec-mocks-3.7.0/lib/rspec/mocks/proxy.rb, line 226</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">prepended_modules_of_singleton_class</span>
+  <span class="ruby-ivar">@prepended_modules_of_singleton_class</span> <span class="ruby-operator">||=</span> <span class="ruby-constant">RSpec</span><span class="ruby-operator">::</span><span class="ruby-constant">Mocks</span><span class="ruby-operator">::</span><span class="ruby-constant">Proxy</span>.<span class="ruby-identifier">prepended_modules_of</span>(<span class="ruby-ivar">@object</span>.<span class="ruby-identifier">singleton_class</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-raise_missing_default_stub_error" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">raise_missing_default_stub_error</span><span
+            class="method-args">(expectation, args_for_multiple_calls)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>@private</p>
+          
+          
+
+          
+          <div class="method-source-code" id="raise_missing_default_stub_error-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/rspec-mocks-3.7.0/lib/rspec/mocks/proxy.rb, line 205</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">raise_missing_default_stub_error</span>(<span class="ruby-identifier">expectation</span>, <span class="ruby-identifier">args_for_multiple_calls</span>)
+  <span class="ruby-ivar">@error_generator</span>.<span class="ruby-identifier">raise_missing_default_stub_error</span>(<span class="ruby-identifier">expectation</span>, <span class="ruby-identifier">args_for_multiple_calls</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-raise_unexpected_message_error" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">raise_unexpected_message_error</span><span
+            class="method-args">(method_name, args)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>@private</p>
+          
+          
+
+          
+          <div class="method-source-code" id="raise_unexpected_message_error-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/rspec-mocks-3.7.0/lib/rspec/mocks/proxy.rb, line 200</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">raise_unexpected_message_error</span>(<span class="ruby-identifier">method_name</span>, <span class="ruby-identifier">args</span>)
+  <span class="ruby-ivar">@error_generator</span>.<span class="ruby-identifier">raise_unexpected_message_error</span> <span class="ruby-identifier">method_name</span>, <span class="ruby-identifier">args</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-received_message-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">received_message?</span><span
+            class="method-args">(method_name, *args, &block)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>@private</p>
+          
+          
+
+          
+          <div class="method-source-code" id="received_message-3F-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/rspec-mocks-3.7.0/lib/rspec/mocks/proxy.rb, line 147</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">received_message?</span>(<span class="ruby-identifier">method_name</span>, <span class="ruby-operator">*</span><span class="ruby-identifier">args</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+  <span class="ruby-ivar">@messages_received</span>.<span class="ruby-identifier">any?</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">array</span><span class="ruby-operator">|</span> <span class="ruby-identifier">array</span> <span class="ruby-operator">==</span> [<span class="ruby-identifier">method_name</span>, <span class="ruby-identifier">args</span>, <span class="ruby-identifier">block</span>] }
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-record_message_received" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">record_message_received</span><span
+            class="method-args">(message, *args, &block)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>@private</p>
+          
+          
+
+          
+          <div class="method-source-code" id="record_message_received-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/rspec-mocks-3.7.0/lib/rspec/mocks/proxy.rb, line 162</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">record_message_received</span>(<span class="ruby-identifier">message</span>, <span class="ruby-operator">*</span><span class="ruby-identifier">args</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+  <span class="ruby-ivar">@order_group</span>.<span class="ruby-identifier">invoked</span> <span class="ruby-constant">SpecificMessage</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">object</span>, <span class="ruby-identifier">message</span>, <span class="ruby-identifier">args</span>)
+  <span class="ruby-ivar">@messages_received</span> <span class="ruby-operator">&lt;&lt;</span> [<span class="ruby-identifier">message</span>, <span class="ruby-identifier">args</span>, <span class="ruby-identifier">block</span>]
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-remove_stub" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">remove_stub</span><span
+            class="method-args">(method_name)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>@private</p>
+          
+          
+
+          
+          <div class="method-source-code" id="remove_stub-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/rspec-mocks-3.7.0/lib/rspec/mocks/proxy.rb, line 127</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">remove_stub</span>(<span class="ruby-identifier">method_name</span>)
+  <span class="ruby-identifier">method_double_for</span>(<span class="ruby-identifier">method_name</span>).<span class="ruby-identifier">remove_stub</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-remove_stub_if_present" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">remove_stub_if_present</span><span
+            class="method-args">(method_name)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>@private</p>
+          
+          
+
+          
+          <div class="method-source-code" id="remove_stub_if_present-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/rspec-mocks-3.7.0/lib/rspec/mocks/proxy.rb, line 132</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">remove_stub_if_present</span>(<span class="ruby-identifier">method_name</span>)
+  <span class="ruby-identifier">method_double_for</span>(<span class="ruby-identifier">method_name</span>).<span class="ruby-identifier">remove_stub_if_present</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-replay_received_message_on" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">replay_received_message_on</span><span
+            class="method-args">(expectation, &block)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>@private</p>
+          
+          
+
+          
+          <div class="method-source-code" id="replay_received_message_on-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/rspec-mocks-3.7.0/lib/rspec/mocks/proxy.rb, line 80</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">replay_received_message_on</span>(<span class="ruby-identifier">expectation</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+  <span class="ruby-identifier">expected_method_name</span> = <span class="ruby-identifier">expectation</span>.<span class="ruby-identifier">message</span>
+  <span class="ruby-identifier">meth_double</span> = <span class="ruby-identifier">method_double_for</span>(<span class="ruby-identifier">expected_method_name</span>)
+
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">meth_double</span>.<span class="ruby-identifier">expectations</span>.<span class="ruby-identifier">any?</span>
+    <span class="ruby-ivar">@error_generator</span>.<span class="ruby-identifier">raise_expectation_on_mocked_method</span>(<span class="ruby-identifier">expected_method_name</span>)
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">unless</span> <span class="ruby-identifier">null_object?</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">meth_double</span>.<span class="ruby-identifier">stubs</span>.<span class="ruby-identifier">any?</span>
+    <span class="ruby-ivar">@error_generator</span>.<span class="ruby-identifier">raise_expectation_on_unstubbed_method</span>(<span class="ruby-identifier">expected_method_name</span>)
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-ivar">@messages_received</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span>(<span class="ruby-identifier">actual_method_name</span>, <span class="ruby-identifier">args</span>, <span class="ruby-identifier">received_block</span>)<span class="ruby-operator">|</span>
+    <span class="ruby-keyword">next</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">expectation</span>.<span class="ruby-identifier">matches?</span>(<span class="ruby-identifier">actual_method_name</span>, <span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
+
+    <span class="ruby-identifier">expectation</span>.<span class="ruby-identifier">safe_invoke</span>(<span class="ruby-keyword">nil</span>)
+    <span class="ruby-identifier">block</span>.<span class="ruby-identifier">call</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">received_block</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">block</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-reset" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">reset</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>@private</p>
+          
+          
+
+          
+          <div class="method-source-code" id="reset-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/rspec-mocks-3.7.0/lib/rspec/mocks/proxy.rb, line 142</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">reset</span>
+  <span class="ruby-ivar">@messages_received</span>.<span class="ruby-identifier">clear</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-verify" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">verify</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>@private</p>
+          
+          
+
+          
+          <div class="method-source-code" id="verify-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/rspec-mocks-3.7.0/lib/rspec/mocks/proxy.rb, line 137</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">verify</span>
+  <span class="ruby-ivar">@method_doubles</span>.<span class="ruby-identifier">each_value</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">d</span><span class="ruby-operator">|</span> <span class="ruby-identifier">d</span>.<span class="ruby-identifier">verify</span> }
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-visibility_for" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">visibility_for</span><span
+            class="method-args">(_method_name)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>@private</p>
+          
+          
+
+          
+          <div class="method-source-code" id="visibility_for-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/rspec-mocks-3.7.0/lib/rspec/mocks/proxy.rb, line 210</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">visibility_for</span>(<span class="ruby-identifier">_method_name</span>)
+  <span class="ruby-comment"># This is the default (for test doubles). Subclasses override this.</span>
+  <span class="ruby-value">:public</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="https://rdoc.github.io/rdoc">RDoc</a> 5.0.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

@@ -1,0 +1,675 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class Oj::StringWriter - RDoc Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../";
+  var index_rel_prefix = "../";
+</script>
+
+<script src="../js/jquery.js"></script>
+<script src="../js/darkfish.js"></script>
+
+<link href="../css/fonts.css" rel="stylesheet">
+<link href="../css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../table_of_contents.html#pages">Pages</a>
+    <a href="../table_of_contents.html#classes">Classes</a>
+    <a href="../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link"><a href="../Object.html">Object</a>
+  
+</div>
+
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-c-new">::new</a>
+    
+    <li ><a href="#method-i-pop">#pop</a>
+    
+    <li ><a href="#method-i-pop_all">#pop_all</a>
+    
+    <li ><a href="#method-i-push_array">#push_array</a>
+    
+    <li ><a href="#method-i-push_json">#push_json</a>
+    
+    <li ><a href="#method-i-push_key">#push_key</a>
+    
+    <li ><a href="#method-i-push_object">#push_object</a>
+    
+    <li ><a href="#method-i-push_value">#push_value</a>
+    
+    <li ><a href="#method-i-reset">#reset</a>
+    
+    <li ><a href="#method-i-to_s">#to_s</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-Oj::StringWriter">
+  <h1 id="class-Oj::StringWriter" class="class">
+    class Oj::StringWriter
+  </h1>
+
+  <section class="description">
+    
+<p>Supports building a <a href="../JSON.html">JSON</a> document one element at
+a time. Build the document by pushing values into the document. Pushing an
+array or an object will create that element in the <a
+href="../JSON.html">JSON</a> document and subsequent pushes will add the
+elements to that array or object until a pop() is called. When complete
+calling <a href="StringWriter.html#method-i-to_s">#to_s</a>() will return
+the <a href="../JSON.html">JSON</a> document. Note tha calling <a
+href="StringWriter.html#method-i-to_s">#to_s</a>() before construction is
+complete will return the document in it&#39;s current state.</p>
+
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Class Methods</h3>
+       </header>
+
+    
+      <div id="method-c-new" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            new(io, options)
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Creates a new <a href="StringWriter.html">StringWriter</a>. <a
+href="../vendor/bundle/ruby/2_4_0/gems/oj-3_4_0/pages/Options_md.html">Options</a>
+are supported according the the specified mode or the mode in the default
+options. Note that if mimic_JSON or Oj.optimize_rails has not been called
+then the behavior of the modes may not be the same as if they were.</p>
+
+<p>In addition to the regular dump options for the various modes a
+<em>:buffer_size</em> option is available. It should be set to a positive
+integer. It is considered a hint of how large the initial internal buffer
+should be.</p>
+<ul><li>
+<p><strong>io</strong> [<em>IO</em>] stream to write to</p>
+</li><li>
+<p><strong>options</strong> [<em>Hash</em>] formating options</p>
+</li></ul>
+          
+          
+
+          
+          <div class="method-source-code" id="new-source">
+            <pre>static VALUE
+str_writer_new(int argc, VALUE *argv, VALUE self) {
+    StrWriter   sw = ALLOC(struct _StrWriter);
+    
+    oj_str_writer_init(sw, 0);
+    if (1 == argc) {
+        oj_parse_options(argv[0], &amp;sw-&gt;opts);
+    }
+    sw-&gt;out.argc = argc - 1;
+    sw-&gt;out.argv = argv + 1;
+    sw-&gt;out.indent = sw-&gt;opts.indent;
+
+    return Data_Wrap_Struct(oj_string_writer_class, 0, str_writer_free, sw);
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-pop" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            pop()
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Pops up a level in the <a href="../JSON.html">JSON</a> document closing the
+array or object that is currently open.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="pop-source">
+            <pre>static VALUE
+str_writer_pop(VALUE self) {
+    oj_str_writer_pop((StrWriter)DATA_PTR(self));
+    return Qnil;
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-pop_all" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            pop_all()
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Pops all level in the <a href="../JSON.html">JSON</a> document closing all
+the array or object that is currently open.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="pop_all-source">
+            <pre>static VALUE
+str_writer_pop_all(VALUE self) {
+    oj_str_writer_pop_all((StrWriter)DATA_PTR(self));
+
+    return Qnil;
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-push_array" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            push_array(key=nil)
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Pushes an array onto the <a href="../JSON.html">JSON</a> document. Future
+pushes will be to this object until a pop() is called.</p>
+<ul><li>
+<p><strong>key</strong> [<em>String</em>] the key if adding to an object in
+the <a href="../JSON.html">JSON</a> document</p>
+</li></ul>
+          
+          
+
+          
+          <div class="method-source-code" id="push_array-source">
+            <pre>static VALUE
+str_writer_push_array(int argc, VALUE *argv, VALUE self) {
+    StrWriter   sw = (StrWriter)DATA_PTR(self);
+
+    switch (argc) {
+    case 0:
+        oj_str_writer_push_array(sw, 0);
+        break;
+    case 1:
+        if (Qnil == argv[0]) {
+            oj_str_writer_push_array(sw, 0);
+        } else {
+            rb_check_type(argv[0], T_STRING);
+            oj_str_writer_push_array(sw, StringValuePtr(argv[0]));
+        }
+        break;
+    default:
+        rb_raise(rb_eArgError, &quot;Wrong number of argument to &#39;push_object&#39;.&quot;);
+        break;
+    }
+    if (rb_block_given_p()) {
+        rb_yield(Qnil);
+        oj_str_writer_pop(sw);
+    }
+    return Qnil;
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-push_json" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            push_json(value, key=nil)
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Pushes a string onto the <a href="../JSON.html">JSON</a> document. The <a
+href="../String.html">String</a> must be a valid <a
+href="../JSON.html">JSON</a> encoded string. No additional checking is done
+to verify the validity of the string.</p>
+<ul><li>
+<p><strong>value</strong> [<em>Object</em>] value to add to the <a
+href="../JSON.html">JSON</a> document</p>
+</li><li>
+<p><strong>key</strong> [<em>String</em>] the key if adding to an object in
+the <a href="../JSON.html">JSON</a> document</p>
+</li></ul>
+          
+          
+
+          
+          <div class="method-source-code" id="push_json-source">
+            <pre>static VALUE
+str_writer_push_json(int argc, VALUE *argv, VALUE self) {
+    rb_check_type(argv[0], T_STRING);
+    switch (argc) {
+    case 1:
+        oj_str_writer_push_json((StrWriter)DATA_PTR(self), StringValuePtr(*argv), 0);
+        break;
+    case 2:
+        if (Qnil == argv[1]) {
+            oj_str_writer_push_json((StrWriter)DATA_PTR(self), StringValuePtr(*argv), 0);
+        } else {
+            rb_check_type(argv[1], T_STRING);
+            oj_str_writer_push_json((StrWriter)DATA_PTR(self), StringValuePtr(*argv), StringValuePtr(argv[1]));
+        }
+        break;
+    default:
+        rb_raise(rb_eArgError, &quot;Wrong number of argument to &#39;push_json&#39;.&quot;);
+        break;
+    }
+    return Qnil;
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-push_key" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            push_key(key)
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Pushes a key onto the <a href="../JSON.html">JSON</a> document. The key
+will be used for the next push if currently in a <a
+href="../JSON.html">JSON</a> object and ignored otherwise. If a key is
+provided on the next push then that new key will be ignored.</p>
+<ul><li>
+<p><strong>key</strong> [<em>String</em>] the key pending for the next push</p>
+</li></ul>
+          
+          
+
+          
+          <div class="method-source-code" id="push_key-source">
+            <pre>static VALUE
+str_writer_push_key(VALUE self, VALUE key) {
+    StrWriter   sw = (StrWriter)DATA_PTR(self);
+
+    rb_check_type(key, T_STRING);
+    oj_str_writer_push_key(sw, StringValuePtr(key));
+
+    return Qnil;
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-push_object" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            push_object(key=nil)
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Pushes an object onto the <a href="../JSON.html">JSON</a> document. Future
+pushes will be to this object until a pop() is called.</p>
+<ul><li>
+<p><strong>key</strong> [<em>String</em>] the key if adding to an object in
+the <a href="../JSON.html">JSON</a> document</p>
+</li></ul>
+          
+          
+
+          
+          <div class="method-source-code" id="push_object-source">
+            <pre>static VALUE
+str_writer_push_object(int argc, VALUE *argv, VALUE self) {
+    StrWriter   sw = (StrWriter)DATA_PTR(self);
+
+    switch (argc) {
+    case 0:
+        oj_str_writer_push_object(sw, 0);
+        break;
+    case 1:
+        if (Qnil == argv[0]) {
+            oj_str_writer_push_object(sw, 0);
+        } else {
+            rb_check_type(argv[0], T_STRING);
+            oj_str_writer_push_object(sw, StringValuePtr(argv[0]));
+        }
+        break;
+    default:
+        rb_raise(rb_eArgError, &quot;Wrong number of argument to &#39;push_object&#39;.&quot;);
+        break;
+    }
+    if (rb_block_given_p()) {
+        rb_yield(Qnil);
+        oj_str_writer_pop(sw);
+    }
+    return Qnil;
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-push_value" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            push_value(value, key=nil)
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Pushes a value onto the <a href="../JSON.html">JSON</a> document.</p>
+<ul><li>
+<p><strong>value</strong> [<em>Object</em>] value to add to the <a
+href="../JSON.html">JSON</a> document</p>
+</li><li>
+<p><strong>key</strong> [<em>String</em>] the key if adding to an object in
+the <a href="../JSON.html">JSON</a> document</p>
+</li></ul>
+          
+          
+
+          
+          <div class="method-source-code" id="push_value-source">
+            <pre>static VALUE
+str_writer_push_value(int argc, VALUE *argv, VALUE self) {
+    switch (argc) {
+    case 1:
+        oj_str_writer_push_value((StrWriter)DATA_PTR(self), *argv, 0);
+        break;
+    case 2:
+        if (Qnil == argv[1]) {
+            oj_str_writer_push_value((StrWriter)DATA_PTR(self), *argv, 0);
+        } else {
+            rb_check_type(argv[1], T_STRING);
+            oj_str_writer_push_value((StrWriter)DATA_PTR(self), *argv, StringValuePtr(argv[1]));
+        }
+        break;
+    default:
+        rb_raise(rb_eArgError, &quot;Wrong number of argument to &#39;push_value&#39;.&quot;);
+        break;
+    }
+    return Qnil;
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-reset" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            reset()
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Reset the writer back to the empty state.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="reset-source">
+            <pre>static VALUE
+str_writer_reset(VALUE self) {
+    StrWriter   sw = (StrWriter)DATA_PTR(self);
+
+    sw-&gt;depth = 0;
+    *sw-&gt;types = &#39;\0&#39;;
+    sw-&gt;keyWritten = 0;
+    sw-&gt;out.cur = sw-&gt;out.buf;
+    *sw-&gt;out.cur = &#39;\0&#39;;
+
+    return Qnil;
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-to_s" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            to_s()
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Returns the <a href="../JSON.html">JSON</a> document string in what ever
+state the construction is at.</p>
+
+<p><strong>return</strong> [<em>String</em>]</p>
+          
+          
+
+          
+          <div class="method-source-code" id="to_s-source">
+            <pre>static VALUE
+str_writer_to_s(VALUE self) {
+    StrWriter   sw = (StrWriter)DATA_PTR(self);
+    VALUE       rstr = rb_str_new(sw-&gt;out.buf, sw-&gt;out.cur - sw-&gt;out.buf);
+
+    return oj_encode(rstr);
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="https://rdoc.github.io/rdoc">RDoc</a> 5.0.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

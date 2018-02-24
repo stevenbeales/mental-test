@@ -1,0 +1,638 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>module Pry::Helpers::CommandHelpers - RDoc Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../../";
+  var index_rel_prefix = "../../";
+</script>
+
+<script src="../../js/jquery.js"></script>
+<script src="../../js/darkfish.js"></script>
+
+<link href="../../css/fonts.css" rel="stylesheet">
+<link href="../../css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="module">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../../table_of_contents.html#pages">Pages</a>
+    <a href="../../table_of_contents.html#classes">Classes</a>
+    <a href="../../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    
+    <div id="includes-section" class="nav-section">
+  <h3>Included Modules</h3>
+
+  <ul class="link-list">
+  
+  
+    <li><a class="include" href="OptionsHelpers.html">Pry::Helpers::OptionsHelpers</a>
+  
+  
+  </ul>
+</div>
+
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-i-absolute_index_number">#absolute_index_number</a>
+    
+    <li ><a href="#method-i-absolute_index_range">#absolute_index_range</a>
+    
+    <li ><a href="#method-i-command_error">#command_error</a>
+    
+    <li ><a href="#method-i-get_method_or_raise">#get_method_or_raise</a>
+    
+    <li ><a href="#method-i-internal_binding-3F">#internal_binding?</a>
+    
+    <li ><a href="#method-i-one_index_number">#one_index_number</a>
+    
+    <li ><a href="#method-i-one_index_range">#one_index_range</a>
+    
+    <li ><a href="#method-i-one_index_range_or_number">#one_index_range_or_number</a>
+    
+    <li ><a href="#method-i-restrict_to_lines">#restrict_to_lines</a>
+    
+    <li ><a href="#method-i-set_file_and_dir_locals">#set_file_and_dir_locals</a>
+    
+    <li ><a href="#method-i-temp_file">#temp_file</a>
+    
+    <li ><a href="#method-i-unindent">#unindent</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="module-Pry::Helpers::CommandHelpers">
+  <h1 id="module-Pry::Helpers::CommandHelpers" class="module">
+    module Pry::Helpers::CommandHelpers
+  </h1>
+
+  <section class="description">
+    
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+
+    
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-absolute_index_number" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">absolute_index_number</span><span
+            class="method-args">(line_number, array_length)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="absolute_index_number-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/pry-0.11.3/lib/pry/helpers/command_helpers.rb, line 125</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">absolute_index_number</span>(<span class="ruby-identifier">line_number</span>, <span class="ruby-identifier">array_length</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">line_number</span> <span class="ruby-operator">&gt;=</span> <span class="ruby-value">0</span>
+    <span class="ruby-identifier">line_number</span>
+  <span class="ruby-keyword">else</span>
+    [<span class="ruby-identifier">array_length</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">line_number</span>, <span class="ruby-value">0</span>].<span class="ruby-identifier">max</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-absolute_index_range" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">absolute_index_range</span><span
+            class="method-args">(range_or_number, array_length)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="absolute_index_range-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/pry-0.11.3/lib/pry/helpers/command_helpers.rb, line 133</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">absolute_index_range</span>(<span class="ruby-identifier">range_or_number</span>, <span class="ruby-identifier">array_length</span>)
+  <span class="ruby-keyword">case</span> <span class="ruby-identifier">range_or_number</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-constant">Range</span>
+    <span class="ruby-identifier">a</span> = <span class="ruby-identifier">absolute_index_number</span>(<span class="ruby-identifier">range_or_number</span>.<span class="ruby-identifier">begin</span>, <span class="ruby-identifier">array_length</span>)
+    <span class="ruby-identifier">b</span> = <span class="ruby-identifier">absolute_index_number</span>(<span class="ruby-identifier">range_or_number</span>.<span class="ruby-identifier">end</span>, <span class="ruby-identifier">array_length</span>)
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">a</span> = <span class="ruby-identifier">b</span> = <span class="ruby-identifier">absolute_index_number</span>(<span class="ruby-identifier">range_or_number</span>, <span class="ruby-identifier">array_length</span>)
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-constant">Range</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">a</span>, <span class="ruby-identifier">b</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-command_error" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">command_error</span><span
+            class="method-args">(message, omit_help, klass=CommandError)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="command_error-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/pry-0.11.3/lib/pry/helpers/command_helpers.rb, line 47</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">command_error</span>(<span class="ruby-identifier">message</span>, <span class="ruby-identifier">omit_help</span>, <span class="ruby-identifier">klass</span>=<span class="ruby-constant">CommandError</span>)
+  <span class="ruby-identifier">message</span> <span class="ruby-operator">+=</span> <span class="ruby-node">&quot; Type `#{command_name} --help` for help.&quot;</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">omit_help</span>
+  <span class="ruby-identifier">raise</span> <span class="ruby-identifier">klass</span>, <span class="ruby-identifier">message</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-get_method_or_raise" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">get_method_or_raise</span><span
+            class="method-args">(name, target, opts={}, omit_help=false)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="get_method_or_raise-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/pry-0.11.3/lib/pry/helpers/command_helpers.rb, line 24</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">get_method_or_raise</span>(<span class="ruby-identifier">name</span>, <span class="ruby-identifier">target</span>, <span class="ruby-identifier">opts</span>={}, <span class="ruby-identifier">omit_help</span>=<span class="ruby-keyword">false</span>)
+  <span class="ruby-identifier">meth</span> = <span class="ruby-constant">Pry</span><span class="ruby-operator">::</span><span class="ruby-constant">Method</span>.<span class="ruby-identifier">from_str</span>(<span class="ruby-identifier">name</span>, <span class="ruby-identifier">target</span>, <span class="ruby-identifier">opts</span>)
+
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">name</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-operator">!</span><span class="ruby-identifier">meth</span>
+    <span class="ruby-identifier">command_error</span>(<span class="ruby-node">&quot;The method &#39;#{name}&#39; could not be found.&quot;</span>, <span class="ruby-identifier">omit_help</span>, <span class="ruby-constant">MethodNotFound</span>)
+  <span class="ruby-keyword">end</span>
+
+  (<span class="ruby-identifier">opts</span>[<span class="ruby-value">:super</span>] <span class="ruby-operator">||</span> <span class="ruby-value">0</span>).<span class="ruby-identifier">times</span> <span class="ruby-keyword">do</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">meth</span>.<span class="ruby-identifier">super</span>
+      <span class="ruby-identifier">meth</span> = <span class="ruby-identifier">meth</span>.<span class="ruby-identifier">super</span>
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-identifier">command_error</span>(<span class="ruby-node">&quot;&#39;#{meth.name_with_owner}&#39; has no super method.&quot;</span>, <span class="ruby-identifier">omit_help</span>, <span class="ruby-constant">MethodNotFound</span>)
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">if</span> <span class="ruby-operator">!</span><span class="ruby-identifier">meth</span> <span class="ruby-operator">||</span> (<span class="ruby-operator">!</span><span class="ruby-identifier">name</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">internal_binding?</span>(<span class="ruby-identifier">target</span>))
+    <span class="ruby-identifier">command_error</span>(<span class="ruby-string">&quot;No method name given, and context is not a method.&quot;</span>, <span class="ruby-identifier">omit_help</span>, <span class="ruby-constant">MethodNotFound</span>)
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">set_file_and_dir_locals</span>(<span class="ruby-identifier">meth</span>.<span class="ruby-identifier">source_file</span>)
+  <span class="ruby-identifier">meth</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-internal_binding-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">internal_binding?</span><span
+            class="method-args">(target)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="internal_binding-3F-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/pry-0.11.3/lib/pry/helpers/command_helpers.rb, line 18</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">internal_binding?</span>(<span class="ruby-identifier">target</span>)
+  <span class="ruby-identifier">m</span> = <span class="ruby-identifier">target</span>.<span class="ruby-identifier">eval</span>(<span class="ruby-string">&quot;::Kernel.__method__&quot;</span>).<span class="ruby-identifier">to_s</span>
+  <span class="ruby-comment"># class_eval is here because of http://jira.codehaus.org/browse/JRUBY-6753</span>
+  [<span class="ruby-string">&quot;__binding__&quot;</span>, <span class="ruby-string">&quot;__pry__&quot;</span>, <span class="ruby-string">&quot;class_eval&quot;</span>].<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">m</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-one_index_number" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">one_index_number</span><span
+            class="method-args">(line_number)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="one_index_number-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/pry-0.11.3/lib/pry/helpers/command_helpers.rb, line 103</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">one_index_number</span>(<span class="ruby-identifier">line_number</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">line_number</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">0</span>
+    <span class="ruby-identifier">line_number</span> <span class="ruby-operator">-</span> <span class="ruby-value">1</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">line_number</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-one_index_range" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">one_index_range</span><span
+            class="method-args">(range)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>convert a 1-index range to a 0-indexed one</p>
+          
+          
+
+          
+          <div class="method-source-code" id="one_index_range-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/pry-0.11.3/lib/pry/helpers/command_helpers.rb, line 112</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">one_index_range</span>(<span class="ruby-identifier">range</span>)
+  <span class="ruby-constant">Range</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">one_index_number</span>(<span class="ruby-identifier">range</span>.<span class="ruby-identifier">begin</span>), <span class="ruby-identifier">one_index_number</span>(<span class="ruby-identifier">range</span>.<span class="ruby-identifier">end</span>))
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-one_index_range_or_number" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">one_index_range_or_number</span><span
+            class="method-args">(range_or_number)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="one_index_range_or_number-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/pry-0.11.3/lib/pry/helpers/command_helpers.rb, line 116</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">one_index_range_or_number</span>(<span class="ruby-identifier">range_or_number</span>)
+  <span class="ruby-keyword">case</span> <span class="ruby-identifier">range_or_number</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-constant">Range</span>
+    <span class="ruby-identifier">one_index_range</span>(<span class="ruby-identifier">range_or_number</span>)
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">one_index_number</span>(<span class="ruby-identifier">range_or_number</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-restrict_to_lines" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">restrict_to_lines</span><span
+            class="method-args">(content, lines)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Restrict a string to the given range of lines (1-indexed) @param [String]
+content The string. @param [Range, Fixnum] lines The line(s) to restrict it
+to. @return [String] The resulting string.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="restrict_to_lines-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/pry-0.11.3/lib/pry/helpers/command_helpers.rb, line 98</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">restrict_to_lines</span>(<span class="ruby-identifier">content</span>, <span class="ruby-identifier">lines</span>)
+  <span class="ruby-identifier">line_range</span> = <span class="ruby-identifier">one_index_range_or_number</span>(<span class="ruby-identifier">lines</span>)
+  <span class="ruby-constant">Array</span>(<span class="ruby-identifier">content</span>.<span class="ruby-identifier">lines</span>.<span class="ruby-identifier">to_a</span>[<span class="ruby-identifier">line_range</span>]).<span class="ruby-identifier">join</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-set_file_and_dir_locals" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">set_file_and_dir_locals</span><span
+            class="method-args">(file_name, _pry_=_pry_(), target=target())</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="set_file_and_dir_locals-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/pry-0.11.3/lib/pry/helpers/command_helpers.rb, line 145</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">set_file_and_dir_locals</span>(<span class="ruby-identifier">file_name</span>, <span class="ruby-identifier">_pry_</span>=<span class="ruby-identifier">_pry_</span>(), <span class="ruby-identifier">target</span>=<span class="ruby-identifier">target</span>())
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">if</span> <span class="ruby-operator">!</span><span class="ruby-identifier">target</span> <span class="ruby-keyword">or</span> <span class="ruby-operator">!</span><span class="ruby-identifier">file_name</span>
+  <span class="ruby-identifier">_pry_</span>.<span class="ruby-identifier">last_file</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">expand_path</span>(<span class="ruby-identifier">file_name</span>)
+  <span class="ruby-identifier">_pry_</span>.<span class="ruby-identifier">inject_local</span>(<span class="ruby-string">&quot;_file_&quot;</span>, <span class="ruby-identifier">_pry_</span>.<span class="ruby-identifier">last_file</span>, <span class="ruby-identifier">target</span>)
+
+  <span class="ruby-identifier">_pry_</span>.<span class="ruby-identifier">last_dir</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">dirname</span>(<span class="ruby-identifier">_pry_</span>.<span class="ruby-identifier">last_file</span>)
+  <span class="ruby-identifier">_pry_</span>.<span class="ruby-identifier">inject_local</span>(<span class="ruby-string">&quot;_dir_&quot;</span>, <span class="ruby-identifier">_pry_</span>.<span class="ruby-identifier">last_dir</span>, <span class="ruby-identifier">target</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-temp_file" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">temp_file</span><span
+            class="method-args">(ext='.rb') { |file| ... }</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Open a temp file and yield it to the block, closing it after @return
+[String] The path of the temp file</p>
+          
+          
+
+          
+          <div class="method-source-code" id="temp_file-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/pry-0.11.3/lib/pry/helpers/command_helpers.rb, line 11</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">temp_file</span>(<span class="ruby-identifier">ext</span>=<span class="ruby-string">&#39;.rb&#39;</span>)
+  <span class="ruby-identifier">file</span> = <span class="ruby-constant">Tempfile</span>.<span class="ruby-identifier">new</span>([<span class="ruby-string">&#39;pry&#39;</span>, <span class="ruby-identifier">ext</span>])
+  <span class="ruby-keyword">yield</span> <span class="ruby-identifier">file</span>
+<span class="ruby-keyword">ensure</span>
+  <span class="ruby-identifier">file</span>.<span class="ruby-identifier">close</span>(<span class="ruby-keyword">true</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">file</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-unindent" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">unindent</span><span
+            class="method-args">(text, left_padding = 0)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Remove any common leading whitespace from every line in `text`.</p>
+
+<p>This can be used to make a HEREDOC line up with the left margin, without
+sacrificing the indentation level of the source code.</p>
+
+<p>e.g.</p>
+
+<pre class="ruby"><span class="ruby-identifier">opt</span>.<span class="ruby-identifier">banner</span> <span class="ruby-identifier">unindent</span> <span class="ruby-value">&lt;&lt;-USAGE
+  Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+  sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+    &quot;Ut enim ad minim veniam.&quot;
+USAGE</span>
+</pre>
+
+<p>Heavily based on textwrap.dedent from Python, which is:</p>
+
+<pre>Copyright (C) 1999-2001 Gregory P. Ward.
+Copyright (C) 2002, 2003 Python Software Foundation.
+Written by Greg Ward &lt;gward@python.net&gt;
+
+Licensed under &lt;http://docs.python.org/license.html&gt;
+From &lt;http://hg.python.org/cpython/file/6b9f0a6efaeb/Lib/textwrap.py&gt;</pre>
+
+<p>@param [String] text The text from which to remove indentation @return
+[String] The text with indentation stripped.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="unindent-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/pry-0.11.3/lib/pry/helpers/command_helpers.rb, line 74</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">unindent</span>(<span class="ruby-identifier">text</span>, <span class="ruby-identifier">left_padding</span> = <span class="ruby-value">0</span>)
+  <span class="ruby-comment"># Empty blank lines</span>
+  <span class="ruby-identifier">text</span> = <span class="ruby-identifier">text</span>.<span class="ruby-identifier">sub</span>(<span class="ruby-regexp">/^[ \t]+$/</span>, <span class="ruby-string">&#39;&#39;</span>)
+
+  <span class="ruby-comment"># Find the longest common whitespace to all indented lines</span>
+  <span class="ruby-comment"># Ignore lines containing just -- or ++ as these seem to be used by</span>
+  <span class="ruby-comment"># comment authors as delimeters.</span>
+  <span class="ruby-identifier">margin</span> = <span class="ruby-identifier">text</span>.<span class="ruby-identifier">scan</span>(<span class="ruby-regexp">/^[ \t]*(?!--\n|\+\+\n)(?=[^ \t\n])/</span>).<span class="ruby-identifier">inject</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">current_margin</span>, <span class="ruby-identifier">next_indent</span><span class="ruby-operator">|</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">next_indent</span>.<span class="ruby-identifier">start_with?</span>(<span class="ruby-identifier">current_margin</span>)
+      <span class="ruby-identifier">current_margin</span>
+    <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">current_margin</span>.<span class="ruby-identifier">start_with?</span>(<span class="ruby-identifier">next_indent</span>)
+      <span class="ruby-identifier">next_indent</span>
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-string">&quot;&quot;</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">text</span>.<span class="ruby-identifier">gsub</span>(<span class="ruby-node">/^#{margin}/</span>, <span class="ruby-string">&#39; &#39;</span> <span class="ruby-operator">*</span> <span class="ruby-identifier">left_padding</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="https://rdoc.github.io/rdoc">RDoc</a> 5.0.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

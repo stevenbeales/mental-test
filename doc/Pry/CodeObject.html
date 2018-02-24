@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class Pry::CodeObject - RDoc Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../";
+  var index_rel_prefix = "../";
+</script>
+
+<script src="../js/jquery.js"></script>
+<script src="../js/darkfish.js"></script>
+
+<link href="../css/fonts.css" rel="stylesheet">
+<link href="../css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../table_of_contents.html#pages">Pages</a>
+    <a href="../table_of_contents.html#classes">Classes</a>
+    <a href="../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link"><a href="../Object.html">Object</a>
+  
+</div>
+
+    <div id="includes-section" class="nav-section">
+  <h3>Included Modules</h3>
+
+  <ul class="link-list">
+  
+  
+    <li><a class="include" href="Helpers/CommandHelpers.html">Pry::Helpers::CommandHelpers</a>
+  
+  
+  </ul>
+</div>
+
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-c-lookup">::lookup</a>
+    
+    <li ><a href="#method-c-new">::new</a>
+    
+    <li ><a href="#method-i-command_lookup">#command_lookup</a>
+    
+    <li ><a href="#method-i-default_lookup">#default_lookup</a>
+    
+    <li ><a href="#method-i-empty_lookup">#empty_lookup</a>
+    
+    <li ><a href="#method-i-method_or_class_lookup">#method_or_class_lookup</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-Pry::CodeObject">
+  <h1 id="class-Pry::CodeObject" class="class">
+    class Pry::CodeObject
+  </h1>
+
+  <section class="description">
+    
+<p>This class is responsible for taking a string (identifying a
+command/class/method/etc) and returning the relevant type of object. For
+example, if the user looks up “show-source” then  a `Pry::Command` will be
+returned. Alternatively, if the user passes in “Pry#repl” then a
+`Pry::Method` object will be returned.</p>
+
+<p>The `CodeObject.lookup` method is responsible for 1. figuring out what kind
+of object the user wants (applying precedence rules in doing so – i.e
+methods get precedence over commands with the same name) and 2. Returning
+the appropriate object. If the user fails to provide a string identifer for
+the object (i.e they pass in `nil` or “”) then the object looked up will be
+the &#39;current method&#39; or &#39;current class&#39; associated with the
+Binding.</p>
+
+<p>TODO: This class is a clusterfuck. We need a much more robust concept of
+what a “Code Object” really is. Currently
+commands/classes/candidates/methods and so on just share a very ill-defined
+interface.</p>
+
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+    <section class="attribute-method-details" class="method-section">
+      <header>
+        <h3>Attributes</h3>
+      </header>
+
+      
+      <div id="attribute-i-_pry_" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">_pry_</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-str" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">str</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-super_level" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">super_level</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-target" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">target</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+    </section>
+    
+
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Class Methods</h3>
+       </header>
+
+    
+      <div id="method-c-lookup" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">lookup</span><span
+            class="method-args">(str, _pry_, options={})</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="lookup-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/pry-0.11.3/lib/pry/code_object.rb, line 67</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">lookup</span>(<span class="ruby-identifier">str</span>, <span class="ruby-identifier">_pry_</span>, <span class="ruby-identifier">options</span>={})
+  <span class="ruby-identifier">co</span> = <span class="ruby-identifier">new</span>(<span class="ruby-identifier">str</span>, <span class="ruby-identifier">_pry_</span>, <span class="ruby-identifier">options</span>)
+
+  <span class="ruby-identifier">co</span>.<span class="ruby-identifier">default_lookup</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">co</span>.<span class="ruby-identifier">method_or_class_lookup</span> <span class="ruby-operator">||</span>
+    <span class="ruby-identifier">co</span>.<span class="ruby-identifier">command_lookup</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">co</span>.<span class="ruby-identifier">empty_lookup</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-new" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">new</span><span
+            class="method-args">(str, _pry_, options={})</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="new-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/pry-0.11.3/lib/pry/code_object.rb, line 80</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">str</span>, <span class="ruby-identifier">_pry_</span>, <span class="ruby-identifier">options</span>={})
+  <span class="ruby-identifier">options</span> = {
+    <span class="ruby-value">:super</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">0</span>,
+  }.<span class="ruby-identifier">merge!</span>(<span class="ruby-identifier">options</span>)
+
+  <span class="ruby-ivar">@str</span> = <span class="ruby-identifier">str</span>
+  <span class="ruby-ivar">@_pry_</span> = <span class="ruby-identifier">_pry_</span>
+  <span class="ruby-ivar">@target</span> = <span class="ruby-identifier">_pry_</span>.<span class="ruby-identifier">current_context</span>
+  <span class="ruby-ivar">@super_level</span> = <span class="ruby-identifier">options</span>[<span class="ruby-value">:super</span>]
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-command_lookup" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">command_lookup</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="command_lookup-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/pry-0.11.3/lib/pry/code_object.rb, line 91</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">command_lookup</span>
+  <span class="ruby-comment"># TODO: just make it so find_command_by_match_or_listing doesn&#39;t</span>
+  <span class="ruby-comment"># raise?</span>
+  <span class="ruby-identifier">_pry_</span>.<span class="ruby-identifier">commands</span>.<span class="ruby-identifier">find_command_by_match_or_listing</span>(<span class="ruby-identifier">str</span>) <span class="ruby-keyword">rescue</span> <span class="ruby-keyword">nil</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-default_lookup" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">default_lookup</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>lookup variables and constants and `self` that are not modules</p>
+          
+          
+
+          
+          <div class="method-source-code" id="default_lookup-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/pry-0.11.3/lib/pry/code_object.rb, line 115</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">default_lookup</span>
+
+  <span class="ruby-comment"># we skip instance methods as we want those to fall through to method_or_class_lookup()</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">safe_to_evaluate?</span>(<span class="ruby-identifier">str</span>) <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-operator">!</span><span class="ruby-identifier">looks_like_an_instance_method?</span>(<span class="ruby-identifier">str</span>)
+    <span class="ruby-identifier">obj</span> = <span class="ruby-identifier">target</span>.<span class="ruby-identifier">eval</span>(<span class="ruby-identifier">str</span>)
+
+    <span class="ruby-comment"># restrict to only objects we KNOW for sure support the full API</span>
+    <span class="ruby-comment"># Do NOT support just any object that responds to source_location</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">sourcable_object?</span>(<span class="ruby-identifier">obj</span>)
+      <span class="ruby-constant">Pry</span><span class="ruby-operator">::</span><span class="ruby-constant">Method</span>(<span class="ruby-identifier">obj</span>)
+    <span class="ruby-keyword">elsif</span> <span class="ruby-operator">!</span><span class="ruby-identifier">obj</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">Module</span>)
+      <span class="ruby-constant">Pry</span><span class="ruby-operator">::</span><span class="ruby-constant">WrappedModule</span>(<span class="ruby-identifier">obj</span>.<span class="ruby-identifier">class</span>)
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-keyword">nil</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+
+<span class="ruby-keyword">rescue</span> <span class="ruby-constant">Pry</span><span class="ruby-operator">::</span><span class="ruby-constant">RescuableException</span>
+  <span class="ruby-keyword">nil</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-empty_lookup" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">empty_lookup</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>when no paramter is given (i.e <a
+href="CodeObject.html#method-c-lookup">::lookup</a>), then we lookup the
+&#39;current object&#39; from the binding.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="empty_lookup-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/pry-0.11.3/lib/pry/code_object.rb, line 99</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">empty_lookup</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">nil</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">str</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-operator">!</span><span class="ruby-identifier">str</span>.<span class="ruby-identifier">empty?</span>
+
+  <span class="ruby-identifier">obj</span> = <span class="ruby-keyword">if</span> <span class="ruby-identifier">internal_binding?</span>(<span class="ruby-identifier">target</span>)
+          <span class="ruby-identifier">mod</span> = <span class="ruby-identifier">target_self</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">Module</span>) <span class="ruby-operator">?</span> <span class="ruby-identifier">target_self</span> <span class="ruby-operator">:</span> <span class="ruby-identifier">target_self</span>.<span class="ruby-identifier">class</span>
+          <span class="ruby-constant">Pry</span><span class="ruby-operator">::</span><span class="ruby-constant">WrappedModule</span>(<span class="ruby-identifier">mod</span>)
+        <span class="ruby-keyword">else</span>
+          <span class="ruby-constant">Pry</span><span class="ruby-operator">::</span><span class="ruby-constant">Method</span>.<span class="ruby-identifier">from_binding</span>(<span class="ruby-identifier">target</span>)
+        <span class="ruby-keyword">end</span>
+
+  <span class="ruby-comment"># respect the super level (i.e user might have specified a</span>
+  <span class="ruby-comment"># --super flag to show-source)</span>
+  <span class="ruby-identifier">lookup_super</span>(<span class="ruby-identifier">obj</span>, <span class="ruby-identifier">super_level</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-method_or_class_lookup" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">method_or_class_lookup</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="method_or_class_lookup-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/pry-0.11.3/lib/pry/code_object.rb, line 136</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">method_or_class_lookup</span>
+  <span class="ruby-identifier">obj</span> = <span class="ruby-keyword">case</span> <span class="ruby-identifier">str</span>
+        <span class="ruby-keyword">when</span> <span class="ruby-regexp">/\S+\(\)\z/</span>
+          <span class="ruby-constant">Pry</span><span class="ruby-operator">::</span><span class="ruby-constant">Method</span>.<span class="ruby-identifier">from_str</span>(<span class="ruby-identifier">str</span>.<span class="ruby-identifier">sub</span>(<span class="ruby-regexp">/\(\)\z/</span>, <span class="ruby-string">&#39;&#39;</span>),<span class="ruby-identifier">target</span>) <span class="ruby-operator">||</span> <span class="ruby-constant">Pry</span><span class="ruby-operator">::</span><span class="ruby-constant">WrappedModule</span>.<span class="ruby-identifier">from_str</span>(<span class="ruby-identifier">str</span>, <span class="ruby-identifier">target</span>)
+        <span class="ruby-keyword">else</span>
+          <span class="ruby-constant">Pry</span><span class="ruby-operator">::</span><span class="ruby-constant">WrappedModule</span>.<span class="ruby-identifier">from_str</span>(<span class="ruby-identifier">str</span>,<span class="ruby-identifier">target</span>) <span class="ruby-operator">||</span> <span class="ruby-constant">Pry</span><span class="ruby-operator">::</span><span class="ruby-constant">Method</span>.<span class="ruby-identifier">from_str</span>(<span class="ruby-identifier">str</span>, <span class="ruby-identifier">target</span>)
+        <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">lookup_super</span>(<span class="ruby-identifier">obj</span>, <span class="ruby-identifier">super_level</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="https://rdoc.github.io/rdoc">RDoc</a> 5.0.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

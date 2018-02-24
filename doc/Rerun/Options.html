@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class Rerun::Options - RDoc Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../";
+  var index_rel_prefix = "../";
+</script>
+
+<script src="../js/jquery.js"></script>
+<script src="../js/darkfish.js"></script>
+
+<link href="../css/fonts.css" rel="stylesheet">
+<link href="../css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../table_of_contents.html#pages">Pages</a>
+    <a href="../table_of_contents.html#classes">Classes</a>
+    <a href="../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link"><a href="../Object.html">Object</a>
+  
+</div>
+
+    
+    <div id="extends-section" class="nav-section">
+  <h3>Extended With Modules</h3>
+
+  <ul class="link-list">
+    
+  
+    <li><a class="extend" href="System.html">Rerun::System</a>
+  
+  
+  </ul>
+</div>
+
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-c-parse">::parse</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-Rerun::Options">
+  <h1 id="class-Rerun::Options" class="class">
+    class Rerun::Options
+  </h1>
+
+  <section class="description">
+    
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+    <section class="constants-list">
+      <header>
+        <h3>Constants</h3>
+      </header>
+      <dl>
+      
+        <dt id="DEFAULTS">DEFAULTS
+        
+        <dd>
+        
+      
+        <dt id="DEFAULT_DIRS">DEFAULT_DIRS
+        
+        <dd>
+        
+      
+        <dt id="DEFAULT_PATTERN">DEFAULT_PATTERN
+        
+        <dd><p>If you change the default pattern, please update the README.md file – the
+list appears twice therein, which at the time of this comment are lines 17
+and 119</p>
+        
+      
+      </dl>
+    </section>
+    
+
+    
+
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Class Methods</h3>
+       </header>
+
+    
+      <div id="method-c-parse" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">parse</span><span
+            class="method-args">(args: ARGV, config_file: nil)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="parse-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/rerun-0.13.0/lib/rerun/options.rb, line 33</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">parse</span> <span class="ruby-identifier">args</span><span class="ruby-operator">:</span> <span class="ruby-constant">ARGV</span>, <span class="ruby-identifier">config_file</span><span class="ruby-operator">:</span> <span class="ruby-keyword">nil</span>
+
+  <span class="ruby-identifier">default_options</span> = <span class="ruby-constant">DEFAULTS</span>.<span class="ruby-identifier">dup</span>
+  <span class="ruby-identifier">options</span> = {
+    <span class="ruby-identifier">ignore</span><span class="ruby-operator">:</span> []
+  }
+
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">config_file</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">exist?</span>(<span class="ruby-identifier">config_file</span>)
+    <span class="ruby-identifier">require</span> <span class="ruby-string">&#39;shellwords&#39;</span>
+    <span class="ruby-identifier">config_args</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">read</span>(<span class="ruby-identifier">config_file</span>).<span class="ruby-identifier">shellsplit</span>
+    <span class="ruby-identifier">args</span> = <span class="ruby-identifier">config_args</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">args</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">option_parser</span> = <span class="ruby-constant">OptionParser</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&quot;&quot;</span>, <span class="ruby-value">24</span>, <span class="ruby-string">&#39;  &#39;</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">o</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">o</span>.<span class="ruby-identifier">banner</span> = <span class="ruby-string">&quot;Usage: rerun [options] [--] cmd&quot;</span>
+
+    <span class="ruby-identifier">o</span>.<span class="ruby-identifier">separator</span> <span class="ruby-string">&quot;&quot;</span>
+    <span class="ruby-identifier">o</span>.<span class="ruby-identifier">separator</span> <span class="ruby-string">&quot;Launches an app, and restarts it when the filesystem changes.&quot;</span>
+    <span class="ruby-identifier">o</span>.<span class="ruby-identifier">separator</span> <span class="ruby-string">&quot;See http://github.com/alexch/rerun for more info.&quot;</span>
+    <span class="ruby-identifier">o</span>.<span class="ruby-identifier">separator</span> <span class="ruby-node">&quot;Version: #{$spec.version}&quot;</span>
+    <span class="ruby-identifier">o</span>.<span class="ruby-identifier">separator</span> <span class="ruby-string">&quot;&quot;</span>
+    <span class="ruby-identifier">o</span>.<span class="ruby-identifier">separator</span> <span class="ruby-string">&quot;Options:&quot;</span>
+
+    <span class="ruby-identifier">o</span>.<span class="ruby-identifier">on</span>(<span class="ruby-string">&quot;-d dir&quot;</span>, <span class="ruby-string">&quot;--dir dir&quot;</span>, <span class="ruby-node">&quot;directory to watch, default = \&quot;#{DEFAULT_DIRS}\&quot;.  Specify multiple paths with &#39;,&#39; or separate &#39;-d dir&#39; option pairs.&quot;</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">dir</span><span class="ruby-operator">|</span>
+      <span class="ruby-identifier">elements</span> = <span class="ruby-identifier">dir</span>.<span class="ruby-identifier">split</span>(<span class="ruby-string">&quot;,&quot;</span>)
+      <span class="ruby-identifier">options</span>[<span class="ruby-value">:dir</span>] = (<span class="ruby-identifier">options</span>[<span class="ruby-value">:dir</span>] <span class="ruby-operator">||</span> []) <span class="ruby-operator">+</span> <span class="ruby-identifier">elements</span>
+    <span class="ruby-keyword">end</span>
+
+    <span class="ruby-comment"># todo: rename to &quot;--watch&quot;</span>
+    <span class="ruby-identifier">o</span>.<span class="ruby-identifier">on</span>(<span class="ruby-string">&quot;-p pattern&quot;</span>, <span class="ruby-string">&quot;--pattern pattern&quot;</span>, <span class="ruby-node">&quot;file glob to watch, default = \&quot;#{DEFAULTS[:pattern]}\&quot;&quot;</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">pattern</span><span class="ruby-operator">|</span>
+      <span class="ruby-identifier">options</span>[<span class="ruby-value">:pattern</span>] = <span class="ruby-identifier">pattern</span>
+    <span class="ruby-keyword">end</span>
+
+    <span class="ruby-identifier">o</span>.<span class="ruby-identifier">on</span>(<span class="ruby-string">&quot;-i pattern&quot;</span>, <span class="ruby-string">&quot;--ignore pattern&quot;</span>, <span class="ruby-string">&quot;file glob to ignore (can be set many times). To ignore a directory, you must append &#39;/*&#39; e.g. --ignore &#39;coverage/*&#39;&quot;</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">pattern</span><span class="ruby-operator">|</span>
+      <span class="ruby-identifier">options</span>[<span class="ruby-value">:ignore</span>] <span class="ruby-operator">+=</span> [<span class="ruby-identifier">pattern</span>]
+    <span class="ruby-keyword">end</span>
+
+    <span class="ruby-identifier">o</span>.<span class="ruby-identifier">on</span>(<span class="ruby-string">&quot;-s signal&quot;</span>, <span class="ruby-string">&quot;--signal signal&quot;</span>, <span class="ruby-node">&quot;terminate process using this signal. To try several signals in series, use a comma-delimited list. Default: \&quot;#{DEFAULTS[:signal]}\&quot;&quot;</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">signal</span><span class="ruby-operator">|</span>
+      <span class="ruby-identifier">options</span>[<span class="ruby-value">:signal</span>] = <span class="ruby-identifier">signal</span>
+    <span class="ruby-keyword">end</span>
+
+    <span class="ruby-identifier">o</span>.<span class="ruby-identifier">on</span>(<span class="ruby-string">&quot;-w sec&quot;</span>, <span class="ruby-string">&quot;--wait sec&quot;</span>, <span class="ruby-node">&quot;after asking the process to terminate, wait this long (in seconds) before either aborting, or trying the next signal in series. Default: #{DEFAULTS[:wait]} sec&quot;</span>)
+
+    <span class="ruby-identifier">o</span>.<span class="ruby-identifier">on</span>(<span class="ruby-string">&quot;-r&quot;</span>, <span class="ruby-string">&quot;--restart&quot;</span>, <span class="ruby-string">&quot;expect process to restart itself, so just send a signal and continue watching. Uses the HUP signal unless overridden using --signal&quot;</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">signal</span><span class="ruby-operator">|</span>
+      <span class="ruby-identifier">options</span>[<span class="ruby-value">:restart</span>] = <span class="ruby-keyword">true</span>
+      <span class="ruby-identifier">default_options</span>[<span class="ruby-value">:signal</span>] = <span class="ruby-string">&quot;HUP&quot;</span>
+    <span class="ruby-keyword">end</span>
+
+    <span class="ruby-identifier">o</span>.<span class="ruby-identifier">on</span>(<span class="ruby-string">&quot;-x&quot;</span>, <span class="ruby-string">&quot;--exit&quot;</span>, <span class="ruby-string">&quot;expect the program to exit. With this option, rerun checks the return value; without it, rerun checks that the process is running.&quot;</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">value</span><span class="ruby-operator">|</span>
+      <span class="ruby-identifier">options</span>[<span class="ruby-value">:exit</span>] = <span class="ruby-identifier">value</span>
+    <span class="ruby-keyword">end</span>
+
+    <span class="ruby-identifier">o</span>.<span class="ruby-identifier">on</span>(<span class="ruby-string">&quot;-c&quot;</span>, <span class="ruby-string">&quot;--clear&quot;</span>, <span class="ruby-string">&quot;clear screen before each run&quot;</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">value</span><span class="ruby-operator">|</span>
+      <span class="ruby-identifier">options</span>[<span class="ruby-value">:clear</span>] = <span class="ruby-identifier">value</span>
+    <span class="ruby-keyword">end</span>
+
+    <span class="ruby-identifier">o</span>.<span class="ruby-identifier">on</span>(<span class="ruby-string">&quot;-b&quot;</span>, <span class="ruby-string">&quot;--background&quot;</span>, <span class="ruby-string">&quot;disable on-the-fly commands, allowing the process to be backgrounded&quot;</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">value</span><span class="ruby-operator">|</span>
+      <span class="ruby-identifier">options</span>[<span class="ruby-value">:background</span>] = <span class="ruby-identifier">value</span>
+    <span class="ruby-keyword">end</span>
+
+    <span class="ruby-identifier">o</span>.<span class="ruby-identifier">on</span>(<span class="ruby-string">&quot;-n name&quot;</span>, <span class="ruby-string">&quot;--name name&quot;</span>, <span class="ruby-node">&quot;name of app used in logs and notifications, default = \&quot;#{DEFAULTS[:name]}\&quot;&quot;</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">name</span><span class="ruby-operator">|</span>
+      <span class="ruby-identifier">options</span>[<span class="ruby-value">:name</span>] = <span class="ruby-identifier">name</span>
+    <span class="ruby-keyword">end</span>
+
+    <span class="ruby-identifier">o</span>.<span class="ruby-identifier">on</span>(<span class="ruby-string">&quot;--[no-]force-polling&quot;</span>, <span class="ruby-string">&quot;use polling instead of a native filesystem scan (useful for Vagrant)&quot;</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">value</span><span class="ruby-operator">|</span>
+      <span class="ruby-identifier">options</span>[<span class="ruby-value">:force_polling</span>] = <span class="ruby-identifier">value</span>
+    <span class="ruby-keyword">end</span>
+
+    <span class="ruby-identifier">o</span>.<span class="ruby-identifier">on</span>(<span class="ruby-string">&quot;--no-growl&quot;</span>, <span class="ruby-string">&quot;don&#39;t use growl [OBSOLETE]&quot;</span>) <span class="ruby-keyword">do</span>
+      <span class="ruby-identifier">options</span>[<span class="ruby-value">:growl</span>] = <span class="ruby-keyword">false</span>
+      <span class="ruby-identifier">$stderr</span>.<span class="ruby-identifier">puts</span> <span class="ruby-string">&quot;--no-growl is obsolete; use --no-notify instead&quot;</span>
+      <span class="ruby-keyword">return</span>
+    <span class="ruby-keyword">end</span>
+
+    <span class="ruby-identifier">o</span>.<span class="ruby-identifier">on</span>(<span class="ruby-string">&quot;--[no-]notify [notifier]&quot;</span>, <span class="ruby-string">&quot;send messages through a desktop notification application. Supports growl (requires growlnotify), osx (requires terminal-notifier gem), and notify-send on GNU/Linux (notify-send must be installed)&quot;</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">notifier</span><span class="ruby-operator">|</span>
+      <span class="ruby-identifier">notifier</span> = <span class="ruby-keyword">true</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">notifier</span>.<span class="ruby-identifier">nil?</span>
+      <span class="ruby-identifier">options</span>[<span class="ruby-value">:notify</span>] = <span class="ruby-identifier">notifier</span>
+    <span class="ruby-keyword">end</span>
+
+    <span class="ruby-identifier">o</span>.<span class="ruby-identifier">on</span>(<span class="ruby-string">&quot;-q&quot;</span>, <span class="ruby-string">&quot;--[no-]quiet&quot;</span>, <span class="ruby-string">&quot;don&#39;t output any logs&quot;</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">value</span><span class="ruby-operator">|</span>
+      <span class="ruby-identifier">options</span>[<span class="ruby-value">:quiet</span>] = <span class="ruby-identifier">value</span>
+    <span class="ruby-keyword">end</span>
+
+    <span class="ruby-identifier">o</span>.<span class="ruby-identifier">on</span>(<span class="ruby-string">&quot;--[no-]verbose&quot;</span>, <span class="ruby-string">&quot;log extra stuff like PIDs (unless you also specified `--quiet`&quot;</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">value</span><span class="ruby-operator">|</span>
+      <span class="ruby-identifier">options</span>[<span class="ruby-value">:verbose</span>] = <span class="ruby-identifier">value</span>
+    <span class="ruby-keyword">end</span>
+
+    <span class="ruby-identifier">o</span>.<span class="ruby-identifier">on_tail</span>(<span class="ruby-string">&quot;-h&quot;</span>, <span class="ruby-string">&quot;--help&quot;</span>, <span class="ruby-string">&quot;--usage&quot;</span>, <span class="ruby-string">&quot;show this message and immediately exit&quot;</span>) <span class="ruby-keyword">do</span>
+      <span class="ruby-identifier">puts</span> <span class="ruby-identifier">o</span>
+      <span class="ruby-keyword">return</span>
+    <span class="ruby-keyword">end</span>
+
+    <span class="ruby-identifier">o</span>.<span class="ruby-identifier">on_tail</span>(<span class="ruby-string">&quot;--version&quot;</span>, <span class="ruby-string">&quot;show version and immediately exit&quot;</span>) <span class="ruby-keyword">do</span>
+      <span class="ruby-identifier">puts</span> <span class="ruby-identifier">$spec</span>.<span class="ruby-identifier">version</span>
+      <span class="ruby-keyword">return</span>
+    <span class="ruby-keyword">end</span>
+
+    <span class="ruby-identifier">o</span>.<span class="ruby-identifier">on_tail</span> <span class="ruby-string">&quot;&quot;</span>
+    <span class="ruby-identifier">o</span>.<span class="ruby-identifier">on_tail</span> <span class="ruby-string">&quot;On top of --pattern and --ignore, we ignore any changes to files and dirs starting with a dot.&quot;</span>
+
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">option_parser</span>.<span class="ruby-identifier">parse!</span> <span class="ruby-identifier">args</span>
+  <span class="ruby-identifier">options</span> = <span class="ruby-identifier">default_options</span>.<span class="ruby-identifier">merge</span>(<span class="ruby-identifier">options</span>)
+  <span class="ruby-identifier">options</span>[<span class="ruby-value">:cmd</span>] = <span class="ruby-identifier">args</span>.<span class="ruby-identifier">join</span>(<span class="ruby-string">&quot; &quot;</span>).<span class="ruby-identifier">strip</span> <span class="ruby-comment"># todo: better arg word handling</span>
+
+  <span class="ruby-identifier">puts</span> <span class="ruby-identifier">option_parser</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">args</span>.<span class="ruby-identifier">empty?</span>
+
+  <span class="ruby-identifier">options</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="https://rdoc.github.io/rdoc">RDoc</a> 5.0.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

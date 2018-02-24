@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>module ActiveSupport::TaggedLogging - RDoc Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../";
+  var index_rel_prefix = "../";
+</script>
+
+<script src="../js/jquery.js"></script>
+<script src="../js/darkfish.js"></script>
+
+<link href="../css/fonts.css" rel="stylesheet">
+<link href="../css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="module">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../table_of_contents.html#pages">Pages</a>
+    <a href="../table_of_contents.html#classes">Classes</a>
+    <a href="../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    
+    
+    <div id="extends-section" class="nav-section">
+  <h3>Extended With Modules</h3>
+
+  <ul class="link-list">
+    
+  
+    <li><span class="extend">Formatter</span>
+  
+  
+  </ul>
+</div>
+
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-c-new">::new</a>
+    
+    <li class="calls-super" ><a href="#method-i-flush">#flush</a>
+    
+    <li ><a href="#method-i-tagged">#tagged</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="module-ActiveSupport::TaggedLogging">
+  <h1 id="module-ActiveSupport::TaggedLogging" class="module">
+    module ActiveSupport::TaggedLogging
+  </h1>
+
+  <section class="description">
+    
+<p>Wraps any standard <a href="Logger.html">Logger</a> object to provide
+tagging capabilities.</p>
+
+<pre class="ruby"><span class="ruby-identifier">logger</span> = <span class="ruby-constant">ActiveSupport</span><span class="ruby-operator">::</span><span class="ruby-constant">TaggedLogging</span>.<span class="ruby-identifier">new</span>(<span class="ruby-constant">Logger</span>.<span class="ruby-identifier">new</span>(<span class="ruby-constant">STDOUT</span>))
+<span class="ruby-identifier">logger</span>.<span class="ruby-identifier">tagged</span>(<span class="ruby-string">&#39;BCX&#39;</span>) { <span class="ruby-identifier">logger</span>.<span class="ruby-identifier">info</span> <span class="ruby-string">&#39;Stuff&#39;</span> }                            <span class="ruby-comment"># Logs &quot;[BCX] Stuff&quot;</span>
+<span class="ruby-identifier">logger</span>.<span class="ruby-identifier">tagged</span>(<span class="ruby-string">&#39;BCX&#39;</span>, <span class="ruby-string">&quot;Jason&quot;</span>) { <span class="ruby-identifier">logger</span>.<span class="ruby-identifier">info</span> <span class="ruby-string">&#39;Stuff&#39;</span> }                   <span class="ruby-comment"># Logs &quot;[BCX] [Jason] Stuff&quot;</span>
+<span class="ruby-identifier">logger</span>.<span class="ruby-identifier">tagged</span>(<span class="ruby-string">&#39;BCX&#39;</span>) { <span class="ruby-identifier">logger</span>.<span class="ruby-identifier">tagged</span>(<span class="ruby-string">&#39;Jason&#39;</span>) { <span class="ruby-identifier">logger</span>.<span class="ruby-identifier">info</span> <span class="ruby-string">&#39;Stuff&#39;</span> } } <span class="ruby-comment"># Logs &quot;[BCX] [Jason] Stuff&quot;</span>
+</pre>
+
+<p>This is used by the default Rails.logger as configured by Railties to make
+it easy to stamp log lines with subdomains, request ids, and anything else
+to aid debugging of multi-user production applications.</p>
+
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Class Methods</h3>
+       </header>
+
+    
+      <div id="method-c-new" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">new</span><span
+            class="method-args">(logger)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="new-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/activesupport-5.1.5/lib/active_support/tagged_logging.rb, line 59</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">logger</span>)
+  <span class="ruby-comment"># Ensure we set a default formatter so we aren&#39;t extending nil!</span>
+  <span class="ruby-identifier">logger</span>.<span class="ruby-identifier">formatter</span> <span class="ruby-operator">||=</span> <span class="ruby-constant">ActiveSupport</span><span class="ruby-operator">::</span><span class="ruby-constant">Logger</span><span class="ruby-operator">::</span><span class="ruby-constant">SimpleFormatter</span>.<span class="ruby-identifier">new</span>
+  <span class="ruby-identifier">logger</span>.<span class="ruby-identifier">formatter</span>.<span class="ruby-identifier">extend</span> <span class="ruby-constant">Formatter</span>
+  <span class="ruby-identifier">logger</span>.<span class="ruby-identifier">extend</span>(<span class="ruby-keyword">self</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-flush" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">flush</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+            <div class="method-calls-super">
+              Calls superclass method
+              
+            </div>
+          
+
+          
+          <div class="method-source-code" id="flush-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/activesupport-5.1.5/lib/active_support/tagged_logging.rb, line 72</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">flush</span>
+  <span class="ruby-identifier">clear_tags!</span>
+  <span class="ruby-keyword">super</span> <span class="ruby-keyword">if</span> <span class="ruby-keyword">defined?</span>(<span class="ruby-keyword">super</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-tagged" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">tagged</span><span
+            class="method-args">(*tags) { |self| ... }</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="tagged-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/activesupport-5.1.5/lib/active_support/tagged_logging.rb, line 68</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">tagged</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">tags</span>)
+  <span class="ruby-identifier">formatter</span>.<span class="ruby-identifier">tagged</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">tags</span>) { <span class="ruby-keyword">yield</span> <span class="ruby-keyword">self</span> }
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="https://rdoc.github.io/rdoc">RDoc</a> 5.0.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

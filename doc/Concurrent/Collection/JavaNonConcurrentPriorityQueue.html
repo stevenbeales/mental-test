@@ -1,0 +1,690 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class Concurrent::Collection::JavaNonConcurrentPriorityQueue - RDoc Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../../";
+  var index_rel_prefix = "../../";
+</script>
+
+<script src="../../js/jquery.js"></script>
+<script src="../../js/darkfish.js"></script>
+
+<link href="../../css/fonts.css" rel="stylesheet">
+<link href="../../css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../../table_of_contents.html#pages">Pages</a>
+    <a href="../../table_of_contents.html#classes">Classes</a>
+    <a href="../../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link"><a href="../../Object.html">Object</a>
+  
+</div>
+
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-c-from_list">::from_list</a>
+    
+    <li ><a href="#method-c-new">::new</a>
+    
+    <li ><a href="#method-i-3C-3C">#&lt;&lt;</a>
+    
+    <li ><a href="#method-i-clear">#clear</a>
+    
+    <li ><a href="#method-i-delete">#delete</a>
+    
+    <li ><a href="#method-i-deq">#deq</a>
+    
+    <li ><a href="#method-i-empty-3F">#empty?</a>
+    
+    <li ><a href="#method-i-enq">#enq</a>
+    
+    <li ><a href="#method-i-has_priority-3F">#has_priority?</a>
+    
+    <li ><a href="#method-i-include-3F">#include?</a>
+    
+    <li ><a href="#method-i-length">#length</a>
+    
+    <li ><a href="#method-i-peek">#peek</a>
+    
+    <li ><a href="#method-i-pop">#pop</a>
+    
+    <li ><a href="#method-i-push">#push</a>
+    
+    <li ><a href="#method-i-shift">#shift</a>
+    
+    <li ><a href="#method-i-size">#size</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-Concurrent::Collection::JavaNonConcurrentPriorityQueue">
+  <h1 id="class-Concurrent::Collection::JavaNonConcurrentPriorityQueue" class="class">
+    class Concurrent::Collection::JavaNonConcurrentPriorityQueue
+  </h1>
+
+  <section class="description">
+    
+<p>@!macro priority_queue</p>
+
+<p>@!visibility private @!macro internal_implementation_note</p>
+
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Class Methods</h3>
+       </header>
+
+    
+      <div id="method-c-from_list" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">from_list</span><span
+            class="method-args">(list, opts = {})</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>@!macro priority_queue_method_from_list</p>
+          
+          
+
+          
+          <div class="method-source-code" id="from_list-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/concurrent-ruby-1.0.5/lib/concurrent/collection/java_non_concurrent_priority_queue.rb, line 76</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">from_list</span>(<span class="ruby-identifier">list</span>, <span class="ruby-identifier">opts</span> = {})
+  <span class="ruby-identifier">queue</span> = <span class="ruby-identifier">new</span>(<span class="ruby-identifier">opts</span>)
+  <span class="ruby-identifier">list</span>.<span class="ruby-identifier">each</span>{<span class="ruby-operator">|</span><span class="ruby-identifier">item</span><span class="ruby-operator">|</span> <span class="ruby-identifier">queue</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">item</span> }
+  <span class="ruby-identifier">queue</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-new" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">new</span><span
+            class="method-args">(opts = {})</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>@!macro priority_queue_method_initialize</p>
+          
+          
+
+          
+          <div class="method-source-code" id="new-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/concurrent-ruby-1.0.5/lib/concurrent/collection/java_non_concurrent_priority_queue.rb, line 14</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">opts</span> = {})
+  <span class="ruby-identifier">order</span> = <span class="ruby-identifier">opts</span>.<span class="ruby-identifier">fetch</span>(<span class="ruby-value">:order</span>, <span class="ruby-value">:max</span>)
+  <span class="ruby-keyword">if</span> [<span class="ruby-value">:min</span>, <span class="ruby-value">:low</span>].<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">order</span>)
+    <span class="ruby-ivar">@queue</span> = <span class="ruby-identifier">java</span>.<span class="ruby-identifier">util</span>.<span class="ruby-constant">PriorityQueue</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">11</span>) <span class="ruby-comment"># 11 is the default initial capacity</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-ivar">@queue</span> = <span class="ruby-identifier">java</span>.<span class="ruby-identifier">util</span>.<span class="ruby-constant">PriorityQueue</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">11</span>, <span class="ruby-identifier">java</span>.<span class="ruby-identifier">util</span>.<span class="ruby-constant">Collections</span>.<span class="ruby-identifier">reverseOrder</span>())
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-3C-3C" class="method-detail method-alias">
+        
+        <div class="method-heading">
+          <span class="method-name">&lt;&lt;</span><span
+            class="method-args">(item)</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+        </div>
+
+        
+
+        
+        <div class="aliases">
+          Alias for: <a href="JavaNonConcurrentPriorityQueue.html#method-i-push">push</a>
+        </div>
+        
+      </div>
+
+    
+      <div id="method-i-clear" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">clear</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>@!macro priority_queue_method_clear</p>
+          
+          
+
+          
+          <div class="method-source-code" id="clear-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/concurrent-ruby-1.0.5/lib/concurrent/collection/java_non_concurrent_priority_queue.rb, line 24</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">clear</span>
+  <span class="ruby-ivar">@queue</span>.<span class="ruby-identifier">clear</span>
+  <span class="ruby-keyword">true</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-delete" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">delete</span><span
+            class="method-args">(item)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>@!macro priority_queue_method_delete</p>
+          
+          
+
+          
+          <div class="method-source-code" id="delete-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/concurrent-ruby-1.0.5/lib/concurrent/collection/java_non_concurrent_priority_queue.rb, line 30</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">delete</span>(<span class="ruby-identifier">item</span>)
+  <span class="ruby-identifier">found</span> = <span class="ruby-keyword">false</span>
+  <span class="ruby-keyword">while</span> <span class="ruby-ivar">@queue</span>.<span class="ruby-identifier">remove</span>(<span class="ruby-identifier">item</span>) <span class="ruby-keyword">do</span>
+    <span class="ruby-identifier">found</span> = <span class="ruby-keyword">true</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">found</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-deq" class="method-detail method-alias">
+        
+        <div class="method-heading">
+          <span class="method-name">deq</span><span
+            class="method-args">()</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+        </div>
+
+        
+
+        
+        <div class="aliases">
+          Alias for: <a href="JavaNonConcurrentPriorityQueue.html#method-i-pop">pop</a>
+        </div>
+        
+      </div>
+
+    
+      <div id="method-i-empty-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">empty?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>@!macro priority_queue_method_empty</p>
+          
+          
+
+          
+          <div class="method-source-code" id="empty-3F-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/concurrent-ruby-1.0.5/lib/concurrent/collection/java_non_concurrent_priority_queue.rb, line 39</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">empty?</span>
+  <span class="ruby-ivar">@queue</span>.<span class="ruby-identifier">size</span> <span class="ruby-operator">==</span> <span class="ruby-value">0</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-enq" class="method-detail method-alias">
+        
+        <div class="method-heading">
+          <span class="method-name">enq</span><span
+            class="method-args">(item)</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+        </div>
+
+        
+
+        
+        <div class="aliases">
+          Alias for: <a href="JavaNonConcurrentPriorityQueue.html#method-i-push">push</a>
+        </div>
+        
+      </div>
+
+    
+      <div id="method-i-has_priority-3F" class="method-detail method-alias">
+        
+        <div class="method-heading">
+          <span class="method-name">has_priority?</span><span
+            class="method-args">(item)</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+        </div>
+
+        
+
+        
+        <div class="aliases">
+          Alias for: <a href="JavaNonConcurrentPriorityQueue.html#method-i-include-3F">include?</a>
+        </div>
+        
+      </div>
+
+    
+      <div id="method-i-include-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">include?</span><span
+            class="method-args">(item)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>@!macro priority_queue_method_include</p>
+          
+          
+
+          
+          <div class="method-source-code" id="include-3F-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/concurrent-ruby-1.0.5/lib/concurrent/collection/java_non_concurrent_priority_queue.rb, line 44</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">include?</span>(<span class="ruby-identifier">item</span>)
+  <span class="ruby-ivar">@queue</span>.<span class="ruby-identifier">contains</span>(<span class="ruby-identifier">item</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+        <div class="aliases">
+          Also aliased as: <a href="JavaNonConcurrentPriorityQueue.html#method-i-has_priority-3F">has_priority?</a>
+        </div>
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-length" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">length</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>@!macro priority_queue_method_length</p>
+          
+          
+
+          
+          <div class="method-source-code" id="length-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/concurrent-ruby-1.0.5/lib/concurrent/collection/java_non_concurrent_priority_queue.rb, line 50</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">length</span>
+  <span class="ruby-ivar">@queue</span>.<span class="ruby-identifier">size</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+        <div class="aliases">
+          Also aliased as: <a href="JavaNonConcurrentPriorityQueue.html#method-i-size">size</a>
+        </div>
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-peek" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">peek</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>@!macro priority_queue_method_peek</p>
+          
+          
+
+          
+          <div class="method-source-code" id="peek-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/concurrent-ruby-1.0.5/lib/concurrent/collection/java_non_concurrent_priority_queue.rb, line 56</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">peek</span>
+  <span class="ruby-ivar">@queue</span>.<span class="ruby-identifier">peek</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-pop" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">pop</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>@!macro priority_queue_method_pop</p>
+          
+          
+
+          
+          <div class="method-source-code" id="pop-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/concurrent-ruby-1.0.5/lib/concurrent/collection/java_non_concurrent_priority_queue.rb, line 61</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">pop</span>
+  <span class="ruby-ivar">@queue</span>.<span class="ruby-identifier">poll</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+        <div class="aliases">
+          Also aliased as: <a href="JavaNonConcurrentPriorityQueue.html#method-i-deq">deq</a>, <a href="JavaNonConcurrentPriorityQueue.html#method-i-shift">shift</a>
+        </div>
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-push" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">push</span><span
+            class="method-args">(item)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>@!macro priority_queue_method_push</p>
+          
+          
+
+          
+          <div class="method-source-code" id="push-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/concurrent-ruby-1.0.5/lib/concurrent/collection/java_non_concurrent_priority_queue.rb, line 68</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">push</span>(<span class="ruby-identifier">item</span>)
+  <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&#39;cannot enqueue nil&#39;</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">item</span>.<span class="ruby-identifier">nil?</span>
+  <span class="ruby-ivar">@queue</span>.<span class="ruby-identifier">add</span>(<span class="ruby-identifier">item</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+        <div class="aliases">
+          Also aliased as: <a href="JavaNonConcurrentPriorityQueue.html#method-i-3C-3C">&lt;&lt;</a>, <a href="JavaNonConcurrentPriorityQueue.html#method-i-enq">enq</a>
+        </div>
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-shift" class="method-detail method-alias">
+        
+        <div class="method-heading">
+          <span class="method-name">shift</span><span
+            class="method-args">()</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+        </div>
+
+        
+
+        
+        <div class="aliases">
+          Alias for: <a href="JavaNonConcurrentPriorityQueue.html#method-i-pop">pop</a>
+        </div>
+        
+      </div>
+
+    
+      <div id="method-i-size" class="method-detail method-alias">
+        
+        <div class="method-heading">
+          <span class="method-name">size</span><span
+            class="method-args">()</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+        </div>
+
+        
+
+        
+        <div class="aliases">
+          Alias for: <a href="JavaNonConcurrentPriorityQueue.html#method-i-length">length</a>
+        </div>
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="https://rdoc.github.io/rdoc">RDoc</a> 5.0.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

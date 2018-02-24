@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class RSpec::Mocks::ArgumentListMatcher - RDoc Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../../";
+  var index_rel_prefix = "../../";
+</script>
+
+<script src="../../js/jquery.js"></script>
+<script src="../../js/darkfish.js"></script>
+
+<link href="../../css/fonts.css" rel="stylesheet">
+<link href="../../css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../../table_of_contents.html#pages">Pages</a>
+    <a href="../../table_of_contents.html#classes">Classes</a>
+    <a href="../../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link"><a href="../../Object.html">Object</a>
+  
+</div>
+
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-c-new">::new</a>
+    
+    <li ><a href="#method-i-args_match-3F">#args_match?</a>
+    
+    <li ><a href="#method-i-resolve_expected_args_based_on">#resolve_expected_args_based_on</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-RSpec::Mocks::ArgumentListMatcher">
+  <h1 id="class-RSpec::Mocks::ArgumentListMatcher" class="class">
+    class RSpec::Mocks::ArgumentListMatcher
+  </h1>
+
+  <section class="description">
+    
+<p>Wrapper for matching arguments against a list of expected values. Used by
+the `with` method on a `MessageExpectation`:</p>
+
+<pre class="ruby"><span class="ruby-identifier">expect</span>(<span class="ruby-identifier">object</span>).<span class="ruby-identifier">to</span> <span class="ruby-identifier">receive</span>(:<span class="ruby-identifier">message</span>).<span class="ruby-identifier">with</span>(:<span class="ruby-identifier">a</span>, <span class="ruby-string">&#39;b&#39;</span>, <span class="ruby-value">3</span>)
+<span class="ruby-identifier">object</span>.<span class="ruby-identifier">message</span>(:<span class="ruby-identifier">a</span>, <span class="ruby-string">&#39;b&#39;</span>, <span class="ruby-value">3</span>)
+</pre>
+
+<p>Values passed to `with` can be literal values or argument matchers that
+match against the real objects .e.g.</p>
+
+<pre class="ruby"><span class="ruby-identifier">expect</span>(<span class="ruby-identifier">object</span>).<span class="ruby-identifier">to</span> <span class="ruby-identifier">receive</span>(:<span class="ruby-identifier">message</span>).<span class="ruby-identifier">with</span>(<span class="ruby-identifier">hash_including</span>(:<span class="ruby-identifier">a</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&#39;b&#39;</span>))
+</pre>
+
+<p>Can also be used directly to match the contents of any `Array`. This
+enables 3rd party mocking libs to take advantage of rspec&#39;s argument
+matching without using the rest of rspec-mocks.</p>
+
+<pre class="ruby"><span class="ruby-identifier">require</span> <span class="ruby-string">&#39;rspec/mocks/argument_list_matcher&#39;</span>
+<span class="ruby-identifier">include</span> <span class="ruby-constant">RSpec</span><span class="ruby-operator">::</span><span class="ruby-constant">Mocks</span><span class="ruby-operator">::</span><span class="ruby-constant">ArgumentMatchers</span>
+
+<span class="ruby-identifier">arg_list_matcher</span> = <span class="ruby-constant">RSpec</span><span class="ruby-operator">::</span><span class="ruby-constant">Mocks</span><span class="ruby-operator">::</span><span class="ruby-constant">ArgumentListMatcher</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">123</span>, <span class="ruby-identifier">hash_including</span>(:<span class="ruby-identifier">a</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&#39;b&#39;</span>))
+<span class="ruby-identifier">arg_list_matcher</span>.<span class="ruby-identifier">args_match?</span>(<span class="ruby-value">123</span>, :<span class="ruby-identifier">a</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&#39;b&#39;</span>)
+</pre>
+
+<p>This class is immutable.</p>
+
+<p>@see <a href="ArgumentMatchers.html">ArgumentMatchers</a></p>
+
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+    <section class="constants-list">
+      <header>
+        <h3>Constants</h3>
+      </header>
+      <dl>
+      
+        <dt id="MATCH_ALL">MATCH_ALL
+        
+        <dd><p>Value that will match all argument lists.</p>
+
+<p>@private</p>
+        
+      
+      </dl>
+    </section>
+    
+
+    
+    <section class="attribute-method-details" class="method-section">
+      <header>
+        <h3>Attributes</h3>
+      </header>
+
+      
+      <div id="attribute-i-expected_args" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">expected_args</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        <p>@private</p>
+        
+        </div>
+      </div>
+      
+    </section>
+    
+
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Class Methods</h3>
+       </header>
+
+    
+      <div id="method-c-new" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">new</span><span
+            class="method-args">(*expected_args)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>@api public @param [Array] <a
+href="ArgumentListMatcher.html#attribute-i-expected_args">#expected_args</a>
+a list of expected literals and/or argument matchers</p>
+
+<p>Initializes an `ArgumentListMatcher` with a collection of literal values
+and/or argument matchers.</p>
+
+<p>@see <a href="ArgumentMatchers.html">ArgumentMatchers</a> @see <a
+href="ArgumentListMatcher.html#method-i-args_match-3F">args_match?</a></p>
+          
+          
+
+          
+          <div class="method-source-code" id="new-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/rspec-mocks-3.7.0/lib/rspec/mocks/argument_list_matcher.rb, line 45</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">expected_args</span>)
+  <span class="ruby-ivar">@expected_args</span> = <span class="ruby-identifier">expected_args</span>
+  <span class="ruby-identifier">ensure_expected_args_valid!</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-args_match-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">args_match?</span><span
+            class="method-args">(*args)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>@api public @param [Array] args</p>
+
+<p>Matches each element in the `expected_args` against the element in the same
+position of the arguments passed to `new`.</p>
+
+<p>@see initialize</p>
+          
+          
+
+          
+          <div class="method-source-code" id="args_match-3F-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/rspec-mocks-3.7.0/lib/rspec/mocks/argument_list_matcher.rb, line 57</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">args_match?</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
+  <span class="ruby-constant">Support</span><span class="ruby-operator">::</span><span class="ruby-constant">FuzzyMatcher</span>.<span class="ruby-identifier">values_match?</span>(<span class="ruby-identifier">resolve_expected_args_based_on</span>(<span class="ruby-identifier">args</span>), <span class="ruby-identifier">args</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-resolve_expected_args_based_on" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">resolve_expected_args_based_on</span><span
+            class="method-args">(actual_args)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>@private Resolves abstract arg placeholders like `no_args` and `any_args`
+into a more concrete arg list based on the provided `actual_args`.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="resolve_expected_args_based_on-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/rspec-mocks-3.7.0/lib/rspec/mocks/argument_list_matcher.rb, line 64</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">resolve_expected_args_based_on</span>(<span class="ruby-identifier">actual_args</span>)
+  <span class="ruby-keyword">return</span> [] <span class="ruby-keyword">if</span> [<span class="ruby-constant">ArgumentMatchers</span><span class="ruby-operator">::</span><span class="ruby-constant">NoArgsMatcher</span><span class="ruby-operator">::</span><span class="ruby-constant">INSTANCE</span>] <span class="ruby-operator">==</span> <span class="ruby-identifier">expected_args</span>
+
+  <span class="ruby-identifier">any_args_index</span> = <span class="ruby-identifier">expected_args</span>.<span class="ruby-identifier">index</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">a</span><span class="ruby-operator">|</span> <span class="ruby-constant">ArgumentMatchers</span><span class="ruby-operator">::</span><span class="ruby-constant">AnyArgsMatcher</span><span class="ruby-operator">::</span><span class="ruby-constant">INSTANCE</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">a</span> }
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">expected_args</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">any_args_index</span>
+
+  <span class="ruby-identifier">replace_any_args_with_splat_of_anything</span>(<span class="ruby-identifier">any_args_index</span>, <span class="ruby-identifier">actual_args</span>.<span class="ruby-identifier">count</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="https://rdoc.github.io/rdoc">RDoc</a> 5.0.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

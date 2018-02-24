@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>module Pry::Helpers::Text - RDoc Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../../";
+  var index_rel_prefix = "../../";
+</script>
+
+<script src="../../js/jquery.js"></script>
+<script src="../../js/darkfish.js"></script>
+
+<link href="../../css/fonts.css" rel="stylesheet">
+<link href="../../css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="module">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../../table_of_contents.html#pages">Pages</a>
+    <a href="../../table_of_contents.html#classes">Classes</a>
+    <a href="../../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-i-bold">#bold</a>
+    
+    <li ><a href="#method-i-bright_default">#bright_default</a>
+    
+    <li ><a href="#method-i-default">#default</a>
+    
+    <li ><a href="#method-i-indent">#indent</a>
+    
+    <li ><a href="#method-i-no_color">#no_color</a>
+    
+    <li ><a href="#method-i-no_pager">#no_pager</a>
+    
+    <li ><a href="#method-i-strip_color">#strip_color</a>
+    
+    <li ><a href="#method-i-with_line_numbers">#with_line_numbers</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="module-Pry::Helpers::Text">
+  <h1 id="module-Pry::Helpers::Text" class="module">
+    module Pry::Helpers::Text
+  </h1>
+
+  <section class="description">
+    
+<p>The methods defined on {Text} are available to custom commands via
+{Pry::Command#text}.</p>
+
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+    <section class="constants-list">
+      <header>
+        <h3>Constants</h3>
+      </header>
+      <dl>
+      
+        <dt id="COLORS">COLORS
+        
+        <dd>
+        
+      
+      </dl>
+    </section>
+    
+
+    
+
+    
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-bold" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">bold</span><span
+            class="method-args">(text)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Returns <em>text</em> as bold text for use on a terminal.</p>
+
+<p>@param [String, to_s] text @return [String] <em>text</em></p>
+          
+          
+
+          
+          <div class="method-source-code" id="bold-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/pry-0.11.3/lib/pry/helpers/text.rb, line 51</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">bold</span>(<span class="ruby-identifier">text</span>)
+  <span class="ruby-node">&quot;\e[1m#{text}\e[0m&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+        <div class="aliases">
+          Also aliased as: <a href="Text.html#method-i-bright_default">bright_default</a>
+        </div>
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-bright_default" class="method-detail method-alias">
+        
+        <div class="method-heading">
+          <span class="method-name">bright_default</span><span
+            class="method-args">(text)</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+        </div>
+
+        
+
+        
+        <div class="aliases">
+          Alias for: <a href="Text.html#method-i-bold">bold</a>
+        </div>
+        
+      </div>
+
+    
+      <div id="method-i-default" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">default</span><span
+            class="method-args">(text)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Returns `text` in the default foreground colour. Use this instead of
+“black” or “white” when you mean absence of colour.</p>
+
+<p>@param [String, to_s] text @return [String]</p>
+          
+          
+
+          
+          <div class="method-source-code" id="default-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/pry-0.11.3/lib/pry/helpers/text.rb, line 60</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">default</span>(<span class="ruby-identifier">text</span>)
+  <span class="ruby-identifier">text</span>.<span class="ruby-identifier">to_s</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-indent" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">indent</span><span
+            class="method-args">(text, chars)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Returns <em>text</em> indented by <em>chars</em> spaces.</p>
+
+<p>@param [String] text @param [Fixnum] chars</p>
+          
+          
+
+          
+          <div class="method-source-code" id="indent-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/pry-0.11.3/lib/pry/helpers/text.rb, line 111</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">indent</span>(<span class="ruby-identifier">text</span>, <span class="ruby-identifier">chars</span>)
+  <span class="ruby-identifier">text</span>.<span class="ruby-identifier">lines</span>.<span class="ruby-identifier">map</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">l</span><span class="ruby-operator">|</span> <span class="ruby-node">&quot;#{&#39; &#39; * chars}#{l}&quot;</span> }.<span class="ruby-identifier">join</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-no_color" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">no_color</span><span
+            class="method-args">() { || ... }</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>@yield</p>
+
+<pre>Yields a block with color turned off.</pre>
+
+<p>@return [void]</p>
+          
+          
+
+          
+          <div class="method-source-code" id="no_color-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/pry-0.11.3/lib/pry/helpers/text.rb, line 71</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">no_color</span>
+  <span class="ruby-identifier">boolean</span> = <span class="ruby-constant">Pry</span>.<span class="ruby-identifier">config</span>.<span class="ruby-identifier">color</span>
+  <span class="ruby-constant">Pry</span>.<span class="ruby-identifier">config</span>.<span class="ruby-identifier">color</span> = <span class="ruby-keyword">false</span>
+  <span class="ruby-keyword">yield</span>
+<span class="ruby-keyword">ensure</span>
+  <span class="ruby-constant">Pry</span>.<span class="ruby-identifier">config</span>.<span class="ruby-identifier">color</span> = <span class="ruby-identifier">boolean</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-no_pager" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">no_pager</span><span
+            class="method-args">() { || ... }</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>@yield</p>
+
+<pre>Yields a block with paging turned off.</pre>
+
+<p>@return [void]</p>
+          
+          
+
+          
+          <div class="method-source-code" id="no_pager-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/pry-0.11.3/lib/pry/helpers/text.rb, line 85</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">no_pager</span>
+  <span class="ruby-identifier">boolean</span> = <span class="ruby-constant">Pry</span>.<span class="ruby-identifier">config</span>.<span class="ruby-identifier">pager</span>
+  <span class="ruby-constant">Pry</span>.<span class="ruby-identifier">config</span>.<span class="ruby-identifier">pager</span> = <span class="ruby-keyword">false</span>
+  <span class="ruby-keyword">yield</span>
+<span class="ruby-keyword">ensure</span>
+  <span class="ruby-constant">Pry</span>.<span class="ruby-identifier">config</span>.<span class="ruby-identifier">pager</span> = <span class="ruby-identifier">boolean</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-strip_color" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">strip_color</span><span
+            class="method-args">(text)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Remove any color codes from <em>text</em>.</p>
+
+<p>@param  [String, to_s] text @return [String] <em>text</em> stripped of any
+color codes.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="strip_color-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/pry-0.11.3/lib/pry/helpers/text.rb, line 43</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">strip_color</span>(<span class="ruby-identifier">text</span>)
+  <span class="ruby-identifier">text</span>.<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">gsub</span>(<span class="ruby-regexp">/(\001)?\e\[.*?(\d)+m(\002)?/</span> , <span class="ruby-string">&#39;&#39;</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-with_line_numbers" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">with_line_numbers</span><span
+            class="method-args">(text, offset, color=:blue)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Returns <em>text</em> in a numbered list, beginning at <em>offset</em>.</p>
+
+<p>@param  [#each_line] text @param  [Fixnum] offset @return [String]</p>
+          
+          
+
+          
+          <div class="method-source-code" id="with_line_numbers-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/pry-0.11.3/lib/pry/helpers/text.rb, line 98</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">with_line_numbers</span>(<span class="ruby-identifier">text</span>, <span class="ruby-identifier">offset</span>, <span class="ruby-identifier">color</span>=<span class="ruby-value">:blue</span>)
+  <span class="ruby-identifier">lines</span> = <span class="ruby-identifier">text</span>.<span class="ruby-identifier">each_line</span>.<span class="ruby-identifier">to_a</span>
+  <span class="ruby-identifier">max_width</span> = (<span class="ruby-identifier">offset</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">lines</span>.<span class="ruby-identifier">count</span>).<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">length</span>
+  <span class="ruby-identifier">lines</span>.<span class="ruby-identifier">each_with_index</span>.<span class="ruby-identifier">map</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">line</span>, <span class="ruby-identifier">index</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">adjusted_index</span> = (<span class="ruby-identifier">index</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">offset</span>).<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">rjust</span>(<span class="ruby-identifier">max_width</span>)
+    <span class="ruby-node">&quot;#{self.send(color, adjusted_index)}: #{line}&quot;</span>
+  <span class="ruby-keyword">end</span>.<span class="ruby-identifier">join</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="https://rdoc.github.io/rdoc">RDoc</a> 5.0.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

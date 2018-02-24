@@ -1,0 +1,828 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>module Kernel - RDoc Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "./";
+  var index_rel_prefix = "./";
+</script>
+
+<script src="./js/jquery.js"></script>
+<script src="./js/darkfish.js"></script>
+
+<link href="./css/fonts.css" rel="stylesheet">
+<link href="./css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="module">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="./index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="./table_of_contents.html#pages">Pages</a>
+    <a href="./table_of_contents.html#classes">Classes</a>
+    <a href="./table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    
+    <div id="includes-section" class="nav-section">
+  <h3>Included Modules</h3>
+
+  <ul class="link-list">
+  
+  
+    <li><a class="include" href="LittlePlugger/ClassMethods.html">LittlePlugger::ClassMethods</a>
+  
+  
+  </ul>
+</div>
+
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-i-LittlePlugger">#LittlePlugger</a>
+    
+    <li ><a href="#method-i-assert_array_same_items">#assert_array_same_items</a>
+    
+    <li ><a href="#method-i-assert_nothing_raised">#assert_nothing_raised</a>
+    
+    <li ><a href="#method-i-assert_sub_process_returns">#assert_sub_process_returns</a>
+    
+    <li ><a href="#method-i-class_eval">#class_eval</a>
+    
+    <li ><a href="#method-i-concern">#concern</a>
+    
+    <li ><a href="#method-i-describe">#describe</a>
+    
+    <li ><a href="#method-i-enable_warnings">#enable_warnings</a>
+    
+    <li ><a href="#method-i-safe_test">#safe_test</a>
+    
+    <li ><a href="#method-i-silence_warnings">#silence_warnings</a>
+    
+    <li ><a href="#method-i-suppress">#suppress</a>
+    
+    <li ><a href="#method-i-suppress_warnings">#suppress_warnings</a>
+    
+    <li ><a href="#method-i-with_warnings">#with_warnings</a>
+    
+    <li ><a href="#method-i-without_warnings">#without_warnings</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="module-Kernel">
+  <h1 id="module-Kernel" class="module">
+    module Kernel
+  </h1>
+
+  <section class="description">
+    
+<p><a href="Kernel.html">Kernel</a> extensions for minitest</p>
+
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+
+    
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-LittlePlugger" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            LittlePlugger( opts = {} )
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>This method allows the user to override some of LittlePlugger&#39;s default
+settings when mixed into a module or class.</p>
+
+<p>See the “Customizing” section of the <a
+href="LittlePlugger.html">LittlePlugger</a> documentation for an example of
+how this method is used.</p>
+
+<h4 id="method-i-LittlePlugger-label-Options"><a href="vendor/bundle/ruby/2_4_0/gems/oj-3_4_0/pages/Options_md.html">Options</a><span><a href="#method-i-LittlePlugger-label-Options">&para;</a> <a href="#top">&uarr;</a></span></h4>
+<ul><li>
+<p>:path &lt;String&gt;</p>
+
+<pre>The default plugin path. Defaults to &quot;module_name/plugins&quot;.</pre>
+</li><li>
+<p>:module &lt;Module&gt;</p>
+
+<pre>The module where plugins will be loaded. Defaults to
+ModuleName::Plugins.</pre>
+</li><li>
+<p>:plugins &lt;Array&gt;</p>
+
+<pre>The array of default plugins to load. Only the plugins listed in this
+array will be loaded by LittlePlugger.</pre>
+</li></ul>
+          
+          
+
+          
+          <div class="method-source-code" id="LittlePlugger-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/little-plugger-1.1.4/lib/little-plugger.rb, line 302</span>
+<span class="ruby-keyword">def</span> <span class="ruby-constant">LittlePlugger</span>( <span class="ruby-identifier">opts</span> = {} )
+  <span class="ruby-keyword">return</span> <span class="ruby-operator">::</span><span class="ruby-constant">LittlePlugger</span><span class="ruby-operator">::</span><span class="ruby-constant">ClassMethods</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">opts</span>.<span class="ruby-identifier">empty?</span>
+  <span class="ruby-constant">Module</span>.<span class="ruby-identifier">new</span> {
+    <span class="ruby-identifier">include</span> <span class="ruby-operator">::</span><span class="ruby-constant">LittlePlugger</span><span class="ruby-operator">::</span><span class="ruby-constant">ClassMethods</span>
+
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">opts</span>.<span class="ruby-identifier">key?</span>(<span class="ruby-value">:path</span>)
+      <span class="ruby-identifier">eval</span> <span class="ruby-node">%Q{def plugin_path() #{opts[:path].to_s.inspect} end}</span>
+    <span class="ruby-keyword">end</span>
+
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">opts</span>.<span class="ruby-identifier">key?</span>(<span class="ruby-value">:module</span>)
+      <span class="ruby-identifier">eval</span> <span class="ruby-node">%Q{def plugin_module() #{opts[:module].name} end}</span>
+    <span class="ruby-keyword">end</span>
+
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">opts</span>.<span class="ruby-identifier">key?</span>(<span class="ruby-value">:plugins</span>)
+      <span class="ruby-identifier">plugins</span> = <span class="ruby-constant">Array</span>(<span class="ruby-identifier">opts</span>[<span class="ruby-value">:plugins</span>]).<span class="ruby-identifier">map</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">val</span><span class="ruby-operator">|</span> <span class="ruby-identifier">val</span>.<span class="ruby-identifier">to_sym</span>.<span class="ruby-identifier">inspect</span>}.<span class="ruby-identifier">join</span>(<span class="ruby-string">&#39;,&#39;</span>)
+      <span class="ruby-identifier">eval</span> <span class="ruby-node">%Q{def plugin_names() @plugin_names ||= [#{plugins}] end}</span>
+    <span class="ruby-keyword">end</span>
+  }
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-assert_array_same_items" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">assert_array_same_items</span><span
+            class="method-args">(expected, actual, msg = nil)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="assert_array_same_items-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/tzinfo-1.2.5/test/test_utils.rb, line 100</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">assert_array_same_items</span>(<span class="ruby-identifier">expected</span>, <span class="ruby-identifier">actual</span>, <span class="ruby-identifier">msg</span> = <span class="ruby-keyword">nil</span>)
+  <span class="ruby-identifier">full_message</span> = <span class="ruby-identifier">message</span>(<span class="ruby-identifier">msg</span>, <span class="ruby-string">&#39;&#39;</span>) { <span class="ruby-identifier">diff</span>(<span class="ruby-identifier">expected</span>, <span class="ruby-identifier">actual</span>) }
+  <span class="ruby-identifier">condition</span> = (<span class="ruby-identifier">expected</span>.<span class="ruby-identifier">size</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">actual</span>.<span class="ruby-identifier">size</span>) <span class="ruby-operator">&amp;&amp;</span> (<span class="ruby-identifier">expected</span> <span class="ruby-operator">-</span> <span class="ruby-identifier">actual</span> <span class="ruby-operator">==</span> [])
+  <span class="ruby-identifier">assert</span>(<span class="ruby-identifier">condition</span>, <span class="ruby-identifier">full_message</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-assert_nothing_raised" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">assert_nothing_raised</span><span
+            class="method-args">(msg = nil) { || ... }</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="assert_nothing_raised-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/tzinfo-1.2.5/test/test_utils.rb, line 144</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">assert_nothing_raised</span>(<span class="ruby-identifier">msg</span> = <span class="ruby-keyword">nil</span>)
+  <span class="ruby-keyword">begin</span>
+    <span class="ruby-keyword">yield</span>
+  <span class="ruby-keyword">rescue</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">e</span>
+    <span class="ruby-identifier">full_message</span> = <span class="ruby-identifier">message</span>(<span class="ruby-identifier">msg</span>) { <span class="ruby-identifier">exception_details</span>(<span class="ruby-identifier">e</span>, <span class="ruby-string">&#39;Exception raised: &#39;</span>) }
+    <span class="ruby-identifier">assert</span>(<span class="ruby-keyword">false</span>, <span class="ruby-identifier">full_message</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-assert_sub_process_returns" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">assert_sub_process_returns</span><span
+            class="method-args">(expected_lines, code, extra_load_path = [], required = ['tzinfo'])</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="assert_sub_process_returns-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/tzinfo-1.2.5/test/test_utils.rb, line 106</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">assert_sub_process_returns</span>(<span class="ruby-identifier">expected_lines</span>, <span class="ruby-identifier">code</span>, <span class="ruby-identifier">extra_load_path</span> = [], <span class="ruby-identifier">required</span> = [<span class="ruby-string">&#39;tzinfo&#39;</span>])
+  <span class="ruby-identifier">ruby</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span>(<span class="ruby-constant">RbConfig</span><span class="ruby-operator">::</span><span class="ruby-constant">CONFIG</span>[<span class="ruby-string">&#39;bindir&#39;</span>], 
+    <span class="ruby-constant">RbConfig</span><span class="ruby-operator">::</span><span class="ruby-constant">CONFIG</span>[<span class="ruby-string">&#39;ruby_install_name&#39;</span>] <span class="ruby-operator">+</span> <span class="ruby-constant">RbConfig</span><span class="ruby-operator">::</span><span class="ruby-constant">CONFIG</span>[<span class="ruby-string">&#39;EXEEXT&#39;</span>])
+    
+  <span class="ruby-identifier">load_path</span> = [<span class="ruby-constant">TZINFO_LIB_DIR</span>] <span class="ruby-operator">+</span> <span class="ruby-identifier">extra_load_path</span>
+  
+  <span class="ruby-comment"># If RubyGems is loaded in the current process, then require it in the</span>
+  <span class="ruby-comment"># sub-process, as it may be needed in order to require dependencies.</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-keyword">defined?</span>(<span class="ruby-constant">Gem</span>) <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-constant">Gem</span>.<span class="ruby-identifier">instance_of?</span>(<span class="ruby-constant">Module</span>)
+    <span class="ruby-identifier">required</span> = [<span class="ruby-string">&#39;rubygems&#39;</span>] <span class="ruby-operator">+</span> <span class="ruby-identifier">required</span>
+  <span class="ruby-keyword">end</span>
+  
+  <span class="ruby-keyword">if</span> <span class="ruby-keyword">defined?</span>(<span class="ruby-constant">RUBY_ENGINE</span>) <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-constant">RUBY_ENGINE</span> <span class="ruby-operator">==</span> <span class="ruby-string">&#39;rbx&#39;</span>
+    <span class="ruby-comment"># Stop Rubinus from operating as irb.</span>
+    <span class="ruby-identifier">args</span> = <span class="ruby-string">&#39; -&#39;</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">args</span> = <span class="ruby-string">&#39;&#39;</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-constant">IO</span>.<span class="ruby-identifier">popen</span>(<span class="ruby-node">&quot;\&quot;#{ruby}\&quot;#{args}&quot;</span>, <span class="ruby-string">&#39;r+&#39;</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">process</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">load_path</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">p</span><span class="ruby-operator">|</span>
+      <span class="ruby-identifier">process</span>.<span class="ruby-identifier">puts</span>(<span class="ruby-node">&quot;$:.unshift(&#39;#{p.gsub(&quot;&#39;&quot;, &quot;\\\\&#39;&quot;)}&#39;)&quot;</span>)        
+    <span class="ruby-keyword">end</span>
+    
+    <span class="ruby-identifier">required</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">r</span><span class="ruby-operator">|</span>
+      <span class="ruby-identifier">process</span>.<span class="ruby-identifier">puts</span>(<span class="ruby-node">&quot;require &#39;#{r.gsub(&quot;&#39;&quot;, &quot;\\\\&#39;&quot;)}&#39;&quot;</span>)
+    <span class="ruby-keyword">end</span>
+    
+    <span class="ruby-identifier">process</span>.<span class="ruby-identifier">puts</span>(<span class="ruby-identifier">code</span>)
+    <span class="ruby-identifier">process</span>.<span class="ruby-identifier">flush</span>
+    <span class="ruby-identifier">process</span>.<span class="ruby-identifier">close_write</span>
+    
+    <span class="ruby-identifier">actual_lines</span> = <span class="ruby-identifier">process</span>.<span class="ruby-identifier">readlines</span>
+    <span class="ruby-identifier">actual_lines</span> = <span class="ruby-identifier">actual_lines</span>.<span class="ruby-identifier">collect</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">l</span><span class="ruby-operator">|</span> <span class="ruby-identifier">l</span>.<span class="ruby-identifier">chomp</span>}
+    <span class="ruby-identifier">assert_equal</span>(<span class="ruby-identifier">expected_lines</span>, <span class="ruby-identifier">actual_lines</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-class_eval" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">class_eval</span><span
+            class="method-args">(*args, &block)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p><a href="Kernel.html#method-i-class_eval">#class_eval</a> on an object acts
+like singleton_class.class_eval.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="class_eval-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/activesupport-5.1.5/lib/active_support/core_ext/kernel/singleton_class.rb, line 3</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">class_eval</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+  <span class="ruby-identifier">singleton_class</span>.<span class="ruby-identifier">class_eval</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-concern" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">concern</span><span
+            class="method-args">(topic, &module_definition)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>A shortcut to define a toplevel concern, not within a module.</p>
+
+<p>See <a href="Module/Concerning.html">Module::Concerning</a> for more.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="concern-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/activesupport-5.1.5/lib/active_support/core_ext/kernel/concern.rb, line 9</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">concern</span>(<span class="ruby-identifier">topic</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">module_definition</span>)
+  <span class="ruby-constant">Object</span>.<span class="ruby-identifier">concern</span> <span class="ruby-identifier">topic</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">module_definition</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-enable_warnings" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">enable_warnings</span><span
+            class="method-args">() { || ... }</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Sets $VERBOSE to <code>true</code> for the duration of the block and back
+to its original value afterwards.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="enable_warnings-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/activesupport-5.1.5/lib/active_support/core_ext/kernel/reporting.rb, line 18</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">enable_warnings</span>
+  <span class="ruby-identifier">with_warnings</span>(<span class="ruby-keyword">true</span>) { <span class="ruby-keyword">yield</span> }
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-safe_test" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">safe_test</span><span
+            class="method-args">(options = {}) { || ... }</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="safe_test-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/tzinfo-1.2.5/test/test_utils.rb, line 57</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">safe_test</span>(<span class="ruby-identifier">options</span> = {})
+  <span class="ruby-comment"># JRuby and Rubinus don&#39;t support SAFE levels.</span>
+  <span class="ruby-identifier">available</span> = <span class="ruby-operator">!</span>(<span class="ruby-keyword">defined?</span>(<span class="ruby-constant">RUBY_ENGINE</span>) <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-node">%w(jruby rbx)</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-constant">RUBY_ENGINE</span>))
+ 
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">available</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">options</span>[<span class="ruby-value">:unavailable</span>] <span class="ruby-operator">!=</span> <span class="ruby-value">:skip</span>
+    <span class="ruby-identifier">thread</span> = <span class="ruby-constant">Thread</span>.<span class="ruby-identifier">new</span> <span class="ruby-keyword">do</span>
+      <span class="ruby-identifier">orig_diff</span> = <span class="ruby-constant">Minitest</span><span class="ruby-operator">::</span><span class="ruby-constant">Assertions</span>.<span class="ruby-identifier">diff</span>
+
+      <span class="ruby-keyword">if</span> <span class="ruby-identifier">available</span>
+        <span class="ruby-identifier">orig_safe</span> = <span class="ruby-identifier">$SAFE</span>
+        <span class="ruby-identifier">$SAFE</span> = <span class="ruby-identifier">options</span>[<span class="ruby-value">:level</span>] <span class="ruby-operator">||</span> <span class="ruby-value">1</span>
+      <span class="ruby-keyword">end</span>
+      <span class="ruby-keyword">begin</span>
+        <span class="ruby-comment"># Disable the use of external diff tools during safe mode tests (since</span>
+        <span class="ruby-comment"># safe mode will prevent their use). The initial value is retrieved</span>
+        <span class="ruby-comment"># before activating safe mode because the first time</span>
+        <span class="ruby-comment"># Minitest::Assertions.diff is called, it will attempt to find a diff</span>
+        <span class="ruby-comment"># tool. Finding the diff tool will also fail in safe mode.</span>
+        <span class="ruby-constant">Minitest</span><span class="ruby-operator">::</span><span class="ruby-constant">Assertions</span>.<span class="ruby-identifier">diff</span> = <span class="ruby-keyword">nil</span>
+        <span class="ruby-keyword">begin</span>
+          <span class="ruby-keyword">yield</span>
+        <span class="ruby-keyword">ensure</span>
+          <span class="ruby-constant">Minitest</span><span class="ruby-operator">::</span><span class="ruby-constant">Assertions</span>.<span class="ruby-identifier">diff</span> = <span class="ruby-identifier">orig_diff</span>
+        <span class="ruby-keyword">end</span>
+      <span class="ruby-keyword">ensure</span>
+        <span class="ruby-keyword">if</span> <span class="ruby-identifier">available</span>
+          <span class="ruby-comment"># On Ruby &lt; 2.6, setting $SAFE affects only the current thread</span>
+          <span class="ruby-comment"># and the $SAFE level cannot be downgraded. Catch and ignore the</span>
+          <span class="ruby-comment"># SecurityError.</span>
+          <span class="ruby-comment"># On Ruby &gt;= 2.6, setting $SAFE is global, and the $SAFE level</span>
+          <span class="ruby-comment"># can be downgraded. Restore $SAFE back to the original level.</span>
+          <span class="ruby-keyword">begin</span>
+            <span class="ruby-identifier">$SAFE</span> = <span class="ruby-identifier">orig_safe</span>
+          <span class="ruby-keyword">rescue</span> <span class="ruby-constant">SecurityError</span>
+          <span class="ruby-keyword">end</span>
+        <span class="ruby-keyword">end</span>
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">end</span>
+    
+    <span class="ruby-identifier">thread</span>.<span class="ruby-identifier">join</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-silence_warnings" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">silence_warnings</span><span
+            class="method-args">() { || ... }</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Sets $VERBOSE to <code>nil</code> for the duration of the block and back to
+its original value afterwards.</p>
+
+<pre class="ruby"><span class="ruby-identifier">silence_warnings</span> <span class="ruby-keyword">do</span>
+  <span class="ruby-identifier">value</span> = <span class="ruby-identifier">noisy_call</span> <span class="ruby-comment"># no warning voiced</span>
+<span class="ruby-keyword">end</span>
+
+<span class="ruby-identifier">noisy_call</span> <span class="ruby-comment"># warning voiced</span>
+</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="silence_warnings-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/activesupport-5.1.5/lib/active_support/core_ext/kernel/reporting.rb, line 12</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">silence_warnings</span>
+  <span class="ruby-identifier">with_warnings</span>(<span class="ruby-keyword">nil</span>) { <span class="ruby-keyword">yield</span> }
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-suppress" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">suppress</span><span
+            class="method-args">(*exception_classes) { || ... }</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Blocks and ignores any exception passed as argument if raised within the
+block.</p>
+
+<pre class="ruby"><span class="ruby-identifier">suppress</span>(<span class="ruby-constant">ZeroDivisionError</span>) <span class="ruby-keyword">do</span>
+  <span class="ruby-value">1</span><span class="ruby-operator">/</span><span class="ruby-value">0</span>
+  <span class="ruby-identifier">puts</span> <span class="ruby-string">&#39;This code is NOT reached&#39;</span>
+<span class="ruby-keyword">end</span>
+
+<span class="ruby-identifier">puts</span> <span class="ruby-string">&#39;This code gets executed and nothing related to ZeroDivisionError was seen&#39;</span>
+</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="suppress-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/activesupport-5.1.5/lib/active_support/core_ext/kernel/reporting.rb, line 39</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">suppress</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">exception_classes</span>)
+  <span class="ruby-keyword">yield</span>
+<span class="ruby-keyword">rescue</span> <span class="ruby-operator">*</span><span class="ruby-identifier">exception_classes</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-suppress_warnings" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">suppress_warnings</span><span
+            class="method-args">() { || ... }</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="suppress_warnings-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/i18n-0.9.5/lib/i18n/core_ext/kernel/suppress_warnings.rb, line 2</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">suppress_warnings</span>
+  <span class="ruby-identifier">original_verbosity</span>, <span class="ruby-identifier">$VERBOSE</span> = <span class="ruby-identifier">$VERBOSE</span>, <span class="ruby-keyword">nil</span>
+  <span class="ruby-keyword">yield</span>
+<span class="ruby-keyword">ensure</span>
+  <span class="ruby-identifier">$VERBOSE</span> = <span class="ruby-identifier">original_verbosity</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-with_warnings" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">with_warnings</span><span
+            class="method-args">(flag) { || ... }</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Sets $VERBOSE for the duration of the block and back to its original value
+afterwards.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="with_warnings-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/activesupport-5.1.5/lib/active_support/core_ext/kernel/reporting.rb, line 24</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">with_warnings</span>(<span class="ruby-identifier">flag</span>)
+  <span class="ruby-identifier">old_verbose</span>, <span class="ruby-identifier">$VERBOSE</span> = <span class="ruby-identifier">$VERBOSE</span>, <span class="ruby-identifier">flag</span>
+  <span class="ruby-keyword">yield</span>
+<span class="ruby-keyword">ensure</span>
+  <span class="ruby-identifier">$VERBOSE</span> = <span class="ruby-identifier">old_verbose</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-without_warnings" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">without_warnings</span><span
+            class="method-args">() { || ... }</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Suppresses any warnings raised in a specified block.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="without_warnings-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/tzinfo-1.2.5/test/test_utils.rb, line 47</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">without_warnings</span>
+  <span class="ruby-identifier">old_verbose</span> = <span class="ruby-identifier">$VERBOSE</span>
+  <span class="ruby-keyword">begin</span>
+    <span class="ruby-identifier">$VERBOSE</span> = <span class="ruby-keyword">nil</span>
+    <span class="ruby-keyword">yield</span>
+  <span class="ruby-keyword">ensure</span>
+    <span class="ruby-identifier">$-v</span> = <span class="ruby-identifier">old_verbose</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="private-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Private Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-describe" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">describe</span><span
+            class="method-args">(desc, *additional_desc, &block)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Describe a series of expectations for a given target <code>desc</code>.</p>
+
+<p>Defines a test class subclassing from either <a
+href="Minitest/Spec.html">Minitest::Spec</a> or from the surrounding
+describe&#39;s class. The surrounding class may subclass <a
+href="Minitest/Spec.html">Minitest::Spec</a> manually in order to easily
+share code:</p>
+
+<pre class="ruby"><span class="ruby-keyword">class</span> <span class="ruby-constant">MySpec</span> <span class="ruby-operator">&lt;</span> <span class="ruby-constant">Minitest</span><span class="ruby-operator">::</span><span class="ruby-constant">Spec</span>
+  <span class="ruby-comment"># ... shared code ...</span>
+<span class="ruby-keyword">end</span>
+
+<span class="ruby-keyword">class</span> <span class="ruby-constant">TestStuff</span> <span class="ruby-operator">&lt;</span> <span class="ruby-constant">MySpec</span>
+  <span class="ruby-identifier">it</span> <span class="ruby-string">&quot;does stuff&quot;</span> <span class="ruby-keyword">do</span>
+    <span class="ruby-comment"># shared code available here</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">describe</span> <span class="ruby-string">&quot;inner stuff&quot;</span> <span class="ruby-keyword">do</span>
+    <span class="ruby-identifier">it</span> <span class="ruby-string">&quot;still does stuff&quot;</span> <span class="ruby-keyword">do</span>
+      <span class="ruby-comment"># ...and here</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span>
+</pre>
+
+<p>For more information on getting started with writing specs, see:</p>
+
+<p><a
+href="http://www.rubyinside.com/a-minitestspec-tutorial-elegant-spec-style-testing-that-comes-with-ruby-5354.html">www.rubyinside.com/a-minitestspec-tutorial-elegant-spec-style-testing-that-comes-with-ruby-5354.html</a></p>
+
+<p>For some suggestions on how to improve your specs, try:</p>
+
+<p><a href="http://betterspecs.org">betterspecs.org</a></p>
+
+<p>but do note that several items there are debatable or specific to rspec.</p>
+
+<p>For more information about expectations, see <a
+href="Minitest/Expectations.html">Minitest::Expectations</a>.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="describe-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/minitest-5.11.3/lib/minitest/spec.rb, line 71</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">describe</span> <span class="ruby-identifier">desc</span>, <span class="ruby-operator">*</span><span class="ruby-identifier">additional_desc</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span> <span class="ruby-comment"># :doc:</span>
+  <span class="ruby-identifier">stack</span> = <span class="ruby-constant">Minitest</span><span class="ruby-operator">::</span><span class="ruby-constant">Spec</span>.<span class="ruby-identifier">describe_stack</span>
+  <span class="ruby-identifier">name</span>  = [<span class="ruby-identifier">stack</span>.<span class="ruby-identifier">last</span>, <span class="ruby-identifier">desc</span>, <span class="ruby-operator">*</span><span class="ruby-identifier">additional_desc</span>].<span class="ruby-identifier">compact</span>.<span class="ruby-identifier">join</span>(<span class="ruby-string">&quot;::&quot;</span>)
+  <span class="ruby-identifier">sclas</span> = <span class="ruby-identifier">stack</span>.<span class="ruby-identifier">last</span> <span class="ruby-operator">||</span> <span class="ruby-keyword">if</span> <span class="ruby-constant">Class</span> <span class="ruby-operator">===</span> <span class="ruby-keyword">self</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">kind_of?</span>(<span class="ruby-constant">Minitest</span><span class="ruby-operator">::</span><span class="ruby-constant">Spec</span><span class="ruby-operator">::</span><span class="ruby-constant">DSL</span>) <span class="ruby-keyword">then</span>
+                          <span class="ruby-keyword">self</span>
+                        <span class="ruby-keyword">else</span>
+                          <span class="ruby-constant">Minitest</span><span class="ruby-operator">::</span><span class="ruby-constant">Spec</span>.<span class="ruby-identifier">spec_type</span> <span class="ruby-identifier">desc</span>, <span class="ruby-operator">*</span><span class="ruby-identifier">additional_desc</span>
+                        <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">cls</span> = <span class="ruby-identifier">sclas</span>.<span class="ruby-identifier">create</span> <span class="ruby-identifier">name</span>, <span class="ruby-identifier">desc</span>
+
+  <span class="ruby-identifier">stack</span>.<span class="ruby-identifier">push</span> <span class="ruby-identifier">cls</span>
+  <span class="ruby-identifier">cls</span>.<span class="ruby-identifier">class_eval</span>(<span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+  <span class="ruby-identifier">stack</span>.<span class="ruby-identifier">pop</span>
+  <span class="ruby-identifier">cls</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="https://rdoc.github.io/rdoc">RDoc</a> 5.0.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

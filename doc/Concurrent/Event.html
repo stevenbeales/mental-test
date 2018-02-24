@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class Concurrent::Event - RDoc Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../";
+  var index_rel_prefix = "../";
+</script>
+
+<script src="../js/jquery.js"></script>
+<script src="../js/darkfish.js"></script>
+
+<link href="../css/fonts.css" rel="stylesheet">
+<link href="../css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../table_of_contents.html#pages">Pages</a>
+    <a href="../table_of_contents.html#classes">Classes</a>
+    <a href="../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link">Synchronization::LockableObject
+  
+</div>
+
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li class="calls-super" ><a href="#method-c-new">::new</a>
+    
+    <li ><a href="#method-i-ns_initialize">#ns_initialize</a>
+    
+    <li ><a href="#method-i-ns_set">#ns_set</a>
+    
+    <li ><a href="#method-i-reset">#reset</a>
+    
+    <li ><a href="#method-i-set">#set</a>
+    
+    <li ><a href="#method-i-set-3F">#set?</a>
+    
+    <li ><a href="#method-i-try-3F">#try?</a>
+    
+    <li ><a href="#method-i-wait">#wait</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-Concurrent::Event">
+  <h1 id="class-Concurrent::Event" class="class">
+    class Concurrent::Event
+  </h1>
+
+  <section class="description">
+    
+<p>Old school kernel-style event reminiscent of Win32 programming in C++.</p>
+
+<p>When an `Event` is created it is in the `unset` state. Threads can choose
+to `#wait` on the event, blocking until released by another thread. When
+one thread wants to alert all blocking threads it calls the `#set` method
+which will then wake up all listeners. Once an `Event` has been set it
+remains set. New threads calling `#wait` will return immediately. An
+`Event` may be `#reset` at any time once it has been set.</p>
+
+<p>@see <a
+href="http://msdn.microsoft.com/en-us/library/windows/desktop/ms682655.aspx">msdn.microsoft.com/en-us/library/windows/desktop/ms682655.aspx</a>
+@example</p>
+
+<pre class="ruby"><span class="ruby-identifier">event</span> = <span class="ruby-constant">Concurrent</span><span class="ruby-operator">::</span><span class="ruby-constant">Event</span>.<span class="ruby-identifier">new</span>
+
+<span class="ruby-identifier">t1</span> = <span class="ruby-constant">Thread</span>.<span class="ruby-identifier">new</span> <span class="ruby-keyword">do</span>
+  <span class="ruby-identifier">puts</span> <span class="ruby-string">&quot;t1 is waiting&quot;</span>
+  <span class="ruby-identifier">event</span>.<span class="ruby-identifier">wait</span>(<span class="ruby-value">1</span>)
+  <span class="ruby-identifier">puts</span> <span class="ruby-string">&quot;event ocurred&quot;</span>
+<span class="ruby-keyword">end</span>
+
+<span class="ruby-identifier">t2</span> = <span class="ruby-constant">Thread</span>.<span class="ruby-identifier">new</span> <span class="ruby-keyword">do</span>
+  <span class="ruby-identifier">puts</span> <span class="ruby-string">&quot;t2 calling set&quot;</span>
+  <span class="ruby-identifier">event</span>.<span class="ruby-identifier">set</span>
+<span class="ruby-keyword">end</span>
+
+[<span class="ruby-identifier">t1</span>, <span class="ruby-identifier">t2</span>].<span class="ruby-identifier">each</span>(<span class="ruby-operator">&amp;</span>:<span class="ruby-identifier">join</span>)
+
+<span class="ruby-comment"># prints:</span>
+<span class="ruby-comment"># t2 calling set</span>
+<span class="ruby-comment"># t1 is waiting</span>
+<span class="ruby-comment"># event ocurred</span>
+</pre>
+
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Class Methods</h3>
+       </header>
+
+    
+      <div id="method-c-new" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">new</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Creates a new `Event` in the unset state. Threads calling `#wait` on the
+`Event` will block.</p>
+          
+          
+            <div class="method-calls-super">
+              Calls superclass method
+              
+            </div>
+          
+
+          
+          <div class="method-source-code" id="new-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/concurrent-ruby-1.0.5/lib/concurrent/atomic/event.rb, line 40</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span>
+  <span class="ruby-keyword">super</span>
+  <span class="ruby-identifier">synchronize</span> { <span class="ruby-identifier">ns_initialize</span> }
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-reset" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">reset</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Reset a previously set event back to the `unset` state. Has no effect if
+the `Event` has not yet been set.</p>
+
+<p>@return [Boolean] should always return `true`</p>
+          
+          
+
+          
+          <div class="method-source-code" id="reset-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/concurrent-ruby-1.0.5/lib/concurrent/atomic/event.rb, line 68</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">reset</span>
+  <span class="ruby-identifier">synchronize</span> <span class="ruby-keyword">do</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-ivar">@set</span>
+      <span class="ruby-ivar">@set</span>       = <span class="ruby-keyword">false</span>
+      <span class="ruby-ivar">@iteration</span> <span class="ruby-operator">+=</span><span class="ruby-value">1</span>
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">true</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-set" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">set</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Trigger the event, setting the state to `set` and releasing all threads
+waiting on the event. Has no effect if the `Event` has already been set.</p>
+
+<p>@return [Boolean] should always return `true`</p>
+          
+          
+
+          
+          <div class="method-source-code" id="set-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/concurrent-ruby-1.0.5/lib/concurrent/atomic/event.rb, line 56</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">set</span>
+  <span class="ruby-identifier">synchronize</span> { <span class="ruby-identifier">ns_set</span> }
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-set-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">set?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Is the object in the set state?</p>
+
+<p>@return [Boolean] indicating whether or not the `Event` has been set</p>
+          
+          
+
+          
+          <div class="method-source-code" id="set-3F-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/concurrent-ruby-1.0.5/lib/concurrent/atomic/event.rb, line 48</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">set?</span>
+  <span class="ruby-identifier">synchronize</span> { <span class="ruby-ivar">@set</span> }
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-try-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">try?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="try-3F-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/concurrent-ruby-1.0.5/lib/concurrent/atomic/event.rb, line 60</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">try?</span>
+  <span class="ruby-identifier">synchronize</span> { <span class="ruby-ivar">@set</span> <span class="ruby-operator">?</span> <span class="ruby-keyword">false</span> <span class="ruby-operator">:</span> <span class="ruby-identifier">ns_set</span> }
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-wait" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">wait</span><span
+            class="method-args">(timeout = nil)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Wait a given number of seconds for the `Event` to be set by another thread.
+Will wait forever when no `timeout` value is given. Returns immediately if
+the `Event` has already been set.</p>
+
+<p>@return [Boolean] true if the `Event` was set before timeout else false</p>
+          
+          
+
+          
+          <div class="method-source-code" id="wait-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/concurrent-ruby-1.0.5/lib/concurrent/atomic/event.rb, line 83</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">wait</span>(<span class="ruby-identifier">timeout</span> = <span class="ruby-keyword">nil</span>)
+  <span class="ruby-identifier">synchronize</span> <span class="ruby-keyword">do</span>
+    <span class="ruby-keyword">unless</span> <span class="ruby-ivar">@set</span>
+      <span class="ruby-identifier">iteration</span> = <span class="ruby-ivar">@iteration</span>
+      <span class="ruby-identifier">ns_wait_until</span>(<span class="ruby-identifier">timeout</span>) { <span class="ruby-identifier">iteration</span> <span class="ruby-operator">&lt;</span> <span class="ruby-ivar">@iteration</span> <span class="ruby-operator">||</span> <span class="ruby-ivar">@set</span> }
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-keyword">true</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="protected-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Protected Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-ns_initialize" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">ns_initialize</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="ns_initialize-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/concurrent-ruby-1.0.5/lib/concurrent/atomic/event.rb, line 104</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">ns_initialize</span>
+  <span class="ruby-ivar">@set</span>       = <span class="ruby-keyword">false</span>
+  <span class="ruby-ivar">@iteration</span> = <span class="ruby-value">0</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-ns_set" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">ns_set</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="ns_set-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/concurrent-ruby-1.0.5/lib/concurrent/atomic/event.rb, line 96</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">ns_set</span>
+  <span class="ruby-keyword">unless</span> <span class="ruby-ivar">@set</span>
+    <span class="ruby-ivar">@set</span> = <span class="ruby-keyword">true</span>
+    <span class="ruby-identifier">ns_broadcast</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">true</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="https://rdoc.github.io/rdoc">RDoc</a> 5.0.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

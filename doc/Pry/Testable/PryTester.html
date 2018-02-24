@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class Pry::Testable::PryTester - RDoc Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../../";
+  var index_rel_prefix = "../../";
+</script>
+
+<script src="../../js/jquery.js"></script>
+<script src="../../js/darkfish.js"></script>
+
+<link href="../../css/fonts.css" rel="stylesheet">
+<link href="../../css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../../table_of_contents.html#pages">Pages</a>
+    <a href="../../table_of_contents.html#classes">Classes</a>
+    <a href="../../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link"><a href="../../Object.html">Object</a>
+  
+</div>
+
+    
+    <div id="extends-section" class="nav-section">
+  <h3>Extended With Modules</h3>
+
+  <ul class="link-list">
+    
+  
+    <li><a class="extend" href="../Forwardable.html">Pry::Forwardable</a>
+  
+  
+  </ul>
+</div>
+
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-c-new">::new</a>
+    
+    <li ><a href="#method-i-eval">#eval</a>
+    
+    <li ><a href="#method-i-last_command_result">#last_command_result</a>
+    
+    <li ><a href="#method-i-last_command_result_or_output">#last_command_result_or_output</a>
+    
+    <li ><a href="#method-i-last_output">#last_output</a>
+    
+    <li ><a href="#method-i-process_command">#process_command</a>
+    
+    <li ><a href="#method-i-push">#push</a>
+    
+    <li ><a href="#method-i-push_binding">#push_binding</a>
+    
+    <li ><a href="#method-i-reset_output">#reset_output</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-Pry::Testable::PryTester">
+  <h1 id="class-Pry::Testable::PryTester" class="class">
+    class Pry::Testable::PryTester
+  </h1>
+
+  <section class="description">
+    
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+    <section class="attribute-method-details" class="method-section">
+      <header>
+        <h3>Attributes</h3>
+      </header>
+
+      
+      <div id="attribute-i-out" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">out</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-pry" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">pry</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+    </section>
+    
+
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Class Methods</h3>
+       </header>
+
+    
+      <div id="method-c-new" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">new</span><span
+            class="method-args">(target = TOPLEVEL_BINDING, options = {})</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="new-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/pry-0.11.3/lib/pry/testable/pry_tester.rb, line 6</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">target</span> = <span class="ruby-constant">TOPLEVEL_BINDING</span>, <span class="ruby-identifier">options</span> = {})
+  <span class="ruby-ivar">@pry</span> = <span class="ruby-constant">Pry</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">options</span>.<span class="ruby-identifier">merge</span>(<span class="ruby-value">:target</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">target</span>))
+  <span class="ruby-ivar">@history</span> = <span class="ruby-identifier">options</span>[<span class="ruby-value">:history</span>]
+  <span class="ruby-ivar">@pry</span>.<span class="ruby-identifier">inject_sticky_locals!</span>
+  <span class="ruby-identifier">reset_output</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-eval" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">eval</span><span
+            class="method-args">(*strs)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="eval-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/pry-0.11.3/lib/pry/testable/pry_tester.rb, line 13</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">eval</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">strs</span>)
+  <span class="ruby-identifier">reset_output</span>
+  <span class="ruby-identifier">result</span> = <span class="ruby-keyword">nil</span>
+
+  <span class="ruby-identifier">strs</span>.<span class="ruby-identifier">flatten</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">str</span><span class="ruby-operator">|</span>
+    <span class="ruby-comment"># Check for space prefix. See #1369.</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">str</span> <span class="ruby-operator">!~</span> <span class="ruby-regexp">/^\s\S/</span>
+      <span class="ruby-identifier">str</span> = <span class="ruby-node">&quot;#{str.strip}\n&quot;</span>
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-ivar">@history</span>.<span class="ruby-identifier">push</span> <span class="ruby-identifier">str</span> <span class="ruby-keyword">if</span> <span class="ruby-ivar">@history</span>
+
+    <span class="ruby-keyword">if</span> <span class="ruby-ivar">@pry</span>.<span class="ruby-identifier">process_command</span>(<span class="ruby-identifier">str</span>)
+      <span class="ruby-identifier">result</span> = <span class="ruby-identifier">last_command_result_or_output</span>
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-identifier">result</span> = <span class="ruby-ivar">@pry</span>.<span class="ruby-identifier">evaluate_ruby</span>(<span class="ruby-identifier">str</span>)
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">result</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-last_command_result" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">last_command_result</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="last_command_result-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/pry-0.11.3/lib/pry/testable/pry_tester.rb, line 53</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">last_command_result</span>
+  <span class="ruby-identifier">result</span> = <span class="ruby-constant">Pry</span>.<span class="ruby-identifier">current</span>[<span class="ruby-value">:pry_cmd_result</span>]
+  <span class="ruby-identifier">result</span>.<span class="ruby-identifier">retval</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">result</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-last_output" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">last_output</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="last_output-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/pry-0.11.3/lib/pry/testable/pry_tester.rb, line 44</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">last_output</span>
+  <span class="ruby-ivar">@out</span>.<span class="ruby-identifier">string</span> <span class="ruby-keyword">if</span> <span class="ruby-ivar">@out</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-process_command" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">process_command</span><span
+            class="method-args">(command_str)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="process_command-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/pry-0.11.3/lib/pry/testable/pry_tester.rb, line 48</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">process_command</span>(<span class="ruby-identifier">command_str</span>)
+  <span class="ruby-ivar">@pry</span>.<span class="ruby-identifier">process_command</span>(<span class="ruby-identifier">command_str</span>) <span class="ruby-keyword">or</span> <span class="ruby-identifier">raise</span> <span class="ruby-string">&quot;Not a valid command&quot;</span>
+  <span class="ruby-identifier">last_command_result_or_output</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-push" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">push</span><span
+            class="method-args">(*lines)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="push-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/pry-0.11.3/lib/pry/testable/pry_tester.rb, line 34</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">push</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">lines</span>)
+  <span class="ruby-constant">Array</span>(<span class="ruby-identifier">lines</span>).<span class="ruby-identifier">flatten</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">line</span><span class="ruby-operator">|</span>
+    <span class="ruby-ivar">@pry</span>.<span class="ruby-identifier">eval</span>(<span class="ruby-identifier">line</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-push_binding" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">push_binding</span><span
+            class="method-args">(context)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="push_binding-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/pry-0.11.3/lib/pry/testable/pry_tester.rb, line 40</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">push_binding</span>(<span class="ruby-identifier">context</span>)
+  <span class="ruby-ivar">@pry</span>.<span class="ruby-identifier">push_binding</span> <span class="ruby-identifier">context</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="protected-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Protected Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-last_command_result_or_output" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">last_command_result_or_output</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="last_command_result_or_output-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/pry-0.11.3/lib/pry/testable/pry_tester.rb, line 60</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">last_command_result_or_output</span>
+  <span class="ruby-identifier">result</span> = <span class="ruby-identifier">last_command_result</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">result</span> <span class="ruby-operator">!=</span> <span class="ruby-constant">Pry</span><span class="ruby-operator">::</span><span class="ruby-constant">Command</span><span class="ruby-operator">::</span><span class="ruby-constant">VOID_VALUE</span>
+    <span class="ruby-identifier">result</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">last_output</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-reset_output" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">reset_output</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="reset_output-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/pry-0.11.3/lib/pry/testable/pry_tester.rb, line 69</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">reset_output</span>
+  <span class="ruby-ivar">@out</span> = <span class="ruby-constant">StringIO</span>.<span class="ruby-identifier">new</span>
+  <span class="ruby-ivar">@pry</span>.<span class="ruby-identifier">output</span> = <span class="ruby-ivar">@out</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="https://rdoc.github.io/rdoc">RDoc</a> 5.0.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

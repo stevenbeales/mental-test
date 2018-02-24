@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class MetaMetaMetaTestCase - RDoc Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "./";
+  var index_rel_prefix = "./";
+</script>
+
+<script src="./js/jquery.js"></script>
+<script src="./js/darkfish.js"></script>
+
+<link href="./css/fonts.css" rel="stylesheet">
+<link href="./css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="./index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="./table_of_contents.html#pages">Pages</a>
+    <a href="./table_of_contents.html#classes">Classes</a>
+    <a href="./table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link"><a href="Minitest/Test.html">Minitest::Test</a>
+  
+</div>
+
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-i-assert_report">#assert_report</a>
+    
+    <li ><a href="#method-i-first_reporter">#first_reporter</a>
+    
+    <li ><a href="#method-i-normalize_output">#normalize_output</a>
+    
+    <li ><a href="#method-i-restore_env">#restore_env</a>
+    
+    <li ><a href="#method-i-run_tu_with_fresh_reporter">#run_tu_with_fresh_reporter</a>
+    
+    <li class="calls-super" ><a href="#method-i-setup">#setup</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-MetaMetaMetaTestCase">
+  <h1 id="class-MetaMetaMetaTestCase" class="class">
+    class MetaMetaMetaTestCase
+  </h1>
+
+  <section class="description">
+    
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+    <section class="attribute-method-details" class="method-section">
+      <header>
+        <h3>Attributes</h3>
+      </header>
+
+      
+      <div id="attribute-i-output" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">output</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-reporter" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">reporter</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-tu" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">tu</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+    </section>
+    
+
+    
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-assert_report" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">assert_report</span><span
+            class="method-args">(expected, flags = %w[--seed 42], &block)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="assert_report-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/minitest-5.11.3/test/minitest/metametameta.rb, line 52</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">assert_report</span> <span class="ruby-identifier">expected</span>, <span class="ruby-identifier">flags</span> = <span class="ruby-node">%w[--seed 42]</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>
+  <span class="ruby-identifier">header</span> = <span class="ruby-identifier">clean</span> <span class="ruby-value">&lt;&lt;-EOM
+    Run options: #{flags.map { |s| s =~ /\|/ ? s.inspect : s }.join &quot; &quot;}
+
+    # Running:
+
+  EOM</span>
+
+  <span class="ruby-identifier">run_tu_with_fresh_reporter</span> <span class="ruby-identifier">flags</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>
+
+  <span class="ruby-identifier">output</span> = <span class="ruby-identifier">normalize_output</span> <span class="ruby-ivar">@output</span>.<span class="ruby-identifier">string</span>.<span class="ruby-identifier">dup</span>
+
+  <span class="ruby-identifier">assert_equal</span> <span class="ruby-identifier">header</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">expected</span>, <span class="ruby-identifier">output</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-first_reporter" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">first_reporter</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="first_reporter-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/minitest-5.11.3/test/minitest/metametameta.rb, line 48</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">first_reporter</span>
+  <span class="ruby-identifier">reporter</span>.<span class="ruby-identifier">reporters</span>.<span class="ruby-identifier">first</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-normalize_output" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">normalize_output</span><span
+            class="method-args">(output)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="normalize_output-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/minitest-5.11.3/test/minitest/metametameta.rb, line 67</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">normalize_output</span> <span class="ruby-identifier">output</span>
+  <span class="ruby-identifier">output</span>.<span class="ruby-identifier">sub!</span>(<span class="ruby-regexp">/Finished in .*/</span>, <span class="ruby-string">&quot;Finished in 0.00&quot;</span>)
+  <span class="ruby-identifier">output</span>.<span class="ruby-identifier">sub!</span>(<span class="ruby-regexp">/Loaded suite .*/</span>, <span class="ruby-string">&quot;Loaded suite blah&quot;</span>)
+
+  <span class="ruby-identifier">output</span>.<span class="ruby-identifier">gsub!</span>(<span class="ruby-regexp">/FakeNamedTest\d+/</span>, <span class="ruby-string">&quot;FakeNamedTestXX&quot;</span>)
+  <span class="ruby-identifier">output</span>.<span class="ruby-identifier">gsub!</span>(<span class="ruby-regexp">/ = \d+.\d\d s = /</span>, <span class="ruby-string">&quot; = 0.00 s = &quot;</span>)
+  <span class="ruby-identifier">output</span>.<span class="ruby-identifier">gsub!</span>(<span class="ruby-regexp">/0x[A-Fa-f0-9]+/</span>, <span class="ruby-string">&quot;0xXXX&quot;</span>)
+  <span class="ruby-identifier">output</span>.<span class="ruby-identifier">gsub!</span>(<span class="ruby-regexp">/ +$/</span>, <span class="ruby-string">&quot;&quot;</span>)
+
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">windows?</span> <span class="ruby-keyword">then</span>
+    <span class="ruby-identifier">output</span>.<span class="ruby-identifier">gsub!</span>(<span class="ruby-regexp">/\[(?:[A-Za-z]:)?[^\]:]+:\d+\]/</span>, <span class="ruby-string">&quot;[FILE:LINE]&quot;</span>)
+    <span class="ruby-identifier">output</span>.<span class="ruby-identifier">gsub!</span>(<span class="ruby-regexp">/^(\s+)(?:[A-Za-z]:)?[^:]+:\d+:in/</span>, <span class="ruby-string">&#39;\1FILE:LINE:in&#39;</span>)
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">output</span>.<span class="ruby-identifier">gsub!</span>(<span class="ruby-regexp">/\[[^\]:]+:\d+\]/</span>, <span class="ruby-string">&quot;[FILE:LINE]&quot;</span>)
+    <span class="ruby-identifier">output</span>.<span class="ruby-identifier">gsub!</span>(<span class="ruby-regexp">/^(\s+)[^:]+:\d+:in/</span>, <span class="ruby-string">&#39;\1FILE:LINE:in&#39;</span>)
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">output</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-restore_env" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">restore_env</span><span
+            class="method-args">() { || ... }</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="restore_env-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/minitest-5.11.3/test/minitest/metametameta.rb, line 87</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">restore_env</span>
+  <span class="ruby-identifier">old_value</span> = <span class="ruby-constant">ENV</span>[<span class="ruby-string">&quot;MT_NO_SKIP_MSG&quot;</span>]
+  <span class="ruby-constant">ENV</span>.<span class="ruby-identifier">delete</span> <span class="ruby-string">&quot;MT_NO_SKIP_MSG&quot;</span>
+
+  <span class="ruby-keyword">yield</span>
+<span class="ruby-keyword">ensure</span>
+  <span class="ruby-constant">ENV</span>[<span class="ruby-string">&quot;MT_NO_SKIP_MSG&quot;</span>] = <span class="ruby-identifier">old_value</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-run_tu_with_fresh_reporter" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">run_tu_with_fresh_reporter</span><span
+            class="method-args">(flags = %w[--seed 42]) { |reporter| ... }</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="run_tu_with_fresh_reporter-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/minitest-5.11.3/test/minitest/metametameta.rb, line 25</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">run_tu_with_fresh_reporter</span> <span class="ruby-identifier">flags</span> = <span class="ruby-node">%w[--seed 42]</span>
+  <span class="ruby-identifier">options</span> = <span class="ruby-constant">Minitest</span>.<span class="ruby-identifier">process_args</span> <span class="ruby-identifier">flags</span>
+
+  <span class="ruby-ivar">@output</span> = <span class="ruby-constant">StringIO</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&quot;&quot;</span>.<span class="ruby-identifier">encode</span>(<span class="ruby-string">&#39;UTF-8&#39;</span>))
+
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">reporter</span> = <span class="ruby-constant">Minitest</span><span class="ruby-operator">::</span><span class="ruby-constant">CompositeReporter</span>.<span class="ruby-identifier">new</span>
+  <span class="ruby-identifier">reporter</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-constant">Minitest</span><span class="ruby-operator">::</span><span class="ruby-constant">SummaryReporter</span>.<span class="ruby-identifier">new</span>(<span class="ruby-ivar">@output</span>, <span class="ruby-identifier">options</span>)
+  <span class="ruby-identifier">reporter</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-constant">Minitest</span><span class="ruby-operator">::</span><span class="ruby-constant">ProgressReporter</span>.<span class="ruby-identifier">new</span>(<span class="ruby-ivar">@output</span>, <span class="ruby-identifier">options</span>)
+
+  <span class="ruby-identifier">reporter</span>.<span class="ruby-identifier">start</span>
+
+  <span class="ruby-keyword">yield</span>(<span class="ruby-identifier">reporter</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">block_given?</span>
+
+  <span class="ruby-ivar">@tus</span> <span class="ruby-operator">||=</span> [<span class="ruby-ivar">@tu</span>]
+  <span class="ruby-ivar">@tus</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">tu</span><span class="ruby-operator">|</span>
+    <span class="ruby-constant">Minitest</span><span class="ruby-operator">::</span><span class="ruby-constant">Runnable</span>.<span class="ruby-identifier">runnables</span>.<span class="ruby-identifier">delete</span> <span class="ruby-identifier">tu</span>
+
+    <span class="ruby-identifier">tu</span>.<span class="ruby-identifier">run</span> <span class="ruby-identifier">reporter</span>, <span class="ruby-identifier">options</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">reporter</span>.<span class="ruby-identifier">report</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-setup" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">setup</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+            <div class="method-calls-super">
+              Calls superclass method
+              <a href="Minitest/Test.html#method-c-setup">Minitest::Test.setup</a>
+            </div>
+          
+
+          
+          <div class="method-source-code" id="setup-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/minitest-5.11.3/test/minitest/metametameta.rb, line 96</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">setup</span>
+  <span class="ruby-keyword">super</span>
+  <span class="ruby-identifier">srand</span> <span class="ruby-value">42</span>
+  <span class="ruby-constant">Minitest</span><span class="ruby-operator">::</span><span class="ruby-constant">Test</span>.<span class="ruby-identifier">reset</span>
+  <span class="ruby-ivar">@tu</span> = <span class="ruby-keyword">nil</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="https://rdoc.github.io/rdoc">RDoc</a> 5.0.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

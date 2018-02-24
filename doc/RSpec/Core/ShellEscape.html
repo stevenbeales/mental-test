@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>module RSpec::Core::ShellEscape - RDoc Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../../";
+  var index_rel_prefix = "../../";
+</script>
+
+<script src="../../js/jquery.js"></script>
+<script src="../../js/darkfish.js"></script>
+
+<link href="../../css/fonts.css" rel="stylesheet">
+<link href="../../css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="module">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../../table_of_contents.html#pages">Pages</a>
+    <a href="../../table_of_contents.html#classes">Classes</a>
+    <a href="../../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-i-conditionally_quote">#conditionally_quote</a>
+    
+    <li ><a href="#method-i-escape">#escape</a>
+    
+    <li ><a href="#method-i-quote">#quote</a>
+    
+    <li ><a href="#method-i-shell_allows_unquoted_ids-3F">#shell_allows_unquoted_ids?</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="module-RSpec::Core::ShellEscape">
+  <h1 id="module-RSpec::Core::ShellEscape" class="module">
+    module RSpec::Core::ShellEscape
+  </h1>
+
+  <section class="description">
+    
+<p>@private Deals with the fact that `shellwords` only works on POSIX systems.</p>
+
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+    <section class="constants-list">
+      <header>
+        <h3>Constants</h3>
+      </header>
+      <dl>
+      
+        <dt id="SHELLS_ALLOWING_UNQUOTED_IDS">SHELLS_ALLOWING_UNQUOTED_IDS
+        
+        <dd><p>Known shells that require quoting: zsh, csh, tcsh.</p>
+
+<p>Feel free to add other shells to this list that are known to allow `rspec
+./<a href="1:1">some_spec.rb</a>` syntax without quoting the id.</p>
+
+<p>@private</p>
+        
+      
+      </dl>
+    </section>
+    
+
+    
+
+    
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-conditionally_quote" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">conditionally_quote</span><span
+            class="method-args">(id)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="conditionally_quote-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/rspec-core-3.7.1/lib/rspec/core/shell_escape.rb, line 32</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">conditionally_quote</span>(<span class="ruby-identifier">id</span>)
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">id</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">shell_allows_unquoted_ids?</span>
+  <span class="ruby-identifier">quote</span>(<span class="ruby-identifier">id</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-escape" class="method-detail method-alias">
+        
+        <div class="method-heading">
+          <span class="method-name">escape</span><span
+            class="method-args">(argument)</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>:nocov:</p>
+          
+          
+
+          
+        </div>
+
+        
+
+        
+        <div class="aliases">
+          Alias for: <a href="ShellEscape.html#method-i-quote">quote</a>
+        </div>
+        
+      </div>
+
+    
+      <div id="method-i-quote" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">quote</span><span
+            class="method-args">(argument)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="quote-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/rspec-core-3.7.1/lib/rspec/core/shell_escape.rb, line 8</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">quote</span>(<span class="ruby-identifier">argument</span>)
+  <span class="ruby-node">&quot;&#39;#{argument.gsub(&quot;&#39;&quot;, &quot;\\\\&#39;&quot;)}&#39;&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+        <div class="aliases">
+          Also aliased as: <a href="ShellEscape.html#method-i-escape">escape</a>
+        </div>
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-shell_allows_unquoted_ids-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">shell_allows_unquoted_ids?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="shell_allows_unquoted_ids-3F-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/rspec-core-3.7.1/lib/rspec/core/shell_escape.rb, line 37</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">shell_allows_unquoted_ids?</span>
+  <span class="ruby-comment"># Note: ENV[&#39;SHELL&#39;] isn&#39;t necessarily the shell the user is currently running.</span>
+  <span class="ruby-comment"># According to http://pubs.opengroup.org/onlinepubs/9699919799/basedefs/V1_chap08.html:</span>
+  <span class="ruby-comment"># &quot;This variable shall represent a pathname of the user&#39;s preferred command language interpreter.&quot;</span>
+  <span class="ruby-comment">#</span>
+  <span class="ruby-comment"># It&#39;s the best we can easily do, though. We err on the side of safety (quoting</span>
+  <span class="ruby-comment"># the id when not actually needed) so it&#39;s not a big deal if the user is actually</span>
+  <span class="ruby-comment"># using a different shell.</span>
+  <span class="ruby-constant">SHELLS_ALLOWING_UNQUOTED_IDS</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-constant">ENV</span>[<span class="ruby-string">&#39;SHELL&#39;</span>].<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">split</span>(<span class="ruby-string">&#39;/&#39;</span>).<span class="ruby-identifier">last</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="https://rdoc.github.io/rdoc">RDoc</a> 5.0.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

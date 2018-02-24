@@ -1,0 +1,866 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class Arel::Table - RDoc Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../";
+  var index_rel_prefix = "../";
+</script>
+
+<script src="../js/jquery.js"></script>
+<script src="../js/darkfish.js"></script>
+
+<link href="../css/fonts.css" rel="stylesheet">
+<link href="../css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../table_of_contents.html#pages">Pages</a>
+    <a href="../table_of_contents.html#classes">Classes</a>
+    <a href="../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link"><a href="../Object.html">Object</a>
+  
+</div>
+
+    <div id="includes-section" class="nav-section">
+  <h3>Included Modules</h3>
+
+  <ul class="link-list">
+  
+  
+    <li><a class="include" href="Crud.html">Arel::Crud</a>
+  
+  
+  
+    <li><a class="include" href="FactoryMethods.html">Arel::FactoryMethods</a>
+  
+  
+  </ul>
+</div>
+
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-c-new">::new</a>
+    
+    <li ><a href="#method-i-3D-3D">#==</a>
+    
+    <li ><a href="#method-i-5B-5D">#[]</a>
+    
+    <li ><a href="#method-i-able_to_type_cast-3F">#able_to_type_cast?</a>
+    
+    <li ><a href="#method-i-alias">#alias</a>
+    
+    <li ><a href="#method-i-eql-3F">#eql?</a>
+    
+    <li ><a href="#method-i-from">#from</a>
+    
+    <li ><a href="#method-i-group">#group</a>
+    
+    <li ><a href="#method-i-hash">#hash</a>
+    
+    <li ><a href="#method-i-having">#having</a>
+    
+    <li ><a href="#method-i-join">#join</a>
+    
+    <li ><a href="#method-i-order">#order</a>
+    
+    <li ><a href="#method-i-outer_join">#outer_join</a>
+    
+    <li ><a href="#method-i-project">#project</a>
+    
+    <li ><a href="#method-i-skip">#skip</a>
+    
+    <li ><a href="#method-i-take">#take</a>
+    
+    <li ><a href="#method-i-type_cast_for_database">#type_cast_for_database</a>
+    
+    <li ><a href="#method-i-where">#where</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-Arel::Table">
+  <h1 id="class-Arel::Table" class="class">
+    class Arel::Table
+  </h1>
+
+  <section class="description">
+    
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+    <section class="attribute-method-details" class="method-section">
+      <header>
+        <h3>Attributes</h3>
+      </header>
+
+      
+      <div id="attribute-c-engine" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">engine</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-name" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">name</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-table_alias" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">table_alias</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-table_name" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">table_name</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-type_caster" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">type_caster</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+    </section>
+    
+
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Class Methods</h3>
+       </header>
+
+    
+      <div id="method-c-new" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">new</span><span
+            class="method-args">(name, as: nil, type_caster: nil)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="new-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/arel-8.0.0/lib/arel/table.rb, line 14</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">name</span>, <span class="ruby-identifier">as</span><span class="ruby-operator">:</span> <span class="ruby-keyword">nil</span>, <span class="ruby-identifier">type_caster</span><span class="ruby-operator">:</span> <span class="ruby-keyword">nil</span>)
+  <span class="ruby-ivar">@name</span>    = <span class="ruby-identifier">name</span>.<span class="ruby-identifier">to_s</span>
+  <span class="ruby-ivar">@type_caster</span> = <span class="ruby-identifier">type_caster</span>
+
+  <span class="ruby-comment"># Sometime AR sends an :as parameter to table, to let the table know</span>
+  <span class="ruby-comment"># that it is an Alias.  We may want to override new, and return a</span>
+  <span class="ruby-comment"># TableAlias node?</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">as</span>.<span class="ruby-identifier">to_s</span> <span class="ruby-operator">==</span> <span class="ruby-ivar">@name</span>
+    <span class="ruby-identifier">as</span> = <span class="ruby-keyword">nil</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-ivar">@table_alias</span> = <span class="ruby-identifier">as</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-3D-3D" class="method-detail method-alias">
+        
+        <div class="method-heading">
+          <span class="method-name">==</span><span
+            class="method-args">(other)</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+        </div>
+
+        
+
+        
+        <div class="aliases">
+          Alias for: <a href="Table.html#method-i-eql-3F">eql?</a>
+        </div>
+        
+      </div>
+
+    
+      <div id="method-i-5B-5D" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">[]</span><span
+            class="method-args">(name)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="5B-5D-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/arel-8.0.0/lib/arel/table.rb, line 79</span>
+<span class="ruby-keyword">def</span> <span class="ruby-operator">[]</span> <span class="ruby-identifier">name</span>
+  <span class="ruby-operator">::</span><span class="ruby-constant">Arel</span><span class="ruby-operator">::</span><span class="ruby-constant">Attribute</span>.<span class="ruby-identifier">new</span> <span class="ruby-keyword">self</span>, <span class="ruby-identifier">name</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-able_to_type_cast-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">able_to_type_cast?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="able_to_type_cast-3F-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/arel-8.0.0/lib/arel/table.rb, line 101</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">able_to_type_cast?</span>
+  <span class="ruby-operator">!</span><span class="ruby-identifier">type_caster</span>.<span class="ruby-identifier">nil?</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-alias" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">alias</span><span
+            class="method-args">(name = "</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="alias-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/arel-8.0.0/lib/arel/table.rb, line 27</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">alias</span> <span class="ruby-identifier">name</span> = <span class="ruby-node">&quot;#{self.name}_2&quot;</span>
+  <span class="ruby-constant">Nodes</span><span class="ruby-operator">::</span><span class="ruby-constant">TableAlias</span>.<span class="ruby-identifier">new</span>(<span class="ruby-keyword">self</span>, <span class="ruby-identifier">name</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-eql-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">eql?</span><span
+            class="method-args">(other)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="eql-3F-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/arel-8.0.0/lib/arel/table.rb, line 90</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">eql?</span> <span class="ruby-identifier">other</span>
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">class</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">other</span>.<span class="ruby-identifier">class</span> <span class="ruby-operator">&amp;&amp;</span>
+    <span class="ruby-keyword">self</span>.<span class="ruby-identifier">name</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">other</span>.<span class="ruby-identifier">name</span> <span class="ruby-operator">&amp;&amp;</span>
+    <span class="ruby-keyword">self</span>.<span class="ruby-identifier">table_alias</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">other</span>.<span class="ruby-identifier">table_alias</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+        <div class="aliases">
+          Also aliased as: <a href="Table.html#method-i-3D-3D">==</a>
+        </div>
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-from" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">from</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="from-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/arel-8.0.0/lib/arel/table.rb, line 31</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">from</span>
+  <span class="ruby-constant">SelectManager</span>.<span class="ruby-identifier">new</span>(<span class="ruby-keyword">self</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-group" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">group</span><span
+            class="method-args">(*columns)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="group-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/arel-8.0.0/lib/arel/table.rb, line 51</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">group</span> <span class="ruby-operator">*</span><span class="ruby-identifier">columns</span>
+  <span class="ruby-identifier">from</span>.<span class="ruby-identifier">group</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">columns</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-hash" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">hash</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="hash-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/arel-8.0.0/lib/arel/table.rb, line 83</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">hash</span>
+  <span class="ruby-comment"># Perf note: aliases and table alias is excluded from the hash</span>
+  <span class="ruby-comment">#  aliases can have a loop back to this table breaking hashes in parent</span>
+  <span class="ruby-comment">#  relations, for the vast majority of cases @name is unique to a query</span>
+  <span class="ruby-ivar">@name</span>.<span class="ruby-identifier">hash</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-having" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">having</span><span
+            class="method-args">(expr)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="having-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/arel-8.0.0/lib/arel/table.rb, line 75</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">having</span> <span class="ruby-identifier">expr</span>
+  <span class="ruby-identifier">from</span>.<span class="ruby-identifier">having</span> <span class="ruby-identifier">expr</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-join" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">join</span><span
+            class="method-args">(relation, klass = Nodes::InnerJoin)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="join-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/arel-8.0.0/lib/arel/table.rb, line 35</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">join</span> <span class="ruby-identifier">relation</span>, <span class="ruby-identifier">klass</span> = <span class="ruby-constant">Nodes</span><span class="ruby-operator">::</span><span class="ruby-constant">InnerJoin</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">from</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">relation</span>
+
+  <span class="ruby-keyword">case</span> <span class="ruby-identifier">relation</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-constant">String</span>, <span class="ruby-constant">Nodes</span><span class="ruby-operator">::</span><span class="ruby-constant">SqlLiteral</span>
+    <span class="ruby-identifier">raise</span> <span class="ruby-constant">EmptyJoinError</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">relation</span>.<span class="ruby-identifier">empty?</span>
+    <span class="ruby-identifier">klass</span> = <span class="ruby-constant">Nodes</span><span class="ruby-operator">::</span><span class="ruby-constant">StringJoin</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">from</span>.<span class="ruby-identifier">join</span>(<span class="ruby-identifier">relation</span>, <span class="ruby-identifier">klass</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-order" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">order</span><span
+            class="method-args">(*expr)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="order-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/arel-8.0.0/lib/arel/table.rb, line 55</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">order</span> <span class="ruby-operator">*</span><span class="ruby-identifier">expr</span>
+  <span class="ruby-identifier">from</span>.<span class="ruby-identifier">order</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">expr</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-outer_join" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">outer_join</span><span
+            class="method-args">(relation)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="outer_join-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/arel-8.0.0/lib/arel/table.rb, line 47</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">outer_join</span> <span class="ruby-identifier">relation</span>
+  <span class="ruby-identifier">join</span>(<span class="ruby-identifier">relation</span>, <span class="ruby-constant">Nodes</span><span class="ruby-operator">::</span><span class="ruby-constant">OuterJoin</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-project" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">project</span><span
+            class="method-args">(*things)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="project-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/arel-8.0.0/lib/arel/table.rb, line 63</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">project</span> <span class="ruby-operator">*</span><span class="ruby-identifier">things</span>
+  <span class="ruby-identifier">from</span>.<span class="ruby-identifier">project</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">things</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-skip" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">skip</span><span
+            class="method-args">(amount)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="skip-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/arel-8.0.0/lib/arel/table.rb, line 71</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">skip</span> <span class="ruby-identifier">amount</span>
+  <span class="ruby-identifier">from</span>.<span class="ruby-identifier">skip</span> <span class="ruby-identifier">amount</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-take" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">take</span><span
+            class="method-args">(amount)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="take-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/arel-8.0.0/lib/arel/table.rb, line 67</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">take</span> <span class="ruby-identifier">amount</span>
+  <span class="ruby-identifier">from</span>.<span class="ruby-identifier">take</span> <span class="ruby-identifier">amount</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-type_cast_for_database" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">type_cast_for_database</span><span
+            class="method-args">(attribute_name, value)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="type_cast_for_database-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/arel-8.0.0/lib/arel/table.rb, line 97</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">type_cast_for_database</span>(<span class="ruby-identifier">attribute_name</span>, <span class="ruby-identifier">value</span>)
+  <span class="ruby-identifier">type_caster</span>.<span class="ruby-identifier">type_cast_for_database</span>(<span class="ruby-identifier">attribute_name</span>, <span class="ruby-identifier">value</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-where" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">where</span><span
+            class="method-args">(condition)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="where-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/arel-8.0.0/lib/arel/table.rb, line 59</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">where</span> <span class="ruby-identifier">condition</span>
+  <span class="ruby-identifier">from</span>.<span class="ruby-identifier">where</span> <span class="ruby-identifier">condition</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="https://rdoc.github.io/rdoc">RDoc</a> 5.0.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

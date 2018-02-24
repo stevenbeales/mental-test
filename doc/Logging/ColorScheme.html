@@ -1,0 +1,848 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class TestLogging::TestLayouts::TestColorPattern::CS - RDoc Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../";
+  var index_rel_prefix = "../";
+</script>
+
+<script src="../js/jquery.js"></script>
+<script src="../js/darkfish.js"></script>
+
+<link href="../css/fonts.css" rel="stylesheet">
+<link href="../css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../table_of_contents.html#pages">Pages</a>
+    <a href="../table_of_contents.html#classes">Classes</a>
+    <a href="../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link"><a href="../Object.html">Object</a>
+  
+</div>
+
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-c-5B-5D">::[]</a>
+    
+    <li ><a href="#method-c-5B-5D-3D">::[]=</a>
+    
+    <li ><a href="#method-c-new">::new</a>
+    
+    <li ><a href="#method-c-reset">::reset</a>
+    
+    <li ><a href="#method-i-5B-5D">#[]</a>
+    
+    <li ><a href="#method-i-5B-5D-3D">#[]=</a>
+    
+    <li ><a href="#method-i-color">#color</a>
+    
+    <li ><a href="#method-i-include-3F">#include?</a>
+    
+    <li ><a href="#method-i-levels-3F">#levels?</a>
+    
+    <li ><a href="#method-i-lines-3F">#lines?</a>
+    
+    <li ><a href="#method-i-load_from_hash">#load_from_hash</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-TestLogging::TestLayouts::TestColorPattern::CS">
+  <h1 id="class-TestLogging::TestLayouts::TestColorPattern::CS" class="class">
+    class TestLogging::TestLayouts::TestColorPattern::CS
+  </h1>
+
+  <section class="description">
+    
+<p>ColorScheme objects encapsulate a named set of colors to be used in the
+colors() method call. For example, by applying a ColorScheme that has a
+<code>:warning</code> color then the following could be used:</p>
+
+<pre class="ruby"><span class="ruby-identifier">scheme</span>.<span class="ruby-identifier">color</span>(<span class="ruby-string">&quot;This is a warning&quot;</span>, :<span class="ruby-identifier">warning</span>)
+</pre>
+
+<p>ColorScheme objects are used by the Pattern layout code to colorize log
+messages. Each color scheme is given a unique name which is used by the
+Pattern layout to lookup the appropriate color scheme to use. Please refer
+to the Pattern layout documentation for more details - specifically the
+initializer documentation.</p>
+
+<p>The color scheme can be applied to the Pattern layout in several ways. Each
+token in the log pattern can be colorized with the log level (debug, info,
+warn, etc) receiving unique colors based on the level itself. Another
+option is to colorize the entire log message based on the log level; in
+this mode tokens do not get their own colors. Please see the ColorScheme
+initializer for the list of colorization options.</p>
+
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+    <section class="constants-list">
+      <header>
+        <h3>Constants</h3>
+      </header>
+      <dl>
+      
+        <dt id="BLACK">BLACK
+        
+        <dd>
+        
+      
+        <dt id="BLINK">BLINK
+        
+        <dd>
+        
+      
+        <dt id="BLUE">BLUE
+        
+        <dd>
+        
+      
+        <dt id="BOLD">BOLD
+        
+        <dd>
+        
+      
+        <dt id="BRIGHT_BLUE">BRIGHT_BLUE
+        
+        <dd>
+        
+      
+        <dt id="BRIGHT_CYAN">BRIGHT_CYAN
+        
+        <dd>
+        
+      
+        <dt id="BRIGHT_GREEN">BRIGHT_GREEN
+        
+        <dd>
+        
+      
+        <dt id="BRIGHT_MAGENTA">BRIGHT_MAGENTA
+        
+        <dd>
+        
+      
+        <dt id="BRIGHT_RED">BRIGHT_RED
+        
+        <dd>
+        
+      
+        <dt id="BRIGHT_WHITE">BRIGHT_WHITE
+        
+        <dd>
+        
+      
+        <dt id="BRIGHT_YELLOW">BRIGHT_YELLOW
+        
+        <dd>
+        
+      
+        <dt id="CLEAR">CLEAR
+        
+        <dd><p>Embed in a <a href="../String.html">String</a> to clear all previous ANSI
+sequences.  This <strong>MUST</strong> be done before the program exits!</p>
+        
+      
+        <dt id="CONCEALED">CONCEALED
+        
+        <dd>
+        
+      
+        <dt id="CYAN">CYAN
+        
+        <dd>
+        
+      
+        <dt id="DARK">DARK
+        
+        <dd>
+        
+      
+        <dt id="ERASE_CHAR">ERASE_CHAR
+        
+        <dd>
+        
+      
+        <dt id="ERASE_LINE">ERASE_LINE
+        
+        <dd>
+        
+      
+        <dt id="GREEN">GREEN
+        
+        <dd>
+        
+      
+        <dt id="MAGENTA">MAGENTA
+        
+        <dd>
+        
+      
+        <dt id="ON_BLACK">ON_BLACK
+        
+        <dd>
+        
+      
+        <dt id="ON_BLUE">ON_BLUE
+        
+        <dd>
+        
+      
+        <dt id="ON_BRIGHT_BLUE">ON_BRIGHT_BLUE
+        
+        <dd>
+        
+      
+        <dt id="ON_BRIGHT_CYAN">ON_BRIGHT_CYAN
+        
+        <dd>
+        
+      
+        <dt id="ON_BRIGHT_GREEN">ON_BRIGHT_GREEN
+        
+        <dd>
+        
+      
+        <dt id="ON_BRIGHT_MAGENTA">ON_BRIGHT_MAGENTA
+        
+        <dd>
+        
+      
+        <dt id="ON_BRIGHT_RED">ON_BRIGHT_RED
+        
+        <dd>
+        
+      
+        <dt id="ON_BRIGHT_WHITE">ON_BRIGHT_WHITE
+        
+        <dd>
+        
+      
+        <dt id="ON_BRIGHT_YELLOW">ON_BRIGHT_YELLOW
+        
+        <dd>
+        
+      
+        <dt id="ON_CYAN">ON_CYAN
+        
+        <dd>
+        
+      
+        <dt id="ON_GREEN">ON_GREEN
+        
+        <dd>
+        
+      
+        <dt id="ON_MAGENTA">ON_MAGENTA
+        
+        <dd>
+        
+      
+        <dt id="ON_RED">ON_RED
+        
+        <dd>
+        
+      
+        <dt id="ON_WHITE">ON_WHITE
+        
+        <dd>
+        
+      
+        <dt id="ON_YELLOW">ON_YELLOW
+        
+        <dd>
+        
+      
+        <dt id="RED">RED
+        
+        <dd>
+        
+      
+        <dt id="RESET">RESET
+        
+        <dd>
+        
+      
+        <dt id="REVERSE">REVERSE
+        
+        <dd>
+        
+      
+        <dt id="UNDERLINE">UNDERLINE
+        
+        <dd>
+        
+      
+        <dt id="UNDERSCORE">UNDERSCORE
+        
+        <dd>
+        
+      
+        <dt id="WHITE">WHITE
+        
+        <dd>
+        
+      
+        <dt id="YELLOW">YELLOW
+        
+        <dd>
+        
+      
+      </dl>
+    </section>
+    
+
+    
+
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Class Methods</h3>
+       </header>
+
+    
+      <div id="method-c-5B-5D" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">[]</span><span
+            class="method-args">( name )</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Retrieve a color scheme by name.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="5B-5D-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/logging-2.2.2/lib/logging/color_scheme.rb, line 36</span>
+<span class="ruby-keyword">def</span> <span class="ruby-operator">[]</span>( <span class="ruby-identifier">name</span> )
+  <span class="ruby-ivar">@color_schemes</span>[<span class="ruby-identifier">name</span>.<span class="ruby-identifier">to_s</span>]
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-5B-5D-3D" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">[]=</span><span
+            class="method-args">( name, value )</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Store a color scheme by name.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="5B-5D-3D-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/logging-2.2.2/lib/logging/color_scheme.rb, line 42</span>
+<span class="ruby-keyword">def</span> <span class="ruby-operator">[]=</span>( <span class="ruby-identifier">name</span>, <span class="ruby-identifier">value</span> )
+  <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>, <span class="ruby-string">&quot;Silly! That&#39;s not a ColorSchmeme!&quot;</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">value</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">ColorScheme</span>)
+  <span class="ruby-ivar">@color_schemes</span>[<span class="ruby-identifier">name</span>.<span class="ruby-identifier">to_s</span>] = <span class="ruby-identifier">value</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-new" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">new</span><span
+            class="method-args">( name, opts = {} )</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Create a <a href="ColorScheme.html">ColorScheme</a> instance that can be
+accessed using the given <em>name</em>. If a color scheme already exists
+with the given <em>name</em> it will be replaced by the new color scheme.</p>
+
+<p>The color names are passed as options to the method with each name mapping
+to one or more color codes. For example:</p>
+
+<pre class="ruby"><span class="ruby-constant">ColorScheme</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&#39;example&#39;</span>, :<span class="ruby-identifier">logger</span> =<span class="ruby-operator">&gt;</span> [:<span class="ruby-identifier">white</span>, :<span class="ruby-identifier">on_green</span>], :<span class="ruby-identifier">message</span> =<span class="ruby-operator">&gt;</span> :<span class="ruby-identifier">magenta</span>)
+</pre>
+
+<p>The color codes are the lowercase names of the constants defined at the end
+of this file. Multiple color codes can be aliased by grouping them in an
+array as shown in the example above.</p>
+
+<p>Since color schemes are primarily intended to be used with the Pattern
+layout, there are a few special options of note. First the log levels are
+enumerated in their own hash:</p>
+
+<pre>:levels =&gt; {
+  :debug =&gt; :blue,
+  :info  =&gt; :cyan,
+  :warn  =&gt; :yellow,
+  :error =&gt; :red,
+  :fatal =&gt; [:white, :on_red]
+}</pre>
+
+<p>The log level token will be colorized differently based on the value of the
+log level itself. Similarly the entire log message can be colorized based
+on the value of the log level. A different option should be given for this
+behavior:</p>
+
+<pre>:lines =&gt; {
+  :debug =&gt; :blue,
+  :info  =&gt; :cyan,
+  :warn  =&gt; :yellow,
+  :error =&gt; :red,
+  :fatal =&gt; [:white, :on_red]
+}</pre>
+
+<p>The :levels and :lines options cannot be used together; only one or the
+other should be given.</p>
+
+<p>The remaining tokens defined in the Pattern layout can be colorized using
+the following aliases. Their meaning in the Pattern layout are repeated
+here for sake of clarity.</p>
+
+<pre>:logger       [%c] name of the logger that generate the log event
+:date         [%d] datestamp
+:message      [%m] the user supplied log message
+:pid          [%p] PID of the current process
+:time         [%r] the time in milliseconds since the program started
+:thread       [%T] the name of the thread Thread.current[:name]
+:thread_id    [%t] object_id of the thread
+:file         [%F] filename where the logging request was issued
+:line         [%L] line number where the logging request was issued
+:method       [%M] method name where the logging request was issued</pre>
+
+<p>Please refer to the “examples/colorization.rb” file for a working example
+of log colorization.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="new-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/logging-2.2.2/lib/logging/color_scheme.rb, line 121</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span>( <span class="ruby-identifier">name</span>, <span class="ruby-identifier">opts</span> = {} )
+  <span class="ruby-ivar">@scheme</span> = <span class="ruby-constant">Hash</span>.<span class="ruby-identifier">new</span>
+
+  <span class="ruby-ivar">@lines</span> = <span class="ruby-identifier">opts</span>.<span class="ruby-identifier">key?</span> <span class="ruby-value">:lines</span>
+  <span class="ruby-ivar">@levels</span> = <span class="ruby-identifier">opts</span>.<span class="ruby-identifier">key?</span> <span class="ruby-value">:levels</span>
+  <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>, <span class="ruby-string">&quot;Found both :lines and :levels - only one can be used.&quot;</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">lines?</span> <span class="ruby-keyword">and</span> <span class="ruby-identifier">levels?</span>
+
+  <span class="ruby-identifier">lines</span> = <span class="ruby-identifier">opts</span>.<span class="ruby-identifier">delete</span> <span class="ruby-value">:lines</span>
+  <span class="ruby-identifier">levels</span> = <span class="ruby-identifier">opts</span>.<span class="ruby-identifier">delete</span> <span class="ruby-value">:levels</span>
+
+  <span class="ruby-identifier">load_from_hash</span>(<span class="ruby-identifier">opts</span>)
+  <span class="ruby-identifier">load_from_hash</span>(<span class="ruby-identifier">lines</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">lines?</span>
+  <span class="ruby-identifier">load_from_hash</span>(<span class="ruby-identifier">levels</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">levels?</span>
+
+  <span class="ruby-operator">::</span><span class="ruby-constant">Logging</span><span class="ruby-operator">::</span><span class="ruby-constant">ColorScheme</span>[<span class="ruby-identifier">name</span>] = <span class="ruby-keyword">self</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-reset" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">reset</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Clear all color schemes and setup a default color scheme.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="reset-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/logging-2.2.2/lib/logging/color_scheme.rb, line 49</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">reset</span>
+  <span class="ruby-ivar">@color_schemes</span> <span class="ruby-operator">||=</span> {}
+  <span class="ruby-ivar">@color_schemes</span>.<span class="ruby-identifier">clear</span>
+
+  <span class="ruby-identifier">new</span>(<span class="ruby-value">:default</span>, <span class="ruby-value">:levels</span> =<span class="ruby-operator">&gt;</span> {
+    <span class="ruby-value">:info</span>  =<span class="ruby-operator">&gt;</span> <span class="ruby-value">:green</span>,
+    <span class="ruby-value">:warn</span>  =<span class="ruby-operator">&gt;</span> <span class="ruby-value">:yellow</span>,
+    <span class="ruby-value">:error</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">:red</span>,
+    <span class="ruby-value">:fatal</span> =<span class="ruby-operator">&gt;</span> [<span class="ruby-value">:white</span>, <span class="ruby-value">:on_red</span>]
+  })
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-5B-5D" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">[]</span><span
+            class="method-args">( color_tag )</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Allow the scheme to be accessed like a <a href="../Hash.html">Hash</a>.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="5B-5D-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/logging-2.2.2/lib/logging/color_scheme.rb, line 166</span>
+<span class="ruby-keyword">def</span> <span class="ruby-operator">[]</span>( <span class="ruby-identifier">color_tag</span> )
+  <span class="ruby-ivar">@scheme</span>[<span class="ruby-identifier">to_key</span>(<span class="ruby-identifier">color_tag</span>)]
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-5B-5D-3D" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">[]=</span><span
+            class="method-args">( color_tag, constants )</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Allow the scheme to be set like a <a href="../Hash.html">Hash</a>.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="5B-5D-3D-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/logging-2.2.2/lib/logging/color_scheme.rb, line 172</span>
+<span class="ruby-keyword">def</span> <span class="ruby-operator">[]=</span>( <span class="ruby-identifier">color_tag</span>, <span class="ruby-identifier">constants</span> )
+  <span class="ruby-ivar">@scheme</span>[<span class="ruby-identifier">to_key</span>(<span class="ruby-identifier">color_tag</span>)] = <span class="ruby-identifier">constants</span>.<span class="ruby-identifier">respond_to?</span>(<span class="ruby-value">:map</span>) <span class="ruby-operator">?</span>
+      <span class="ruby-identifier">constants</span>.<span class="ruby-identifier">map</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">c</span><span class="ruby-operator">|</span> <span class="ruby-identifier">to_constant</span>(<span class="ruby-identifier">c</span>) }.<span class="ruby-identifier">join</span> <span class="ruby-operator">:</span> <span class="ruby-identifier">to_constant</span>(<span class="ruby-identifier">constants</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-color" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">color</span><span
+            class="method-args">( string, *colors )</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>This method provides easy access to ANSI color sequences, without the user
+needing to remember to <a href="ColorScheme.html#CLEAR">CLEAR</a> at the
+end of each sequence.  Just pass the <em>string</em> to color, followed by
+a list of <em>colors</em> you would like it to be affected by.  The
+<em>colors</em> can be <a href="ColorScheme.html">ColorScheme</a> class
+constants, or symbols (:blue for <a href="ColorScheme.html#BLUE">BLUE</a>,
+for example).  A <a href="ColorScheme.html#CLEAR">CLEAR</a> will
+automatically be embedded to the end of the returned <a
+href="../String.html">String</a>.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="color-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/logging-2.2.2/lib/logging/color_scheme.rb, line 184</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">color</span>( <span class="ruby-identifier">string</span>, <span class="ruby-operator">*</span><span class="ruby-identifier">colors</span> )
+  <span class="ruby-identifier">colors</span>.<span class="ruby-identifier">map!</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">color</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">color_tag</span> = <span class="ruby-identifier">to_key</span>(<span class="ruby-identifier">color</span>)
+    <span class="ruby-ivar">@scheme</span>.<span class="ruby-identifier">key?</span>(<span class="ruby-identifier">color_tag</span>) <span class="ruby-operator">?</span> <span class="ruby-ivar">@scheme</span>[<span class="ruby-identifier">color_tag</span>] <span class="ruby-operator">:</span> <span class="ruby-identifier">to_constant</span>(<span class="ruby-identifier">color</span>)
+  }
+
+  <span class="ruby-identifier">colors</span>.<span class="ruby-identifier">compact!</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">string</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">colors</span>.<span class="ruby-identifier">empty?</span>
+
+  <span class="ruby-node">&quot;#{colors.join}#{string}#{CLEAR}&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-include-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">include?</span><span
+            class="method-args">( color_tag )</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Does this color scheme include the given tag name?</p>
+          
+          
+
+          
+          <div class="method-source-code" id="include-3F-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/logging-2.2.2/lib/logging/color_scheme.rb, line 160</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">include?</span>( <span class="ruby-identifier">color_tag</span> )
+  <span class="ruby-ivar">@scheme</span>.<span class="ruby-identifier">key?</span>(<span class="ruby-identifier">to_key</span>(<span class="ruby-identifier">color_tag</span>))
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-levels-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">levels?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Returns <code>true</code> if the :levels option was passed to the
+constructor.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="levels-3F-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/logging-2.2.2/lib/logging/color_scheme.rb, line 154</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">levels?</span>
+  <span class="ruby-ivar">@levels</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-lines-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">lines?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Returns <code>true</code> if the :lines option was passed to the
+constructor.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="lines-3F-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/logging-2.2.2/lib/logging/color_scheme.rb, line 148</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">lines?</span>
+  <span class="ruby-ivar">@lines</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-load_from_hash" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">load_from_hash</span><span
+            class="method-args">( h )</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Load multiple colors from key/value pairs.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="load_from_hash-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/logging-2.2.2/lib/logging/color_scheme.rb, line 140</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">load_from_hash</span>( <span class="ruby-identifier">h</span> )
+  <span class="ruby-identifier">h</span>.<span class="ruby-identifier">each_pair</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">color_tag</span>, <span class="ruby-identifier">constants</span><span class="ruby-operator">|</span>
+    <span class="ruby-keyword">self</span>[<span class="ruby-identifier">color_tag</span>] = <span class="ruby-identifier">constants</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="https://rdoc.github.io/rdoc">RDoc</a> 5.0.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

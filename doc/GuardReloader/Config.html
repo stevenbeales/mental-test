@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class GuardReloader::Config - RDoc Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../";
+  var index_rel_prefix = "../";
+</script>
+
+<script src="../js/jquery.js"></script>
+<script src="../js/darkfish.js"></script>
+
+<link href="../css/fonts.css" rel="stylesheet">
+<link href="../css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../table_of_contents.html#pages">Pages</a>
+    <a href="../table_of_contents.html#classes">Classes</a>
+    <a href="../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link"><a href="../Object.html">Object</a>
+  
+</div>
+
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-i-current_bundler_gemfile">#current_bundler_gemfile</a>
+    
+    <li ><a href="#method-i-exist-3F">#exist?</a>
+    
+    <li ><a href="#method-i-exit_with">#exit_with</a>
+    
+    <li ><a href="#method-i-guard_core_path">#guard_core_path</a>
+    
+    <li ><a href="#method-i-program_arguments">#program_arguments</a>
+    
+    <li ><a href="#method-i-program_path">#program_path</a>
+    
+    <li ><a href="#method-i-setup_bundler">#setup_bundler</a>
+    
+    <li ><a href="#method-i-setup_bundler_env">#setup_bundler_env</a>
+    
+    <li ><a href="#method-i-setup_rubygems_for_deps">#setup_rubygems_for_deps</a>
+    
+    <li ><a href="#method-i-spawn_with">#spawn_with</a>
+    
+    <li ><a href="#method-i-using_bundler-3F">#using_bundler?</a>
+    
+    <li ><a href="#method-i-using_rubygems-3F">#using_rubygems?</a>
+    
+    <li ><a href="#method-i-wait_ignoring_interrupts">#wait_ignoring_interrupts</a>
+    
+    <li ><a href="#method-i-windows-3F">#windows?</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-GuardReloader::Config">
+  <h1 id="class-GuardReloader::Config" class="class">
+    class GuardReloader::Config
+  </h1>
+
+  <section class="description">
+    
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+
+    
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-current_bundler_gemfile" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">current_bundler_gemfile</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="current_bundler_gemfile-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/guard-2.14.2/bin/guard, line 15</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">current_bundler_gemfile</span>
+  <span class="ruby-constant">ENV</span>[<span class="ruby-string">&quot;BUNDLE_GEMFILE&quot;</span>]
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-exist-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">exist?</span><span
+            class="method-args">(path)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="exist-3F-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/guard-2.14.2/bin/guard, line 60</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">exist?</span>(<span class="ruby-identifier">path</span>)
+  <span class="ruby-identifier">path</span>.<span class="ruby-identifier">exist?</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-exit_with" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">exit_with</span><span
+            class="method-args">(code)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="exit_with-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/guard-2.14.2/bin/guard, line 44</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">exit_with</span>(<span class="ruby-identifier">code</span>)
+  <span class="ruby-identifier">exit</span>(<span class="ruby-identifier">code</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-guard_core_path" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">guard_core_path</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="guard_core_path-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/guard-2.14.2/bin/guard, line 64</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">guard_core_path</span>
+  <span class="ruby-constant">Gem</span>.<span class="ruby-identifier">bin_path</span>(<span class="ruby-string">&quot;guard&quot;</span>, <span class="ruby-string">&quot;_guard-core&quot;</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-program_arguments" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">program_arguments</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="program_arguments-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/guard-2.14.2/bin/guard, line 36</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">program_arguments</span>
+  <span class="ruby-constant">ARGV</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-program_path" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">program_path</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="program_path-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/guard-2.14.2/bin/guard, line 32</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">program_path</span>
+  <span class="ruby-constant">Pathname</span>(<span class="ruby-keyword">__FILE__</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-setup_bundler" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">setup_bundler</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="setup_bundler-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/guard-2.14.2/bin/guard, line 27</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">setup_bundler</span>
+  <span class="ruby-identifier">require</span> <span class="ruby-string">&quot;rubygems&quot;</span>
+  <span class="ruby-identifier">require</span> <span class="ruby-string">&quot;bundler/setup&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-setup_bundler_env" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">setup_bundler_env</span><span
+            class="method-args">(gemfile)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="setup_bundler_env-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/guard-2.14.2/bin/guard, line 23</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">setup_bundler_env</span>(<span class="ruby-identifier">gemfile</span>)
+  <span class="ruby-constant">ENV</span>[<span class="ruby-string">&quot;BUNDLE_GEMFILE&quot;</span>] = <span class="ruby-identifier">gemfile</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-setup_rubygems_for_deps" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">setup_rubygems_for_deps</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="setup_rubygems_for_deps-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/guard-2.14.2/bin/guard, line 11</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">setup_rubygems_for_deps</span>
+  <span class="ruby-identifier">require</span> <span class="ruby-string">&quot;rubygems&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-spawn_with" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">spawn_with</span><span
+            class="method-args">(*args)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="spawn_with-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/guard-2.14.2/bin/guard, line 48</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">spawn_with</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
+  <span class="ruby-identifier">spawn</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-using_bundler-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">using_bundler?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="using_bundler-3F-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/guard-2.14.2/bin/guard, line 19</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">using_bundler?</span>
+  <span class="ruby-constant">ENV</span>[<span class="ruby-string">&quot;BUNDLE_GEMFILE&quot;</span>]
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-using_rubygems-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">using_rubygems?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="using_rubygems-3F-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/guard-2.14.2/bin/guard, line 7</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">using_rubygems?</span>
+  <span class="ruby-constant">ENV</span>[<span class="ruby-string">&quot;RUBYGEMS_GEMDEPS&quot;</span>]
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-wait_ignoring_interrupts" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">wait_ignoring_interrupts</span><span
+            class="method-args">(pid)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="wait_ignoring_interrupts-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/guard-2.14.2/bin/guard, line 52</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">wait_ignoring_interrupts</span>(<span class="ruby-identifier">pid</span>)
+  <span class="ruby-constant">Process</span>.<span class="ruby-identifier">wait2</span>(<span class="ruby-identifier">pid</span>)[<span class="ruby-value">1</span>].<span class="ruby-identifier">exitstatus</span>
+<span class="ruby-keyword">rescue</span> <span class="ruby-constant">Interrupt</span>
+  <span class="ruby-keyword">retry</span>
+<span class="ruby-keyword">rescue</span> <span class="ruby-constant">Errno</span><span class="ruby-operator">::</span><span class="ruby-constant">ECHILD</span>
+  <span class="ruby-value">1</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-windows-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">windows?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="windows-3F-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/guard-2.14.2/bin/guard, line 40</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">windows?</span>
+  <span class="ruby-constant">Gem</span>.<span class="ruby-identifier">win_platform?</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="https://rdoc.github.io/rdoc">RDoc</a> 5.0.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

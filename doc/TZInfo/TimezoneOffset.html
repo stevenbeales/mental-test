@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class TZInfo::TimezoneOffset - RDoc Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../";
+  var index_rel_prefix = "../";
+</script>
+
+<script src="../js/jquery.js"></script>
+<script src="../js/darkfish.js"></script>
+
+<link href="../css/fonts.css" rel="stylesheet">
+<link href="../css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../table_of_contents.html#pages">Pages</a>
+    <a href="../table_of_contents.html#classes">Classes</a>
+    <a href="../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link"><a href="../Object.html">Object</a>
+  
+</div>
+
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-c-new">::new</a>
+    
+    <li ><a href="#method-i-3D-3D">#==</a>
+    
+    <li ><a href="#method-i-dst-3F">#dst?</a>
+    
+    <li ><a href="#method-i-eql-3F">#eql?</a>
+    
+    <li ><a href="#method-i-hash">#hash</a>
+    
+    <li ><a href="#method-i-inspect">#inspect</a>
+    
+    <li ><a href="#method-i-to_local">#to_local</a>
+    
+    <li ><a href="#method-i-to_utc">#to_utc</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-TZInfo::TimezoneOffset">
+  <h1 id="class-TZInfo::TimezoneOffset" class="class">
+    class TZInfo::TimezoneOffset
+  </h1>
+
+  <section class="description">
+    
+<p>Represents an offset defined in a <a href="Timezone.html">Timezone</a> data
+file.</p>
+
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+    <section class="attribute-method-details" class="method-section">
+      <header>
+        <h3>Attributes</h3>
+      </header>
+
+      
+      <div id="attribute-i-abbreviation" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">abbreviation</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        <p>The abbreviation that identifies this observance, e.g. “GMT”  (Greenwich
+Mean <a href="../Time.html">Time</a>) or “BST” (British Summer <a
+href="../Time.html">Time</a>) for “Europe/London”. The returned identifier
+is a  symbol.</p>
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-std_offset" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">std_offset</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        <p>The offset from the time zone&#39;s standard time in seconds. Zero when
+daylight savings time is not in effect. Non-zero (usually 3600 = 1 hour) if
+daylight savings is being observed.</p>
+
+<p>Note that zoneinfo files only include the value of <a
+href="TimezoneOffset.html#attribute-i-utc_total_offset">#utc_total_offset</a>
+and a DST flag. When using DataSources::ZoneinfoDataSource, the <a
+href="TimezoneOffset.html#attribute-i-std_offset">#std_offset</a> will be
+derived from changes to the UTC total offset and the DST flag. As a
+consequence, <a
+href="TimezoneOffset.html#attribute-i-utc_total_offset">#utc_total_offset</a>
+will always be correct, but <a
+href="TimezoneOffset.html#attribute-i-std_offset">#std_offset</a> may be
+inaccurate.</p>
+
+<p>If you require <a
+href="TimezoneOffset.html#attribute-i-std_offset">#std_offset</a> to be
+accurate, install the tzinfo-data gem and set <a
+href="RubyDataSource.html">RubyDataSource</a> as the <a
+href="DataSource.html">DataSource</a>.</p>
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-utc_offset" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">utc_offset</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        <p>The base offset of the timezone from UTC in seconds. This does not include
+any adjustment made for daylight savings time and will typically remain
+constant throughout the year.</p>
+
+<p>To obtain the currently observed offset from UTC, including the effect of
+daylight savings time, use <a
+href="TimezoneOffset.html#attribute-i-utc_total_offset">#utc_total_offset</a>
+instead.</p>
+
+<p>Note that zoneinfo files only include the value of <a
+href="TimezoneOffset.html#attribute-i-utc_total_offset">#utc_total_offset</a>
+and a DST flag. When using <a
+href="ZoneinfoDataSource.html">ZoneinfoDataSource</a>, the <a
+href="TimezoneOffset.html#attribute-i-utc_offset">#utc_offset</a> will be
+derived from changes to the UTC total offset and the DST flag. As a
+consequence, <a
+href="TimezoneOffset.html#attribute-i-utc_total_offset">#utc_total_offset</a>
+will always be correct, but <a
+href="TimezoneOffset.html#attribute-i-utc_offset">#utc_offset</a> may be
+inaccurate.</p>
+
+<p>If you require <a
+href="TimezoneOffset.html#attribute-i-utc_offset">#utc_offset</a> to be
+accurate, install the tzinfo-data gem and set <a
+href="RubyDataSource.html">RubyDataSource</a> as the <a
+href="DataSource.html">DataSource</a>.</p>
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-utc_total_offset" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">utc_total_offset</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        <p>The total offset of this observance from UTC in seconds  (utc_offset + <a
+href="TimezoneOffset.html#attribute-i-std_offset">#std_offset</a>).</p>
+        
+        </div>
+      </div>
+      
+    </section>
+    
+
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Class Methods</h3>
+       </header>
+
+    
+      <div id="method-c-new" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">new</span><span
+            class="method-args">(utc_offset, std_offset, abbreviation)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Constructs a new <a href="TimezoneOffset.html">TimezoneOffset</a>. <a
+href="TimezoneOffset.html#attribute-i-utc_offset">#utc_offset</a> and <a
+href="TimezoneOffset.html#attribute-i-std_offset">#std_offset</a> are
+specified  in seconds.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="new-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/tzinfo-1.2.5/lib/tzinfo/timezone_offset.rb, line 45</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">utc_offset</span>, <span class="ruby-identifier">std_offset</span>, <span class="ruby-identifier">abbreviation</span>)
+  <span class="ruby-ivar">@utc_offset</span> = <span class="ruby-identifier">utc_offset</span>
+  <span class="ruby-ivar">@std_offset</span> = <span class="ruby-identifier">std_offset</span>      
+  <span class="ruby-ivar">@abbreviation</span> = <span class="ruby-identifier">abbreviation</span>
+  
+  <span class="ruby-ivar">@utc_total_offset</span> = <span class="ruby-ivar">@utc_offset</span> <span class="ruby-operator">+</span> <span class="ruby-ivar">@std_offset</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-3D-3D" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">==</span><span
+            class="method-args">(toi)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Returns true if and only if toi has the same <a
+href="TimezoneOffset.html#attribute-i-utc_offset">#utc_offset</a>, <a
+href="TimezoneOffset.html#attribute-i-std_offset">#std_offset</a> and
+abbreviation as this <a href="TimezoneOffset.html">TimezoneOffset</a>.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="3D-3D-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/tzinfo-1.2.5/lib/tzinfo/timezone_offset.rb, line 80</span>
+<span class="ruby-keyword">def</span> <span class="ruby-operator">==</span>(<span class="ruby-identifier">toi</span>)
+  <span class="ruby-identifier">toi</span>.<span class="ruby-identifier">kind_of?</span>(<span class="ruby-constant">TimezoneOffset</span>) <span class="ruby-operator">&amp;&amp;</span>
+    <span class="ruby-identifier">utc_offset</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">toi</span>.<span class="ruby-identifier">utc_offset</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">std_offset</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">toi</span>.<span class="ruby-identifier">std_offset</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">abbreviation</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">toi</span>.<span class="ruby-identifier">abbreviation</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-dst-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">dst?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>True if <a
+href="TimezoneOffset.html#attribute-i-std_offset">#std_offset</a> is
+non-zero.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="dst-3F-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/tzinfo-1.2.5/lib/tzinfo/timezone_offset.rb, line 54</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">dst?</span>
+  <span class="ruby-ivar">@std_offset</span> <span class="ruby-operator">!=</span> <span class="ruby-value">0</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-eql-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">eql?</span><span
+            class="method-args">(toi)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Returns true if and only if toi has the same <a
+href="TimezoneOffset.html#attribute-i-utc_offset">#utc_offset</a>, <a
+href="TimezoneOffset.html#attribute-i-std_offset">#std_offset</a> and
+abbreviation as this <a href="TimezoneOffset.html">TimezoneOffset</a>.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="eql-3F-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/tzinfo-1.2.5/lib/tzinfo/timezone_offset.rb, line 87</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">eql?</span>(<span class="ruby-identifier">toi</span>)
+  <span class="ruby-keyword">self</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">toi</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-hash" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">hash</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Returns a hash of this <a href="TimezoneOffset.html">TimezoneOffset</a>.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="hash-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/tzinfo-1.2.5/lib/tzinfo/timezone_offset.rb, line 92</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">hash</span>
+  <span class="ruby-identifier">utc_offset</span>.<span class="ruby-identifier">hash</span> <span class="ruby-operator">^</span> <span class="ruby-identifier">std_offset</span>.<span class="ruby-identifier">hash</span> <span class="ruby-operator">^</span> <span class="ruby-identifier">abbreviation</span>.<span class="ruby-identifier">hash</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-inspect" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">inspect</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Returns internal object state as a programmer-readable string.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="inspect-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/tzinfo-1.2.5/lib/tzinfo/timezone_offset.rb, line 97</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">inspect</span>
+  <span class="ruby-node">&quot;#&lt;#{self.class}: #@utc_offset,#@std_offset,#@abbreviation&gt;&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-to_local" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">to_local</span><span
+            class="method-args">(utc)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Converts a UTC <a href="../Time.html">Time</a>, <a
+href="../DateTime.html">DateTime</a> or integer timestamp to local time,
+based on  the offset of this period.</p>
+
+<p>Deprecation warning: this method will be removed in <a
+href="../TZInfo.html">TZInfo</a> version 2.0.0.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="to_local-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/tzinfo-1.2.5/lib/tzinfo/timezone_offset.rb, line 62</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">to_local</span>(<span class="ruby-identifier">utc</span>)
+  <span class="ruby-constant">TimeOrDateTime</span>.<span class="ruby-identifier">wrap</span>(<span class="ruby-identifier">utc</span>) {<span class="ruby-operator">|</span><span class="ruby-identifier">wrapped</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">wrapped</span> <span class="ruby-operator">+</span> <span class="ruby-ivar">@utc_total_offset</span>
+  }
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-to_utc" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">to_utc</span><span
+            class="method-args">(local)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Converts a local <a href="../Time.html">Time</a>, <a
+href="../DateTime.html">DateTime</a> or integer timestamp to UTC, based on
+the offset of this period.</p>
+
+<p>Deprecation warning: this method will be removed in <a
+href="../TZInfo.html">TZInfo</a> version 2.0.0.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="to_utc-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/tzinfo-1.2.5/lib/tzinfo/timezone_offset.rb, line 72</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">to_utc</span>(<span class="ruby-identifier">local</span>)
+  <span class="ruby-constant">TimeOrDateTime</span>.<span class="ruby-identifier">wrap</span>(<span class="ruby-identifier">local</span>) {<span class="ruby-operator">|</span><span class="ruby-identifier">wrapped</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">wrapped</span> <span class="ruby-operator">-</span> <span class="ruby-ivar">@utc_total_offset</span>
+  }
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="https://rdoc.github.io/rdoc">RDoc</a> 5.0.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

@@ -1,0 +1,1151 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class Lumberjack::Logger - RDoc Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../";
+  var index_rel_prefix = "../";
+</script>
+
+<script src="../js/jquery.js"></script>
+<script src="../js/darkfish.js"></script>
+
+<link href="../css/fonts.css" rel="stylesheet">
+<link href="../css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../table_of_contents.html#pages">Pages</a>
+    <a href="../table_of_contents.html#classes">Classes</a>
+    <a href="../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link"><a href="../Object.html">Object</a>
+  
+</div>
+
+    <div id="includes-section" class="nav-section">
+  <h3>Included Modules</h3>
+
+  <ul class="link-list">
+  
+  
+    <li><a class="include" href="Severity.html">Lumberjack::Severity</a>
+  
+  
+  </ul>
+</div>
+
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-c-new">::new</a>
+    
+    <li ><a href="#method-i-3C-3C">#&lt;&lt;</a>
+    
+    <li ><a href="#method-i-add">#add</a>
+    
+    <li ><a href="#method-i-close">#close</a>
+    
+    <li ><a href="#method-i-debug">#debug</a>
+    
+    <li ><a href="#method-i-debug-3F">#debug?</a>
+    
+    <li ><a href="#method-i-error">#error</a>
+    
+    <li ><a href="#method-i-error-3F">#error?</a>
+    
+    <li ><a href="#method-i-fatal">#fatal</a>
+    
+    <li ><a href="#method-i-fatal-3F">#fatal?</a>
+    
+    <li ><a href="#method-i-flush">#flush</a>
+    
+    <li ><a href="#method-i-formatter">#formatter</a>
+    
+    <li ><a href="#method-i-info">#info</a>
+    
+    <li ><a href="#method-i-info-3F">#info?</a>
+    
+    <li ><a href="#method-i-level">#level</a>
+    
+    <li ><a href="#method-i-level-3D">#level=</a>
+    
+    <li ><a href="#method-i-log">#log</a>
+    
+    <li ><a href="#method-i-progname">#progname</a>
+    
+    <li ><a href="#method-i-set_progname">#set_progname</a>
+    
+    <li ><a href="#method-i-silence">#silence</a>
+    
+    <li ><a href="#method-i-unknown">#unknown</a>
+    
+    <li ><a href="#method-i-warn">#warn</a>
+    
+    <li ><a href="#method-i-warn-3F">#warn?</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-Lumberjack::Logger">
+  <h1 id="class-Lumberjack::Logger" class="class">
+    class Lumberjack::Logger
+  </h1>
+
+  <section class="description">
+    
+<p><a href="Logger.html">Logger</a> is a thread safe logging object. It has a
+compatible API with the Ruby standard library <a
+href="Logger.html">Logger</a> class, the Log4r gem, and
+ActiveSupport::BufferedLogger.</p>
+
+<h3 id="class-Lumberjack::Logger-label-Example">Example<span><a href="#class-Lumberjack::Logger-label-Example">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<pre class="ruby"><span class="ruby-identifier">logger</span> = <span class="ruby-constant">Lumberjack</span><span class="ruby-operator">::</span><span class="ruby-constant">Logger</span>.<span class="ruby-identifier">new</span>
+<span class="ruby-identifier">logger</span>.<span class="ruby-identifier">info</span>(<span class="ruby-string">&quot;Starting processing&quot;</span>)
+<span class="ruby-identifier">logger</span>.<span class="ruby-identifier">debug</span>(<span class="ruby-node">&quot;Processing options #{options.inspect}&quot;</span>)
+<span class="ruby-identifier">logger</span>.<span class="ruby-identifier">fatal</span>(<span class="ruby-string">&quot;OMG the application is on fire!&quot;</span>)
+</pre>
+
+<p>Log entries are written to a logging <a href="Device.html">Device</a> if
+their severity meets or exceeds the log level.</p>
+
+<p>Devices may use buffers internally and the log entries are not guaranteed
+to be written until you call the <code>flush</code> method. Sometimes this
+can result in problems when trying to track down extraordinarily long
+running sections of code since it is likely that none of the messages
+logged before the long running code will appear in the log until the entire
+process finishes. You can set the <code>:flush_seconds</code> option on the
+constructor to force the device to be flushed periodically. This will
+create a new monitoring thread, but its use is highly recommended.</p>
+
+<p>Each log entry records the log message and severity along with the time it
+was logged, the program name, process id, and unit of work id. The message
+will be converted to a string, but otherwise, it is up to the device how
+these values are recorded. Messages are converted to strings using a <a
+href="Formatter.html">Formatter</a> associated with the logger.</p>
+
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+    <section class="attribute-method-details" class="method-section">
+      <header>
+        <h3>Attributes</h3>
+      </header>
+
+      
+      <div id="attribute-i-device" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">device</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        <p>The device being written to.</p>
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-last_flushed_at" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">last_flushed_at</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        <p>The time that the device was last flushed.</p>
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-progname" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">progname</span><span
+            class="attribute-access-type">[W]</span>
+        </div>
+
+        <div class="method-description">
+        
+        <p>The name of the program associated with log messages.</p>
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-silencer" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">silencer</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        <p>Set <code>silencer</code> to false to disable silencing the log.</p>
+        
+        </div>
+      </div>
+      
+    </section>
+    
+
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Class Methods</h3>
+       </header>
+
+    
+      <div id="method-c-new" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">new</span><span
+            class="method-args">(device = STDOUT, options = {})</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Create a new logger to log to a <a href="Device.html">Device</a>.</p>
+
+<p>The <code>device</code> argument can be in any one of several formats.</p>
+
+<p>If it is a <a href="Device.html">Device</a> object, that object will be
+used. If it has a <code>write</code> method, it will be wrapped in a <a
+href="Device/Writer.html">Device::Writer</a> class. If it is
+<code>:null</code>, it will be a Null device that won&#39;t record any
+output. Otherwise, it will be assumed to be file path and wrapped in a <a
+href="Device/LogFile.html">Device::LogFile</a> class.</p>
+
+<p>This method can take the following options:</p>
+<ul><li>
+<p><code>:level</code> - The logging level below which messages will be
+ignored.</p>
+</li><li>
+<p><code>:progname</code> - The name of the program that will be recorded with
+each log entry.</p>
+</li><li>
+<p><code>:flush_seconds</code> - The maximum number of seconds between flush
+calls.</p>
+</li><li>
+<p><code>:roll</code> - If the log device is a file path, it will be a <a
+href="Device/DateRollingLogFile.html">Device::DateRollingLogFile</a> if
+this is set.</p>
+</li><li>
+<p><code>:max_size</code> - If the log device is a file path, it will be a <a
+href="Device/SizeRollingLogFile.html">Device::SizeRollingLogFile</a> if
+this is set.</p>
+</li></ul>
+
+<p>All other options are passed to the device constuctor.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="new-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/lumberjack-1.0.12/lib/lumberjack/logger.rb, line 58</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">device</span> = <span class="ruby-constant">STDOUT</span>, <span class="ruby-identifier">options</span> = {})
+  <span class="ruby-ivar">@thread_settings</span> = {}
+
+  <span class="ruby-identifier">options</span> = <span class="ruby-identifier">options</span>.<span class="ruby-identifier">dup</span>
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">level</span> = <span class="ruby-identifier">options</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-value">:level</span>) <span class="ruby-operator">||</span> <span class="ruby-constant">INFO</span>
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">progname</span> = <span class="ruby-identifier">options</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-value">:progname</span>)
+  <span class="ruby-identifier">max_flush_seconds</span> = <span class="ruby-identifier">options</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-value">:flush_seconds</span>).<span class="ruby-identifier">to_f</span>
+
+  <span class="ruby-ivar">@device</span> = <span class="ruby-identifier">open_device</span>(<span class="ruby-identifier">device</span>, <span class="ruby-identifier">options</span>)
+  <span class="ruby-ivar">@_formatter</span> = <span class="ruby-constant">Formatter</span>.<span class="ruby-identifier">new</span>
+  <span class="ruby-ivar">@lock</span> = <span class="ruby-constant">Mutex</span>.<span class="ruby-identifier">new</span>
+  <span class="ruby-ivar">@last_flushed_at</span> = <span class="ruby-constant">Time</span>.<span class="ruby-identifier">now</span>
+  <span class="ruby-ivar">@silencer</span> = <span class="ruby-keyword">true</span>
+
+  <span class="ruby-identifier">create_flusher_thread</span>(<span class="ruby-identifier">max_flush_seconds</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">max_flush_seconds</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">0</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-3C-3C" class="method-detail method-alias">
+        
+        <div class="method-heading">
+          <span class="method-name">&lt;&lt;</span><span
+            class="method-args">(message = nil, progname = nil, &block)</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+        </div>
+
+        
+
+        
+        <div class="aliases">
+          Alias for: <a href="Logger.html#method-i-unknown">unknown</a>
+        </div>
+        
+      </div>
+
+    
+      <div id="method-i-add" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">add</span><span
+            class="method-args">(severity, message = nil, progname = nil) { || ... }</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Add a message to the log with a given severity. The message can be either
+passed in the <code>message</code> argument or supplied with a block. This
+method is not normally called. Instead call one of the helper functions
+<code>fatal</code>, <code>error</code>, <code>warn</code>,
+<code>info</code>, or <code>debug</code>.</p>
+
+<p>The severity can be passed in either as one of the <a
+href="Severity.html">Severity</a> constants, or as a <a
+href="Severity.html">Severity</a> label.</p>
+
+<h3 id="method-i-add-label-Example">Example<span><a href="#method-i-add-label-Example">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<pre class="ruby"><span class="ruby-identifier">logger</span>.<span class="ruby-identifier">add</span>(<span class="ruby-constant">Lumberjack</span><span class="ruby-operator">::</span><span class="ruby-constant">Severity</span><span class="ruby-operator">::</span><span class="ruby-constant">ERROR</span>, <span class="ruby-identifier">exception</span>)
+<span class="ruby-identifier">logger</span>.<span class="ruby-identifier">add</span>(<span class="ruby-constant">Lumberjack</span><span class="ruby-operator">::</span><span class="ruby-constant">Severity</span><span class="ruby-operator">::</span><span class="ruby-constant">INFO</span>, <span class="ruby-string">&quot;Request completed&quot;</span>)
+<span class="ruby-identifier">logger</span>.<span class="ruby-identifier">add</span>(:<span class="ruby-identifier">warn</span>, <span class="ruby-string">&quot;Request took a long time&quot;</span>)
+<span class="ruby-identifier">logger</span>.<span class="ruby-identifier">add</span>(<span class="ruby-constant">Lumberjack</span><span class="ruby-operator">::</span><span class="ruby-constant">Severity</span><span class="ruby-operator">::</span><span class="ruby-constant">DEBUG</span>){<span class="ruby-node">&quot;Start processing with options #{options.inspect}&quot;</span>}
+</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="add-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/lumberjack-1.0.12/lib/lumberjack/logger.rb, line 100</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">add</span>(<span class="ruby-identifier">severity</span>, <span class="ruby-identifier">message</span> = <span class="ruby-keyword">nil</span>, <span class="ruby-identifier">progname</span> = <span class="ruby-keyword">nil</span>)
+  <span class="ruby-identifier">severity</span> = <span class="ruby-constant">Severity</span>.<span class="ruby-identifier">label_to_level</span>(<span class="ruby-identifier">severity</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">severity</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">String</span>) <span class="ruby-operator">||</span> <span class="ruby-identifier">severity</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">Symbol</span>)
+
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">severity</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">severity</span> <span class="ruby-operator">&gt;=</span> <span class="ruby-identifier">level</span>
+
+  <span class="ruby-identifier">time</span> = <span class="ruby-constant">Time</span>.<span class="ruby-identifier">now</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">message</span>.<span class="ruby-identifier">nil?</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">block_given?</span>
+      <span class="ruby-identifier">message</span> = <span class="ruby-keyword">yield</span>
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-identifier">message</span> = <span class="ruby-identifier">progname</span>
+      <span class="ruby-identifier">progname</span> = <span class="ruby-keyword">nil</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">message</span> = <span class="ruby-ivar">@_formatter</span>.<span class="ruby-identifier">format</span>(<span class="ruby-identifier">message</span>)
+  <span class="ruby-identifier">progname</span> <span class="ruby-operator">||=</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">progname</span>
+  <span class="ruby-identifier">entry</span> = <span class="ruby-constant">LogEntry</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">time</span>, <span class="ruby-identifier">severity</span>, <span class="ruby-identifier">message</span>, <span class="ruby-identifier">progname</span>, <span class="ruby-identifier">$$</span>, <span class="ruby-constant">Lumberjack</span>.<span class="ruby-identifier">unit_of_work_id</span>)
+  <span class="ruby-keyword">begin</span>
+    <span class="ruby-identifier">device</span>.<span class="ruby-identifier">write</span>(<span class="ruby-identifier">entry</span>)
+  <span class="ruby-keyword">rescue</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">e</span>
+    <span class="ruby-identifier">$stderr</span>.<span class="ruby-identifier">puts</span>(<span class="ruby-node">&quot;#{e.class.name}: #{e.message}#{&#39; at &#39; + e.backtrace.first if e.backtrace}&quot;</span>)
+    <span class="ruby-identifier">$stderr</span>.<span class="ruby-identifier">puts</span>(<span class="ruby-identifier">entry</span>.<span class="ruby-identifier">to_s</span>)
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">nil</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+        <div class="aliases">
+          Also aliased as: <a href="Logger.html#method-i-log">log</a>
+        </div>
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-close" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">close</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Close the logging device.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="close-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/lumberjack-1.0.12/lib/lumberjack/logger.rb, line 138</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">close</span>
+  <span class="ruby-identifier">flush</span>
+  <span class="ruby-ivar">@device</span>.<span class="ruby-identifier">close</span> <span class="ruby-keyword">if</span> <span class="ruby-ivar">@device</span>.<span class="ruby-identifier">respond_to?</span>(<span class="ruby-value">:close</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-debug" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">debug</span><span
+            class="method-args">(message = nil, progname = nil, &block)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Log a <code>DEBUG</code> message. The message can be passed in either the
+<code>message</code> argument or in a block.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="debug-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/lumberjack-1.0.12/lib/lumberjack/logger.rb, line 184</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">debug</span>(<span class="ruby-identifier">message</span> = <span class="ruby-keyword">nil</span>, <span class="ruby-identifier">progname</span> = <span class="ruby-keyword">nil</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+  <span class="ruby-identifier">add</span>(<span class="ruby-constant">DEBUG</span>, <span class="ruby-identifier">message</span>, <span class="ruby-identifier">progname</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-debug-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">debug?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Return <code>true</code> if <code>DEBUG</code> messages are being logged.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="debug-3F-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/lumberjack-1.0.12/lib/lumberjack/logger.rb, line 189</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">debug?</span>
+  <span class="ruby-identifier">level</span> <span class="ruby-operator">&lt;=</span> <span class="ruby-constant">DEBUG</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-error" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">error</span><span
+            class="method-args">(message = nil, progname = nil, &block)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Log an <code>ERROR</code> message. The message can be passed in either the
+<code>message</code> argument or in a block.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="error-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/lumberjack-1.0.12/lib/lumberjack/logger.rb, line 154</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">error</span>(<span class="ruby-identifier">message</span> = <span class="ruby-keyword">nil</span>, <span class="ruby-identifier">progname</span> = <span class="ruby-keyword">nil</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+  <span class="ruby-identifier">add</span>(<span class="ruby-constant">ERROR</span>, <span class="ruby-identifier">message</span>, <span class="ruby-identifier">progname</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-error-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">error?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Return <code>true</code> if <code>ERROR</code> messages are being logged.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="error-3F-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/lumberjack-1.0.12/lib/lumberjack/logger.rb, line 159</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">error?</span>
+  <span class="ruby-identifier">level</span> <span class="ruby-operator">&lt;=</span> <span class="ruby-constant">ERROR</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-fatal" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">fatal</span><span
+            class="method-args">(message = nil, progname = nil, &block)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Log a <code>FATAL</code> message. The message can be passed in either the
+<code>message</code> argument or in a block.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="fatal-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/lumberjack-1.0.12/lib/lumberjack/logger.rb, line 144</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">fatal</span>(<span class="ruby-identifier">message</span> = <span class="ruby-keyword">nil</span>, <span class="ruby-identifier">progname</span> = <span class="ruby-keyword">nil</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+  <span class="ruby-identifier">add</span>(<span class="ruby-constant">FATAL</span>, <span class="ruby-identifier">message</span>, <span class="ruby-identifier">progname</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-fatal-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">fatal?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Return <code>true</code> if <code>FATAL</code> messages are being logged.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="fatal-3F-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/lumberjack-1.0.12/lib/lumberjack/logger.rb, line 149</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">fatal?</span>
+  <span class="ruby-identifier">level</span> <span class="ruby-operator">&lt;=</span> <span class="ruby-constant">FATAL</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-flush" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">flush</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Flush the logging device. Messages are not guaranteed to be written until
+this method is called.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="flush-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/lumberjack-1.0.12/lib/lumberjack/logger.rb, line 131</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">flush</span>
+  <span class="ruby-identifier">device</span>.<span class="ruby-identifier">flush</span>
+  <span class="ruby-ivar">@last_flushed_at</span> = <span class="ruby-constant">Time</span>.<span class="ruby-identifier">now</span>
+  <span class="ruby-keyword">nil</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-formatter" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">formatter</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Get the <a href="Formatter.html">Formatter</a> object used to convert
+messages into strings.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="formatter-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/lumberjack-1.0.12/lib/lumberjack/logger.rb, line 76</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">formatter</span>
+  <span class="ruby-ivar">@_formatter</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-info" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">info</span><span
+            class="method-args">(message = nil, progname = nil, &block)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Log an <code>INFO</code> message. The message can be passed in either the
+<code>message</code> argument or in a block.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="info-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/lumberjack-1.0.12/lib/lumberjack/logger.rb, line 174</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">info</span>(<span class="ruby-identifier">message</span> = <span class="ruby-keyword">nil</span>, <span class="ruby-identifier">progname</span> = <span class="ruby-keyword">nil</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+  <span class="ruby-identifier">add</span>(<span class="ruby-constant">INFO</span>, <span class="ruby-identifier">message</span>, <span class="ruby-identifier">progname</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-info-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">info?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Return <code>true</code> if <code>INFO</code> messages are being logged.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="info-3F-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/lumberjack-1.0.12/lib/lumberjack/logger.rb, line 179</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">info?</span>
+  <span class="ruby-identifier">level</span> <span class="ruby-operator">&lt;=</span> <span class="ruby-constant">INFO</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-level" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">level</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Get the level of severity of entries that are logged. Entries with a lower
+severity level will be ignored.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="level-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/lumberjack-1.0.12/lib/lumberjack/logger.rb, line 82</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">level</span>
+  <span class="ruby-identifier">thread_local_value</span>(<span class="ruby-value">:lumberjack_logger_level</span>) <span class="ruby-operator">||</span> <span class="ruby-ivar">@level</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-level-3D" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">level=</span><span
+            class="method-args">(severity)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Set the minimum level of severity of messages to log.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="level-3D-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/lumberjack-1.0.12/lib/lumberjack/logger.rb, line 202</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">level=</span>(<span class="ruby-identifier">severity</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">severity</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">Integer</span>)
+    <span class="ruby-ivar">@level</span> = <span class="ruby-identifier">severity</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-ivar">@level</span> = <span class="ruby-constant">Severity</span>.<span class="ruby-identifier">label_to_level</span>(<span class="ruby-identifier">severity</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-log" class="method-detail method-alias">
+        
+        <div class="method-heading">
+          <span class="method-name">log</span><span
+            class="method-args">(severity, message = nil, progname = nil)</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+        </div>
+
+        
+
+        
+        <div class="aliases">
+          Alias for: <a href="Logger.html#method-i-add">add</a>
+        </div>
+        
+      </div>
+
+    
+      <div id="method-i-progname" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">progname</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Get the program name associated with log messages.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="progname-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/lumberjack-1.0.12/lib/lumberjack/logger.rb, line 238</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">progname</span>
+  <span class="ruby-identifier">thread_local_value</span>(<span class="ruby-value">:lumberjack_logger_progname</span>) <span class="ruby-operator">||</span> <span class="ruby-ivar">@progname</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-set_progname" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">set_progname</span><span
+            class="method-args">(value, &block)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Set the program name that is associated with log messages. If a block is
+given, the program name will be valid only within the block.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="set_progname-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/lumberjack-1.0.12/lib/lumberjack/logger.rb, line 229</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">set_progname</span>(<span class="ruby-identifier">value</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">block</span>
+    <span class="ruby-identifier">push_thread_local_value</span>(<span class="ruby-value">:lumberjack_logger_progname</span>, <span class="ruby-identifier">value</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-keyword">self</span>.<span class="ruby-identifier">progname</span> = <span class="ruby-identifier">value</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-silence" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">silence</span><span
+            class="method-args">(temporary_level = ERROR) { || ... }</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Silence the logger by setting a new log level inside a block. By default,
+only <code>ERROR</code> or <code>FATAL</code> messages will be logged.</p>
+
+<h3 id="method-i-silence-label-Example">Example<span><a href="#method-i-silence-label-Example">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<pre class="ruby"><span class="ruby-identifier">logger</span>.<span class="ruby-identifier">level</span> = <span class="ruby-constant">Lumberjack</span><span class="ruby-operator">::</span><span class="ruby-constant">Severity</span><span class="ruby-operator">::</span><span class="ruby-constant">INFO</span>
+<span class="ruby-identifier">logger</span>.<span class="ruby-identifier">silence</span> <span class="ruby-keyword">do</span>
+  <span class="ruby-identifier">do_something</span>   <span class="ruby-comment"># Log level inside the block is +ERROR+</span>
+<span class="ruby-keyword">end</span>
+</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="silence-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/lumberjack-1.0.12/lib/lumberjack/logger.rb, line 219</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">silence</span>(<span class="ruby-identifier">temporary_level</span> = <span class="ruby-constant">ERROR</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">silencer</span>
+    <span class="ruby-identifier">push_thread_local_value</span>(<span class="ruby-value">:lumberjack_logger_level</span>, <span class="ruby-identifier">temporary_level</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-keyword">yield</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-unknown" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">unknown</span><span
+            class="method-args">(message = nil, progname = nil, &block)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Log a message when the severity is not known. Unknown messages will always
+appear in the log. The message can be passed in either the
+<code>message</code> argument or in a block.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="unknown-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/lumberjack-1.0.12/lib/lumberjack/logger.rb, line 195</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">unknown</span>(<span class="ruby-identifier">message</span> = <span class="ruby-keyword">nil</span>, <span class="ruby-identifier">progname</span> = <span class="ruby-keyword">nil</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+  <span class="ruby-identifier">add</span>(<span class="ruby-constant">UNKNOWN</span>, <span class="ruby-identifier">message</span>, <span class="ruby-identifier">progname</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+        <div class="aliases">
+          Also aliased as: <a href="Logger.html#method-i-3C-3C">&lt;&lt;</a>
+        </div>
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-warn" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">warn</span><span
+            class="method-args">(message = nil, progname = nil, &block)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Log a <code>WARN</code> message. The message can be passed in either the
+<code>message</code> argument or in a block.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="warn-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/lumberjack-1.0.12/lib/lumberjack/logger.rb, line 164</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">warn</span>(<span class="ruby-identifier">message</span> = <span class="ruby-keyword">nil</span>, <span class="ruby-identifier">progname</span> = <span class="ruby-keyword">nil</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+  <span class="ruby-identifier">add</span>(<span class="ruby-constant">WARN</span>, <span class="ruby-identifier">message</span>, <span class="ruby-identifier">progname</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-warn-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">warn?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Return <code>true</code> if <code>WARN</code> messages are being logged.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="warn-3F-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/lumberjack-1.0.12/lib/lumberjack/logger.rb, line 169</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">warn?</span>
+  <span class="ruby-identifier">level</span> <span class="ruby-operator">&lt;=</span> <span class="ruby-constant">WARN</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="https://rdoc.github.io/rdoc">RDoc</a> 5.0.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

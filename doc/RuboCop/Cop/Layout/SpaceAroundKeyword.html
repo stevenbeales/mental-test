@@ -1,0 +1,1025 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class RuboCop::Cop::Layout::SpaceAroundKeyword - RDoc Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../../../";
+  var index_rel_prefix = "../../../";
+</script>
+
+<script src="../../../js/jquery.js"></script>
+<script src="../../../js/darkfish.js"></script>
+
+<link href="../../../css/fonts.css" rel="stylesheet">
+<link href="../../../css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../../../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../../../table_of_contents.html#pages">Pages</a>
+    <a href="../../../table_of_contents.html#classes">Classes</a>
+    <a href="../../../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link"><a href="../Cop.html">RuboCop::Cop::Cop</a>
+  
+</div>
+
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-i-autocorrect">#autocorrect</a>
+    
+    <li ><a href="#method-i-on_and">#on_and</a>
+    
+    <li ><a href="#method-i-on_block">#on_block</a>
+    
+    <li ><a href="#method-i-on_break">#on_break</a>
+    
+    <li ><a href="#method-i-on_case">#on_case</a>
+    
+    <li ><a href="#method-i-on_defined-3F">#on_defined?</a>
+    
+    <li ><a href="#method-i-on_ensure">#on_ensure</a>
+    
+    <li ><a href="#method-i-on_for">#on_for</a>
+    
+    <li ><a href="#method-i-on_if">#on_if</a>
+    
+    <li ><a href="#method-i-on_kwbegin">#on_kwbegin</a>
+    
+    <li ><a href="#method-i-on_next">#on_next</a>
+    
+    <li ><a href="#method-i-on_or">#on_or</a>
+    
+    <li ><a href="#method-i-on_postexe">#on_postexe</a>
+    
+    <li ><a href="#method-i-on_preexe">#on_preexe</a>
+    
+    <li ><a href="#method-i-on_resbody">#on_resbody</a>
+    
+    <li ><a href="#method-i-on_rescue">#on_rescue</a>
+    
+    <li ><a href="#method-i-on_return">#on_return</a>
+    
+    <li ><a href="#method-i-on_send">#on_send</a>
+    
+    <li ><a href="#method-i-on_super">#on_super</a>
+    
+    <li ><a href="#method-i-on_until">#on_until</a>
+    
+    <li ><a href="#method-i-on_when">#on_when</a>
+    
+    <li ><a href="#method-i-on_while">#on_while</a>
+    
+    <li ><a href="#method-i-on_yield">#on_yield</a>
+    
+    <li ><a href="#method-i-on_zsuper">#on_zsuper</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-RuboCop::Cop::Layout::SpaceAroundKeyword">
+  <h1 id="class-RuboCop::Cop::Layout::SpaceAroundKeyword" class="class">
+    class RuboCop::Cop::Layout::SpaceAroundKeyword
+  </h1>
+
+  <section class="description">
+    
+<p>Checks the spacing around the keywords.</p>
+
+<p>@example</p>
+
+<pre class="ruby"><span class="ruby-comment"># bad</span>
+<span class="ruby-identifier">something</span> <span class="ruby-string">&#39;test&#39;</span><span class="ruby-keyword">do</span><span class="ruby-operator">|</span><span class="ruby-identifier">x</span><span class="ruby-operator">|</span>
+<span class="ruby-keyword">end</span>
+
+<span class="ruby-keyword">while</span>(<span class="ruby-identifier">something</span>)
+<span class="ruby-keyword">end</span>
+
+<span class="ruby-identifier">something</span> = <span class="ruby-value">123</span><span class="ruby-keyword">if</span> <span class="ruby-identifier">test</span>
+
+<span class="ruby-comment"># good</span>
+<span class="ruby-identifier">something</span> <span class="ruby-string">&#39;test&#39;</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">x</span><span class="ruby-operator">|</span>
+<span class="ruby-keyword">end</span>
+
+<span class="ruby-keyword">while</span> (<span class="ruby-identifier">something</span>)
+<span class="ruby-keyword">end</span>
+
+<span class="ruby-identifier">something</span> = <span class="ruby-value">123</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">test</span>
+</pre>
+
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+    <section class="constants-list">
+      <header>
+        <h3>Constants</h3>
+      </header>
+      <dl>
+      
+        <dt id="ACCEPT_LEFT_PAREN">ACCEPT_LEFT_PAREN
+        
+        <dd>
+        
+      
+        <dt id="ACCEPT_LEFT_SQUARE_BRACKET">ACCEPT_LEFT_SQUARE_BRACKET
+        
+        <dd>
+        
+      
+        <dt id="DO">DO
+        
+        <dd>
+        
+      
+        <dt id="MSG_AFTER">MSG_AFTER
+        
+        <dd>
+        
+      
+        <dt id="MSG_BEFORE">MSG_BEFORE
+        
+        <dd>
+        
+      
+        <dt id="SAFE_NAVIGATION">SAFE_NAVIGATION
+        
+        <dd>
+        
+      
+      </dl>
+    </section>
+    
+
+    
+
+    
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-autocorrect" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">autocorrect</span><span
+            class="method-args">(range)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="autocorrect-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/rubocop-0.52.1/lib/rubocop/cop/layout/space_around_keyword.rb, line 129</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">autocorrect</span>(<span class="ruby-identifier">range</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">space_before_missing?</span>(<span class="ruby-identifier">range</span>)
+    <span class="ruby-operator">-</span><span class="ruby-operator">&gt;</span>(<span class="ruby-identifier">corrector</span>) { <span class="ruby-identifier">corrector</span>.<span class="ruby-identifier">insert_before</span>(<span class="ruby-identifier">range</span>, <span class="ruby-string">&#39; &#39;</span>.<span class="ruby-identifier">freeze</span>) }
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-operator">-</span><span class="ruby-operator">&gt;</span>(<span class="ruby-identifier">corrector</span>) { <span class="ruby-identifier">corrector</span>.<span class="ruby-identifier">insert_after</span>(<span class="ruby-identifier">range</span>, <span class="ruby-string">&#39; &#39;</span>.<span class="ruby-identifier">freeze</span>) }
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-on_and" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">on_and</span><span
+            class="method-args">(node)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="on_and-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/rubocop-0.52.1/lib/rubocop/cop/layout/space_around_keyword.rb, line 37</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">on_and</span>(<span class="ruby-identifier">node</span>)
+  <span class="ruby-identifier">check</span>(<span class="ruby-identifier">node</span>, [<span class="ruby-value">:operator</span>].<span class="ruby-identifier">freeze</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">node</span>.<span class="ruby-identifier">keyword?</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-on_block" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">on_block</span><span
+            class="method-args">(node)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="on_block-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/rubocop-0.52.1/lib/rubocop/cop/layout/space_around_keyword.rb, line 41</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">on_block</span>(<span class="ruby-identifier">node</span>)
+  <span class="ruby-identifier">check</span>(<span class="ruby-identifier">node</span>, <span class="ruby-operator">%</span>[<span class="ruby-keyword">begin</span> <span class="ruby-keyword">end</span>].<span class="ruby-identifier">freeze</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-on_break" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">on_break</span><span
+            class="method-args">(node)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="on_break-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/rubocop-0.52.1/lib/rubocop/cop/layout/space_around_keyword.rb, line 45</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">on_break</span>(<span class="ruby-identifier">node</span>)
+  <span class="ruby-identifier">check</span>(<span class="ruby-identifier">node</span>, [<span class="ruby-value">:keyword</span>].<span class="ruby-identifier">freeze</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-on_case" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">on_case</span><span
+            class="method-args">(node)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="on_case-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/rubocop-0.52.1/lib/rubocop/cop/layout/space_around_keyword.rb, line 49</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">on_case</span>(<span class="ruby-identifier">node</span>)
+  <span class="ruby-identifier">check</span>(<span class="ruby-identifier">node</span>, <span class="ruby-operator">%</span>[<span class="ruby-identifier">keyword</span> <span class="ruby-keyword">else</span>].<span class="ruby-identifier">freeze</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-on_defined-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">on_defined?</span><span
+            class="method-args">(node)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="on_defined-3F-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/rubocop-0.52.1/lib/rubocop/cop/layout/space_around_keyword.rb, line 125</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">on_defined?</span>(<span class="ruby-identifier">node</span>)
+  <span class="ruby-identifier">check</span>(<span class="ruby-identifier">node</span>, [<span class="ruby-value">:keyword</span>].<span class="ruby-identifier">freeze</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-on_ensure" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">on_ensure</span><span
+            class="method-args">(node)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="on_ensure-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/rubocop-0.52.1/lib/rubocop/cop/layout/space_around_keyword.rb, line 53</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">on_ensure</span>(<span class="ruby-identifier">node</span>)
+  <span class="ruby-identifier">check</span>(<span class="ruby-identifier">node</span>, [<span class="ruby-value">:keyword</span>].<span class="ruby-identifier">freeze</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-on_for" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">on_for</span><span
+            class="method-args">(node)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="on_for-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/rubocop-0.52.1/lib/rubocop/cop/layout/space_around_keyword.rb, line 57</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">on_for</span>(<span class="ruby-identifier">node</span>)
+  <span class="ruby-identifier">check</span>(<span class="ruby-identifier">node</span>, <span class="ruby-operator">%</span>[<span class="ruby-keyword">begin</span> <span class="ruby-keyword">end</span>].<span class="ruby-identifier">freeze</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-on_if" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">on_if</span><span
+            class="method-args">(node)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="on_if-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/rubocop-0.52.1/lib/rubocop/cop/layout/space_around_keyword.rb, line 61</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">on_if</span>(<span class="ruby-identifier">node</span>)
+  <span class="ruby-identifier">check</span>(<span class="ruby-identifier">node</span>, <span class="ruby-operator">%</span>[<span class="ruby-identifier">keyword</span> <span class="ruby-keyword">else</span> <span class="ruby-keyword">begin</span> <span class="ruby-keyword">end</span>].<span class="ruby-identifier">freeze</span>, <span class="ruby-string">&#39;then&#39;</span>.<span class="ruby-identifier">freeze</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-on_kwbegin" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">on_kwbegin</span><span
+            class="method-args">(node)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="on_kwbegin-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/rubocop-0.52.1/lib/rubocop/cop/layout/space_around_keyword.rb, line 65</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">on_kwbegin</span>(<span class="ruby-identifier">node</span>)
+  <span class="ruby-identifier">check</span>(<span class="ruby-identifier">node</span>, <span class="ruby-operator">%</span>[<span class="ruby-keyword">begin</span> <span class="ruby-keyword">end</span>].<span class="ruby-identifier">freeze</span>, <span class="ruby-keyword">nil</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-on_next" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">on_next</span><span
+            class="method-args">(node)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="on_next-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/rubocop-0.52.1/lib/rubocop/cop/layout/space_around_keyword.rb, line 69</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">on_next</span>(<span class="ruby-identifier">node</span>)
+  <span class="ruby-identifier">check</span>(<span class="ruby-identifier">node</span>, [<span class="ruby-value">:keyword</span>].<span class="ruby-identifier">freeze</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-on_or" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">on_or</span><span
+            class="method-args">(node)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="on_or-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/rubocop-0.52.1/lib/rubocop/cop/layout/space_around_keyword.rb, line 73</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">on_or</span>(<span class="ruby-identifier">node</span>)
+  <span class="ruby-identifier">check</span>(<span class="ruby-identifier">node</span>, [<span class="ruby-value">:operator</span>].<span class="ruby-identifier">freeze</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">node</span>.<span class="ruby-identifier">keyword?</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-on_postexe" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">on_postexe</span><span
+            class="method-args">(node)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="on_postexe-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/rubocop-0.52.1/lib/rubocop/cop/layout/space_around_keyword.rb, line 77</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">on_postexe</span>(<span class="ruby-identifier">node</span>)
+  <span class="ruby-identifier">check</span>(<span class="ruby-identifier">node</span>, [<span class="ruby-value">:keyword</span>].<span class="ruby-identifier">freeze</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-on_preexe" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">on_preexe</span><span
+            class="method-args">(node)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="on_preexe-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/rubocop-0.52.1/lib/rubocop/cop/layout/space_around_keyword.rb, line 81</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">on_preexe</span>(<span class="ruby-identifier">node</span>)
+  <span class="ruby-identifier">check</span>(<span class="ruby-identifier">node</span>, [<span class="ruby-value">:keyword</span>].<span class="ruby-identifier">freeze</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-on_resbody" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">on_resbody</span><span
+            class="method-args">(node)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="on_resbody-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/rubocop-0.52.1/lib/rubocop/cop/layout/space_around_keyword.rb, line 85</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">on_resbody</span>(<span class="ruby-identifier">node</span>)
+  <span class="ruby-identifier">check</span>(<span class="ruby-identifier">node</span>, [<span class="ruby-value">:keyword</span>].<span class="ruby-identifier">freeze</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-on_rescue" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">on_rescue</span><span
+            class="method-args">(node)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="on_rescue-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/rubocop-0.52.1/lib/rubocop/cop/layout/space_around_keyword.rb, line 89</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">on_rescue</span>(<span class="ruby-identifier">node</span>)
+  <span class="ruby-identifier">check</span>(<span class="ruby-identifier">node</span>, [<span class="ruby-value">:else</span>].<span class="ruby-identifier">freeze</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-on_return" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">on_return</span><span
+            class="method-args">(node)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="on_return-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/rubocop-0.52.1/lib/rubocop/cop/layout/space_around_keyword.rb, line 93</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">on_return</span>(<span class="ruby-identifier">node</span>)
+  <span class="ruby-identifier">check</span>(<span class="ruby-identifier">node</span>, [<span class="ruby-value">:keyword</span>].<span class="ruby-identifier">freeze</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-on_send" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">on_send</span><span
+            class="method-args">(node)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="on_send-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/rubocop-0.52.1/lib/rubocop/cop/layout/space_around_keyword.rb, line 97</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">on_send</span>(<span class="ruby-identifier">node</span>)
+  <span class="ruby-identifier">check</span>(<span class="ruby-identifier">node</span>, [<span class="ruby-value">:selector</span>].<span class="ruby-identifier">freeze</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">node</span>.<span class="ruby-identifier">keyword_not?</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-on_super" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">on_super</span><span
+            class="method-args">(node)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="on_super-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/rubocop-0.52.1/lib/rubocop/cop/layout/space_around_keyword.rb, line 101</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">on_super</span>(<span class="ruby-identifier">node</span>)
+  <span class="ruby-identifier">check</span>(<span class="ruby-identifier">node</span>, [<span class="ruby-value">:keyword</span>].<span class="ruby-identifier">freeze</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-on_until" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">on_until</span><span
+            class="method-args">(node)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="on_until-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/rubocop-0.52.1/lib/rubocop/cop/layout/space_around_keyword.rb, line 109</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">on_until</span>(<span class="ruby-identifier">node</span>)
+  <span class="ruby-identifier">check</span>(<span class="ruby-identifier">node</span>, <span class="ruby-operator">%</span>[<span class="ruby-keyword">begin</span> <span class="ruby-keyword">end</span> <span class="ruby-identifier">keyword</span>].<span class="ruby-identifier">freeze</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-on_when" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">on_when</span><span
+            class="method-args">(node)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="on_when-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/rubocop-0.52.1/lib/rubocop/cop/layout/space_around_keyword.rb, line 113</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">on_when</span>(<span class="ruby-identifier">node</span>)
+  <span class="ruby-identifier">check</span>(<span class="ruby-identifier">node</span>, [<span class="ruby-value">:keyword</span>].<span class="ruby-identifier">freeze</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-on_while" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">on_while</span><span
+            class="method-args">(node)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="on_while-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/rubocop-0.52.1/lib/rubocop/cop/layout/space_around_keyword.rb, line 117</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">on_while</span>(<span class="ruby-identifier">node</span>)
+  <span class="ruby-identifier">check</span>(<span class="ruby-identifier">node</span>, <span class="ruby-operator">%</span>[<span class="ruby-keyword">begin</span> <span class="ruby-keyword">end</span> <span class="ruby-identifier">keyword</span>].<span class="ruby-identifier">freeze</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-on_yield" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">on_yield</span><span
+            class="method-args">(node)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="on_yield-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/rubocop-0.52.1/lib/rubocop/cop/layout/space_around_keyword.rb, line 121</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">on_yield</span>(<span class="ruby-identifier">node</span>)
+  <span class="ruby-identifier">check</span>(<span class="ruby-identifier">node</span>, [<span class="ruby-value">:keyword</span>].<span class="ruby-identifier">freeze</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-on_zsuper" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">on_zsuper</span><span
+            class="method-args">(node)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="on_zsuper-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/rubocop-0.52.1/lib/rubocop/cop/layout/space_around_keyword.rb, line 105</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">on_zsuper</span>(<span class="ruby-identifier">node</span>)
+  <span class="ruby-identifier">check</span>(<span class="ruby-identifier">node</span>, [<span class="ruby-value">:keyword</span>].<span class="ruby-identifier">freeze</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="https://rdoc.github.io/rdoc">RDoc</a> 5.0.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class RuboCop::Cop::Layout::SpaceInsideBlockBraces - RDoc Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../../../";
+  var index_rel_prefix = "../../../";
+</script>
+
+<script src="../../../js/jquery.js"></script>
+<script src="../../../js/darkfish.js"></script>
+
+<link href="../../../css/fonts.css" rel="stylesheet">
+<link href="../../../css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../../../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../../../table_of_contents.html#pages">Pages</a>
+    <a href="../../../table_of_contents.html#classes">Classes</a>
+    <a href="../../../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link"><a href="../Cop.html">RuboCop::Cop::Cop</a>
+  
+</div>
+
+    <div id="includes-section" class="nav-section">
+  <h3>Included Modules</h3>
+
+  <ul class="link-list">
+  
+  
+    <li><a class="include" href="../ConfigurableEnforcedStyle.html">RuboCop::Cop::ConfigurableEnforcedStyle</a>
+  
+  
+  
+    <li><a class="include" href="../SurroundingSpace.html">RuboCop::Cop::SurroundingSpace</a>
+  
+  
+  </ul>
+</div>
+
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-i-autocorrect">#autocorrect</a>
+    
+    <li ><a href="#method-i-on_block">#on_block</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-RuboCop::Cop::Layout::SpaceInsideBlockBraces">
+  <h1 id="class-RuboCop::Cop::Layout::SpaceInsideBlockBraces" class="class">
+    class RuboCop::Cop::Layout::SpaceInsideBlockBraces
+  </h1>
+
+  <section class="description">
+    
+<p>Checks that block braces have or don&#39;t have surrounding space inside
+them on configuration. For blocks taking parameters, it checks that the
+left brace has or doesn&#39;t have trailing space depending on
+configuration.</p>
+
+<p>@example EnforcedStyle: space (default)</p>
+
+<pre class="ruby"><span class="ruby-comment"># The `space` style enforces that block braces have</span>
+<span class="ruby-comment"># surrounding space.</span>
+
+<span class="ruby-comment"># bad</span>
+<span class="ruby-identifier">some_array</span>.<span class="ruby-identifier">each</span> {<span class="ruby-identifier">puts</span> <span class="ruby-identifier">e</span>}
+
+<span class="ruby-comment"># good</span>
+<span class="ruby-identifier">some_array</span>.<span class="ruby-identifier">each</span> { <span class="ruby-identifier">puts</span> <span class="ruby-identifier">e</span> }
+</pre>
+
+<p>@example EnforcedStyle: no_space</p>
+
+<pre class="ruby"><span class="ruby-comment"># The `no_space` style enforces that block braces don&#39;t</span>
+<span class="ruby-comment"># have surrounding space.</span>
+
+<span class="ruby-comment"># bad</span>
+<span class="ruby-identifier">some_array</span>.<span class="ruby-identifier">each</span> { <span class="ruby-identifier">puts</span> <span class="ruby-identifier">e</span> }
+
+<span class="ruby-comment"># good</span>
+<span class="ruby-identifier">some_array</span>.<span class="ruby-identifier">each</span> {<span class="ruby-identifier">puts</span> <span class="ruby-identifier">e</span>}
+</pre>
+
+<p>@example EnforcedStyleForEmptyBraces: no_space (default)</p>
+
+<pre class="ruby"><span class="ruby-comment"># The `no_space` EnforcedStyleForEmptyBraces style enforces that</span>
+<span class="ruby-comment"># block braces don&#39;t have a space in between when empty.</span>
+
+<span class="ruby-comment"># bad</span>
+<span class="ruby-identifier">some_array</span>.<span class="ruby-identifier">each</span> {   }
+<span class="ruby-identifier">some_array</span>.<span class="ruby-identifier">each</span> {  }
+<span class="ruby-identifier">some_array</span>.<span class="ruby-identifier">each</span> { }
+
+<span class="ruby-comment"># good</span>
+<span class="ruby-identifier">some_array</span>.<span class="ruby-identifier">each</span> {}
+</pre>
+
+<p>@example EnforcedStyleForEmptyBraces: space</p>
+
+<pre class="ruby"><span class="ruby-comment"># The `space` EnforcedStyleForEmptyBraces style enforces that</span>
+<span class="ruby-comment"># block braces have at least a spece in between when empty.</span>
+
+<span class="ruby-comment"># bad</span>
+<span class="ruby-identifier">some_array</span>.<span class="ruby-identifier">each</span> {}
+
+<span class="ruby-comment"># good</span>
+<span class="ruby-identifier">some_array</span>.<span class="ruby-identifier">each</span> { }
+<span class="ruby-identifier">some_array</span>.<span class="ruby-identifier">each</span> {  }
+<span class="ruby-identifier">some_array</span>.<span class="ruby-identifier">each</span> {   }
+</pre>
+
+<p>@example SpaceBeforeBlockParameters: true (default)</p>
+
+<pre class="ruby"><span class="ruby-comment"># The SpaceBeforeBlockParameters style set to `true` enforces that</span>
+<span class="ruby-comment"># there is a space between `{` and `|`. Overrides `EnforcedStyle`</span>
+<span class="ruby-comment"># if there is a conflict.</span>
+
+<span class="ruby-comment"># bad</span>
+[<span class="ruby-value">1</span>, <span class="ruby-value">2</span>, <span class="ruby-value">3</span>].<span class="ruby-identifier">each</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">n</span><span class="ruby-operator">|</span> <span class="ruby-identifier">n</span> <span class="ruby-operator">*</span> <span class="ruby-value">2</span> }
+
+<span class="ruby-comment"># good</span>
+[<span class="ruby-value">1</span>, <span class="ruby-value">2</span>, <span class="ruby-value">3</span>].<span class="ruby-identifier">each</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">n</span><span class="ruby-operator">|</span> <span class="ruby-identifier">n</span> <span class="ruby-operator">*</span> <span class="ruby-value">2</span> }
+</pre>
+
+<p>@example SpaceBeforeBlockParameters: true</p>
+
+<pre class="ruby"><span class="ruby-comment"># The SpaceBeforeBlockParameters style set to `false` enforces that</span>
+<span class="ruby-comment"># there is no space between `{` and `|`. Overrides `EnforcedStyle`</span>
+<span class="ruby-comment"># if there is a conflict.</span>
+
+<span class="ruby-comment"># bad</span>
+[<span class="ruby-value">1</span>, <span class="ruby-value">2</span>, <span class="ruby-value">3</span>].<span class="ruby-identifier">each</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">n</span><span class="ruby-operator">|</span> <span class="ruby-identifier">n</span> <span class="ruby-operator">*</span> <span class="ruby-value">2</span> }
+
+<span class="ruby-comment"># good</span>
+[<span class="ruby-value">1</span>, <span class="ruby-value">2</span>, <span class="ruby-value">3</span>].<span class="ruby-identifier">each</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">n</span><span class="ruby-operator">|</span> <span class="ruby-identifier">n</span> <span class="ruby-operator">*</span> <span class="ruby-value">2</span> }
+</pre>
+
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+
+    
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-autocorrect" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">autocorrect</span><span
+            class="method-args">(range)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="autocorrect-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/rubocop-0.52.1/lib/rubocop/cop/layout/space_inside_block_braces.rb, line 91</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">autocorrect</span>(<span class="ruby-identifier">range</span>)
+  <span class="ruby-identifier">lambda</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">corrector</span><span class="ruby-operator">|</span>
+    <span class="ruby-keyword">case</span> <span class="ruby-identifier">range</span>.<span class="ruby-identifier">source</span>
+    <span class="ruby-keyword">when</span> <span class="ruby-regexp">/\s/</span> <span class="ruby-keyword">then</span> <span class="ruby-identifier">corrector</span>.<span class="ruby-identifier">remove</span>(<span class="ruby-identifier">range</span>)
+    <span class="ruby-keyword">when</span> <span class="ruby-string">&#39;{}&#39;</span> <span class="ruby-keyword">then</span> <span class="ruby-identifier">corrector</span>.<span class="ruby-identifier">replace</span>(<span class="ruby-identifier">range</span>, <span class="ruby-string">&#39;{ }&#39;</span>)
+    <span class="ruby-keyword">when</span> <span class="ruby-string">&#39;{|&#39;</span> <span class="ruby-keyword">then</span> <span class="ruby-identifier">corrector</span>.<span class="ruby-identifier">replace</span>(<span class="ruby-identifier">range</span>, <span class="ruby-string">&#39;{ |&#39;</span>)
+    <span class="ruby-keyword">else</span>           <span class="ruby-identifier">corrector</span>.<span class="ruby-identifier">insert_before</span>(<span class="ruby-identifier">range</span>, <span class="ruby-string">&#39; &#39;</span>)
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-on_block" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">on_block</span><span
+            class="method-args">(node)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="on_block-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/rubocop-0.52.1/lib/rubocop/cop/layout/space_inside_block_braces.rb, line 82</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">on_block</span>(<span class="ruby-identifier">node</span>)
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">node</span>.<span class="ruby-identifier">keywords?</span>
+
+  <span class="ruby-identifier">left_brace</span> = <span class="ruby-identifier">node</span>.<span class="ruby-identifier">loc</span>.<span class="ruby-identifier">begin</span>
+  <span class="ruby-identifier">right_brace</span> = <span class="ruby-identifier">node</span>.<span class="ruby-identifier">loc</span>.<span class="ruby-identifier">end</span>
+
+  <span class="ruby-identifier">check_inside</span>(<span class="ruby-identifier">node</span>, <span class="ruby-identifier">left_brace</span>, <span class="ruby-identifier">right_brace</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="https://rdoc.github.io/rdoc">RDoc</a> 5.0.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

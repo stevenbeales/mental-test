@@ -1,0 +1,2043 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>README - RDoc Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../../../../../../";
+  var index_rel_prefix = "../../../../../../";
+</script>
+
+<script src="../../../../../../js/jquery.js"></script>
+<script src="../../../../../../js/darkfish.js"></script>
+
+<link href="../../../../../../css/fonts.css" rel="stylesheet">
+<link href="../../../../../../css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="file">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../../../../../../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../../../../../../table_of_contents.html#pages">Pages</a>
+    <a href="../../../../../../table_of_contents.html#classes">Classes</a>
+    <a href="../../../../../../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+<div class="nav-section">
+  <h3>Table of Contents</h3>
+
+  <ul class="link-list" role="directory">
+    <li><a href="#label-RSpec+Mocks+rdoc-image-3Ahttps-3A-2F-2Fsecure.travis-ci.org-2Frspec-2Frspec-mocks.svg-3Fbranch-3Dmaster+rdoc-image-3Ahttps-3A-2F-2Fcodeclimate.com-2Fgithub-2Frspec-2Frspec-mocks.svg">RSpec Mocks <a href="http://travis-ci.org/rspec/rspec-mocks"><img src="https://secure.travis-ci.org/rspec/rspec-mocks.svg?branch=master"></a> <a href="https://codeclimate.com/github/rspec/rspec-mocks"><img src="https://codeclimate.com/github/rspec/rspec-mocks.svg"></a></a>
+    <li><a href="#label-Install">Install</a>
+    <li><a href="#label-Contributing">Contributing</a>
+    <li><a href="#label-Test+Doubles">Test Doubles</a>
+    <li><a href="#label-Method+Stubs">Method Stubs</a>
+    <li><a href="#label-Stubbing+a+chain+of+methods">Stubbing a chain of methods</a>
+    <li><a href="#label-Consecutive+return+values">Consecutive return values</a>
+    <li><a href="#label-Message+Expectations">Message Expectations</a>
+    <li><a href="#label-Test+Spies">Test Spies</a>
+    <li><a href="#label-Nomenclature">Nomenclature</a>
+    <li><a href="#label-Mock+Objects+and+Test+Stubs">Mock Objects and Test Stubs</a>
+    <li><a href="#label-Test-Specific+Extension">Test-Specific Extension</a>
+    <li><a href="#label-Expecting+Arguments">Expecting Arguments</a>
+    <li><a href="#label-Argument+Matchers">Argument Matchers</a>
+    <li><a href="#label-Receive+Counts">Receive Counts</a>
+    <li><a href="#label-Ordering">Ordering</a>
+    <li><a href="#label-Setting+Responses">Setting Responses</a>
+    <li><a href="#label-Arbitrary+Handling">Arbitrary Handling</a>
+    <li><a href="#label-Delegating+to+the+Original+Implementation">Delegating to the Original Implementation</a>
+    <li><a href="#label-Combining+Expectation+Details">Combining Expectation Details</a>
+    <li><a href="#label-Stubbing+and+Hiding+Constants">Stubbing and Hiding Constants</a>
+    <li><a href="#label-Use+before-28-3Aexample-29-2C+not+before-28-3Acontext-29">Use <code>before(:example)</code>, not <code>before(:context)</code></a>
+    <li><a href="#label-Settings+mocks+or+stubs+on+any+instance+of+a+class">Settings mocks or stubs on any instance of a class</a>
+    <li><a href="#label-Further+Reading">Further Reading</a>
+    <li><a href="#label-Also+see">Also see</a>
+  </ul>
+</div>
+
+
+  <div id="project-metadata">
+    <div id="fileindex-section" class="nav-section">
+  <h3>Pages</h3>
+
+  <ul class="link-list">
+  
+    <li><a href="../../../../../../Gemfile.html">Gemfile</a>
+  
+    <li><a href="../../../../../../Gemfile_lock.html">Gemfile.lock</a>
+  
+    <li><a href="../../../../../../Guardfile.html">Guardfile</a>
+  
+    <li><a href="../../../../../../Rakefile.html">Rakefile</a>
+  
+    <li><a href="../../../../../../config_ru.html">config.ru</a>
+  
+    <li><a href="../../../../../../db/cesdr_json.html">cesdr.json</a>
+  
+    <li><a href="../../../../../../gitpush_bat.html">gitpush.bat</a>
+  
+    <li><a href="../../../../../../run_bat.html">run.bat</a>
+  
+    <li><a href="../../../../../../spec/examples_txt.html">examples</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/bin/_guard-core.html">_guard-core</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/bin/_guard-core_bat.html">_guard-core.bat</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/bin/coderay.html">coderay</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/bin/coderay_bat.html">coderay.bat</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/bin/guard.html">guard</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/bin/guard_bat.html">guard.bat</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/bin/htmldiff.html">htmldiff</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/bin/htmldiff_bat.html">htmldiff.bat</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/bin/ldiff.html">ldiff</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/bin/ldiff_bat.html">ldiff.bat</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/bin/listen.html">listen</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/bin/listen_bat.html">listen.bat</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/bin/pry.html">pry</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/bin/pry_bat.html">pry.bat</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/bin/rackup.html">rackup</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/bin/rackup_bat.html">rackup.bat</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/bin/rake.html">rake</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/bin/rake_bat.html">rake.bat</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/bin/rerun.html">rerun</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/bin/rerun_bat.html">rerun.bat</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/bin/rspec.html">rspec</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/bin/rspec_bat.html">rspec.bat</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/bin/rubocop.html">rubocop</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/bin/rubocop_bat.html">rubocop.bat</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/bin/ruby-parse.html">ruby-parse</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/bin/ruby-parse_bat.html">ruby-parse.bat</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/bin/ruby-rewrite.html">ruby-rewrite</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/bin/ruby-rewrite_bat.html">ruby-rewrite.bat</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/bin/thor.html">thor</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/bin/thor_bat.html">thor.bat</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/bin/tilt.html">tilt</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/bin/tilt_bat.html">tilt.bat</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/extensions/x64-mingw32/2_4_0/oj-3_4_0/gem_build_complete.html">gem.build_complete</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/extensions/x64-mingw32/2_4_0/oj-3_4_0/gem_make_out.html">gem_make.out</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/extensions/x64-mingw32/2_4_0/rainbow-2_2_2/gem_build_complete.html">gem.build_complete</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/extensions/x64-mingw32/2_4_0/rainbow-2_2_2/gem_make_out.html">gem_make.out</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/extensions/x64-mingw32/2_4_0/wdm-0_1_1/gem_build_complete.html">gem.build_complete</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/extensions/x64-mingw32/2_4_0/wdm-0_1_1/gem_make_out.html">gem_make.out</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/extensions/x64-mingw32/2_4_0/wdm-0_1_1/mkmf_log.html">mkmf.log</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/activemodel-5_1_5/CHANGELOG_md.html">CHANGELOG</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/activemodel-5_1_5/MIT-LICENSE.html">MIT-LICENSE</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/activemodel-5_1_5/README_rdoc.html">README</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/activerecord-5_1_5/CHANGELOG_md.html">CHANGELOG</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/activerecord-5_1_5/MIT-LICENSE.html">MIT-LICENSE</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/activerecord-5_1_5/README_rdoc.html">README</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/activerecord-5_1_5/lib/active_record/railties/databases_rake.html">databases.rake</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/activesupport-5_1_5/CHANGELOG_md.html">CHANGELOG</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/activesupport-5_1_5/MIT-LICENSE.html">MIT-LICENSE</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/activesupport-5_1_5/README_rdoc.html">README</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/alexa_verifier-1_0_0/CODE_OF_CONDUCT_md.html">CODE_OF_CONDUCT</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/alexa_verifier-1_0_0/Gemfile.html">Gemfile</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/alexa_verifier-1_0_0/LICENSE.html">LICENSE</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/alexa_verifier-1_0_0/README_md.html">README</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/alexa_verifier-1_0_0/Rakefile.html">Rakefile</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/alexa_verifier-1_0_0/alexa_verifier_gemspec.html">alexa_verifier.gemspec</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/alexa_verifier-1_0_0/bin/setup.html">setup</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/arel-8_0_0/History_txt.html">History</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/arel-8_0_0/MIT-LICENSE_txt.html">MIT-LICENSE</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/arel-8_0_0/README_md.html">README</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ast-2_4_0/CHANGELOG_md.html">CHANGELOG</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ast-2_4_0/Gemfile.html">Gemfile</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ast-2_4_0/LICENSE_MIT.html">LICENSE.MIT</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ast-2_4_0/README_YARD_md.html">README.YARD</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ast-2_4_0/README_md.html">README</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ast-2_4_0/Rakefile.html">Rakefile</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ast-2_4_0/ast_gemspec.html">ast.gemspec</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/coderay-1_1_2/MIT-LICENSE.html">MIT-LICENSE</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/coderay-1_1_2/README_INDEX_rdoc.html">README_INDEX</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/concurrent-ruby-1_0_5/CHANGELOG_md.html">CHANGELOG</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/concurrent-ruby-1_0_5/LICENSE_txt.html">LICENSE</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/concurrent-ruby-1_0_5/README_md.html">README</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/database_cleaner-1_6_1/CONTRIBUTE_markdown.html">CONTRIBUTE.markdown</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/database_cleaner-1_6_1/Gemfile_lock.html">Gemfile.lock</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/database_cleaner-1_6_1/History_rdoc.html">History</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/database_cleaner-1_6_1/LICENSE.html">LICENSE</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/database_cleaner-1_6_1/README_markdown.html">README.markdown</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/database_cleaner-1_6_1/Rakefile.html">Rakefile</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/database_cleaner-1_6_1/TODO.html">TODO</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/database_cleaner-1_6_1/examples/Gemfile.html">Gemfile</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/database_cleaner-1_6_1/examples/Gemfile_lock.html">Gemfile.lock</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/database_cleaner-1_6_1/examples/config/database_yml_example.html">database.yml.example</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/database_cleaner-1_6_1/examples/db/sqlite_databases_go_here.html">sqlite_databases_go_here</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/database_cleaner-1_6_1/examples/features/example_feature.html">example.feature</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/database_cleaner-1_6_1/examples/features/example_multiple_db_feature.html">example_multiple_db.feature</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/database_cleaner-1_6_1/examples/features/example_multiple_orm_feature.html">example_multiple_orm.feature</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/database_cleaner-1_6_1/features/cleaning_feature.html">cleaning.feature</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/database_cleaner-1_6_1/features/cleaning_default_strategy_feature.html">cleaning_default_strategy.feature</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/database_cleaner-1_6_1/features/cleaning_multiple_dbs_feature.html">cleaning_multiple_dbs.feature</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/database_cleaner-1_6_1/features/cleaning_multiple_orms_feature.html">cleaning_multiple_orms.feature</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/database_cleaner-1_6_1/spec/rcov_opts.html">rcov.opts</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/database_cleaner-1_6_2/CONTRIBUTE_markdown.html">CONTRIBUTE.markdown</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/database_cleaner-1_6_2/Gemfile_lock.html">Gemfile.lock</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/database_cleaner-1_6_2/History_rdoc.html">History</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/database_cleaner-1_6_2/LICENSE.html">LICENSE</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/database_cleaner-1_6_2/README_markdown.html">README.markdown</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/database_cleaner-1_6_2/Rakefile.html">Rakefile</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/database_cleaner-1_6_2/TODO.html">TODO</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/diff-lcs-1_3/Code-of-Conduct_md.html">Code-of-Conduct</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/diff-lcs-1_3/Contributing_md.html">Contributing</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/diff-lcs-1_3/History_md.html">History</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/diff-lcs-1_3/License_md.html">License</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/diff-lcs-1_3/Manifest_txt.html">Manifest</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/diff-lcs-1_3/README_rdoc.html">README</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/diff-lcs-1_3/Rakefile.html">Rakefile</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/diff-lcs-1_3/bin/htmldiff.html">htmldiff</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/diff-lcs-1_3/bin/ldiff.html">ldiff</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/diff-lcs-1_3/docs/COPYING_txt.html">COPYING</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/diff-lcs-1_3/docs/artistic_txt.html">artistic</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/diff-lcs-1_3/spec/fixtures/ds1_csv.html">ds1.csv</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/diff-lcs-1_3/spec/fixtures/ds2_csv.html">ds2.csv</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/COPYING.html">COPYING</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/LICENSE.html">LICENSE</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/README_md.html">README</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/Rakefile.html">Rakefile</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/ext/ffi_c/libffi/ChangeLog_libffi.html">ChangeLog.libffi</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/ext/ffi_c/libffi/ChangeLog_libffi-3_1.html">ChangeLog.libffi-3.1</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/ext/ffi_c/libffi/ChangeLog_libgcj.html">ChangeLog.libgcj</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/ext/ffi_c/libffi/ChangeLog_v1.html">ChangeLog.v1</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/ext/ffi_c/libffi/LICENSE.html">LICENSE</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/ext/ffi_c/libffi/Makefile_am.html">Makefile.am</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/ext/ffi_c/libffi/Makefile_in.html">Makefile.in</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/ext/ffi_c/libffi/README.html">README</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/ext/ffi_c/libffi/acinclude_m4.html">acinclude.m4</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/ext/ffi_c/libffi/autogen_sh.html">autogen.sh</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/ext/ffi_c/libffi/autom4te_cache/output_0.html">output.0</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/ext/ffi_c/libffi/autom4te_cache/output_1.html">output.1</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/ext/ffi_c/libffi/autom4te_cache/output_2.html">output.2</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/ext/ffi_c/libffi/autom4te_cache/output_3.html">output.3</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/ext/ffi_c/libffi/autom4te_cache/requests.html">requests</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/ext/ffi_c/libffi/autom4te_cache/traces_0.html">traces.0</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/ext/ffi_c/libffi/autom4te_cache/traces_1.html">traces.1</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/ext/ffi_c/libffi/autom4te_cache/traces_2.html">traces.2</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/ext/ffi_c/libffi/autom4te_cache/traces_3.html">traces.3</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/ext/ffi_c/libffi/compile.html">compile</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/ext/ffi_c/libffi/config_guess.html">config.guess</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/ext/ffi_c/libffi/config_sub.html">config.sub</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/ext/ffi_c/libffi/configure.html">configure</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/ext/ffi_c/libffi/configure_ac.html">configure.ac</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/ext/ffi_c/libffi/configure_host.html">configure.host</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/ext/ffi_c/libffi/depcomp.html">depcomp</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/ext/ffi_c/libffi/doc/Makefile_am.html">Makefile.am</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/ext/ffi_c/libffi/doc/Makefile_in.html">Makefile.in</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/ext/ffi_c/libffi/doc/mdate-sh.html">mdate-sh</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/ext/ffi_c/libffi/doc/texinfo_tex.html">texinfo.tex</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/ext/ffi_c/libffi/doc/version_texi.html">version.texi</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/ext/ffi_c/libffi/fficonfig_h_in.html">fficonfig.h.in</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/ext/ffi_c/libffi/fficonfig_h_in~.html">fficonfig.h.in~</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/ext/ffi_c/libffi/generate-darwin-source-and-headers_py.html">generate-darwin-source-and-headers.py</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/ext/ffi_c/libffi/include/Makefile_am.html">Makefile.am</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/ext/ffi_c/libffi/include/Makefile_in.html">Makefile.in</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/ext/ffi_c/libffi/install-sh.html">install-sh</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/ext/ffi_c/libffi/libffi_map_in.html">libffi.map.in</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/ext/ffi_c/libffi/libffi_pc_in.html">libffi.pc.in</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/ext/ffi_c/libffi/libffi_xcodeproj/project_pbxproj.html">project.pbxproj</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/ext/ffi_c/libffi/libtool-ldflags.html">libtool-ldflags</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/ext/ffi_c/libffi/libtool-version.html">libtool-version</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/ext/ffi_c/libffi/ltmain_sh.html">ltmain.sh</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/ext/ffi_c/libffi/m4/asmcfi_m4.html">asmcfi.m4</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/ext/ffi_c/libffi/m4/ax_append_flag_m4.html">ax_append_flag.m4</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/ext/ffi_c/libffi/m4/ax_cc_maxopt_m4.html">ax_cc_maxopt.m4</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/ext/ffi_c/libffi/m4/ax_cflags_warn_all_m4.html">ax_cflags_warn_all.m4</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/ext/ffi_c/libffi/m4/ax_check_compile_flag_m4.html">ax_check_compile_flag.m4</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/ext/ffi_c/libffi/m4/ax_compiler_vendor_m4.html">ax_compiler_vendor.m4</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/ext/ffi_c/libffi/m4/ax_configure_args_m4.html">ax_configure_args.m4</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/ext/ffi_c/libffi/m4/ax_enable_builddir_m4.html">ax_enable_builddir.m4</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/ext/ffi_c/libffi/m4/ax_gcc_archflag_m4.html">ax_gcc_archflag.m4</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/ext/ffi_c/libffi/m4/ax_gcc_x86_cpuid_m4.html">ax_gcc_x86_cpuid.m4</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/ext/ffi_c/libffi/man/Makefile_am.html">Makefile.am</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/ext/ffi_c/libffi/man/Makefile_in.html">Makefile.in</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/ext/ffi_c/libffi/man/ffi_3.html">ffi.3</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/ext/ffi_c/libffi/man/ffi_call_3.html">ffi_call.3</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/ext/ffi_c/libffi/man/ffi_prep_cif_3.html">ffi_prep_cif.3</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/ext/ffi_c/libffi/man/ffi_prep_cif_var_3.html">ffi_prep_cif_var.3</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/ext/ffi_c/libffi/missing.html">missing</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/ext/ffi_c/libffi/msvcc_sh.html">msvcc.sh</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/ext/ffi_c/libffi/src/aarch64/sysv_S.html">sysv.S</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/ext/ffi_c/libffi/src/alpha/osf_S.html">osf.S</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/ext/ffi_c/libffi/src/arc/arcompact_S.html">arcompact.S</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/ext/ffi_c/libffi/src/arm/sysv_S.html">sysv.S</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/ext/ffi_c/libffi/src/avr32/sysv_S.html">sysv.S</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/ext/ffi_c/libffi/src/bfin/sysv_S.html">sysv.S</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/ext/ffi_c/libffi/src/cris/sysv_S.html">sysv.S</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/ext/ffi_c/libffi/src/frv/eabi_S.html">eabi.S</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/ext/ffi_c/libffi/src/ia64/unix_S.html">unix.S</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/ext/ffi_c/libffi/src/m32r/sysv_S.html">sysv.S</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/ext/ffi_c/libffi/src/m68k/sysv_S.html">sysv.S</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/ext/ffi_c/libffi/src/m88k/obsd_S.html">obsd.S</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/ext/ffi_c/libffi/src/metag/sysv_S.html">sysv.S</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/ext/ffi_c/libffi/src/microblaze/sysv_S.html">sysv.S</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/ext/ffi_c/libffi/src/mips/n32_S.html">n32.S</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/ext/ffi_c/libffi/src/mips/o32_S.html">o32.S</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/ext/ffi_c/libffi/src/moxie/eabi_S.html">eabi.S</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/ext/ffi_c/libffi/src/nios2/sysv_S.html">sysv.S</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/ext/ffi_c/libffi/src/or1k/sysv_S.html">sysv.S</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/ext/ffi_c/libffi/src/pa/hpux32_S.html">hpux32.S</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/ext/ffi_c/libffi/src/pa/linux_S.html">linux.S</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/ext/ffi_c/libffi/src/powerpc/aix_S.html">aix.S</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/ext/ffi_c/libffi/src/powerpc/aix_closure_S.html">aix_closure.S</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/ext/ffi_c/libffi/src/powerpc/darwin_S.html">darwin.S</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/ext/ffi_c/libffi/src/powerpc/darwin_closure_S.html">darwin_closure.S</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/ext/ffi_c/libffi/src/powerpc/linux64_S.html">linux64.S</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/ext/ffi_c/libffi/src/powerpc/linux64_closure_S.html">linux64_closure.S</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/ext/ffi_c/libffi/src/powerpc/ppc_closure_S.html">ppc_closure.S</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/ext/ffi_c/libffi/src/powerpc/sysv_S.html">sysv.S</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/ext/ffi_c/libffi/src/s390/sysv_S.html">sysv.S</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/ext/ffi_c/libffi/src/sh/sysv_S.html">sysv.S</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/ext/ffi_c/libffi/src/sh64/sysv_S.html">sysv.S</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/ext/ffi_c/libffi/src/sparc/v8_S.html">v8.S</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/ext/ffi_c/libffi/src/sparc/v9_S.html">v9.S</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/ext/ffi_c/libffi/src/tile/tile_S.html">tile.S</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/ext/ffi_c/libffi/src/vax/elfbsd_S.html">elfbsd.S</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/ext/ffi_c/libffi/src/x86/sysv_S.html">sysv.S</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/ext/ffi_c/libffi/src/x86/unix64_S.html">unix64.S</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/ext/ffi_c/libffi/src/x86/win64_S.html">win64.S</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/ext/ffi_c/libffi/src/x86/win64_intel_S.html">win64_intel.S</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/ext/ffi_c/libffi/src/xtensa/sysv_S.html">sysv.S</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/ext/ffi_c/libffi/stamp-h_in.html">stamp-h.in</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/ext/ffi_c/libffi/testsuite/Makefile_am.html">Makefile.am</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/ext/ffi_c/libffi/testsuite/Makefile_in.html">Makefile.in</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/ext/ffi_c/libffi/testsuite/config/default_exp.html">default.exp</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/ext/ffi_c/libffi/testsuite/lib/libffi_exp.html">libffi.exp</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/ext/ffi_c/libffi/testsuite/lib/target-libpath_exp.html">target-libpath.exp</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/ext/ffi_c/libffi/testsuite/lib/wrapper_exp.html">wrapper.exp</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/ext/ffi_c/libffi/testsuite/libffi_call/call_exp.html">call.exp</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/ext/ffi_c/libffi/testsuite/libffi_complex/complex_exp.html">complex.exp</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/ext/ffi_c/libffi/testsuite/libffi_go/go_exp.html">go.exp</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/ffi_gemspec.html">ffi.gemspec</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/gen/Rakefile.html">Rakefile</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/lib/ffi/platform/aarch64-linux/types_conf.html">types.conf</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/lib/ffi/platform/arm-linux/types_conf.html">types.conf</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/lib/ffi/platform/i386-cygwin/types_conf.html">types.conf</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/lib/ffi/platform/i386-darwin/types_conf.html">types.conf</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/lib/ffi/platform/i386-freebsd/types_conf.html">types.conf</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/lib/ffi/platform/i386-gnu/types_conf.html">types.conf</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/lib/ffi/platform/i386-linux/types_conf.html">types.conf</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/lib/ffi/platform/i386-netbsd/types_conf.html">types.conf</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/lib/ffi/platform/i386-openbsd/types_conf.html">types.conf</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/lib/ffi/platform/i386-solaris/types_conf.html">types.conf</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/lib/ffi/platform/i386-windows/types_conf.html">types.conf</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/lib/ffi/platform/ia64-linux/types_conf.html">types.conf</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/lib/ffi/platform/mips-linux/types_conf.html">types.conf</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/lib/ffi/platform/mips64el-linux/types_conf.html">types.conf</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/lib/ffi/platform/mipsel-linux/types_conf.html">types.conf</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/lib/ffi/platform/powerpc-aix/types_conf.html">types.conf</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/lib/ffi/platform/powerpc-darwin/types_conf.html">types.conf</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/lib/ffi/platform/powerpc-linux/types_conf.html">types.conf</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/lib/ffi/platform/powerpc64-linux/types_conf.html">types.conf</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/lib/ffi/platform/s390-linux/types_conf.html">types.conf</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/lib/ffi/platform/s390x-linux/types_conf.html">types.conf</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/lib/ffi/platform/sparc-linux/types_conf.html">types.conf</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/lib/ffi/platform/sparc-solaris/types_conf.html">types.conf</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/lib/ffi/platform/sparc64-linux/types_conf.html">types.conf</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/lib/ffi/platform/sparcv9-solaris/types_conf.html">types.conf</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/lib/ffi/platform/x86_64-cygwin/types_conf.html">types.conf</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/lib/ffi/platform/x86_64-darwin/types_conf.html">types.conf</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/lib/ffi/platform/x86_64-freebsd/types_conf.html">types.conf</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/lib/ffi/platform/x86_64-linux/types_conf.html">types.conf</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/lib/ffi/platform/x86_64-netbsd/types_conf.html">types.conf</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/lib/ffi/platform/x86_64-openbsd/types_conf.html">types.conf</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/lib/ffi/platform/x86_64-solaris/types_conf.html">types.conf</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/lib/ffi/platform/x86_64-windows/types_conf.html">types.conf</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/libtest/GNUmakefile.html">GNUmakefile</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/spec/ffi/LICENSE_SPECS.html">LICENSE.SPECS</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/spec/ffi/embed-test/ext/Makefile.html">Makefile</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/spec/ffi/fixtures/GNUmakefile.html">GNUmakefile</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/spec/spec_opts.html">spec.opts</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/formatador-0_2_5/CONTRIBUTING_md.html">CONTRIBUTING</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/formatador-0_2_5/CONTRIBUTORS_md.html">CONTRIBUTORS</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/formatador-0_2_5/Gemfile.html">Gemfile</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/formatador-0_2_5/LICENSE_md.html">LICENSE</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/formatador-0_2_5/README_rdoc.html">README</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/formatador-0_2_5/Rakefile.html">Rakefile</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/formatador-0_2_5/changelog_txt.html">changelog</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/formatador-0_2_5/formatador_gemspec.html">formatador.gemspec</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/guard-2_14_2/CHANGELOG_md.html">CHANGELOG</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/guard-2_14_2/LICENSE.html">LICENSE</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/guard-2_14_2/README_md.html">README</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/guard-2_14_2/lib/guard/templates/Guardfile.html">Guardfile</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/guard-2_14_2/man/guard_1.html">guard.1</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/guard-2_14_2/man/guard_1_html.html">guard.1.html</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/guard-compat-1_2_1/Gemfile.html">Gemfile</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/guard-compat-1_2_1/LICENSE_txt.html">LICENSE</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/guard-compat-1_2_1/README_md.html">README</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/guard-compat-1_2_1/Rakefile.html">Rakefile</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/guard-compat-1_2_1/guard-compat_gemspec.html">guard-compat.gemspec</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/guard-rspec-4_7_3/CONTRIBUTING_md.html">CONTRIBUTING</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/guard-rspec-4_7_3/Gemfile.html">Gemfile</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/guard-rspec-4_7_3/Guardfile.html">Guardfile</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/guard-rspec-4_7_3/LICENSE_txt.html">LICENSE</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/guard-rspec-4_7_3/README_md.html">README</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/guard-rspec-4_7_3/Rakefile.html">Rakefile</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/guard-rspec-4_7_3/gemfiles/Gemfile_rspec-2_99.html">Gemfile.rspec-2.99</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/guard-rspec-4_7_3/gemfiles/Gemfile_rspec-3_4.html">Gemfile.rspec-3.4</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/guard-rspec-4_7_3/gemfiles/common.html">common</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/guard-rspec-4_7_3/guard-rspec_gemspec.html">guard-rspec.gemspec</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/guard-rspec-4_7_3/lib/guard/rspec/templates/Guardfile.html">Guardfile</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/i18n-0_9_5/MIT-LICENSE.html">MIT-LICENSE</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/i18n-0_9_5/README_md.html">README</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/i18n-0_9_5/gemfiles/Gemfile_rails-3_2_x.html">Gemfile.rails-3.2.x</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/i18n-0_9_5/gemfiles/Gemfile_rails-4_0_x.html">Gemfile.rails-4.0.x</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/i18n-0_9_5/gemfiles/Gemfile_rails-4_1_x.html">Gemfile.rails-4.1.x</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/i18n-0_9_5/gemfiles/Gemfile_rails-4_2_x.html">Gemfile.rails-4.2.x</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/i18n-0_9_5/gemfiles/Gemfile_rails-5_0_x.html">Gemfile.rails-5.0.x</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/i18n-0_9_5/gemfiles/Gemfile_rails-5_1_x.html">Gemfile.rails-5.1.x</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/i18n-0_9_5/gemfiles/Gemfile_rails-master.html">Gemfile.rails-master</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/i18n-0_9_5/test/test_data/locales/de_po.html">de.po</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/jsonb_accessor-1_0_0/Appraisals.html">Appraisals</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/jsonb_accessor-1_0_0/CODE_OF_CONDUCT_md.html">CODE_OF_CONDUCT</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/jsonb_accessor-1_0_0/Gemfile.html">Gemfile</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/jsonb_accessor-1_0_0/LICENSE_txt.html">LICENSE</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/jsonb_accessor-1_0_0/README_md.html">README</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/jsonb_accessor-1_0_0/Rakefile.html">Rakefile</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/jsonb_accessor-1_0_0/UPGRADE_GUIDE_md.html">UPGRADE_GUIDE</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/jsonb_accessor-1_0_0/bin/setup.html">setup</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/jsonb_accessor-1_0_0/gemfiles/activerecord_5_0_0_gemfile.html">activerecord_5.0.0.gemfile</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/jsonb_accessor-1_0_0/gemfiles/activerecord_5_0_0_gemfile_lock.html">activerecord_5.0.0.gemfile.lock</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/jsonb_accessor-1_0_0/gemfiles/activerecord_5_1_0_gemfile.html">activerecord_5.1.0.gemfile</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/jsonb_accessor-1_0_0/gemfiles/activerecord_5_1_0_gemfile_lock.html">activerecord_5.1.0.gemfile.lock</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/jsonb_accessor-1_0_0/jsonb_accessor_gemspec.html">jsonb_accessor.gemspec</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/listen-3_1_5/CHANGELOG_md.html">CHANGELOG</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/listen-3_1_5/CONTRIBUTING_md.html">CONTRIBUTING</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/listen-3_1_5/LICENSE_txt.html">LICENSE</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/listen-3_1_5/README_md.html">README</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/little-plugger-1_1_4/History_txt.html">History</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/little-plugger-1_1_4/README_rdoc.html">README</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/little-plugger-1_1_4/Rakefile.html">Rakefile</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/logging-2_2_2/History_txt.html">History</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/logging-2_2_2/LICENSE.html">LICENSE</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/logging-2_2_2/README_md.html">README</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/logging-2_2_2/Rakefile.html">Rakefile</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/logging-2_2_2/logging_gemspec.html">logging.gemspec</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/logging-2_2_2/script/bootstrap.html">bootstrap</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/lumberjack-1_0_12/MIT_LICENSE.html">MIT_LICENSE</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/lumberjack-1_0_12/README_md.html">README</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/lumberjack-1_0_12/Rakefile.html">Rakefile</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/lumberjack-1_0_12/VERSION.html">VERSION</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/method_source-0_9_0/Gemfile.html">Gemfile</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/method_source-0_9_0/LICENSE.html">LICENSE</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/method_source-0_9_0/README_markdown.html">README.markdown</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/method_source-0_9_0/Rakefile.html">Rakefile</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/method_source-0_9_0/method_source_gemspec.html">method_source.gemspec</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/minitest-5_11_3/History_rdoc.html">History</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/minitest-5_11_3/Manifest_txt.html">Manifest</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/minitest-5_11_3/README_rdoc.html">README</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/minitest-5_11_3/Rakefile.html">Rakefile</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/multi_json-1_13_1/CHANGELOG_md.html">CHANGELOG</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/multi_json-1_13_1/CONTRIBUTING_md.html">CONTRIBUTING</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/multi_json-1_13_1/LICENSE_md.html">LICENSE</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/multi_json-1_13_1/README_md.html">README</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/mustermann-1_0_2/LICENSE.html">LICENSE</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/mustermann-1_0_2/README_md.html">README</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/mustermann-1_0_2/mustermann_gemspec.html">mustermann.gemspec</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/nenv-0_3_0/LICENSE_txt.html">LICENSE</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/nenv-0_3_0/README_md.html">README</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/nenv-0_3_0/nenv_gemspec.html">nenv.gemspec</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/notiffany-0_1_1/LICENSE_txt.html">LICENSE</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/notiffany-0_1_1/README_md.html">README</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/oj-3_4_0/LICENSE.html">LICENSE</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/oj-3_4_0/README_md.html">README</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/oj-3_4_0/ext/oj/Makefile.html">Makefile</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/oj-3_4_0/ext/oj/oj-x64-mingw32_def.html">oj-x64-mingw32.def</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/oj-3_4_0/pages/Advanced_md.html">Advanced</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/oj-3_4_0/pages/Compatibility_md.html">Compatibility</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/oj-3_4_0/pages/Custom_md.html">Custom</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/oj-3_4_0/pages/Encoding_md.html">Encoding</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/oj-3_4_0/pages/JsonGem_md.html">JsonGem</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/oj-3_4_0/pages/Modes_md.html">Modes</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/oj-3_4_0/pages/Options_md.html">Options</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/oj-3_4_0/pages/Rails_md.html">Rails</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/oj-3_4_0/pages/Security_md.html">Security</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/oj-3_4_0/pages/WAB_md.html">WAB</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/parallel-1_12_1/MIT-LICENSE_txt.html">MIT-LICENSE</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/parser-2_5_0_0/CHANGELOG_md.html">CHANGELOG</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/parser-2_5_0_0/CONTRIBUTING_md.html">CONTRIBUTING</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/parser-2_5_0_0/Gemfile.html">Gemfile</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/parser-2_5_0_0/LICENSE_txt.html">LICENSE</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/parser-2_5_0_0/README_md.html">README</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/parser-2_5_0_0/Rakefile.html">Rakefile</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/parser-2_5_0_0/doc/AST_FORMAT_md.html">AST_FORMAT</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/parser-2_5_0_0/doc/CUSTOMIZATION_md.html">CUSTOMIZATION</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/parser-2_5_0_0/doc/INTERNALS_md.html">INTERNALS</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/parser-2_5_0_0/doc/css/common_css.html">common.css</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/parser-2_5_0_0/lib/parser/lexer_rl.html">lexer.rl</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/parser-2_5_0_0/parser_gemspec.html">parser.gemspec</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/parser-2_5_0_1/CHANGELOG_md.html">CHANGELOG</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/parser-2_5_0_1/CONTRIBUTING_md.html">CONTRIBUTING</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/parser-2_5_0_1/Gemfile.html">Gemfile</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/parser-2_5_0_1/LICENSE_txt.html">LICENSE</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/parser-2_5_0_1/README_md.html">README</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/parser-2_5_0_1/Rakefile.html">Rakefile</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/parser-2_5_0_1/doc/AST_FORMAT_md.html">AST_FORMAT</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/parser-2_5_0_1/doc/CUSTOMIZATION_md.html">CUSTOMIZATION</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/parser-2_5_0_1/doc/INTERNALS_md.html">INTERNALS</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/parser-2_5_0_1/doc/css/common_css.html">common.css</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/parser-2_5_0_1/lib/parser/lexer_rl.html">lexer.rl</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/parser-2_5_0_1/parser_gemspec.html">parser.gemspec</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/parser-2_5_0_2/CHANGELOG_md.html">CHANGELOG</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/parser-2_5_0_2/CONTRIBUTING_md.html">CONTRIBUTING</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/parser-2_5_0_2/Gemfile.html">Gemfile</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/parser-2_5_0_2/LICENSE_txt.html">LICENSE</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/parser-2_5_0_2/README_md.html">README</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/parser-2_5_0_2/Rakefile.html">Rakefile</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/parser-2_5_0_2/doc/AST_FORMAT_md.html">AST_FORMAT</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/parser-2_5_0_2/doc/CUSTOMIZATION_md.html">CUSTOMIZATION</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/parser-2_5_0_2/doc/INTERNALS_md.html">INTERNALS</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/parser-2_5_0_2/doc/css/common_css.html">common.css</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/parser-2_5_0_2/lib/parser/lexer_rl.html">lexer.rl</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/parser-2_5_0_2/parser_gemspec.html">parser.gemspec</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/pg-1_0_0-x64-mingw32/BSDL.html">BSDL</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/pg-1_0_0-x64-mingw32/ChangeLog.html">ChangeLog</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/pg-1_0_0-x64-mingw32/Contributors_rdoc.html">Contributors</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/pg-1_0_0-x64-mingw32/History_rdoc.html">History</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/pg-1_0_0-x64-mingw32/LICENSE.html">LICENSE</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/pg-1_0_0-x64-mingw32/Manifest_txt.html">Manifest</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/pg-1_0_0-x64-mingw32/POSTGRES.html">POSTGRES</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/pg-1_0_0-x64-mingw32/README-OS_X_rdoc.html">README-OS_X</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/pg-1_0_0-x64-mingw32/README-Windows_rdoc.html">README-Windows</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/pg-1_0_0-x64-mingw32/README_ja_rdoc.html">README.ja</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/pg-1_0_0-x64-mingw32/README_rdoc.html">README</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/pg-1_0_0-x64-mingw32/Rakefile.html">Rakefile</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/pg-1_0_0-x64-mingw32/Rakefile_cross.html">Rakefile.cross</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/pg-1_0_0-x64-mingw32/ext/errorcodes_def.html">errorcodes.def</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/pg-1_0_0-x64-mingw32/ext/errorcodes_txt.html">errorcodes</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/pg-1_0_0-x64-mingw32/ext/vc/pg_sln.html">pg.sln</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/pg-1_0_0-x64-mingw32/ext/vc/pg_18/pg_vcproj.html">pg.vcproj</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/pg-1_0_0-x64-mingw32/ext/vc/pg_19/pg_19_vcproj.html">pg_19.vcproj</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/pg-1_0_0-x64-mingw32/spec/data/expected_trace_out.html">expected_trace.out</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/powerpack-0_1_1/CHANGELOG_md.html">CHANGELOG</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/powerpack-0_1_1/Gemfile.html">Gemfile</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/powerpack-0_1_1/LICENSE_txt.html">LICENSE</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/powerpack-0_1_1/README_md.html">README</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/powerpack-0_1_1/Rakefile.html">Rakefile</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/powerpack-0_1_1/powerpack_gemspec.html">powerpack.gemspec</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/pry-0_11_3/CHANGELOG_md.html">CHANGELOG</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/pry-0_11_3/LICENSE.html">LICENSE</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/pry-0_11_3/README_md.html">README</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/pry-0_11_3/lib/pry/slop/LICENSE.html">LICENSE</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/rack-2_0_4/COPYING.html">COPYING</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/rack-2_0_4/HISTORY_md.html">HISTORY</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/rack-2_0_4/README_rdoc.html">README</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/rack-2_0_4/Rakefile.html">Rakefile</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/rack-2_0_4/SPEC.html">SPEC</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/rack-2_0_4/contrib/rdoc_css.html">rdoc.css</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/rack-2_0_4/example/lobster_ru.html">lobster.ru</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/rack-2_0_4/example/protectedlobster_ru.html">protectedlobster.ru</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/rack-2_0_4/rack_gemspec.html">rack.gemspec</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/rack-2_0_4/test/builder/comment_ru.html">comment.ru</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/rack-2_0_4/test/builder/end_ru.html">end.ru</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/rack-2_0_4/test/builder/line_ru.html">line.ru</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/rack-2_0_4/test/builder/options_ru.html">options.ru</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/rack-2_0_4/test/cgi/assets/folder/test_js.html">test.js</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/rack-2_0_4/test/cgi/assets/fonts/font_eot.html">font.eot</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/rack-2_0_4/test/cgi/assets/images/image_png.html">image.png</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/rack-2_0_4/test/cgi/assets/index_html.html">index.html</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/rack-2_0_4/test/cgi/assets/javascripts/app_js.html">app.js</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/rack-2_0_4/test/cgi/assets/stylesheets/app_css.html">app.css</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/rack-2_0_4/test/cgi/lighttpd_conf.html">lighttpd.conf</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/rack-2_0_4/test/cgi/test+directory/test+file.html">test+file</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/rack-2_0_4/test/cgi/test_fcgi.html">test.fcgi</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/rack-2_0_4/test/cgi/test_ru.html">test.ru</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/rack-2_0_4/test/multipart/bad_robots.html">bad_robots</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/rack-2_0_4/test/multipart/content_type_and_no_filename.html">content_type_and_no_filename</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/rack-2_0_4/test/multipart/empty.html">empty</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/rack-2_0_4/test/multipart/fail_16384_nofile.html">fail_16384_nofile</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/rack-2_0_4/test/multipart/file1_txt.html">file1</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/rack-2_0_4/test/multipart/filename_and_modification_param.html">filename_and_modification_param</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/rack-2_0_4/test/multipart/filename_and_no_name.html">filename_and_no_name</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/rack-2_0_4/test/multipart/filename_with_encoded_words.html">filename_with_encoded_words</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/rack-2_0_4/test/multipart/filename_with_escaped_quotes.html">filename_with_escaped_quotes</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/rack-2_0_4/test/multipart/filename_with_escaped_quotes_and_modification_param.html">filename_with_escaped_quotes_and_modification_param</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/rack-2_0_4/test/multipart/filename_with_null_byte.html">filename_with_null_byte</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/rack-2_0_4/test/multipart/filename_with_percent_escaped_quotes.html">filename_with_percent_escaped_quotes</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/rack-2_0_4/test/multipart/filename_with_single_quote.html">filename_with_single_quote</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/rack-2_0_4/test/multipart/filename_with_unescaped_percentages.html">filename_with_unescaped_percentages</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/rack-2_0_4/test/multipart/filename_with_unescaped_percentages2.html">filename_with_unescaped_percentages2</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/rack-2_0_4/test/multipart/filename_with_unescaped_percentages3.html">filename_with_unescaped_percentages3</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/rack-2_0_4/test/multipart/filename_with_unescaped_quotes.html">filename_with_unescaped_quotes</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/rack-2_0_4/test/multipart/ie.html">ie</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/rack-2_0_4/test/multipart/mixed_files.html">mixed_files</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/rack-2_0_4/test/multipart/nested.html">nested</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/rack-2_0_4/test/multipart/none.html">none</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/rack-2_0_4/test/multipart/quoted.html">quoted</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/rack-2_0_4/test/multipart/semicolon.html">semicolon</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/rack-2_0_4/test/multipart/text.html">text</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/rack-2_0_4/test/multipart/three_files_three_fields.html">three_files_three_fields</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/rack-2_0_4/test/multipart/unity3d_wwwform.html">unity3d_wwwform</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/rack-2_0_4/test/multipart/webkit.html">webkit</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/rack-2_0_4/test/rackup/config_ru.html">config.ru</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/rack-2_0_4/test/static/another/index_html.html">index.html</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/rack-2_0_4/test/static/foo_html.html">foo.html</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/rack-2_0_4/test/static/index_html.html">index.html</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/rack-protection-2_0_1/Gemfile.html">Gemfile</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/rack-protection-2_0_1/License.html">License</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/rack-protection-2_0_1/README_md.html">README</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/rack-protection-2_0_1/Rakefile.html">Rakefile</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/rack-protection-2_0_1/rack-protection_gemspec.html">rack-protection.gemspec</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/rack-test-0_8_2/History_md.html">History</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/rack-test-0_8_2/MIT-LICENSE_txt.html">MIT-LICENSE</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/rack-test-0_8_2/README_md.html">README</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/rainbow-3_0_0/Changelog_md.html">Changelog</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/rainbow-3_0_0/Gemfile.html">Gemfile</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/rainbow-3_0_0/Guardfile.html">Guardfile</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/rainbow-3_0_0/LICENSE.html">LICENSE</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/rainbow-3_0_0/README_markdown.html">README.markdown</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/rainbow-3_0_0/Rakefile.html">Rakefile</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/rainbow-3_0_0/rainbow_gemspec.html">rainbow.gemspec</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/rake-12_3_0/CONTRIBUTING_rdoc.html">CONTRIBUTING</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/rake-12_3_0/Gemfile.html">Gemfile</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/rake-12_3_0/History_rdoc.html">History</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/rake-12_3_0/MIT-LICENSE.html">MIT-LICENSE</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/rake-12_3_0/README_rdoc.html">README</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/rake-12_3_0/Rakefile.html">Rakefile</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/rake-12_3_0/bin/setup.html">setup</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/rake-12_3_0/doc/command_line_usage_rdoc.html">command_line_usage</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/rake-12_3_0/doc/example/Rakefile1.html">Rakefile1</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/rake-12_3_0/doc/example/Rakefile2.html">Rakefile2</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/rake-12_3_0/doc/glossary_rdoc.html">glossary</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/rake-12_3_0/doc/proto_rake_rdoc.html">proto_rake</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/rake-12_3_0/doc/rake_1.html">rake.1</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/rake-12_3_0/doc/rakefile_rdoc.html">rakefile</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/rake-12_3_0/doc/rational_rdoc.html">rational</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/rake-12_3_0/rake_gemspec.html">rake.gemspec</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ralyxa-1_6_2/CODE_OF_CONDUCT_md.html">CODE_OF_CONDUCT</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ralyxa-1_6_2/Gemfile.html">Gemfile</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ralyxa-1_6_2/LICENSE_txt.html">LICENSE</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ralyxa-1_6_2/README_md.html">README</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ralyxa-1_6_2/Rakefile.html">Rakefile</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ralyxa-1_6_2/bin/setup.html">setup</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ralyxa-1_6_2/ralyxa_gemspec.html">ralyxa.gemspec</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/rb-fsevent-0_10_2/Gemfile.html">Gemfile</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/rb-fsevent-0_10_2/Guardfile.html">Guardfile</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/rb-fsevent-0_10_2/LICENSE_txt.html">LICENSE</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/rb-fsevent-0_10_2/README_md.html">README</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/rb-fsevent-0_10_2/Rakefile.html">Rakefile</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/rb-fsevent-0_10_2/ext/LICENSE.html">LICENSE</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/rb-fsevent-0_10_2/rb-fsevent_gemspec.html">rb-fsevent.gemspec</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/rb-inotify-0_9_10/Gemfile.html">Gemfile</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/rb-inotify-0_9_10/README_md.html">README</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/rb-inotify-0_9_10/Rakefile.html">Rakefile</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/rb-inotify-0_9_10/rb-inotify_gemspec.html">rb-inotify.gemspec</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/rerun-0_13_0/LICENSE.html">LICENSE</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/rerun-0_13_0/README_md.html">README</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/rerun-0_13_0/Rakefile.html">Rakefile</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/rerun-0_13_0/rerun_gemspec.html">rerun.gemspec</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/rspec-3_7_0/LICENSE_md.html">LICENSE</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/rspec-3_7_0/README_md.html">README</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/rspec-core-3_7_1/Changelog_md.html">Changelog</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/rspec-core-3_7_1/LICENSE_md.html">LICENSE</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/rspec-core-3_7_1/README_md.html">README</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/rspec-expectations-3_7_0/Changelog_md.html">Changelog</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/rspec-expectations-3_7_0/LICENSE_md.html">LICENSE</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/rspec-expectations-3_7_0/README_md.html">README</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/rspec-mocks-3_7_0/Changelog_md.html">Changelog</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/rspec-mocks-3_7_0/LICENSE_md.html">LICENSE</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/rspec-mocks-3_7_0/README_md.html">README</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/rspec-support-3_7_1/Changelog_md.html">Changelog</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/rspec-support-3_7_1/LICENSE_md.html">LICENSE</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/rspec-support-3_7_1/README_md.html">README</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/rubocop-0_52_1/LICENSE_txt.html">LICENSE</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/rubocop-0_52_1/README_md.html">README</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ruby-progressbar-1_9_0/LICENSE_txt.html">LICENSE</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ruby-progressbar-1_9_0/README_md.html">README</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ruby-progressbar-1_9_0/Rakefile.html">Rakefile</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ruby_dep-1_5_0/LICENSE_txt.html">LICENSE</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ruby_dep-1_5_0/README_md.html">README</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/shellany-0_0_1/Gemfile.html">Gemfile</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/shellany-0_0_1/LICENSE_txt.html">LICENSE</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/shellany-0_0_1/README_md.html">README</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/shellany-0_0_1/Rakefile.html">Rakefile</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/shellany-0_0_1/shellany_gemspec.html">shellany.gemspec</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/sinatra-2_0_1/AUTHORS_md.html">AUTHORS</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/sinatra-2_0_1/CHANGELOG_md.html">CHANGELOG</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/sinatra-2_0_1/CONTRIBUTING_md.html">CONTRIBUTING</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/sinatra-2_0_1/Gemfile.html">Gemfile</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/sinatra-2_0_1/LICENSE.html">LICENSE</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/sinatra-2_0_1/MAINTENANCE_md.html">MAINTENANCE</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/sinatra-2_0_1/README_de_md.html">README.de</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/sinatra-2_0_1/README_es_md.html">README.es</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/sinatra-2_0_1/README_fr_md.html">README.fr</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/sinatra-2_0_1/README_hu_md.html">README.hu</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/sinatra-2_0_1/README_ja_md.html">README.ja</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/sinatra-2_0_1/README_ko_md.html">README.ko</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/sinatra-2_0_1/README_md.html">README</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/sinatra-2_0_1/README_pt-br_md.html">README.pt-br</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/sinatra-2_0_1/README_pt-pt_md.html">README.pt-pt</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/sinatra-2_0_1/README_ru_md.html">README.ru</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/sinatra-2_0_1/README_zh_md.html">README.zh</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/sinatra-2_0_1/Rakefile.html">Rakefile</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/sinatra-2_0_1/SECURITY_md.html">SECURITY</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/sinatra-2_0_1/VERSION.html">VERSION</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/sinatra-2_0_1/examples/stream_ru.html">stream.ru</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/sinatra-2_0_1/sinatra_gemspec.html">sinatra.gemspec</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/sinatra-activerecord-2_0_13/LICENSE.html">LICENSE</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/sinatra-activerecord-2_0_13/README_md.html">README</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/sinatra-activerecord-2_0_13/lib/sinatra/activerecord/tasks_rake.html">tasks.rake</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/thor-0_20_0/LICENSE_md.html">LICENSE</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/thread_safe-0_3_6/Gemfile.html">Gemfile</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/thread_safe-0_3_6/LICENSE.html">LICENSE</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/thread_safe-0_3_6/README_md.html">README</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/thread_safe-0_3_6/Rakefile.html">Rakefile</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/thread_safe-0_3_6/ext/org/jruby/ext/thread_safe/JRubyCacheBackendLibrary_java.html">JRubyCacheBackendLibrary.java</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/thread_safe-0_3_6/ext/org/jruby/ext/thread_safe/jsr166e/ConcurrentHashMap_java.html">ConcurrentHashMap.java</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/thread_safe-0_3_6/ext/org/jruby/ext/thread_safe/jsr166e/ConcurrentHashMapV8_java.html">ConcurrentHashMapV8.java</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/thread_safe-0_3_6/ext/org/jruby/ext/thread_safe/jsr166e/LongAdder_java.html">LongAdder.java</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/thread_safe-0_3_6/ext/org/jruby/ext/thread_safe/jsr166e/Striped64_java.html">Striped64.java</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/thread_safe-0_3_6/ext/org/jruby/ext/thread_safe/jsr166e/nounsafe/ConcurrentHashMapV8_java.html">ConcurrentHashMapV8.java</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/thread_safe-0_3_6/ext/org/jruby/ext/thread_safe/jsr166e/nounsafe/LongAdder_java.html">LongAdder.java</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/thread_safe-0_3_6/ext/org/jruby/ext/thread_safe/jsr166e/nounsafe/Striped64_java.html">Striped64.java</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/thread_safe-0_3_6/ext/org/jruby/ext/thread_safe/jsr166y/ThreadLocalRandom_java.html">ThreadLocalRandom.java</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/thread_safe-0_3_6/ext/thread_safe/JrubyCacheBackendService_java.html">JrubyCacheBackendService.java</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/thread_safe-0_3_6/spec/src/thread_safe/SecurityManager_java.html">SecurityManager.java</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/thread_safe-0_3_6/tasks/update_doc_rake.html">update_doc.rake</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/thread_safe-0_3_6/thread_safe_gemspec.html">thread_safe.gemspec</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/thread_safe-0_3_6/yard-template/default/fulldoc/html/css/common_css.html">common.css</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/tilt-2_0_8/CHANGELOG_md.html">CHANGELOG</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/tilt-2_0_8/COPYING.html">COPYING</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/tilt-2_0_8/Gemfile.html">Gemfile</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/tilt-2_0_8/HACKING.html">HACKING</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/tilt-2_0_8/README_md.html">README</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/tilt-2_0_8/Rakefile.html">Rakefile</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/tilt-2_0_8/docs/TEMPLATES_md.html">TEMPLATES</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/tilt-2_0_8/docs/common_css.html">common.css</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/tilt-2_0_8/man/index_txt.html">index</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/tilt-2_0_8/man/tilt_1_ronn.html">tilt.1.ronn</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/tilt-2_0_8/test/markaby/locals_mab.html">locals.mab</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/tilt-2_0_8/test/markaby/markaby_mab.html">markaby.mab</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/tilt-2_0_8/test/markaby/markaby_other_static_mab.html">markaby_other_static.mab</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/tilt-2_0_8/test/markaby/render_twice_mab.html">render_twice.mab</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/tilt-2_0_8/test/markaby/scope_mab.html">scope.mab</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/tilt-2_0_8/test/markaby/yielding_mab.html">yielding.mab</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/tilt-2_0_8/test/tilt_lesstemplate_test_less.html">tilt_lesstemplate_test.less</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/tilt-2_0_8/test/tilt_prawntemplate_prawn.html">tilt_prawntemplate.prawn</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/tilt-2_0_8/tilt_gemspec.html">tilt.gemspec</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/tzinfo-1_2_5/CHANGES_md.html">CHANGES</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/tzinfo-1_2_5/LICENSE.html">LICENSE</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/tzinfo-1_2_5/README_md.html">README</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/tzinfo-1_2_5/Rakefile.html">Rakefile</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/tzinfo-1_2_5/test/zoneinfo/iso3166_tab.html">iso3166.tab</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/tzinfo-1_2_5/test/zoneinfo/leapseconds.html">leapseconds</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/tzinfo-1_2_5/test/zoneinfo/zone_tab.html">zone.tab</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/tzinfo-1_2_5/test/zoneinfo/zone1970_tab.html">zone1970.tab</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/tzinfo-1_2_5/tzinfo_gemspec.html">tzinfo.gemspec</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/unicode-display_width-1_3_0/CHANGELOG_md.html">CHANGELOG</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/unicode-display_width-1_3_0/MIT-LICENSE_txt.html">MIT-LICENSE</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/unicode-display_width-1_3_0/README_md.html">README</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/unicode-display_width-1_3_0/Rakefile.html">Rakefile</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/unicode-display_width-1_3_0/unicode-display_width_gemspec.html">unicode-display_width.gemspec</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/wdm-0_1_1/LICENSE.html">LICENSE</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/wdm-0_1_1/README_md.html">README</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/wdm-0_1_1/ext/wdm/Makefile.html">Makefile</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/wdm-0_1_1/ext/wdm/wdm_sln.html">wdm.sln</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/wdm-0_1_1/ext/wdm/wdm_vcxproj.html">wdm.vcxproj</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/wdm-0_1_1/ext/wdm/wdm_vcxproj_filters.html">wdm.vcxproj.filters</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/wdm-0_1_1/ext/wdm/wdm_ext-x64-mingw32_def.html">wdm_ext-x64-mingw32.def</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/specifications/activemodel-5_1_5_gemspec.html">activemodel-5.1.5.gemspec</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/specifications/activerecord-5_1_5_gemspec.html">activerecord-5.1.5.gemspec</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/specifications/activesupport-5_1_5_gemspec.html">activesupport-5.1.5.gemspec</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/specifications/alexa_verifier-1_0_0_gemspec.html">alexa_verifier-1.0.0.gemspec</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/specifications/arel-8_0_0_gemspec.html">arel-8.0.0.gemspec</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/specifications/ast-2_4_0_gemspec.html">ast-2.4.0.gemspec</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/specifications/coderay-1_1_2_gemspec.html">coderay-1.1.2.gemspec</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/specifications/concurrent-ruby-1_0_5_gemspec.html">concurrent-ruby-1.0.5.gemspec</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/specifications/database_cleaner-1_6_1_gemspec.html">database_cleaner-1.6.1.gemspec</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/specifications/diff-lcs-1_3_gemspec.html">diff-lcs-1.3.gemspec</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/specifications/ffi-1_9_21-x64-mingw32_gemspec.html">ffi-1.9.21-x64-mingw32.gemspec</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/specifications/formatador-0_2_5_gemspec.html">formatador-0.2.5.gemspec</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/specifications/guard-2_14_2_gemspec.html">guard-2.14.2.gemspec</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/specifications/guard-compat-1_2_1_gemspec.html">guard-compat-1.2.1.gemspec</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/specifications/guard-rspec-4_7_3_gemspec.html">guard-rspec-4.7.3.gemspec</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/specifications/i18n-0_9_5_gemspec.html">i18n-0.9.5.gemspec</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/specifications/jsonb_accessor-1_0_0_gemspec.html">jsonb_accessor-1.0.0.gemspec</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/specifications/listen-3_1_5_gemspec.html">listen-3.1.5.gemspec</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/specifications/little-plugger-1_1_4_gemspec.html">little-plugger-1.1.4.gemspec</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/specifications/logging-2_2_2_gemspec.html">logging-2.2.2.gemspec</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/specifications/lumberjack-1_0_12_gemspec.html">lumberjack-1.0.12.gemspec</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/specifications/method_source-0_9_0_gemspec.html">method_source-0.9.0.gemspec</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/specifications/minitest-5_11_3_gemspec.html">minitest-5.11.3.gemspec</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/specifications/multi_json-1_13_1_gemspec.html">multi_json-1.13.1.gemspec</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/specifications/mustermann-1_0_2_gemspec.html">mustermann-1.0.2.gemspec</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/specifications/nenv-0_3_0_gemspec.html">nenv-0.3.0.gemspec</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/specifications/notiffany-0_1_1_gemspec.html">notiffany-0.1.1.gemspec</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/specifications/oj-3_4_0_gemspec.html">oj-3.4.0.gemspec</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/specifications/parallel-1_12_1_gemspec.html">parallel-1.12.1.gemspec</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/specifications/parser-2_5_0_0_gemspec.html">parser-2.5.0.0.gemspec</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/specifications/parser-2_5_0_1_gemspec.html">parser-2.5.0.1.gemspec</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/specifications/parser-2_5_0_2_gemspec.html">parser-2.5.0.2.gemspec</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/specifications/pg-1_0_0-x64-mingw32_gemspec.html">pg-1.0.0-x64-mingw32.gemspec</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/specifications/powerpack-0_1_1_gemspec.html">powerpack-0.1.1.gemspec</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/specifications/pry-0_11_3_gemspec.html">pry-0.11.3.gemspec</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/specifications/rack-2_0_4_gemspec.html">rack-2.0.4.gemspec</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/specifications/rack-protection-2_0_1_gemspec.html">rack-protection-2.0.1.gemspec</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/specifications/rack-test-0_8_2_gemspec.html">rack-test-0.8.2.gemspec</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/specifications/rainbow-3_0_0_gemspec.html">rainbow-3.0.0.gemspec</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/specifications/rake-12_3_0_gemspec.html">rake-12.3.0.gemspec</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/specifications/ralyxa-1_6_2_gemspec.html">ralyxa-1.6.2.gemspec</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/specifications/rb-fsevent-0_10_2_gemspec.html">rb-fsevent-0.10.2.gemspec</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/specifications/rb-inotify-0_9_10_gemspec.html">rb-inotify-0.9.10.gemspec</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/specifications/rerun-0_13_0_gemspec.html">rerun-0.13.0.gemspec</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/specifications/rspec-3_7_0_gemspec.html">rspec-3.7.0.gemspec</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/specifications/rspec-core-3_7_1_gemspec.html">rspec-core-3.7.1.gemspec</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/specifications/rspec-expectations-3_7_0_gemspec.html">rspec-expectations-3.7.0.gemspec</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/specifications/rspec-mocks-3_7_0_gemspec.html">rspec-mocks-3.7.0.gemspec</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/specifications/rspec-support-3_7_1_gemspec.html">rspec-support-3.7.1.gemspec</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/specifications/rubocop-0_52_1_gemspec.html">rubocop-0.52.1.gemspec</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/specifications/ruby-progressbar-1_9_0_gemspec.html">ruby-progressbar-1.9.0.gemspec</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/specifications/ruby_dep-1_5_0_gemspec.html">ruby_dep-1.5.0.gemspec</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/specifications/shellany-0_0_1_gemspec.html">shellany-0.0.1.gemspec</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/specifications/sinatra-2_0_1_gemspec.html">sinatra-2.0.1.gemspec</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/specifications/sinatra-activerecord-2_0_13_gemspec.html">sinatra-activerecord-2.0.13.gemspec</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/specifications/thor-0_20_0_gemspec.html">thor-0.20.0.gemspec</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/specifications/thread_safe-0_3_6_gemspec.html">thread_safe-0.3.6.gemspec</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/specifications/tilt-2_0_8_gemspec.html">tilt-2.0.8.gemspec</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/specifications/tzinfo-1_2_5_gemspec.html">tzinfo-1.2.5.gemspec</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/specifications/unicode-display_width-1_3_0_gemspec.html">unicode-display_width-1.3.0.gemspec</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/specifications/wdm-0_1_1_gemspec.html">wdm-0.1.1.gemspec</a>
+  
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-label="Page vendor/bundle/ruby/2.4.0/gems/rspec-mocks-3.7.0/README.md">
+
+<h1 id="label-RSpec+Mocks+rdoc-image-3Ahttps-3A-2F-2Fsecure.travis-ci.org-2Frspec-2Frspec-mocks.svg-3Fbranch-3Dmaster+rdoc-image-3Ahttps-3A-2F-2Fcodeclimate.com-2Fgithub-2Frspec-2Frspec-mocks.svg"><a href="../../../../../../RSpec.html">RSpec</a> Mocks <a href="http://travis-ci.org/rspec/rspec-mocks"><img src="https://secure.travis-ci.org/rspec/rspec-mocks.svg?branch=master"></a> <a href="https://codeclimate.com/github/rspec/rspec-mocks"><img src="https://codeclimate.com/github/rspec/rspec-mocks.svg"></a><span><a href="#label-RSpec+Mocks+rdoc-image-3Ahttps-3A-2F-2Fsecure.travis-ci.org-2Frspec-2Frspec-mocks.svg-3Fbranch-3Dmaster+rdoc-image-3Ahttps-3A-2F-2Fcodeclimate.com-2Fgithub-2Frspec-2Frspec-mocks.svg">&para;</a> <a href="#top">&uarr;</a></span></h1>
+
+<p>rspec-mocks is a test-double framework for rspec with support for method
+stubs, fakes, and message expectations on generated test-doubles and real
+objects alike.</p>
+
+<h2 id="label-Install">Install<span><a href="#label-Install">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<pre class="ruby"><span class="ruby-identifier">gem</span> <span class="ruby-identifier">install</span> <span class="ruby-identifier">rspec</span>       <span class="ruby-comment"># for rspec-core, rspec-expectations, rspec-mocks</span>
+<span class="ruby-identifier">gem</span> <span class="ruby-identifier">install</span> <span class="ruby-identifier">rspec</span><span class="ruby-operator">-</span><span class="ruby-identifier">mocks</span> <span class="ruby-comment"># for rspec-mocks only</span>
+</pre>
+
+<p>Want to run against the <code>master</code> branch? You&#39;ll need to
+include the dependent <a href="../../../../../../RSpec.html">RSpec</a>
+repos as well. Add the following to your <code>Gemfile</code>:</p>
+
+<pre class="ruby"><span class="ruby-node">%w[rspec-core rspec-expectations rspec-mocks rspec-support]</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">lib</span><span class="ruby-operator">|</span>
+  <span class="ruby-identifier">gem</span> <span class="ruby-identifier">lib</span>, :<span class="ruby-identifier">git</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-node">&quot;git://github.com/rspec/#{lib}.git&quot;</span>, :<span class="ruby-identifier">branch</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&#39;master&#39;</span>
+<span class="ruby-keyword">end</span>
+</pre>
+
+<h2 id="label-Contributing"><a href="../diff-lcs-1_3/Contributing_md.html">Contributing</a><span><a href="#label-Contributing">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<p>Once you&#39;ve set up the environment, you&#39;ll need to cd into the
+working directory of whichever repo you want to work in. From there you can
+run the specs and cucumber features, and make patches.</p>
+
+<p>NOTE: You do not need to use rspec-dev to work on a specific <a
+href="../../../../../../RSpec.html">RSpec</a> repo. You can treat each <a
+href="../../../../../../RSpec.html">RSpec</a> repo as an independent
+project.</p>
+
+<p>For information about contributing to <a
+href="../../../../../../RSpec.html">RSpec</a>, please refer to the
+following markdown files: * <a href="BUILD_DETAIL.md">Build details</a> *
+<a href="CODE_OF_CONDUCT.md">Code of Conduct</a> * <a
+href="CONTRIBUTING.md">Detailed contributing guide</a> * <a
+href="DEVELOPMENT.md">Development setup guide</a></p>
+
+<h2 id="label-Test+Doubles"><a href="../../../../../../Test.html">Test</a> Doubles<span><a href="#label-Test+Doubles">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<p>A test double is an object that stands in for another object in your system
+during a code example. Use the <code>double</code> method, passing in an
+optional identifier, to create one:</p>
+
+<pre class="ruby"><span class="ruby-identifier">book</span> = <span class="ruby-identifier">double</span>(<span class="ruby-string">&quot;book&quot;</span>)
+</pre>
+
+<p>Most of the time you will want some confidence that your doubles resemble
+an existing object in your system. Verifying doubles are provided for this
+purpose. If the existing object is available, they will prevent you from
+adding stubs and expectations for methods that do not exist or that have an
+invalid number of parameters.</p>
+
+<pre class="ruby"><span class="ruby-identifier">book</span> = <span class="ruby-identifier">instance_double</span>(<span class="ruby-string">&quot;Book&quot;</span>, :<span class="ruby-identifier">pages</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">250</span>)
+</pre>
+
+<p>Verifying doubles have some clever tricks to enable you to both test in
+isolation without your dependencies loaded while still being able to
+validate them against real objects. More detail is available in <a
+href="https://github.com/rspec/rspec-mocks/blob/master/features/verifying_doubles">their
+documentation</a>.</p>
+
+<p>Verifying doubles can also accept custom identifiers, just like double(),
+e.g.:</p>
+
+<pre class="ruby"><span class="ruby-identifier">books</span> = []
+<span class="ruby-identifier">books</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">instance_double</span>(<span class="ruby-string">&quot;Book&quot;</span>, :<span class="ruby-identifier">rspec_book</span>, :<span class="ruby-identifier">pages</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">250</span>)
+<span class="ruby-identifier">books</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">instance_double</span>(<span class="ruby-string">&quot;Book&quot;</span>, <span class="ruby-string">&quot;(Untitled)&quot;</span>, :<span class="ruby-identifier">pages</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">5000</span>)
+
+<span class="ruby-identifier">puts</span> <span class="ruby-identifier">books</span>.<span class="ruby-identifier">inspect</span> <span class="ruby-comment"># with names, it&#39;s clearer which were actually added</span>
+</pre>
+
+<h2 id="label-Method+Stubs"><a href="../../../../../../Method.html">Method</a> Stubs<span><a href="#label-Method+Stubs">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<p>A method stub is an implementation that returns a pre-determined value. <a
+href="../../../../../../Method.html">Method</a> stubs can be declared on
+test doubles or real objects using the same syntax. rspec-mocks supports 3
+forms for declaring method stubs:</p>
+
+<pre class="ruby"><span class="ruby-identifier">allow</span>(<span class="ruby-identifier">book</span>).<span class="ruby-identifier">to</span> <span class="ruby-identifier">receive</span>(:<span class="ruby-identifier">title</span>) { <span class="ruby-string">&quot;The RSpec Book&quot;</span> }
+<span class="ruby-identifier">allow</span>(<span class="ruby-identifier">book</span>).<span class="ruby-identifier">to</span> <span class="ruby-identifier">receive</span>(:<span class="ruby-identifier">title</span>).<span class="ruby-identifier">and_return</span>(<span class="ruby-string">&quot;The RSpec Book&quot;</span>)
+<span class="ruby-identifier">allow</span>(<span class="ruby-identifier">book</span>).<span class="ruby-identifier">to</span> <span class="ruby-identifier">receive_messages</span>(
+    :<span class="ruby-identifier">title</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;The RSpec Book&quot;</span>,
+    :<span class="ruby-identifier">subtitle</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;Behaviour-Driven Development with RSpec, Cucumber, and Friends&quot;</span>)
+</pre>
+
+<p>You can also use this shortcut, which creates a test double and declares a
+method stub in one statement:</p>
+
+<pre class="ruby"><span class="ruby-identifier">book</span> = <span class="ruby-identifier">double</span>(<span class="ruby-string">&quot;book&quot;</span>, :<span class="ruby-identifier">title</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;The RSpec Book&quot;</span>)
+</pre>
+
+<p>The first argument is a name, which is used for documentation and appears
+in failure messages. If you don&#39;t care about the name, you can leave it
+out, making the combined instantiation/stub declaration very terse:</p>
+
+<pre class="ruby"><span class="ruby-identifier">double</span>(:<span class="ruby-identifier">foo</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&#39;bar&#39;</span>)
+</pre>
+
+<p>This is particularly nice when providing a list of test doubles to a method
+that iterates through them:</p>
+
+<pre class="ruby"><span class="ruby-identifier">order</span>.<span class="ruby-identifier">calculate_total_price</span>(<span class="ruby-identifier">double</span>(:<span class="ruby-identifier">price</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">1.99</span>), <span class="ruby-identifier">double</span>(:<span class="ruby-identifier">price</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">2.99</span>))
+</pre>
+
+<h3 id="label-Stubbing+a+chain+of+methods">Stubbing a chain of methods<span><a href="#label-Stubbing+a+chain+of+methods">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<p>You can use <code>receive_message_chain</code> in place of
+<code>receive</code> to stub a chain of messages:</p>
+
+<pre class="ruby"><span class="ruby-identifier">allow</span>(<span class="ruby-identifier">double</span>).<span class="ruby-identifier">to</span> <span class="ruby-identifier">receive_message_chain</span>(<span class="ruby-string">&quot;foo.bar&quot;</span>) { :<span class="ruby-identifier">baz</span> }
+<span class="ruby-identifier">allow</span>(<span class="ruby-identifier">double</span>).<span class="ruby-identifier">to</span> <span class="ruby-identifier">receive_message_chain</span>(:<span class="ruby-identifier">foo</span>, :<span class="ruby-identifier">bar</span> =<span class="ruby-operator">&gt;</span> :<span class="ruby-identifier">baz</span>)
+<span class="ruby-identifier">allow</span>(<span class="ruby-identifier">double</span>).<span class="ruby-identifier">to</span> <span class="ruby-identifier">receive_message_chain</span>(:<span class="ruby-identifier">foo</span>, :<span class="ruby-identifier">bar</span>) { :<span class="ruby-identifier">baz</span> }
+
+<span class="ruby-comment"># Given any of the above forms:</span>
+<span class="ruby-identifier">double</span>.<span class="ruby-identifier">foo</span>.<span class="ruby-identifier">bar</span> <span class="ruby-comment"># =&gt; :baz</span>
+</pre>
+
+<p>Chains can be arbitrarily long, which makes it quite painless to violate
+the Law of Demeter in violent ways, so you should consider any use of
+<code>receive_message_chain</code> a code smell. Even though not all code
+smells indicate real problems (think fluent interfaces),
+<code>receive_message_chain</code> still results in brittle examples. For
+example, if you write <code>allow(foo).to receive_message_chain(:bar, :baz
+=&gt; 37)</code> in a spec and then the implementation calls
+<code>foo.baz.bar</code>, the stub will not work.</p>
+
+<h2 id="label-Consecutive+return+values">Consecutive return values<span><a href="#label-Consecutive+return+values">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<p>When a stub might be invoked more than once, you can provide additional
+arguments to <code>and_return</code>. The invocations cycle through the
+list. The last value is returned for any subsequent invocations:</p>
+
+<pre class="ruby"><span class="ruby-identifier">allow</span>(<span class="ruby-identifier">die</span>).<span class="ruby-identifier">to</span> <span class="ruby-identifier">receive</span>(:<span class="ruby-identifier">roll</span>).<span class="ruby-identifier">and_return</span>(<span class="ruby-value">1</span>, <span class="ruby-value">2</span>, <span class="ruby-value">3</span>)
+<span class="ruby-identifier">die</span>.<span class="ruby-identifier">roll</span> <span class="ruby-comment"># =&gt; 1</span>
+<span class="ruby-identifier">die</span>.<span class="ruby-identifier">roll</span> <span class="ruby-comment"># =&gt; 2</span>
+<span class="ruby-identifier">die</span>.<span class="ruby-identifier">roll</span> <span class="ruby-comment"># =&gt; 3</span>
+<span class="ruby-identifier">die</span>.<span class="ruby-identifier">roll</span> <span class="ruby-comment"># =&gt; 3</span>
+<span class="ruby-identifier">die</span>.<span class="ruby-identifier">roll</span> <span class="ruby-comment"># =&gt; 3</span>
+</pre>
+
+<p>To return an array in a single invocation, declare an array:</p>
+
+<pre class="ruby"><span class="ruby-identifier">allow</span>(<span class="ruby-identifier">team</span>).<span class="ruby-identifier">to</span> <span class="ruby-identifier">receive</span>(:<span class="ruby-identifier">players</span>).<span class="ruby-identifier">and_return</span>([<span class="ruby-identifier">double</span>(:<span class="ruby-identifier">name</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;David&quot;</span>)])
+</pre>
+
+<h2 id="label-Message+Expectations">Message Expectations<span><a href="#label-Message+Expectations">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<p>A message expectation is an expectation that the test double will receive a
+message some time before the example ends. If the message is received, the
+expectation is satisfied. If not, the example fails.</p>
+
+<pre class="ruby"><span class="ruby-identifier">validator</span> = <span class="ruby-identifier">double</span>(<span class="ruby-string">&quot;validator&quot;</span>)
+<span class="ruby-identifier">expect</span>(<span class="ruby-identifier">validator</span>).<span class="ruby-identifier">to</span> <span class="ruby-identifier">receive</span>(:<span class="ruby-identifier">validate</span>) { <span class="ruby-string">&quot;02134&quot;</span> }
+<span class="ruby-identifier">zipcode</span> = <span class="ruby-constant">Zipcode</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&quot;02134&quot;</span>, <span class="ruby-identifier">validator</span>)
+<span class="ruby-identifier">zipcode</span>.<span class="ruby-identifier">valid?</span>
+</pre>
+
+<h2 id="label-Test+Spies"><a href="../../../../../../Test.html">Test</a> Spies<span><a href="#label-Test+Spies">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<p>Verifies the given object received the expected message during the course
+of the test. For a message to be verified, the given object must be setup
+to spy on it, either by having it explicitly stubbed or by being a null
+object double (e.g. <code>double(...).as_null_object</code>). Convenience
+methods are provided to easily create null object doubles for this purpose:</p>
+
+<pre class="ruby"><span class="ruby-identifier">spy</span>(<span class="ruby-string">&quot;invitation&quot;</span>) <span class="ruby-comment"># =&gt; same as `double(&quot;invitation&quot;).as_null_object`</span>
+<span class="ruby-identifier">instance_spy</span>(<span class="ruby-string">&quot;Invitation&quot;</span>) <span class="ruby-comment"># =&gt; same as `instance_double(&quot;Invitation&quot;).as_null_object`</span>
+<span class="ruby-identifier">class_spy</span>(<span class="ruby-string">&quot;Invitation&quot;</span>) <span class="ruby-comment"># =&gt; same as `class_double(&quot;Invitation&quot;).as_null_object`</span>
+<span class="ruby-identifier">object_spy</span>(<span class="ruby-string">&quot;Invitation&quot;</span>) <span class="ruby-comment"># =&gt; same as `object_double(&quot;Invitation&quot;).as_null_object`</span>
+</pre>
+
+<p>Verifying messages received in this way implements the <a
+href="../../../../../../Test.html">Test</a> Spy pattern.</p>
+
+<pre class="ruby"><span class="ruby-identifier">invitation</span> = <span class="ruby-identifier">spy</span>(<span class="ruby-string">&#39;invitation&#39;</span>)
+
+<span class="ruby-identifier">user</span>.<span class="ruby-identifier">accept_invitation</span>(<span class="ruby-identifier">invitation</span>)
+
+<span class="ruby-identifier">expect</span>(<span class="ruby-identifier">invitation</span>).<span class="ruby-identifier">to</span> <span class="ruby-identifier">have_received</span>(:<span class="ruby-identifier">accept</span>)
+
+<span class="ruby-comment"># You can also use other common message expectations. For example:</span>
+<span class="ruby-identifier">expect</span>(<span class="ruby-identifier">invitation</span>).<span class="ruby-identifier">to</span> <span class="ruby-identifier">have_received</span>(:<span class="ruby-identifier">accept</span>).<span class="ruby-identifier">with</span>(<span class="ruby-identifier">mailer</span>)
+<span class="ruby-identifier">expect</span>(<span class="ruby-identifier">invitation</span>).<span class="ruby-identifier">to</span> <span class="ruby-identifier">have_received</span>(:<span class="ruby-identifier">accept</span>).<span class="ruby-identifier">twice</span>
+<span class="ruby-identifier">expect</span>(<span class="ruby-identifier">invitation</span>).<span class="ruby-identifier">to_not</span> <span class="ruby-identifier">have_received</span>(:<span class="ruby-identifier">accept</span>).<span class="ruby-identifier">with</span>(<span class="ruby-identifier">mailer</span>)
+
+<span class="ruby-comment"># One can specify a return value on the spy the same way one would a double.</span>
+<span class="ruby-identifier">invitation</span> = <span class="ruby-identifier">spy</span>(<span class="ruby-string">&#39;invitation&#39;</span>, :<span class="ruby-identifier">accept</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword">true</span>)
+<span class="ruby-identifier">expect</span>(<span class="ruby-identifier">invitation</span>).<span class="ruby-identifier">to</span> <span class="ruby-identifier">have_received</span>(:<span class="ruby-identifier">accept</span>).<span class="ruby-identifier">with</span>(<span class="ruby-identifier">mailer</span>)
+<span class="ruby-identifier">expect</span>(<span class="ruby-identifier">invitation</span>.<span class="ruby-identifier">accept</span>).<span class="ruby-identifier">to</span> <span class="ruby-identifier">eq</span>(<span class="ruby-keyword">true</span>)
+</pre>
+
+<p>Note that <code>have_received(...).with(...)</code> is unable to work
+properly when passed arguments are mutated after the spy records the
+received message. For example, this does not work properly:</p>
+
+<pre class="ruby"><span class="ruby-identifier">greeter</span> = <span class="ruby-identifier">spy</span>(<span class="ruby-string">&quot;greeter&quot;</span>)
+
+<span class="ruby-identifier">message</span> = <span class="ruby-string">&quot;Hello&quot;</span>
+<span class="ruby-identifier">greeter</span>.<span class="ruby-identifier">greet_with</span>(<span class="ruby-identifier">message</span>)
+<span class="ruby-identifier">message</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-string">&quot;, World&quot;</span>
+
+<span class="ruby-identifier">expect</span>(<span class="ruby-identifier">greeter</span>).<span class="ruby-identifier">to</span> <span class="ruby-identifier">have_received</span>(:<span class="ruby-identifier">greet_with</span>).<span class="ruby-identifier">with</span>(<span class="ruby-string">&quot;Hello&quot;</span>)
+</pre>
+
+<h2 id="label-Nomenclature">Nomenclature<span><a href="#label-Nomenclature">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<h3 id="label-Mock+Objects+and+Test+Stubs">Mock Objects and <a href="../../../../../../Test.html">Test</a> Stubs<span><a href="#label-Mock+Objects+and+Test+Stubs">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<p>The names Mock <a href="../../../../../../Object.html">Object</a> and <a
+href="../../../../../../Test.html">Test</a> Stub suggest specialized <a
+href="../../../../../../Test.html">Test</a> Doubles. i.e. a <a
+href="../../../../../../Test.html">Test</a> Stub is a <a
+href="../../../../../../Test.html">Test</a> Double that only supports
+method stubs, and a Mock <a href="../../../../../../Object.html">Object</a>
+is a <a href="../../../../../../Test.html">Test</a> Double that supports
+message expectations and method stubs.</p>
+
+<p>There is a lot of overlapping nomenclature here, and there are many
+variations of these patterns (fakes, spies, etc). Keep in mind that most of
+the time we&#39;re talking about method-level concepts that are variations
+of method stubs and message expectations, and we&#39;re applying to them to
+<em>one</em> generic kind of object: a <a
+href="../../../../../../Test.html">Test</a> Double.</p>
+
+<h3 id="label-Test-Specific+Extension">Test-Specific Extension<span><a href="#label-Test-Specific+Extension">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<p>a.k.a. Partial Double, a Test-Specific Extension is an extension of a real
+object in a system that is instrumented with test-double like behaviour in
+the context of a test. This technique is very common in Ruby because we
+often see class objects acting as global namespaces for methods. For
+example, in Rails:</p>
+
+<pre class="ruby"><span class="ruby-identifier">person</span> = <span class="ruby-identifier">double</span>(<span class="ruby-string">&quot;person&quot;</span>)
+<span class="ruby-identifier">allow</span>(<span class="ruby-constant">Person</span>).<span class="ruby-identifier">to</span> <span class="ruby-identifier">receive</span>(:<span class="ruby-identifier">find</span>) { <span class="ruby-identifier">person</span> }
+</pre>
+
+<p>In this case we&#39;re instrumenting <a
+href="../../../../../../Person.html">Person</a> to return the person object
+we&#39;ve defined whenever it receives the <code>find</code> message. We
+can also set a message expectation so that the example fails if
+<code>find</code> is not called:</p>
+
+<pre class="ruby"><span class="ruby-identifier">person</span> = <span class="ruby-identifier">double</span>(<span class="ruby-string">&quot;person&quot;</span>)
+<span class="ruby-identifier">expect</span>(<span class="ruby-constant">Person</span>).<span class="ruby-identifier">to</span> <span class="ruby-identifier">receive</span>(:<span class="ruby-identifier">find</span>) { <span class="ruby-identifier">person</span> }
+</pre>
+
+<p><a href="../../../../../../RSpec.html">RSpec</a> replaces the method
+we&#39;re stubbing or mocking with its own test-double-like method. At the
+end of the example, <a href="../../../../../../RSpec.html">RSpec</a>
+verifies any message expectations, and then restores the original methods.</p>
+
+<h2 id="label-Expecting+Arguments">Expecting Arguments<span><a href="#label-Expecting+Arguments">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<pre class="ruby"><span class="ruby-identifier">expect</span>(<span class="ruby-identifier">double</span>).<span class="ruby-identifier">to</span> <span class="ruby-identifier">receive</span>(:<span class="ruby-identifier">msg</span>).<span class="ruby-identifier">with</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
+<span class="ruby-identifier">expect</span>(<span class="ruby-identifier">double</span>).<span class="ruby-identifier">to_not</span> <span class="ruby-identifier">receive</span>(:<span class="ruby-identifier">msg</span>).<span class="ruby-identifier">with</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
+</pre>
+
+<p>You can set multiple expectations for the same message if you need to:</p>
+
+<pre class="ruby"><span class="ruby-identifier">expect</span>(<span class="ruby-identifier">double</span>).<span class="ruby-identifier">to</span> <span class="ruby-identifier">receive</span>(:<span class="ruby-identifier">msg</span>).<span class="ruby-identifier">with</span>(<span class="ruby-string">&quot;A&quot;</span>, <span class="ruby-value">1</span>, <span class="ruby-value">3</span>)
+<span class="ruby-identifier">expect</span>(<span class="ruby-identifier">double</span>).<span class="ruby-identifier">to</span> <span class="ruby-identifier">receive</span>(:<span class="ruby-identifier">msg</span>).<span class="ruby-identifier">with</span>(<span class="ruby-string">&quot;B&quot;</span>, <span class="ruby-value">2</span>, <span class="ruby-value">4</span>)
+</pre>
+
+<h2 id="label-Argument+Matchers">Argument Matchers<span><a href="#label-Argument+Matchers">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<p>Arguments that are passed to <code>with</code> are compared with actual
+arguments received using ===. In cases in which you want to specify things
+about the arguments rather than the arguments themselves, you can use any
+of the matchers that ship with rspec-expectations. They don&#39;t all make
+syntactic sense (they were primarily designed for use with <a
+href="../../../../../../RSpec/Expectations.html">RSpec::Expectations</a>),
+but you are free to create your own custom <a
+href="../../../../../../RSpec/Matchers.html">RSpec::Matchers</a>.</p>
+
+<p>rspec-mocks also adds some keyword Symbols that you can use to specify
+certain kinds of arguments:</p>
+
+<pre class="ruby"><span class="ruby-identifier">expect</span>(<span class="ruby-identifier">double</span>).<span class="ruby-identifier">to</span> <span class="ruby-identifier">receive</span>(:<span class="ruby-identifier">msg</span>).<span class="ruby-identifier">with</span>(<span class="ruby-identifier">no_args</span>)
+<span class="ruby-identifier">expect</span>(<span class="ruby-identifier">double</span>).<span class="ruby-identifier">to</span> <span class="ruby-identifier">receive</span>(:<span class="ruby-identifier">msg</span>).<span class="ruby-identifier">with</span>(<span class="ruby-identifier">any_args</span>)
+<span class="ruby-identifier">expect</span>(<span class="ruby-identifier">double</span>).<span class="ruby-identifier">to</span> <span class="ruby-identifier">receive</span>(:<span class="ruby-identifier">msg</span>).<span class="ruby-identifier">with</span>(<span class="ruby-value">1</span>, <span class="ruby-identifier">any_args</span>) <span class="ruby-comment"># any args acts like an arg splat and can go anywhere</span>
+<span class="ruby-identifier">expect</span>(<span class="ruby-identifier">double</span>).<span class="ruby-identifier">to</span> <span class="ruby-identifier">receive</span>(:<span class="ruby-identifier">msg</span>).<span class="ruby-identifier">with</span>(<span class="ruby-value">1</span>, <span class="ruby-identifier">kind_of</span>(<span class="ruby-constant">Numeric</span>), <span class="ruby-string">&quot;b&quot;</span>) <span class="ruby-comment">#2nd argument can be any kind of Numeric</span>
+<span class="ruby-identifier">expect</span>(<span class="ruby-identifier">double</span>).<span class="ruby-identifier">to</span> <span class="ruby-identifier">receive</span>(:<span class="ruby-identifier">msg</span>).<span class="ruby-identifier">with</span>(<span class="ruby-value">1</span>, <span class="ruby-identifier">boolean</span>(), <span class="ruby-string">&quot;b&quot;</span>) <span class="ruby-comment">#2nd argument can be true or false</span>
+<span class="ruby-identifier">expect</span>(<span class="ruby-identifier">double</span>).<span class="ruby-identifier">to</span> <span class="ruby-identifier">receive</span>(:<span class="ruby-identifier">msg</span>).<span class="ruby-identifier">with</span>(<span class="ruby-value">1</span>, <span class="ruby-regexp">/abc/</span>, <span class="ruby-string">&quot;b&quot;</span>) <span class="ruby-comment">#2nd argument can be any String matching the submitted Regexp</span>
+<span class="ruby-identifier">expect</span>(<span class="ruby-identifier">double</span>).<span class="ruby-identifier">to</span> <span class="ruby-identifier">receive</span>(:<span class="ruby-identifier">msg</span>).<span class="ruby-identifier">with</span>(<span class="ruby-value">1</span>, <span class="ruby-identifier">anything</span>(), <span class="ruby-string">&quot;b&quot;</span>) <span class="ruby-comment">#2nd argument can be anything at all</span>
+<span class="ruby-identifier">expect</span>(<span class="ruby-identifier">double</span>).<span class="ruby-identifier">to</span> <span class="ruby-identifier">receive</span>(:<span class="ruby-identifier">msg</span>).<span class="ruby-identifier">with</span>(<span class="ruby-value">1</span>, <span class="ruby-identifier">duck_type</span>(:<span class="ruby-identifier">abs</span>, :<span class="ruby-identifier">div</span>), <span class="ruby-string">&quot;b&quot;</span>) <span class="ruby-comment">#2nd argument can be object that responds to #abs and #div</span>
+<span class="ruby-identifier">expect</span>(<span class="ruby-identifier">double</span>).<span class="ruby-identifier">to</span> <span class="ruby-identifier">receive</span>(:<span class="ruby-identifier">msg</span>).<span class="ruby-identifier">with</span>(<span class="ruby-identifier">hash_including</span>(:<span class="ruby-identifier">a</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">5</span>)) <span class="ruby-comment"># first arg is a hash with a: 5 as one of the key-values</span>
+<span class="ruby-identifier">expect</span>(<span class="ruby-identifier">double</span>).<span class="ruby-identifier">to</span> <span class="ruby-identifier">receive</span>(:<span class="ruby-identifier">msg</span>).<span class="ruby-identifier">with</span>(<span class="ruby-identifier">array_including</span>(<span class="ruby-value">5</span>)) <span class="ruby-comment"># first arg is an array with 5 as one of the key-values</span>
+<span class="ruby-identifier">expect</span>(<span class="ruby-identifier">double</span>).<span class="ruby-identifier">to</span> <span class="ruby-identifier">receive</span>(:<span class="ruby-identifier">msg</span>).<span class="ruby-identifier">with</span>(<span class="ruby-identifier">hash_excluding</span>(:<span class="ruby-identifier">a</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">5</span>)) <span class="ruby-comment"># first arg is a hash without a: 5 as one of the key-values</span>
+</pre>
+
+<h2 id="label-Receive+Counts">Receive Counts<span><a href="#label-Receive+Counts">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<pre class="ruby"><span class="ruby-identifier">expect</span>(<span class="ruby-identifier">double</span>).<span class="ruby-identifier">to</span> <span class="ruby-identifier">receive</span>(:<span class="ruby-identifier">msg</span>).<span class="ruby-identifier">once</span>
+<span class="ruby-identifier">expect</span>(<span class="ruby-identifier">double</span>).<span class="ruby-identifier">to</span> <span class="ruby-identifier">receive</span>(:<span class="ruby-identifier">msg</span>).<span class="ruby-identifier">twice</span>
+<span class="ruby-identifier">expect</span>(<span class="ruby-identifier">double</span>).<span class="ruby-identifier">to</span> <span class="ruby-identifier">receive</span>(:<span class="ruby-identifier">msg</span>).<span class="ruby-identifier">exactly</span>(<span class="ruby-identifier">n</span>).<span class="ruby-identifier">times</span>
+<span class="ruby-identifier">expect</span>(<span class="ruby-identifier">double</span>).<span class="ruby-identifier">to</span> <span class="ruby-identifier">receive</span>(:<span class="ruby-identifier">msg</span>).<span class="ruby-identifier">at_least</span>(:<span class="ruby-identifier">once</span>)
+<span class="ruby-identifier">expect</span>(<span class="ruby-identifier">double</span>).<span class="ruby-identifier">to</span> <span class="ruby-identifier">receive</span>(:<span class="ruby-identifier">msg</span>).<span class="ruby-identifier">at_least</span>(:<span class="ruby-identifier">twice</span>)
+<span class="ruby-identifier">expect</span>(<span class="ruby-identifier">double</span>).<span class="ruby-identifier">to</span> <span class="ruby-identifier">receive</span>(:<span class="ruby-identifier">msg</span>).<span class="ruby-identifier">at_least</span>(<span class="ruby-identifier">n</span>).<span class="ruby-identifier">times</span>
+<span class="ruby-identifier">expect</span>(<span class="ruby-identifier">double</span>).<span class="ruby-identifier">to</span> <span class="ruby-identifier">receive</span>(:<span class="ruby-identifier">msg</span>).<span class="ruby-identifier">at_most</span>(:<span class="ruby-identifier">once</span>)
+<span class="ruby-identifier">expect</span>(<span class="ruby-identifier">double</span>).<span class="ruby-identifier">to</span> <span class="ruby-identifier">receive</span>(:<span class="ruby-identifier">msg</span>).<span class="ruby-identifier">at_most</span>(:<span class="ruby-identifier">twice</span>)
+<span class="ruby-identifier">expect</span>(<span class="ruby-identifier">double</span>).<span class="ruby-identifier">to</span> <span class="ruby-identifier">receive</span>(:<span class="ruby-identifier">msg</span>).<span class="ruby-identifier">at_most</span>(<span class="ruby-identifier">n</span>).<span class="ruby-identifier">times</span>
+</pre>
+
+<h2 id="label-Ordering">Ordering<span><a href="#label-Ordering">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<pre class="ruby"><span class="ruby-identifier">expect</span>(<span class="ruby-identifier">double</span>).<span class="ruby-identifier">to</span> <span class="ruby-identifier">receive</span>(:<span class="ruby-identifier">msg</span>).<span class="ruby-identifier">ordered</span>
+<span class="ruby-identifier">expect</span>(<span class="ruby-identifier">double</span>).<span class="ruby-identifier">to</span> <span class="ruby-identifier">receive</span>(:<span class="ruby-identifier">other_msg</span>).<span class="ruby-identifier">ordered</span>
+  <span class="ruby-comment"># This will fail if the messages are received out of order</span>
+</pre>
+
+<p>This can include the same message with different arguments:</p>
+
+<pre class="ruby"><span class="ruby-identifier">expect</span>(<span class="ruby-identifier">double</span>).<span class="ruby-identifier">to</span> <span class="ruby-identifier">receive</span>(:<span class="ruby-identifier">msg</span>).<span class="ruby-identifier">with</span>(<span class="ruby-string">&quot;A&quot;</span>, <span class="ruby-value">1</span>, <span class="ruby-value">3</span>).<span class="ruby-identifier">ordered</span>
+<span class="ruby-identifier">expect</span>(<span class="ruby-identifier">double</span>).<span class="ruby-identifier">to</span> <span class="ruby-identifier">receive</span>(:<span class="ruby-identifier">msg</span>).<span class="ruby-identifier">with</span>(<span class="ruby-string">&quot;B&quot;</span>, <span class="ruby-value">2</span>, <span class="ruby-value">4</span>).<span class="ruby-identifier">ordered</span>
+</pre>
+
+<h2 id="label-Setting+Responses">Setting Responses<span><a href="#label-Setting+Responses">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<p>Whether you are setting a message expectation or a method stub, you can
+tell the object precisely how to respond. The most generic way is to pass a
+block to <code>receive</code>:</p>
+
+<pre class="ruby"><span class="ruby-identifier">expect</span>(<span class="ruby-identifier">double</span>).<span class="ruby-identifier">to</span> <span class="ruby-identifier">receive</span>(:<span class="ruby-identifier">msg</span>) { <span class="ruby-identifier">value</span> }
+</pre>
+
+<p>When the double receives the <code>msg</code> message, it evaluates the
+block and returns the result.</p>
+
+<pre class="ruby"><span class="ruby-identifier">expect</span>(<span class="ruby-identifier">double</span>).<span class="ruby-identifier">to</span> <span class="ruby-identifier">receive</span>(:<span class="ruby-identifier">msg</span>).<span class="ruby-identifier">and_return</span>(<span class="ruby-identifier">value</span>)
+<span class="ruby-identifier">expect</span>(<span class="ruby-identifier">double</span>).<span class="ruby-identifier">to</span> <span class="ruby-identifier">receive</span>(:<span class="ruby-identifier">msg</span>).<span class="ruby-identifier">exactly</span>(<span class="ruby-value">3</span>).<span class="ruby-identifier">times</span>.<span class="ruby-identifier">and_return</span>(<span class="ruby-identifier">value1</span>, <span class="ruby-identifier">value2</span>, <span class="ruby-identifier">value3</span>)
+  <span class="ruby-comment"># returns value1 the first time, value2 the second, etc</span>
+<span class="ruby-identifier">expect</span>(<span class="ruby-identifier">double</span>).<span class="ruby-identifier">to</span> <span class="ruby-identifier">receive</span>(:<span class="ruby-identifier">msg</span>).<span class="ruby-identifier">and_raise</span>(<span class="ruby-identifier">error</span>)
+  <span class="ruby-comment"># error can be an instantiated object or a class</span>
+  <span class="ruby-comment"># if it is a class, it must be instantiable with no args</span>
+<span class="ruby-identifier">expect</span>(<span class="ruby-identifier">double</span>).<span class="ruby-identifier">to</span> <span class="ruby-identifier">receive</span>(:<span class="ruby-identifier">msg</span>).<span class="ruby-identifier">and_throw</span>(:<span class="ruby-identifier">msg</span>)
+<span class="ruby-identifier">expect</span>(<span class="ruby-identifier">double</span>).<span class="ruby-identifier">to</span> <span class="ruby-identifier">receive</span>(:<span class="ruby-identifier">msg</span>).<span class="ruby-identifier">and_yield</span>(<span class="ruby-identifier">values</span>, <span class="ruby-identifier">to</span>, <span class="ruby-keyword">yield</span>)
+<span class="ruby-identifier">expect</span>(<span class="ruby-identifier">double</span>).<span class="ruby-identifier">to</span> <span class="ruby-identifier">receive</span>(:<span class="ruby-identifier">msg</span>).<span class="ruby-identifier">and_yield</span>(<span class="ruby-identifier">values</span>, <span class="ruby-identifier">to</span>, <span class="ruby-keyword">yield</span>).<span class="ruby-identifier">and_yield</span>(<span class="ruby-identifier">some</span>, <span class="ruby-identifier">other</span>, <span class="ruby-identifier">values</span>, <span class="ruby-identifier">this</span>, <span class="ruby-identifier">time</span>)
+  <span class="ruby-comment"># for methods that yield to a block multiple times</span>
+</pre>
+
+<p>Any of these responses can be applied to a stub as well</p>
+
+<pre class="ruby"><span class="ruby-identifier">allow</span>(<span class="ruby-identifier">double</span>).<span class="ruby-identifier">to</span> <span class="ruby-identifier">receive</span>(:<span class="ruby-identifier">msg</span>).<span class="ruby-identifier">and_return</span>(<span class="ruby-identifier">value</span>)
+<span class="ruby-identifier">allow</span>(<span class="ruby-identifier">double</span>).<span class="ruby-identifier">to</span> <span class="ruby-identifier">receive</span>(:<span class="ruby-identifier">msg</span>).<span class="ruby-identifier">and_return</span>(<span class="ruby-identifier">value1</span>, <span class="ruby-identifier">value2</span>, <span class="ruby-identifier">value3</span>)
+<span class="ruby-identifier">allow</span>(<span class="ruby-identifier">double</span>).<span class="ruby-identifier">to</span> <span class="ruby-identifier">receive</span>(:<span class="ruby-identifier">msg</span>).<span class="ruby-identifier">and_raise</span>(<span class="ruby-identifier">error</span>)
+<span class="ruby-identifier">allow</span>(<span class="ruby-identifier">double</span>).<span class="ruby-identifier">to</span> <span class="ruby-identifier">receive</span>(:<span class="ruby-identifier">msg</span>).<span class="ruby-identifier">and_throw</span>(:<span class="ruby-identifier">msg</span>)
+<span class="ruby-identifier">allow</span>(<span class="ruby-identifier">double</span>).<span class="ruby-identifier">to</span> <span class="ruby-identifier">receive</span>(:<span class="ruby-identifier">msg</span>).<span class="ruby-identifier">and_yield</span>(<span class="ruby-identifier">values</span>, <span class="ruby-identifier">to</span>, <span class="ruby-keyword">yield</span>)
+<span class="ruby-identifier">allow</span>(<span class="ruby-identifier">double</span>).<span class="ruby-identifier">to</span> <span class="ruby-identifier">receive</span>(:<span class="ruby-identifier">msg</span>).<span class="ruby-identifier">and_yield</span>(<span class="ruby-identifier">values</span>, <span class="ruby-identifier">to</span>, <span class="ruby-keyword">yield</span>).<span class="ruby-identifier">and_yield</span>(<span class="ruby-identifier">some</span>, <span class="ruby-identifier">other</span>, <span class="ruby-identifier">values</span>, <span class="ruby-identifier">this</span>, <span class="ruby-identifier">time</span>)
+</pre>
+
+<h2 id="label-Arbitrary+Handling">Arbitrary Handling<span><a href="#label-Arbitrary+Handling">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<p>Once in a while you&#39;ll find that the available expectations don&#39;t
+solve the particular problem you are trying to solve. Imagine that you
+expect the message to come with an <a
+href="../../../../../../Array.html">Array</a> argument that has a specific
+length, but you don&#39;t care what is in it. You could do this:</p>
+
+<pre class="ruby"><span class="ruby-identifier">expect</span>(<span class="ruby-identifier">double</span>).<span class="ruby-identifier">to</span> <span class="ruby-identifier">receive</span>(:<span class="ruby-identifier">msg</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">arg</span><span class="ruby-operator">|</span>
+  <span class="ruby-identifier">expect</span>(<span class="ruby-identifier">arg</span>.<span class="ruby-identifier">size</span>).<span class="ruby-identifier">to</span> <span class="ruby-identifier">eq</span> <span class="ruby-value">7</span>
+<span class="ruby-keyword">end</span>
+</pre>
+
+<p>If the method being stubbed itself takes a block, and you need to yield to
+it in some special way, you can use this:</p>
+
+<pre class="ruby"><span class="ruby-identifier">expect</span>(<span class="ruby-identifier">double</span>).<span class="ruby-identifier">to</span> <span class="ruby-identifier">receive</span>(:<span class="ruby-identifier">msg</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-operator">&amp;</span><span class="ruby-identifier">arg</span><span class="ruby-operator">|</span>
+  <span class="ruby-keyword">begin</span>
+    <span class="ruby-identifier">arg</span>.<span class="ruby-identifier">call</span>
+  <span class="ruby-keyword">ensure</span>
+    <span class="ruby-comment"># cleanup</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span>
+</pre>
+
+<h2 id="label-Delegating+to+the+Original+Implementation">Delegating to the Original Implementation<span><a href="#label-Delegating+to+the+Original+Implementation">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<p>When working with a partial mock object, you may occasionally want to set a
+message expectation without interfering with how the object responds to the
+message. You can use <code>and_call_original</code> to achieve this:</p>
+
+<pre class="ruby"><span class="ruby-identifier">expect</span>(<span class="ruby-constant">Person</span>).<span class="ruby-identifier">to</span> <span class="ruby-identifier">receive</span>(:<span class="ruby-identifier">find</span>).<span class="ruby-identifier">and_call_original</span>
+<span class="ruby-constant">Person</span>.<span class="ruby-identifier">find</span> <span class="ruby-comment"># =&gt; executes the original find method and returns the result</span>
+</pre>
+
+<h2 id="label-Combining+Expectation+Details">Combining Expectation Details<span><a href="#label-Combining+Expectation+Details">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<p>Combining the message name with specific arguments, receive counts and
+responses you can get quite a bit of detail in your expectations:</p>
+
+<pre class="ruby"><span class="ruby-identifier">expect</span>(<span class="ruby-identifier">double</span>).<span class="ruby-identifier">to</span> <span class="ruby-identifier">receive</span>(:<span class="ruby-operator">&lt;&lt;</span>).<span class="ruby-identifier">with</span>(<span class="ruby-string">&quot;illegal value&quot;</span>).<span class="ruby-identifier">once</span>.<span class="ruby-identifier">and_raise</span>(<span class="ruby-constant">ArgumentError</span>)
+</pre>
+
+<p>While this is a good thing when you really need it, you probably don&#39;t
+really need it! Take care to specify only the things that matter to the
+behavior of your code.</p>
+
+<h2 id="label-Stubbing+and+Hiding+Constants">Stubbing and Hiding Constants<span><a href="#label-Stubbing+and+Hiding+Constants">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<p>See the <a
+href="https://github.com/rspec/rspec-mocks/blob/master/features/mutating_constants/README.md">mutating
+constants README</a> for info on this feature.</p>
+
+<h2 id="label-Use+before-28-3Aexample-29-2C+not+before-28-3Acontext-29">Use <code>before(:example)</code>, not <code>before(:context)</code><span><a href="#label-Use+before-28-3Aexample-29-2C+not+before-28-3Acontext-29">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<p>Stubs in <code>before(:context)</code> are not supported. The reason is
+that all stubs and mocks get cleared out after each example, so any stub
+that is set in <code>before(:context)</code> would work in the first
+example that happens to run in that group, but not for any others.</p>
+
+<p>Instead of <code>before(:context)</code>, use
+<code>before(:example)</code>.</p>
+
+<h2 id="label-Settings+mocks+or+stubs+on+any+instance+of+a+class">Settings mocks or stubs on any instance of a class<span><a href="#label-Settings+mocks+or+stubs+on+any+instance+of+a+class">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<p>rspec-mocks provides two methods, <code>allow_any_instance_of</code> and
+<code>expect_any_instance_of</code>, that will allow you to stub or mock
+any instance of a class. They are used in place of <code>allow</code> or
+<code>expect</code>:</p>
+
+<pre class="ruby"><span class="ruby-identifier">allow_any_instance_of</span>(<span class="ruby-constant">Widget</span>).<span class="ruby-identifier">to</span> <span class="ruby-identifier">receive</span>(:<span class="ruby-identifier">name</span>).<span class="ruby-identifier">and_return</span>(<span class="ruby-string">&quot;Wibble&quot;</span>)
+<span class="ruby-identifier">expect_any_instance_of</span>(<span class="ruby-constant">Widget</span>).<span class="ruby-identifier">to</span> <span class="ruby-identifier">receive</span>(:<span class="ruby-identifier">name</span>).<span class="ruby-identifier">and_return</span>(<span class="ruby-string">&quot;Wobble&quot;</span>)
+</pre>
+
+<p>These methods add the appropriate stub or expectation to all instances of
+<code>Widget</code>.</p>
+
+<p>This feature is sometimes useful when working with legacy code, though in
+general we discourage its use for a number of reasons:</p>
+<ul><li>
+<p>The <code>rspec-mocks</code> API is designed for individual object
+instances, but this  feature operates on entire classes of objects. As a
+result there are some  semantically confusing edge cases. For example in 
+<code>expect_any_instance_of(Widget).to receive(:name).twice</code> it
+isn&#39;t clear  whether each specific instance is expected to receive
+<code>name</code> twice, or if two  receives total are expected. (It&#39;s
+the former.)</p>
+</li><li>
+<p>Using this feature is often a design smell. It may be  that your test is
+trying to do too much or that the object under test is too  complex.</p>
+</li><li>
+<p>It is the most complicated feature of <code>rspec-mocks</code>, and has
+historically  received the most bug reports. (None of the core team
+actively use it,  which doesn&#39;t help.)</p>
+</li></ul>
+
+<h2 id="label-Further+Reading">Further Reading<span><a href="#label-Further+Reading">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<p>There are many different viewpoints about the meaning of mocks and stubs.
+If you are interested in learning more, here is some recommended reading:</p>
+<ul><li>
+<p>Mock Objects: <a href="http://www.mockobjects.com">www.mockobjects.com</a>/</p>
+</li><li>
+<p>Endo-Testing: <a
+href="http://www.ccs.neu.edu/research/demeter/related-work/extreme-programming/MockObjectsFinal.PDF">www.ccs.neu.edu/research/demeter/related-work/extreme-programming/MockObjectsFinal.PDF</a></p>
+</li><li>
+<p>Mock Roles, Not Objects: <a
+href="http://www.jmock.org/oopsla2004.pdf">www.jmock.org/oopsla2004.pdf</a></p>
+</li><li>
+<p><a href="../../../../../../Test.html">Test</a> Double: <a
+href="http://www.martinfowler.com/bliki/TestDouble.html">www.martinfowler.com/bliki/TestDouble.html</a></p>
+</li><li>
+<p><a href="../../../../../../Test.html">Test</a> Double Patterns: <a
+href="http://xunitpatterns.com/Test%20Double%20Patterns.html">xunitpatterns.com/Test%20Double%20Patterns.html</a></p>
+</li><li>
+<p>Mocks aren&#39;t stubs: <a
+href="http://www.martinfowler.com/articles/mocksArentStubs.html">www.martinfowler.com/articles/mocksArentStubs.html</a></p>
+</li></ul>
+
+<h2 id="label-Also+see">Also see<span><a href="#label-Also+see">&para;</a> <a href="#top">&uarr;</a></span></h2>
+<ul><li>
+<p><a href="https://github.com/rspec/rspec">github.com/rspec/rspec</a></p>
+</li><li>
+<p><a
+href="https://github.com/rspec/rspec-core">github.com/rspec/rspec-core</a></p>
+</li><li>
+<p><a
+href="https://github.com/rspec/rspec-expectations">github.com/rspec/rspec-expectations</a></p>
+</li><li>
+<p><a
+href="https://github.com/rspec/rspec-rails">github.com/rspec/rspec-rails</a></p>
+</li></ul>
+</main>
+
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="https://rdoc.github.io/rdoc">RDoc</a> 5.0.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

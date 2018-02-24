@@ -1,0 +1,2076 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class CompatJuice - RDoc Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "./";
+  var index_rel_prefix = "./";
+</script>
+
+<script src="./js/jquery.js"></script>
+<script src="./js/darkfish.js"></script>
+
+<link href="./css/fonts.css" rel="stylesheet">
+<link href="./css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="./index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="./table_of_contents.html#pages">Pages</a>
+    <a href="./table_of_contents.html#classes">Classes</a>
+    <a href="./table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link"><a href="Minitest/Test.html">Minitest::Test</a>
+  
+</div>
+
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-i-dump_and_load">#dump_and_load</a>
+    
+    <li ><a href="#method-i-dump_to_json_and_load">#dump_to_json_and_load</a>
+    
+    <li ><a href="#method-i-setup">#setup</a>
+    
+    <li ><a href="#method-i-teardown">#teardown</a>
+    
+    <li ><a href="#method-i-test_arg_passing">#test_arg_passing</a>
+    
+    <li ><a href="#method-i-test_array">#test_array</a>
+    
+    <li ><a href="#method-i-test_array_deep">#test_array_deep</a>
+    
+    <li ><a href="#method-i-test_bad_unicode">#test_bad_unicode</a>
+    
+    <li ><a href="#method-i-test_bad_unicode_e2">#test_bad_unicode_e2</a>
+    
+    <li ><a href="#method-i-test_bad_unicode_start">#test_bad_unicode_start</a>
+    
+    <li ><a href="#method-i-test_bigdecimal">#test_bigdecimal</a>
+    
+    <li ><a href="#method-i-test_bignum_compat">#test_bignum_compat</a>
+    
+    <li ><a href="#method-i-test_bignum_object">#test_bignum_object</a>
+    
+    <li ><a href="#method-i-test_class">#test_class</a>
+    
+    <li ><a href="#method-i-test_comment">#test_comment</a>
+    
+    <li ><a href="#method-i-test_comment_c">#test_comment_c</a>
+    
+    <li ><a href="#method-i-test_comment_slash">#test_comment_slash</a>
+    
+    <li ><a href="#method-i-test_date_compat">#test_date_compat</a>
+    
+    <li ><a href="#method-i-test_datetime_compat">#test_datetime_compat</a>
+    
+    <li ><a href="#method-i-test_encode">#test_encode</a>
+    
+    <li ><a href="#method-i-test_false">#test_false</a>
+    
+    <li ><a href="#method-i-test_fixnum">#test_fixnum</a>
+    
+    <li ><a href="#method-i-test_float">#test_float</a>
+    
+    <li ><a href="#method-i-test_hash">#test_hash</a>
+    
+    <li ><a href="#method-i-test_hash_deep">#test_hash_deep</a>
+    
+    <li ><a href="#method-i-test_hash_escaped_key">#test_hash_escaped_key</a>
+    
+    <li ><a href="#method-i-test_infinity">#test_infinity</a>
+    
+    <li ><a href="#method-i-test_io_file">#test_io_file</a>
+    
+    <li ><a href="#method-i-test_io_string">#test_io_string</a>
+    
+    <li ><a href="#method-i-test_json_module_object">#test_json_module_object</a>
+    
+    <li ><a href="#method-i-test_json_object">#test_json_object</a>
+    
+    <li ><a href="#method-i-test_json_object_bad">#test_json_object_bad</a>
+    
+    <li ><a href="#method-i-test_json_object_child">#test_json_object_child</a>
+    
+    <li ><a href="#method-i-test_json_object_create_cache">#test_json_object_create_cache</a>
+    
+    <li ><a href="#method-i-test_json_object_create_deep">#test_json_object_create_deep</a>
+    
+    <li ><a href="#method-i-test_json_object_create_id">#test_json_object_create_id</a>
+    
+    <li ><a href="#method-i-test_json_object_create_id_other">#test_json_object_create_id_other</a>
+    
+    <li ><a href="#method-i-test_json_object_dump_create_id">#test_json_object_dump_create_id</a>
+    
+    <li ><a href="#method-i-test_json_object_top">#test_json_object_top</a>
+    
+    <li ><a href="#method-i-test_module">#test_module</a>
+    
+    <li ><a href="#method-i-test_nil">#test_nil</a>
+    
+    <li ><a href="#method-i-test_non_str_hash">#test_non_str_hash</a>
+    
+    <li ><a href="#method-i-test_parse_to_s">#test_parse_to_s</a>
+    
+    <li ><a href="#method-i-test_range">#test_range</a>
+    
+    <li ><a href="#method-i-test_string">#test_string</a>
+    
+    <li ><a href="#method-i-test_symbol">#test_symbol</a>
+    
+    <li ><a href="#method-i-test_symbol_keys">#test_symbol_keys</a>
+    
+    <li ><a href="#method-i-test_time">#test_time</a>
+    
+    <li ><a href="#method-i-test_true">#test_true</a>
+    
+    <li ><a href="#method-i-test_unicode">#test_unicode</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-CompatJuice">
+  <h1 id="class-CompatJuice" class="class">
+    class CompatJuice
+  </h1>
+
+  <section class="description">
+    
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+
+    
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-dump_and_load" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">dump_and_load</span><span
+            class="method-args">(obj, trace=false)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="dump_and_load-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/oj-3.4.0/test/test_compat.rb, line 479</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">dump_and_load</span>(<span class="ruby-identifier">obj</span>, <span class="ruby-identifier">trace</span>=<span class="ruby-keyword">false</span>)
+  <span class="ruby-identifier">json</span> = <span class="ruby-constant">Oj</span>.<span class="ruby-identifier">dump</span>(<span class="ruby-identifier">obj</span>)
+  <span class="ruby-identifier">puts</span> <span class="ruby-identifier">json</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">trace</span>
+  <span class="ruby-identifier">loaded</span> = <span class="ruby-constant">Oj</span>.<span class="ruby-identifier">compat_load</span>(<span class="ruby-identifier">json</span>, <span class="ruby-value">:create_additions</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword">true</span>);
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">obj</span>.<span class="ruby-identifier">nil?</span>
+    <span class="ruby-identifier">assert_nil</span>(<span class="ruby-identifier">loaded</span>)
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">assert_equal</span>(<span class="ruby-identifier">obj</span>, <span class="ruby-identifier">loaded</span>)
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">loaded</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-dump_to_json_and_load" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">dump_to_json_and_load</span><span
+            class="method-args">(obj, trace=false)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="dump_to_json_and_load-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/oj-3.4.0/test/test_compat.rb, line 491</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">dump_to_json_and_load</span>(<span class="ruby-identifier">obj</span>, <span class="ruby-identifier">trace</span>=<span class="ruby-keyword">false</span>)
+  <span class="ruby-identifier">json</span> = <span class="ruby-constant">Oj</span>.<span class="ruby-identifier">to_json</span>(<span class="ruby-identifier">obj</span>, <span class="ruby-value">:indent</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&#39;  &#39;</span>)
+  <span class="ruby-identifier">puts</span> <span class="ruby-identifier">json</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">trace</span>
+  <span class="ruby-identifier">loaded</span> = <span class="ruby-constant">Oj</span>.<span class="ruby-identifier">compat_load</span>(<span class="ruby-identifier">json</span>, <span class="ruby-value">:create_additions</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword">true</span>);
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">obj</span>.<span class="ruby-identifier">nil?</span>
+    <span class="ruby-identifier">assert_nil</span>(<span class="ruby-identifier">loaded</span>)
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">assert_equal</span>(<span class="ruby-identifier">obj</span>, <span class="ruby-identifier">loaded</span>)
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">loaded</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-setup" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">setup</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="setup-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/oj-3.4.0/test/test_compat.rb, line 83</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">setup</span>
+  <span class="ruby-ivar">@default_options</span> = <span class="ruby-constant">Oj</span>.<span class="ruby-identifier">default_options</span>
+  <span class="ruby-comment"># in compat mode other options other than the JSON gem globals and options</span>
+  <span class="ruby-comment"># are not used.</span>
+  <span class="ruby-constant">Oj</span>.<span class="ruby-identifier">default_options</span> = { <span class="ruby-value">:mode</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">:compat</span> }
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-teardown" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">teardown</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="teardown-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/oj-3.4.0/test/test_compat.rb, line 90</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">teardown</span>
+  <span class="ruby-constant">Oj</span>.<span class="ruby-identifier">default_options</span> = <span class="ruby-ivar">@default_options</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_arg_passing" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_arg_passing</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_arg_passing-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/oj-3.4.0/test/test_compat.rb, line 457</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">test_arg_passing</span>
+  <span class="ruby-identifier">json</span> = <span class="ruby-constant">Oj</span>.<span class="ruby-identifier">to_json</span>(<span class="ruby-constant">Argy</span>.<span class="ruby-identifier">new</span>(), <span class="ruby-value">:max_nesting=</span><span class="ruby-operator">&gt;</span> <span class="ruby-value">40</span>)
+  <span class="ruby-identifier">assert_equal</span>(<span class="ruby-string">%Q|{&quot;args&quot;:&quot;[{:max_nesting=&gt;40}]&quot;}|</span>, <span class="ruby-identifier">json</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_array" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_array</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_array-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/oj-3.4.0/test/test_compat.rb, line 170</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">test_array</span>
+  <span class="ruby-identifier">dump_and_load</span>([], <span class="ruby-keyword">false</span>)
+  <span class="ruby-identifier">dump_and_load</span>([<span class="ruby-keyword">true</span>, <span class="ruby-keyword">false</span>], <span class="ruby-keyword">false</span>)
+  <span class="ruby-identifier">dump_and_load</span>([<span class="ruby-string">&#39;a&#39;</span>, <span class="ruby-value">1</span>, <span class="ruby-keyword">nil</span>], <span class="ruby-keyword">false</span>)
+  <span class="ruby-identifier">dump_and_load</span>([[<span class="ruby-keyword">nil</span>]], <span class="ruby-keyword">false</span>)
+  <span class="ruby-identifier">dump_and_load</span>([[<span class="ruby-keyword">nil</span>], <span class="ruby-value">58</span>], <span class="ruby-keyword">false</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_array_deep" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_array_deep</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_array_deep-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/oj-3.4.0/test/test_compat.rb, line 178</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">test_array_deep</span>
+  <span class="ruby-identifier">dump_and_load</span>([<span class="ruby-value">1</span>,[<span class="ruby-value">2</span>,[<span class="ruby-value">3</span>,[<span class="ruby-value">4</span>,[<span class="ruby-value">5</span>,[<span class="ruby-value">6</span>,[<span class="ruby-value">7</span>,[<span class="ruby-value">8</span>,[<span class="ruby-value">9</span>,[<span class="ruby-value">10</span>,[<span class="ruby-value">11</span>,[<span class="ruby-value">12</span>,[<span class="ruby-value">13</span>,[<span class="ruby-value">14</span>,[<span class="ruby-value">15</span>,[<span class="ruby-value">16</span>,[<span class="ruby-value">17</span>,[<span class="ruby-value">18</span>,[<span class="ruby-value">19</span>,[<span class="ruby-value">20</span>]]]]]]]]]]]]]]]]]]]], <span class="ruby-keyword">false</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_bad_unicode" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_bad_unicode</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_bad_unicode-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/oj-3.4.0/test/test_compat.rb, line 462</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">test_bad_unicode</span>
+  <span class="ruby-identifier">assert_raises</span>() { <span class="ruby-constant">Oj</span>.<span class="ruby-identifier">to_json</span>(<span class="ruby-string">&quot;\xE4xy&quot;</span>) }
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_bad_unicode_e2" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_bad_unicode_e2</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_bad_unicode_e2-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/oj-3.4.0/test/test_compat.rb, line 466</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">test_bad_unicode_e2</span>
+  <span class="ruby-identifier">assert_raises</span>() { <span class="ruby-constant">Oj</span>.<span class="ruby-identifier">to_json</span>(<span class="ruby-string">&quot;L\xE2m &quot;</span>) }
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_bad_unicode_start" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_bad_unicode_start</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_bad_unicode_start-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/oj-3.4.0/test/test_compat.rb, line 470</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">test_bad_unicode_start</span>
+  <span class="ruby-identifier">assert_raises</span>() { <span class="ruby-constant">Oj</span>.<span class="ruby-identifier">to_json</span>(<span class="ruby-string">&quot;\x8abc&quot;</span>) }
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_bigdecimal" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_bigdecimal</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p><a href="BigDecimal.html">BigDecimal</a></p>
+          
+          
+
+          
+          <div class="method-source-code" id="test_bigdecimal-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/oj-3.4.0/test/test_compat.rb, line 273</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">test_bigdecimal</span>
+  <span class="ruby-comment"># BigDecimals are dumped as strings and can not be restored to the</span>
+  <span class="ruby-comment"># original value.</span>
+  <span class="ruby-identifier">json</span> = <span class="ruby-constant">Oj</span>.<span class="ruby-identifier">dump</span>(<span class="ruby-constant">BigDecimal</span>(<span class="ruby-string">&#39;3.14159265358979323846&#39;</span>))
+  <span class="ruby-comment"># 2.4.0 changes the exponent to lowercase</span>
+  <span class="ruby-identifier">assert_equal</span>(<span class="ruby-string">&#39;&quot;0.314159265358979323846e1&quot;&#39;</span>, <span class="ruby-identifier">json</span>.<span class="ruby-identifier">downcase</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_bignum_compat" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_bignum_compat</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_bignum_compat-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/oj-3.4.0/test/test_compat.rb, line 266</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">test_bignum_compat</span>
+  <span class="ruby-identifier">json</span> = <span class="ruby-constant">Oj</span>.<span class="ruby-identifier">dump</span>(<span class="ruby-value">7</span> <span class="ruby-operator">**</span> <span class="ruby-value">55</span>, <span class="ruby-value">:mode</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">:compat</span>)
+  <span class="ruby-identifier">b</span> = <span class="ruby-constant">Oj</span>.<span class="ruby-identifier">load</span>(<span class="ruby-identifier">json</span>, <span class="ruby-value">:mode</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">:strict</span>)
+  <span class="ruby-identifier">assert_equal</span>(<span class="ruby-value">30226801971775055948247051683954096612865741943</span>, <span class="ruby-identifier">b</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_bignum_object" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_bignum_object</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_bignum_object-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/oj-3.4.0/test/test_compat.rb, line 245</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">test_bignum_object</span>
+  <span class="ruby-identifier">dump_and_load</span>(<span class="ruby-value">7</span> <span class="ruby-operator">**</span> <span class="ruby-value">55</span>, <span class="ruby-keyword">false</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_class" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_class</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_class-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/oj-3.4.0/test/test_compat.rb, line 194</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">test_class</span>
+  <span class="ruby-identifier">json</span> = <span class="ruby-constant">Oj</span>.<span class="ruby-identifier">dump</span>(<span class="ruby-constant">CompatJuice</span>, <span class="ruby-value">:mode</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">:compat</span>)
+  <span class="ruby-identifier">assert_equal</span>(<span class="ruby-string">%Q{&quot;CompatJuice&quot;}</span>, <span class="ruby-identifier">json</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_comment" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_comment</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_comment-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/oj-3.4.0/test/test_compat.rb, line 379</span>
+  <span class="ruby-keyword">def</span> <span class="ruby-identifier">test_comment</span>
+    <span class="ruby-identifier">json</span> = <span class="ruby-string">%Q{{
+  &quot;x&quot;/*one*/:/*two*/true,//three
+  &quot;y&quot;:58/*four*/,
+  &quot;z&quot;: [1,2/*five*/,
+3 // six
+]
+}
+}</span>
+    <span class="ruby-identifier">obj</span> = <span class="ruby-constant">Oj</span>.<span class="ruby-identifier">compat_load</span>(<span class="ruby-identifier">json</span>)
+    <span class="ruby-identifier">assert_equal</span>({ <span class="ruby-string">&#39;x&#39;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword">true</span>, <span class="ruby-string">&#39;y&#39;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">58</span>, <span class="ruby-string">&#39;z&#39;</span> =<span class="ruby-operator">&gt;</span> [<span class="ruby-value">1</span>, <span class="ruby-value">2</span>, <span class="ruby-value">3</span>]}, <span class="ruby-identifier">obj</span>)
+  <span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_comment_c" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_comment_c</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_comment_c-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/oj-3.4.0/test/test_compat.rb, line 369</span>
+  <span class="ruby-keyword">def</span> <span class="ruby-identifier">test_comment_c</span>
+    <span class="ruby-identifier">json</span> = <span class="ruby-string">%Q{{
+  &quot;x&quot;/*one*/:/*two*/true,
+  &quot;y&quot;:58,
+  &quot;z&quot;: [1,2,3]}
+}</span>
+    <span class="ruby-identifier">obj</span> = <span class="ruby-constant">Oj</span>.<span class="ruby-identifier">compat_load</span>(<span class="ruby-identifier">json</span>)
+    <span class="ruby-identifier">assert_equal</span>({ <span class="ruby-string">&#39;x&#39;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword">true</span>, <span class="ruby-string">&#39;y&#39;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">58</span>, <span class="ruby-string">&#39;z&#39;</span> =<span class="ruby-operator">&gt;</span> [<span class="ruby-value">1</span>, <span class="ruby-value">2</span>, <span class="ruby-value">3</span>]}, <span class="ruby-identifier">obj</span>)
+  <span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_comment_slash" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_comment_slash</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>comments</p>
+          
+          
+
+          
+          <div class="method-source-code" id="test_comment_slash-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/oj-3.4.0/test/test_compat.rb, line 357</span>
+  <span class="ruby-keyword">def</span> <span class="ruby-identifier">test_comment_slash</span>
+    <span class="ruby-identifier">json</span> = <span class="ruby-string">%Q{{
+  &quot;x&quot;:true,//three
+  &quot;y&quot;:58,
+  &quot;z&quot;: [1,2,
+3 // six
+]}
+}</span>
+    <span class="ruby-identifier">obj</span> = <span class="ruby-constant">Oj</span>.<span class="ruby-identifier">compat_load</span>(<span class="ruby-identifier">json</span>)
+    <span class="ruby-identifier">assert_equal</span>({ <span class="ruby-string">&#39;x&#39;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword">true</span>, <span class="ruby-string">&#39;y&#39;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">58</span>, <span class="ruby-string">&#39;z&#39;</span> =<span class="ruby-operator">&gt;</span> [<span class="ruby-value">1</span>, <span class="ruby-value">2</span>, <span class="ruby-value">3</span>]}, <span class="ruby-identifier">obj</span>)
+  <span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_date_compat" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_date_compat</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_date_compat-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/oj-3.4.0/test/test_compat.rb, line 295</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">test_date_compat</span>
+  <span class="ruby-identifier">orig</span> = <span class="ruby-constant">Date</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">2012</span>, <span class="ruby-value">6</span>, <span class="ruby-value">19</span>)
+  <span class="ruby-identifier">json</span> = <span class="ruby-constant">Oj</span>.<span class="ruby-identifier">dump</span>(<span class="ruby-identifier">orig</span>, <span class="ruby-value">:mode</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">:compat</span>)
+  <span class="ruby-identifier">x</span> = <span class="ruby-constant">Oj</span>.<span class="ruby-identifier">load</span>(<span class="ruby-identifier">json</span>, <span class="ruby-value">:mode</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">:compat</span>)
+  <span class="ruby-comment"># Some Rubies implement Date as data and some as a real Object. Either are</span>
+  <span class="ruby-comment"># okay for the test.</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">x</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">String</span>)
+    <span class="ruby-identifier">assert_equal</span>(<span class="ruby-identifier">orig</span>.<span class="ruby-identifier">to_s</span>, <span class="ruby-identifier">x</span>)
+  <span class="ruby-keyword">else</span> <span class="ruby-comment"># better be a Hash</span>
+    <span class="ruby-identifier">assert_equal</span>({<span class="ruby-string">&quot;year&quot;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">orig</span>.<span class="ruby-identifier">year</span>, <span class="ruby-string">&quot;month&quot;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">orig</span>.<span class="ruby-identifier">month</span>, <span class="ruby-string">&quot;day&quot;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">orig</span>.<span class="ruby-identifier">day</span>, <span class="ruby-string">&quot;start&quot;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">orig</span>.<span class="ruby-identifier">start</span>}, <span class="ruby-identifier">x</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_datetime_compat" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_datetime_compat</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_datetime_compat-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/oj-3.4.0/test/test_compat.rb, line 308</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">test_datetime_compat</span>
+  <span class="ruby-identifier">orig</span> = <span class="ruby-constant">DateTime</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">2012</span>, <span class="ruby-value">6</span>, <span class="ruby-value">19</span>, <span class="ruby-value">20</span>, <span class="ruby-value">19</span>, <span class="ruby-value">27</span>)
+  <span class="ruby-identifier">json</span> = <span class="ruby-constant">Oj</span>.<span class="ruby-identifier">dump</span>(<span class="ruby-identifier">orig</span>, <span class="ruby-value">:mode</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">:compat</span>)
+  <span class="ruby-identifier">x</span> = <span class="ruby-constant">Oj</span>.<span class="ruby-identifier">load</span>(<span class="ruby-identifier">json</span>, <span class="ruby-value">:mode</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">:compat</span>)
+  <span class="ruby-comment"># Some Rubies implement Date as data and some as a real Object. Either are</span>
+  <span class="ruby-comment"># okay for the test.</span>
+  <span class="ruby-identifier">assert_equal</span>(<span class="ruby-identifier">orig</span>.<span class="ruby-identifier">to_s</span>, <span class="ruby-identifier">x</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_encode" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_encode</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_encode-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/oj-3.4.0/test/test_compat.rb, line 147</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">test_encode</span>
+  <span class="ruby-identifier">opts</span> = <span class="ruby-constant">Oj</span>.<span class="ruby-identifier">default_options</span>
+  <span class="ruby-constant">Oj</span>.<span class="ruby-identifier">default_options</span> = { <span class="ruby-value">:ascii_only</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword">false</span> }
+  <span class="ruby-keyword">unless</span> <span class="ruby-string">&#39;jruby&#39;</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">$ruby</span>
+    <span class="ruby-identifier">dump_and_load</span>(<span class="ruby-string">&quot;ぴーたー&quot;</span>, <span class="ruby-keyword">false</span>)
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-constant">Oj</span>.<span class="ruby-identifier">default_options</span> = { <span class="ruby-value">:ascii_only</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword">true</span> }
+  <span class="ruby-identifier">json</span> = <span class="ruby-constant">Oj</span>.<span class="ruby-identifier">dump</span>(<span class="ruby-string">&quot;ぴーたー&quot;</span>)
+  <span class="ruby-identifier">assert_equal</span>(<span class="ruby-string">%Q{&quot;\\u3074\\u30fc\\u305f\\u30fc&quot;}</span>, <span class="ruby-identifier">json</span>)
+  <span class="ruby-keyword">unless</span> <span class="ruby-string">&#39;jruby&#39;</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">$ruby</span>
+    <span class="ruby-identifier">dump_and_load</span>(<span class="ruby-string">&quot;ぴーたー&quot;</span>, <span class="ruby-keyword">false</span>)
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-constant">Oj</span>.<span class="ruby-identifier">default_options</span> = <span class="ruby-identifier">opts</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_false" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_false</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_false-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/oj-3.4.0/test/test_compat.rb, line 102</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">test_false</span>
+  <span class="ruby-identifier">dump_and_load</span>(<span class="ruby-keyword">false</span>, <span class="ruby-keyword">false</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_fixnum" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_fixnum</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_fixnum-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/oj-3.4.0/test/test_compat.rb, line 106</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">test_fixnum</span>
+  <span class="ruby-identifier">dump_and_load</span>(<span class="ruby-value">0</span>, <span class="ruby-keyword">false</span>)
+  <span class="ruby-identifier">dump_and_load</span>(<span class="ruby-value">12345</span>, <span class="ruby-keyword">false</span>)
+  <span class="ruby-identifier">dump_and_load</span>(<span class="ruby-value">-54321</span>, <span class="ruby-keyword">false</span>)
+  <span class="ruby-identifier">dump_and_load</span>(<span class="ruby-value">1</span>, <span class="ruby-keyword">false</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_float" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_float</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_float-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/oj-3.4.0/test/test_compat.rb, line 113</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">test_float</span>
+  <span class="ruby-identifier">dump_and_load</span>(<span class="ruby-value">0.0</span>, <span class="ruby-keyword">false</span>)
+  <span class="ruby-identifier">dump_and_load</span>(<span class="ruby-value">0.56</span>, <span class="ruby-keyword">false</span>)
+  <span class="ruby-identifier">dump_and_load</span>(<span class="ruby-value">3.0</span>, <span class="ruby-keyword">false</span>)
+  <span class="ruby-identifier">dump_and_load</span>(<span class="ruby-value">12345.6789</span>, <span class="ruby-keyword">false</span>)
+  <span class="ruby-identifier">dump_and_load</span>(<span class="ruby-value">70.35</span>, <span class="ruby-keyword">false</span>)
+  <span class="ruby-identifier">dump_and_load</span>(<span class="ruby-value">-54321.012</span>, <span class="ruby-keyword">false</span>)
+  <span class="ruby-identifier">dump_and_load</span>(<span class="ruby-value">1.7775</span>, <span class="ruby-keyword">false</span>)
+  <span class="ruby-identifier">dump_and_load</span>(<span class="ruby-value">2.5024</span>, <span class="ruby-keyword">false</span>)
+  <span class="ruby-identifier">dump_and_load</span>(<span class="ruby-value">2.48e16</span>, <span class="ruby-keyword">false</span>)
+  <span class="ruby-identifier">dump_and_load</span>(<span class="ruby-value">2.48e100</span> <span class="ruby-operator">*</span> <span class="ruby-value">1.0e10</span>, <span class="ruby-keyword">false</span>)
+  <span class="ruby-identifier">dump_and_load</span>(<span class="ruby-value">-2.48e100</span> <span class="ruby-operator">*</span> <span class="ruby-value">1.0e10</span>, <span class="ruby-keyword">false</span>)
+  <span class="ruby-identifier">dump_and_load</span>(<span class="ruby-value">1405460727.723866</span>, <span class="ruby-keyword">false</span>)
+  <span class="ruby-identifier">dump_and_load</span>(<span class="ruby-value">0.5773</span>, <span class="ruby-keyword">false</span>)
+  <span class="ruby-identifier">dump_and_load</span>(<span class="ruby-value">0.6768</span>, <span class="ruby-keyword">false</span>)
+  <span class="ruby-identifier">dump_and_load</span>(<span class="ruby-value">0.685</span>, <span class="ruby-keyword">false</span>)
+  <span class="ruby-identifier">dump_and_load</span>(<span class="ruby-value">0.7032</span>, <span class="ruby-keyword">false</span>)
+  <span class="ruby-identifier">dump_and_load</span>(<span class="ruby-value">0.7051</span>, <span class="ruby-keyword">false</span>)
+  <span class="ruby-identifier">dump_and_load</span>(<span class="ruby-value">0.8274</span>, <span class="ruby-keyword">false</span>)
+  <span class="ruby-identifier">dump_and_load</span>(<span class="ruby-value">0.9149</span>, <span class="ruby-keyword">false</span>)
+  <span class="ruby-identifier">dump_and_load</span>(<span class="ruby-value">64.4</span>, <span class="ruby-keyword">false</span>)
+  <span class="ruby-identifier">dump_and_load</span>(<span class="ruby-value">71.6</span>, <span class="ruby-keyword">false</span>)
+  <span class="ruby-identifier">dump_and_load</span>(<span class="ruby-value">73.4</span>, <span class="ruby-keyword">false</span>)
+  <span class="ruby-identifier">dump_and_load</span>(<span class="ruby-value">80.6</span>, <span class="ruby-keyword">false</span>)
+  <span class="ruby-identifier">dump_and_load</span>(<span class="ruby-value">-95.640172</span>, <span class="ruby-keyword">false</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_hash" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_hash</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_hash-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/oj-3.4.0/test/test_compat.rb, line 210</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">test_hash</span>
+  <span class="ruby-identifier">dump_and_load</span>({}, <span class="ruby-keyword">false</span>)
+  <span class="ruby-identifier">dump_and_load</span>({ <span class="ruby-string">&#39;true&#39;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword">true</span>, <span class="ruby-string">&#39;false&#39;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword">false</span>}, <span class="ruby-keyword">false</span>)
+  <span class="ruby-identifier">dump_and_load</span>({ <span class="ruby-string">&#39;true&#39;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword">true</span>, <span class="ruby-string">&#39;array&#39;</span> =<span class="ruby-operator">&gt;</span> [], <span class="ruby-string">&#39;hash&#39;</span> =<span class="ruby-operator">&gt;</span> { }}, <span class="ruby-keyword">false</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_hash_deep" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_hash_deep</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_hash_deep-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/oj-3.4.0/test/test_compat.rb, line 216</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">test_hash_deep</span>
+  <span class="ruby-identifier">dump_and_load</span>({<span class="ruby-string">&#39;1&#39;</span> =<span class="ruby-operator">&gt;</span> {
+                    <span class="ruby-string">&#39;2&#39;</span> =<span class="ruby-operator">&gt;</span> {
+                      <span class="ruby-string">&#39;3&#39;</span> =<span class="ruby-operator">&gt;</span> {
+                        <span class="ruby-string">&#39;4&#39;</span> =<span class="ruby-operator">&gt;</span> {
+                          <span class="ruby-string">&#39;5&#39;</span> =<span class="ruby-operator">&gt;</span> {
+                            <span class="ruby-string">&#39;6&#39;</span> =<span class="ruby-operator">&gt;</span> {
+                              <span class="ruby-string">&#39;7&#39;</span> =<span class="ruby-operator">&gt;</span> {
+                                <span class="ruby-string">&#39;8&#39;</span> =<span class="ruby-operator">&gt;</span> {
+                                  <span class="ruby-string">&#39;9&#39;</span> =<span class="ruby-operator">&gt;</span> {
+                                    <span class="ruby-string">&#39;10&#39;</span> =<span class="ruby-operator">&gt;</span> {
+                                      <span class="ruby-string">&#39;11&#39;</span> =<span class="ruby-operator">&gt;</span> {
+                                        <span class="ruby-string">&#39;12&#39;</span> =<span class="ruby-operator">&gt;</span> {
+                                          <span class="ruby-string">&#39;13&#39;</span> =<span class="ruby-operator">&gt;</span> {
+                                            <span class="ruby-string">&#39;14&#39;</span> =<span class="ruby-operator">&gt;</span> {
+                                              <span class="ruby-string">&#39;15&#39;</span> =<span class="ruby-operator">&gt;</span> {
+                                                <span class="ruby-string">&#39;16&#39;</span> =<span class="ruby-operator">&gt;</span> {
+                                                  <span class="ruby-string">&#39;17&#39;</span> =<span class="ruby-operator">&gt;</span> {
+                                                    <span class="ruby-string">&#39;18&#39;</span> =<span class="ruby-operator">&gt;</span> {
+                                                      <span class="ruby-string">&#39;19&#39;</span> =<span class="ruby-operator">&gt;</span> {
+                                                        <span class="ruby-string">&#39;20&#39;</span> =<span class="ruby-operator">&gt;</span> {}}}}}}}}}}}}}}}}}}}}}, <span class="ruby-keyword">false</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_hash_escaped_key" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_hash_escaped_key</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_hash_escaped_key-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/oj-3.4.0/test/test_compat.rb, line 239</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">test_hash_escaped_key</span>
+  <span class="ruby-identifier">json</span> = <span class="ruby-string">%Q{{&quot;a\nb&quot;:true,&quot;c\td&quot;:false}}</span>
+  <span class="ruby-identifier">obj</span> = <span class="ruby-constant">Oj</span>.<span class="ruby-identifier">compat_load</span>(<span class="ruby-identifier">json</span>)
+  <span class="ruby-identifier">assert_equal</span>({<span class="ruby-string">&quot;a\nb&quot;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword">true</span>, <span class="ruby-string">&quot;c\td&quot;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword">false</span>}, <span class="ruby-identifier">obj</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_infinity" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_infinity</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_infinity-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/oj-3.4.0/test/test_compat.rb, line 281</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">test_infinity</span>
+  <span class="ruby-identifier">assert_raises</span>(<span class="ruby-constant">Oj</span><span class="ruby-operator">::</span><span class="ruby-constant">ParseError</span>) { <span class="ruby-constant">Oj</span>.<span class="ruby-identifier">load</span>(<span class="ruby-string">&#39;Infinity&#39;</span>, <span class="ruby-value">:mode</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">:strict</span>) }
+  <span class="ruby-identifier">x</span> = <span class="ruby-constant">Oj</span>.<span class="ruby-identifier">load</span>(<span class="ruby-string">&#39;Infinity&#39;</span>, <span class="ruby-value">:mode</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">:compat</span>)
+  <span class="ruby-identifier">assert_equal</span>(<span class="ruby-string">&#39;Infinity&#39;</span>, <span class="ruby-identifier">x</span>.<span class="ruby-identifier">to_s</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_io_file" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_io_file</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_io_file-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/oj-3.4.0/test/test_compat.rb, line 330</span>
+  <span class="ruby-keyword">def</span> <span class="ruby-identifier">test_io_file</span>
+    <span class="ruby-identifier">filename</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span>(<span class="ruby-constant">File</span>.<span class="ruby-identifier">dirname</span>(<span class="ruby-keyword">__FILE__</span>), <span class="ruby-string">&#39;open_file_test.json&#39;</span>)
+    <span class="ruby-constant">File</span>.<span class="ruby-identifier">open</span>(<span class="ruby-identifier">filename</span>, <span class="ruby-string">&#39;w&#39;</span>) { <span class="ruby-operator">|</span><span class="ruby-identifier">f</span><span class="ruby-operator">|</span> <span class="ruby-identifier">f</span>.<span class="ruby-identifier">write</span>(<span class="ruby-string">%Q{{
+  &quot;x&quot;:true,
+  &quot;y&quot;:58,
+  &quot;z&quot;: [1,2,3]
+}
+}</span>) }
+    <span class="ruby-identifier">f</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">filename</span>)
+    <span class="ruby-identifier">obj</span> = <span class="ruby-constant">Oj</span>.<span class="ruby-identifier">compat_load</span>(<span class="ruby-identifier">f</span>)
+    <span class="ruby-identifier">f</span>.<span class="ruby-identifier">close</span>()
+    <span class="ruby-identifier">assert_equal</span>({ <span class="ruby-string">&#39;x&#39;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword">true</span>, <span class="ruby-string">&#39;y&#39;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">58</span>, <span class="ruby-string">&#39;z&#39;</span> =<span class="ruby-operator">&gt;</span> [<span class="ruby-value">1</span>, <span class="ruby-value">2</span>, <span class="ruby-value">3</span>]}, <span class="ruby-identifier">obj</span>)
+  <span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_io_string" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_io_string</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Stream IO</p>
+          
+          
+
+          
+          <div class="method-source-code" id="test_io_string-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/oj-3.4.0/test/test_compat.rb, line 318</span>
+  <span class="ruby-keyword">def</span> <span class="ruby-identifier">test_io_string</span>
+    <span class="ruby-identifier">json</span> = <span class="ruby-string">%Q{{
+  &quot;x&quot;:true,
+  &quot;y&quot;:58,
+  &quot;z&quot;: [1,2,3]
+}
+}</span>
+    <span class="ruby-identifier">input</span> = <span class="ruby-constant">StringIO</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">json</span>)
+    <span class="ruby-identifier">obj</span> = <span class="ruby-constant">Oj</span>.<span class="ruby-identifier">compat_load</span>(<span class="ruby-identifier">input</span>)
+    <span class="ruby-identifier">assert_equal</span>({ <span class="ruby-string">&#39;x&#39;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword">true</span>, <span class="ruby-string">&#39;y&#39;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">58</span>, <span class="ruby-string">&#39;z&#39;</span> =<span class="ruby-operator">&gt;</span> [<span class="ruby-value">1</span>, <span class="ruby-value">2</span>, <span class="ruby-value">3</span>]}, <span class="ruby-identifier">obj</span>)
+  <span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_json_module_object" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_json_module_object</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_json_module_object-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/oj-3.4.0/test/test_compat.rb, line 405</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">test_json_module_object</span>
+  <span class="ruby-identifier">obj</span> = <span class="ruby-constant">One</span><span class="ruby-operator">::</span><span class="ruby-constant">Two</span><span class="ruby-operator">::</span><span class="ruby-constant">Three</span><span class="ruby-operator">::</span><span class="ruby-constant">Deep</span>.<span class="ruby-identifier">new</span>()
+  <span class="ruby-identifier">dump_to_json_and_load</span>(<span class="ruby-identifier">obj</span>, <span class="ruby-keyword">false</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_json_object" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_json_object</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_json_object-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/oj-3.4.0/test/test_compat.rb, line 249</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">test_json_object</span>
+  <span class="ruby-identifier">obj</span> = <span class="ruby-constant">Jeez</span>.<span class="ruby-identifier">new</span>(<span class="ruby-keyword">true</span>, <span class="ruby-value">58</span>)
+  <span class="ruby-identifier">json</span> = <span class="ruby-constant">Oj</span>.<span class="ruby-identifier">to_json</span>(<span class="ruby-identifier">obj</span>)
+  <span class="ruby-identifier">assert</span>(<span class="ruby-string">%Q|{&quot;json_class&quot;:&quot;CompatJuice::Jeez&quot;,&quot;x&quot;:true,&quot;y&quot;:58}|</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">json</span> <span class="ruby-operator">||</span>
+        <span class="ruby-string">%Q|{&quot;json_class&quot;:&quot;CompatJuice::Jeez&quot;,&quot;y&quot;:58,&quot;x&quot;:true}|</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">json</span>)
+  <span class="ruby-identifier">dump_to_json_and_load</span>(<span class="ruby-identifier">obj</span>, <span class="ruby-keyword">false</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_json_object_bad" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_json_object_bad</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_json_object_bad-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/oj-3.4.0/test/test_compat.rb, line 417</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">test_json_object_bad</span>
+  <span class="ruby-identifier">json</span> = <span class="ruby-string">%Q{{&quot;json_class&quot;:&quot;CompatJuice::Junk&quot;,&quot;x&quot;:true}}</span>
+  <span class="ruby-keyword">begin</span>
+    <span class="ruby-constant">Oj</span>.<span class="ruby-identifier">compat_load</span>(<span class="ruby-identifier">json</span>, <span class="ruby-value">:create_additions</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword">true</span>)
+  <span class="ruby-keyword">rescue</span> <span class="ruby-constant">Exception</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">e</span>
+    <span class="ruby-identifier">assert_equal</span>(<span class="ruby-string">&quot;ArgumentError&quot;</span>, <span class="ruby-identifier">e</span>.<span class="ruby-identifier">class</span>().<span class="ruby-identifier">name</span>)
+    <span class="ruby-keyword">return</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">assert</span>(<span class="ruby-keyword">false</span>, <span class="ruby-string">&quot;*** expected an exception&quot;</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_json_object_child" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_json_object_child</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>A child to_json should not be called.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="test_json_object_child-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/oj-3.4.0/test/test_compat.rb, line 400</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">test_json_object_child</span>
+  <span class="ruby-identifier">obj</span> = { <span class="ruby-string">&quot;child&quot;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-constant">Jeez</span>.<span class="ruby-identifier">new</span>(<span class="ruby-keyword">true</span>, <span class="ruby-value">58</span>) }
+  <span class="ruby-identifier">assert_equal</span>(<span class="ruby-string">&#39;{&quot;child&quot;:{&quot;json_class&quot;:&quot;CompatJuice::Jeez&quot;,&quot;x&quot;:true,&quot;y&quot;:58}}&#39;</span>, <span class="ruby-constant">Oj</span>.<span class="ruby-identifier">dump</span>(<span class="ruby-identifier">obj</span>))
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_json_object_create_cache" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_json_object_create_cache</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_json_object_create_cache-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/oj-3.4.0/test/test_compat.rb, line 428</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">test_json_object_create_cache</span>
+  <span class="ruby-identifier">expected</span> = <span class="ruby-constant">Jeez</span>.<span class="ruby-identifier">new</span>(<span class="ruby-keyword">true</span>, <span class="ruby-value">58</span>)
+  <span class="ruby-identifier">json</span> = <span class="ruby-constant">Oj</span>.<span class="ruby-identifier">to_json</span>(<span class="ruby-identifier">expected</span>)
+  <span class="ruby-identifier">obj</span> = <span class="ruby-constant">Oj</span>.<span class="ruby-identifier">compat_load</span>(<span class="ruby-identifier">json</span>, <span class="ruby-value">:class_cache</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword">true</span>, <span class="ruby-value">:create_additions</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword">true</span>)
+  <span class="ruby-identifier">assert_equal</span>(<span class="ruby-identifier">expected</span>, <span class="ruby-identifier">obj</span>)
+  <span class="ruby-identifier">obj</span> = <span class="ruby-constant">Oj</span>.<span class="ruby-identifier">compat_load</span>(<span class="ruby-identifier">json</span>, <span class="ruby-value">:class_cache</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword">false</span>, <span class="ruby-value">:create_additions</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword">true</span>)
+  <span class="ruby-identifier">assert_equal</span>(<span class="ruby-identifier">expected</span>, <span class="ruby-identifier">obj</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_json_object_create_deep" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_json_object_create_deep</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_json_object_create_deep-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/oj-3.4.0/test/test_compat.rb, line 445</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">test_json_object_create_deep</span>
+  <span class="ruby-identifier">expected</span> = <span class="ruby-constant">One</span><span class="ruby-operator">::</span><span class="ruby-constant">Two</span><span class="ruby-operator">::</span><span class="ruby-constant">Three</span><span class="ruby-operator">::</span><span class="ruby-constant">Deep</span>.<span class="ruby-identifier">new</span>()
+  <span class="ruby-identifier">json</span> = <span class="ruby-constant">Oj</span>.<span class="ruby-identifier">to_json</span>(<span class="ruby-identifier">expected</span>)
+  <span class="ruby-identifier">obj</span> = <span class="ruby-constant">Oj</span>.<span class="ruby-identifier">compat_load</span>(<span class="ruby-identifier">json</span>, <span class="ruby-value">:create_additions</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword">true</span>)
+  <span class="ruby-identifier">assert_equal</span>(<span class="ruby-identifier">expected</span>, <span class="ruby-identifier">obj</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_json_object_create_id" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_json_object_create_id</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_json_object_create_id-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/oj-3.4.0/test/test_compat.rb, line 257</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">test_json_object_create_id</span>
+  <span class="ruby-constant">Oj</span>.<span class="ruby-identifier">default_options</span> = { <span class="ruby-value">:create_id</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&#39;kson_class&#39;</span>, <span class="ruby-value">:create_additions</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword">true</span>}
+  <span class="ruby-identifier">expected</span> = <span class="ruby-constant">Jeez</span>.<span class="ruby-identifier">new</span>(<span class="ruby-keyword">true</span>, <span class="ruby-value">58</span>)
+  <span class="ruby-identifier">json</span> = <span class="ruby-string">%Q{{&quot;kson_class&quot;:&quot;CompatJuice::Jeez&quot;,&quot;x&quot;:true,&quot;y&quot;:58}}</span>
+  <span class="ruby-identifier">obj</span> = <span class="ruby-constant">Oj</span>.<span class="ruby-identifier">load</span>(<span class="ruby-identifier">json</span>)
+  <span class="ruby-identifier">assert_equal</span>(<span class="ruby-identifier">expected</span>, <span class="ruby-identifier">obj</span>)
+  <span class="ruby-constant">Oj</span>.<span class="ruby-identifier">default_options</span> = { <span class="ruby-value">:create_id</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&#39;json_class&#39;</span> }
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_json_object_create_id_other" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_json_object_create_id_other</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_json_object_create_id_other-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/oj-3.4.0/test/test_compat.rb, line 437</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">test_json_object_create_id_other</span>
+  <span class="ruby-identifier">expected</span> = <span class="ruby-constant">Jeez</span>.<span class="ruby-identifier">new</span>(<span class="ruby-keyword">true</span>, <span class="ruby-value">58</span>)
+  <span class="ruby-identifier">json</span> = <span class="ruby-constant">Oj</span>.<span class="ruby-identifier">to_json</span>(<span class="ruby-identifier">expected</span>)
+  <span class="ruby-identifier">json</span>.<span class="ruby-identifier">gsub!</span>(<span class="ruby-string">&#39;json_class&#39;</span>, <span class="ruby-string">&#39;_class_&#39;</span>)
+  <span class="ruby-identifier">obj</span> = <span class="ruby-constant">Oj</span>.<span class="ruby-identifier">compat_load</span>(<span class="ruby-identifier">json</span>, <span class="ruby-value">:create_id</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;_class_&quot;</span>, <span class="ruby-value">:create_additions</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword">true</span>)
+  <span class="ruby-identifier">assert_equal</span>(<span class="ruby-identifier">expected</span>, <span class="ruby-identifier">obj</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_json_object_dump_create_id" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_json_object_dump_create_id</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_json_object_dump_create_id-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/oj-3.4.0/test/test_compat.rb, line 410</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">test_json_object_dump_create_id</span>
+  <span class="ruby-identifier">expected</span> = <span class="ruby-constant">Jeez</span>.<span class="ruby-identifier">new</span>(<span class="ruby-keyword">true</span>, <span class="ruby-value">58</span>)
+  <span class="ruby-identifier">json</span> = <span class="ruby-constant">Oj</span>.<span class="ruby-identifier">to_json</span>(<span class="ruby-identifier">expected</span>)
+  <span class="ruby-identifier">obj</span> = <span class="ruby-constant">Oj</span>.<span class="ruby-identifier">compat_load</span>(<span class="ruby-identifier">json</span>, <span class="ruby-value">:create_additions</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword">true</span>)
+  <span class="ruby-identifier">assert_equal</span>(<span class="ruby-identifier">expected</span>, <span class="ruby-identifier">obj</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_json_object_top" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_json_object_top</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>If mimic_JSON has not been called then <a
+href="Oj.html#method-c-dump">Oj.dump</a> will call to_json on the top level
+object only.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="test_json_object_top-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/oj-3.4.0/test/test_compat.rb, line 394</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">test_json_object_top</span>
+  <span class="ruby-identifier">obj</span> = <span class="ruby-constant">Jeez</span>.<span class="ruby-identifier">new</span>(<span class="ruby-keyword">true</span>, <span class="ruby-value">58</span>)
+  <span class="ruby-identifier">dump_to_json_and_load</span>(<span class="ruby-identifier">obj</span>, <span class="ruby-keyword">false</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_module" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_module</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_module-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/oj-3.4.0/test/test_compat.rb, line 199</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">test_module</span>
+  <span class="ruby-identifier">json</span> = <span class="ruby-constant">Oj</span>.<span class="ruby-identifier">dump</span>(<span class="ruby-constant">One</span><span class="ruby-operator">::</span><span class="ruby-constant">Two</span>, <span class="ruby-value">:mode</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">:compat</span>)
+  <span class="ruby-identifier">assert_equal</span>(<span class="ruby-string">%Q{&quot;CompatJuice::One::Two&quot;}</span>, <span class="ruby-identifier">json</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_nil" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_nil</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_nil-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/oj-3.4.0/test/test_compat.rb, line 94</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">test_nil</span>
+  <span class="ruby-identifier">dump_and_load</span>(<span class="ruby-keyword">nil</span>, <span class="ruby-keyword">false</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_non_str_hash" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_non_str_hash</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p><a href="Hash.html">Hash</a></p>
+          
+          
+
+          
+          <div class="method-source-code" id="test_non_str_hash-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/oj-3.4.0/test/test_compat.rb, line 205</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">test_non_str_hash</span>
+  <span class="ruby-identifier">json</span> = <span class="ruby-constant">Oj</span>.<span class="ruby-identifier">dump</span>({ <span class="ruby-value">1</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword">true</span>, <span class="ruby-value">0</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword">false</span> }, <span class="ruby-value">:mode</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">:compat</span>)
+  <span class="ruby-identifier">h</span> = <span class="ruby-constant">Oj</span>.<span class="ruby-identifier">load</span>(<span class="ruby-identifier">json</span>, <span class="ruby-value">:mode</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">:strict</span>)
+  <span class="ruby-identifier">assert_equal</span>({ <span class="ruby-string">&quot;1&quot;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword">true</span>, <span class="ruby-string">&quot;0&quot;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword">false</span> }, <span class="ruby-identifier">h</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_parse_to_s" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_parse_to_s</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_parse_to_s-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/oj-3.4.0/test/test_compat.rb, line 474</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">test_parse_to_s</span>
+  <span class="ruby-identifier">s</span> = <span class="ruby-constant">Stringy</span>.<span class="ruby-identifier">new</span>
+  <span class="ruby-identifier">assert_equal</span>([<span class="ruby-value">1</span>,<span class="ruby-value">2</span>], <span class="ruby-constant">Oj</span>.<span class="ruby-identifier">load</span>(<span class="ruby-identifier">s</span>, <span class="ruby-value">:mode</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">:compat</span>))
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_range" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_range</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_range-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/oj-3.4.0/test/test_compat.rb, line 452</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">test_range</span>
+  <span class="ruby-identifier">json</span> = <span class="ruby-constant">Oj</span>.<span class="ruby-identifier">dump</span>(<span class="ruby-value">1</span><span class="ruby-operator">..</span><span class="ruby-value">7</span>)
+  <span class="ruby-identifier">assert_equal</span>(<span class="ruby-string">&#39;&quot;1..7&quot;&#39;</span>, <span class="ruby-identifier">json</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_string" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_string</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_string-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/oj-3.4.0/test/test_compat.rb, line 140</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">test_string</span>
+  <span class="ruby-identifier">dump_and_load</span>(<span class="ruby-string">&#39;&#39;</span>, <span class="ruby-keyword">false</span>)
+  <span class="ruby-identifier">dump_and_load</span>(<span class="ruby-string">&#39;abc&#39;</span>, <span class="ruby-keyword">false</span>)
+  <span class="ruby-identifier">dump_and_load</span>(<span class="ruby-string">&quot;abc\ndef&quot;</span>, <span class="ruby-keyword">false</span>)
+  <span class="ruby-identifier">dump_and_load</span>(<span class="ruby-string">&quot;a\u0041&quot;</span>, <span class="ruby-keyword">false</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_symbol" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_symbol</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_symbol-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/oj-3.4.0/test/test_compat.rb, line 182</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">test_symbol</span>
+  <span class="ruby-identifier">json</span> = <span class="ruby-constant">Oj</span>.<span class="ruby-identifier">dump</span>(<span class="ruby-value">:abc</span>, <span class="ruby-value">:mode</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">:compat</span>)
+  <span class="ruby-identifier">assert_equal</span>(<span class="ruby-string">&#39;&quot;abc&quot;&#39;</span>, <span class="ruby-identifier">json</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_symbol_keys" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_symbol_keys</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>symbol_keys option</p>
+          
+          
+
+          
+          <div class="method-source-code" id="test_symbol_keys-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/oj-3.4.0/test/test_compat.rb, line 345</span>
+  <span class="ruby-keyword">def</span> <span class="ruby-identifier">test_symbol_keys</span>
+    <span class="ruby-identifier">json</span> = <span class="ruby-string">%Q{{
+  &quot;x&quot;:true,
+  &quot;y&quot;:58,
+  &quot;z&quot;: [1,2,3]
+}
+}</span>
+    <span class="ruby-identifier">obj</span> = <span class="ruby-constant">Oj</span>.<span class="ruby-identifier">compat_load</span>(<span class="ruby-identifier">json</span>, <span class="ruby-value">:symbol_keys</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword">true</span>)
+    <span class="ruby-identifier">assert_equal</span>({ <span class="ruby-value">:x</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword">true</span>, <span class="ruby-value">:y</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">58</span>, <span class="ruby-value">:z</span> =<span class="ruby-operator">&gt;</span> [<span class="ruby-value">1</span>, <span class="ruby-value">2</span>, <span class="ruby-value">3</span>]}, <span class="ruby-identifier">obj</span>)
+  <span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_time" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_time</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_time-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/oj-3.4.0/test/test_compat.rb, line 187</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">test_time</span>
+  <span class="ruby-identifier">t</span> = <span class="ruby-constant">Time</span>.<span class="ruby-identifier">xmlschema</span>(<span class="ruby-string">&quot;2012-01-05T23:58:07.123456000+09:00&quot;</span>)
+  <span class="ruby-comment">#t = Time.local(2012, 1, 5, 23, 58, 7, 123456)</span>
+  <span class="ruby-identifier">json</span> = <span class="ruby-constant">Oj</span>.<span class="ruby-identifier">dump</span>(<span class="ruby-identifier">t</span>, <span class="ruby-value">:mode</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">:compat</span>)
+  <span class="ruby-identifier">assert_equal</span>(<span class="ruby-string">%Q{&quot;2012-01-05 23:58:07 +0900&quot;}</span>, <span class="ruby-identifier">json</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_true" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_true</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_true-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/oj-3.4.0/test/test_compat.rb, line 98</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">test_true</span>
+  <span class="ruby-identifier">dump_and_load</span>(<span class="ruby-keyword">true</span>, <span class="ruby-keyword">false</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_unicode" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_unicode</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_unicode-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/oj-3.4.0/test/test_compat.rb, line 162</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">test_unicode</span>
+  <span class="ruby-comment"># hits the 3 normal ranges and one extended surrogate pair</span>
+  <span class="ruby-identifier">json</span> = <span class="ruby-string">%Q{&quot;\\u019f\\u05e9\\u3074\\ud834\\udd1e&quot;}</span>
+  <span class="ruby-identifier">obj</span> = <span class="ruby-constant">Oj</span>.<span class="ruby-identifier">load</span>(<span class="ruby-identifier">json</span>)
+  <span class="ruby-identifier">json2</span> = <span class="ruby-constant">Oj</span>.<span class="ruby-identifier">dump</span>(<span class="ruby-identifier">obj</span>, <span class="ruby-value">:ascii_only</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword">true</span>)
+  <span class="ruby-identifier">assert_equal</span>(<span class="ruby-identifier">json</span>, <span class="ruby-identifier">json2</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="https://rdoc.github.io/rdoc">RDoc</a> 5.0.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

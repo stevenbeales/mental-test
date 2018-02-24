@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>module ActiveRecord::AttributeMethods::PrimaryKey - RDoc Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../../";
+  var index_rel_prefix = "../../";
+</script>
+
+<script src="../../js/jquery.js"></script>
+<script src="../../js/darkfish.js"></script>
+
+<link href="../../css/fonts.css" rel="stylesheet">
+<link href="../../css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="module">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../../table_of_contents.html#pages">Pages</a>
+    <a href="../../table_of_contents.html#classes">Classes</a>
+    <a href="../../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    
+    
+    <div id="extends-section" class="nav-section">
+  <h3>Extended With Modules</h3>
+
+  <ul class="link-list">
+    
+  
+    <li><a class="extend" href="../../ActiveSupport/Concern.html">ActiveSupport::Concern</a>
+  
+  
+  </ul>
+</div>
+
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-i-id">#id</a>
+    
+    <li ><a href="#method-i-id-3D">#id=</a>
+    
+    <li ><a href="#method-i-id-3F">#id?</a>
+    
+    <li ><a href="#method-i-id_before_type_cast">#id_before_type_cast</a>
+    
+    <li ><a href="#method-i-id_in_database">#id_in_database</a>
+    
+    <li ><a href="#method-i-id_was">#id_was</a>
+    
+    <li ><a href="#method-i-to_key">#to_key</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="module-ActiveRecord::AttributeMethods::PrimaryKey">
+  <h1 id="module-ActiveRecord::AttributeMethods::PrimaryKey" class="module">
+    module ActiveRecord::AttributeMethods::PrimaryKey
+  </h1>
+
+  <section class="description">
+    
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+
+    
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-id" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">id</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Returns the primary key value.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="id-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/activerecord-5.1.5/lib/active_record/attribute_methods/primary_key.rb, line 17</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">id</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">pk</span> = <span class="ruby-keyword">self</span>.<span class="ruby-identifier">class</span>.<span class="ruby-identifier">primary_key</span>
+    <span class="ruby-identifier">sync_with_transaction_state</span>
+    <span class="ruby-identifier">_read_attribute</span>(<span class="ruby-identifier">pk</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-id-3D" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">id=</span><span
+            class="method-args">(value)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Sets the primary key value.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="id-3D-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/activerecord-5.1.5/lib/active_record/attribute_methods/primary_key.rb, line 25</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">id=</span>(<span class="ruby-identifier">value</span>)
+  <span class="ruby-identifier">sync_with_transaction_state</span>
+  <span class="ruby-identifier">write_attribute</span>(<span class="ruby-keyword">self</span>.<span class="ruby-identifier">class</span>.<span class="ruby-identifier">primary_key</span>, <span class="ruby-identifier">value</span>) <span class="ruby-keyword">if</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">class</span>.<span class="ruby-identifier">primary_key</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-id-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">id?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Queries the primary key value.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="id-3F-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/activerecord-5.1.5/lib/active_record/attribute_methods/primary_key.rb, line 31</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">id?</span>
+  <span class="ruby-identifier">sync_with_transaction_state</span>
+  <span class="ruby-identifier">query_attribute</span>(<span class="ruby-keyword">self</span>.<span class="ruby-identifier">class</span>.<span class="ruby-identifier">primary_key</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-id_before_type_cast" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">id_before_type_cast</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Returns the primary key value before type cast.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="id_before_type_cast-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/activerecord-5.1.5/lib/active_record/attribute_methods/primary_key.rb, line 37</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">id_before_type_cast</span>
+  <span class="ruby-identifier">sync_with_transaction_state</span>
+  <span class="ruby-identifier">read_attribute_before_type_cast</span>(<span class="ruby-keyword">self</span>.<span class="ruby-identifier">class</span>.<span class="ruby-identifier">primary_key</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-id_in_database" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">id_in_database</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="id_in_database-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/activerecord-5.1.5/lib/active_record/attribute_methods/primary_key.rb, line 48</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">id_in_database</span>
+  <span class="ruby-identifier">sync_with_transaction_state</span>
+  <span class="ruby-identifier">attribute_in_database</span>(<span class="ruby-keyword">self</span>.<span class="ruby-identifier">class</span>.<span class="ruby-identifier">primary_key</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-id_was" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">id_was</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Returns the primary key previous value.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="id_was-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/activerecord-5.1.5/lib/active_record/attribute_methods/primary_key.rb, line 43</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">id_was</span>
+  <span class="ruby-identifier">sync_with_transaction_state</span>
+  <span class="ruby-identifier">attribute_was</span>(<span class="ruby-keyword">self</span>.<span class="ruby-identifier">class</span>.<span class="ruby-identifier">primary_key</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-to_key" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">to_key</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Returns this record&#39;s primary key value wrapped in an array if one is
+available.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="to_key-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/activerecord-5.1.5/lib/active_record/attribute_methods/primary_key.rb, line 10</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">to_key</span>
+  <span class="ruby-identifier">sync_with_transaction_state</span>
+  <span class="ruby-identifier">key</span> = <span class="ruby-identifier">id</span>
+  [<span class="ruby-identifier">key</span>] <span class="ruby-keyword">if</span> <span class="ruby-identifier">key</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="https://rdoc.github.io/rdoc">RDoc</a> 5.0.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

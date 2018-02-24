@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class RSpec::Mocks::MethodReference - RDoc Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../../";
+  var index_rel_prefix = "../../";
+</script>
+
+<script src="../../js/jquery.js"></script>
+<script src="../../js/darkfish.js"></script>
+
+<link href="../../css/fonts.css" rel="stylesheet">
+<link href="../../css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../../table_of_contents.html#pages">Pages</a>
+    <a href="../../table_of_contents.html#classes">Classes</a>
+    <a href="../../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link"><a href="../../Object.html">Object</a>
+  
+</div>
+
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-c-for">::for</a>
+    
+    <li ><a href="#method-c-new">::new</a>
+    
+    <li ><a href="#method-i-defined-3F">#defined?</a>
+    
+    <li ><a href="#method-i-implemented-3F">#implemented?</a>
+    
+    <li ><a href="#method-i-unimplemented-3F">#unimplemented?</a>
+    
+    <li ><a href="#method-i-visibility">#visibility</a>
+    
+    <li ><a href="#method-i-with_signature">#with_signature</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-RSpec::Mocks::MethodReference">
+  <h1 id="class-RSpec::Mocks::MethodReference" class="class">
+    class RSpec::Mocks::MethodReference
+  </h1>
+
+  <section class="description">
+    
+<p>Represents a method on an object that may or may not be defined. The method
+may be an instance method on a module or a method on any object.</p>
+
+<p>@private</p>
+
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Class Methods</h3>
+       </header>
+
+    
+      <div id="method-c-for" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">for</span><span
+            class="method-args">(object_reference, method_name)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="for-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/rspec-mocks-3.7.0/lib/rspec/mocks/method_reference.rb, line 11</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-keyword">for</span>(<span class="ruby-identifier">object_reference</span>, <span class="ruby-identifier">method_name</span>)
+  <span class="ruby-identifier">new</span>(<span class="ruby-identifier">object_reference</span>, <span class="ruby-identifier">method_name</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-new" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">new</span><span
+            class="method-args">(object_reference, method_name)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="new-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/rspec-mocks-3.7.0/lib/rspec/mocks/method_reference.rb, line 15</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">object_reference</span>, <span class="ruby-identifier">method_name</span>)
+  <span class="ruby-ivar">@object_reference</span> = <span class="ruby-identifier">object_reference</span>
+  <span class="ruby-ivar">@method_name</span> = <span class="ruby-identifier">method_name</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-defined-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">defined?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>A method is defined if we are able to get a `Method` object for it. In that
+case, we can assert against metadata like the arity.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="defined-3F-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/rspec-mocks-3.7.0/lib/rspec/mocks/method_reference.rb, line 46</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">defined?</span>
+  <span class="ruby-ivar">@object_reference</span>.<span class="ruby-identifier">when_loaded</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">m</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">method_defined?</span>(<span class="ruby-identifier">m</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-implemented-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">implemented?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>A method is implemented if sending the message does not result in a
+`NoMethodError`. It might be dynamically implemented by `method_missing`.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="implemented-3F-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/rspec-mocks-3.7.0/lib/rspec/mocks/method_reference.rb, line 23</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">implemented?</span>
+  <span class="ruby-ivar">@object_reference</span>.<span class="ruby-identifier">when_loaded</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">m</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">method_implemented?</span>(<span class="ruby-identifier">m</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-unimplemented-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">unimplemented?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Returns true if we definitively know that sending the method will result in
+a `NoMethodError`.</p>
+
+<p>This is not simply the inverse of `implemented?`: there are cases when we
+don&#39;t know if a method is implemented and both `implemented?` and
+`unimplemented?` will return false.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="unimplemented-3F-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/rspec-mocks-3.7.0/lib/rspec/mocks/method_reference.rb, line 35</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">unimplemented?</span>
+  <span class="ruby-ivar">@object_reference</span>.<span class="ruby-identifier">when_loaded</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">_m</span><span class="ruby-operator">|</span>
+    <span class="ruby-keyword">return</span> <span class="ruby-operator">!</span><span class="ruby-identifier">implemented?</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-comment"># If it&#39;s not loaded, then it may be implemented but we can&#39;t check.</span>
+  <span class="ruby-keyword">false</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-visibility" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">visibility</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="visibility-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/rspec-mocks-3.7.0/lib/rspec/mocks/method_reference.rb, line 57</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">visibility</span>
+  <span class="ruby-ivar">@object_reference</span>.<span class="ruby-identifier">when_loaded</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">m</span><span class="ruby-operator">|</span>
+    <span class="ruby-keyword">return</span> <span class="ruby-identifier">visibility_from</span>(<span class="ruby-identifier">m</span>)
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-comment"># When it&#39;s not loaded, assume it&#39;s public. We don&#39;t want to</span>
+  <span class="ruby-comment"># wrongly treat the method as private.</span>
+  <span class="ruby-value">:public</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-with_signature" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">with_signature</span><span
+            class="method-args">() { |method_signature| ... }</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="with_signature-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/rspec-mocks-3.7.0/lib/rspec/mocks/method_reference.rb, line 52</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">with_signature</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">unless</span> (<span class="ruby-identifier">original</span> = <span class="ruby-identifier">original_method</span>)
+  <span class="ruby-keyword">yield</span> <span class="ruby-constant">Support</span><span class="ruby-operator">::</span><span class="ruby-constant">MethodSignature</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">original</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="https://rdoc.github.io/rdoc">RDoc</a> 5.0.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

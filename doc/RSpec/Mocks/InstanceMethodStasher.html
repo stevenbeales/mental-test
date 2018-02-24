@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class RSpec::Mocks::InstanceMethodStasher - RDoc Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../../";
+  var index_rel_prefix = "../../";
+</script>
+
+<script src="../../js/jquery.js"></script>
+<script src="../../js/darkfish.js"></script>
+
+<link href="../../css/fonts.css" rel="stylesheet">
+<link href="../../css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../../table_of_contents.html#pages">Pages</a>
+    <a href="../../table_of_contents.html#classes">Classes</a>
+    <a href="../../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link"><a href="../../Object.html">Object</a>
+  
+</div>
+
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-c-new">::new</a>
+    
+    <li ><a href="#method-i-handle_restoration_failures">#handle_restoration_failures</a>
+    
+    <li ><a href="#method-i-method_is_stashed-3F">#method_is_stashed?</a>
+    
+    <li ><a href="#method-i-restore">#restore</a>
+    
+    <li ><a href="#method-i-stash">#stash</a>
+    
+    <li ><a href="#method-i-stashed_method_name">#stashed_method_name</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-RSpec::Mocks::InstanceMethodStasher">
+  <h1 id="class-RSpec::Mocks::InstanceMethodStasher" class="class">
+    class RSpec::Mocks::InstanceMethodStasher
+  </h1>
+
+  <section class="description">
+    
+<p>@private</p>
+
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+    <section class="attribute-method-details" class="method-section">
+      <header>
+        <h3>Attributes</h3>
+      </header>
+
+      
+      <div id="attribute-i-original_method" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">original_method</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+    </section>
+    
+
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Class Methods</h3>
+       </header>
+
+    
+      <div id="method-c-new" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">new</span><span
+            class="method-args">(object, method)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="new-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/rspec-mocks-3.7.0/lib/rspec/mocks/instance_method_stasher.rb, line 5</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">object</span>, <span class="ruby-identifier">method</span>)
+  <span class="ruby-ivar">@object</span> = <span class="ruby-identifier">object</span>
+  <span class="ruby-ivar">@method</span> = <span class="ruby-identifier">method</span>
+  <span class="ruby-ivar">@klass</span> = (<span class="ruby-keyword">class</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">object</span>; <span class="ruby-keyword">self</span>; <span class="ruby-keyword">end</span>)
+
+  <span class="ruby-ivar">@original_method</span> = <span class="ruby-keyword">nil</span>
+  <span class="ruby-ivar">@method_is_stashed</span> = <span class="ruby-keyword">false</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-handle_restoration_failures" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">handle_restoration_failures</span><span
+            class="method-args">() { || ... }</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>ruby 2.0.0-p247 and 2.0.0-p195 both have a bug that we can&#39;t work
+around :(. <a
+href="https://bugs.ruby-lang.org/issues/8686">bugs.ruby-lang.org/issues/8686</a></p>
+          
+          
+
+          
+          <div class="method-source-code" id="handle_restoration_failures-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/rspec-mocks-3.7.0/lib/rspec/mocks/instance_method_stasher.rb, line 79</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">handle_restoration_failures</span>
+  <span class="ruby-keyword">yield</span>
+<span class="ruby-keyword">rescue</span> <span class="ruby-constant">TypeError</span>
+  <span class="ruby-constant">RSpec</span>.<span class="ruby-identifier">warn_with</span>(
+    <span class="ruby-node">&quot;RSpec failed to properly restore a partial double (#{@object.inspect}) &quot;</span>              <span class="ruby-string">&quot;to its original state due to a known bug in MRI 2.0.0-p195 &amp; p247 &quot;</span>              <span class="ruby-string">&quot;(https://bugs.ruby-lang.org/issues/8686). This object may remain &quot;</span>              <span class="ruby-string">&quot;screwed up for the rest of this process. Please upgrade to 2.0.0-p353 or above.&quot;</span>,
+    <span class="ruby-value">:call_site</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword">nil</span>, <span class="ruby-value">:use_spec_location_as_call_site</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword">true</span>
+  )
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-method_is_stashed-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">method_is_stashed?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>@private</p>
+          
+          
+
+          
+          <div class="method-source-code" id="method_is_stashed-3F-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/rspec-mocks-3.7.0/lib/rspec/mocks/instance_method_stasher.rb, line 18</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">method_is_stashed?</span>
+  <span class="ruby-ivar">@method_is_stashed</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-restore" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">restore</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>@private</p>
+          
+          
+
+          
+          <div class="method-source-code" id="restore-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/rspec-mocks-3.7.0/lib/rspec/mocks/instance_method_stasher.rb, line 36</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">restore</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">unless</span> <span class="ruby-ivar">@method_is_stashed</span>
+
+  <span class="ruby-keyword">if</span> <span class="ruby-ivar">@klass</span>.<span class="ruby-identifier">__send__</span>(<span class="ruby-value">:method_defined?</span>, <span class="ruby-ivar">@method</span>)
+    <span class="ruby-ivar">@klass</span>.<span class="ruby-identifier">__send__</span>(<span class="ruby-value">:undef_method</span>, <span class="ruby-ivar">@method</span>)
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-ivar">@klass</span>.<span class="ruby-identifier">__send__</span>(<span class="ruby-value">:alias_method</span>, <span class="ruby-ivar">@method</span>, <span class="ruby-identifier">stashed_method_name</span>)
+  <span class="ruby-ivar">@klass</span>.<span class="ruby-identifier">__send__</span>(<span class="ruby-value">:remove_method</span>, <span class="ruby-identifier">stashed_method_name</span>)
+  <span class="ruby-ivar">@method_is_stashed</span> = <span class="ruby-keyword">false</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-stash" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">stash</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>@private</p>
+          
+          
+
+          
+          <div class="method-source-code" id="stash-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/rspec-mocks-3.7.0/lib/rspec/mocks/instance_method_stasher.rb, line 23</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">stash</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">if</span> <span class="ruby-operator">!</span><span class="ruby-identifier">method_defined_directly_on_klass?</span> <span class="ruby-operator">||</span> <span class="ruby-ivar">@method_is_stashed</span>
+
+  <span class="ruby-ivar">@klass</span>.<span class="ruby-identifier">__send__</span>(<span class="ruby-value">:alias_method</span>, <span class="ruby-identifier">stashed_method_name</span>, <span class="ruby-ivar">@method</span>)
+  <span class="ruby-ivar">@method_is_stashed</span> = <span class="ruby-keyword">true</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-stashed_method_name" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">stashed_method_name</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>@private</p>
+          
+          
+
+          
+          <div class="method-source-code" id="stashed_method_name-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/rspec-mocks-3.7.0/lib/rspec/mocks/instance_method_stasher.rb, line 31</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">stashed_method_name</span>
+  <span class="ruby-node">&quot;obfuscated_by_rspec_mocks__#{@method}&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="https://rdoc.github.io/rdoc">RDoc</a> 5.0.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

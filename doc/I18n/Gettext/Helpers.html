@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>module I18n::Gettext::Helpers - RDoc Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../../";
+  var index_rel_prefix = "../../";
+</script>
+
+<script src="../../js/jquery.js"></script>
+<script src="../../js/darkfish.js"></script>
+
+<link href="../../css/fonts.css" rel="stylesheet">
+<link href="../../css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="module">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../../table_of_contents.html#pages">Pages</a>
+    <a href="../../table_of_contents.html#classes">Classes</a>
+    <a href="../../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-i-N_">#N_</a>
+    
+    <li ><a href="#method-i-_">#_</a>
+    
+    <li ><a href="#method-i-gettext">#gettext</a>
+    
+    <li ><a href="#method-i-n_">#n_</a>
+    
+    <li ><a href="#method-i-ngettext">#ngettext</a>
+    
+    <li ><a href="#method-i-np_">#np_</a>
+    
+    <li ><a href="#method-i-npgettext">#npgettext</a>
+    
+    <li ><a href="#method-i-ns_">#ns_</a>
+    
+    <li ><a href="#method-i-nsgettext">#nsgettext</a>
+    
+    <li ><a href="#method-i-p_">#p_</a>
+    
+    <li ><a href="#method-i-pgettext">#pgettext</a>
+    
+    <li ><a href="#method-i-s_">#s_</a>
+    
+    <li ><a href="#method-i-sgettext">#sgettext</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="module-I18n::Gettext::Helpers">
+  <h1 id="module-I18n::Gettext::Helpers" class="module">
+    module I18n::Gettext::Helpers
+  </h1>
+
+  <section class="description">
+    
+<p>Implements classical <a href="../Gettext.html">Gettext</a> style accessors.
+To use this include the module to the global namespace or wherever you want
+to use it.</p>
+
+<pre class="ruby"><span class="ruby-identifier">include</span> <span class="ruby-constant">I18n</span><span class="ruby-operator">::</span><span class="ruby-constant">Gettext</span><span class="ruby-operator">::</span><span class="ruby-constant">Helpers</span>
+</pre>
+
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+
+    
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-N_" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">N_</span><span
+            class="method-args">(msgsid)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Makes dynamic translation messages readable for the gettext parser.
+<code>_(fruit)</code> cannot be understood by the gettext parser. To help
+the parser find all your translations, you can add <code>fruit =
+N_(&quot;Apple&quot;)</code> which does not translate, but tells the
+parser: “Apple” needs translation.</p>
+<ul><li>
+<p>msgid: the message id.</p>
+</li><li>
+<p>Returns: msgid.</p>
+</li></ul>
+          
+          
+
+          
+          <div class="method-source-code" id="N_-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/i18n-0.9.5/lib/i18n/gettext/helpers.rb, line 15</span>
+<span class="ruby-keyword">def</span> <span class="ruby-constant">N_</span>(<span class="ruby-identifier">msgsid</span>)
+  <span class="ruby-identifier">msgsid</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-_" class="method-detail method-alias">
+        
+        <div class="method-heading">
+          <span class="method-name">_</span><span
+            class="method-args">(msgid, options = {})</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+        </div>
+
+        
+
+        
+        <div class="aliases">
+          Alias for: <a href="Helpers.html#method-i-gettext">gettext</a>
+        </div>
+        
+      </div>
+
+    
+      <div id="method-i-gettext" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">gettext</span><span
+            class="method-args">(msgid, options = {})</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="gettext-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/i18n-0.9.5/lib/i18n/gettext/helpers.rb, line 19</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">gettext</span>(<span class="ruby-identifier">msgid</span>, <span class="ruby-identifier">options</span> = {})
+  <span class="ruby-constant">I18n</span>.<span class="ruby-identifier">t</span>(<span class="ruby-identifier">msgid</span>, { <span class="ruby-value">:default</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">msgid</span>, <span class="ruby-value">:separator</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&#39;|&#39;</span> }.<span class="ruby-identifier">merge</span>(<span class="ruby-identifier">options</span>))
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+        <div class="aliases">
+          Also aliased as: <a href="Helpers.html#method-i-_">_</a>
+        </div>
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-n_" class="method-detail method-alias">
+        
+        <div class="method-heading">
+          <span class="method-name">n_</span><span
+            class="method-args">(msgid, msgid_plural, n = 1)</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+        </div>
+
+        
+
+        
+        <div class="aliases">
+          Alias for: <a href="Helpers.html#method-i-ngettext">ngettext</a>
+        </div>
+        
+      </div>
+
+    
+      <div id="method-i-ngettext" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">ngettext</span><span
+            class="method-args">(msgid, msgid_plural, n = 1)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="ngettext-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/i18n-0.9.5/lib/i18n/gettext/helpers.rb, line 36</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">ngettext</span>(<span class="ruby-identifier">msgid</span>, <span class="ruby-identifier">msgid_plural</span>, <span class="ruby-identifier">n</span> = <span class="ruby-value">1</span>)
+  <span class="ruby-identifier">nsgettext</span>(<span class="ruby-identifier">msgid</span>, <span class="ruby-identifier">msgid_plural</span>, <span class="ruby-identifier">n</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+        <div class="aliases">
+          Also aliased as: <a href="Helpers.html#method-i-n_">n_</a>
+        </div>
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-np_" class="method-detail method-alias">
+        
+        <div class="method-heading">
+          <span class="method-name">np_</span><span
+            class="method-args">(msgctxt, msgid, msgid_plural, n = 1)</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+        </div>
+
+        
+
+        
+        <div class="aliases">
+          Alias for: <a href="Helpers.html#method-i-npgettext">npgettext</a>
+        </div>
+        
+      </div>
+
+    
+      <div id="method-i-npgettext" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">npgettext</span><span
+            class="method-args">(msgctxt, msgid, msgid_plural, n = 1)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p><a href="../../Method.html">Method</a> signatures:</p>
+
+<pre class="ruby"><span class="ruby-identifier">npgettext</span>(<span class="ruby-string">&#39;Fruits&#39;</span>, <span class="ruby-string">&#39;apple&#39;</span>, <span class="ruby-string">&#39;apples&#39;</span>, <span class="ruby-value">2</span>)
+<span class="ruby-identifier">npgettext</span>(<span class="ruby-string">&#39;Fruits&#39;</span>, [<span class="ruby-string">&#39;apple&#39;</span>, <span class="ruby-string">&#39;apples&#39;</span>], <span class="ruby-value">2</span>)
+</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="npgettext-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/i18n-0.9.5/lib/i18n/gettext/helpers.rb, line 59</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">npgettext</span>(<span class="ruby-identifier">msgctxt</span>, <span class="ruby-identifier">msgid</span>, <span class="ruby-identifier">msgid_plural</span>, <span class="ruby-identifier">n</span> = <span class="ruby-value">1</span>)
+  <span class="ruby-identifier">separator</span> = <span class="ruby-constant">I18n</span><span class="ruby-operator">::</span><span class="ruby-constant">Gettext</span><span class="ruby-operator">::</span><span class="ruby-constant">CONTEXT_SEPARATOR</span>
+
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">msgid</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">Array</span>)
+    <span class="ruby-identifier">msgid_plural</span>, <span class="ruby-identifier">msgid</span>, <span class="ruby-identifier">n</span> = <span class="ruby-identifier">msgid</span>[<span class="ruby-value">1</span>], [<span class="ruby-identifier">msgctxt</span>, <span class="ruby-identifier">msgid</span>[<span class="ruby-value">0</span>]].<span class="ruby-identifier">join</span>(<span class="ruby-identifier">separator</span>), <span class="ruby-identifier">msgid_plural</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">msgid</span> = [<span class="ruby-identifier">msgctxt</span>, <span class="ruby-identifier">msgid</span>].<span class="ruby-identifier">join</span>(<span class="ruby-identifier">separator</span>)
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">nsgettext</span>(<span class="ruby-identifier">msgid</span>, <span class="ruby-identifier">msgid_plural</span>, <span class="ruby-identifier">n</span>, <span class="ruby-identifier">separator</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+        <div class="aliases">
+          Also aliased as: <a href="Helpers.html#method-i-np_">np_</a>
+        </div>
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-ns_" class="method-detail method-alias">
+        
+        <div class="method-heading">
+          <span class="method-name">ns_</span><span
+            class="method-args">(msgid, msgid_plural, n = 1, separator = '|')</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+        </div>
+
+        
+
+        
+        <div class="aliases">
+          Alias for: <a href="Helpers.html#method-i-nsgettext">nsgettext</a>
+        </div>
+        
+      </div>
+
+    
+      <div id="method-i-nsgettext" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">nsgettext</span><span
+            class="method-args">(msgid, msgid_plural, n = 1, separator = '|')</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p><a href="../../Method.html">Method</a> signatures:</p>
+
+<pre class="ruby"><span class="ruby-identifier">nsgettext</span>(<span class="ruby-string">&#39;Fruits|apple&#39;</span>, <span class="ruby-string">&#39;apples&#39;</span>, <span class="ruby-value">2</span>)
+<span class="ruby-identifier">nsgettext</span>([<span class="ruby-string">&#39;Fruits|apple&#39;</span>, <span class="ruby-string">&#39;apples&#39;</span>], <span class="ruby-value">2</span>)
+</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="nsgettext-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/i18n-0.9.5/lib/i18n/gettext/helpers.rb, line 44</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">nsgettext</span>(<span class="ruby-identifier">msgid</span>, <span class="ruby-identifier">msgid_plural</span>, <span class="ruby-identifier">n</span> = <span class="ruby-value">1</span>, <span class="ruby-identifier">separator</span> = <span class="ruby-string">&#39;|&#39;</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">msgid</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">Array</span>)
+    <span class="ruby-identifier">msgid</span>, <span class="ruby-identifier">msgid_plural</span>, <span class="ruby-identifier">n</span>, <span class="ruby-identifier">separator</span> = <span class="ruby-identifier">msgid</span>[<span class="ruby-value">0</span>], <span class="ruby-identifier">msgid</span>[<span class="ruby-value">1</span>], <span class="ruby-identifier">msgid_plural</span>, <span class="ruby-identifier">n</span>
+    <span class="ruby-identifier">separator</span> = <span class="ruby-string">&#39;|&#39;</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">separator</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-operator">::</span><span class="ruby-constant">String</span>)
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">scope</span>, <span class="ruby-identifier">msgid</span> = <span class="ruby-constant">I18n</span><span class="ruby-operator">::</span><span class="ruby-constant">Gettext</span>.<span class="ruby-identifier">extract_scope</span>(<span class="ruby-identifier">msgid</span>, <span class="ruby-identifier">separator</span>)
+  <span class="ruby-identifier">default</span> = { <span class="ruby-value">:one</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">msgid</span>, <span class="ruby-value">:other</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">msgid_plural</span> }
+  <span class="ruby-constant">I18n</span>.<span class="ruby-identifier">t</span>(<span class="ruby-identifier">msgid</span>, <span class="ruby-value">:default</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">default</span>, <span class="ruby-value">:count</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">n</span>, <span class="ruby-value">:scope</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">scope</span>, <span class="ruby-value">:separator</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">separator</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+        <div class="aliases">
+          Also aliased as: <a href="Helpers.html#method-i-ns_">ns_</a>
+        </div>
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-p_" class="method-detail method-alias">
+        
+        <div class="method-heading">
+          <span class="method-name">p_</span><span
+            class="method-args">(msgctxt, msgid)</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+        </div>
+
+        
+
+        
+        <div class="aliases">
+          Alias for: <a href="Helpers.html#method-i-pgettext">pgettext</a>
+        </div>
+        
+      </div>
+
+    
+      <div id="method-i-pgettext" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">pgettext</span><span
+            class="method-args">(msgctxt, msgid)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="pgettext-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/i18n-0.9.5/lib/i18n/gettext/helpers.rb, line 30</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">pgettext</span>(<span class="ruby-identifier">msgctxt</span>, <span class="ruby-identifier">msgid</span>)
+  <span class="ruby-identifier">separator</span> = <span class="ruby-constant">I18n</span><span class="ruby-operator">::</span><span class="ruby-constant">Gettext</span><span class="ruby-operator">::</span><span class="ruby-constant">CONTEXT_SEPARATOR</span>
+  <span class="ruby-identifier">sgettext</span>([<span class="ruby-identifier">msgctxt</span>, <span class="ruby-identifier">msgid</span>].<span class="ruby-identifier">join</span>(<span class="ruby-identifier">separator</span>), <span class="ruby-identifier">separator</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+        <div class="aliases">
+          Also aliased as: <a href="Helpers.html#method-i-p_">p_</a>
+        </div>
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-s_" class="method-detail method-alias">
+        
+        <div class="method-heading">
+          <span class="method-name">s_</span><span
+            class="method-args">(msgid, separator = '|')</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+        </div>
+
+        
+
+        
+        <div class="aliases">
+          Alias for: <a href="Helpers.html#method-i-sgettext">sgettext</a>
+        </div>
+        
+      </div>
+
+    
+      <div id="method-i-sgettext" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">sgettext</span><span
+            class="method-args">(msgid, separator = '|')</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="sgettext-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/i18n-0.9.5/lib/i18n/gettext/helpers.rb, line 24</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">sgettext</span>(<span class="ruby-identifier">msgid</span>, <span class="ruby-identifier">separator</span> = <span class="ruby-string">&#39;|&#39;</span>)
+  <span class="ruby-identifier">scope</span>, <span class="ruby-identifier">msgid</span> = <span class="ruby-constant">I18n</span><span class="ruby-operator">::</span><span class="ruby-constant">Gettext</span>.<span class="ruby-identifier">extract_scope</span>(<span class="ruby-identifier">msgid</span>, <span class="ruby-identifier">separator</span>)
+  <span class="ruby-constant">I18n</span>.<span class="ruby-identifier">t</span>(<span class="ruby-identifier">msgid</span>, <span class="ruby-value">:scope</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">scope</span>, <span class="ruby-value">:default</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">msgid</span>, <span class="ruby-value">:separator</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">separator</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+        <div class="aliases">
+          Also aliased as: <a href="Helpers.html#method-i-s_">s_</a>
+        </div>
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="https://rdoc.github.io/rdoc">RDoc</a> 5.0.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

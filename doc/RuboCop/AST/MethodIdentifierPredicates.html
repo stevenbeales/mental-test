@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>module RuboCop::AST::MethodIdentifierPredicates - RDoc Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../../";
+  var index_rel_prefix = "../../";
+</script>
+
+<script src="../../js/jquery.js"></script>
+<script src="../../js/darkfish.js"></script>
+
+<link href="../../css/fonts.css" rel="stylesheet">
+<link href="../../css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="module">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../../table_of_contents.html#pages">Pages</a>
+    <a href="../../table_of_contents.html#classes">Classes</a>
+    <a href="../../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-i-assignment_method-3F">#assignment_method?</a>
+    
+    <li ><a href="#method-i-bang_method-3F">#bang_method?</a>
+    
+    <li ><a href="#method-i-camel_case_method-3F">#camel_case_method?</a>
+    
+    <li ><a href="#method-i-comparison_method-3F">#comparison_method?</a>
+    
+    <li ><a href="#method-i-const_receiver-3F">#const_receiver?</a>
+    
+    <li ><a href="#method-i-enumerator_method-3F">#enumerator_method?</a>
+    
+    <li ><a href="#method-i-method-3F">#method?</a>
+    
+    <li ><a href="#method-i-operator_method-3F">#operator_method?</a>
+    
+    <li ><a href="#method-i-predicate_method-3F">#predicate_method?</a>
+    
+    <li ><a href="#method-i-self_receiver-3F">#self_receiver?</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="module-RuboCop::AST::MethodIdentifierPredicates">
+  <h1 id="module-RuboCop::AST::MethodIdentifierPredicates" class="module">
+    module RuboCop::AST::MethodIdentifierPredicates
+  </h1>
+
+  <section class="description">
+    
+<p>Common predicates for nodes that reference method identifiers: `send`,
+`csend`, `def`, `defs`, `super`, `zsuper`</p>
+
+<p>@note this mixin expects `#method_name` and `#receiver` to be implemented</p>
+
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+    <section class="constants-list">
+      <header>
+        <h3>Constants</h3>
+      </header>
+      <dl>
+      
+        <dt id="ENUMERATOR_METHODS">ENUMERATOR_METHODS
+        
+        <dd>
+        
+      
+      </dl>
+    </section>
+    
+
+    
+
+    
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-assignment_method-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">assignment_method?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Checks whether the method is an assignment method.</p>
+
+<p>@return [Boolean] whether the method is an assignment</p>
+          
+          
+
+          
+          <div class="method-source-code" id="assignment_method-3F-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/rubocop-0.52.1/lib/rubocop/ast/node/mixin/method_identifier_predicates.rb, line 39</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">assignment_method?</span>
+  <span class="ruby-operator">!</span><span class="ruby-identifier">comparison_method?</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">method_name</span>.<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">end_with?</span>(<span class="ruby-string">&#39;=&#39;</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-bang_method-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">bang_method?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Checks whether the method is a bang method.</p>
+
+<p>@return [Boolean] whether the method is a bang method</p>
+          
+          
+
+          
+          <div class="method-source-code" id="bang_method-3F-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/rubocop-0.52.1/lib/rubocop/ast/node/mixin/method_identifier_predicates.rb, line 61</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">bang_method?</span>
+  <span class="ruby-identifier">method_name</span>.<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">end_with?</span>(<span class="ruby-string">&#39;!&#39;</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-camel_case_method-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">camel_case_method?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Checks whether the method is a camel case method, e.g. `Integer()`.</p>
+
+<p>@return [Boolean] whether the method is a camel case method</p>
+          
+          
+
+          
+          <div class="method-source-code" id="camel_case_method-3F-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/rubocop-0.52.1/lib/rubocop/ast/node/mixin/method_identifier_predicates.rb, line 69</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">camel_case_method?</span>
+  <span class="ruby-identifier">method_name</span>.<span class="ruby-identifier">to_s</span> <span class="ruby-operator">=~</span> <span class="ruby-regexp">/\A[A-Z]/</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-comparison_method-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">comparison_method?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Checks whether the method is a comparison method.</p>
+
+<p>@return [Boolean] whether the method is a comparison</p>
+          
+          
+
+          
+          <div class="method-source-code" id="comparison_method-3F-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/rubocop-0.52.1/lib/rubocop/ast/node/mixin/method_identifier_predicates.rb, line 32</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">comparison_method?</span>
+  <span class="ruby-constant">Node</span><span class="ruby-operator">::</span><span class="ruby-constant">COMPARISON_OPERATORS</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">method_name</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-const_receiver-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">const_receiver?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Checks whether the <strong>explicit</strong> receiver of node is a `const`
+node.</p>
+
+<p>@return [Boolean] whether the receiver of this node is a `const` node</p>
+          
+          
+
+          
+          <div class="method-source-code" id="const_receiver-3F-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/rubocop-0.52.1/lib/rubocop/ast/node/mixin/method_identifier_predicates.rb, line 83</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">const_receiver?</span>
+  <span class="ruby-identifier">receiver</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">receiver</span>.<span class="ruby-identifier">const_type?</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-enumerator_method-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">enumerator_method?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Checks whether the method is an enumerator method.</p>
+
+<p>@return [Boolean] whether the method is an enumerator</p>
+          
+          
+
+          
+          <div class="method-source-code" id="enumerator_method-3F-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/rubocop-0.52.1/lib/rubocop/ast/node/mixin/method_identifier_predicates.rb, line 46</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">enumerator_method?</span>
+  <span class="ruby-constant">ENUMERATOR_METHODS</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">method_name</span>) <span class="ruby-operator">||</span>
+    <span class="ruby-identifier">method_name</span>.<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">start_with?</span>(<span class="ruby-string">&#39;each_&#39;</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-method-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">method?</span><span
+            class="method-args">(name)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Checks whether the method name matches the argument.</p>
+
+<p>@param [Symbol, String] name the method name to check for @return [Boolean]
+whether the method name matches the argument</p>
+          
+          
+
+          
+          <div class="method-source-code" id="method-3F-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/rubocop-0.52.1/lib/rubocop/ast/node/mixin/method_identifier_predicates.rb, line 18</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">method?</span>(<span class="ruby-identifier">name</span>)
+  <span class="ruby-identifier">method_name</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">name</span>.<span class="ruby-identifier">to_sym</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-operator_method-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">operator_method?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Checks whether the method is an operator method.</p>
+
+<p>@return [Boolean] whether the method is an operator</p>
+          
+          
+
+          
+          <div class="method-source-code" id="operator_method-3F-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/rubocop-0.52.1/lib/rubocop/ast/node/mixin/method_identifier_predicates.rb, line 25</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">operator_method?</span>
+  <span class="ruby-constant">RuboCop</span><span class="ruby-operator">::</span><span class="ruby-constant">Cop</span><span class="ruby-operator">::</span><span class="ruby-constant">Util</span><span class="ruby-operator">::</span><span class="ruby-constant">OPERATOR_METHODS</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">method_name</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-predicate_method-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">predicate_method?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Checks whether the method is a predicate method.</p>
+
+<p>@return [Boolean] whether the method is a predicate method</p>
+          
+          
+
+          
+          <div class="method-source-code" id="predicate_method-3F-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/rubocop-0.52.1/lib/rubocop/ast/node/mixin/method_identifier_predicates.rb, line 54</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">predicate_method?</span>
+  <span class="ruby-identifier">method_name</span>.<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">end_with?</span>(<span class="ruby-string">&#39;?&#39;</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-self_receiver-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">self_receiver?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Checks whether the <strong>explicit</strong> receiver of this node is
+`self`.</p>
+
+<p>@return [Boolean] whether the receiver of this node is `self`</p>
+          
+          
+
+          
+          <div class="method-source-code" id="self_receiver-3F-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/rubocop-0.52.1/lib/rubocop/ast/node/mixin/method_identifier_predicates.rb, line 76</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">self_receiver?</span>
+  <span class="ruby-identifier">receiver</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">receiver</span>.<span class="ruby-identifier">self_type?</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="https://rdoc.github.io/rdoc">RDoc</a> 5.0.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

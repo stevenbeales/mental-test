@@ -1,0 +1,680 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class Rerun::Watcher - RDoc Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../";
+  var index_rel_prefix = "../";
+</script>
+
+<script src="../js/jquery.js"></script>
+<script src="../js/darkfish.js"></script>
+
+<link href="../css/fonts.css" rel="stylesheet">
+<link href="../css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../table_of_contents.html#pages">Pages</a>
+    <a href="../table_of_contents.html#classes">Classes</a>
+    <a href="../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link"><a href="../Object.html">Object</a>
+  
+</div>
+
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-c-new">::new</a>
+    
+    <li ><a href="#method-i-adapter">#adapter</a>
+    
+    <li ><a href="#method-i-adapter_name">#adapter_name</a>
+    
+    <li ><a href="#method-i-ignoring">#ignoring</a>
+    
+    <li ><a href="#method-i-join">#join</a>
+    
+    <li ><a href="#method-i-pause">#pause</a>
+    
+    <li ><a href="#method-i-running-3F">#running?</a>
+    
+    <li ><a href="#method-i-sanitize_dirs">#sanitize_dirs</a>
+    
+    <li ><a href="#method-i-start">#start</a>
+    
+    <li ><a href="#method-i-stop">#stop</a>
+    
+    <li ><a href="#method-i-unpause">#unpause</a>
+    
+    <li ><a href="#method-i-watching">#watching</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-Rerun::Watcher">
+  <h1 id="class-Rerun::Watcher" class="class">
+    class Rerun::Watcher
+  </h1>
+
+  <section class="description">
+    
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+    <section class="constants-list">
+      <header>
+        <h3>Constants</h3>
+      </header>
+      <dl>
+      
+        <dt id="InvalidDirectoryError">InvalidDirectoryError
+        
+        <dd>
+        
+      
+      </dl>
+    </section>
+    
+
+    
+    <section class="attribute-method-details" class="method-section">
+      <header>
+        <h3>Attributes</h3>
+      </header>
+
+      
+      <div id="attribute-i-directory" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">directory</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        <p>def self.default_ignore</p>
+
+<pre class="ruby"><span class="ruby-constant">Listen</span><span class="ruby-operator">::</span><span class="ruby-constant">Silencer</span>.<span class="ruby-identifier">new</span>(<span class="ruby-constant">Listen</span><span class="ruby-operator">::</span><span class="ruby-constant">Listener</span>.<span class="ruby-identifier">new</span>).<span class="ruby-identifier">send</span> :<span class="ruby-identifier">_default_ignore_patterns</span>
+</pre>
+
+<p>end</p>
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-pattern" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">pattern</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        <p>def self.default_ignore</p>
+
+<pre class="ruby"><span class="ruby-constant">Listen</span><span class="ruby-operator">::</span><span class="ruby-constant">Silencer</span>.<span class="ruby-identifier">new</span>(<span class="ruby-constant">Listen</span><span class="ruby-operator">::</span><span class="ruby-constant">Listener</span>.<span class="ruby-identifier">new</span>).<span class="ruby-identifier">send</span> :<span class="ruby-identifier">_default_ignore_patterns</span>
+</pre>
+
+<p>end</p>
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-priority" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">priority</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        <p>def self.default_ignore</p>
+
+<pre class="ruby"><span class="ruby-constant">Listen</span><span class="ruby-operator">::</span><span class="ruby-constant">Silencer</span>.<span class="ruby-identifier">new</span>(<span class="ruby-constant">Listen</span><span class="ruby-operator">::</span><span class="ruby-constant">Listener</span>.<span class="ruby-identifier">new</span>).<span class="ruby-identifier">send</span> :<span class="ruby-identifier">_default_ignore_patterns</span>
+</pre>
+
+<p>end</p>
+        
+        </div>
+      </div>
+      
+    </section>
+    
+
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Class Methods</h3>
+       </header>
+
+    
+      <div id="method-c-new" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">new</span><span
+            class="method-args">(options = {}, &client_callback)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Create a file system watcher. Start it by calling <a
+href="Watcher.html#method-i-start">start</a>.</p>
+
+<p>@param <a href=":directory">options</a> the directory to watch (default
+“.”) @param <a href=":pattern">options</a> the glob pattern to search under
+the watched directory (default “*<strong>/</strong>”) @param <a
+href=":priority">options</a> the priority of the watcher thread (default 0)</p>
+          
+          
+
+          
+          <div class="method-source-code" id="new-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/rerun-0.13.0/lib/rerun/watcher.rb, line 29</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">options</span> = {}, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">client_callback</span>)
+  <span class="ruby-ivar">@client_callback</span> = <span class="ruby-identifier">client_callback</span>
+
+  <span class="ruby-identifier">options</span> = {
+      <span class="ruby-value">:directory</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;.&quot;</span>,
+      <span class="ruby-value">:pattern</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;**/*&quot;</span>,
+      <span class="ruby-value">:priority</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">0</span>,
+  }.<span class="ruby-identifier">merge</span>(<span class="ruby-identifier">options</span>)
+
+  <span class="ruby-ivar">@pattern</span> = <span class="ruby-identifier">options</span>[<span class="ruby-value">:pattern</span>]
+  <span class="ruby-ivar">@directories</span> = <span class="ruby-identifier">options</span>[<span class="ruby-value">:directory</span>]
+  <span class="ruby-ivar">@directories</span> = <span class="ruby-identifier">sanitize_dirs</span>(<span class="ruby-ivar">@directories</span>)
+  <span class="ruby-ivar">@priority</span> = <span class="ruby-identifier">options</span>[<span class="ruby-value">:priority</span>]
+  <span class="ruby-ivar">@force_polling</span> = <span class="ruby-identifier">options</span>[<span class="ruby-value">:force_polling</span>]
+  <span class="ruby-ivar">@ignore</span> = [<span class="ruby-identifier">options</span>[<span class="ruby-value">:ignore</span>]].<span class="ruby-identifier">flatten</span>.<span class="ruby-identifier">compact</span>
+  <span class="ruby-ivar">@thread</span> = <span class="ruby-keyword">nil</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-adapter" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">adapter</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="adapter-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/rerun-0.13.0/lib/rerun/watcher.rb, line 120</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">adapter</span>
+  <span class="ruby-ivar">@listener</span> <span class="ruby-operator">&amp;&amp;</span>
+      (<span class="ruby-identifier">backend</span> = <span class="ruby-ivar">@listener</span>.<span class="ruby-identifier">instance_variable_get</span>(<span class="ruby-value">:@backend</span>)) <span class="ruby-operator">&amp;&amp;</span>
+      <span class="ruby-identifier">backend</span>.<span class="ruby-identifier">instance_variable_get</span>(<span class="ruby-value">:@adapter</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-adapter_name" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">adapter_name</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="adapter_name-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/rerun-0.13.0/lib/rerun/watcher.rb, line 126</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">adapter_name</span>
+  <span class="ruby-identifier">adapter</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">adapter</span>.<span class="ruby-identifier">class</span>.<span class="ruby-identifier">name</span>.<span class="ruby-identifier">split</span>(<span class="ruby-string">&#39;::&#39;</span>).<span class="ruby-identifier">last</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-ignoring" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">ignoring</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="ignoring-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/rerun-0.13.0/lib/rerun/watcher.rb, line 84</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">ignoring</span>
+  <span class="ruby-comment"># todo: --no-ignore-dotfiles</span>
+  <span class="ruby-identifier">dotfiles</span> = <span class="ruby-regexp">/^\.[^.]/</span> <span class="ruby-comment"># at beginning of string, a real dot followed by any other character</span>
+  [<span class="ruby-identifier">dotfiles</span>] <span class="ruby-operator">+</span> <span class="ruby-ivar">@ignore</span>.<span class="ruby-identifier">map</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">x</span><span class="ruby-operator">|</span> <span class="ruby-constant">Rerun</span><span class="ruby-operator">::</span><span class="ruby-constant">Glob</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">x</span>).<span class="ruby-identifier">to_regexp</span> }
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-join" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">join</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>wait for the file watcher to finish</p>
+          
+          
+
+          
+          <div class="method-source-code" id="join-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/rerun-0.13.0/lib/rerun/watcher.rb, line 102</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">join</span>
+  <span class="ruby-ivar">@thread</span>.<span class="ruby-identifier">join</span> <span class="ruby-keyword">if</span> <span class="ruby-ivar">@thread</span>
+<span class="ruby-keyword">rescue</span> <span class="ruby-constant">Interrupt</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">e</span>
+  <span class="ruby-comment"># don&#39;t care</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-pause" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">pause</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="pause-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/rerun-0.13.0/lib/rerun/watcher.rb, line 108</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">pause</span>
+  <span class="ruby-ivar">@listener</span>.<span class="ruby-identifier">pause</span> <span class="ruby-keyword">if</span> <span class="ruby-ivar">@listener</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-running-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">running?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="running-3F-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/rerun-0.13.0/lib/rerun/watcher.rb, line 116</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">running?</span>
+  <span class="ruby-ivar">@listener</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-ivar">@listener</span>.<span class="ruby-identifier">processing?</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-sanitize_dirs" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">sanitize_dirs</span><span
+            class="method-args">(dirs)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="sanitize_dirs-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/rerun-0.13.0/lib/rerun/watcher.rb, line 47</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">sanitize_dirs</span>(<span class="ruby-identifier">dirs</span>)
+  <span class="ruby-identifier">dirs</span> = [<span class="ruby-operator">*</span><span class="ruby-identifier">dirs</span>]
+  <span class="ruby-identifier">dirs</span>.<span class="ruby-identifier">map</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">d</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">d</span>.<span class="ruby-identifier">chomp!</span>(<span class="ruby-string">&quot;/&quot;</span>)
+    <span class="ruby-keyword">unless</span> <span class="ruby-constant">FileTest</span>.<span class="ruby-identifier">exists?</span>(<span class="ruby-identifier">d</span>) <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-constant">FileTest</span>.<span class="ruby-identifier">readable?</span>(<span class="ruby-identifier">d</span>) <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-constant">FileTest</span>.<span class="ruby-identifier">directory?</span>(<span class="ruby-identifier">d</span>)
+      <span class="ruby-identifier">raise</span> <span class="ruby-constant">InvalidDirectoryError</span>, <span class="ruby-node">&quot;Directory &#39;#{d}&#39; either doesnt exist or isn&#39;t readable&quot;</span>
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-constant">File</span>.<span class="ruby-identifier">expand_path</span>(<span class="ruby-identifier">d</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-start" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">start</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="start-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/rerun-0.13.0/lib/rerun/watcher.rb, line 58</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">start</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-ivar">@thread</span> <span class="ruby-keyword">then</span>
+    <span class="ruby-identifier">raise</span> <span class="ruby-constant">RuntimeError</span>, <span class="ruby-string">&quot;already started&quot;</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-ivar">@thread</span> = <span class="ruby-constant">Thread</span>.<span class="ruby-identifier">new</span> <span class="ruby-keyword">do</span>
+    <span class="ruby-ivar">@listener</span> = <span class="ruby-constant">Listen</span>.<span class="ruby-identifier">to</span>(<span class="ruby-operator">*</span><span class="ruby-ivar">@directories</span>, <span class="ruby-identifier">only</span><span class="ruby-operator">:</span> <span class="ruby-identifier">watching</span>, <span class="ruby-identifier">ignore</span><span class="ruby-operator">:</span> <span class="ruby-identifier">ignoring</span>, <span class="ruby-identifier">wait_for_delay</span><span class="ruby-operator">:</span> <span class="ruby-value">1</span>, <span class="ruby-identifier">force_polling</span><span class="ruby-operator">:</span> <span class="ruby-ivar">@force_polling</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">modified</span>, <span class="ruby-identifier">added</span>, <span class="ruby-identifier">removed</span><span class="ruby-operator">|</span>
+      <span class="ruby-identifier">count</span> = <span class="ruby-identifier">modified</span>.<span class="ruby-identifier">size</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">added</span>.<span class="ruby-identifier">size</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">removed</span>.<span class="ruby-identifier">size</span>
+      <span class="ruby-keyword">if</span> <span class="ruby-identifier">count</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">0</span>
+        <span class="ruby-ivar">@client_callback</span>.<span class="ruby-identifier">call</span>(<span class="ruby-value">:modified</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">modified</span>, <span class="ruby-value">:added</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">added</span>, <span class="ruby-value">:removed</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">removed</span>)
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-ivar">@listener</span>.<span class="ruby-identifier">start</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-ivar">@thread</span>.<span class="ruby-identifier">priority</span> = <span class="ruby-ivar">@priority</span>
+
+  <span class="ruby-identifier">sleep</span> <span class="ruby-value">0.1</span> <span class="ruby-keyword">until</span> <span class="ruby-ivar">@listener</span>
+
+  <span class="ruby-identifier">at_exit</span> { <span class="ruby-identifier">stop</span> } <span class="ruby-comment"># try really hard to clean up after ourselves</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-stop" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">stop</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>kill the file watcher thread</p>
+          
+          
+
+          
+          <div class="method-source-code" id="stop-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/rerun-0.13.0/lib/rerun/watcher.rb, line 91</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">stop</span>
+  <span class="ruby-ivar">@thread</span>.<span class="ruby-identifier">wakeup</span> <span class="ruby-keyword">rescue</span> <span class="ruby-constant">ThreadError</span>
+  <span class="ruby-keyword">begin</span>
+    <span class="ruby-ivar">@listener</span>.<span class="ruby-identifier">stop</span>
+  <span class="ruby-keyword">rescue</span> <span class="ruby-constant">Exception</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">e</span>
+    <span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;#{e.class}: #{e.message} stopping listener&quot;</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-ivar">@thread</span>.<span class="ruby-identifier">kill</span> <span class="ruby-keyword">rescue</span> <span class="ruby-constant">ThreadError</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-unpause" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">unpause</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="unpause-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/rerun-0.13.0/lib/rerun/watcher.rb, line 112</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">unpause</span>
+  <span class="ruby-ivar">@listener</span>.<span class="ruby-identifier">start</span> <span class="ruby-keyword">if</span> <span class="ruby-ivar">@listener</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-watching" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">watching</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="watching-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/rerun-0.13.0/lib/rerun/watcher.rb, line 80</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">watching</span>
+  <span class="ruby-constant">Rerun</span><span class="ruby-operator">::</span><span class="ruby-constant">Glob</span>.<span class="ruby-identifier">new</span>(<span class="ruby-ivar">@pattern</span>).<span class="ruby-identifier">to_regexp</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="https://rdoc.github.io/rdoc">RDoc</a> 5.0.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

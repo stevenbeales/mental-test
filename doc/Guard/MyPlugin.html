@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class Guard::MyPlugin - RDoc Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../";
+  var index_rel_prefix = "../";
+</script>
+
+<script src="../js/jquery.js"></script>
+<script src="../js/darkfish.js"></script>
+
+<link href="../css/fonts.css" rel="stylesheet">
+<link href="../css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../table_of_contents.html#pages">Pages</a>
+    <a href="../table_of_contents.html#classes">Classes</a>
+    <a href="../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link"><a href="Plugin.html">Guard::Plugin</a>
+  
+</div>
+
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-i-run_all">#run_all</a>
+    
+    <li ><a href="#method-i-run_on_modifications">#run_on_modifications</a>
+    
+    <li ><a href="#method-i-start">#start</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-Guard::MyPlugin">
+  <h1 id="class-Guard::MyPlugin" class="class">
+    class Guard::MyPlugin
+  </h1>
+
+  <section class="description">
+    
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+
+    
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-run_all" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">run_all</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="run_all-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/guard-compat-1.2.1/lib/guard/compat/example.rb, line 17</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">run_all</span>
+  <span class="ruby-constant">Guard</span><span class="ruby-operator">::</span><span class="ruby-constant">Compat</span><span class="ruby-operator">::</span><span class="ruby-constant">UI</span>.<span class="ruby-identifier">notify</span>(<span class="ruby-string">&#39;foo&#39;</span>, <span class="ruby-identifier">bar</span><span class="ruby-operator">:</span> <span class="ruby-value">:baz</span>)
+  <span class="ruby-constant">Guard</span><span class="ruby-operator">::</span><span class="ruby-constant">Compat</span><span class="ruby-operator">::</span><span class="ruby-constant">UI</span>.<span class="ruby-identifier">color</span>(<span class="ruby-string">&#39;foo&#39;</span>, <span class="ruby-value">:white</span>)
+
+  <span class="ruby-constant">Guard</span><span class="ruby-operator">::</span><span class="ruby-constant">Compat</span><span class="ruby-operator">::</span><span class="ruby-constant">UI</span>.<span class="ruby-identifier">info</span>(<span class="ruby-string">&#39;foo&#39;</span>, <span class="ruby-identifier">bar</span><span class="ruby-operator">:</span> <span class="ruby-value">:baz</span>)
+  <span class="ruby-constant">Guard</span><span class="ruby-operator">::</span><span class="ruby-constant">Compat</span><span class="ruby-operator">::</span><span class="ruby-constant">UI</span>.<span class="ruby-identifier">warning</span>(<span class="ruby-string">&#39;foo&#39;</span>, <span class="ruby-identifier">bar</span><span class="ruby-operator">:</span> <span class="ruby-value">:baz</span>)
+  <span class="ruby-constant">Guard</span><span class="ruby-operator">::</span><span class="ruby-constant">Compat</span><span class="ruby-operator">::</span><span class="ruby-constant">UI</span>.<span class="ruby-identifier">error</span>(<span class="ruby-string">&#39;foo&#39;</span>, <span class="ruby-identifier">bar</span><span class="ruby-operator">:</span> <span class="ruby-value">:baz</span>)
+  <span class="ruby-constant">Guard</span><span class="ruby-operator">::</span><span class="ruby-constant">Compat</span><span class="ruby-operator">::</span><span class="ruby-constant">UI</span>.<span class="ruby-identifier">debug</span>(<span class="ruby-string">&#39;foo&#39;</span>, <span class="ruby-identifier">bar</span><span class="ruby-operator">:</span> <span class="ruby-value">:baz</span>)
+  <span class="ruby-constant">Guard</span><span class="ruby-operator">::</span><span class="ruby-constant">Compat</span><span class="ruby-operator">::</span><span class="ruby-constant">UI</span>.<span class="ruby-identifier">deprecation</span>(<span class="ruby-string">&#39;foo&#39;</span>, <span class="ruby-identifier">bar</span><span class="ruby-operator">:</span> <span class="ruby-value">:baz</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-run_on_modifications" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">run_on_modifications</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="run_on_modifications-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/guard-compat-1.2.1/lib/guard/compat/example.rb, line 28</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">run_on_modifications</span>
+  <span class="ruby-constant">Guard</span><span class="ruby-operator">::</span><span class="ruby-constant">Compat</span><span class="ruby-operator">::</span><span class="ruby-constant">UI</span>.<span class="ruby-identifier">color_enabled?</span>
+  <span class="ruby-constant">Guard</span><span class="ruby-operator">::</span><span class="ruby-constant">Compat</span>.<span class="ruby-identifier">matching_files</span>(<span class="ruby-keyword">self</span>, [<span class="ruby-string">&#39;foo&#39;</span>])
+  <span class="ruby-constant">Guard</span><span class="ruby-operator">::</span><span class="ruby-constant">Compat</span>.<span class="ruby-identifier">watched_directories</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-start" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">start</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="start-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/guard-compat-1.2.1/lib/guard/compat/example.rb, line 6</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">start</span>
+  <span class="ruby-constant">Guard</span><span class="ruby-operator">::</span><span class="ruby-constant">Compat</span><span class="ruby-operator">::</span><span class="ruby-constant">UI</span>.<span class="ruby-identifier">notify</span>(<span class="ruby-string">&#39;foo&#39;</span>)
+  <span class="ruby-constant">Guard</span><span class="ruby-operator">::</span><span class="ruby-constant">Compat</span><span class="ruby-operator">::</span><span class="ruby-constant">UI</span>.<span class="ruby-identifier">color</span>(<span class="ruby-string">&#39;foo&#39;</span>)
+
+  <span class="ruby-constant">Guard</span><span class="ruby-operator">::</span><span class="ruby-constant">Compat</span><span class="ruby-operator">::</span><span class="ruby-constant">UI</span>.<span class="ruby-identifier">info</span>(<span class="ruby-string">&#39;foo&#39;</span>)
+  <span class="ruby-constant">Guard</span><span class="ruby-operator">::</span><span class="ruby-constant">Compat</span><span class="ruby-operator">::</span><span class="ruby-constant">UI</span>.<span class="ruby-identifier">warning</span>(<span class="ruby-string">&#39;foo&#39;</span>)
+  <span class="ruby-constant">Guard</span><span class="ruby-operator">::</span><span class="ruby-constant">Compat</span><span class="ruby-operator">::</span><span class="ruby-constant">UI</span>.<span class="ruby-identifier">error</span>(<span class="ruby-string">&#39;foo&#39;</span>)
+  <span class="ruby-constant">Guard</span><span class="ruby-operator">::</span><span class="ruby-constant">Compat</span><span class="ruby-operator">::</span><span class="ruby-constant">UI</span>.<span class="ruby-identifier">debug</span>(<span class="ruby-string">&#39;foo&#39;</span>)
+  <span class="ruby-constant">Guard</span><span class="ruby-operator">::</span><span class="ruby-constant">Compat</span><span class="ruby-operator">::</span><span class="ruby-constant">UI</span>.<span class="ruby-identifier">deprecation</span>(<span class="ruby-string">&#39;foo&#39;</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="https://rdoc.github.io/rdoc">RDoc</a> 5.0.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

@@ -1,0 +1,1844 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class TestMinitestStub - RDoc Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "./";
+  var index_rel_prefix = "./";
+</script>
+
+<script src="./js/jquery.js"></script>
+<script src="./js/darkfish.js"></script>
+
+<link href="./css/fonts.css" rel="stylesheet">
+<link href="./css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="./index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="./table_of_contents.html#pages">Pages</a>
+    <a href="./table_of_contents.html#classes">Classes</a>
+    <a href="./table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link"><a href="Minitest/Test.html">Minitest::Test</a>
+  
+</div>
+
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li class="calls-super" ><a href="#method-c-method_missing">::method_missing</a>
+    
+    <li ><a href="#method-c-respond_to-3F">::respond_to?</a>
+    
+    <li ><a href="#method-i-assert_deprecated">#assert_deprecated</a>
+    
+    <li ><a href="#method-i-assert_stub">#assert_stub</a>
+    
+    <li ><a href="#method-i-fail_clap">#fail_clap</a>
+    
+    <li class="calls-super" ><a href="#method-i-setup">#setup</a>
+    
+    <li ><a href="#method-i-skip_stub6">#skip_stub6</a>
+    
+    <li class="calls-super" ><a href="#method-i-teardown">#teardown</a>
+    
+    <li ><a href="#method-i-test_dynamic_method">#test_dynamic_method</a>
+    
+    <li ><a href="#method-i-test_mock_with_yield">#test_mock_with_yield</a>
+    
+    <li ><a href="#method-i-test_stub_NameError">#test_stub_NameError</a>
+    
+    <li ><a href="#method-i-test_stub_block">#test_stub_block</a>
+    
+    <li ><a href="#method-i-test_stub_block_args">#test_stub_block_args</a>
+    
+    <li ><a href="#method-i-test_stub_callable">#test_stub_callable</a>
+    
+    <li ><a href="#method-i-test_stub_callable_block_5">#test_stub_callable_block_5</a>
+    
+    <li ><a href="#method-i-test_stub_callable_block_6">#test_stub_callable_block_6</a>
+    
+    <li ><a href="#method-i-test_stub_lambda">#test_stub_lambda</a>
+    
+    <li ><a href="#method-i-test_stub_lambda_args">#test_stub_lambda_args</a>
+    
+    <li ><a href="#method-i-test_stub_lambda_block_5">#test_stub_lambda_block_5</a>
+    
+    <li ><a href="#method-i-test_stub_lambda_block_6">#test_stub_lambda_block_6</a>
+    
+    <li ><a href="#method-i-test_stub_lambda_block_args_5">#test_stub_lambda_block_args_5</a>
+    
+    <li ><a href="#method-i-test_stub_lambda_block_args_6">#test_stub_lambda_block_args_6</a>
+    
+    <li ><a href="#method-i-test_stub_lambda_block_args_6_2">#test_stub_lambda_block_args_6_2</a>
+    
+    <li ><a href="#method-i-test_stub_lambda_block_call_5">#test_stub_lambda_block_call_5</a>
+    
+    <li ><a href="#method-i-test_stub_lambda_block_call_6">#test_stub_lambda_block_call_6</a>
+    
+    <li ><a href="#method-i-test_stub_lambda_block_call_args_5">#test_stub_lambda_block_call_args_5</a>
+    
+    <li ><a href="#method-i-test_stub_lambda_block_call_args_6">#test_stub_lambda_block_call_args_6</a>
+    
+    <li ><a href="#method-i-test_stub_lambda_block_call_args_6_2">#test_stub_lambda_block_call_args_6_2</a>
+    
+    <li ><a href="#method-i-test_stub_private_module_method">#test_stub_private_module_method</a>
+    
+    <li ><a href="#method-i-test_stub_private_module_method_indirect">#test_stub_private_module_method_indirect</a>
+    
+    <li ><a href="#method-i-test_stub_public_module_method">#test_stub_public_module_method</a>
+    
+    <li ><a href="#method-i-test_stub_value">#test_stub_value</a>
+    
+    <li ><a href="#method-i-test_stub_value__old">#test_stub_value__old</a>
+    
+    <li ><a href="#method-i-test_stub_value_args">#test_stub_value_args</a>
+    
+    <li ><a href="#method-i-test_stub_value_block_5">#test_stub_value_block_5</a>
+    
+    <li ><a href="#method-i-test_stub_value_block_6">#test_stub_value_block_6</a>
+    
+    <li ><a href="#method-i-test_stub_value_block_args_5">#test_stub_value_block_args_5</a>
+    
+    <li ><a href="#method-i-test_stub_value_block_args_5__break_if_not_passed">#test_stub_value_block_args_5__break_if_not_passed</a>
+    
+    <li ><a href="#method-i-test_stub_value_block_args_6">#test_stub_value_block_args_6</a>
+    
+    <li ><a href="#method-i-test_stub_value_block_args_6_2">#test_stub_value_block_args_6_2</a>
+    
+    <li ><a href="#method-i-test_stub_yield_self">#test_stub_yield_self</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-TestMinitestStub">
+  <h1 id="class-TestMinitestStub" class="class">
+    class TestMinitestStub
+  </h1>
+
+  <section class="description">
+    
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Class Methods</h3>
+       </header>
+
+    
+      <div id="method-c-method_missing" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">method_missing</span><span
+            class="method-args">(meth, *args, &block)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+            <div class="method-calls-super">
+              Calls superclass method
+              
+            </div>
+          
+
+          
+          <div class="method-source-code" id="method_missing-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/minitest-5.11.3/test/minitest/test_minitest_mock.rb, line 480</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">method_missing</span> <span class="ruby-identifier">meth</span>, <span class="ruby-operator">*</span><span class="ruby-identifier">args</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">meth</span> <span class="ruby-operator">==</span> <span class="ruby-value">:found</span>
+    <span class="ruby-keyword">false</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-keyword">super</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-respond_to-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">respond_to?</span><span
+            class="method-args">(meth)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="respond_to-3F-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/minitest-5.11.3/test/minitest/test_minitest_mock.rb, line 476</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">respond_to?</span> <span class="ruby-identifier">meth</span>
+  <span class="ruby-identifier">meth</span> <span class="ruby-operator">==</span> <span class="ruby-value">:found</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-assert_deprecated" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">assert_deprecated</span><span
+            class="method-args">(re = /deprecated/) { || ... }</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="assert_deprecated-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/minitest-5.11.3/test/minitest/test_minitest_mock.rb, line 854</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">assert_deprecated</span> <span class="ruby-identifier">re</span> = <span class="ruby-regexp">/deprecated/</span>
+  <span class="ruby-identifier">assert_output</span> <span class="ruby-string">&quot;&quot;</span>, <span class="ruby-identifier">re</span> <span class="ruby-keyword">do</span>
+    <span class="ruby-keyword">yield</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-assert_stub" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">assert_stub</span><span
+            class="method-args">(val_or_callable)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="assert_stub-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/minitest-5.11.3/test/minitest/test_minitest_mock.rb, line 386</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">assert_stub</span> <span class="ruby-identifier">val_or_callable</span>
+  <span class="ruby-ivar">@assertion_count</span> <span class="ruby-operator">+=</span> <span class="ruby-value">1</span>
+
+  <span class="ruby-identifier">t</span> = <span class="ruby-constant">Time</span>.<span class="ruby-identifier">now</span>.<span class="ruby-identifier">to_i</span>
+
+  <span class="ruby-constant">Time</span>.<span class="ruby-identifier">stub</span> <span class="ruby-value">:now</span>, <span class="ruby-identifier">val_or_callable</span> <span class="ruby-keyword">do</span>
+    <span class="ruby-ivar">@tc</span>.<span class="ruby-identifier">assert_equal</span> <span class="ruby-value">42</span>, <span class="ruby-constant">Time</span>.<span class="ruby-identifier">now</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-ivar">@tc</span>.<span class="ruby-identifier">assert_operator</span> <span class="ruby-constant">Time</span>.<span class="ruby-identifier">now</span>.<span class="ruby-identifier">to_i</span>, <span class="ruby-value">:&gt;=</span>, <span class="ruby-identifier">t</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-fail_clap" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">fail_clap</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="fail_clap-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/minitest-5.11.3/test/minitest/test_minitest_mock.rb, line 414</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">fail_clap</span>
+  <span class="ruby-identifier">raise</span>
+  <span class="ruby-value">:clap</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-setup" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">setup</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+            <div class="method-calls-super">
+              Calls superclass method
+              <a href="Minitest/Test.html#method-c-setup">Minitest::Test.setup</a>
+            </div>
+          
+
+          
+          <div class="method-source-code" id="setup-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/minitest-5.11.3/test/minitest/test_minitest_mock.rb, line 367</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">setup</span>
+  <span class="ruby-keyword">super</span>
+  <span class="ruby-constant">Minitest</span><span class="ruby-operator">::</span><span class="ruby-constant">Test</span>.<span class="ruby-identifier">reset</span>
+
+  <span class="ruby-ivar">@tc</span> = <span class="ruby-constant">Minitest</span><span class="ruby-operator">::</span><span class="ruby-constant">Test</span>.<span class="ruby-identifier">new</span> <span class="ruby-string">&quot;fake tc&quot;</span>
+  <span class="ruby-ivar">@assertion_count</span> = <span class="ruby-value">1</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-skip_stub6" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">skip_stub6</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="skip_stub6-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/minitest-5.11.3/test/minitest/test_minitest_mock.rb, line 860</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">skip_stub6</span>
+  <span class="ruby-identifier">skip</span> <span class="ruby-string">&quot;not yet&quot;</span> <span class="ruby-keyword">unless</span> <span class="ruby-constant">STUB6</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-teardown" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">teardown</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+            <div class="method-calls-super">
+              Calls superclass method
+              <a href="Minitest/Test.html#method-c-teardown">Minitest::Test.teardown</a>
+            </div>
+          
+
+          
+          <div class="method-source-code" id="teardown-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/minitest-5.11.3/test/minitest/test_minitest_mock.rb, line 375</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">teardown</span>
+  <span class="ruby-keyword">super</span>
+  <span class="ruby-identifier">assert_equal</span> <span class="ruby-ivar">@assertion_count</span>, <span class="ruby-ivar">@tc</span>.<span class="ruby-identifier">assertions</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_dynamic_method" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_dynamic_method</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_dynamic_method-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/minitest-5.11.3/test/minitest/test_minitest_mock.rb, line 472</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">test_dynamic_method</span>
+  <span class="ruby-ivar">@assertion_count</span> = <span class="ruby-value">2</span>
+
+  <span class="ruby-identifier">dynamic</span> = <span class="ruby-constant">Class</span>.<span class="ruby-identifier">new</span> <span class="ruby-keyword">do</span>
+    <span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">respond_to?</span> <span class="ruby-identifier">meth</span>
+      <span class="ruby-identifier">meth</span> <span class="ruby-operator">==</span> <span class="ruby-value">:found</span>
+    <span class="ruby-keyword">end</span>
+
+    <span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">method_missing</span> <span class="ruby-identifier">meth</span>, <span class="ruby-operator">*</span><span class="ruby-identifier">args</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>
+      <span class="ruby-keyword">if</span> <span class="ruby-identifier">meth</span> <span class="ruby-operator">==</span> <span class="ruby-value">:found</span>
+        <span class="ruby-keyword">false</span>
+      <span class="ruby-keyword">else</span>
+        <span class="ruby-keyword">super</span>
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">val</span> = <span class="ruby-identifier">dynamic</span>.<span class="ruby-identifier">stub</span>(<span class="ruby-value">:found</span>, <span class="ruby-keyword">true</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">s</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">s</span>.<span class="ruby-identifier">found</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-ivar">@tc</span>.<span class="ruby-identifier">assert_equal</span> <span class="ruby-keyword">true</span>, <span class="ruby-identifier">val</span>
+  <span class="ruby-ivar">@tc</span>.<span class="ruby-identifier">assert_equal</span> <span class="ruby-keyword">false</span>, <span class="ruby-identifier">dynamic</span>.<span class="ruby-identifier">found</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_mock_with_yield" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_mock_with_yield</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_mock_with_yield-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/minitest-5.11.3/test/minitest/test_minitest_mock.rb, line 508</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">test_mock_with_yield</span>
+  <span class="ruby-identifier">mock</span> = <span class="ruby-constant">Minitest</span><span class="ruby-operator">::</span><span class="ruby-constant">Mock</span>.<span class="ruby-identifier">new</span>
+  <span class="ruby-identifier">mock</span>.<span class="ruby-identifier">expect</span>(<span class="ruby-value">:write</span>, <span class="ruby-keyword">true</span>) <span class="ruby-keyword">do</span>
+    <span class="ruby-keyword">true</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">rs</span> = <span class="ruby-keyword">nil</span>
+
+  <span class="ruby-constant">File</span>.<span class="ruby-identifier">stub</span> <span class="ruby-value">:open</span>, <span class="ruby-keyword">true</span>, <span class="ruby-identifier">mock</span> <span class="ruby-keyword">do</span>
+    <span class="ruby-constant">File</span>.<span class="ruby-identifier">open</span> <span class="ruby-string">&quot;foo.txt&quot;</span>, <span class="ruby-string">&quot;r&quot;</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">f</span><span class="ruby-operator">|</span>
+      <span class="ruby-identifier">rs</span> = <span class="ruby-identifier">f</span>.<span class="ruby-identifier">write</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-ivar">@tc</span>.<span class="ruby-identifier">assert_equal</span> <span class="ruby-keyword">true</span>, <span class="ruby-identifier">rs</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_stub_NameError" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_stub_NameError</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_stub_NameError-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/minitest-5.11.3/test/minitest/test_minitest_mock.rb, line 497</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">test_stub_NameError</span>
+  <span class="ruby-identifier">e</span> = <span class="ruby-ivar">@tc</span>.<span class="ruby-identifier">assert_raises</span> <span class="ruby-constant">NameError</span> <span class="ruby-keyword">do</span>
+    <span class="ruby-constant">Time</span>.<span class="ruby-identifier">stub</span> <span class="ruby-value">:nope_nope_nope</span>, <span class="ruby-value">42</span> <span class="ruby-keyword">do</span>
+      <span class="ruby-comment"># do nothing</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">exp</span> = <span class="ruby-node">/undefined method `nope_nope_nope&#39; for( class)? `#{self.class}::Time&#39;/</span>
+  <span class="ruby-identifier">assert_match</span> <span class="ruby-identifier">exp</span>, <span class="ruby-identifier">e</span>.<span class="ruby-identifier">message</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_stub_block" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_stub_block</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_stub_block-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/minitest-5.11.3/test/minitest/test_minitest_mock.rb, line 436</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">test_stub_block</span>
+  <span class="ruby-identifier">assert_stub</span> <span class="ruby-identifier">lambda</span> { <span class="ruby-value">42</span> }
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_stub_block_args" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_stub_block_args</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_stub_block_args-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/minitest-5.11.3/test/minitest/test_minitest_mock.rb, line 440</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">test_stub_block_args</span>
+  <span class="ruby-ivar">@assertion_count</span> <span class="ruby-operator">+=</span> <span class="ruby-value">1</span>
+
+  <span class="ruby-identifier">t</span> = <span class="ruby-constant">Time</span>.<span class="ruby-identifier">now</span>.<span class="ruby-identifier">to_i</span>
+
+  <span class="ruby-constant">Time</span>.<span class="ruby-identifier">stub</span> <span class="ruby-value">:now</span>,  <span class="ruby-identifier">lambda</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">n</span><span class="ruby-operator">|</span> <span class="ruby-identifier">n</span> <span class="ruby-operator">*</span> <span class="ruby-value">2</span> } <span class="ruby-keyword">do</span>
+    <span class="ruby-ivar">@tc</span>.<span class="ruby-identifier">assert_equal</span> <span class="ruby-value">42</span>, <span class="ruby-constant">Time</span>.<span class="ruby-identifier">now</span>(<span class="ruby-value">21</span>)
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-ivar">@tc</span>.<span class="ruby-identifier">assert_operator</span> <span class="ruby-constant">Time</span>.<span class="ruby-identifier">now</span>.<span class="ruby-identifier">to_i</span>, <span class="ruby-value">:&gt;=</span>, <span class="ruby-identifier">t</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_stub_callable" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_stub_callable</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_stub_callable-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/minitest-5.11.3/test/minitest/test_minitest_mock.rb, line 452</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">test_stub_callable</span>
+  <span class="ruby-identifier">obj</span> = <span class="ruby-constant">Object</span>.<span class="ruby-identifier">new</span>
+
+  <span class="ruby-keyword">def</span> <span class="ruby-identifier">obj</span>.<span class="ruby-identifier">call</span>
+    <span class="ruby-value">42</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">assert_stub</span> <span class="ruby-identifier">obj</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_stub_callable_block_5" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_stub_callable_block_5</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_stub_callable_block_5-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/minitest-5.11.3/test/minitest/test_minitest_mock.rb, line 596</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">test_stub_callable_block_5</span> <span class="ruby-comment"># from tenderlove</span>
+  <span class="ruby-ivar">@assertion_count</span> <span class="ruby-operator">+=</span> <span class="ruby-value">1</span>
+  <span class="ruby-constant">Foo</span>.<span class="ruby-identifier">stub5</span> <span class="ruby-value">:blocking</span>, <span class="ruby-constant">Bar</span>.<span class="ruby-identifier">new</span> <span class="ruby-keyword">do</span>
+    <span class="ruby-ivar">@tc</span>.<span class="ruby-identifier">assert_output</span> <span class="ruby-string">&quot;hi\n&quot;</span>, <span class="ruby-string">&quot;&quot;</span> <span class="ruby-keyword">do</span>
+      <span class="ruby-constant">Foo</span>.<span class="ruby-identifier">blocking</span> <span class="ruby-keyword">do</span>
+        <span class="ruby-ivar">@tc</span>.<span class="ruby-identifier">flunk</span> <span class="ruby-string">&quot;shouldn&#39;t ever hit this&quot;</span>
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_stub_callable_block_6" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_stub_callable_block_6</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_stub_callable_block_6-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/minitest-5.11.3/test/minitest/test_minitest_mock.rb, line 607</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">test_stub_callable_block_6</span> <span class="ruby-comment"># from tenderlove</span>
+  <span class="ruby-identifier">skip_stub6</span>
+
+  <span class="ruby-ivar">@assertion_count</span> <span class="ruby-operator">+=</span> <span class="ruby-value">1</span>
+  <span class="ruby-constant">Foo</span>.<span class="ruby-identifier">stub6</span> <span class="ruby-value">:blocking</span>, <span class="ruby-constant">Bar</span>.<span class="ruby-identifier">new</span> <span class="ruby-keyword">do</span>
+    <span class="ruby-ivar">@tc</span>.<span class="ruby-identifier">assert_output</span> <span class="ruby-string">&quot;hi\n&quot;</span>, <span class="ruby-string">&quot;&quot;</span> <span class="ruby-keyword">do</span>
+      <span class="ruby-constant">Foo</span>.<span class="ruby-identifier">blocking</span> <span class="ruby-keyword">do</span>
+        <span class="ruby-ivar">@tc</span>.<span class="ruby-identifier">flunk</span> <span class="ruby-string">&quot;shouldn&#39;t ever hit this&quot;</span>
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_stub_lambda" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_stub_lambda</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_stub_lambda-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/minitest-5.11.3/test/minitest/test_minitest_mock.rb, line 620</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">test_stub_lambda</span>
+  <span class="ruby-constant">Thread</span>.<span class="ruby-identifier">stub</span> <span class="ruby-value">:new</span>, <span class="ruby-identifier">lambda</span> { <span class="ruby-value">21</span><span class="ruby-operator">+</span><span class="ruby-value">21</span> } <span class="ruby-keyword">do</span>
+    <span class="ruby-ivar">@tc</span>.<span class="ruby-identifier">assert_equal</span> <span class="ruby-value">42</span>, <span class="ruby-constant">Thread</span>.<span class="ruby-identifier">new</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_stub_lambda_args" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_stub_lambda_args</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_stub_lambda_args-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/minitest-5.11.3/test/minitest/test_minitest_mock.rb, line 626</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">test_stub_lambda_args</span>
+  <span class="ruby-constant">Thread</span>.<span class="ruby-identifier">stub</span> <span class="ruby-value">:new</span>, <span class="ruby-identifier">lambda</span> { <span class="ruby-value">21</span><span class="ruby-operator">+</span><span class="ruby-value">21</span> }, <span class="ruby-value">:wtf</span> <span class="ruby-keyword">do</span>
+    <span class="ruby-ivar">@tc</span>.<span class="ruby-identifier">assert_equal</span> <span class="ruby-value">42</span>, <span class="ruby-constant">Thread</span>.<span class="ruby-identifier">new</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_stub_lambda_block_5" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_stub_lambda_block_5</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_stub_lambda_block_5-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/minitest-5.11.3/test/minitest/test_minitest_mock.rb, line 632</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">test_stub_lambda_block_5</span>
+  <span class="ruby-constant">Thread</span>.<span class="ruby-identifier">stub5</span> <span class="ruby-value">:new</span>, <span class="ruby-identifier">lambda</span> { <span class="ruby-value">21</span><span class="ruby-operator">+</span><span class="ruby-value">21</span> } <span class="ruby-keyword">do</span>
+    <span class="ruby-identifier">result</span> = <span class="ruby-constant">Thread</span>.<span class="ruby-identifier">new</span> <span class="ruby-keyword">do</span>
+      <span class="ruby-ivar">@tc</span>.<span class="ruby-identifier">flunk</span> <span class="ruby-string">&quot;shouldn&#39;t ever hit this&quot;</span>
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-ivar">@tc</span>.<span class="ruby-identifier">assert_equal</span> <span class="ruby-value">42</span>, <span class="ruby-identifier">result</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_stub_lambda_block_6" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_stub_lambda_block_6</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_stub_lambda_block_6-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/minitest-5.11.3/test/minitest/test_minitest_mock.rb, line 641</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">test_stub_lambda_block_6</span>
+  <span class="ruby-identifier">skip_stub6</span>
+
+  <span class="ruby-constant">Thread</span>.<span class="ruby-identifier">stub6</span> <span class="ruby-value">:new</span>, <span class="ruby-identifier">lambda</span> { <span class="ruby-value">21</span><span class="ruby-operator">+</span><span class="ruby-value">21</span> } <span class="ruby-keyword">do</span>
+    <span class="ruby-identifier">result</span> = <span class="ruby-constant">Thread</span>.<span class="ruby-identifier">new</span> <span class="ruby-keyword">do</span>
+      <span class="ruby-ivar">@tc</span>.<span class="ruby-identifier">flunk</span> <span class="ruby-string">&quot;shouldn&#39;t ever hit this&quot;</span>
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-ivar">@tc</span>.<span class="ruby-identifier">assert_equal</span> <span class="ruby-value">42</span>, <span class="ruby-identifier">result</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_stub_lambda_block_args_5" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_stub_lambda_block_args_5</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_stub_lambda_block_args_5-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/minitest-5.11.3/test/minitest/test_minitest_mock.rb, line 652</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">test_stub_lambda_block_args_5</span>
+  <span class="ruby-ivar">@assertion_count</span> <span class="ruby-operator">+=</span> <span class="ruby-value">1</span>
+  <span class="ruby-constant">Thingy</span>.<span class="ruby-identifier">stub5</span> <span class="ruby-value">:identity</span>, <span class="ruby-identifier">lambda</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">y</span><span class="ruby-operator">|</span> <span class="ruby-ivar">@tc</span>.<span class="ruby-identifier">assert_equal</span> <span class="ruby-value">:nope</span>, <span class="ruby-identifier">y</span>; <span class="ruby-value">21</span><span class="ruby-operator">+</span><span class="ruby-value">21</span> }, <span class="ruby-value">:WTF?</span> <span class="ruby-keyword">do</span>
+    <span class="ruby-identifier">result</span> = <span class="ruby-constant">Thingy</span>.<span class="ruby-identifier">identity</span> <span class="ruby-value">:nope</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">x</span><span class="ruby-operator">|</span>
+      <span class="ruby-ivar">@tc</span>.<span class="ruby-identifier">flunk</span> <span class="ruby-string">&quot;shouldn&#39;t reach this&quot;</span>
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-ivar">@tc</span>.<span class="ruby-identifier">assert_equal</span> <span class="ruby-value">42</span>, <span class="ruby-identifier">result</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_stub_lambda_block_args_6" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_stub_lambda_block_args_6</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_stub_lambda_block_args_6-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/minitest-5.11.3/test/minitest/test_minitest_mock.rb, line 662</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">test_stub_lambda_block_args_6</span>
+  <span class="ruby-identifier">skip_stub6</span>
+
+  <span class="ruby-ivar">@assertion_count</span> <span class="ruby-operator">+=</span> <span class="ruby-value">1</span>
+  <span class="ruby-constant">Thingy</span>.<span class="ruby-identifier">stub6</span> <span class="ruby-value">:identity</span>, <span class="ruby-identifier">lambda</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">y</span><span class="ruby-operator">|</span> <span class="ruby-ivar">@tc</span>.<span class="ruby-identifier">assert_equal</span> <span class="ruby-value">:nope</span>, <span class="ruby-identifier">y</span>; <span class="ruby-value">21</span><span class="ruby-operator">+</span><span class="ruby-value">21</span> }, <span class="ruby-value">:WTF?</span> <span class="ruby-keyword">do</span>
+    <span class="ruby-identifier">result</span> = <span class="ruby-constant">Thingy</span>.<span class="ruby-identifier">identity</span> <span class="ruby-value">:nope</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">x</span><span class="ruby-operator">|</span>
+      <span class="ruby-ivar">@tc</span>.<span class="ruby-identifier">flunk</span> <span class="ruby-string">&quot;shouldn&#39;t reach this&quot;</span>
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-ivar">@tc</span>.<span class="ruby-identifier">assert_equal</span> <span class="ruby-value">42</span>, <span class="ruby-identifier">result</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_stub_lambda_block_args_6_2" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_stub_lambda_block_args_6_2</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_stub_lambda_block_args_6_2-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/minitest-5.11.3/test/minitest/test_minitest_mock.rb, line 674</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">test_stub_lambda_block_args_6_2</span>
+  <span class="ruby-identifier">skip_stub6</span>
+
+  <span class="ruby-ivar">@tc</span>.<span class="ruby-identifier">assert_raises</span> <span class="ruby-constant">ArgumentError</span> <span class="ruby-keyword">do</span>
+    <span class="ruby-constant">Thingy</span>.<span class="ruby-identifier">stub6_2</span> <span class="ruby-value">:identity</span>, <span class="ruby-identifier">lambda</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">y</span><span class="ruby-operator">|</span> <span class="ruby-value">:__not_run__</span> }, <span class="ruby-value">:WTF?</span> <span class="ruby-keyword">do</span>
+      <span class="ruby-comment"># doesn&#39;t matter</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_stub_lambda_block_call_5" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_stub_lambda_block_call_5</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_stub_lambda_block_call_5-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/minitest-5.11.3/test/minitest/test_minitest_mock.rb, line 684</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">test_stub_lambda_block_call_5</span>
+  <span class="ruby-ivar">@assertion_count</span> <span class="ruby-operator">+=</span> <span class="ruby-value">1</span>
+  <span class="ruby-identifier">rs</span> = <span class="ruby-keyword">nil</span>
+  <span class="ruby-identifier">io</span> = <span class="ruby-constant">StringIO</span>.<span class="ruby-identifier">new</span> <span class="ruby-string">&quot;&quot;</span>, <span class="ruby-string">&quot;w&quot;</span>
+  <span class="ruby-constant">File</span>.<span class="ruby-identifier">stub5</span> <span class="ruby-value">:open</span>, <span class="ruby-identifier">lambda</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">p</span>, <span class="ruby-identifier">m</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">blk</span><span class="ruby-operator">|</span> <span class="ruby-identifier">blk</span> <span class="ruby-keyword">and</span> <span class="ruby-identifier">blk</span>.<span class="ruby-identifier">call</span> <span class="ruby-identifier">io</span> } <span class="ruby-keyword">do</span>
+    <span class="ruby-constant">File</span>.<span class="ruby-identifier">open</span> <span class="ruby-string">&quot;foo.txt&quot;</span>, <span class="ruby-string">&quot;r&quot;</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">f</span><span class="ruby-operator">|</span>
+      <span class="ruby-identifier">rs</span> = <span class="ruby-identifier">f</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">f</span>.<span class="ruby-identifier">write</span>(<span class="ruby-string">&quot;woot&quot;</span>)
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-ivar">@tc</span>.<span class="ruby-identifier">assert_equal</span> <span class="ruby-value">4</span>, <span class="ruby-identifier">rs</span>
+  <span class="ruby-ivar">@tc</span>.<span class="ruby-identifier">assert_equal</span> <span class="ruby-string">&quot;woot&quot;</span>, <span class="ruby-identifier">io</span>.<span class="ruby-identifier">string</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_stub_lambda_block_call_6" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_stub_lambda_block_call_6</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_stub_lambda_block_call_6-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/minitest-5.11.3/test/minitest/test_minitest_mock.rb, line 697</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">test_stub_lambda_block_call_6</span>
+  <span class="ruby-identifier">skip_stub6</span>
+
+  <span class="ruby-ivar">@assertion_count</span> <span class="ruby-operator">+=</span> <span class="ruby-value">1</span>
+  <span class="ruby-identifier">rs</span> = <span class="ruby-keyword">nil</span>
+  <span class="ruby-identifier">io</span> = <span class="ruby-constant">StringIO</span>.<span class="ruby-identifier">new</span> <span class="ruby-string">&quot;&quot;</span>, <span class="ruby-string">&quot;w&quot;</span>
+  <span class="ruby-constant">File</span>.<span class="ruby-identifier">stub6</span> <span class="ruby-value">:open</span>, <span class="ruby-identifier">lambda</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">p</span>, <span class="ruby-identifier">m</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">blk</span><span class="ruby-operator">|</span> <span class="ruby-identifier">blk</span>.<span class="ruby-identifier">call</span> <span class="ruby-identifier">io</span> } <span class="ruby-keyword">do</span>
+    <span class="ruby-constant">File</span>.<span class="ruby-identifier">open</span> <span class="ruby-string">&quot;foo.txt&quot;</span>, <span class="ruby-string">&quot;r&quot;</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">f</span><span class="ruby-operator">|</span>
+      <span class="ruby-identifier">rs</span> = <span class="ruby-identifier">f</span>.<span class="ruby-identifier">write</span>(<span class="ruby-string">&quot;woot&quot;</span>)
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-ivar">@tc</span>.<span class="ruby-identifier">assert_equal</span> <span class="ruby-value">4</span>, <span class="ruby-identifier">rs</span>
+  <span class="ruby-ivar">@tc</span>.<span class="ruby-identifier">assert_equal</span> <span class="ruby-string">&quot;woot&quot;</span>, <span class="ruby-identifier">io</span>.<span class="ruby-identifier">string</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_stub_lambda_block_call_args_5" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_stub_lambda_block_call_args_5</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_stub_lambda_block_call_args_5-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/minitest-5.11.3/test/minitest/test_minitest_mock.rb, line 712</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">test_stub_lambda_block_call_args_5</span>
+  <span class="ruby-ivar">@assertion_count</span> <span class="ruby-operator">+=</span> <span class="ruby-value">1</span>
+  <span class="ruby-identifier">rs</span> = <span class="ruby-keyword">nil</span>
+  <span class="ruby-identifier">io</span> = <span class="ruby-constant">StringIO</span>.<span class="ruby-identifier">new</span> <span class="ruby-string">&quot;&quot;</span>, <span class="ruby-string">&quot;w&quot;</span>
+  <span class="ruby-constant">File</span>.<span class="ruby-identifier">stub5</span>(<span class="ruby-value">:open</span>, <span class="ruby-identifier">lambda</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">p</span>, <span class="ruby-identifier">m</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">blk</span><span class="ruby-operator">|</span> <span class="ruby-identifier">blk</span> <span class="ruby-keyword">and</span> <span class="ruby-identifier">blk</span>.<span class="ruby-identifier">call</span> <span class="ruby-identifier">io</span> }, <span class="ruby-value">:WTF?</span>) <span class="ruby-keyword">do</span>
+    <span class="ruby-constant">File</span>.<span class="ruby-identifier">open</span> <span class="ruby-string">&quot;foo.txt&quot;</span>, <span class="ruby-string">&quot;r&quot;</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">f</span><span class="ruby-operator">|</span>
+      <span class="ruby-identifier">rs</span> = <span class="ruby-identifier">f</span>.<span class="ruby-identifier">write</span>(<span class="ruby-string">&quot;woot&quot;</span>)
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-ivar">@tc</span>.<span class="ruby-identifier">assert_equal</span> <span class="ruby-value">4</span>, <span class="ruby-identifier">rs</span>
+  <span class="ruby-ivar">@tc</span>.<span class="ruby-identifier">assert_equal</span> <span class="ruby-string">&quot;woot&quot;</span>, <span class="ruby-identifier">io</span>.<span class="ruby-identifier">string</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_stub_lambda_block_call_args_6" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_stub_lambda_block_call_args_6</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_stub_lambda_block_call_args_6-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/minitest-5.11.3/test/minitest/test_minitest_mock.rb, line 725</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">test_stub_lambda_block_call_args_6</span>
+  <span class="ruby-identifier">skip_stub6</span>
+
+  <span class="ruby-ivar">@assertion_count</span> <span class="ruby-operator">+=</span> <span class="ruby-value">1</span>
+  <span class="ruby-identifier">rs</span> = <span class="ruby-keyword">nil</span>
+  <span class="ruby-identifier">io</span> = <span class="ruby-constant">StringIO</span>.<span class="ruby-identifier">new</span> <span class="ruby-string">&quot;&quot;</span>, <span class="ruby-string">&quot;w&quot;</span>
+  <span class="ruby-constant">File</span>.<span class="ruby-identifier">stub6</span>(<span class="ruby-value">:open</span>, <span class="ruby-identifier">lambda</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">p</span>, <span class="ruby-identifier">m</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">blk</span><span class="ruby-operator">|</span> <span class="ruby-identifier">blk</span>.<span class="ruby-identifier">call</span> <span class="ruby-identifier">io</span> }, <span class="ruby-value">:WTF?</span>) <span class="ruby-keyword">do</span>
+    <span class="ruby-constant">File</span>.<span class="ruby-identifier">open</span> <span class="ruby-string">&quot;foo.txt&quot;</span>, <span class="ruby-string">&quot;r&quot;</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">f</span><span class="ruby-operator">|</span>
+      <span class="ruby-identifier">rs</span> = <span class="ruby-identifier">f</span>.<span class="ruby-identifier">write</span>(<span class="ruby-string">&quot;woot&quot;</span>)
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-ivar">@tc</span>.<span class="ruby-identifier">assert_equal</span> <span class="ruby-value">4</span>, <span class="ruby-identifier">rs</span>
+  <span class="ruby-ivar">@tc</span>.<span class="ruby-identifier">assert_equal</span> <span class="ruby-string">&quot;woot&quot;</span>, <span class="ruby-identifier">io</span>.<span class="ruby-identifier">string</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_stub_lambda_block_call_args_6_2" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_stub_lambda_block_call_args_6_2</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_stub_lambda_block_call_args_6_2-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/minitest-5.11.3/test/minitest/test_minitest_mock.rb, line 740</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">test_stub_lambda_block_call_args_6_2</span>
+  <span class="ruby-identifier">skip_stub6</span>
+
+  <span class="ruby-ivar">@assertion_count</span> <span class="ruby-operator">+=</span> <span class="ruby-value">2</span>
+  <span class="ruby-identifier">rs</span> = <span class="ruby-keyword">nil</span>
+  <span class="ruby-identifier">io</span> = <span class="ruby-constant">StringIO</span>.<span class="ruby-identifier">new</span> <span class="ruby-string">&quot;&quot;</span>, <span class="ruby-string">&quot;w&quot;</span>
+  <span class="ruby-ivar">@tc</span>.<span class="ruby-identifier">assert_raises</span> <span class="ruby-constant">ArgumentError</span> <span class="ruby-keyword">do</span>
+    <span class="ruby-constant">File</span>.<span class="ruby-identifier">stub6_2</span>(<span class="ruby-value">:open</span>, <span class="ruby-identifier">lambda</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">p</span>, <span class="ruby-identifier">m</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">blk</span><span class="ruby-operator">|</span> <span class="ruby-identifier">blk</span>.<span class="ruby-identifier">call</span> <span class="ruby-identifier">io</span> }, <span class="ruby-value">:WTF?</span>) <span class="ruby-keyword">do</span>
+      <span class="ruby-constant">File</span>.<span class="ruby-identifier">open</span> <span class="ruby-string">&quot;foo.txt&quot;</span>, <span class="ruby-string">&quot;r&quot;</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">f</span><span class="ruby-operator">|</span>
+        <span class="ruby-identifier">rs</span> = <span class="ruby-identifier">f</span>.<span class="ruby-identifier">write</span>(<span class="ruby-string">&quot;woot&quot;</span>)
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-ivar">@tc</span>.<span class="ruby-identifier">assert_nil</span> <span class="ruby-identifier">rs</span>
+  <span class="ruby-ivar">@tc</span>.<span class="ruby-identifier">assert_equal</span> <span class="ruby-string">&quot;&quot;</span>, <span class="ruby-identifier">io</span>.<span class="ruby-identifier">string</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_stub_private_module_method" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_stub_private_module_method</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_stub_private_module_method-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/minitest-5.11.3/test/minitest/test_minitest_mock.rb, line 398</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">test_stub_private_module_method</span>
+  <span class="ruby-ivar">@assertion_count</span> <span class="ruby-operator">+=</span> <span class="ruby-value">1</span>
+
+  <span class="ruby-identifier">t0</span> = <span class="ruby-constant">Time</span>.<span class="ruby-identifier">now</span>
+
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">stub</span> <span class="ruby-value">:sleep</span>, <span class="ruby-keyword">nil</span> <span class="ruby-keyword">do</span>
+    <span class="ruby-ivar">@tc</span>.<span class="ruby-identifier">assert_nil</span> <span class="ruby-identifier">sleep</span>(<span class="ruby-value">10</span>)
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-ivar">@tc</span>.<span class="ruby-identifier">assert_operator</span> <span class="ruby-constant">Time</span>.<span class="ruby-identifier">now</span> <span class="ruby-operator">-</span> <span class="ruby-identifier">t0</span>, <span class="ruby-value">:&lt;=</span>, <span class="ruby-value">1</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_stub_private_module_method_indirect" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_stub_private_module_method_indirect</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_stub_private_module_method_indirect-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/minitest-5.11.3/test/minitest/test_minitest_mock.rb, line 410</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">test_stub_private_module_method_indirect</span>
+  <span class="ruby-ivar">@assertion_count</span> <span class="ruby-operator">+=</span> <span class="ruby-value">1</span>
+
+  <span class="ruby-identifier">fail_clapper</span> = <span class="ruby-constant">Class</span>.<span class="ruby-identifier">new</span> <span class="ruby-keyword">do</span>
+    <span class="ruby-keyword">def</span> <span class="ruby-identifier">fail_clap</span>
+      <span class="ruby-identifier">raise</span>
+      <span class="ruby-value">:clap</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>.<span class="ruby-identifier">new</span>
+
+  <span class="ruby-identifier">fail_clapper</span>.<span class="ruby-identifier">stub</span> <span class="ruby-value">:raise</span>, <span class="ruby-keyword">nil</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">safe_clapper</span><span class="ruby-operator">|</span>
+    <span class="ruby-ivar">@tc</span>.<span class="ruby-identifier">assert_equal</span> <span class="ruby-value">:clap</span>, <span class="ruby-identifier">safe_clapper</span>.<span class="ruby-identifier">fail_clap</span> <span class="ruby-comment"># either form works</span>
+    <span class="ruby-ivar">@tc</span>.<span class="ruby-identifier">assert_equal</span> <span class="ruby-value">:clap</span>, <span class="ruby-identifier">fail_clapper</span>.<span class="ruby-identifier">fail_clap</span> <span class="ruby-comment"># yay closures</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_stub_public_module_method" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_stub_public_module_method</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_stub_public_module_method-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/minitest-5.11.3/test/minitest/test_minitest_mock.rb, line 426</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">test_stub_public_module_method</span>
+  <span class="ruby-constant">Math</span>.<span class="ruby-identifier">stub</span> <span class="ruby-value">:log10</span>, <span class="ruby-value">:stubbed</span> <span class="ruby-keyword">do</span>
+    <span class="ruby-ivar">@tc</span>.<span class="ruby-identifier">assert_equal</span> <span class="ruby-value">:stubbed</span>, <span class="ruby-constant">Math</span>.<span class="ruby-identifier">log10</span>(<span class="ruby-value">1000</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_stub_value" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_stub_value</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_stub_value-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/minitest-5.11.3/test/minitest/test_minitest_mock.rb, line 432</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">test_stub_value</span>
+  <span class="ruby-identifier">assert_stub</span> <span class="ruby-value">42</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+        <div class="aliases">
+          Also aliased as: <a href="TestMinitestStub.html#method-i-test_stub_value__old">test_stub_value__old</a>
+        </div>
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_stub_value__old" class="method-detail method-alias">
+        
+        <div class="method-heading">
+          <span class="method-name">test_stub_value__old</span><span
+            class="method-args">()</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+        </div>
+
+        
+
+        
+        <div class="aliases">
+          Alias for: <a href="TestMinitestStub.html#method-i-test_stub_value">test_stub_value</a>
+        </div>
+        
+      </div>
+
+    
+      <div id="method-i-test_stub_value_args" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_stub_value_args</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_stub_value_args-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/minitest-5.11.3/test/minitest/test_minitest_mock.rb, line 764</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">test_stub_value_args</span>
+  <span class="ruby-constant">Thread</span>.<span class="ruby-identifier">stub</span> <span class="ruby-value">:new</span>, <span class="ruby-value">42</span>, <span class="ruby-value">:WTF?</span> <span class="ruby-keyword">do</span>
+    <span class="ruby-identifier">result</span> = <span class="ruby-constant">Thread</span>.<span class="ruby-identifier">new</span>
+    <span class="ruby-ivar">@tc</span>.<span class="ruby-identifier">assert_equal</span> <span class="ruby-value">42</span>, <span class="ruby-identifier">result</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_stub_value_block_5" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_stub_value_block_5</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_stub_value_block_5-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/minitest-5.11.3/test/minitest/test_minitest_mock.rb, line 771</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">test_stub_value_block_5</span>
+  <span class="ruby-ivar">@assertion_count</span> <span class="ruby-operator">+=</span> <span class="ruby-value">1</span>
+  <span class="ruby-constant">Thread</span>.<span class="ruby-identifier">stub5</span> <span class="ruby-value">:new</span>, <span class="ruby-value">42</span> <span class="ruby-keyword">do</span>
+    <span class="ruby-identifier">result</span> = <span class="ruby-constant">Thread</span>.<span class="ruby-identifier">new</span> <span class="ruby-keyword">do</span>
+      <span class="ruby-ivar">@tc</span>.<span class="ruby-identifier">assert</span> <span class="ruby-keyword">true</span>
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-ivar">@tc</span>.<span class="ruby-identifier">assert_equal</span> <span class="ruby-value">42</span>, <span class="ruby-identifier">result</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_stub_value_block_6" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_stub_value_block_6</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_stub_value_block_6-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/minitest-5.11.3/test/minitest/test_minitest_mock.rb, line 781</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">test_stub_value_block_6</span>
+  <span class="ruby-identifier">skip_stub6</span>
+
+  <span class="ruby-constant">Thread</span>.<span class="ruby-identifier">stub6</span> <span class="ruby-value">:new</span>, <span class="ruby-value">42</span> <span class="ruby-keyword">do</span>
+    <span class="ruby-identifier">result</span> = <span class="ruby-constant">Thread</span>.<span class="ruby-identifier">new</span> <span class="ruby-keyword">do</span>
+      <span class="ruby-ivar">@tc</span>.<span class="ruby-identifier">flunk</span> <span class="ruby-string">&quot;shouldn&#39;t hit this&quot;</span>
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-ivar">@tc</span>.<span class="ruby-identifier">assert_equal</span> <span class="ruby-value">42</span>, <span class="ruby-identifier">result</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_stub_value_block_args_5" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_stub_value_block_args_5</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_stub_value_block_args_5-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/minitest-5.11.3/test/minitest/test_minitest_mock.rb, line 792</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">test_stub_value_block_args_5</span>
+  <span class="ruby-ivar">@assertion_count</span> <span class="ruby-operator">+=</span> <span class="ruby-value">2</span>
+  <span class="ruby-identifier">rs</span> = <span class="ruby-keyword">nil</span>
+  <span class="ruby-identifier">io</span> = <span class="ruby-constant">StringIO</span>.<span class="ruby-identifier">new</span> <span class="ruby-string">&quot;&quot;</span>, <span class="ruby-string">&quot;w&quot;</span>
+  <span class="ruby-constant">File</span>.<span class="ruby-identifier">stub5</span> <span class="ruby-value">:open</span>, <span class="ruby-value">:value</span>, <span class="ruby-identifier">io</span> <span class="ruby-keyword">do</span>
+    <span class="ruby-identifier">result</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">open</span> <span class="ruby-string">&quot;foo.txt&quot;</span>, <span class="ruby-string">&quot;r&quot;</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">f</span><span class="ruby-operator">|</span>
+      <span class="ruby-identifier">rs</span> = <span class="ruby-identifier">f</span>.<span class="ruby-identifier">write</span>(<span class="ruby-string">&quot;woot&quot;</span>)
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-ivar">@tc</span>.<span class="ruby-identifier">assert_equal</span> <span class="ruby-value">:value</span>, <span class="ruby-identifier">result</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-ivar">@tc</span>.<span class="ruby-identifier">assert_equal</span> <span class="ruby-value">4</span>, <span class="ruby-identifier">rs</span>
+  <span class="ruby-ivar">@tc</span>.<span class="ruby-identifier">assert_equal</span> <span class="ruby-string">&quot;woot&quot;</span>, <span class="ruby-identifier">io</span>.<span class="ruby-identifier">string</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_stub_value_block_args_5__break_if_not_passed" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_stub_value_block_args_5__break_if_not_passed</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_stub_value_block_args_5__break_if_not_passed-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/minitest-5.11.3/test/minitest/test_minitest_mock.rb, line 806</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">test_stub_value_block_args_5__break_if_not_passed</span>
+  <span class="ruby-identifier">e</span> = <span class="ruby-ivar">@tc</span>.<span class="ruby-identifier">assert_raises</span> <span class="ruby-constant">NoMethodError</span> <span class="ruby-keyword">do</span>
+    <span class="ruby-constant">File</span>.<span class="ruby-identifier">stub5</span> <span class="ruby-value">:open</span>, <span class="ruby-value">:return_value</span> <span class="ruby-keyword">do</span> <span class="ruby-comment"># intentionally bad setup w/ no args</span>
+      <span class="ruby-constant">File</span>.<span class="ruby-identifier">open</span> <span class="ruby-string">&quot;foo.txt&quot;</span>, <span class="ruby-string">&quot;r&quot;</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">f</span><span class="ruby-operator">|</span>
+        <span class="ruby-identifier">f</span>.<span class="ruby-identifier">write</span> <span class="ruby-string">&quot;woot&quot;</span>
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">exp</span> = <span class="ruby-string">&quot;undefined method `write&#39; for nil:NilClass&quot;</span>
+  <span class="ruby-identifier">assert_equal</span> <span class="ruby-identifier">exp</span>, <span class="ruby-identifier">e</span>.<span class="ruby-identifier">message</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_stub_value_block_args_6" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_stub_value_block_args_6</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_stub_value_block_args_6-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/minitest-5.11.3/test/minitest/test_minitest_mock.rb, line 818</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">test_stub_value_block_args_6</span>
+  <span class="ruby-identifier">skip_stub6</span>
+
+  <span class="ruby-ivar">@assertion_count</span> <span class="ruby-operator">+=</span> <span class="ruby-value">2</span>
+  <span class="ruby-identifier">rs</span> = <span class="ruby-keyword">nil</span>
+  <span class="ruby-identifier">io</span> = <span class="ruby-constant">StringIO</span>.<span class="ruby-identifier">new</span> <span class="ruby-string">&quot;&quot;</span>, <span class="ruby-string">&quot;w&quot;</span>
+  <span class="ruby-identifier">assert_deprecated</span> <span class="ruby-keyword">do</span>
+    <span class="ruby-constant">File</span>.<span class="ruby-identifier">stub6</span> <span class="ruby-value">:open</span>, <span class="ruby-value">:value</span>, <span class="ruby-identifier">io</span> <span class="ruby-keyword">do</span>
+      <span class="ruby-identifier">result</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">open</span> <span class="ruby-string">&quot;foo.txt&quot;</span>, <span class="ruby-string">&quot;r&quot;</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">f</span><span class="ruby-operator">|</span>
+        <span class="ruby-identifier">rs</span> = <span class="ruby-identifier">f</span>.<span class="ruby-identifier">write</span>(<span class="ruby-string">&quot;woot&quot;</span>)
+      <span class="ruby-keyword">end</span>
+      <span class="ruby-ivar">@tc</span>.<span class="ruby-identifier">assert_equal</span> <span class="ruby-value">:value</span>, <span class="ruby-identifier">result</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-ivar">@tc</span>.<span class="ruby-identifier">assert_equal</span> <span class="ruby-value">4</span>, <span class="ruby-identifier">rs</span>
+  <span class="ruby-ivar">@tc</span>.<span class="ruby-identifier">assert_equal</span> <span class="ruby-string">&quot;woot&quot;</span>, <span class="ruby-identifier">io</span>.<span class="ruby-identifier">string</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_stub_value_block_args_6_2" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_stub_value_block_args_6_2</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_stub_value_block_args_6_2-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/minitest-5.11.3/test/minitest/test_minitest_mock.rb, line 836</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">test_stub_value_block_args_6_2</span>
+  <span class="ruby-identifier">skip_stub6</span>
+
+  <span class="ruby-ivar">@assertion_count</span> <span class="ruby-operator">+=</span> <span class="ruby-value">2</span>
+  <span class="ruby-identifier">rs</span> = <span class="ruby-keyword">nil</span>
+  <span class="ruby-identifier">io</span> = <span class="ruby-constant">StringIO</span>.<span class="ruby-identifier">new</span> <span class="ruby-string">&quot;&quot;</span>, <span class="ruby-string">&quot;w&quot;</span>
+  <span class="ruby-ivar">@tc</span>.<span class="ruby-identifier">assert_raises</span> <span class="ruby-constant">ArgumentError</span> <span class="ruby-keyword">do</span>
+    <span class="ruby-constant">File</span>.<span class="ruby-identifier">stub6_2</span> <span class="ruby-value">:open</span>, <span class="ruby-value">:value</span>, <span class="ruby-identifier">io</span> <span class="ruby-keyword">do</span>
+      <span class="ruby-identifier">result</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">open</span> <span class="ruby-string">&quot;foo.txt&quot;</span>, <span class="ruby-string">&quot;r&quot;</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">f</span><span class="ruby-operator">|</span>
+        <span class="ruby-ivar">@tc</span>.<span class="ruby-identifier">flunk</span> <span class="ruby-string">&quot;shouldn&#39;t hit this&quot;</span>
+      <span class="ruby-keyword">end</span>
+      <span class="ruby-ivar">@tc</span>.<span class="ruby-identifier">assert_equal</span> <span class="ruby-value">:value</span>, <span class="ruby-identifier">result</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-ivar">@tc</span>.<span class="ruby-identifier">assert_nil</span> <span class="ruby-identifier">rs</span>
+  <span class="ruby-ivar">@tc</span>.<span class="ruby-identifier">assert_equal</span> <span class="ruby-string">&quot;&quot;</span>, <span class="ruby-identifier">io</span>.<span class="ruby-identifier">string</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_stub_yield_self" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_stub_yield_self</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_stub_yield_self-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/minitest-5.11.3/test/minitest/test_minitest_mock.rb, line 462</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">test_stub_yield_self</span>
+  <span class="ruby-identifier">obj</span> = <span class="ruby-string">&quot;foo&quot;</span>
+
+  <span class="ruby-identifier">val</span> = <span class="ruby-identifier">obj</span>.<span class="ruby-identifier">stub</span> <span class="ruby-value">:to_s</span>, <span class="ruby-string">&quot;bar&quot;</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">s</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">s</span>.<span class="ruby-identifier">to_s</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-ivar">@tc</span>.<span class="ruby-identifier">assert_equal</span> <span class="ruby-string">&quot;bar&quot;</span>, <span class="ruby-identifier">val</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="https://rdoc.github.io/rdoc">RDoc</a> 5.0.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

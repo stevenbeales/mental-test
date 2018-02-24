@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class PG::TypeMapByMriType - RDoc Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../";
+  var index_rel_prefix = "../";
+</script>
+
+<script src="../js/jquery.js"></script>
+<script src="../js/darkfish.js"></script>
+
+<link href="../css/fonts.css" rel="stylesheet">
+<link href="../css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../table_of_contents.html#pages">Pages</a>
+    <a href="../table_of_contents.html#classes">Classes</a>
+    <a href="../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link"><a href="TypeMap.html">PG::TypeMap</a>
+  
+</div>
+
+    <div id="includes-section" class="nav-section">
+  <h3>Included Modules</h3>
+
+  <ul class="link-list">
+  
+  
+    <li><span class="include">rb_mDefaultTypeMappable</span>
+  
+  
+  </ul>
+</div>
+
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-i-5B-5D">#[]</a>
+    
+    <li ><a href="#method-i-5B-5D-3D">#[]=</a>
+    
+    <li ><a href="#method-i-coders">#coders</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-PG::TypeMapByMriType">
+  <h1 id="class-PG::TypeMapByMriType" class="class">
+    class PG::TypeMapByMriType
+  </h1>
+
+  <section class="description">
+    
+<p>This type map casts values based on the Ruby object type code of the given
+value to be sent.</p>
+
+<p>This type map is usable for type casting query bind parameters and COPY
+data for <a
+href="Connection.html#method-i-put_copy_data">PG::Connection#put_copy_data</a>
+. Therefore only encoders might be assigned by the <a
+href="TypeMapByMriType.html#method-i-5B-5D-3D">[]=</a> method.</p>
+
+<p><em>Note</em> : This type map is not portable across Ruby implementations
+and is less flexible than <a
+href="TypeMapByClass.html">PG::TypeMapByClass</a>. It is kept only for
+performance comparisons, but <a
+href="TypeMapByClass.html">PG::TypeMapByClass</a> proved to be equally fast
+in almost all cases.</p>
+
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+
+    
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-5B-5D" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            [mri_type] &rarr; coder
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Returns the encoder object for the given <code>mri_type</code></p>
+
+<p>See <a href="TypeMapByMriType.html#method-i-5B-5D-3D">[]=</a> for allowed
+<code>mri_type</code> .</p>
+          
+          
+
+          
+          <div class="method-source-code" id="5B-5D-source">
+            <pre>static VALUE
+pg_tmbmt_aref( VALUE self, VALUE mri_type )
+{
+        VALUE coder;
+        t_tmbmt *this = DATA_PTR( self );
+        char *p_mri_type;
+
+        p_mri_type = StringValueCStr(mri_type);
+
+        if(0){}
+        FOR_EACH_MRI_TYPE( COMPARE_AND_GET )
+        else{
+                VALUE mri_type_inspect = rb_inspect( mri_type );
+                rb_raise(rb_eArgError, &quot;unknown mri_type %s&quot;, StringValueCStr(mri_type_inspect));
+        }
+
+        return coder;
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-5B-5D-3D" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            [mri_type] = coder
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Assigns a new <a href="Coder.html">PG::Coder</a> object to the type map.
+The encoder is registered for type casts of the given <code>mri_type</code>
+.</p>
+
+<p><code>coder</code> can be one of the following:</p>
+<ul><li>
+<p><code>nil</code>        - Values are forwarded to the default_type_map .</p>
+</li><li>
+<p>a <a href="Coder.html">PG::Coder</a>  - Values are encoded by the given
+encoder</p>
+</li><li>
+<p>a <a href="../Symbol.html">Symbol</a>     - The method of this type map (or
+a derivation) that is called for each value to sent. It must return a <a
+href="Coder.html">PG::Coder</a>.</p>
+</li><li>
+<p>a <a href="../Proc.html">Proc</a>       - The <a
+href="../Proc.html">Proc</a> object is called for each value. It must
+return a <a href="Coder.html">PG::Coder</a>.</p>
+</li></ul>
+
+<p><code>mri_type</code> must be one of the following strings:</p>
+<ul><li>
+<p><code>T_FIXNUM</code></p>
+</li><li>
+<p><code>T_TRUE</code></p>
+</li><li>
+<p><code>T_FALSE</code></p>
+</li><li>
+<p><code>T_FLOAT</code></p>
+</li><li>
+<p><code>T_BIGNUM</code></p>
+</li><li>
+<p><code>T_COMPLEX</code></p>
+</li><li>
+<p><code>T_RATIONAL</code></p>
+</li><li>
+<p><code>T_ARRAY</code></p>
+</li><li>
+<p><code>T_STRING</code></p>
+</li><li>
+<p><code>T_SYMBOL</code></p>
+</li><li>
+<p><code>T_OBJECT</code></p>
+</li><li>
+<p><code>T_CLASS</code></p>
+</li><li>
+<p><code>T_MODULE</code></p>
+</li><li>
+<p><code>T_REGEXP</code></p>
+</li><li>
+<p><code>T_HASH</code></p>
+</li><li>
+<p><code>T_STRUCT</code></p>
+</li><li>
+<p><code>T_FILE</code></p>
+</li><li>
+<p><code>T_DATA</code></p>
+</li></ul>
+          
+          
+
+          
+          <div class="method-source-code" id="5B-5D-3D-source">
+            <pre>static VALUE
+pg_tmbmt_aset( VALUE self, VALUE mri_type, VALUE coder )
+{
+        t_tmbmt *this = DATA_PTR( self );
+        char *p_mri_type;
+
+        p_mri_type = StringValueCStr(mri_type);
+
+        if(0){}
+        FOR_EACH_MRI_TYPE( COMPARE_AND_ASSIGN )
+        else{
+                VALUE mri_type_inspect = rb_inspect( mri_type );
+                rb_raise(rb_eArgError, &quot;unknown mri_type %s&quot;, StringValueCStr(mri_type_inspect));
+        }
+
+        return self;
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-coders" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            coders &rarr; Hash
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Returns all mri types and their assigned encoder object.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="coders-source">
+            <pre>static VALUE
+pg_tmbmt_coders( VALUE self )
+{
+        t_tmbmt *this = DATA_PTR( self );
+        VALUE hash_coders = rb_hash_new();
+
+        FOR_EACH_MRI_TYPE( ADD_TO_HASH );
+
+        return rb_obj_freeze(hash_coders);
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="https://rdoc.github.io/rdoc">RDoc</a> 5.0.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

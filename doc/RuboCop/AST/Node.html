@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class RuboCop::AST::Node - RDoc Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../../";
+  var index_rel_prefix = "../../";
+</script>
+
+<script src="../../js/jquery.js"></script>
+<script src="../../js/darkfish.js"></script>
+
+<link href="../../css/fonts.css" rel="stylesheet">
+<link href="../../css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../../table_of_contents.html#pages">Pages</a>
+    <a href="../../table_of_contents.html#classes">Classes</a>
+    <a href="../../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link"><a href="../../Parser/AST/Node.html">Parser::AST::Node</a>
+  
+</div>
+
+    <div id="includes-section" class="nav-section">
+  <h3>Included Modules</h3>
+
+  <ul class="link-list">
+  
+  
+    <li><a class="include" href="Sexp.html">RuboCop::AST::Sexp</a>
+  
+  
+  </ul>
+</div>
+
+    <div id="extends-section" class="nav-section">
+  <h3>Extended With Modules</h3>
+
+  <ul class="link-list">
+    
+  
+    <li><a class="extend" href="../NodePattern/Macros.html">RuboCop::NodePattern::Macros</a>
+  
+  
+  </ul>
+</div>
+
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-i-begin_value_used-3F">#begin_value_used?</a>
+    
+    <li ><a href="#method-i-case_if_value_used-3F">#case_if_value_used?</a>
+    
+    <li ><a href="#method-i-for_value_used-3F">#for_value_used?</a>
+    
+    <li ><a href="#method-i-parent_module_name_for_block">#parent_module_name_for_block</a>
+    
+    <li ><a href="#method-i-parent_module_name_for_sclass">#parent_module_name_for_sclass</a>
+    
+    <li ><a href="#method-i-parent_module_name_part">#parent_module_name_part</a>
+    
+    <li ><a href="#method-i-while_until_value_used-3F">#while_until_value_used?</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-RuboCop::AST::Node">
+  <h1 id="class-RuboCop::AST::Node" class="class">
+    class RuboCop::AST::Node
+  </h1>
+
+  <section class="description">
+    
+<p>`RuboCop::AST::Node` is a subclass of `Parser::AST::Node`. It provides
+access to parent nodes and an object-oriented way to traverse an <a
+href="../AST.html">AST</a> with the power of `Enumerable`.</p>
+
+<p>It has predicate methods for every node type, like this:</p>
+
+<p>@example</p>
+
+<pre class="ruby"><span class="ruby-identifier">node</span>.<span class="ruby-identifier">send_type?</span>    <span class="ruby-comment"># Equivalent to: `node.type == :send`</span>
+<span class="ruby-identifier">node</span>.<span class="ruby-identifier">op_asgn_type?</span> <span class="ruby-comment"># Equivalent to: `node.type == :op_asgn`</span>
+
+<span class="ruby-comment"># Non-word characters (other than a-zA-Z0-9_) in type names are omitted.</span>
+<span class="ruby-identifier">node</span>.<span class="ruby-identifier">defined_type?</span> <span class="ruby-comment"># Equivalent to: `node.type == :defined?`</span>
+
+<span class="ruby-comment"># Find the first lvar node under the receiver node.</span>
+<span class="ruby-identifier">lvar_node</span> = <span class="ruby-identifier">node</span>.<span class="ruby-identifier">each_descendant</span>.<span class="ruby-identifier">find</span>(<span class="ruby-operator">&amp;</span>:<span class="ruby-identifier">lvar_type?</span>)
+</pre>
+
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+    <section class="constants-list">
+      <header>
+        <h3>Constants</h3>
+      </header>
+      <dl>
+      
+        <dt id="ARITHMETIC_OPERATORS">ARITHMETIC_OPERATORS
+        
+        <dd>
+        
+      
+        <dt id="COMPARISON_OPERATORS">COMPARISON_OPERATORS
+        
+        <dd><p>&lt;=&gt; isn&#39;t included here, because it doesn&#39;t return a boolean.</p>
+        
+      
+      </dl>
+    </section>
+    
+
+    
+
+    
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-begin_value_used-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">begin_value_used?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="begin_value_used-3F-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/rubocop-0.52.1/lib/rubocop/ast/node.rb, line 569</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">begin_value_used?</span>
+  <span class="ruby-comment"># the last child node determines the value of the parent</span>
+  <span class="ruby-identifier">sibling_index</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">parent</span>.<span class="ruby-identifier">children</span>.<span class="ruby-identifier">size</span> <span class="ruby-operator">-</span> <span class="ruby-value">1</span> <span class="ruby-operator">?</span> <span class="ruby-identifier">parent</span>.<span class="ruby-identifier">value_used?</span> <span class="ruby-operator">:</span> <span class="ruby-keyword">false</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-case_if_value_used-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">case_if_value_used?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="case_if_value_used-3F-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/rubocop-0.52.1/lib/rubocop/ast/node.rb, line 580</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">case_if_value_used?</span>
+  <span class="ruby-comment"># (case &lt;condition&gt; &lt;when...&gt;)</span>
+  <span class="ruby-comment"># (if &lt;condition&gt; &lt;truebranch&gt; &lt;falsebranch&gt;)</span>
+  <span class="ruby-identifier">sibling_index</span>.<span class="ruby-identifier">zero?</span> <span class="ruby-operator">?</span> <span class="ruby-keyword">true</span> <span class="ruby-operator">:</span> <span class="ruby-identifier">parent</span>.<span class="ruby-identifier">value_used?</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-for_value_used-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">for_value_used?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="for_value_used-3F-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/rubocop-0.52.1/lib/rubocop/ast/node.rb, line 574</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">for_value_used?</span>
+  <span class="ruby-comment"># `for var in enum; body; end`</span>
+  <span class="ruby-comment"># (for &lt;var&gt; &lt;enum&gt; &lt;body&gt;)</span>
+  <span class="ruby-identifier">sibling_index</span> <span class="ruby-operator">==</span> <span class="ruby-value">2</span> <span class="ruby-operator">?</span> <span class="ruby-identifier">parent</span>.<span class="ruby-identifier">value_used?</span> <span class="ruby-operator">:</span> <span class="ruby-keyword">true</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-parent_module_name_for_block" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">parent_module_name_for_block</span><span
+            class="method-args">(ancestor) { || ... }</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="parent_module_name_for_block-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/rubocop-0.52.1/lib/rubocop/ast/node.rb, line 616</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">parent_module_name_for_block</span>(<span class="ruby-identifier">ancestor</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">ancestor</span>.<span class="ruby-identifier">method_name</span> <span class="ruby-operator">==</span> <span class="ruby-value">:class_eval</span>
+    <span class="ruby-comment"># `class_eval` with no receiver applies to whatever module or class</span>
+    <span class="ruby-comment"># we are currently in</span>
+    <span class="ruby-keyword">return</span> <span class="ruby-keyword">unless</span> (<span class="ruby-identifier">receiver</span> = <span class="ruby-identifier">ancestor</span>.<span class="ruby-identifier">receiver</span>)
+    <span class="ruby-keyword">yield</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">receiver</span>.<span class="ruby-identifier">const_type?</span>
+    <span class="ruby-identifier">receiver</span>.<span class="ruby-identifier">const_name</span>
+  <span class="ruby-keyword">elsif</span> <span class="ruby-operator">!</span><span class="ruby-identifier">new_class_or_module_block?</span>(<span class="ruby-identifier">ancestor</span>)
+    <span class="ruby-keyword">yield</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-parent_module_name_for_sclass" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">parent_module_name_for_sclass</span><span
+            class="method-args">(sclass_node)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="parent_module_name_for_sclass-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/rubocop-0.52.1/lib/rubocop/ast/node.rb, line 604</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">parent_module_name_for_sclass</span>(<span class="ruby-identifier">sclass_node</span>)
+  <span class="ruby-comment"># TODO: look for constant definition and see if it is nested</span>
+  <span class="ruby-comment"># inside a class or module</span>
+  <span class="ruby-identifier">subject</span> = <span class="ruby-identifier">sclass_node</span>.<span class="ruby-identifier">children</span>[<span class="ruby-value">0</span>]
+
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">subject</span>.<span class="ruby-identifier">const_type?</span>
+    <span class="ruby-node">&quot;#&lt;Class:#{subject.const_name}&gt;&quot;</span>
+  <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">subject</span>.<span class="ruby-identifier">self_type?</span>
+    <span class="ruby-node">&quot;#&lt;Class:#{sclass_node.parent_module_name}&gt;&quot;</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-parent_module_name_part" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">parent_module_name_part</span><span
+            class="method-args">(node) { |parent_module_name_for_sclass(node)| ... }</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="parent_module_name_part-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/rubocop-0.52.1/lib/rubocop/ast/node.rb, line 591</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">parent_module_name_part</span>(<span class="ruby-identifier">node</span>)
+  <span class="ruby-keyword">case</span> <span class="ruby-identifier">node</span>.<span class="ruby-identifier">type</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-value">:class</span>, <span class="ruby-value">:module</span>, <span class="ruby-value">:casgn</span>
+    <span class="ruby-comment"># TODO: if constant name has cbase (leading ::), then we don&#39;t need</span>
+    <span class="ruby-comment"># to keep traversing up through nested classes/modules</span>
+    <span class="ruby-identifier">node</span>.<span class="ruby-identifier">defined_module_name</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-value">:sclass</span>
+    <span class="ruby-keyword">yield</span> <span class="ruby-identifier">parent_module_name_for_sclass</span>(<span class="ruby-identifier">node</span>)
+  <span class="ruby-keyword">else</span> <span class="ruby-comment"># block</span>
+    <span class="ruby-identifier">parent_module_name_for_block</span>(<span class="ruby-identifier">node</span>) { <span class="ruby-keyword">yield</span> <span class="ruby-keyword">nil</span> }
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-while_until_value_used-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">while_until_value_used?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="while_until_value_used-3F-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/rubocop-0.52.1/lib/rubocop/ast/node.rb, line 586</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">while_until_value_used?</span>
+  <span class="ruby-comment"># (while &lt;condition&gt; &lt;body&gt;) -&gt; always evaluates to `nil`</span>
+  <span class="ruby-identifier">sibling_index</span>.<span class="ruby-identifier">zero?</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="https://rdoc.github.io/rdoc">RDoc</a> 5.0.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

@@ -1,0 +1,2227 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class Pry::Command - RDoc Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../";
+  var index_rel_prefix = "../";
+</script>
+
+<script src="../js/jquery.js"></script>
+<script src="../js/darkfish.js"></script>
+
+<link href="../css/fonts.css" rel="stylesheet">
+<link href="../css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../table_of_contents.html#pages">Pages</a>
+    <a href="../table_of_contents.html#classes">Classes</a>
+    <a href="../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link"><a href="../Object.html">Object</a>
+  
+</div>
+
+    <div id="includes-section" class="nav-section">
+  <h3>Included Modules</h3>
+
+  <ul class="link-list">
+  
+  
+    <li><a class="include" href="Helpers/BaseHelpers.html">Pry::Helpers::BaseHelpers</a>
+  
+  
+  
+    <li><a class="include" href="Helpers/CommandHelpers.html">Pry::Helpers::CommandHelpers</a>
+  
+  
+  </ul>
+</div>
+
+    <div id="extends-section" class="nav-section">
+  <h3>Extended With Modules</h3>
+
+  <ul class="link-list">
+    
+  
+    <li><a class="extend" href="Helpers/DocumentationHelpers.html">Pry::Helpers::DocumentationHelpers</a>
+  
+  
+  
+    <li><a class="extend" href="CodeObject/Helpers.html">Pry::CodeObject::Helpers</a>
+  
+  
+  </ul>
+</div>
+
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-c-banner">::banner</a>
+    
+    <li ><a href="#method-c-block">::block</a>
+    
+    <li ><a href="#method-c-command_name">::command_name</a>
+    
+    <li ><a href="#method-c-command_options">::command_options</a>
+    
+    <li ><a href="#method-c-command_regex">::command_regex</a>
+    
+    <li ><a href="#method-c-convert_to_regex">::convert_to_regex</a>
+    
+    <li ><a href="#method-c-default_options">::default_options</a>
+    
+    <li ><a href="#method-c-description">::description</a>
+    
+    <li ><a href="#method-c-doc">::doc</a>
+    
+    <li ><a href="#method-c-file">::file</a>
+    
+    <li ><a href="#method-c-group">::group</a>
+    
+    <li ><a href="#method-c-hooks">::hooks</a>
+    
+    <li ><a href="#method-c-inspect">::inspect</a>
+    
+    <li ><a href="#method-c-line">::line</a>
+    
+    <li ><a href="#method-c-match">::match</a>
+    
+    <li ><a href="#method-c-match_score">::match_score</a>
+    
+    <li ><a href="#method-c-matches-3F">::matches?</a>
+    
+    <li class="calls-super" ><a href="#method-c-name">::name</a>
+    
+    <li ><a href="#method-c-new">::new</a>
+    
+    <li ><a href="#method-c-options">::options</a>
+    
+    <li ><a href="#method-c-source">::source</a>
+    
+    <li ><a href="#method-c-source_file">::source_file</a>
+    
+    <li ><a href="#method-c-source_line">::source_line</a>
+    
+    <li ><a href="#method-c-source_location">::source_location</a>
+    
+    <li ><a href="#method-c-subclass">::subclass</a>
+    
+    <li ><a href="#method-i-block">#block</a>
+    
+    <li ><a href="#method-i-call_safely">#call_safely</a>
+    
+    <li ><a href="#method-i-check_for_command_collision">#check_for_command_collision</a>
+    
+    <li ><a href="#method-i-command_name">#command_name</a>
+    
+    <li ><a href="#method-i-command_options">#command_options</a>
+    
+    <li ><a href="#method-i-commands">#commands</a>
+    
+    <li ><a href="#method-i-complete">#complete</a>
+    
+    <li ><a href="#method-i-dependencies_met-3F">#dependencies_met?</a>
+    
+    <li ><a href="#method-i-description">#description</a>
+    
+    <li ><a href="#method-i-interpolate_string">#interpolate_string</a>
+    
+    <li ><a href="#method-i-match">#match</a>
+    
+    <li ><a href="#method-i-name">#name</a>
+    
+    <li ><a href="#method-i-process_line">#process_line</a>
+    
+    <li ><a href="#method-i-run">#run</a>
+    
+    <li ><a href="#method-i-source">#source</a>
+    
+    <li ><a href="#method-i-source_location">#source_location</a>
+    
+    <li ><a href="#method-i-state">#state</a>
+    
+    <li ><a href="#method-i-target_self">#target_self</a>
+    
+    <li ><a href="#method-i-text">#text</a>
+    
+    <li ><a href="#method-i-tokenize">#tokenize</a>
+    
+    <li ><a href="#method-i-use_unpatched_symbol">#use_unpatched_symbol</a>
+    
+    <li ><a href="#method-i-void">#void</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-Pry::Command">
+  <h1 id="class-Pry::Command" class="class">
+    class Pry::Command
+  </h1>
+
+  <section class="description">
+    
+<p>The super-class of all commands, new commands should be created by calling
+{Pry::CommandSet#command} which creates a <a
+href="BlockCommand.html">BlockCommand</a> or
+{Pry::CommandSet#create_command} which creates a <a
+href="ClassCommand.html">ClassCommand</a>. Please don&#39;t use this class
+directly.</p>
+
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+    <section class="constants-list">
+      <header>
+        <h3>Constants</h3>
+      </header>
+      <dl>
+      
+        <dt id="VOID_VALUE">VOID_VALUE
+        
+        <dd><p>represents a void return value for a command</p>
+        
+      
+      </dl>
+    </section>
+    
+
+    
+    <section class="attribute-method-details" class="method-section">
+      <header>
+        <h3>Attributes</h3>
+      </header>
+
+      
+      <div id="attribute-c-block" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">block</span><span
+            class="attribute-access-type">[W]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+      <div id="attribute-c-command_options" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">command_options</span><span
+            class="attribute-access-type">[W]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+      <div id="attribute-c-description" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">description</span><span
+            class="attribute-access-type">[W]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+      <div id="attribute-c-match" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">match</span><span
+            class="attribute-access-type">[W]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+      <div id="attribute-c-options-3D" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">options=</span><span
+            class="attribute-access-type">[W]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-_pry_" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">_pry_</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-arg_string" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">arg_string</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-captures" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">captures</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-command_block" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">command_block</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        <p>The block we pass <strong>into</strong> a command so long as `:takes_block`
+is not equal to `false` @example</p>
+
+<pre>my-command | do
+  puts &quot;block content&quot;
+end</pre>
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-command_set" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">command_set</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-context" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">context</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-eval_string" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">eval_string</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-hooks" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">hooks</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-output" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">output</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        <p>Properties of one execution of a command (passed by {Pry#run_command} as a
+hash of context and expanded in `#initialize`</p>
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-target" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">target</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+    </section>
+    
+
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Class Methods</h3>
+       </header>
+
+    
+      <div id="method-c-banner" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">banner</span><span
+            class="method-args">(arg=nil)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Define or get the command&#39;s banner</p>
+          
+          
+
+          
+          <div class="method-source-code" id="banner-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/pry-0.11.3/lib/pry/command.rb, line 53</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">banner</span>(<span class="ruby-identifier">arg</span>=<span class="ruby-keyword">nil</span>)
+  <span class="ruby-ivar">@banner</span> = <span class="ruby-identifier">arg</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">arg</span>
+  <span class="ruby-ivar">@banner</span> <span class="ruby-operator">||=</span> <span class="ruby-identifier">description</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-block" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">block</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="block-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/pry-0.11.3/lib/pry/command.rb, line 58</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">block</span>
+  <span class="ruby-ivar">@block</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">instance_method</span>(<span class="ruby-value">:process</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-command_name" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">command_name</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="command_name-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/pry-0.11.3/lib/pry/command.rb, line 118</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">command_name</span>
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">options</span>[<span class="ruby-value">:listing</span>]
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-command_options" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">command_options</span><span
+            class="method-args">(arg=nil)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Define or get the command&#39;s options</p>
+          
+          
+
+          
+          <div class="method-source-code" id="command_options-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/pry-0.11.3/lib/pry/command.rb, line 43</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">command_options</span>(<span class="ruby-identifier">arg</span>=<span class="ruby-keyword">nil</span>)
+  <span class="ruby-ivar">@command_options</span> <span class="ruby-operator">||=</span> <span class="ruby-identifier">default_options</span>(<span class="ruby-identifier">match</span>)
+  <span class="ruby-ivar">@command_options</span>.<span class="ruby-identifier">merge!</span>(<span class="ruby-identifier">arg</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">arg</span>
+  <span class="ruby-ivar">@command_options</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+        <div class="aliases">
+          Also aliased as: <a href="Command.html#method-c-options">options</a>
+        </div>
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-command_regex" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">command_regex</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="command_regex-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/pry-0.11.3/lib/pry/command.rb, line 178</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">command_regex</span>
+  <span class="ruby-identifier">pr</span> = <span class="ruby-constant">Pry</span>.<span class="ruby-identifier">respond_to?</span>(<span class="ruby-value">:config</span>) <span class="ruby-operator">?</span> <span class="ruby-constant">Pry</span>.<span class="ruby-identifier">config</span>.<span class="ruby-identifier">command_prefix</span> <span class="ruby-operator">:</span> <span class="ruby-string">&quot;&quot;</span>
+  <span class="ruby-identifier">prefix</span> = <span class="ruby-identifier">convert_to_regex</span>(<span class="ruby-identifier">pr</span>)
+  <span class="ruby-identifier">prefix</span> = <span class="ruby-node">&quot;(?:#{prefix})?&quot;</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">options</span>[<span class="ruby-value">:use_prefix</span>]
+
+  <span class="ruby-node">/^#{prefix}#{convert_to_regex(match)}(?!\S)/</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-convert_to_regex" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">convert_to_regex</span><span
+            class="method-args">(obj)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="convert_to_regex-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/pry-0.11.3/lib/pry/command.rb, line 186</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">convert_to_regex</span>(<span class="ruby-identifier">obj</span>)
+  <span class="ruby-keyword">case</span> <span class="ruby-identifier">obj</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-constant">String</span>
+    <span class="ruby-constant">Regexp</span>.<span class="ruby-identifier">escape</span>(<span class="ruby-identifier">obj</span>)
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">obj</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-default_options" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">default_options</span><span
+            class="method-args">(match)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="default_options-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/pry-0.11.3/lib/pry/command.rb, line 85</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">default_options</span>(<span class="ruby-identifier">match</span>)
+  {
+    <span class="ruby-value">:requires_gem</span>      =<span class="ruby-operator">&gt;</span> [],
+    <span class="ruby-value">:keep_retval</span>       =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword">false</span>,
+    <span class="ruby-value">:argument_required</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword">false</span>,
+    <span class="ruby-value">:interpolate</span>       =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword">true</span>,
+    <span class="ruby-value">:shellwords</span>        =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword">true</span>,
+    <span class="ruby-value">:listing</span>           =<span class="ruby-operator">&gt;</span> (<span class="ruby-constant">String</span> <span class="ruby-operator">===</span> <span class="ruby-identifier">match</span> <span class="ruby-operator">?</span> <span class="ruby-identifier">match</span> <span class="ruby-operator">:</span> <span class="ruby-identifier">match</span>.<span class="ruby-identifier">inspect</span>),
+    <span class="ruby-value">:use_prefix</span>        =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword">true</span>,
+    <span class="ruby-value">:takes_block</span>       =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword">false</span>
+  }
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-description" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">description</span><span
+            class="method-args">(arg=nil)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Define or get the command&#39;s description</p>
+          
+          
+
+          
+          <div class="method-source-code" id="description-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/pry-0.11.3/lib/pry/command.rb, line 37</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">description</span>(<span class="ruby-identifier">arg</span>=<span class="ruby-keyword">nil</span>)
+  <span class="ruby-ivar">@description</span> = <span class="ruby-identifier">arg</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">arg</span>
+  <span class="ruby-ivar">@description</span> <span class="ruby-operator">||=</span> <span class="ruby-keyword">nil</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-doc" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">doc</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="doc-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/pry-0.11.3/lib/pry/command.rb, line 67</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">doc</span>
+  <span class="ruby-identifier">new</span>.<span class="ruby-identifier">help</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-file" class="method-detail method-alias">
+        
+        <div class="method-heading">
+          <span class="method-name">file</span><span
+            class="method-args">()</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+        </div>
+
+        
+
+        
+        <div class="aliases">
+          Alias for: <a href="Command.html#method-c-source_file">source_file</a>
+        </div>
+        
+      </div>
+
+    
+      <div id="method-c-group" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">group</span><span
+            class="method-args">(name=nil)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>The group in which the command should be displayed in “help” output. This
+is usually auto-generated from directory naming, but it can be manually
+overridden if necessary. Group should not be changed once it is
+initialized.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="group-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/pry-0.11.3/lib/pry/command.rb, line 199</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">group</span>(<span class="ruby-identifier">name</span>=<span class="ruby-keyword">nil</span>)
+  <span class="ruby-ivar">@group</span> <span class="ruby-operator">||=</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">name</span>
+               <span class="ruby-identifier">name</span>
+             <span class="ruby-keyword">else</span>
+               <span class="ruby-keyword">case</span> <span class="ruby-constant">Pry</span><span class="ruby-operator">::</span><span class="ruby-constant">Method</span>(<span class="ruby-identifier">block</span>).<span class="ruby-identifier">source_file</span>
+               <span class="ruby-keyword">when</span> <span class="ruby-regexp">%r{/pry/.*_commands/(.*).rb}</span>
+                 <span class="ruby-node">$1</span>.<span class="ruby-identifier">capitalize</span>.<span class="ruby-identifier">gsub</span>(<span class="ruby-regexp">/_/</span>, <span class="ruby-string">&quot; &quot;</span>)
+               <span class="ruby-keyword">when</span> <span class="ruby-regexp">%r{(pry-\w+)-([\d\.]+([\w\.]+)?)}</span>
+                 <span class="ruby-identifier">name</span>, <span class="ruby-identifier">version</span> = <span class="ruby-node">$1</span>, <span class="ruby-node">$2</span>
+                 <span class="ruby-node">&quot;#{name.to_s} (v#{version.to_s})&quot;</span>
+               <span class="ruby-keyword">when</span> <span class="ruby-regexp">/pryrc/</span>
+                 <span class="ruby-string">&quot;~/.pryrc&quot;</span>
+               <span class="ruby-keyword">else</span>
+                 <span class="ruby-string">&quot;(other)&quot;</span>
+               <span class="ruby-keyword">end</span>
+             <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-hooks" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">hooks</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>@deprecated Replaced with {Pry::Hooks#add_hook}. Left for compatibility.
+Store hooks to be run before or after the command body. @see
+{Pry::CommandSet#before_command} @see {Pry::CommandSet#after_command}</p>
+          
+          
+
+          
+          <div class="method-source-code" id="hooks-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/pry-0.11.3/lib/pry/command.rb, line 174</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">hooks</span>
+  <span class="ruby-constant">Pry</span>.<span class="ruby-identifier">hooks</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-inspect" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">inspect</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="inspect-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/pry-0.11.3/lib/pry/command.rb, line 114</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">inspect</span>
+  <span class="ruby-identifier">name</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-line" class="method-detail method-alias">
+        
+        <div class="method-heading">
+          <span class="method-name">line</span><span
+            class="method-args">()</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+        </div>
+
+        
+
+        
+        <div class="aliases">
+          Alias for: <a href="Command.html#method-c-source_line">source_line</a>
+        </div>
+        
+      </div>
+
+    
+      <div id="method-c-match" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">match</span><span
+            class="method-args">(arg=nil)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="match-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/pry-0.11.3/lib/pry/command.rb, line 27</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">match</span>(<span class="ruby-identifier">arg</span>=<span class="ruby-keyword">nil</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">arg</span>
+    <span class="ruby-ivar">@command_options</span> <span class="ruby-operator">||=</span> <span class="ruby-identifier">default_options</span>(<span class="ruby-identifier">arg</span>)
+    <span class="ruby-ivar">@command_options</span>[<span class="ruby-value">:listing</span>] = <span class="ruby-identifier">arg</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">String</span>) <span class="ruby-operator">?</span> <span class="ruby-identifier">arg</span> <span class="ruby-operator">:</span> <span class="ruby-identifier">arg</span>.<span class="ruby-identifier">inspect</span>
+    <span class="ruby-ivar">@match</span> = <span class="ruby-identifier">arg</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-ivar">@match</span> <span class="ruby-operator">||=</span> <span class="ruby-keyword">nil</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-match_score" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">match_score</span><span
+            class="method-args">(val)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>How well does this command match the given line?</p>
+
+<p>Higher scores are better because they imply that this command matches the
+line more closely.</p>
+
+<p>The score is calculated by taking the number of characters at the start of
+the string that are used only to identify the command, not as part of the
+arguments.</p>
+
+<p>@example</p>
+
+<pre class="ruby"><span class="ruby-regexp">/\.(.*)/</span>.<span class="ruby-identifier">match_score</span>(<span class="ruby-string">&quot;.foo&quot;</span>) <span class="ruby-comment">#=&gt; 1</span>
+<span class="ruby-regexp">/\.*(.*)/</span>.<span class="ruby-identifier">match_score</span>(<span class="ruby-string">&quot;...foo&quot;</span>) <span class="ruby-comment">#=&gt; 3</span>
+<span class="ruby-string">&#39;hi&#39;</span>.<span class="ruby-identifier">match_score</span>(<span class="ruby-string">&quot;hi there&quot;</span>) <span class="ruby-comment">#=&gt; 2</span>
+</pre>
+
+<p>@param [String] val A line input at the <a href="REPL.html">REPL</a>
+@return [Fixnum]</p>
+          
+          
+
+          
+          <div class="method-source-code" id="match_score-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/pry-0.11.3/lib/pry/command.rb, line 162</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">match_score</span>(<span class="ruby-identifier">val</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">command_regex</span> <span class="ruby-operator">=~</span> <span class="ruby-identifier">val</span>
+    <span class="ruby-constant">Regexp</span>.<span class="ruby-identifier">last_match</span>.<span class="ruby-identifier">size</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">1</span> <span class="ruby-operator">?</span> <span class="ruby-constant">Regexp</span>.<span class="ruby-identifier">last_match</span>.<span class="ruby-identifier">begin</span>(<span class="ruby-value">1</span>) <span class="ruby-operator">:</span> <span class="ruby-constant">Regexp</span>.<span class="ruby-identifier">last_match</span>.<span class="ruby-identifier">end</span>(<span class="ruby-value">0</span>)
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-value">-1</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-matches-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">matches?</span><span
+            class="method-args">(val)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Should this command be called for the given line? @param [String] val A
+line input at the <a href="REPL.html">REPL</a> @return [Boolean]</p>
+          
+          
+
+          
+          <div class="method-source-code" id="matches-3F-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/pry-0.11.3/lib/pry/command.rb, line 142</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">matches?</span>(<span class="ruby-identifier">val</span>)
+  <span class="ruby-identifier">command_regex</span> <span class="ruby-operator">=~</span> <span class="ruby-identifier">val</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-name" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">name</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+            <div class="method-calls-super">
+              Calls superclass method
+              
+            </div>
+          
+
+          
+          <div class="method-source-code" id="name-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/pry-0.11.3/lib/pry/command.rb, line 110</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">name</span>
+  <span class="ruby-keyword">super</span>.<span class="ruby-identifier">to_s</span> <span class="ruby-operator">==</span> <span class="ruby-string">&quot;&quot;</span> <span class="ruby-operator">?</span> <span class="ruby-node">&quot;#&lt;class(Pry::Command #{match.inspect})&gt;&quot;</span> <span class="ruby-operator">:</span> <span class="ruby-keyword">super</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-new" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">new</span><span
+            class="method-args">(context={})</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Instantiate a command, in preparation for calling it. @param [Hash] context
+The runtime context to use with this command.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="new-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/pry-0.11.3/lib/pry/command.rb, line 270</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">context</span>={})
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">context</span>      = <span class="ruby-identifier">context</span>
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">target</span>       = <span class="ruby-identifier">context</span>[<span class="ruby-value">:target</span>]
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">output</span>       = <span class="ruby-identifier">context</span>[<span class="ruby-value">:output</span>]
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">eval_string</span>  = <span class="ruby-identifier">context</span>[<span class="ruby-value">:eval_string</span>]
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">command_set</span>  = <span class="ruby-identifier">context</span>[<span class="ruby-value">:command_set</span>]
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">hooks</span>        = <span class="ruby-identifier">context</span>[<span class="ruby-value">:hooks</span>]
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">_pry_</span>        = <span class="ruby-identifier">context</span>[<span class="ruby-value">:pry_instance</span>]
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-options" class="method-detail method-alias">
+        
+        <div class="method-heading">
+          <span class="method-name">options</span><span
+            class="method-args">(arg=nil)</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>backward compatibility</p>
+          
+          
+
+          
+        </div>
+
+        
+
+        
+        <div class="aliases">
+          Alias for: <a href="Command.html#method-c-command_options">command_options</a>
+        </div>
+        
+      </div>
+
+    
+      <div id="method-c-source" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">source</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="source-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/pry-0.11.3/lib/pry/command.rb, line 62</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">source</span>
+  <span class="ruby-identifier">file</span>, <span class="ruby-identifier">line</span> = <span class="ruby-identifier">block</span>.<span class="ruby-identifier">source_location</span>
+  <span class="ruby-identifier">strip_leading_whitespace</span>(<span class="ruby-constant">Pry</span><span class="ruby-operator">::</span><span class="ruby-constant">Code</span>.<span class="ruby-identifier">from_file</span>(<span class="ruby-identifier">file</span>).<span class="ruby-identifier">expression_at</span>(<span class="ruby-identifier">line</span>))
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-source_file" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">source_file</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="source_file-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/pry-0.11.3/lib/pry/command.rb, line 75</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">source_file</span>
+  <span class="ruby-constant">Array</span>(<span class="ruby-identifier">block</span>.<span class="ruby-identifier">source_location</span>).<span class="ruby-identifier">first</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+        <div class="aliases">
+          Also aliased as: <a href="Command.html#method-c-file">file</a>
+        </div>
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-source_line" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">source_line</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="source_line-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/pry-0.11.3/lib/pry/command.rb, line 80</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">source_line</span>
+  <span class="ruby-constant">Array</span>(<span class="ruby-identifier">block</span>.<span class="ruby-identifier">source_location</span>).<span class="ruby-identifier">last</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+        <div class="aliases">
+          Also aliased as: <a href="Command.html#method-c-line">line</a>
+        </div>
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-source_location" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">source_location</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="source_location-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/pry-0.11.3/lib/pry/command.rb, line 71</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">source_location</span>
+  <span class="ruby-identifier">block</span>.<span class="ruby-identifier">source_location</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-subclass" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">subclass</span><span
+            class="method-args">(match, description, options, helpers, &block)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Create a new command with the given properties. @param [String, Regex]
+match The thing that triggers this command @param [String] description The
+description to appear in `help` @param [Hash] options Behavioral options
+(see {Pry::CommandSet#command}) @param [Module] helpers A module of helper
+functions to be included. @yield optional, used for BlockCommands @return
+[Class] (a subclass of {Pry::Command})</p>
+          
+          
+
+          
+          <div class="method-source-code" id="subclass-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/pry-0.11.3/lib/pry/command.rb, line 129</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">subclass</span>(<span class="ruby-identifier">match</span>, <span class="ruby-identifier">description</span>, <span class="ruby-identifier">options</span>, <span class="ruby-identifier">helpers</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+  <span class="ruby-identifier">klass</span> = <span class="ruby-constant">Class</span>.<span class="ruby-identifier">new</span>(<span class="ruby-keyword">self</span>)
+  <span class="ruby-identifier">klass</span>.<span class="ruby-identifier">send</span>(<span class="ruby-value">:include</span>, <span class="ruby-identifier">helpers</span>)
+  <span class="ruby-identifier">klass</span>.<span class="ruby-identifier">match</span> = <span class="ruby-identifier">match</span>
+  <span class="ruby-identifier">klass</span>.<span class="ruby-identifier">description</span> = <span class="ruby-identifier">description</span>
+  <span class="ruby-identifier">klass</span>.<span class="ruby-identifier">command_options</span> = <span class="ruby-identifier">options</span>
+  <span class="ruby-identifier">klass</span>.<span class="ruby-identifier">block</span> = <span class="ruby-identifier">block</span>
+  <span class="ruby-identifier">klass</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-block" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">block</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="block-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/pry-0.11.3/lib/pry/command.rb, line 103</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">block</span>; <span class="ruby-keyword">self</span>.<span class="ruby-identifier">class</span>.<span class="ruby-identifier">block</span>; <span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-call_safely" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">call_safely</span><span
+            class="method-args">(*args)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Run the command with the given `args`.</p>
+
+<p>This is a public wrapper around `#call` which ensures all preconditions are
+met.</p>
+
+<p>@param [Array&lt;String&gt;] args The arguments to pass to this command.
+@return [Object] The return value of the `#call` method, or</p>
+
+<pre>{Command::VOID_VALUE}.</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="call_safely-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/pry-0.11.3/lib/pry/command.rb, line 416</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">call_safely</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
+  <span class="ruby-keyword">unless</span> <span class="ruby-identifier">dependencies_met?</span>
+    <span class="ruby-identifier">gems_needed</span> = <span class="ruby-constant">Array</span>(<span class="ruby-identifier">command_options</span>[<span class="ruby-value">:requires_gem</span>])
+    <span class="ruby-identifier">gems_not_installed</span> = <span class="ruby-identifier">gems_needed</span>.<span class="ruby-identifier">select</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">g</span><span class="ruby-operator">|</span> <span class="ruby-operator">!</span><span class="ruby-constant">Rubygem</span>.<span class="ruby-identifier">installed?</span>(<span class="ruby-identifier">g</span>) }
+    <span class="ruby-identifier">output</span>.<span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;\nThe command &#39;#{command_name}&#39; is #{text.bold(&quot;unavailable&quot;)} because it requires the following gems to be installed: #{(gems_not_installed.join(&quot;, &quot;))}&quot;</span>
+    <span class="ruby-identifier">output</span>.<span class="ruby-identifier">puts</span> <span class="ruby-string">&quot;-&quot;</span>
+    <span class="ruby-identifier">output</span>.<span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;Type `install-command #{command_name}` to install the required gems and activate this command.&quot;</span>
+    <span class="ruby-keyword">return</span> <span class="ruby-identifier">void</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">command_options</span>[<span class="ruby-value">:argument_required</span>] <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">args</span>.<span class="ruby-identifier">empty?</span>
+    <span class="ruby-identifier">raise</span> <span class="ruby-constant">CommandError</span>, <span class="ruby-node">&quot;The command &#39;#{command_name}&#39; requires an argument.&quot;</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">ret</span> = <span class="ruby-identifier">use_unpatched_symbol</span> <span class="ruby-keyword">do</span>
+    <span class="ruby-identifier">call_with_hooks</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">command_options</span>[<span class="ruby-value">:keep_retval</span>] <span class="ruby-operator">?</span> <span class="ruby-identifier">ret</span> <span class="ruby-operator">:</span> <span class="ruby-identifier">void</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-check_for_command_collision" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">check_for_command_collision</span><span
+            class="method-args">(command_match, arg_string)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Display a warning if a command collides with a local/method in the current
+scope.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="check_for_command_collision-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/pry-0.11.3/lib/pry/command.rb, line 310</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">check_for_command_collision</span>(<span class="ruby-identifier">command_match</span>, <span class="ruby-identifier">arg_string</span>)
+  <span class="ruby-identifier">collision_type</span> = <span class="ruby-identifier">target</span>.<span class="ruby-identifier">eval</span>(<span class="ruby-node">&quot;defined?(#{command_match})&quot;</span>)
+  <span class="ruby-identifier">collision_type</span> <span class="ruby-operator">||=</span> <span class="ruby-string">&#39;local-variable&#39;</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">arg_string</span>.<span class="ruby-identifier">match</span>(<span class="ruby-regexp">%r{\A\s*[-+*/%&amp;|^]*=}</span>)
+
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">collision_type</span>
+    <span class="ruby-identifier">output</span>.<span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;#{text.bold(&#39;WARNING:&#39;)} Calling Pry command &#39;#{command_match}&#39;, which conflicts with a #{collision_type}.\n\n&quot;</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">rescue</span> <span class="ruby-constant">Pry</span><span class="ruby-operator">::</span><span class="ruby-constant">RescuableException</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-command_name" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">command_name</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="command_name-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/pry-0.11.3/lib/pry/command.rb, line 105</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">command_name</span>; <span class="ruby-keyword">self</span>.<span class="ruby-identifier">class</span>.<span class="ruby-identifier">command_name</span>; <span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-command_options" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">command_options</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="command_options-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/pry-0.11.3/lib/pry/command.rb, line 104</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">command_options</span>; <span class="ruby-keyword">self</span>.<span class="ruby-identifier">class</span>.<span class="ruby-identifier">options</span>; <span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-commands" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">commands</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="commands-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/pry-0.11.3/lib/pry/command.rb, line 253</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">commands</span>
+  <span class="ruby-identifier">command_set</span>.<span class="ruby-identifier">to_hash</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-complete" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">complete</span><span
+            class="method-args">(search)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Generate completions for this command</p>
+
+<p>@param [String] search  The line typed so far @return [Array&lt;String&gt;]
+Completion words</p>
+          
+          
+
+          
+          <div class="method-source-code" id="complete-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/pry-0.11.3/lib/pry/command.rb, line 455</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">complete</span>(<span class="ruby-identifier">search</span>)
+  []
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-dependencies_met-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">dependencies_met?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Are all the gems required to use this command installed?</p>
+
+<p>@return  Boolean</p>
+          
+          
+
+          
+          <div class="method-source-code" id="dependencies_met-3F-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/pry-0.11.3/lib/pry/command.rb, line 447</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">dependencies_met?</span>
+  <span class="ruby-ivar">@dependencies_met</span> <span class="ruby-operator">||=</span> <span class="ruby-identifier">command_dependencies_met?</span>(<span class="ruby-identifier">command_options</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-description" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">description</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="description-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/pry-0.11.3/lib/pry/command.rb, line 102</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">description</span>; <span class="ruby-keyword">self</span>.<span class="ruby-identifier">class</span>.<span class="ruby-identifier">description</span>; <span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-interpolate_string" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">interpolate_string</span><span
+            class="method-args">(str)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Revaluate the string (str) and perform interpolation. @param [String] str
+The string to reevaluate with interpolation.</p>
+
+<p>@return [String] The reevaluated string with interpolations</p>
+
+<pre>applied (if any).</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="interpolate_string-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/pry-0.11.3/lib/pry/command.rb, line 299</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">interpolate_string</span>(<span class="ruby-identifier">str</span>)
+  <span class="ruby-identifier">dumped_str</span> = <span class="ruby-identifier">str</span>.<span class="ruby-identifier">dump</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">dumped_str</span>.<span class="ruby-identifier">gsub!</span>(<span class="ruby-node">/\\#\{/</span>, <span class="ruby-string">&#39;#{&#39;</span>)
+    <span class="ruby-identifier">target</span>.<span class="ruby-identifier">eval</span>(<span class="ruby-identifier">dumped_str</span>)
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">str</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-match" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">match</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="match-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/pry-0.11.3/lib/pry/command.rb, line 101</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">match</span>; <span class="ruby-keyword">self</span>.<span class="ruby-identifier">class</span>.<span class="ruby-identifier">match</span>; <span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-name" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">name</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Make those properties accessible to instances</p>
+          
+          
+
+          
+          <div class="method-source-code" id="name-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/pry-0.11.3/lib/pry/command.rb, line 100</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">name</span>; <span class="ruby-keyword">self</span>.<span class="ruby-identifier">class</span>.<span class="ruby-identifier">name</span>; <span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-process_line" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">process_line</span><span
+            class="method-args">(line)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Process a line that <a
+href="Command.html#method-c-matches-3F">::matches?</a> this command. @param
+[String] line The line to process @return [Object, Command::VOID_VALUE]</p>
+          
+          
+
+          
+          <div class="method-source-code" id="process_line-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/pry-0.11.3/lib/pry/command.rb, line 364</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">process_line</span>(<span class="ruby-identifier">line</span>)
+  <span class="ruby-identifier">command_match</span>, <span class="ruby-identifier">arg_string</span>, <span class="ruby-identifier">captures</span>, <span class="ruby-identifier">args</span> = <span class="ruby-identifier">tokenize</span>(<span class="ruby-identifier">line</span>)
+
+  <span class="ruby-identifier">check_for_command_collision</span>(<span class="ruby-identifier">command_match</span>, <span class="ruby-identifier">arg_string</span>) <span class="ruby-keyword">if</span> <span class="ruby-constant">Pry</span>.<span class="ruby-identifier">config</span>.<span class="ruby-identifier">collision_warning</span>
+
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">arg_string</span> = <span class="ruby-identifier">arg_string</span>
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">captures</span> = <span class="ruby-identifier">captures</span>
+
+  <span class="ruby-identifier">call_safely</span>(<span class="ruby-operator">*</span>(<span class="ruby-identifier">captures</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">args</span>))
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-run" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">run</span><span
+            class="method-args">(command_string, *args)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Run a command from another command. @param [String] command_string The
+string that invokes the command @param [Array] args Further arguments to
+pass to the command @example</p>
+
+<pre class="ruby"><span class="ruby-identifier">run</span> <span class="ruby-string">&quot;show-input&quot;</span>
+</pre>
+
+<p>@example</p>
+
+<pre class="ruby"><span class="ruby-identifier">run</span> <span class="ruby-string">&quot;.ls&quot;</span>
+</pre>
+
+<p>@example</p>
+
+<pre class="ruby"><span class="ruby-identifier">run</span> <span class="ruby-string">&quot;amend-line&quot;</span>,  <span class="ruby-string">&quot;5&quot;</span>, <span class="ruby-string">&#39;puts &quot;hello world&quot;&#39;</span>
+</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="run-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/pry-0.11.3/lib/pry/command.rb, line 247</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">run</span>(<span class="ruby-identifier">command_string</span>, <span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
+  <span class="ruby-identifier">command_string</span> = <span class="ruby-identifier">_pry_</span>.<span class="ruby-identifier">config</span>.<span class="ruby-identifier">command_prefix</span>.<span class="ruby-identifier">to_s</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">command_string</span>
+  <span class="ruby-identifier">complete_string</span> = <span class="ruby-node">&quot;#{command_string} #{args.join(&quot; &quot;)}&quot;</span>.<span class="ruby-identifier">rstrip</span>
+  <span class="ruby-identifier">command_set</span>.<span class="ruby-identifier">process_line</span>(<span class="ruby-identifier">complete_string</span>, <span class="ruby-identifier">context</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-source" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">source</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="source-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/pry-0.11.3/lib/pry/command.rb, line 106</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">source</span>; <span class="ruby-keyword">self</span>.<span class="ruby-identifier">class</span>.<span class="ruby-identifier">source</span>; <span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-source_location" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">source_location</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="source_location-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/pry-0.11.3/lib/pry/command.rb, line 107</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">source_location</span>; <span class="ruby-keyword">self</span>.<span class="ruby-identifier">class</span>.<span class="ruby-identifier">source_location</span>; <span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-state" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">state</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>@return [Hash] <a href="../Pry.html">Pry</a> commands can store arbitrary
+state</p>
+
+<pre>here. This state persists between subsequent command invocations.
+All state saved here is unique to the command, it does not
+need to be namespaced.</pre>
+
+<p>@example</p>
+
+<pre class="ruby"><span class="ruby-identifier">state</span>.<span class="ruby-identifier">my_state</span> = <span class="ruby-string">&quot;my state&quot;</span>  <span class="ruby-comment"># this will not conflict with any</span>
+                             <span class="ruby-comment"># `state.my_state` used in another command.</span>
+</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="state-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/pry-0.11.3/lib/pry/command.rb, line 290</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">state</span>
+  <span class="ruby-identifier">_pry_</span>.<span class="ruby-identifier">command_state</span>[<span class="ruby-identifier">match</span>] <span class="ruby-operator">||=</span> <span class="ruby-constant">Pry</span><span class="ruby-operator">::</span><span class="ruby-constant">Config</span>.<span class="ruby-identifier">from_hash</span>({})
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-target_self" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">target_self</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>@return [Object] The value of `self` inside the `target` binding.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="target_self-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/pry-0.11.3/lib/pry/command.rb, line 281</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">target_self</span>; <span class="ruby-identifier">target</span>.<span class="ruby-identifier">eval</span>(<span class="ruby-string">&#39;self&#39;</span>); <span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-text" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">text</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="text-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/pry-0.11.3/lib/pry/command.rb, line 257</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">text</span>
+  <span class="ruby-constant">Pry</span><span class="ruby-operator">::</span><span class="ruby-constant">Helpers</span><span class="ruby-operator">::</span><span class="ruby-constant">Text</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-tokenize" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">tokenize</span><span
+            class="method-args">(val)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Extract necessary information from a line that <a
+href="Command.html#method-c-matches-3F">::matches?</a> this command.</p>
+
+<p>Returns an array of four elements:</p>
+
+<p>“`</p>
+
+<pre>[String] the portion of the line that matched with the Command match
+[String] a string of all the arguments (i.e. everything but the match)
+[Array]  the captures caught by the command_regex
+[Array]  the arguments obtained by splitting the arg_string</pre>
+
+<p>“`</p>
+
+<p>@param [String] val The line of input @return [Array]</p>
+          
+          
+
+          
+          <div class="method-source-code" id="tokenize-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/pry-0.11.3/lib/pry/command.rb, line 334</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">tokenize</span>(<span class="ruby-identifier">val</span>)
+  <span class="ruby-identifier">val</span>.<span class="ruby-identifier">replace</span>(<span class="ruby-identifier">interpolate_string</span>(<span class="ruby-identifier">val</span>)) <span class="ruby-keyword">if</span> <span class="ruby-identifier">command_options</span>[<span class="ruby-value">:interpolate</span>]
+
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">class</span>.<span class="ruby-identifier">command_regex</span> <span class="ruby-operator">=~</span> <span class="ruby-identifier">val</span>
+
+  <span class="ruby-comment"># please call Command.matches? before Command#call_safely</span>
+  <span class="ruby-identifier">raise</span> <span class="ruby-constant">CommandError</span>, <span class="ruby-string">&quot;fatal: called a command which didn&#39;t match?!&quot;</span> <span class="ruby-keyword">unless</span> <span class="ruby-constant">Regexp</span>.<span class="ruby-identifier">last_match</span>
+  <span class="ruby-identifier">captures</span> = <span class="ruby-constant">Regexp</span>.<span class="ruby-identifier">last_match</span>.<span class="ruby-identifier">captures</span>
+  <span class="ruby-identifier">pos</span> = <span class="ruby-constant">Regexp</span>.<span class="ruby-identifier">last_match</span>.<span class="ruby-identifier">end</span>(<span class="ruby-value">0</span>)
+
+  <span class="ruby-identifier">arg_string</span> = <span class="ruby-identifier">val</span>[<span class="ruby-identifier">pos</span><span class="ruby-operator">..</span><span class="ruby-value">-1</span>]
+
+  <span class="ruby-comment"># remove the one leading space if it exists</span>
+  <span class="ruby-identifier">arg_string</span>.<span class="ruby-identifier">slice!</span>(<span class="ruby-value">0</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">arg_string</span>.<span class="ruby-identifier">start_with?</span>(<span class="ruby-string">&quot; &quot;</span>)
+
+  <span class="ruby-comment"># process and pass a block if one is found</span>
+  <span class="ruby-identifier">pass_block</span>(<span class="ruby-identifier">arg_string</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">command_options</span>[<span class="ruby-value">:takes_block</span>]
+
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">arg_string</span>
+    <span class="ruby-identifier">args</span> = <span class="ruby-identifier">command_options</span>[<span class="ruby-value">:shellwords</span>] <span class="ruby-operator">?</span> <span class="ruby-constant">Shellwords</span>.<span class="ruby-identifier">shellwords</span>(<span class="ruby-identifier">arg_string</span>) <span class="ruby-operator">:</span> <span class="ruby-identifier">arg_string</span>.<span class="ruby-identifier">split</span>(<span class="ruby-string">&quot; &quot;</span>)
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">args</span> = []
+  <span class="ruby-keyword">end</span>
+
+  [<span class="ruby-identifier">val</span>[<span class="ruby-value">0</span><span class="ruby-operator">..</span><span class="ruby-identifier">pos</span>].<span class="ruby-identifier">rstrip</span>, <span class="ruby-identifier">arg_string</span>, <span class="ruby-identifier">captures</span>, <span class="ruby-identifier">args</span>]
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-use_unpatched_symbol" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">use_unpatched_symbol</span><span
+            class="method-args">() { || ... }</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="use_unpatched_symbol-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/pry-0.11.3/lib/pry/command.rb, line 436</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">use_unpatched_symbol</span>
+  <span class="ruby-identifier">call_method</span> = <span class="ruby-constant">Symbol</span>.<span class="ruby-identifier">method_defined?</span>(<span class="ruby-value">:call</span>) <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-constant">Symbol</span>.<span class="ruby-identifier">instance_method</span>(<span class="ruby-value">:call</span>)
+  <span class="ruby-constant">Symbol</span>.<span class="ruby-identifier">class_eval</span> { <span class="ruby-keyword">undef</span> <span class="ruby-value">:call</span> } <span class="ruby-keyword">if</span> <span class="ruby-identifier">call_method</span>
+  <span class="ruby-keyword">yield</span>
+<span class="ruby-keyword">ensure</span>
+  <span class="ruby-constant">Symbol</span>.<span class="ruby-identifier">instance_eval</span> { <span class="ruby-identifier">define_method</span>(<span class="ruby-value">:call</span>, <span class="ruby-identifier">call_method</span>) } <span class="ruby-keyword">if</span> <span class="ruby-identifier">call_method</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-void" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">void</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="void-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/pry-0.11.3/lib/pry/command.rb, line 261</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">void</span>
+  <span class="ruby-constant">VOID_VALUE</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="https://rdoc.github.io/rdoc">RDoc</a> 5.0.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

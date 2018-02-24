@@ -1,0 +1,1291 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>module ActiveRecord::ConnectionAdapters::PostgreSQL::ColumnMethods - RDoc Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../../../";
+  var index_rel_prefix = "../../../";
+</script>
+
+<script src="../../../js/jquery.js"></script>
+<script src="../../../js/darkfish.js"></script>
+
+<link href="../../../css/fonts.css" rel="stylesheet">
+<link href="../../../css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="module">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../../../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../../../table_of_contents.html#pages">Pages</a>
+    <a href="../../../table_of_contents.html#classes">Classes</a>
+    <a href="../../../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-i-bigserial">#bigserial</a>
+    
+    <li ><a href="#method-i-bit">#bit</a>
+    
+    <li ><a href="#method-i-bit_varying">#bit_varying</a>
+    
+    <li ><a href="#method-i-box">#box</a>
+    
+    <li ><a href="#method-i-cidr">#cidr</a>
+    
+    <li ><a href="#method-i-circle">#circle</a>
+    
+    <li ><a href="#method-i-citext">#citext</a>
+    
+    <li ><a href="#method-i-daterange">#daterange</a>
+    
+    <li ><a href="#method-i-hstore">#hstore</a>
+    
+    <li ><a href="#method-i-inet">#inet</a>
+    
+    <li ><a href="#method-i-int4range">#int4range</a>
+    
+    <li ><a href="#method-i-int8range">#int8range</a>
+    
+    <li ><a href="#method-i-interval">#interval</a>
+    
+    <li ><a href="#method-i-json">#json</a>
+    
+    <li ><a href="#method-i-jsonb">#jsonb</a>
+    
+    <li ><a href="#method-i-line">#line</a>
+    
+    <li ><a href="#method-i-lseg">#lseg</a>
+    
+    <li ><a href="#method-i-ltree">#ltree</a>
+    
+    <li ><a href="#method-i-macaddr">#macaddr</a>
+    
+    <li ><a href="#method-i-money">#money</a>
+    
+    <li ><a href="#method-i-numrange">#numrange</a>
+    
+    <li ><a href="#method-i-oid">#oid</a>
+    
+    <li ><a href="#method-i-path">#path</a>
+    
+    <li ><a href="#method-i-point">#point</a>
+    
+    <li ><a href="#method-i-polygon">#polygon</a>
+    
+    <li class="calls-super" ><a href="#method-i-primary_key">#primary_key</a>
+    
+    <li ><a href="#method-i-serial">#serial</a>
+    
+    <li ><a href="#method-i-tsrange">#tsrange</a>
+    
+    <li ><a href="#method-i-tstzrange">#tstzrange</a>
+    
+    <li ><a href="#method-i-tsvector">#tsvector</a>
+    
+    <li ><a href="#method-i-uuid">#uuid</a>
+    
+    <li ><a href="#method-i-xml">#xml</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="module-ActiveRecord::ConnectionAdapters::PostgreSQL::ColumnMethods">
+  <h1 id="module-ActiveRecord::ConnectionAdapters::PostgreSQL::ColumnMethods" class="module">
+    module ActiveRecord::ConnectionAdapters::PostgreSQL::ColumnMethods
+  </h1>
+
+  <section class="description">
+    
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+
+    
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-bigserial" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">bigserial</span><span
+            class="method-args">(*args, **options)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="bigserial-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/activerecord-5.1.5/lib/active_record/connection_adapters/postgresql/schema_definitions.rb, line 59</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">bigserial</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>, <span class="ruby-operator">**</span><span class="ruby-identifier">options</span>)
+  <span class="ruby-identifier">args</span>.<span class="ruby-identifier">each</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">name</span><span class="ruby-operator">|</span> <span class="ruby-identifier">column</span>(<span class="ruby-identifier">name</span>, <span class="ruby-value">:bigserial</span>, <span class="ruby-identifier">options</span>) }
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-bit" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">bit</span><span
+            class="method-args">(*args, **options)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="bit-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/activerecord-5.1.5/lib/active_record/connection_adapters/postgresql/schema_definitions.rb, line 63</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">bit</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>, <span class="ruby-operator">**</span><span class="ruby-identifier">options</span>)
+  <span class="ruby-identifier">args</span>.<span class="ruby-identifier">each</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">name</span><span class="ruby-operator">|</span> <span class="ruby-identifier">column</span>(<span class="ruby-identifier">name</span>, <span class="ruby-value">:bit</span>, <span class="ruby-identifier">options</span>) }
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-bit_varying" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">bit_varying</span><span
+            class="method-args">(*args, **options)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="bit_varying-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/activerecord-5.1.5/lib/active_record/connection_adapters/postgresql/schema_definitions.rb, line 67</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">bit_varying</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>, <span class="ruby-operator">**</span><span class="ruby-identifier">options</span>)
+  <span class="ruby-identifier">args</span>.<span class="ruby-identifier">each</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">name</span><span class="ruby-operator">|</span> <span class="ruby-identifier">column</span>(<span class="ruby-identifier">name</span>, <span class="ruby-value">:bit_varying</span>, <span class="ruby-identifier">options</span>) }
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-box" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">box</span><span
+            class="method-args">(*args, **options)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="box-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/activerecord-5.1.5/lib/active_record/connection_adapters/postgresql/schema_definitions.rb, line 143</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">box</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>, <span class="ruby-operator">**</span><span class="ruby-identifier">options</span>)
+  <span class="ruby-identifier">args</span>.<span class="ruby-identifier">each</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">name</span><span class="ruby-operator">|</span> <span class="ruby-identifier">column</span>(<span class="ruby-identifier">name</span>, <span class="ruby-value">:box</span>, <span class="ruby-identifier">options</span>) }
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-cidr" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">cidr</span><span
+            class="method-args">(*args, **options)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="cidr-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/activerecord-5.1.5/lib/active_record/connection_adapters/postgresql/schema_definitions.rb, line 71</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">cidr</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>, <span class="ruby-operator">**</span><span class="ruby-identifier">options</span>)
+  <span class="ruby-identifier">args</span>.<span class="ruby-identifier">each</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">name</span><span class="ruby-operator">|</span> <span class="ruby-identifier">column</span>(<span class="ruby-identifier">name</span>, <span class="ruby-value">:cidr</span>, <span class="ruby-identifier">options</span>) }
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-circle" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">circle</span><span
+            class="method-args">(*args, **options)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="circle-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/activerecord-5.1.5/lib/active_record/connection_adapters/postgresql/schema_definitions.rb, line 155</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">circle</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>, <span class="ruby-operator">**</span><span class="ruby-identifier">options</span>)
+  <span class="ruby-identifier">args</span>.<span class="ruby-identifier">each</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">name</span><span class="ruby-operator">|</span> <span class="ruby-identifier">column</span>(<span class="ruby-identifier">name</span>, <span class="ruby-value">:circle</span>, <span class="ruby-identifier">options</span>) }
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-citext" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">citext</span><span
+            class="method-args">(*args, **options)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="citext-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/activerecord-5.1.5/lib/active_record/connection_adapters/postgresql/schema_definitions.rb, line 75</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">citext</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>, <span class="ruby-operator">**</span><span class="ruby-identifier">options</span>)
+  <span class="ruby-identifier">args</span>.<span class="ruby-identifier">each</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">name</span><span class="ruby-operator">|</span> <span class="ruby-identifier">column</span>(<span class="ruby-identifier">name</span>, <span class="ruby-value">:citext</span>, <span class="ruby-identifier">options</span>) }
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-daterange" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">daterange</span><span
+            class="method-args">(*args, **options)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="daterange-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/activerecord-5.1.5/lib/active_record/connection_adapters/postgresql/schema_definitions.rb, line 79</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">daterange</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>, <span class="ruby-operator">**</span><span class="ruby-identifier">options</span>)
+  <span class="ruby-identifier">args</span>.<span class="ruby-identifier">each</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">name</span><span class="ruby-operator">|</span> <span class="ruby-identifier">column</span>(<span class="ruby-identifier">name</span>, <span class="ruby-value">:daterange</span>, <span class="ruby-identifier">options</span>) }
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-hstore" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">hstore</span><span
+            class="method-args">(*args, **options)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="hstore-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/activerecord-5.1.5/lib/active_record/connection_adapters/postgresql/schema_definitions.rb, line 83</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">hstore</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>, <span class="ruby-operator">**</span><span class="ruby-identifier">options</span>)
+  <span class="ruby-identifier">args</span>.<span class="ruby-identifier">each</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">name</span><span class="ruby-operator">|</span> <span class="ruby-identifier">column</span>(<span class="ruby-identifier">name</span>, <span class="ruby-value">:hstore</span>, <span class="ruby-identifier">options</span>) }
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-inet" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">inet</span><span
+            class="method-args">(*args, **options)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="inet-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/activerecord-5.1.5/lib/active_record/connection_adapters/postgresql/schema_definitions.rb, line 87</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">inet</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>, <span class="ruby-operator">**</span><span class="ruby-identifier">options</span>)
+  <span class="ruby-identifier">args</span>.<span class="ruby-identifier">each</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">name</span><span class="ruby-operator">|</span> <span class="ruby-identifier">column</span>(<span class="ruby-identifier">name</span>, <span class="ruby-value">:inet</span>, <span class="ruby-identifier">options</span>) }
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-int4range" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">int4range</span><span
+            class="method-args">(*args, **options)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="int4range-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/activerecord-5.1.5/lib/active_record/connection_adapters/postgresql/schema_definitions.rb, line 95</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">int4range</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>, <span class="ruby-operator">**</span><span class="ruby-identifier">options</span>)
+  <span class="ruby-identifier">args</span>.<span class="ruby-identifier">each</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">name</span><span class="ruby-operator">|</span> <span class="ruby-identifier">column</span>(<span class="ruby-identifier">name</span>, <span class="ruby-value">:int4range</span>, <span class="ruby-identifier">options</span>) }
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-int8range" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">int8range</span><span
+            class="method-args">(*args, **options)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="int8range-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/activerecord-5.1.5/lib/active_record/connection_adapters/postgresql/schema_definitions.rb, line 99</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">int8range</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>, <span class="ruby-operator">**</span><span class="ruby-identifier">options</span>)
+  <span class="ruby-identifier">args</span>.<span class="ruby-identifier">each</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">name</span><span class="ruby-operator">|</span> <span class="ruby-identifier">column</span>(<span class="ruby-identifier">name</span>, <span class="ruby-value">:int8range</span>, <span class="ruby-identifier">options</span>) }
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-interval" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">interval</span><span
+            class="method-args">(*args, **options)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="interval-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/activerecord-5.1.5/lib/active_record/connection_adapters/postgresql/schema_definitions.rb, line 91</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">interval</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>, <span class="ruby-operator">**</span><span class="ruby-identifier">options</span>)
+  <span class="ruby-identifier">args</span>.<span class="ruby-identifier">each</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">name</span><span class="ruby-operator">|</span> <span class="ruby-identifier">column</span>(<span class="ruby-identifier">name</span>, <span class="ruby-value">:interval</span>, <span class="ruby-identifier">options</span>) }
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-json" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">json</span><span
+            class="method-args">(*args, **options)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="json-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/activerecord-5.1.5/lib/active_record/connection_adapters/postgresql/schema_definitions.rb, line 103</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">json</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>, <span class="ruby-operator">**</span><span class="ruby-identifier">options</span>)
+  <span class="ruby-identifier">args</span>.<span class="ruby-identifier">each</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">name</span><span class="ruby-operator">|</span> <span class="ruby-identifier">column</span>(<span class="ruby-identifier">name</span>, <span class="ruby-value">:json</span>, <span class="ruby-identifier">options</span>) }
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-jsonb" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">jsonb</span><span
+            class="method-args">(*args, **options)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="jsonb-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/activerecord-5.1.5/lib/active_record/connection_adapters/postgresql/schema_definitions.rb, line 107</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">jsonb</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>, <span class="ruby-operator">**</span><span class="ruby-identifier">options</span>)
+  <span class="ruby-identifier">args</span>.<span class="ruby-identifier">each</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">name</span><span class="ruby-operator">|</span> <span class="ruby-identifier">column</span>(<span class="ruby-identifier">name</span>, <span class="ruby-value">:jsonb</span>, <span class="ruby-identifier">options</span>) }
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-line" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">line</span><span
+            class="method-args">(*args, **options)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="line-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/activerecord-5.1.5/lib/active_record/connection_adapters/postgresql/schema_definitions.rb, line 135</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">line</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>, <span class="ruby-operator">**</span><span class="ruby-identifier">options</span>)
+  <span class="ruby-identifier">args</span>.<span class="ruby-identifier">each</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">name</span><span class="ruby-operator">|</span> <span class="ruby-identifier">column</span>(<span class="ruby-identifier">name</span>, <span class="ruby-value">:line</span>, <span class="ruby-identifier">options</span>) }
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-lseg" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">lseg</span><span
+            class="method-args">(*args, **options)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="lseg-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/activerecord-5.1.5/lib/active_record/connection_adapters/postgresql/schema_definitions.rb, line 139</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">lseg</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>, <span class="ruby-operator">**</span><span class="ruby-identifier">options</span>)
+  <span class="ruby-identifier">args</span>.<span class="ruby-identifier">each</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">name</span><span class="ruby-operator">|</span> <span class="ruby-identifier">column</span>(<span class="ruby-identifier">name</span>, <span class="ruby-value">:lseg</span>, <span class="ruby-identifier">options</span>) }
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-ltree" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">ltree</span><span
+            class="method-args">(*args, **options)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="ltree-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/activerecord-5.1.5/lib/active_record/connection_adapters/postgresql/schema_definitions.rb, line 111</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">ltree</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>, <span class="ruby-operator">**</span><span class="ruby-identifier">options</span>)
+  <span class="ruby-identifier">args</span>.<span class="ruby-identifier">each</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">name</span><span class="ruby-operator">|</span> <span class="ruby-identifier">column</span>(<span class="ruby-identifier">name</span>, <span class="ruby-value">:ltree</span>, <span class="ruby-identifier">options</span>) }
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-macaddr" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">macaddr</span><span
+            class="method-args">(*args, **options)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="macaddr-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/activerecord-5.1.5/lib/active_record/connection_adapters/postgresql/schema_definitions.rb, line 115</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">macaddr</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>, <span class="ruby-operator">**</span><span class="ruby-identifier">options</span>)
+  <span class="ruby-identifier">args</span>.<span class="ruby-identifier">each</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">name</span><span class="ruby-operator">|</span> <span class="ruby-identifier">column</span>(<span class="ruby-identifier">name</span>, <span class="ruby-value">:macaddr</span>, <span class="ruby-identifier">options</span>) }
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-money" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">money</span><span
+            class="method-args">(*args, **options)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="money-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/activerecord-5.1.5/lib/active_record/connection_adapters/postgresql/schema_definitions.rb, line 119</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">money</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>, <span class="ruby-operator">**</span><span class="ruby-identifier">options</span>)
+  <span class="ruby-identifier">args</span>.<span class="ruby-identifier">each</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">name</span><span class="ruby-operator">|</span> <span class="ruby-identifier">column</span>(<span class="ruby-identifier">name</span>, <span class="ruby-value">:money</span>, <span class="ruby-identifier">options</span>) }
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-numrange" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">numrange</span><span
+            class="method-args">(*args, **options)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="numrange-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/activerecord-5.1.5/lib/active_record/connection_adapters/postgresql/schema_definitions.rb, line 123</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">numrange</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>, <span class="ruby-operator">**</span><span class="ruby-identifier">options</span>)
+  <span class="ruby-identifier">args</span>.<span class="ruby-identifier">each</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">name</span><span class="ruby-operator">|</span> <span class="ruby-identifier">column</span>(<span class="ruby-identifier">name</span>, <span class="ruby-value">:numrange</span>, <span class="ruby-identifier">options</span>) }
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-oid" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">oid</span><span
+            class="method-args">(*args, **options)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="oid-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/activerecord-5.1.5/lib/active_record/connection_adapters/postgresql/schema_definitions.rb, line 127</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">oid</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>, <span class="ruby-operator">**</span><span class="ruby-identifier">options</span>)
+  <span class="ruby-identifier">args</span>.<span class="ruby-identifier">each</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">name</span><span class="ruby-operator">|</span> <span class="ruby-identifier">column</span>(<span class="ruby-identifier">name</span>, <span class="ruby-value">:oid</span>, <span class="ruby-identifier">options</span>) }
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-path" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">path</span><span
+            class="method-args">(*args, **options)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="path-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/activerecord-5.1.5/lib/active_record/connection_adapters/postgresql/schema_definitions.rb, line 147</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">path</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>, <span class="ruby-operator">**</span><span class="ruby-identifier">options</span>)
+  <span class="ruby-identifier">args</span>.<span class="ruby-identifier">each</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">name</span><span class="ruby-operator">|</span> <span class="ruby-identifier">column</span>(<span class="ruby-identifier">name</span>, <span class="ruby-value">:path</span>, <span class="ruby-identifier">options</span>) }
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-point" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">point</span><span
+            class="method-args">(*args, **options)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="point-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/activerecord-5.1.5/lib/active_record/connection_adapters/postgresql/schema_definitions.rb, line 131</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">point</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>, <span class="ruby-operator">**</span><span class="ruby-identifier">options</span>)
+  <span class="ruby-identifier">args</span>.<span class="ruby-identifier">each</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">name</span><span class="ruby-operator">|</span> <span class="ruby-identifier">column</span>(<span class="ruby-identifier">name</span>, <span class="ruby-value">:point</span>, <span class="ruby-identifier">options</span>) }
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-polygon" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">polygon</span><span
+            class="method-args">(*args, **options)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="polygon-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/activerecord-5.1.5/lib/active_record/connection_adapters/postgresql/schema_definitions.rb, line 151</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">polygon</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>, <span class="ruby-operator">**</span><span class="ruby-identifier">options</span>)
+  <span class="ruby-identifier">args</span>.<span class="ruby-identifier">each</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">name</span><span class="ruby-operator">|</span> <span class="ruby-identifier">column</span>(<span class="ruby-identifier">name</span>, <span class="ruby-value">:polygon</span>, <span class="ruby-identifier">options</span>) }
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-primary_key" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">primary_key</span><span
+            class="method-args">(name, type = :primary_key, **options)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Defines the primary key field. Use of the native <a
+href="../PostgreSQL.html">PostgreSQL</a> UUID type is supported, and can be
+used by defining your tables as such:</p>
+
+<pre class="ruby"><span class="ruby-identifier">create_table</span> :<span class="ruby-identifier">stuffs</span>, <span class="ruby-identifier">id</span><span class="ruby-operator">:</span> :<span class="ruby-identifier">uuid</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">t</span><span class="ruby-operator">|</span>
+  <span class="ruby-identifier">t</span>.<span class="ruby-identifier">string</span> :<span class="ruby-identifier">content</span>
+  <span class="ruby-identifier">t</span>.<span class="ruby-identifier">timestamps</span>
+<span class="ruby-keyword">end</span>
+</pre>
+
+<p>By default, this will use the +gen_random_uuid()+ function from the
+<code>pgcrypto</code> extension. As that extension is only available in <a
+href="../PostgreSQL.html">PostgreSQL</a> 9.4+, for earlier versions an
+explicit default can be set to use +uuid_generate_v4()+ from the
+<code>uuid-ossp</code> extension instead:</p>
+
+<pre class="ruby"><span class="ruby-identifier">create_table</span> :<span class="ruby-identifier">stuffs</span>, <span class="ruby-identifier">id</span><span class="ruby-operator">:</span> <span class="ruby-keyword">false</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">t</span><span class="ruby-operator">|</span>
+  <span class="ruby-identifier">t</span>.<span class="ruby-identifier">primary_key</span> :<span class="ruby-identifier">id</span>, :<span class="ruby-identifier">uuid</span>, <span class="ruby-identifier">default</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;uuid_generate_v4()&quot;</span>
+  <span class="ruby-identifier">t</span>.<span class="ruby-identifier">uuid</span> :<span class="ruby-identifier">foo_id</span>
+  <span class="ruby-identifier">t</span>.<span class="ruby-identifier">timestamps</span>
+<span class="ruby-keyword">end</span>
+</pre>
+
+<p>To enable the appropriate extension, which is a requirement, use the
+<code>enable_extension</code> method in your migrations.</p>
+
+<p>To use a UUID primary key without any of the extensions, set the
+<code>:default</code> option to <code>nil</code>:</p>
+
+<pre class="ruby"><span class="ruby-identifier">create_table</span> :<span class="ruby-identifier">stuffs</span>, <span class="ruby-identifier">id</span><span class="ruby-operator">:</span> <span class="ruby-keyword">false</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">t</span><span class="ruby-operator">|</span>
+  <span class="ruby-identifier">t</span>.<span class="ruby-identifier">primary_key</span> :<span class="ruby-identifier">id</span>, :<span class="ruby-identifier">uuid</span>, <span class="ruby-identifier">default</span><span class="ruby-operator">:</span> <span class="ruby-keyword">nil</span>
+  <span class="ruby-identifier">t</span>.<span class="ruby-identifier">uuid</span> :<span class="ruby-identifier">foo_id</span>
+  <span class="ruby-identifier">t</span>.<span class="ruby-identifier">timestamps</span>
+<span class="ruby-keyword">end</span>
+</pre>
+
+<p>You may also pass a custom stored procedure that returns a UUID or use a
+different UUID generation function from another library.</p>
+
+<p>Note that setting the UUID primary key default value to <code>nil</code>
+will require you to assure that you always provide a UUID value before
+saving a record (as primary keys cannot be <code>nil</code>). This might be
+done via the <code>SecureRandom.uuid</code> method and a
+<code>before_save</code> callback, for instance.</p>
+          
+          
+            <div class="method-calls-super">
+              Calls superclass method
+              
+            </div>
+          
+
+          
+          <div class="method-source-code" id="primary_key-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/activerecord-5.1.5/lib/active_record/connection_adapters/postgresql/schema_definitions.rb, line 44</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">primary_key</span>(<span class="ruby-identifier">name</span>, <span class="ruby-identifier">type</span> = <span class="ruby-value">:primary_key</span>, <span class="ruby-operator">**</span><span class="ruby-identifier">options</span>)
+  <span class="ruby-identifier">options</span>[<span class="ruby-value">:auto_increment</span>] = <span class="ruby-keyword">true</span> <span class="ruby-keyword">if</span> [<span class="ruby-value">:integer</span>, <span class="ruby-value">:bigint</span>].<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">type</span>) <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-operator">!</span><span class="ruby-identifier">options</span>.<span class="ruby-identifier">key?</span>(<span class="ruby-value">:default</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">type</span> <span class="ruby-operator">==</span> <span class="ruby-value">:uuid</span>
+    <span class="ruby-identifier">options</span>[<span class="ruby-value">:default</span>] = <span class="ruby-identifier">options</span>.<span class="ruby-identifier">fetch</span>(<span class="ruby-value">:default</span>, <span class="ruby-string">&quot;gen_random_uuid()&quot;</span>)
+  <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">options</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-value">:auto_increment</span>) <span class="ruby-operator">==</span> <span class="ruby-keyword">true</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-operator">%</span>(<span class="ruby-identifier">integer</span> <span class="ruby-identifier">bigint</span>).<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">type</span>)
+    <span class="ruby-identifier">type</span> = <span class="ruby-keyword">if</span> <span class="ruby-identifier">type</span> <span class="ruby-operator">==</span> <span class="ruby-value">:bigint</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">options</span>[<span class="ruby-value">:limit</span>] <span class="ruby-operator">==</span> <span class="ruby-value">8</span>
+      <span class="ruby-value">:bigserial</span>
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-value">:serial</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">super</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-serial" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">serial</span><span
+            class="method-args">(*args, **options)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="serial-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/activerecord-5.1.5/lib/active_record/connection_adapters/postgresql/schema_definitions.rb, line 159</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">serial</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>, <span class="ruby-operator">**</span><span class="ruby-identifier">options</span>)
+  <span class="ruby-identifier">args</span>.<span class="ruby-identifier">each</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">name</span><span class="ruby-operator">|</span> <span class="ruby-identifier">column</span>(<span class="ruby-identifier">name</span>, <span class="ruby-value">:serial</span>, <span class="ruby-identifier">options</span>) }
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-tsrange" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">tsrange</span><span
+            class="method-args">(*args, **options)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="tsrange-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/activerecord-5.1.5/lib/active_record/connection_adapters/postgresql/schema_definitions.rb, line 163</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">tsrange</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>, <span class="ruby-operator">**</span><span class="ruby-identifier">options</span>)
+  <span class="ruby-identifier">args</span>.<span class="ruby-identifier">each</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">name</span><span class="ruby-operator">|</span> <span class="ruby-identifier">column</span>(<span class="ruby-identifier">name</span>, <span class="ruby-value">:tsrange</span>, <span class="ruby-identifier">options</span>) }
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-tstzrange" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">tstzrange</span><span
+            class="method-args">(*args, **options)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="tstzrange-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/activerecord-5.1.5/lib/active_record/connection_adapters/postgresql/schema_definitions.rb, line 167</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">tstzrange</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>, <span class="ruby-operator">**</span><span class="ruby-identifier">options</span>)
+  <span class="ruby-identifier">args</span>.<span class="ruby-identifier">each</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">name</span><span class="ruby-operator">|</span> <span class="ruby-identifier">column</span>(<span class="ruby-identifier">name</span>, <span class="ruby-value">:tstzrange</span>, <span class="ruby-identifier">options</span>) }
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-tsvector" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">tsvector</span><span
+            class="method-args">(*args, **options)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="tsvector-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/activerecord-5.1.5/lib/active_record/connection_adapters/postgresql/schema_definitions.rb, line 171</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">tsvector</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>, <span class="ruby-operator">**</span><span class="ruby-identifier">options</span>)
+  <span class="ruby-identifier">args</span>.<span class="ruby-identifier">each</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">name</span><span class="ruby-operator">|</span> <span class="ruby-identifier">column</span>(<span class="ruby-identifier">name</span>, <span class="ruby-value">:tsvector</span>, <span class="ruby-identifier">options</span>) }
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-uuid" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">uuid</span><span
+            class="method-args">(*args, **options)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="uuid-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/activerecord-5.1.5/lib/active_record/connection_adapters/postgresql/schema_definitions.rb, line 175</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">uuid</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>, <span class="ruby-operator">**</span><span class="ruby-identifier">options</span>)
+  <span class="ruby-identifier">args</span>.<span class="ruby-identifier">each</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">name</span><span class="ruby-operator">|</span> <span class="ruby-identifier">column</span>(<span class="ruby-identifier">name</span>, <span class="ruby-value">:uuid</span>, <span class="ruby-identifier">options</span>) }
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-xml" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">xml</span><span
+            class="method-args">(*args, **options)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="xml-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/activerecord-5.1.5/lib/active_record/connection_adapters/postgresql/schema_definitions.rb, line 179</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">xml</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>, <span class="ruby-operator">**</span><span class="ruby-identifier">options</span>)
+  <span class="ruby-identifier">args</span>.<span class="ruby-identifier">each</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">name</span><span class="ruby-operator">|</span> <span class="ruby-identifier">column</span>(<span class="ruby-identifier">name</span>, <span class="ruby-value">:xml</span>, <span class="ruby-identifier">options</span>) }
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="https://rdoc.github.io/rdoc">RDoc</a> 5.0.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

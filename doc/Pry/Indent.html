@@ -1,0 +1,1088 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class Pry::Indent - RDoc Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../";
+  var index_rel_prefix = "../";
+</script>
+
+<script src="../js/jquery.js"></script>
+<script src="../js/darkfish.js"></script>
+
+<link href="../css/fonts.css" rel="stylesheet">
+<link href="../css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../table_of_contents.html#pages">Pages</a>
+    <a href="../table_of_contents.html#classes">Classes</a>
+    <a href="../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link"><a href="../Object.html">Object</a>
+  
+</div>
+
+    <div id="includes-section" class="nav-section">
+  <h3>Included Modules</h3>
+
+  <ul class="link-list">
+  
+  
+    <li><a class="include" href="Helpers/BaseHelpers.html">Pry::Helpers::BaseHelpers</a>
+  
+  
+  </ul>
+</div>
+
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-c-indent">::indent</a>
+    
+    <li ><a href="#method-c-nesting_at">::nesting_at</a>
+    
+    <li ><a href="#method-c-new">::new</a>
+    
+    <li ><a href="#method-i-correct_indentation">#correct_indentation</a>
+    
+    <li ><a href="#method-i-current_prefix">#current_prefix</a>
+    
+    <li ><a href="#method-i-end_of_statement-3F">#end_of_statement?</a>
+    
+    <li ><a href="#method-i-in_string-3F">#in_string?</a>
+    
+    <li ><a href="#method-i-indent">#indent</a>
+    
+    <li ><a href="#method-i-indentation_delta">#indentation_delta</a>
+    
+    <li ><a href="#method-i-module_nesting">#module_nesting</a>
+    
+    <li ><a href="#method-i-open_delimiters">#open_delimiters</a>
+    
+    <li ><a href="#method-i-open_delimiters_line">#open_delimiters_line</a>
+    
+    <li ><a href="#method-i-reset">#reset</a>
+    
+    <li ><a href="#method-i-tokenize">#tokenize</a>
+    
+    <li ><a href="#method-i-track_delimiter">#track_delimiter</a>
+    
+    <li ><a href="#method-i-track_module_nesting">#track_module_nesting</a>
+    
+    <li ><a href="#method-i-track_module_nesting_end">#track_module_nesting_end</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-Pry::Indent">
+  <h1 id="class-Pry::Indent" class="class">
+    class Pry::Indent
+  </h1>
+
+  <section class="description">
+    
+<p><a href="Indent.html">Pry::Indent</a> is a class that can be used to indent
+a number of lines containing Ruby code similar as to how IRB does it (but
+better). The class works by tokenizing a string using <a
+href="../CodeRay.html">CodeRay</a> and then looping over those tokens.
+Based on the tokens in a line of code that line (or the next one) will be
+indented or un-indented by correctly.</p>
+
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+    <section class="constants-list">
+      <header>
+        <h3>Constants</h3>
+      </header>
+      <dl>
+      
+        <dt id="IGNORE_TOKENS">IGNORE_TOKENS
+        
+        <dd><p>Collection of token types that should be ignored. Without this list
+keywords such as “class” inside strings would cause the code to be indented
+incorrectly.</p>
+
+<p>:pre_constant and :preserved_constant are the <a
+href="../CodeRay.html">CodeRay</a> 0.9.8 and 1.0.0 classifications of
+“true”, “false”, and “nil”.</p>
+        
+      
+        <dt id="MIDWAY_TOKENS">MIDWAY_TOKENS
+        
+        <dd><p>Collection of tokens that should appear dedented even though they don&#39;t
+affect the surrounding code.</p>
+        
+      
+        <dt id="OPEN_TOKENS">OPEN_TOKENS
+        
+        <dd><p><a href="../Hash.html">Hash</a> containing all the tokens that should
+increase the indentation level. The keys of this hash are open tokens, the
+values the matching tokens that should prevent a line from being indented
+if they appear on the same line.</p>
+        
+      
+        <dt id="OPTIONAL_DO_TOKENS">OPTIONAL_DO_TOKENS
+        
+        <dd><p>Which tokens can be followed by an optional “do” keyword.</p>
+        
+      
+        <dt id="SINGLELINE_TOKENS">SINGLELINE_TOKENS
+        
+        <dd><p>Which tokens can either be open tokens, or appear as modifiers on a
+single-line.</p>
+        
+      
+        <dt id="SPACES">SPACES
+        
+        <dd><p>The amount of spaces to insert for each indent level.</p>
+        
+      
+        <dt id="STATEMENT_END_TOKENS">STATEMENT_END_TOKENS
+        
+        <dd><p>Tokens that indicate the end of a statement (i.e. that, if they appear
+directly before an “if” indicates that that if applies to the same line,
+not the next line)</p>
+
+<p>:reserved and :keywords are the <a href="../CodeRay.html">CodeRay</a> 0.9.8
+and 1.0.0 respectively classifications of “super”, “next”, “return”, etc.</p>
+        
+      
+      </dl>
+    </section>
+    
+
+    
+    <section class="attribute-method-details" class="method-section">
+      <header>
+        <h3>Attributes</h3>
+      </header>
+
+      
+      <div id="attribute-i-indent_level" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">indent_level</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        <p>@return [String] <a href="../String.html">String</a> containing the spaces
+to be inserted before the next line.</p>
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-stack" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">stack</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        <p>@return [Array&lt;String&gt;] The stack of open tokens.</p>
+        
+        </div>
+      </div>
+      
+    </section>
+    
+
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Class Methods</h3>
+       </header>
+
+    
+      <div id="method-c-indent" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">indent</span><span
+            class="method-args">(str)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Clean the indentation of a fragment of ruby.</p>
+
+<p>@param [String] str @return [String]</p>
+          
+          
+
+          
+          <div class="method-source-code" id="indent-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/pry-0.11.3/lib/pry/indent.rb, line 82</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">indent</span>(<span class="ruby-identifier">str</span>)
+  <span class="ruby-identifier">new</span>.<span class="ruby-identifier">indent</span>(<span class="ruby-identifier">str</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-nesting_at" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">nesting_at</span><span
+            class="method-args">(str, line_number)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Get the module nesting at the given point in the given string.</p>
+
+<p>NOTE If the line specified contains a method definition, then the nesting
+at the start of the method definition is used. Otherwise the nesting from
+the end of the line is used.</p>
+
+<p>@param [String] str The ruby code to analyze @param [Fixnum] line_number
+The line number (starting from 1) @return [Array&lt;String&gt;]</p>
+          
+          
+
+          
+          <div class="method-source-code" id="nesting_at-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/pry-0.11.3/lib/pry/indent.rb, line 95</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">nesting_at</span>(<span class="ruby-identifier">str</span>, <span class="ruby-identifier">line_number</span>)
+  <span class="ruby-identifier">indent</span> = <span class="ruby-identifier">new</span>
+  <span class="ruby-identifier">lines</span> = <span class="ruby-identifier">str</span>.<span class="ruby-identifier">split</span>(<span class="ruby-string">&quot;\n&quot;</span>)
+  <span class="ruby-identifier">n</span> = <span class="ruby-identifier">line_number</span> <span class="ruby-operator">-</span> <span class="ruby-value">1</span>
+  <span class="ruby-identifier">to_indent</span> = <span class="ruby-identifier">lines</span>[<span class="ruby-value">0</span><span class="ruby-operator">...</span><span class="ruby-identifier">n</span>] <span class="ruby-operator">&lt;&lt;</span> (<span class="ruby-identifier">lines</span>[<span class="ruby-identifier">n</span>] <span class="ruby-operator">||</span> <span class="ruby-string">&quot;&quot;</span>).<span class="ruby-identifier">split</span>(<span class="ruby-string">&quot;def&quot;</span>).<span class="ruby-identifier">first</span>(<span class="ruby-value">1</span>)
+  <span class="ruby-identifier">indent</span>.<span class="ruby-identifier">indent</span>(<span class="ruby-identifier">to_indent</span>.<span class="ruby-identifier">join</span>(<span class="ruby-string">&quot;\n&quot;</span>) <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-string">&quot;\n&quot;</span>)
+  <span class="ruby-identifier">indent</span>.<span class="ruby-identifier">module_nesting</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-new" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">new</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="new-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/pry-0.11.3/lib/pry/indent.rb, line 104</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span>
+  <span class="ruby-identifier">reset</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-correct_indentation" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">correct_indentation</span><span
+            class="method-args">(prompt, code, overhang=0)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Return a string which, when printed, will rewrite the previous line with
+the correct indentation. Mostly useful for fixing &#39;end&#39;.</p>
+
+<p>@param [String] prompt The user&#39;s prompt @param [String] code   The
+code the user just typed in. @param [Fixnum] overhang (0) The number of
+chars to erase afterwards (i.e.,</p>
+
+<pre>the difference in length between the old line and the new one).</pre>
+
+<p>@return [String]</p>
+          
+          
+
+          
+          <div class="method-source-code" id="correct_indentation-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/pry-0.11.3/lib/pry/indent.rb, line 389</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">correct_indentation</span>(<span class="ruby-identifier">prompt</span>, <span class="ruby-identifier">code</span>, <span class="ruby-identifier">overhang</span>=<span class="ruby-value">0</span>)
+  <span class="ruby-identifier">prompt</span> = <span class="ruby-identifier">prompt</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-string">&quot;\001\002&quot;</span>)
+  <span class="ruby-identifier">line_to_measure</span> = <span class="ruby-constant">Pry</span><span class="ruby-operator">::</span><span class="ruby-constant">Helpers</span><span class="ruby-operator">::</span><span class="ruby-constant">Text</span>.<span class="ruby-identifier">strip_color</span>(<span class="ruby-identifier">prompt</span>) <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">code</span>
+  <span class="ruby-identifier">whitespace</span> = <span class="ruby-string">&#39; &#39;</span> <span class="ruby-operator">*</span> <span class="ruby-identifier">overhang</span>
+
+  <span class="ruby-identifier">_</span>, <span class="ruby-identifier">cols</span> = <span class="ruby-constant">Terminal</span>.<span class="ruby-identifier">screen_size</span>
+
+  <span class="ruby-identifier">cols</span> = <span class="ruby-identifier">cols</span>.<span class="ruby-identifier">to_i</span>
+  <span class="ruby-identifier">lines</span> = (<span class="ruby-identifier">cols</span> <span class="ruby-operator">!=</span> <span class="ruby-value">0</span> <span class="ruby-operator">?</span> (<span class="ruby-identifier">line_to_measure</span>.<span class="ruby-identifier">length</span> <span class="ruby-operator">/</span> <span class="ruby-identifier">cols</span> <span class="ruby-operator">+</span> <span class="ruby-value">1</span>) <span class="ruby-operator">:</span> <span class="ruby-value">1</span>).<span class="ruby-identifier">to_i</span>
+
+  <span class="ruby-keyword">if</span> <span class="ruby-constant">Pry</span><span class="ruby-operator">::</span><span class="ruby-constant">Helpers</span><span class="ruby-operator">::</span><span class="ruby-constant">BaseHelpers</span>.<span class="ruby-identifier">windows_ansi?</span>
+    <span class="ruby-identifier">move_up</span>   = <span class="ruby-node">&quot;\e[#{lines}F&quot;</span>
+    <span class="ruby-identifier">move_down</span> = <span class="ruby-node">&quot;\e[#{lines}E&quot;</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">move_up</span>   = <span class="ruby-node">&quot;\e[#{lines}A\e[0G&quot;</span>
+    <span class="ruby-identifier">move_down</span> = <span class="ruby-node">&quot;\e[#{lines}B\e[0G&quot;</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-node">&quot;#{move_up}#{prompt}#{colorize_code(code)}#{whitespace}#{move_down}&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-current_prefix" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">current_prefix</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Get the indentation for the start of the next line.</p>
+
+<p>This is what&#39;s used between the prompt and the cursor in pry.</p>
+
+<p>@return <a href="../String.html">String</a>  The correct number of spaces</p>
+          
+          
+
+          
+          <div class="method-source-code" id="current_prefix-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/pry-0.11.3/lib/pry/indent.rb, line 179</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">current_prefix</span>
+  <span class="ruby-identifier">in_string?</span> <span class="ruby-operator">?</span> <span class="ruby-string">&#39;&#39;</span> <span class="ruby-operator">:</span> <span class="ruby-identifier">indent_level</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-end_of_statement-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">end_of_statement?</span><span
+            class="method-args">(last_token, last_kind)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>If the code just before an “if” or “while” token on a line looks like the
+end of a statement, then we want to treat that “if” as a singleline, not
+multiline statement.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="end_of_statement-3F-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/pry-0.11.3/lib/pry/indent.rb, line 256</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">end_of_statement?</span>(<span class="ruby-identifier">last_token</span>, <span class="ruby-identifier">last_kind</span>)
+  (<span class="ruby-identifier">last_token</span> <span class="ruby-operator">=~</span> <span class="ruby-regexp">/^[)\]}\/]$/</span> <span class="ruby-operator">||</span> <span class="ruby-constant">STATEMENT_END_TOKENS</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">last_kind</span>))
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-in_string-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">in_string?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Are we currently in the middle of a string literal.</p>
+
+<p>This is used to determine whether to re-indent a given line, we mustn&#39;t
+re-indent within string literals because to do so would actually change the
+value of the <a href="../String.html">String</a>!</p>
+
+<p>@return Boolean</p>
+          
+          
+
+          
+          <div class="method-source-code" id="in_string-3F-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/pry-0.11.3/lib/pry/indent.rb, line 267</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">in_string?</span>
+  <span class="ruby-operator">!</span><span class="ruby-identifier">open_delimiters</span>.<span class="ruby-identifier">empty?</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-indent" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">indent</span><span
+            class="method-args">(input)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Indents a string and returns it. This string can either be a single line or
+multiple ones.</p>
+
+<p>@example</p>
+
+<pre class="ruby"><span class="ruby-identifier">str</span> = <span class="ruby-value">&lt;&lt;TXT
+class User
+attr_accessor :name
+end
+TXT</span>
+
+<span class="ruby-comment"># This would result in the following being displayed:</span>
+<span class="ruby-comment">#</span>
+<span class="ruby-comment"># class User</span>
+<span class="ruby-comment">#   attr_accessor :name</span>
+<span class="ruby-comment"># end</span>
+<span class="ruby-comment">#</span>
+<span class="ruby-identifier">puts</span> <span class="ruby-constant">Pry</span><span class="ruby-operator">::</span><span class="ruby-constant">Indent</span>.<span class="ruby-identifier">new</span>.<span class="ruby-identifier">indent</span>(<span class="ruby-identifier">str</span>)
+</pre>
+
+<p>@param  [String] input The input string to indent. @return [String] The
+indented version of <code>input</code>.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="indent-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/pry-0.11.3/lib/pry/indent.rb, line 141</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">indent</span>(<span class="ruby-identifier">input</span>)
+  <span class="ruby-identifier">output</span> = <span class="ruby-string">&#39;&#39;</span>
+  <span class="ruby-identifier">prefix</span> = <span class="ruby-identifier">indent_level</span>
+
+  <span class="ruby-identifier">input</span>.<span class="ruby-identifier">lines</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">line</span><span class="ruby-operator">|</span>
+
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">in_string?</span>
+      <span class="ruby-identifier">tokens</span> = <span class="ruby-identifier">tokenize</span>(<span class="ruby-node">&quot;#{open_delimiters_line}\n#{line}&quot;</span>)
+      <span class="ruby-identifier">tokens</span> = <span class="ruby-identifier">tokens</span>.<span class="ruby-identifier">drop_while</span>{ <span class="ruby-operator">|</span><span class="ruby-identifier">token</span>, <span class="ruby-identifier">type</span><span class="ruby-operator">|</span> <span class="ruby-operator">!</span>(<span class="ruby-constant">String</span> <span class="ruby-operator">===</span> <span class="ruby-identifier">token</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">token</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-string">&quot;\n&quot;</span>)) }
+      <span class="ruby-identifier">previously_in_string</span> = <span class="ruby-keyword">true</span>
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-identifier">tokens</span> = <span class="ruby-identifier">tokenize</span>(<span class="ruby-identifier">line</span>)
+      <span class="ruby-identifier">previously_in_string</span> = <span class="ruby-keyword">false</span>
+    <span class="ruby-keyword">end</span>
+
+    <span class="ruby-identifier">before</span>, <span class="ruby-identifier">after</span> = <span class="ruby-identifier">indentation_delta</span>(<span class="ruby-identifier">tokens</span>)
+
+    <span class="ruby-identifier">before</span>.<span class="ruby-identifier">times</span>{ <span class="ruby-identifier">prefix</span>.<span class="ruby-identifier">sub!</span> <span class="ruby-constant">SPACES</span>, <span class="ruby-string">&#39;&#39;</span> }
+    <span class="ruby-identifier">new_prefix</span> = <span class="ruby-identifier">prefix</span> <span class="ruby-operator">+</span> <span class="ruby-constant">SPACES</span> <span class="ruby-operator">*</span> <span class="ruby-identifier">after</span>
+
+    <span class="ruby-identifier">line</span> = <span class="ruby-identifier">prefix</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">line</span>.<span class="ruby-identifier">lstrip</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">previously_in_string</span>
+
+    <span class="ruby-identifier">output</span> <span class="ruby-operator">+=</span> <span class="ruby-identifier">line</span>
+
+    <span class="ruby-identifier">prefix</span> = <span class="ruby-identifier">new_prefix</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-ivar">@indent_level</span> = <span class="ruby-identifier">prefix</span>
+
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">output</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-indentation_delta" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">indentation_delta</span><span
+            class="method-args">(tokens)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Get the change in indentation indicated by the line.</p>
+
+<p>By convention, you remove indent from the line containing end tokens, but
+add indent to the line <strong>after</strong> that which contains the start
+tokens.</p>
+
+<p>This method returns a pair, where the first number is the number of
+closings on this line (i.e. the number of indents to remove before the
+line) and the second is the number of openings (i.e. the number of indents
+to add after this line)</p>
+
+<p>@param  [Array] tokens A list of tokens to scan. @return [<a
+href="Integer">Array</a>]</p>
+          
+          
+
+          
+          <div class="method-source-code" id="indentation_delta-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/pry-0.11.3/lib/pry/indent.rb, line 196</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">indentation_delta</span>(<span class="ruby-identifier">tokens</span>)
+
+  <span class="ruby-comment"># We need to keep track of whether we&#39;ve seen a &quot;for&quot; on this line because</span>
+  <span class="ruby-comment"># if the line ends with &quot;do&quot; then that &quot;do&quot; should be discounted (i.e. we&#39;re</span>
+  <span class="ruby-comment"># only opening one level not two) To do this robustly we want to keep track</span>
+  <span class="ruby-comment"># of the indent level at which we saw the for, so we can differentiate</span>
+  <span class="ruby-comment"># between &quot;for x in [1,2,3] do&quot; and &quot;for x in ([1,2,3].map do&quot; properly</span>
+  <span class="ruby-identifier">seen_for_at</span> = []
+
+  <span class="ruby-comment"># When deciding whether an &quot;if&quot; token is the start of a multiline statement,</span>
+  <span class="ruby-comment"># or just the middle of a single-line if statement, we just look at the</span>
+  <span class="ruby-comment"># preceding token, which is tracked here.</span>
+  <span class="ruby-identifier">last_token</span>, <span class="ruby-identifier">last_kind</span> = [<span class="ruby-keyword">nil</span>, <span class="ruby-keyword">nil</span>]
+
+  <span class="ruby-comment"># delta keeps track of the total difference from the start of each line after</span>
+  <span class="ruby-comment"># the given token, 0 is just the level at which the current line started for</span>
+  <span class="ruby-comment"># reference.</span>
+  <span class="ruby-identifier">remove_before</span>, <span class="ruby-identifier">add_after</span> = [<span class="ruby-value">0</span>, <span class="ruby-value">0</span>]
+
+  <span class="ruby-comment"># If the list of tokens contains a matching closing token the line should</span>
+  <span class="ruby-comment"># not be indented (and thus we should return true).</span>
+  <span class="ruby-identifier">tokens</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">token</span>, <span class="ruby-identifier">kind</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">is_singleline_if</span>  = (<span class="ruby-constant">SINGLELINE_TOKENS</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">token</span>)) <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">end_of_statement?</span>(<span class="ruby-identifier">last_token</span>, <span class="ruby-identifier">last_kind</span>)
+    <span class="ruby-identifier">is_optional_do</span> = (<span class="ruby-identifier">token</span> <span class="ruby-operator">==</span> <span class="ruby-string">&quot;do&quot;</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">seen_for_at</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">add_after</span> <span class="ruby-operator">-</span> <span class="ruby-value">1</span>))
+
+    <span class="ruby-identifier">last_token</span>, <span class="ruby-identifier">last_kind</span> = <span class="ruby-identifier">token</span>, <span class="ruby-identifier">kind</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">kind</span> <span class="ruby-operator">==</span> <span class="ruby-value">:space</span>
+    <span class="ruby-keyword">next</span> <span class="ruby-keyword">if</span> <span class="ruby-constant">IGNORE_TOKENS</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">kind</span>)
+
+    <span class="ruby-identifier">track_module_nesting</span>(<span class="ruby-identifier">token</span>, <span class="ruby-identifier">kind</span>)
+
+    <span class="ruby-identifier">seen_for_at</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">add_after</span> <span class="ruby-keyword">if</span> <span class="ruby-constant">OPTIONAL_DO_TOKENS</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">token</span>)
+
+    <span class="ruby-keyword">next</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">is_singleline_if</span>
+
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">kind</span> <span class="ruby-operator">==</span> <span class="ruby-value">:delimiter</span>
+      <span class="ruby-identifier">track_delimiter</span>(<span class="ruby-identifier">token</span>)
+    <span class="ruby-keyword">elsif</span> <span class="ruby-constant">OPEN_TOKENS</span>.<span class="ruby-identifier">keys</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">token</span>) <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-operator">!</span><span class="ruby-identifier">is_optional_do</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-operator">!</span><span class="ruby-identifier">is_singleline_if</span>
+      <span class="ruby-ivar">@stack</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">token</span>
+      <span class="ruby-identifier">add_after</span> <span class="ruby-operator">+=</span> <span class="ruby-value">1</span>
+    <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">token</span> <span class="ruby-operator">==</span> <span class="ruby-constant">OPEN_TOKENS</span>[<span class="ruby-ivar">@stack</span>.<span class="ruby-identifier">last</span>]
+      <span class="ruby-identifier">popped</span> = <span class="ruby-ivar">@stack</span>.<span class="ruby-identifier">pop</span>
+      <span class="ruby-identifier">track_module_nesting_end</span>(<span class="ruby-identifier">popped</span>)
+      <span class="ruby-keyword">if</span> <span class="ruby-identifier">add_after</span> <span class="ruby-operator">==</span> <span class="ruby-value">0</span>
+        <span class="ruby-identifier">remove_before</span> <span class="ruby-operator">+=</span> <span class="ruby-value">1</span>
+      <span class="ruby-keyword">else</span>
+        <span class="ruby-identifier">add_after</span> <span class="ruby-operator">-=</span> <span class="ruby-value">1</span>
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">elsif</span> <span class="ruby-constant">MIDWAY_TOKENS</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">token</span>)
+      <span class="ruby-keyword">if</span> <span class="ruby-identifier">add_after</span> <span class="ruby-operator">==</span> <span class="ruby-value">0</span>
+        <span class="ruby-identifier">remove_before</span> <span class="ruby-operator">+=</span> <span class="ruby-value">1</span>
+        <span class="ruby-identifier">add_after</span> <span class="ruby-operator">+=</span> <span class="ruby-value">1</span>
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">return</span> [<span class="ruby-identifier">remove_before</span>, <span class="ruby-identifier">add_after</span>]
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-module_nesting" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">module_nesting</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Return a list of strings which can be used to re-construct the
+Module.nesting at the current point in the file.</p>
+
+<p>Returns nil if the syntax of the file was not recognizable.</p>
+
+<p>@return [Array&lt;String&gt;]</p>
+          
+          
+
+          
+          <div class="method-source-code" id="module_nesting-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/pry-0.11.3/lib/pry/indent.rb, line 373</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">module_nesting</span>
+  <span class="ruby-ivar">@module_nesting</span>.<span class="ruby-identifier">map</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span>(<span class="ruby-identifier">kind</span>, <span class="ruby-identifier">token</span>)<span class="ruby-operator">|</span>
+    <span class="ruby-identifier">raise</span> <span class="ruby-constant">UnparseableNestingError</span>, <span class="ruby-ivar">@module_nesting</span>.<span class="ruby-identifier">inspect</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">token</span>.<span class="ruby-identifier">nil?</span>
+
+    <span class="ruby-node">&quot;#{kind} #{token}&quot;</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-open_delimiters" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">open_delimiters</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>All the open delimiters, in the order that they first appeared.</p>
+
+<p>@return [String]</p>
+          
+          
+
+          
+          <div class="method-source-code" id="open_delimiters-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/pry-0.11.3/lib/pry/indent.rb, line 307</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">open_delimiters</span>
+  <span class="ruby-ivar">@heredoc_queue</span> <span class="ruby-operator">+</span> [<span class="ruby-ivar">@string_start</span>].<span class="ruby-identifier">compact</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-open_delimiters_line" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">open_delimiters_line</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Return a string which restores the <a href="../CodeRay.html">CodeRay</a>
+string status to the correct value by opening HEREDOCs and strings.</p>
+
+<p>@return <a href="../String.html">String</a></p>
+          
+          
+
+          
+          <div class="method-source-code" id="open_delimiters_line-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/pry-0.11.3/lib/pry/indent.rb, line 315</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">open_delimiters_line</span>
+  <span class="ruby-node">&quot;puts #{open_delimiters.join(&quot;, &quot;)}&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-reset" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">reset</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>reset internal state</p>
+          
+          
+
+          
+          <div class="method-source-code" id="reset-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/pry-0.11.3/lib/pry/indent.rb, line 109</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">reset</span>
+  <span class="ruby-ivar">@stack</span> = []
+  <span class="ruby-ivar">@indent_level</span> = <span class="ruby-string">&#39;&#39;</span>
+  <span class="ruby-ivar">@heredoc_queue</span> = []
+  <span class="ruby-ivar">@close_heredocs</span> = {}
+  <span class="ruby-ivar">@string_start</span> = <span class="ruby-keyword">nil</span>
+  <span class="ruby-ivar">@awaiting_class</span> = <span class="ruby-keyword">false</span>
+  <span class="ruby-ivar">@module_nesting</span> = []
+  <span class="ruby-keyword">self</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-tokenize" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">tokenize</span><span
+            class="method-args">(string)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Given a string of Ruby code, use <a href="../CodeRay.html">CodeRay</a> to
+export the tokens.</p>
+
+<p>@param [String] string The Ruby to lex @return [Array] An <a
+href="../Array.html">Array</a> of pairs of [token_value, token_type]</p>
+          
+          
+
+          
+          <div class="method-source-code" id="tokenize-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/pry-0.11.3/lib/pry/indent.rb, line 275</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">tokenize</span>(<span class="ruby-identifier">string</span>)
+  <span class="ruby-identifier">tokens</span> = <span class="ruby-constant">CodeRay</span>.<span class="ruby-identifier">scan</span>(<span class="ruby-identifier">string</span>, <span class="ruby-value">:ruby</span>)
+  <span class="ruby-identifier">tokens</span> = <span class="ruby-identifier">tokens</span>.<span class="ruby-identifier">tokens</span>.<span class="ruby-identifier">each_slice</span>(<span class="ruby-value">2</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">tokens</span>.<span class="ruby-identifier">respond_to?</span>(<span class="ruby-value">:tokens</span>) <span class="ruby-comment"># Coderay 1.0.0</span>
+  <span class="ruby-identifier">tokens</span>.<span class="ruby-identifier">to_a</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-track_delimiter" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">track_delimiter</span><span
+            class="method-args">(token)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Update the internal state about what kind of strings are open.</p>
+
+<p>Most of the complication here comes from the fact that HEREDOCs can be
+nested. For normal strings (which can&#39;t be nested) we assume that <a
+href="../CodeRay.html">CodeRay</a> correctly pairs open-and-close
+delimiters so we don&#39;t bother checking what they are.</p>
+
+<p>@param [String] token The token (of type :delimiter)</p>
+          
+          
+
+          
+          <div class="method-source-code" id="track_delimiter-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/pry-0.11.3/lib/pry/indent.rb, line 288</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">track_delimiter</span>(<span class="ruby-identifier">token</span>)
+  <span class="ruby-keyword">case</span> <span class="ruby-identifier">token</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-regexp">/^&lt;&lt;-([&quot;&#39;`]?)(.*)\1/</span>
+    <span class="ruby-ivar">@heredoc_queue</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">token</span>
+    <span class="ruby-ivar">@close_heredocs</span>[<span class="ruby-identifier">token</span>] = <span class="ruby-regexp">/^\s*$2/</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-ivar">@close_heredocs</span>[<span class="ruby-ivar">@heredoc_queue</span>.<span class="ruby-identifier">first</span>]
+    <span class="ruby-ivar">@heredoc_queue</span>.<span class="ruby-identifier">shift</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-ivar">@string_start</span>
+      <span class="ruby-ivar">@string_start</span> = <span class="ruby-keyword">nil</span>
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-ivar">@string_start</span> = <span class="ruby-identifier">token</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-track_module_nesting" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">track_module_nesting</span><span
+            class="method-args">(token, kind)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Update the internal state relating to module nesting.</p>
+
+<p>It&#39;s responsible for adding to the @module_nesting array, which looks
+something like:</p>
+<dl class="rdoc-list label-list"><dt> [“class”, “Foo”], [“module”, “Bar::Baz”], [“class &lt;&lt;”, “self”
+<dd>
+<p>]</p>
+</dd></dl>
+
+<p>A nil value in the @module_nesting array happens in two places: either when
+@awaiting_class is true and we&#39;re still waiting for the string to fill
+that space, or when a parse was rejected.</p>
+
+<p>At the moment this function is quite restricted about what formats it will
+parse, for example we disallow expressions after the class keyword. This
+could maybe be improved in the future.</p>
+
+<p>@param [String] token  a token from Coderay @param [Symbol] kind  the kind
+of that token</p>
+          
+          
+
+          
+          <div class="method-source-code" id="track_module_nesting-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/pry-0.11.3/lib/pry/indent.rb, line 336</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">track_module_nesting</span>(<span class="ruby-identifier">token</span>, <span class="ruby-identifier">kind</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">kind</span> <span class="ruby-operator">==</span> <span class="ruby-value">:keyword</span> <span class="ruby-operator">&amp;&amp;</span> (<span class="ruby-identifier">token</span> <span class="ruby-operator">==</span> <span class="ruby-string">&quot;class&quot;</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">token</span> <span class="ruby-operator">==</span> <span class="ruby-string">&quot;module&quot;</span>)
+    <span class="ruby-ivar">@module_nesting</span> <span class="ruby-operator">&lt;&lt;</span> [<span class="ruby-identifier">token</span>, <span class="ruby-keyword">nil</span>]
+    <span class="ruby-ivar">@awaiting_class</span> = <span class="ruby-keyword">true</span>
+  <span class="ruby-keyword">elsif</span> <span class="ruby-ivar">@awaiting_class</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">kind</span> <span class="ruby-operator">==</span> <span class="ruby-value">:operator</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">token</span> <span class="ruby-operator">==</span> <span class="ruby-string">&quot;&lt;&lt;&quot;</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-ivar">@module_nesting</span>.<span class="ruby-identifier">last</span>[<span class="ruby-value">0</span>] <span class="ruby-operator">==</span> <span class="ruby-string">&quot;class&quot;</span>
+      <span class="ruby-ivar">@module_nesting</span>.<span class="ruby-identifier">last</span>[<span class="ruby-value">0</span>] = <span class="ruby-string">&quot;class &lt;&lt;&quot;</span>
+      <span class="ruby-ivar">@awaiting_class</span> = <span class="ruby-keyword">true</span>
+    <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">kind</span> <span class="ruby-operator">==</span> <span class="ruby-value">:class</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">token</span> <span class="ruby-operator">=~</span> <span class="ruby-regexp">/\A(self|[A-Z:][A-Za-z0-9_:]*)\z/</span>
+      <span class="ruby-ivar">@module_nesting</span>.<span class="ruby-identifier">last</span>[<span class="ruby-value">1</span>] = <span class="ruby-identifier">token</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">kind</span> <span class="ruby-operator">==</span> <span class="ruby-value">:class</span>
+      <span class="ruby-ivar">@awaiting_class</span> = <span class="ruby-keyword">false</span>
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-comment"># leave @module_nesting[-1]</span>
+      <span class="ruby-ivar">@awaiting_class</span> = <span class="ruby-keyword">false</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-track_module_nesting_end" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">track_module_nesting_end</span><span
+            class="method-args">(token, kind=:keyword)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Update the internal state relating to module nesting on &#39;end&#39;.</p>
+
+<p>If the current &#39;end&#39; pairs up with a class or a module then we
+should pop an array off of @module_nesting</p>
+
+<p>@param [String] token  a token from Coderay @param [Symbol] kind  the kind
+of that token</p>
+          
+          
+
+          
+          <div class="method-source-code" id="track_module_nesting_end-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/pry-0.11.3/lib/pry/indent.rb, line 361</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">track_module_nesting_end</span>(<span class="ruby-identifier">token</span>, <span class="ruby-identifier">kind</span>=<span class="ruby-value">:keyword</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">kind</span> <span class="ruby-operator">==</span> <span class="ruby-value">:keyword</span> <span class="ruby-operator">&amp;&amp;</span> (<span class="ruby-identifier">token</span> <span class="ruby-operator">==</span> <span class="ruby-string">&quot;class&quot;</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">token</span> <span class="ruby-operator">==</span> <span class="ruby-string">&quot;module&quot;</span>)
+    <span class="ruby-ivar">@module_nesting</span>.<span class="ruby-identifier">pop</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="https://rdoc.github.io/rdoc">RDoc</a> 5.0.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

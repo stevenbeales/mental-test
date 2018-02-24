@@ -1,10 +1,7 @@
 # frozen_string_literal: true
 
-require './lib/shared_methods'
-
 # Model to represent a survey/campaign
 class Survey < ActiveRecord::Base
-  extend SharedMethods
   has_many :assessments, dependent: :destroy
   has_many :users, through: :user_surveys
   validates :name, presence: true
@@ -15,7 +12,7 @@ class Survey < ActiveRecord::Base
                       too_short: 'pick a longer name'
 
   def self.list_tests
-    get_test_names(Survey.all)
+    Survey.all.join(' ')
   end
 
   def to_s

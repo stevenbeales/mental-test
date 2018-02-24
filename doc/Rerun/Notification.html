@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class Rerun::Notification - RDoc Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../";
+  var index_rel_prefix = "../";
+</script>
+
+<script src="../js/jquery.js"></script>
+<script src="../js/darkfish.js"></script>
+
+<link href="../css/fonts.css" rel="stylesheet">
+<link href="../css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../table_of_contents.html#pages">Pages</a>
+    <a href="../table_of_contents.html#classes">Classes</a>
+    <a href="../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link"><a href="../Object.html">Object</a>
+  
+</div>
+
+    <div id="includes-section" class="nav-section">
+  <h3>Included Modules</h3>
+
+  <ul class="link-list">
+  
+  
+    <li><a class="include" href="System.html">Rerun::System</a>
+  
+  
+  </ul>
+</div>
+
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-c-new">::new</a>
+    
+    <li ><a href="#method-i-app_name">#app_name</a>
+    
+    <li ><a href="#method-i-command">#command</a>
+    
+    <li ><a href="#method-i-command_named">#command_named</a>
+    
+    <li ><a href="#method-i-icon">#icon</a>
+    
+    <li ><a href="#method-i-icon_dir">#icon_dir</a>
+    
+    <li ><a href="#method-i-send">#send</a>
+    
+    <li ><a href="#method-i-with_clean_env">#with_clean_env</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-Rerun::Notification">
+  <h1 id="class-Rerun::Notification" class="class">
+    class Rerun::Notification
+  </h1>
+
+  <section class="description">
+    
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+    <section class="attribute-method-details" class="method-section">
+      <header>
+        <h3>Attributes</h3>
+      </header>
+
+      
+      <div id="attribute-i-body" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">body</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-options" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">options</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-title" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">title</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+    </section>
+    
+
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Class Methods</h3>
+       </header>
+
+    
+      <div id="method-c-new" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">new</span><span
+            class="method-args">(title, body, options = Options::DEFAULTS.dup)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="new-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/rerun-0.13.0/lib/rerun/notification.rb, line 9</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">title</span>, <span class="ruby-identifier">body</span>, <span class="ruby-identifier">options</span> = <span class="ruby-constant">Options</span><span class="ruby-operator">::</span><span class="ruby-constant">DEFAULTS</span>.<span class="ruby-identifier">dup</span>)
+  <span class="ruby-ivar">@title</span> = <span class="ruby-identifier">title</span>
+  <span class="ruby-ivar">@body</span> = <span class="ruby-identifier">body</span>
+  <span class="ruby-ivar">@options</span> = <span class="ruby-identifier">options</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-app_name" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">app_name</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="app_name-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/rerun-0.13.0/lib/rerun/notification.rb, line 59</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">app_name</span>
+  <span class="ruby-identifier">options</span>[<span class="ruby-value">:name</span>]
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-command" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">command</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="command-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/rerun-0.13.0/lib/rerun/notification.rb, line 15</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">command</span>
+  <span class="ruby-comment"># todo: strategy or subclass</span>
+
+  <span class="ruby-identifier">s</span> = <span class="ruby-keyword">nil</span>
+
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">options</span>[<span class="ruby-value">:notify</span>] <span class="ruby-operator">==</span> <span class="ruby-keyword">true</span> <span class="ruby-keyword">or</span> <span class="ruby-identifier">options</span>[<span class="ruby-value">:notify</span>] <span class="ruby-operator">==</span> <span class="ruby-string">&quot;growl&quot;</span>
+    <span class="ruby-keyword">if</span> (<span class="ruby-identifier">cmd</span> = <span class="ruby-identifier">command_named</span>(<span class="ruby-string">&quot;growlnotify&quot;</span>))
+      <span class="ruby-comment"># todo: check version of growlnotify and warn if it&#39;s too old</span>
+      <span class="ruby-identifier">icon_str</span> = (<span class="ruby-node">&quot;--image \&quot;#{icon}\&quot;&quot;</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">icon</span>)
+      <span class="ruby-identifier">s</span> = <span class="ruby-node">&quot;#{cmd} -n \&quot;#{app_name}\&quot; -m \&quot;#{body}\&quot; \&quot;#{app_name} #{title}\&quot; #{icon_str}&quot;</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">s</span>.<span class="ruby-identifier">nil?</span> <span class="ruby-keyword">and</span> <span class="ruby-identifier">options</span>[<span class="ruby-value">:notify</span>] <span class="ruby-operator">==</span> <span class="ruby-keyword">true</span> <span class="ruby-keyword">or</span> <span class="ruby-identifier">options</span>[<span class="ruby-value">:notify</span>] <span class="ruby-operator">==</span> <span class="ruby-string">&quot;osx&quot;</span>
+    <span class="ruby-keyword">if</span> (<span class="ruby-identifier">cmd</span> = <span class="ruby-identifier">command_named</span>(<span class="ruby-string">&quot;terminal-notifier&quot;</span>))
+      <span class="ruby-identifier">icon_str</span> = (<span class="ruby-node">&quot;-appIcon \&quot;#{icon}\&quot;&quot;</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">icon</span>)
+      <span class="ruby-identifier">s</span> = <span class="ruby-node">&quot;#{cmd} -title \&quot;#{app_name}\&quot; -message \&quot;#{body}\&quot; \&quot;#{app_name} #{title}\&quot; #{icon_str}&quot;</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">s</span>.<span class="ruby-identifier">nil?</span> <span class="ruby-keyword">and</span> <span class="ruby-identifier">options</span>[<span class="ruby-value">:notify</span>] <span class="ruby-operator">==</span> <span class="ruby-keyword">true</span> <span class="ruby-keyword">or</span> <span class="ruby-identifier">options</span>[<span class="ruby-value">:notify</span>] <span class="ruby-operator">==</span> <span class="ruby-string">&quot;notify-send&quot;</span>
+    <span class="ruby-keyword">if</span> (<span class="ruby-identifier">cmd</span> = <span class="ruby-identifier">command_named</span>(<span class="ruby-string">&#39;notify-send&#39;</span>))
+      <span class="ruby-identifier">icon_str</span> = <span class="ruby-node">&quot;--icon #{icon}&quot;</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">icon</span>
+      <span class="ruby-identifier">s</span> = <span class="ruby-node">&quot;#{cmd} -t 500 --hint=int:transient:1 #{icon_str} \&quot;#{app_name}: #{title}\&quot; \&quot;#{body}\&quot;&quot;</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">s</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-command_named" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">command_named</span><span
+            class="method-args">(name)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="command_named-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/rerun-0.13.0/lib/rerun/notification.rb, line 45</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">command_named</span>(<span class="ruby-identifier">name</span>)
+  <span class="ruby-identifier">which_command</span> = <span class="ruby-identifier">windows?</span> <span class="ruby-operator">?</span> <span class="ruby-string">&#39;where.exe&#39;</span> <span class="ruby-operator">:</span> <span class="ruby-string">&#39;which&#39;</span>
+  <span class="ruby-comment"># TODO: remove &#39;INFO&#39; error message</span>
+  <span class="ruby-identifier">path</span> = <span class="ruby-node">%x`#{which_command} #{name}`</span>.<span class="ruby-identifier">chomp</span>
+  <span class="ruby-identifier">path</span>.<span class="ruby-identifier">empty?</span> <span class="ruby-operator">?</span> <span class="ruby-keyword">nil</span> <span class="ruby-operator">:</span> <span class="ruby-identifier">path</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-icon" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">icon</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="icon-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/rerun-0.13.0/lib/rerun/notification.rb, line 63</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">icon</span>
+  <span class="ruby-node">&quot;#{icon_dir}/rails_red_sml.png&quot;</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">rails?</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-icon_dir" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">icon_dir</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="icon_dir-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/rerun-0.13.0/lib/rerun/notification.rb, line 67</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">icon_dir</span>
+  <span class="ruby-identifier">here</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">expand_path</span>(<span class="ruby-constant">File</span>.<span class="ruby-identifier">dirname</span>(<span class="ruby-keyword">__FILE__</span>))
+  <span class="ruby-constant">File</span>.<span class="ruby-identifier">expand_path</span>(<span class="ruby-node">&quot;#{here}/../../icons&quot;</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-send" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">send</span><span
+            class="method-args">(background = true)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="send-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/rerun-0.13.0/lib/rerun/notification.rb, line 52</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">send</span>(<span class="ruby-identifier">background</span> = <span class="ruby-keyword">true</span>)
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">command</span>
+  <span class="ruby-identifier">with_clean_env</span> <span class="ruby-keyword">do</span>
+    <span class="ruby-node">%x`#{command}#{&quot; &amp;&quot; if background}`</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-with_clean_env" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">with_clean_env</span><span
+            class="method-args">() { || ... }</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="with_clean_env-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/rerun-0.13.0/lib/rerun/notification.rb, line 72</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">with_clean_env</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-keyword">defined?</span>(<span class="ruby-constant">Bundler</span>)
+    <span class="ruby-constant">Bundler</span>.<span class="ruby-identifier">with_clean_env</span> <span class="ruby-keyword">do</span>
+      <span class="ruby-keyword">yield</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-keyword">yield</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="https://rdoc.github.io/rdoc">RDoc</a> 5.0.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

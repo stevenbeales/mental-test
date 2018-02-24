@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>module RSpec::Support::InSubProcess - RDoc Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../../";
+  var index_rel_prefix = "../../";
+</script>
+
+<script src="../../js/jquery.js"></script>
+<script src="../../js/darkfish.js"></script>
+
+<link href="../../css/fonts.css" rel="stylesheet">
+<link href="../../css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="module">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../../table_of_contents.html#pages">Pages</a>
+    <a href="../../table_of_contents.html#classes">Classes</a>
+    <a href="../../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-i-in_sub_process">#in_sub_process</a>
+    
+    <li ><a href="#method-i-in_sub_process_if_possible">#in_sub_process_if_possible</a>
+    
+    <li ><a href="#method-i-marshal_dump_with_unmarshable_object_handling">#marshal_dump_with_unmarshable_object_handling</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="module-RSpec::Support::InSubProcess">
+  <h1 id="module-RSpec::Support::InSubProcess" class="module">
+    module RSpec::Support::InSubProcess
+  </h1>
+
+  <section class="description">
+    
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+    <section class="constants-list">
+      <header>
+        <h3>Constants</h3>
+      </header>
+      <dl>
+      
+        <dt id="UnmarshableObject">UnmarshableObject
+        
+        <dd>
+        
+      
+      </dl>
+    </section>
+    
+
+    
+
+    
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-in_sub_process" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">in_sub_process</span><span
+            class="method-args">(prevent_warnings=true) { || ... }</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>rubocop:disable MethodLength</p>
+          
+          
+
+          
+          <div class="method-source-code" id="in_sub_process-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/rspec-support-3.7.1/lib/rspec/support/spec/in_sub_process.rb, line 11</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">in_sub_process</span>(<span class="ruby-identifier">prevent_warnings</span>=<span class="ruby-keyword">true</span>)
+  <span class="ruby-identifier">exception_reader</span>, <span class="ruby-identifier">exception_writer</span> = <span class="ruby-constant">IO</span>.<span class="ruby-identifier">pipe</span>
+  <span class="ruby-identifier">result_reader</span>, <span class="ruby-identifier">result_writer</span> = <span class="ruby-constant">IO</span>.<span class="ruby-identifier">pipe</span>
+
+  <span class="ruby-identifier">pid</span> = <span class="ruby-constant">Process</span>.<span class="ruby-identifier">fork</span> <span class="ruby-keyword">do</span>
+    <span class="ruby-identifier">warning_preventer</span> = <span class="ruby-identifier">$stderr</span> = <span class="ruby-constant">RSpec</span><span class="ruby-operator">::</span><span class="ruby-constant">Support</span><span class="ruby-operator">::</span><span class="ruby-constant">StdErrSplitter</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">$stderr</span>)
+
+    <span class="ruby-keyword">begin</span>
+      <span class="ruby-identifier">result</span> = <span class="ruby-keyword">yield</span>
+      <span class="ruby-identifier">warning_preventer</span>.<span class="ruby-identifier">verify_no_warnings!</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">prevent_warnings</span>
+      <span class="ruby-comment"># rubocop:disable Lint/HandleExceptions</span>
+    <span class="ruby-keyword">rescue</span> <span class="ruby-constant">Support</span><span class="ruby-operator">::</span><span class="ruby-constant">AllExceptionsExceptOnesWeMustNotRescue</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">exception</span>
+      <span class="ruby-comment"># rubocop:enable Lint/HandleExceptions</span>
+    <span class="ruby-keyword">end</span>
+
+    <span class="ruby-identifier">exception_writer</span>.<span class="ruby-identifier">write</span> <span class="ruby-identifier">marshal_dump_with_unmarshable_object_handling</span>(<span class="ruby-identifier">exception</span>)
+    <span class="ruby-identifier">exception_reader</span>.<span class="ruby-identifier">close</span>
+    <span class="ruby-identifier">exception_writer</span>.<span class="ruby-identifier">close</span>
+
+    <span class="ruby-identifier">result_writer</span>.<span class="ruby-identifier">write</span> <span class="ruby-identifier">marshal_dump_with_unmarshable_object_handling</span>(<span class="ruby-identifier">result</span>)
+    <span class="ruby-identifier">result_reader</span>.<span class="ruby-identifier">close</span>
+    <span class="ruby-identifier">result_writer</span>.<span class="ruby-identifier">close</span>
+
+    <span class="ruby-identifier">exit!</span> <span class="ruby-comment"># prevent at_exit hooks from running (e.g. minitest)</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">exception_writer</span>.<span class="ruby-identifier">close</span>
+  <span class="ruby-identifier">result_writer</span>.<span class="ruby-identifier">close</span>
+  <span class="ruby-constant">Process</span>.<span class="ruby-identifier">waitpid</span>(<span class="ruby-identifier">pid</span>)
+
+  <span class="ruby-identifier">exception</span> = <span class="ruby-constant">Marshal</span>.<span class="ruby-identifier">load</span>(<span class="ruby-identifier">exception_reader</span>.<span class="ruby-identifier">read</span>)
+  <span class="ruby-identifier">exception_reader</span>.<span class="ruby-identifier">close</span>
+  <span class="ruby-identifier">raise</span> <span class="ruby-identifier">exception</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">exception</span>
+
+  <span class="ruby-identifier">result</span> = <span class="ruby-constant">Marshal</span>.<span class="ruby-identifier">load</span>(<span class="ruby-identifier">result_reader</span>.<span class="ruby-identifier">read</span>)
+  <span class="ruby-identifier">result_reader</span>.<span class="ruby-identifier">close</span>
+  <span class="ruby-identifier">result</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+        <div class="aliases">
+          Also aliased as: <a href="InSubProcess.html#method-i-in_sub_process_if_possible">in_sub_process_if_possible</a>
+        </div>
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-in_sub_process_if_possible" class="method-detail method-alias">
+        
+        <div class="method-heading">
+          <span class="method-name">in_sub_process_if_possible</span><span
+            class="method-args">(prevent_warnings=true)</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>rubocop:enable MethodLength</p>
+          
+          
+
+          
+        </div>
+
+        
+
+        
+        <div class="aliases">
+          Alias for: <a href="InSubProcess.html#method-i-in_sub_process">in_sub_process</a>
+        </div>
+        
+      </div>
+
+    
+      <div id="method-i-marshal_dump_with_unmarshable_object_handling" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">marshal_dump_with_unmarshable_object_handling</span><span
+            class="method-args">(object)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="marshal_dump_with_unmarshable_object_handling-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/rspec-support-3.7.1/lib/rspec/support/spec/in_sub_process.rb, line 52</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">marshal_dump_with_unmarshable_object_handling</span>(<span class="ruby-identifier">object</span>)
+  <span class="ruby-constant">Marshal</span>.<span class="ruby-identifier">dump</span>(<span class="ruby-identifier">object</span>)
+<span class="ruby-keyword">rescue</span> <span class="ruby-constant">TypeError</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">error</span>
+  <span class="ruby-constant">Marshal</span>.<span class="ruby-identifier">dump</span>(<span class="ruby-constant">UnmarshableObject</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">error</span>))
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="https://rdoc.github.io/rdoc">RDoc</a> 5.0.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

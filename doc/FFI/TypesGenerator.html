@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class FFI::TypesGenerator - RDoc Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../";
+  var index_rel_prefix = "../";
+</script>
+
+<script src="../js/jquery.js"></script>
+<script src="../js/darkfish.js"></script>
+
+<link href="../css/fonts.css" rel="stylesheet">
+<link href="../css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../table_of_contents.html#pages">Pages</a>
+    <a href="../table_of_contents.html#classes">Classes</a>
+    <a href="../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link"><a href="../Object.html">Object</a>
+  
+</div>
+
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-c-generate">::generate</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-FFI::TypesGenerator">
+  <h1 id="class-FFI::TypesGenerator" class="class">
+    class FFI::TypesGenerator
+  </h1>
+
+  <section class="description">
+    
+<p>@private</p>
+
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+    <section class="constants-list">
+      <header>
+        <h3>Constants</h3>
+      </header>
+      <dl>
+      
+        <dt id="TYPE_MAP">TYPE_MAP
+        
+        <dd><p>Maps different C types to the C type representations we use</p>
+        
+      
+      </dl>
+    </section>
+    
+
+    
+
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Class Methods</h3>
+       </header>
+
+    
+      <div id="method-c-generate" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">generate</span><span
+            class="method-args">(options = {})</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="generate-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/ffi-1.9.21-x64-mingw32/lib/ffi/tools/types_generator.rb, line 46</span>
+    <span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">generate</span>(<span class="ruby-identifier">options</span> = {})
+      <span class="ruby-identifier">typedefs</span> = <span class="ruby-keyword">nil</span>
+      <span class="ruby-constant">Tempfile</span>.<span class="ruby-identifier">open</span> <span class="ruby-string">&#39;ffi_types_generator&#39;</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">io</span><span class="ruby-operator">|</span>
+        <span class="ruby-identifier">io</span>.<span class="ruby-identifier">puts</span> <span class="ruby-value">&lt;&lt;-C
+#include &lt;sys/types.h&gt;
+#if !(defined(WIN32))
+#include &lt;sys/socket.h&gt;
+#include &lt;sys/resource.h&gt;
+#endif
+        C</span>
+
+        <span class="ruby-identifier">io</span>.<span class="ruby-identifier">close</span>
+        <span class="ruby-identifier">cc</span> = <span class="ruby-constant">ENV</span>[<span class="ruby-string">&#39;CC&#39;</span>] <span class="ruby-operator">||</span> <span class="ruby-string">&#39;gcc&#39;</span>
+        <span class="ruby-identifier">cmd</span> = <span class="ruby-node">&quot;#{cc} -E -x c #{options[:cppflags]} -D_DARWIN_USE_64_BIT_INODE -D_LARGEFILE_SOURCE -D_FILE_OFFSET_BITS=64 -c&quot;</span>
+        <span class="ruby-keyword">if</span> <span class="ruby-identifier">options</span>[<span class="ruby-value">:input</span>]
+          <span class="ruby-identifier">typedefs</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">read</span>(<span class="ruby-identifier">options</span>[<span class="ruby-value">:input</span>])
+        <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">options</span>[<span class="ruby-value">:remote</span>]
+          <span class="ruby-identifier">typedefs</span> = <span class="ruby-node">%x`ssh #{options[:remote]} #{cmd} - &lt; #{io.path}`</span>
+        <span class="ruby-keyword">else</span>
+          <span class="ruby-identifier">typedefs</span> = <span class="ruby-node">%x`#{cmd} #{io.path}`</span>
+        <span class="ruby-keyword">end</span>
+      <span class="ruby-keyword">end</span>
+
+      <span class="ruby-identifier">code</span> = <span class="ruby-string">&quot;&quot;</span>
+
+      <span class="ruby-identifier">typedefs</span>.<span class="ruby-identifier">each_line</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">type</span><span class="ruby-operator">|</span>
+        <span class="ruby-comment"># We only care about single line typedef</span>
+        <span class="ruby-keyword">next</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">type</span> <span class="ruby-operator">=~</span> <span class="ruby-regexp">/typedef/</span>
+        <span class="ruby-comment"># Ignore unions or structs</span>
+        <span class="ruby-keyword">next</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">type</span> <span class="ruby-operator">=~</span> <span class="ruby-regexp">/union|struct/</span>
+
+        <span class="ruby-comment"># strip off the starting typedef and ending ;</span>
+        <span class="ruby-identifier">type</span>.<span class="ruby-identifier">gsub!</span>(<span class="ruby-regexp">/^(.*typedef\s*)/</span>, <span class="ruby-string">&quot;&quot;</span>)
+        <span class="ruby-identifier">type</span>.<span class="ruby-identifier">gsub!</span>(<span class="ruby-regexp">/\s*;\s*$/</span>, <span class="ruby-string">&quot;&quot;</span>)
+
+        <span class="ruby-identifier">parts</span> = <span class="ruby-identifier">type</span>.<span class="ruby-identifier">split</span>(<span class="ruby-regexp">/\s+/</span>)
+        <span class="ruby-identifier">def_type</span>   = <span class="ruby-identifier">parts</span>.<span class="ruby-identifier">join</span>(<span class="ruby-string">&quot; &quot;</span>)
+
+        <span class="ruby-comment"># GCC does mapping with __attribute__ stuf, also see</span>
+        <span class="ruby-comment"># http://hal.cs.berkeley.edu/cil/cil016.html section 16.2.7.  Problem</span>
+        <span class="ruby-comment"># with this is that the __attribute__ stuff can either occur before or</span>
+        <span class="ruby-comment"># after the new type that is defined...</span>
+        <span class="ruby-keyword">if</span> <span class="ruby-identifier">type</span> <span class="ruby-operator">=~</span> <span class="ruby-regexp">/__attribute__/</span>
+          <span class="ruby-keyword">if</span> <span class="ruby-identifier">parts</span>.<span class="ruby-identifier">last</span> <span class="ruby-operator">=~</span> <span class="ruby-regexp">/__QI__|__HI__|__SI__|__DI__|__word__/</span>
+
+            <span class="ruby-comment"># In this case, the new type is BEFORE __attribute__ we need to</span>
+            <span class="ruby-comment"># find the final_type as the type before the part that starts with</span>
+            <span class="ruby-comment"># __attribute__</span>
+            <span class="ruby-identifier">final_type</span> = <span class="ruby-string">&quot;&quot;</span>
+            <span class="ruby-identifier">parts</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">p</span><span class="ruby-operator">|</span>
+              <span class="ruby-keyword">break</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">p</span> <span class="ruby-operator">=~</span> <span class="ruby-regexp">/__attribute__/</span>
+              <span class="ruby-identifier">final_type</span> = <span class="ruby-identifier">p</span>
+            <span class="ruby-keyword">end</span>
+          <span class="ruby-keyword">else</span>
+            <span class="ruby-identifier">final_type</span> = <span class="ruby-identifier">parts</span>.<span class="ruby-identifier">pop</span>
+          <span class="ruby-keyword">end</span>
+
+          <span class="ruby-identifier">def_type</span> = <span class="ruby-keyword">case</span> <span class="ruby-identifier">type</span>
+                     <span class="ruby-keyword">when</span> <span class="ruby-regexp">/__QI__/</span>   <span class="ruby-keyword">then</span> <span class="ruby-string">&quot;char&quot;</span>
+                     <span class="ruby-keyword">when</span> <span class="ruby-regexp">/__HI__/</span>   <span class="ruby-keyword">then</span> <span class="ruby-string">&quot;short&quot;</span>
+                     <span class="ruby-keyword">when</span> <span class="ruby-regexp">/__SI__/</span>   <span class="ruby-keyword">then</span> <span class="ruby-string">&quot;int&quot;</span>
+                     <span class="ruby-keyword">when</span> <span class="ruby-regexp">/__DI__/</span>   <span class="ruby-keyword">then</span> <span class="ruby-string">&quot;long long&quot;</span>
+                     <span class="ruby-keyword">when</span> <span class="ruby-regexp">/__word__/</span> <span class="ruby-keyword">then</span> <span class="ruby-string">&quot;long&quot;</span>
+                     <span class="ruby-keyword">else</span>                 <span class="ruby-string">&quot;int&quot;</span>
+                     <span class="ruby-keyword">end</span>
+
+          <span class="ruby-identifier">def_type</span> = <span class="ruby-node">&quot;unsigned #{def_type}&quot;</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">type</span> <span class="ruby-operator">=~</span> <span class="ruby-regexp">/unsigned/</span>
+        <span class="ruby-keyword">else</span>
+          <span class="ruby-identifier">final_type</span> = <span class="ruby-identifier">parts</span>.<span class="ruby-identifier">pop</span>
+          <span class="ruby-identifier">def_type</span>   = <span class="ruby-identifier">parts</span>.<span class="ruby-identifier">join</span>(<span class="ruby-string">&quot; &quot;</span>)
+        <span class="ruby-keyword">end</span>
+
+        <span class="ruby-keyword">if</span> <span class="ruby-identifier">type</span> = <span class="ruby-constant">TYPE_MAP</span>[<span class="ruby-identifier">def_type</span>]
+          <span class="ruby-identifier">code</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-node">&quot;rbx.platform.typedef.#{final_type} = #{type}\n&quot;</span>
+          <span class="ruby-constant">TYPE_MAP</span>[<span class="ruby-identifier">final_type</span>] = <span class="ruby-constant">TYPE_MAP</span>[<span class="ruby-identifier">def_type</span>]
+        <span class="ruby-keyword">else</span>
+          <span class="ruby-comment"># Fallback to an ordinary pointer if we don&#39;t know the type</span>
+          <span class="ruby-keyword">if</span> <span class="ruby-identifier">def_type</span> <span class="ruby-operator">=~</span> <span class="ruby-regexp">/\*/</span>
+            <span class="ruby-identifier">code</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-node">&quot;rbx.platform.typedef.#{final_type} = pointer\n&quot;</span>
+            <span class="ruby-constant">TYPE_MAP</span>[<span class="ruby-identifier">final_type</span>] = <span class="ruby-value">:pointer</span>
+          <span class="ruby-keyword">end</span>
+        <span class="ruby-keyword">end</span>
+      <span class="ruby-keyword">end</span>
+
+      <span class="ruby-identifier">code</span>
+    <span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="https://rdoc.github.io/rdoc">RDoc</a> 5.0.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

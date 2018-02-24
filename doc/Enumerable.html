@@ -1,0 +1,860 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>module Enumerable - RDoc Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "./";
+  var index_rel_prefix = "./";
+</script>
+
+<script src="./js/jquery.js"></script>
+<script src="./js/darkfish.js"></script>
+
+<link href="./css/fonts.css" rel="stylesheet">
+<link href="./css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="module">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="./index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="./table_of_contents.html#pages">Pages</a>
+    <a href="./table_of_contents.html#classes">Classes</a>
+    <a href="./table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-i-_original_sum_with_required_identity">#_original_sum_with_required_identity</a>
+    
+    <li ><a href="#method-i-average">#average</a>
+    
+    <li ><a href="#method-i-drop_last">#drop_last</a>
+    
+    <li ><a href="#method-i-drop_last_while">#drop_last_while</a>
+    
+    <li ><a href="#method-i-exactly-3F">#exactly?</a>
+    
+    <li ><a href="#method-i-exclude-3F">#exclude?</a>
+    
+    <li ><a href="#method-i-frequencies">#frequencies</a>
+    
+    <li ><a href="#method-i-index_by">#index_by</a>
+    
+    <li ><a href="#method-i-many-3F">#many?</a>
+    
+    <li ><a href="#method-i-pluck">#pluck</a>
+    
+    <li ><a href="#method-i-several-3F">#several?</a>
+    
+    <li ><a href="#method-i-sum">#sum</a>
+    
+    <li ><a href="#method-i-take_last">#take_last</a>
+    
+    <li ><a href="#method-i-take_last_while">#take_last_while</a>
+    
+    <li ><a href="#method-i-without">#without</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="module-Enumerable">
+  <h1 id="module-Enumerable" class="module">
+    module Enumerable
+  </h1>
+
+  <section class="description">
+    
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+
+    
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-_original_sum_with_required_identity" class="method-detail method-alias">
+        
+        <div class="method-heading">
+          <span class="method-name">_original_sum_with_required_identity</span><span
+            class="method-args">(identity = nil, &block)</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>doesn&#39;t work well <a
+href="https://bugs.ruby-lang.org/issues/13446">bugs.ruby-lang.org/issues/13446</a></p>
+          
+          
+
+          
+        </div>
+
+        
+
+        
+        <div class="aliases">
+          Alias for: <a href="Enumerable.html#method-i-sum">sum</a>
+        </div>
+        
+      </div>
+
+    
+      <div id="method-i-average" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">average</span><span
+            class="method-args">(default = nil)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Calculates the average of a numeric collection.</p>
+
+<p>@param default [Object] an optional default return value if there are no
+elements.</p>
+
+<pre>It&#39;s nil by default.</pre>
+
+<p>@return The average of the elements or the default value if there are no</p>
+
+<pre>elements.</pre>
+
+<p>@example</p>
+
+<pre class="ruby">[<span class="ruby-value">1</span>, <span class="ruby-value">2</span>, <span class="ruby-value">3</span>].<span class="ruby-identifier">average</span> <span class="ruby-comment">#=&gt; 2</span>
+[<span class="ruby-value">1</span>, <span class="ruby-value">2</span>, <span class="ruby-value">3</span>, <span class="ruby-value">4</span>].<span class="ruby-identifier">average</span> <span class="ruby-comment">#=&gt; 2.5</span>
+[].<span class="ruby-identifier">average</span> <span class="ruby-comment">#=&gt; nil</span>
+[].<span class="ruby-identifier">average</span>(<span class="ruby-value">0</span>) <span class="ruby-comment">#=&gt; 0</span>
+</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="average-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/powerpack-0.1.1/lib/powerpack/enumerable/average.rb, line 15</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">average</span>(<span class="ruby-identifier">default</span> = <span class="ruby-keyword">nil</span>)
+  <span class="ruby-identifier">coll_size</span> = <span class="ruby-identifier">to_a</span>.<span class="ruby-identifier">size</span>
+  <span class="ruby-identifier">coll_size</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">0</span> <span class="ruby-operator">?</span> <span class="ruby-identifier">reduce</span>(<span class="ruby-operator">&amp;</span><span class="ruby-value">:+</span>) <span class="ruby-operator">/</span> <span class="ruby-identifier">coll_size</span>.<span class="ruby-identifier">to_f</span> <span class="ruby-operator">:</span> <span class="ruby-identifier">default</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-drop_last" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">drop_last</span><span
+            class="method-args">(n)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Drops the last n elements of an enumerable.</p>
+
+<p>@param n [Fixnum] the number of elements to drop @return [Array] an array
+containing the remaining elements</p>
+
+<p>@example</p>
+
+<pre class="ruby">[<span class="ruby-value">1</span>, <span class="ruby-value">2</span>, <span class="ruby-value">3</span>].<span class="ruby-identifier">drop_last</span>(<span class="ruby-value">1</span>) <span class="ruby-comment">#=&gt; [1, 2]</span>
+[].<span class="ruby-identifier">drop_last</span>(<span class="ruby-value">5</span>) <span class="ruby-comment">#=&gt; []</span>
+</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="drop_last-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/powerpack-0.1.1/lib/powerpack/enumerable/drop_last.rb, line 11</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">drop_last</span>(<span class="ruby-identifier">n</span>)
+  <span class="ruby-identifier">fail</span> <span class="ruby-constant">ArgumentError</span>, <span class="ruby-string">&#39;attempt to drop negative size&#39;</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">n</span> <span class="ruby-operator">&lt;</span> <span class="ruby-value">0</span>
+
+  <span class="ruby-identifier">ary</span> = <span class="ruby-identifier">to_a</span>
+
+  <span class="ruby-keyword">return</span> [] <span class="ruby-keyword">if</span> <span class="ruby-identifier">n</span> <span class="ruby-operator">&gt;</span> <span class="ruby-identifier">ary</span>.<span class="ruby-identifier">size</span>
+  <span class="ruby-identifier">ary</span>[<span class="ruby-value">0</span><span class="ruby-operator">...</span>(<span class="ruby-identifier">ary</span>.<span class="ruby-identifier">size</span> <span class="ruby-operator">-</span> <span class="ruby-identifier">n</span>)]
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-drop_last_while" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">drop_last_while</span><span
+            class="method-args">() { |obj| ... }</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Drops the last elements of an enumerable meeting a predicate.</p>
+
+<p>@return [Array] an array containing the remaining elements</p>
+
+<p>@example</p>
+
+<pre class="ruby">[<span class="ruby-value">1</span>, <span class="ruby-value">2</span>, <span class="ruby-value">3</span>].<span class="ruby-identifier">drop_last_while</span>(<span class="ruby-operator">&amp;</span>:<span class="ruby-identifier">odd?</span>) <span class="ruby-comment">#=&gt; [1, 2]</span>
+</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="drop_last_while-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/powerpack-0.1.1/lib/powerpack/enumerable/drop_last_while.rb, line 9</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">drop_last_while</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">to_enum</span>(<span class="ruby-value">:drop_last_while</span>) <span class="ruby-keyword">unless</span> <span class="ruby-identifier">block_given?</span>
+
+  <span class="ruby-identifier">result</span> = []
+  <span class="ruby-identifier">dropping</span> = <span class="ruby-keyword">true</span>
+  <span class="ruby-identifier">reverse_each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">obj</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">result</span>.<span class="ruby-identifier">unshift</span>(<span class="ruby-identifier">obj</span>) <span class="ruby-keyword">unless</span> <span class="ruby-identifier">dropping</span> <span class="ruby-operator">&amp;&amp;=</span> <span class="ruby-keyword">yield</span>(<span class="ruby-identifier">obj</span>)
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">result</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-exactly-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">exactly?</span><span
+            class="method-args">(n) { |*o| ... }</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Checks if exactly n elements meet a certain predicate.</p>
+
+<p>@param n [Fixnum] the number of matches required @return [Boolean] true if
+we get exactly n matches, false otherwise</p>
+
+<p>@example</p>
+
+<pre class="ruby">[<span class="ruby-value">1</span>, <span class="ruby-value">2</span>, <span class="ruby-value">3</span>, <span class="ruby-value">4</span>].<span class="ruby-identifier">exactly?</span>(<span class="ruby-value">1</span>) { <span class="ruby-operator">|</span><span class="ruby-identifier">n</span><span class="ruby-operator">|</span> <span class="ruby-identifier">n</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">3</span> } <span class="ruby-comment">#=&gt; true</span>
+[<span class="ruby-value">1</span>, <span class="ruby-value">2</span>, <span class="ruby-value">3</span>, <span class="ruby-value">4</span>].<span class="ruby-identifier">exactly?</span>(<span class="ruby-value">2</span>, <span class="ruby-operator">&amp;</span>:<span class="ruby-identifier">even?</span>) <span class="ruby-comment">#=&gt; true</span>
+[<span class="ruby-value">1</span>, <span class="ruby-value">1</span>, <span class="ruby-value">3</span>, <span class="ruby-value">3</span>].<span class="ruby-identifier">exactly?</span>(<span class="ruby-value">2</span>, <span class="ruby-operator">&amp;</span>:<span class="ruby-identifier">even?</span>) <span class="ruby-comment">#=&gt; false</span>
+</pre>
+
+<p>Without a block uses the identify of the elements as default predicate.
+This means that nil and false elements will be ignored.</p>
+
+<p>@example</p>
+
+<pre class="ruby">[<span class="ruby-value">1</span>, <span class="ruby-keyword">false</span>, <span class="ruby-keyword">nil</span>].<span class="ruby-identifier">exactly?</span>(<span class="ruby-value">3</span>) <span class="ruby-comment">#=&gt; false</span>
+[<span class="ruby-value">1</span>, <span class="ruby-keyword">false</span>, <span class="ruby-keyword">nil</span>].<span class="ruby-identifier">exactly?</span>(<span class="ruby-value">1</span>) <span class="ruby-comment">#=&gt; true</span>
+[<span class="ruby-keyword">false</span>, <span class="ruby-keyword">nil</span>].<span class="ruby-identifier">exactly?</span>(<span class="ruby-value">0</span>) <span class="ruby-comment">#=&gt; true</span>
+[<span class="ruby-value">1</span>, <span class="ruby-value">2</span>, <span class="ruby-value">3</span>].<span class="ruby-identifier">exactly?</span>(<span class="ruby-value">3</span>) <span class="ruby-comment">#=&gt;true</span>
+</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="exactly-3F-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/powerpack-0.1.1/lib/powerpack/enumerable/exactly.rb, line 21</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">exactly?</span>(<span class="ruby-identifier">n</span>)
+  <span class="ruby-identifier">found_count</span> = <span class="ruby-value">0</span>
+
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">block_given?</span>
+    <span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-operator">*</span><span class="ruby-identifier">o</span><span class="ruby-operator">|</span>
+      <span class="ruby-keyword">if</span> <span class="ruby-keyword">yield</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">o</span>)
+        <span class="ruby-identifier">found_count</span> <span class="ruby-operator">+=</span> <span class="ruby-value">1</span>
+        <span class="ruby-keyword">return</span> <span class="ruby-keyword">false</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">found_count</span> <span class="ruby-operator">&gt;</span> <span class="ruby-identifier">n</span>
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">o</span><span class="ruby-operator">|</span>
+      <span class="ruby-keyword">if</span> <span class="ruby-identifier">o</span>
+        <span class="ruby-identifier">found_count</span> <span class="ruby-operator">+=</span> <span class="ruby-value">1</span>
+        <span class="ruby-keyword">return</span> <span class="ruby-keyword">false</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">found_count</span> <span class="ruby-operator">&gt;</span> <span class="ruby-identifier">n</span>
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">n</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">found_count</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-exclude-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">exclude?</span><span
+            class="method-args">(object)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>The negative of the <code>Enumerable#include?</code>. Returns
+<code>true</code> if the collection does not include the object.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="exclude-3F-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/activesupport-5.1.5/lib/active_support/core_ext/enumerable.rb, line 85</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">exclude?</span>(<span class="ruby-identifier">object</span>)
+  <span class="ruby-operator">!</span><span class="ruby-identifier">include?</span>(<span class="ruby-identifier">object</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-frequencies" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">frequencies</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Counts the number of occurrence of items in the enumerable.</p>
+
+<p>@return [Hash] in the format value =&gt; count</p>
+
+<p>@example</p>
+
+<pre class="ruby">[].<span class="ruby-identifier">frequencies</span> <span class="ruby-comment"># =&gt; {}</span>
+[<span class="ruby-value">1</span>, :<span class="ruby-identifier">symbol</span>, <span class="ruby-string">&#39;string&#39;</span>, <span class="ruby-value">3</span>, :<span class="ruby-identifier">symbol</span>, <span class="ruby-value">1</span>].<span class="ruby-identifier">frequencies</span>
+  <span class="ruby-comment">#=&gt; { 1 =&gt; 2, :symbol =&gt; 2, &#39;string&#39; =&gt; 1, 3 =&gt; 1 }</span>
+</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="frequencies-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/powerpack-0.1.1/lib/powerpack/enumerable/frequencies.rb, line 13</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">frequencies</span>
+  <span class="ruby-identifier">each_with_object</span>(<span class="ruby-constant">Hash</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">0</span>)) { <span class="ruby-operator">|</span><span class="ruby-identifier">e</span>, <span class="ruby-identifier">a</span><span class="ruby-operator">|</span> <span class="ruby-identifier">a</span>[<span class="ruby-identifier">e</span>] <span class="ruby-operator">+=</span> <span class="ruby-value">1</span> }
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-index_by" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">index_by</span><span
+            class="method-args">() { |elem| ... }</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Convert an enumerable to a hash.</p>
+
+<pre class="ruby"><span class="ruby-identifier">people</span>.<span class="ruby-identifier">index_by</span>(<span class="ruby-operator">&amp;</span>:<span class="ruby-identifier">login</span>)
+<span class="ruby-comment"># =&gt; { &quot;nextangle&quot; =&gt; &lt;Person ...&gt;, &quot;chade-&quot; =&gt; &lt;Person ...&gt;, ...}</span>
+<span class="ruby-identifier">people</span>.<span class="ruby-identifier">index_by</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">person</span><span class="ruby-operator">|</span> <span class="ruby-node">&quot;#{person.first_name} #{person.last_name}&quot;</span> }
+<span class="ruby-comment"># =&gt; { &quot;Chade- Fowlersburg-e&quot; =&gt; &lt;Person ...&gt;, &quot;David Heinemeier Hansson&quot; =&gt; &lt;Person ...&gt;, ...}</span>
+</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="index_by-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/activesupport-5.1.5/lib/active_support/core_ext/enumerable.rb, line 57</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">index_by</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">block_given?</span>
+    <span class="ruby-identifier">result</span> = {}
+    <span class="ruby-identifier">each</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">elem</span><span class="ruby-operator">|</span> <span class="ruby-identifier">result</span>[<span class="ruby-keyword">yield</span>(<span class="ruby-identifier">elem</span>)] = <span class="ruby-identifier">elem</span> }
+    <span class="ruby-identifier">result</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">to_enum</span>(<span class="ruby-value">:index_by</span>) { <span class="ruby-identifier">size</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">respond_to?</span>(<span class="ruby-value">:size</span>) }
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-many-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">many?</span><span
+            class="method-args">() { |element| ... }</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Returns <code>true</code> if the enumerable has more than 1 element.
+Functionally equivalent to <code>enum.to_a.size &gt; 1</code>. Can be
+called with a block too, much like any?, so <code>people.many? { |p| p.age
+&gt; 26 }</code> returns <code>true</code> if more than one person is over
+26.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="many-3F-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/activesupport-5.1.5/lib/active_support/core_ext/enumerable.rb, line 71</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">many?</span>
+  <span class="ruby-identifier">cnt</span> = <span class="ruby-value">0</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">block_given?</span>
+    <span class="ruby-identifier">any?</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">element</span><span class="ruby-operator">|</span>
+      <span class="ruby-identifier">cnt</span> <span class="ruby-operator">+=</span> <span class="ruby-value">1</span> <span class="ruby-keyword">if</span> <span class="ruby-keyword">yield</span> <span class="ruby-identifier">element</span>
+      <span class="ruby-identifier">cnt</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">1</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">any?</span> { (<span class="ruby-identifier">cnt</span> <span class="ruby-operator">+=</span> <span class="ruby-value">1</span>) <span class="ruby-operator">&gt;</span> <span class="ruby-value">1</span> }
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-pluck" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">pluck</span><span
+            class="method-args">(*keys)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Convert an enumerable to an array based on the given key.</p>
+
+<pre class="ruby">[{ <span class="ruby-identifier">name</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;David&quot;</span> }, { <span class="ruby-identifier">name</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;Rafael&quot;</span> }, { <span class="ruby-identifier">name</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;Aaron&quot;</span> }].<span class="ruby-identifier">pluck</span>(:<span class="ruby-identifier">name</span>)
+<span class="ruby-comment"># =&gt; [&quot;David&quot;, &quot;Rafael&quot;, &quot;Aaron&quot;]</span>
+
+[{ <span class="ruby-identifier">id</span><span class="ruby-operator">:</span> <span class="ruby-value">1</span>, <span class="ruby-identifier">name</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;David&quot;</span> }, { <span class="ruby-identifier">id</span><span class="ruby-operator">:</span> <span class="ruby-value">2</span>, <span class="ruby-identifier">name</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;Rafael&quot;</span> }].<span class="ruby-identifier">pluck</span>(:<span class="ruby-identifier">id</span>, :<span class="ruby-identifier">name</span>)
+<span class="ruby-comment"># =&gt; [[1, &quot;David&quot;], [2, &quot;Rafael&quot;]]</span>
+</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="pluck-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/activesupport-5.1.5/lib/active_support/core_ext/enumerable.rb, line 107</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">pluck</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">keys</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">keys</span>.<span class="ruby-identifier">many?</span>
+    <span class="ruby-identifier">map</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">element</span><span class="ruby-operator">|</span> <span class="ruby-identifier">keys</span>.<span class="ruby-identifier">map</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">key</span><span class="ruby-operator">|</span> <span class="ruby-identifier">element</span>[<span class="ruby-identifier">key</span>] } }
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">map</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">element</span><span class="ruby-operator">|</span> <span class="ruby-identifier">element</span>[<span class="ruby-identifier">keys</span>.<span class="ruby-identifier">first</span>] }
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-several-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">several?</span><span
+            class="method-args">() { |*o| ... }</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Checks if two or more elements meet a certain predicate.</p>
+
+<p>@example</p>
+
+<pre class="ruby">[<span class="ruby-value">1</span>, <span class="ruby-value">2</span>, <span class="ruby-value">3</span>, <span class="ruby-value">4</span>].<span class="ruby-identifier">several?</span>(<span class="ruby-operator">&amp;</span>:<span class="ruby-identifier">even?</span>) <span class="ruby-comment">#=&gt; true</span>
+[<span class="ruby-value">1</span>, <span class="ruby-value">1</span>, <span class="ruby-value">3</span>, <span class="ruby-value">3</span>].<span class="ruby-identifier">several?</span>(<span class="ruby-operator">&amp;</span>:<span class="ruby-identifier">even?</span>) <span class="ruby-comment">#=&gt; false</span>
+</pre>
+
+<p>Without a block uses the identify of the elements as default predicate.
+This means that nil and false elements will be ignored.</p>
+
+<p>@example</p>
+
+<pre class="ruby">[<span class="ruby-value">1</span>, <span class="ruby-keyword">false</span>, <span class="ruby-keyword">nil</span>].<span class="ruby-identifier">several?</span> <span class="ruby-comment">#=&gt; false</span>
+[<span class="ruby-value">1</span>, <span class="ruby-value">2</span>, <span class="ruby-value">3</span>].<span class="ruby-identifier">several?</span> <span class="ruby-comment">#=&gt;true</span>
+</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="several-3F-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/powerpack-0.1.1/lib/powerpack/enumerable/several.rb, line 15</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">several?</span>
+  <span class="ruby-identifier">found_count</span> = <span class="ruby-value">0</span>
+
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">block_given?</span>
+    <span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-operator">*</span><span class="ruby-identifier">o</span><span class="ruby-operator">|</span>
+      <span class="ruby-keyword">if</span> <span class="ruby-keyword">yield</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">o</span>)
+        <span class="ruby-identifier">found_count</span> <span class="ruby-operator">+=</span> <span class="ruby-value">1</span>
+        <span class="ruby-keyword">return</span> <span class="ruby-keyword">true</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">found_count</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">1</span>
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">o</span><span class="ruby-operator">|</span>
+      <span class="ruby-keyword">if</span> <span class="ruby-identifier">o</span>
+        <span class="ruby-identifier">found_count</span> <span class="ruby-operator">+=</span> <span class="ruby-value">1</span>
+        <span class="ruby-keyword">return</span> <span class="ruby-keyword">true</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">found_count</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">1</span>
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">false</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-sum" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">sum</span><span
+            class="method-args">(identity = nil, &block)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Calculates a sum from the elements.</p>
+
+<pre class="ruby"><span class="ruby-identifier">payments</span>.<span class="ruby-identifier">sum</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">p</span><span class="ruby-operator">|</span> <span class="ruby-identifier">p</span>.<span class="ruby-identifier">price</span> <span class="ruby-operator">*</span> <span class="ruby-identifier">p</span>.<span class="ruby-identifier">tax_rate</span> }
+<span class="ruby-identifier">payments</span>.<span class="ruby-identifier">sum</span>(<span class="ruby-operator">&amp;</span>:<span class="ruby-identifier">price</span>)
+</pre>
+
+<p>The latter is a shortcut for:</p>
+
+<pre class="ruby"><span class="ruby-identifier">payments</span>.<span class="ruby-identifier">inject</span>(<span class="ruby-value">0</span>) { <span class="ruby-operator">|</span><span class="ruby-identifier">sum</span>, <span class="ruby-identifier">p</span><span class="ruby-operator">|</span> <span class="ruby-identifier">sum</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">p</span>.<span class="ruby-identifier">price</span> }
+</pre>
+
+<p>It can also calculate the sum without the use of a block.</p>
+
+<pre class="ruby">[<span class="ruby-value">5</span>, <span class="ruby-value">15</span>, <span class="ruby-value">10</span>].<span class="ruby-identifier">sum</span> <span class="ruby-comment"># =&gt; 30</span>
+[<span class="ruby-string">&#39;foo&#39;</span>, <span class="ruby-string">&#39;bar&#39;</span>].<span class="ruby-identifier">sum</span> <span class="ruby-comment"># =&gt; &quot;foobar&quot;</span>
+[[<span class="ruby-value">1</span>, <span class="ruby-value">2</span>], [<span class="ruby-value">3</span>, <span class="ruby-value">1</span>, <span class="ruby-value">5</span>]].<span class="ruby-identifier">sum</span> <span class="ruby-comment"># =&gt; [1, 2, 3, 1, 5]</span>
+</pre>
+
+<p>The default sum of an empty list is zero. You can override this default:</p>
+
+<pre class="ruby">[].<span class="ruby-identifier">sum</span>(<span class="ruby-constant">Payment</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">0</span>)) { <span class="ruby-operator">|</span><span class="ruby-identifier">i</span><span class="ruby-operator">|</span> <span class="ruby-identifier">i</span>.<span class="ruby-identifier">amount</span> } <span class="ruby-comment"># =&gt; Payment.new(0)</span>
+</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="sum-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/activesupport-5.1.5/lib/active_support/core_ext/enumerable.rb, line 31</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">sum</span>(<span class="ruby-identifier">identity</span> = <span class="ruby-keyword">nil</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">identity</span>
+    <span class="ruby-identifier">_original_sum_with_required_identity</span>(<span class="ruby-identifier">identity</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+  <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">block_given?</span>
+    <span class="ruby-identifier">map</span>(<span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>).<span class="ruby-identifier">sum</span>(<span class="ruby-identifier">identity</span>)
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">inject</span>(<span class="ruby-value">:+</span>) <span class="ruby-operator">||</span> <span class="ruby-value">0</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+        <div class="aliases">
+          Also aliased as: <a href="Enumerable.html#method-i-_original_sum_with_required_identity">_original_sum_with_required_identity</a>
+        </div>
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-take_last" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">take_last</span><span
+            class="method-args">(n)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Take the last n elements of an enumerable.</p>
+
+<p>@param n [Fixnum] the number of elements to take @return [Array] an array
+containing the requested elements</p>
+
+<p>@example</p>
+
+<pre class="ruby">[<span class="ruby-value">1</span>, <span class="ruby-value">2</span>, <span class="ruby-value">3</span>].<span class="ruby-identifier">take_last</span>(<span class="ruby-value">2</span>) <span class="ruby-comment">#=&gt; [2, 3]</span>
+[].<span class="ruby-identifier">take_last</span>(<span class="ruby-value">5</span>) <span class="ruby-comment">#=&gt; []</span>
+</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="take_last-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/powerpack-0.1.1/lib/powerpack/enumerable/take_last.rb, line 11</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">take_last</span>(<span class="ruby-identifier">n</span>)
+  <span class="ruby-identifier">fail</span> <span class="ruby-constant">ArgumentError</span>, <span class="ruby-string">&#39;attempt to take negative size&#39;</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">n</span> <span class="ruby-operator">&lt;</span> <span class="ruby-value">0</span>
+
+  <span class="ruby-identifier">ary</span> = <span class="ruby-identifier">to_a</span>
+
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">ary</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">n</span> <span class="ruby-operator">&gt;</span> <span class="ruby-identifier">ary</span>.<span class="ruby-identifier">size</span>
+  <span class="ruby-identifier">ary</span>[(<span class="ruby-identifier">ary</span>.<span class="ruby-identifier">size</span> <span class="ruby-operator">-</span> <span class="ruby-identifier">n</span>)<span class="ruby-operator">..</span><span class="ruby-value">-1</span>]
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-take_last_while" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">take_last_while</span><span
+            class="method-args">() { |elem| ... }</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Take the last n elements of an enumerable meeting a certain predicate.</p>
+
+<p>@return [Array] an array containing the matching elements</p>
+
+<p>@example</p>
+
+<pre class="ruby">[<span class="ruby-value">1</span>, <span class="ruby-value">2</span>, <span class="ruby-value">3</span>, <span class="ruby-value">5</span>].<span class="ruby-identifier">take_last_while</span>(<span class="ruby-operator">&amp;</span>:<span class="ruby-identifier">odd?</span>) <span class="ruby-comment">#=&gt; [3, 5]</span>
+</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="take_last_while-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/powerpack-0.1.1/lib/powerpack/enumerable/take_last_while.rb, line 9</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">take_last_while</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">to_enum</span>(<span class="ruby-value">:take_last_while</span>) <span class="ruby-keyword">unless</span> <span class="ruby-identifier">block_given?</span>
+
+  <span class="ruby-identifier">result</span> = []
+  <span class="ruby-identifier">reverse_each</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">elem</span><span class="ruby-operator">|</span> <span class="ruby-keyword">yield</span>(<span class="ruby-identifier">elem</span>) <span class="ruby-operator">?</span> <span class="ruby-identifier">result</span>.<span class="ruby-identifier">unshift</span>(<span class="ruby-identifier">elem</span>) <span class="ruby-operator">:</span> <span class="ruby-keyword">break</span>  }
+  <span class="ruby-identifier">result</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-without" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">without</span><span
+            class="method-args">(*elements)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Returns a copy of the enumerable without the specified elements.</p>
+
+<pre class="ruby">[<span class="ruby-string">&quot;David&quot;</span>, <span class="ruby-string">&quot;Rafael&quot;</span>, <span class="ruby-string">&quot;Aaron&quot;</span>, <span class="ruby-string">&quot;Todd&quot;</span>].<span class="ruby-identifier">without</span> <span class="ruby-string">&quot;Aaron&quot;</span>, <span class="ruby-string">&quot;Todd&quot;</span>
+<span class="ruby-comment"># =&gt; [&quot;David&quot;, &quot;Rafael&quot;]</span>
+
+{<span class="ruby-identifier">foo</span><span class="ruby-operator">:</span> <span class="ruby-value">1</span>, <span class="ruby-identifier">bar</span><span class="ruby-operator">:</span> <span class="ruby-value">2</span>, <span class="ruby-identifier">baz</span><span class="ruby-operator">:</span> <span class="ruby-value">3</span>}.<span class="ruby-identifier">without</span> :<span class="ruby-identifier">bar</span>
+<span class="ruby-comment"># =&gt; {foo: 1, baz: 3}</span>
+</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="without-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/activesupport-5.1.5/lib/active_support/core_ext/enumerable.rb, line 96</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">without</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">elements</span>)
+  <span class="ruby-identifier">reject</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">element</span><span class="ruby-operator">|</span> <span class="ruby-identifier">elements</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">element</span>) }
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="https://rdoc.github.io/rdoc">RDoc</a> 5.0.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

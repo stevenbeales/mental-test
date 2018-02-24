@@ -1,0 +1,3215 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class ObjectJuice - RDoc Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "./";
+  var index_rel_prefix = "./";
+</script>
+
+<script src="./js/jquery.js"></script>
+<script src="./js/darkfish.js"></script>
+
+<link href="./css/fonts.css" rel="stylesheet">
+<link href="./css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="./index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="./table_of_contents.html#pages">Pages</a>
+    <a href="./table_of_contents.html#classes">Classes</a>
+    <a href="./table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link"><a href="Minitest/Test.html">Minitest::Test</a>
+  
+</div>
+
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-i-dump_and_load">#dump_and_load</a>
+    
+    <li ><a href="#method-i-setup">#setup</a>
+    
+    <li ><a href="#method-i-teardown">#teardown</a>
+    
+    <li ><a href="#method-i-test_array">#test_array</a>
+    
+    <li ><a href="#method-i-test_array_deep">#test_array_deep</a>
+    
+    <li ><a href="#method-i-test_as_json_object_object">#test_as_json_object_object</a>
+    
+    <li ><a href="#method-i-test_auto_array">#test_auto_array</a>
+    
+    <li ><a href="#method-i-test_auto_hash">#test_auto_hash</a>
+    
+    <li ><a href="#method-i-test_auto_string">#test_auto_string</a>
+    
+    <li ><a href="#method-i-test_bag">#test_bag</a>
+    
+    <li ><a href="#method-i-test_bigdecimal_load">#test_bigdecimal_load</a>
+    
+    <li ><a href="#method-i-test_bigdecimal_object">#test_bigdecimal_object</a>
+    
+    <li ><a href="#method-i-test_bignum_object">#test_bignum_object</a>
+    
+    <li ><a href="#method-i-test_circular">#test_circular</a>
+    
+    <li ><a href="#method-i-test_circular2">#test_circular2</a>
+    
+    <li ><a href="#method-i-test_circular_array">#test_circular_array</a>
+    
+    <li ><a href="#method-i-test_circular_array2">#test_circular_array2</a>
+    
+    <li ><a href="#method-i-test_circular_hash">#test_circular_hash</a>
+    
+    <li ><a href="#method-i-test_circular_hash2">#test_circular_hash2</a>
+    
+    <li ><a href="#method-i-test_circular_object">#test_circular_object</a>
+    
+    <li ><a href="#method-i-test_circular_object2">#test_circular_object2</a>
+    
+    <li ><a href="#method-i-test_class_object">#test_class_object</a>
+    
+    <li ><a href="#method-i-test_comment">#test_comment</a>
+    
+    <li ><a href="#method-i-test_comment_c">#test_comment_c</a>
+    
+    <li ><a href="#method-i-test_comment_slash">#test_comment_slash</a>
+    
+    <li ><a href="#method-i-test_encode">#test_encode</a>
+    
+    <li ><a href="#method-i-test_exception">#test_exception</a>
+    
+    <li ><a href="#method-i-test_false">#test_false</a>
+    
+    <li ><a href="#method-i-test_fixnum">#test_fixnum</a>
+    
+    <li ><a href="#method-i-test_float">#test_float</a>
+    
+    <li ><a href="#method-i-test_hash">#test_hash</a>
+    
+    <li ><a href="#method-i-test_hash_deep">#test_hash_deep</a>
+    
+    <li ><a href="#method-i-test_hash_escaped_key">#test_hash_escaped_key</a>
+    
+    <li ><a href="#method-i-test_ignore">#test_ignore</a>
+    
+    <li ><a href="#method-i-test_io_file">#test_io_file</a>
+    
+    <li ><a href="#method-i-test_io_string">#test_io_string</a>
+    
+    <li ><a href="#method-i-test_json_anonymous_struct">#test_json_anonymous_struct</a>
+    
+    <li ><a href="#method-i-test_json_module_object">#test_json_module_object</a>
+    
+    <li ><a href="#method-i-test_json_non_str_hash">#test_json_non_str_hash</a>
+    
+    <li ><a href="#method-i-test_json_object">#test_json_object</a>
+    
+    <li ><a href="#method-i-test_json_object_bad">#test_json_object_bad</a>
+    
+    <li ><a href="#method-i-test_json_object_create_deep">#test_json_object_create_deep</a>
+    
+    <li ><a href="#method-i-test_json_object_missing_fields">#test_json_object_missing_fields</a>
+    
+    <li ><a href="#method-i-test_json_object_not_hat_hash">#test_json_object_not_hat_hash</a>
+    
+    <li ><a href="#method-i-test_json_object_object">#test_json_object_object</a>
+    
+    <li ><a href="#method-i-test_json_struct">#test_json_struct</a>
+    
+    <li ><a href="#method-i-test_json_struct2">#test_json_struct2</a>
+    
+    <li ><a href="#method-i-test_mixed_hash_object">#test_mixed_hash_object</a>
+    
+    <li ><a href="#method-i-test_module_object">#test_module_object</a>
+    
+    <li ><a href="#method-i-test_nil">#test_nil</a>
+    
+    <li ><a href="#method-i-test_non_str_hash_object">#test_non_str_hash_object</a>
+    
+    <li ><a href="#method-i-test_object_object_no_cache">#test_object_object_no_cache</a>
+    
+    <li ><a href="#method-i-test_odd_date">#test_odd_date</a>
+    
+    <li ><a href="#method-i-test_odd_date_replaced">#test_odd_date_replaced</a>
+    
+    <li ><a href="#method-i-test_odd_datetime">#test_odd_datetime</a>
+    
+    <li ><a href="#method-i-test_odd_mod">#test_odd_mod</a>
+    
+    <li ><a href="#method-i-test_odd_raw">#test_odd_raw</a>
+    
+    <li ><a href="#method-i-test_odd_string">#test_odd_string</a>
+    
+    <li ><a href="#method-i-test_omit_nil">#test_omit_nil</a>
+    
+    <li ><a href="#method-i-test_range_object">#test_range_object</a>
+    
+    <li ><a href="#method-i-test_ruby_time">#test_ruby_time</a>
+    
+    <li ><a href="#method-i-test_ruby_time_12345">#test_ruby_time_12345</a>
+    
+    <li ><a href="#method-i-test_ruby_time_utc">#test_ruby_time_utc</a>
+    
+    <li ><a href="#method-i-test_string">#test_string</a>
+    
+    <li ><a href="#method-i-test_symbol">#test_symbol</a>
+    
+    <li ><a href="#method-i-test_symbol_keys">#test_symbol_keys</a>
+    
+    <li ><a href="#method-i-test_time_early">#test_time_early</a>
+    
+    <li ><a href="#method-i-test_time_unix_zone">#test_time_unix_zone</a>
+    
+    <li ><a href="#method-i-test_time_unix_zone_12345">#test_time_unix_zone_12345</a>
+    
+    <li ><a href="#method-i-test_time_unix_zone_utc">#test_time_unix_zone_utc</a>
+    
+    <li ><a href="#method-i-test_to_hash_object_object">#test_to_hash_object_object</a>
+    
+    <li ><a href="#method-i-test_true">#test_true</a>
+    
+    <li ><a href="#method-i-test_unicode">#test_unicode</a>
+    
+    <li ><a href="#method-i-test_xml_time">#test_xml_time</a>
+    
+    <li ><a href="#method-i-test_xml_time_utc">#test_xml_time_utc</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-ObjectJuice">
+  <h1 id="class-ObjectJuice" class="class">
+    class ObjectJuice
+  </h1>
+
+  <section class="description">
+    
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+
+    
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-dump_and_load" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">dump_and_load</span><span
+            class="method-args">(obj, trace=false)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="dump_and_load-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/oj-3.4.0/test/test_object.rb, line 981</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">dump_and_load</span>(<span class="ruby-identifier">obj</span>, <span class="ruby-identifier">trace</span>=<span class="ruby-keyword">false</span>)
+  <span class="ruby-identifier">json</span> = <span class="ruby-constant">Oj</span>.<span class="ruby-identifier">dump</span>(<span class="ruby-identifier">obj</span>, <span class="ruby-value">:indent</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">2</span>, <span class="ruby-value">:mode</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">:object</span>)
+  <span class="ruby-identifier">puts</span> <span class="ruby-identifier">json</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">trace</span>
+  <span class="ruby-identifier">loaded</span> = <span class="ruby-constant">Oj</span>.<span class="ruby-identifier">object_load</span>(<span class="ruby-identifier">json</span>);
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">obj</span>.<span class="ruby-identifier">nil?</span>
+    <span class="ruby-identifier">assert_nil</span>(<span class="ruby-identifier">loaded</span>)
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">assert_equal</span>(<span class="ruby-identifier">obj</span>, <span class="ruby-identifier">loaded</span>)
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">loaded</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-setup" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">setup</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="setup-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/oj-3.4.0/test/test_object.rb, line 216</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">setup</span>
+  <span class="ruby-ivar">@default_options</span> = <span class="ruby-constant">Oj</span>.<span class="ruby-identifier">default_options</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-teardown" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">teardown</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="teardown-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/oj-3.4.0/test/test_object.rb, line 220</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">teardown</span>
+  <span class="ruby-constant">Oj</span>.<span class="ruby-identifier">default_options</span> = <span class="ruby-ivar">@default_options</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_array" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_array</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_array-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/oj-3.4.0/test/test_object.rb, line 293</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">test_array</span>
+  <span class="ruby-identifier">dump_and_load</span>([], <span class="ruby-keyword">false</span>)
+  <span class="ruby-identifier">dump_and_load</span>([<span class="ruby-keyword">true</span>, <span class="ruby-keyword">false</span>], <span class="ruby-keyword">false</span>)
+  <span class="ruby-identifier">dump_and_load</span>([<span class="ruby-string">&#39;a&#39;</span>, <span class="ruby-value">1</span>, <span class="ruby-keyword">nil</span>], <span class="ruby-keyword">false</span>)
+  <span class="ruby-identifier">dump_and_load</span>([[<span class="ruby-keyword">nil</span>]], <span class="ruby-keyword">false</span>)
+  <span class="ruby-identifier">dump_and_load</span>([[<span class="ruby-keyword">nil</span>], <span class="ruby-value">58</span>], <span class="ruby-keyword">false</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_array_deep" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_array_deep</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_array_deep-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/oj-3.4.0/test/test_object.rb, line 301</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">test_array_deep</span>
+  <span class="ruby-identifier">dump_and_load</span>([<span class="ruby-value">1</span>,[<span class="ruby-value">2</span>,[<span class="ruby-value">3</span>,[<span class="ruby-value">4</span>,[<span class="ruby-value">5</span>,[<span class="ruby-value">6</span>,[<span class="ruby-value">7</span>,[<span class="ruby-value">8</span>,[<span class="ruby-value">9</span>,[<span class="ruby-value">10</span>,[<span class="ruby-value">11</span>,[<span class="ruby-value">12</span>,[<span class="ruby-value">13</span>,[<span class="ruby-value">14</span>,[<span class="ruby-value">15</span>,[<span class="ruby-value">16</span>,[<span class="ruby-value">17</span>,[<span class="ruby-value">18</span>,[<span class="ruby-value">19</span>,[<span class="ruby-value">20</span>]]]]]]]]]]]]]]]]]]]], <span class="ruby-keyword">false</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_as_json_object_object" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_as_json_object_object</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_as_json_object_object-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/oj-3.4.0/test/test_object.rb, line 725</span>
+  <span class="ruby-keyword">def</span> <span class="ruby-identifier">test_as_json_object_object</span>
+    <span class="ruby-identifier">obj</span> = <span class="ruby-constant">Orange</span>.<span class="ruby-identifier">new</span>(<span class="ruby-keyword">true</span>, <span class="ruby-value">58</span>)
+    <span class="ruby-identifier">json</span> = <span class="ruby-constant">Oj</span>.<span class="ruby-identifier">dump</span>(<span class="ruby-identifier">obj</span>, <span class="ruby-value">:mode</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">:object</span>, <span class="ruby-value">:indent</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">2</span>)
+    <span class="ruby-identifier">assert</span>(<span class="ruby-string">%Q{{
+  &quot;^o&quot;:&quot;ObjectJuice::Orange&quot;,
+  &quot;x&quot;:true,
+  &quot;y&quot;:58
+}
+}</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">json</span> <span class="ruby-operator">||</span>
+<span class="ruby-string">%Q{{
+  &quot;^o&quot;:&quot;ObjectJuice::Orange&quot;,
+  &quot;y&quot;:58,
+  &quot;x&quot;:true
+}
+}</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">json</span>)
+    <span class="ruby-identifier">obj2</span> = <span class="ruby-constant">Oj</span>.<span class="ruby-identifier">load</span>(<span class="ruby-identifier">json</span>, <span class="ruby-value">:mode</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">:object</span>)
+    <span class="ruby-identifier">assert_equal</span>(<span class="ruby-identifier">obj</span>, <span class="ruby-identifier">obj2</span>)
+  <span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_auto_array" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_auto_array</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_auto_array-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/oj-3.4.0/test/test_object.rb, line 969</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">test_auto_array</span>
+  <span class="ruby-identifier">a</span> = <span class="ruby-constant">AutoArray</span>.<span class="ruby-identifier">new</span>([<span class="ruby-value">1</span>, <span class="ruby-string">&#39;abc&#39;</span>, <span class="ruby-keyword">nil</span>], <span class="ruby-keyword">true</span>)
+  <span class="ruby-identifier">dump_and_load</span>(<span class="ruby-identifier">a</span>, <span class="ruby-keyword">false</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_auto_hash" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_auto_hash</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_auto_hash-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/oj-3.4.0/test/test_object.rb, line 974</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">test_auto_hash</span>
+  <span class="ruby-identifier">h</span> = <span class="ruby-constant">AutoHash</span>.<span class="ruby-identifier">new</span>(<span class="ruby-keyword">nil</span>, <span class="ruby-keyword">true</span>)
+  <span class="ruby-identifier">h</span>[<span class="ruby-string">&#39;a&#39;</span>] = <span class="ruby-value">1</span>
+  <span class="ruby-identifier">h</span>[<span class="ruby-string">&#39;b&#39;</span>] = <span class="ruby-value">2</span>
+  <span class="ruby-identifier">dump_and_load</span>(<span class="ruby-identifier">h</span>, <span class="ruby-keyword">false</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_auto_string" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_auto_string</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_auto_string-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/oj-3.4.0/test/test_object.rb, line 964</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">test_auto_string</span>
+  <span class="ruby-identifier">s</span> = <span class="ruby-constant">AutoStrung</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&quot;Pete&quot;</span>, <span class="ruby-keyword">true</span>)
+  <span class="ruby-identifier">dump_and_load</span>(<span class="ruby-identifier">s</span>, <span class="ruby-keyword">false</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_bag" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_bag</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_bag-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/oj-3.4.0/test/test_object.rb, line 924</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">test_bag</span>
+  <span class="ruby-identifier">json</span> = <span class="ruby-string">%Q{{
+&quot;^o&quot;:&quot;ObjectJuice::Jem&quot;,
+&quot;x&quot;:true,
+&quot;y&quot;:58 }}</span>
+  <span class="ruby-identifier">obj</span> = <span class="ruby-constant">Oj</span>.<span class="ruby-identifier">load</span>(<span class="ruby-identifier">json</span>, <span class="ruby-value">:mode</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">:object</span>, <span class="ruby-value">:auto_define</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword">true</span>)
+  <span class="ruby-identifier">assert_equal</span>(<span class="ruby-string">&#39;ObjectJuice::Jem&#39;</span>, <span class="ruby-identifier">obj</span>.<span class="ruby-identifier">class</span>.<span class="ruby-identifier">name</span>)
+  <span class="ruby-identifier">assert_equal</span>(<span class="ruby-keyword">true</span>, <span class="ruby-identifier">obj</span>.<span class="ruby-identifier">x</span>)
+  <span class="ruby-identifier">assert_equal</span>(<span class="ruby-value">58</span>, <span class="ruby-identifier">obj</span>.<span class="ruby-identifier">y</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_bigdecimal_load" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_bigdecimal_load</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_bigdecimal_load-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/oj-3.4.0/test/test_object.rb, line 350</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">test_bigdecimal_load</span>
+  <span class="ruby-identifier">orig</span> = <span class="ruby-constant">BigDecimal</span>(<span class="ruby-string">&#39;80.51&#39;</span>)
+  <span class="ruby-identifier">json</span> = <span class="ruby-constant">Oj</span>.<span class="ruby-identifier">dump</span>(<span class="ruby-identifier">orig</span>, <span class="ruby-value">:mode</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">:object</span>, <span class="ruby-value">:bigdecimal_as_decimal</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword">true</span>)
+  <span class="ruby-identifier">bg</span> = <span class="ruby-constant">Oj</span>.<span class="ruby-identifier">load</span>(<span class="ruby-identifier">json</span>, <span class="ruby-value">:mode</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">:object</span>, <span class="ruby-value">:bigdecimal_load</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword">true</span>)
+  <span class="ruby-identifier">assert_equal</span>(<span class="ruby-constant">BigDecimal</span>, <span class="ruby-identifier">bg</span>.<span class="ruby-identifier">class</span>)
+  <span class="ruby-identifier">assert_equal</span>(<span class="ruby-identifier">orig</span>, <span class="ruby-identifier">bg</span>)
+  <span class="ruby-comment"># Infinity is the same for Float and BigDecimal</span>
+  <span class="ruby-identifier">json</span> = <span class="ruby-constant">Oj</span>.<span class="ruby-identifier">dump</span>(<span class="ruby-constant">BigDecimal</span>(<span class="ruby-string">&#39;Infinity&#39;</span>), <span class="ruby-value">:mode</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">:object</span>)
+  <span class="ruby-identifier">assert_equal</span>(<span class="ruby-string">&#39;Infinity&#39;</span>, <span class="ruby-identifier">json</span>)
+  <span class="ruby-identifier">json</span> = <span class="ruby-constant">Oj</span>.<span class="ruby-identifier">dump</span>(<span class="ruby-constant">BigDecimal</span>(<span class="ruby-string">&#39;-Infinity&#39;</span>), <span class="ruby-value">:mode</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">:object</span>)
+  <span class="ruby-identifier">assert_equal</span>(<span class="ruby-string">&#39;-Infinity&#39;</span>, <span class="ruby-identifier">json</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_bigdecimal_object" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_bigdecimal_object</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p><a href="BigDecimal.html">BigDecimal</a></p>
+          
+          
+
+          
+          <div class="method-source-code" id="test_bigdecimal_object-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/oj-3.4.0/test/test_object.rb, line 346</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">test_bigdecimal_object</span>
+  <span class="ruby-identifier">dump_and_load</span>(<span class="ruby-constant">BigDecimal</span>(<span class="ruby-string">&#39;3.14159265358979323846&#39;</span>), <span class="ruby-keyword">false</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_bignum_object" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_bignum_object</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_bignum_object-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/oj-3.4.0/test/test_object.rb, line 341</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">test_bignum_object</span>
+  <span class="ruby-identifier">dump_and_load</span>(<span class="ruby-value">7</span> <span class="ruby-operator">**</span> <span class="ruby-value">55</span>, <span class="ruby-keyword">false</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_circular" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_circular</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_circular-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/oj-3.4.0/test/test_object.rb, line 886</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">test_circular</span>
+  <span class="ruby-identifier">h</span> = { <span class="ruby-string">&#39;a&#39;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">7</span> }
+  <span class="ruby-identifier">obj</span> = <span class="ruby-constant">Jeez</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">h</span>, <span class="ruby-value">58</span>)
+  <span class="ruby-identifier">obj</span>.<span class="ruby-identifier">x</span>[<span class="ruby-string">&#39;b&#39;</span>] = <span class="ruby-identifier">obj</span>
+  <span class="ruby-identifier">json</span> = <span class="ruby-constant">Oj</span>.<span class="ruby-identifier">dump</span>(<span class="ruby-identifier">obj</span>, <span class="ruby-value">:mode</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">:object</span>, <span class="ruby-value">:indent</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">2</span>, <span class="ruby-value">:circular</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword">true</span>)
+  <span class="ruby-constant">Oj</span>.<span class="ruby-identifier">object_load</span>(<span class="ruby-identifier">json</span>, <span class="ruby-value">:circular</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword">true</span>)
+  <span class="ruby-identifier">assert_equal</span>(<span class="ruby-identifier">obj</span>.<span class="ruby-identifier">x</span>.<span class="ruby-identifier">__id__</span>, <span class="ruby-identifier">h</span>.<span class="ruby-identifier">__id__</span>)
+  <span class="ruby-identifier">assert_equal</span>(<span class="ruby-identifier">h</span>[<span class="ruby-string">&#39;b&#39;</span>].<span class="ruby-identifier">__id__</span>, <span class="ruby-identifier">obj</span>.<span class="ruby-identifier">__id__</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_circular2" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_circular2</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_circular2-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/oj-3.4.0/test/test_object.rb, line 896</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">test_circular2</span>
+  <span class="ruby-identifier">h</span> = { <span class="ruby-string">&#39;a&#39;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">7</span> }
+  <span class="ruby-identifier">obj</span> = <span class="ruby-constant">Jam</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">h</span>, <span class="ruby-value">58</span>)
+  <span class="ruby-identifier">obj</span>.<span class="ruby-identifier">x</span>[<span class="ruby-string">&#39;b&#39;</span>] = <span class="ruby-identifier">obj</span>
+  <span class="ruby-identifier">json</span> = <span class="ruby-constant">Oj</span>.<span class="ruby-identifier">dump</span>(<span class="ruby-identifier">obj</span>, <span class="ruby-value">:mode</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">:object</span>, <span class="ruby-value">:indent</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">2</span>, <span class="ruby-value">:circular</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword">true</span>)
+  <span class="ruby-identifier">ha</span> = <span class="ruby-constant">Oj</span>.<span class="ruby-identifier">load</span>(<span class="ruby-identifier">json</span>, <span class="ruby-value">:mode</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">:strict</span>)
+  <span class="ruby-identifier">assert_equal</span>({<span class="ruby-string">&#39;^o&#39;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&#39;ObjectJuice::Jam&#39;</span>, <span class="ruby-string">&#39;^i&#39;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">1</span>, <span class="ruby-string">&#39;x&#39;</span> =<span class="ruby-operator">&gt;</span> { <span class="ruby-string">&#39;^i&#39;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">2</span>, <span class="ruby-string">&#39;a&#39;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">7</span>, <span class="ruby-string">&#39;b&#39;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&#39;^r1&#39;</span> }, <span class="ruby-string">&#39;y&#39;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">58</span> }, <span class="ruby-identifier">ha</span>)
+  <span class="ruby-constant">Oj</span>.<span class="ruby-identifier">load</span>(<span class="ruby-identifier">json</span>, <span class="ruby-value">:mode</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">:object</span>, <span class="ruby-value">:circular</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword">true</span>)
+  <span class="ruby-identifier">assert_equal</span>(<span class="ruby-identifier">obj</span>.<span class="ruby-identifier">x</span>.<span class="ruby-identifier">__id__</span>, <span class="ruby-identifier">h</span>.<span class="ruby-identifier">__id__</span>)
+  <span class="ruby-identifier">assert_equal</span>(<span class="ruby-identifier">h</span>[<span class="ruby-string">&#39;b&#39;</span>].<span class="ruby-identifier">__id__</span>, <span class="ruby-identifier">obj</span>.<span class="ruby-identifier">__id__</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_circular_array" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_circular_array</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_circular_array-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/oj-3.4.0/test/test_object.rb, line 824</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">test_circular_array</span>
+  <span class="ruby-identifier">a</span> = [<span class="ruby-value">7</span>]
+  <span class="ruby-identifier">a</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">a</span>
+  <span class="ruby-identifier">json</span> = <span class="ruby-constant">Oj</span>.<span class="ruby-identifier">dump</span>(<span class="ruby-identifier">a</span>, <span class="ruby-value">:mode</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">:object</span>, <span class="ruby-value">:indent</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">2</span>, <span class="ruby-value">:circular</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword">true</span>)
+  <span class="ruby-identifier">a2</span> = <span class="ruby-constant">Oj</span>.<span class="ruby-identifier">object_load</span>(<span class="ruby-identifier">json</span>, <span class="ruby-value">:circular</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword">true</span>)
+  <span class="ruby-identifier">assert_equal</span>(<span class="ruby-identifier">a2</span>[<span class="ruby-value">1</span>].<span class="ruby-identifier">__id__</span>, <span class="ruby-identifier">a2</span>.<span class="ruby-identifier">__id__</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_circular_array2" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_circular_array2</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_circular_array2-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/oj-3.4.0/test/test_object.rb, line 832</span>
+  <span class="ruby-keyword">def</span> <span class="ruby-identifier">test_circular_array2</span>
+    <span class="ruby-identifier">a</span> = [<span class="ruby-value">7</span>]
+    <span class="ruby-identifier">a</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">a</span>
+    <span class="ruby-identifier">json</span> = <span class="ruby-constant">Oj</span>.<span class="ruby-identifier">dump</span>(<span class="ruby-identifier">a</span>, <span class="ruby-value">:mode</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">:object</span>, <span class="ruby-value">:indent</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">2</span>, <span class="ruby-value">:circular</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword">true</span>)
+    <span class="ruby-identifier">assert_equal</span>(<span class="ruby-string">%Q{[
+  &quot;^i1&quot;,
+  7,
+  &quot;^r1&quot;
+]
+}</span>, <span class="ruby-identifier">json</span>)
+    <span class="ruby-identifier">a2</span> = <span class="ruby-constant">Oj</span>.<span class="ruby-identifier">load</span>(<span class="ruby-identifier">json</span>, <span class="ruby-value">:mode</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">:object</span>, <span class="ruby-value">:circular</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword">true</span>)
+    <span class="ruby-identifier">assert_equal</span>(<span class="ruby-identifier">a2</span>[<span class="ruby-value">1</span>].<span class="ruby-identifier">__id__</span>, <span class="ruby-identifier">a2</span>.<span class="ruby-identifier">__id__</span>)
+  <span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_circular_hash" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_circular_hash</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_circular_hash-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/oj-3.4.0/test/test_object.rb, line 808</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">test_circular_hash</span>
+  <span class="ruby-identifier">h</span> = { <span class="ruby-string">&#39;a&#39;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">7</span> }
+  <span class="ruby-identifier">h</span>[<span class="ruby-string">&#39;b&#39;</span>] = <span class="ruby-identifier">h</span>
+  <span class="ruby-identifier">json</span> = <span class="ruby-constant">Oj</span>.<span class="ruby-identifier">dump</span>(<span class="ruby-identifier">h</span>, <span class="ruby-value">:mode</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">:object</span>, <span class="ruby-value">:indent</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">2</span>, <span class="ruby-value">:circular</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword">true</span>)
+  <span class="ruby-identifier">h2</span> = <span class="ruby-constant">Oj</span>.<span class="ruby-identifier">object_load</span>(<span class="ruby-identifier">json</span>, <span class="ruby-value">:circular</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword">true</span>)
+  <span class="ruby-identifier">assert_equal</span>(<span class="ruby-identifier">h2</span>[<span class="ruby-string">&#39;b&#39;</span>].<span class="ruby-identifier">__id__</span>, <span class="ruby-identifier">h2</span>.<span class="ruby-identifier">__id__</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_circular_hash2" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_circular_hash2</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_circular_hash2-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/oj-3.4.0/test/test_object.rb, line 846</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">test_circular_hash2</span>
+  <span class="ruby-identifier">h</span> = { <span class="ruby-string">&#39;a&#39;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">7</span> }
+  <span class="ruby-identifier">h</span>[<span class="ruby-string">&#39;b&#39;</span>] = <span class="ruby-identifier">h</span>
+  <span class="ruby-identifier">json</span> = <span class="ruby-constant">Oj</span>.<span class="ruby-identifier">dump</span>(<span class="ruby-identifier">h</span>, <span class="ruby-value">:mode</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">:object</span>, <span class="ruby-value">:indent</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">2</span>, <span class="ruby-value">:circular</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword">true</span>)
+  <span class="ruby-identifier">ha</span> = <span class="ruby-constant">Oj</span>.<span class="ruby-identifier">load</span>(<span class="ruby-identifier">json</span>, <span class="ruby-value">:mode</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">:strict</span>)
+  <span class="ruby-identifier">assert_equal</span>({<span class="ruby-string">&#39;^i&#39;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">1</span>, <span class="ruby-string">&#39;a&#39;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">7</span>, <span class="ruby-string">&#39;b&#39;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&#39;^r1&#39;</span>}, <span class="ruby-identifier">ha</span>)
+  <span class="ruby-constant">Oj</span>.<span class="ruby-identifier">load</span>(<span class="ruby-identifier">json</span>, <span class="ruby-value">:mode</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">:object</span>, <span class="ruby-value">:circular</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword">true</span>)
+  <span class="ruby-identifier">assert_equal</span>(<span class="ruby-identifier">h</span>[<span class="ruby-string">&#39;b&#39;</span>].<span class="ruby-identifier">__id__</span>, <span class="ruby-identifier">h</span>.<span class="ruby-identifier">__id__</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_circular_object" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_circular_object</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_circular_object-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/oj-3.4.0/test/test_object.rb, line 856</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">test_circular_object</span>
+  <span class="ruby-identifier">obj</span> = <span class="ruby-constant">Jeez</span>.<span class="ruby-identifier">new</span>(<span class="ruby-keyword">nil</span>, <span class="ruby-value">58</span>)
+  <span class="ruby-identifier">obj</span>.<span class="ruby-identifier">x</span> = <span class="ruby-identifier">obj</span>
+  <span class="ruby-identifier">json</span> = <span class="ruby-constant">Oj</span>.<span class="ruby-identifier">dump</span>(<span class="ruby-identifier">obj</span>, <span class="ruby-value">:mode</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">:object</span>, <span class="ruby-value">:indent</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">2</span>, <span class="ruby-value">:circular</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword">true</span>)
+  <span class="ruby-identifier">obj2</span> = <span class="ruby-constant">Oj</span>.<span class="ruby-identifier">object_load</span>(<span class="ruby-identifier">json</span>, <span class="ruby-value">:circular</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword">true</span>)
+  <span class="ruby-identifier">assert_equal</span>(<span class="ruby-identifier">obj2</span>.<span class="ruby-identifier">x</span>.<span class="ruby-identifier">__id__</span>, <span class="ruby-identifier">obj2</span>.<span class="ruby-identifier">__id__</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_circular_object2" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_circular_object2</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_circular_object2-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/oj-3.4.0/test/test_object.rb, line 864</span>
+  <span class="ruby-keyword">def</span> <span class="ruby-identifier">test_circular_object2</span>
+    <span class="ruby-identifier">obj</span> = <span class="ruby-constant">Jam</span>.<span class="ruby-identifier">new</span>(<span class="ruby-keyword">nil</span>, <span class="ruby-value">58</span>)
+    <span class="ruby-identifier">obj</span>.<span class="ruby-identifier">x</span> = <span class="ruby-identifier">obj</span>
+    <span class="ruby-identifier">json</span> = <span class="ruby-constant">Oj</span>.<span class="ruby-identifier">dump</span>(<span class="ruby-identifier">obj</span>, <span class="ruby-value">:mode</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">:object</span>, <span class="ruby-value">:indent</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">2</span>, <span class="ruby-value">:circular</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword">true</span>)
+    <span class="ruby-identifier">assert</span>(<span class="ruby-string">%Q{{
+  &quot;^o&quot;:&quot;ObjectJuice::Jam&quot;,
+  &quot;^i&quot;:1,
+  &quot;x&quot;:&quot;^r1&quot;,
+  &quot;y&quot;:58
+}
+}</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">json</span> <span class="ruby-operator">||</span>
+<span class="ruby-string">%Q{{
+  &quot;^o&quot;:&quot;ObjectJuice::Jam&quot;,
+  &quot;^i&quot;:1,
+  &quot;y&quot;:58,
+  &quot;x&quot;:&quot;^r1&quot;
+}
+}</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">json</span>)
+    <span class="ruby-identifier">obj2</span> = <span class="ruby-constant">Oj</span>.<span class="ruby-identifier">load</span>(<span class="ruby-identifier">json</span>, <span class="ruby-value">:mode</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">:object</span>, <span class="ruby-value">:circular</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword">true</span>)
+    <span class="ruby-identifier">assert_equal</span>(<span class="ruby-identifier">obj2</span>.<span class="ruby-identifier">x</span>.<span class="ruby-identifier">__id__</span>, <span class="ruby-identifier">obj2</span>.<span class="ruby-identifier">__id__</span>)
+  <span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_class_object" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_class_object</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_class_object-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/oj-3.4.0/test/test_object.rb, line 402</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">test_class_object</span>
+  <span class="ruby-identifier">dump_and_load</span>(<span class="ruby-constant">ObjectJuice</span>, <span class="ruby-keyword">false</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_comment" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_comment</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_comment-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/oj-3.4.0/test/test_object.rb, line 441</span>
+  <span class="ruby-keyword">def</span> <span class="ruby-identifier">test_comment</span>
+    <span class="ruby-identifier">json</span> = <span class="ruby-string">%Q{{
+  &quot;x&quot;/*one*/:/*two*/true,//three
+  &quot;y&quot;:58/*four*/,
+  &quot;z&quot;: [1,2/*five*/,
+3 // six
+]
+}
+}</span>
+    <span class="ruby-identifier">obj</span> = <span class="ruby-constant">Oj</span>.<span class="ruby-identifier">object_load</span>(<span class="ruby-identifier">json</span>)
+    <span class="ruby-identifier">assert_equal</span>({ <span class="ruby-string">&#39;x&#39;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword">true</span>, <span class="ruby-string">&#39;y&#39;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">58</span>, <span class="ruby-string">&#39;z&#39;</span> =<span class="ruby-operator">&gt;</span> [<span class="ruby-value">1</span>, <span class="ruby-value">2</span>, <span class="ruby-value">3</span>]}, <span class="ruby-identifier">obj</span>)
+  <span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_comment_c" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_comment_c</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_comment_c-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/oj-3.4.0/test/test_object.rb, line 431</span>
+  <span class="ruby-keyword">def</span> <span class="ruby-identifier">test_comment_c</span>
+    <span class="ruby-identifier">json</span> = <span class="ruby-string">%Q{{
+  &quot;x&quot;/*one*/:/*two*/true,
+  &quot;y&quot;:58,
+  &quot;z&quot;: [1,2,3]}
+}</span>
+    <span class="ruby-identifier">obj</span> = <span class="ruby-constant">Oj</span>.<span class="ruby-identifier">object_load</span>(<span class="ruby-identifier">json</span>)
+    <span class="ruby-identifier">assert_equal</span>({ <span class="ruby-string">&#39;x&#39;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword">true</span>, <span class="ruby-string">&#39;y&#39;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">58</span>, <span class="ruby-string">&#39;z&#39;</span> =<span class="ruby-operator">&gt;</span> [<span class="ruby-value">1</span>, <span class="ruby-value">2</span>, <span class="ruby-value">3</span>]}, <span class="ruby-identifier">obj</span>)
+  <span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_comment_slash" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_comment_slash</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>comments</p>
+          
+          
+
+          
+          <div class="method-source-code" id="test_comment_slash-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/oj-3.4.0/test/test_object.rb, line 419</span>
+  <span class="ruby-keyword">def</span> <span class="ruby-identifier">test_comment_slash</span>
+    <span class="ruby-identifier">json</span> = <span class="ruby-string">%Q{{
+  &quot;x&quot;:true,//three
+  &quot;y&quot;:58,
+  &quot;z&quot;: [1,2,
+3 // six
+]}
+}</span>
+    <span class="ruby-identifier">obj</span> = <span class="ruby-constant">Oj</span>.<span class="ruby-identifier">object_load</span>(<span class="ruby-identifier">json</span>)
+    <span class="ruby-identifier">assert_equal</span>({ <span class="ruby-string">&#39;x&#39;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword">true</span>, <span class="ruby-string">&#39;y&#39;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">58</span>, <span class="ruby-string">&#39;z&#39;</span> =<span class="ruby-operator">&gt;</span> [<span class="ruby-value">1</span>, <span class="ruby-value">2</span>, <span class="ruby-value">3</span>]}, <span class="ruby-identifier">obj</span>)
+  <span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_encode" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_encode</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_encode-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/oj-3.4.0/test/test_object.rb, line 274</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">test_encode</span>
+  <span class="ruby-identifier">opts</span> = <span class="ruby-constant">Oj</span>.<span class="ruby-identifier">default_options</span>
+  <span class="ruby-constant">Oj</span>.<span class="ruby-identifier">default_options</span> = { <span class="ruby-value">:ascii_only</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword">false</span> }
+  <span class="ruby-identifier">dump_and_load</span>(<span class="ruby-string">&quot;ぴーたー&quot;</span>, <span class="ruby-keyword">false</span>)
+  <span class="ruby-constant">Oj</span>.<span class="ruby-identifier">default_options</span> = { <span class="ruby-value">:ascii_only</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword">true</span> }
+  <span class="ruby-identifier">json</span> = <span class="ruby-constant">Oj</span>.<span class="ruby-identifier">dump</span>(<span class="ruby-string">&quot;ぴーたー&quot;</span>)
+  <span class="ruby-identifier">assert_equal</span>(<span class="ruby-string">%Q{&quot;\\u3074\\u30fc\\u305f\\u30fc&quot;}</span>, <span class="ruby-identifier">json</span>)
+  <span class="ruby-identifier">dump_and_load</span>(<span class="ruby-string">&quot;ぴーたー&quot;</span>, <span class="ruby-keyword">false</span>)
+  <span class="ruby-constant">Oj</span>.<span class="ruby-identifier">default_options</span> = <span class="ruby-identifier">opts</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_exception" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_exception</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_exception-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/oj-3.4.0/test/test_object.rb, line 772</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">test_exception</span>
+  <span class="ruby-identifier">err</span> = <span class="ruby-keyword">nil</span>
+  <span class="ruby-keyword">begin</span>
+    <span class="ruby-identifier">raise</span> <span class="ruby-constant">StandardError</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&#39;A Message&#39;</span>)
+  <span class="ruby-keyword">rescue</span> <span class="ruby-constant">Exception</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">e</span>
+    <span class="ruby-identifier">err</span> = <span class="ruby-identifier">e</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">json</span> = <span class="ruby-constant">Oj</span>.<span class="ruby-identifier">dump</span>(<span class="ruby-identifier">err</span>, <span class="ruby-value">:mode</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">:object</span>, <span class="ruby-value">:indent</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">2</span>)
+  <span class="ruby-comment">#puts &quot;*** #{json}&quot;</span>
+  <span class="ruby-identifier">e2</span> = <span class="ruby-constant">Oj</span>.<span class="ruby-identifier">load</span>(<span class="ruby-identifier">json</span>, <span class="ruby-value">:mode</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">:strict</span>)
+  <span class="ruby-identifier">assert_equal</span>(<span class="ruby-identifier">err</span>.<span class="ruby-identifier">class</span>.<span class="ruby-identifier">to_s</span>, <span class="ruby-identifier">e2</span>[<span class="ruby-string">&#39;^o&#39;</span>])
+  <span class="ruby-identifier">assert_equal</span>(<span class="ruby-identifier">err</span>.<span class="ruby-identifier">message</span>, <span class="ruby-identifier">e2</span>[<span class="ruby-string">&#39;~mesg&#39;</span>])
+  <span class="ruby-identifier">assert_equal</span>(<span class="ruby-identifier">err</span>.<span class="ruby-identifier">backtrace</span>, <span class="ruby-identifier">e2</span>[<span class="ruby-string">&#39;~bt&#39;</span>])
+  <span class="ruby-identifier">e2</span> = <span class="ruby-constant">Oj</span>.<span class="ruby-identifier">load</span>(<span class="ruby-identifier">json</span>, <span class="ruby-value">:mode</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">:object</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-string">&#39;rubinius&#39;</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">$ruby</span>
+    <span class="ruby-identifier">assert_equal</span>(<span class="ruby-identifier">e</span>.<span class="ruby-identifier">class</span>, <span class="ruby-identifier">e2</span>.<span class="ruby-identifier">class</span>);
+    <span class="ruby-identifier">assert_equal</span>(<span class="ruby-identifier">e</span>.<span class="ruby-identifier">message</span>, <span class="ruby-identifier">e2</span>.<span class="ruby-identifier">message</span>);
+    <span class="ruby-identifier">assert_equal</span>(<span class="ruby-identifier">e</span>.<span class="ruby-identifier">backtrace</span>, <span class="ruby-identifier">e2</span>.<span class="ruby-identifier">backtrace</span>);
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">assert_equal</span>(<span class="ruby-identifier">e</span>, <span class="ruby-identifier">e2</span>);
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_false" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_false</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_false-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/oj-3.4.0/test/test_object.rb, line 232</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">test_false</span>
+  <span class="ruby-identifier">dump_and_load</span>(<span class="ruby-keyword">false</span>, <span class="ruby-keyword">false</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_fixnum" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_fixnum</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_fixnum-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/oj-3.4.0/test/test_object.rb, line 236</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">test_fixnum</span>
+  <span class="ruby-identifier">dump_and_load</span>(<span class="ruby-value">0</span>, <span class="ruby-keyword">false</span>)
+  <span class="ruby-identifier">dump_and_load</span>(<span class="ruby-value">12345</span>, <span class="ruby-keyword">false</span>)
+  <span class="ruby-identifier">dump_and_load</span>(<span class="ruby-value">-54321</span>, <span class="ruby-keyword">false</span>)
+  <span class="ruby-identifier">dump_and_load</span>(<span class="ruby-value">1</span>, <span class="ruby-keyword">false</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_float" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_float</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_float-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/oj-3.4.0/test/test_object.rb, line 243</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">test_float</span>
+  <span class="ruby-identifier">dump_and_load</span>(<span class="ruby-value">0.0</span>, <span class="ruby-keyword">false</span>)
+  <span class="ruby-identifier">dump_and_load</span>(<span class="ruby-value">12345.6789</span>, <span class="ruby-keyword">false</span>)
+  <span class="ruby-identifier">dump_and_load</span>(<span class="ruby-value">70.35</span>, <span class="ruby-keyword">false</span>)
+  <span class="ruby-identifier">dump_and_load</span>(<span class="ruby-value">-54321.012</span>, <span class="ruby-keyword">false</span>)
+  <span class="ruby-identifier">dump_and_load</span>(<span class="ruby-value">1.7775</span>, <span class="ruby-keyword">false</span>)
+  <span class="ruby-identifier">dump_and_load</span>(<span class="ruby-value">2.5024</span>, <span class="ruby-keyword">false</span>)
+  <span class="ruby-identifier">dump_and_load</span>(<span class="ruby-value">2.48e16</span>, <span class="ruby-keyword">false</span>)
+  <span class="ruby-identifier">dump_and_load</span>(<span class="ruby-value">2.48e100</span> <span class="ruby-operator">*</span> <span class="ruby-value">1.0e10</span>, <span class="ruby-keyword">false</span>)
+  <span class="ruby-identifier">dump_and_load</span>(<span class="ruby-value">-2.48e100</span> <span class="ruby-operator">*</span> <span class="ruby-value">1.0e10</span>, <span class="ruby-keyword">false</span>)
+  <span class="ruby-identifier">dump_and_load</span>(<span class="ruby-value">1</span><span class="ruby-operator">/</span><span class="ruby-value">0.0</span>, <span class="ruby-keyword">false</span>)
+  <span class="ruby-comment"># NaN does not always == NaN</span>
+  <span class="ruby-identifier">json</span> = <span class="ruby-constant">Oj</span>.<span class="ruby-identifier">dump</span>(<span class="ruby-value">0</span><span class="ruby-operator">/</span><span class="ruby-value">0.0</span>, <span class="ruby-value">:mode</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">:object</span>)
+  <span class="ruby-identifier">assert_equal</span>(<span class="ruby-string">&#39;3.3e14159265358979323846&#39;</span>, <span class="ruby-identifier">json</span>)
+  <span class="ruby-identifier">loaded</span> = <span class="ruby-constant">Oj</span>.<span class="ruby-identifier">load</span>(<span class="ruby-identifier">json</span>);
+  <span class="ruby-identifier">assert_equal</span>(<span class="ruby-keyword">true</span>, <span class="ruby-identifier">loaded</span>.<span class="ruby-identifier">nan?</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_hash" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_hash</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p><a href="Hash.html">Hash</a></p>
+          
+          
+
+          
+          <div class="method-source-code" id="test_hash-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/oj-3.4.0/test/test_object.rb, line 306</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">test_hash</span>
+  <span class="ruby-identifier">dump_and_load</span>({}, <span class="ruby-keyword">false</span>)
+  <span class="ruby-identifier">dump_and_load</span>({ <span class="ruby-string">&#39;true&#39;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword">true</span>, <span class="ruby-string">&#39;false&#39;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword">false</span>}, <span class="ruby-keyword">false</span>)
+  <span class="ruby-identifier">dump_and_load</span>({ <span class="ruby-string">&#39;true&#39;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword">true</span>, <span class="ruby-string">&#39;array&#39;</span> =<span class="ruby-operator">&gt;</span> [], <span class="ruby-string">&#39;hash&#39;</span> =<span class="ruby-operator">&gt;</span> { }}, <span class="ruby-keyword">false</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_hash_deep" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_hash_deep</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_hash_deep-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/oj-3.4.0/test/test_object.rb, line 312</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">test_hash_deep</span>
+  <span class="ruby-identifier">dump_and_load</span>({<span class="ruby-string">&#39;1&#39;</span> =<span class="ruby-operator">&gt;</span> {
+                    <span class="ruby-string">&#39;2&#39;</span> =<span class="ruby-operator">&gt;</span> {
+                      <span class="ruby-string">&#39;3&#39;</span> =<span class="ruby-operator">&gt;</span> {
+                        <span class="ruby-string">&#39;4&#39;</span> =<span class="ruby-operator">&gt;</span> {
+                          <span class="ruby-string">&#39;5&#39;</span> =<span class="ruby-operator">&gt;</span> {
+                            <span class="ruby-string">&#39;6&#39;</span> =<span class="ruby-operator">&gt;</span> {
+                              <span class="ruby-string">&#39;7&#39;</span> =<span class="ruby-operator">&gt;</span> {
+                                <span class="ruby-string">&#39;8&#39;</span> =<span class="ruby-operator">&gt;</span> {
+                                  <span class="ruby-string">&#39;9&#39;</span> =<span class="ruby-operator">&gt;</span> {
+                                    <span class="ruby-string">&#39;10&#39;</span> =<span class="ruby-operator">&gt;</span> {
+                                      <span class="ruby-string">&#39;11&#39;</span> =<span class="ruby-operator">&gt;</span> {
+                                        <span class="ruby-string">&#39;12&#39;</span> =<span class="ruby-operator">&gt;</span> {
+                                          <span class="ruby-string">&#39;13&#39;</span> =<span class="ruby-operator">&gt;</span> {
+                                            <span class="ruby-string">&#39;14&#39;</span> =<span class="ruby-operator">&gt;</span> {
+                                              <span class="ruby-string">&#39;15&#39;</span> =<span class="ruby-operator">&gt;</span> {
+                                                <span class="ruby-string">&#39;16&#39;</span> =<span class="ruby-operator">&gt;</span> {
+                                                  <span class="ruby-string">&#39;17&#39;</span> =<span class="ruby-operator">&gt;</span> {
+                                                    <span class="ruby-string">&#39;18&#39;</span> =<span class="ruby-operator">&gt;</span> {
+                                                      <span class="ruby-string">&#39;19&#39;</span> =<span class="ruby-operator">&gt;</span> {
+                                                        <span class="ruby-string">&#39;20&#39;</span> =<span class="ruby-operator">&gt;</span> {}}}}}}}}}}}}}}}}}}}}}, <span class="ruby-keyword">false</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_hash_escaped_key" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_hash_escaped_key</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_hash_escaped_key-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/oj-3.4.0/test/test_object.rb, line 335</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">test_hash_escaped_key</span>
+  <span class="ruby-identifier">json</span> = <span class="ruby-string">%Q{{&quot;a\nb&quot;:true,&quot;c\td&quot;:false}}</span>
+  <span class="ruby-identifier">obj</span> = <span class="ruby-constant">Oj</span>.<span class="ruby-identifier">object_load</span>(<span class="ruby-identifier">json</span>)
+  <span class="ruby-identifier">assert_equal</span>({<span class="ruby-string">&quot;a\nb&quot;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword">true</span>, <span class="ruby-string">&quot;c\td&quot;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword">false</span>}, <span class="ruby-identifier">obj</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_ignore" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_ignore</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_ignore-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/oj-3.4.0/test/test_object.rb, line 763</span>
+  <span class="ruby-keyword">def</span> <span class="ruby-identifier">test_ignore</span>
+    <span class="ruby-identifier">obj</span> = <span class="ruby-constant">Jeez</span>.<span class="ruby-identifier">new</span>(<span class="ruby-keyword">true</span>, <span class="ruby-value">58</span>)
+    <span class="ruby-identifier">json</span> = <span class="ruby-constant">Oj</span>.<span class="ruby-identifier">dump</span>({ <span class="ruby-string">&#39;a&#39;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">7</span>, <span class="ruby-string">&#39;b&#39;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">obj</span> }, <span class="ruby-value">:mode</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">:object</span>, <span class="ruby-value">:indent</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">2</span>, <span class="ruby-value">:ignore</span> =<span class="ruby-operator">&gt;</span> [ <span class="ruby-constant">Jeez</span> ])
+    <span class="ruby-identifier">assert_equal</span>(<span class="ruby-string">%Q|{
+  &quot;a&quot;:7
+}
+|</span>, <span class="ruby-identifier">json</span>)
+  <span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_io_file" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_io_file</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_io_file-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/oj-3.4.0/test/test_object.rb, line 376</span>
+  <span class="ruby-keyword">def</span> <span class="ruby-identifier">test_io_file</span>
+    <span class="ruby-identifier">filename</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span>(<span class="ruby-constant">File</span>.<span class="ruby-identifier">dirname</span>(<span class="ruby-keyword">__FILE__</span>), <span class="ruby-string">&#39;open_file_test.json&#39;</span>)
+    <span class="ruby-constant">File</span>.<span class="ruby-identifier">open</span>(<span class="ruby-identifier">filename</span>, <span class="ruby-string">&#39;w&#39;</span>) { <span class="ruby-operator">|</span><span class="ruby-identifier">f</span><span class="ruby-operator">|</span> <span class="ruby-identifier">f</span>.<span class="ruby-identifier">write</span>(<span class="ruby-string">%Q{{
+  &quot;x&quot;:true,
+  &quot;y&quot;:58,
+  &quot;z&quot;: [1,2,3]
+}
+}</span>) }
+    <span class="ruby-identifier">f</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">filename</span>)
+    <span class="ruby-identifier">obj</span> = <span class="ruby-constant">Oj</span>.<span class="ruby-identifier">object_load</span>(<span class="ruby-identifier">f</span>)
+    <span class="ruby-identifier">f</span>.<span class="ruby-identifier">close</span>()
+    <span class="ruby-identifier">assert_equal</span>({ <span class="ruby-string">&#39;x&#39;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword">true</span>, <span class="ruby-string">&#39;y&#39;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">58</span>, <span class="ruby-string">&#39;z&#39;</span> =<span class="ruby-operator">&gt;</span> [<span class="ruby-value">1</span>, <span class="ruby-value">2</span>, <span class="ruby-value">3</span>]}, <span class="ruby-identifier">obj</span>)
+  <span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_io_string" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_io_string</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Stream IO</p>
+          
+          
+
+          
+          <div class="method-source-code" id="test_io_string-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/oj-3.4.0/test/test_object.rb, line 364</span>
+  <span class="ruby-keyword">def</span> <span class="ruby-identifier">test_io_string</span>
+    <span class="ruby-identifier">json</span> = <span class="ruby-string">%Q{{
+  &quot;x&quot;:true,
+  &quot;y&quot;:58,
+  &quot;z&quot;: [1,2,3]
+}
+}</span>
+    <span class="ruby-identifier">input</span> = <span class="ruby-constant">StringIO</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">json</span>)
+    <span class="ruby-identifier">obj</span> = <span class="ruby-constant">Oj</span>.<span class="ruby-identifier">object_load</span>(<span class="ruby-identifier">input</span>)
+    <span class="ruby-identifier">assert_equal</span>({ <span class="ruby-string">&#39;x&#39;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword">true</span>, <span class="ruby-string">&#39;y&#39;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">58</span>, <span class="ruby-string">&#39;z&#39;</span> =<span class="ruby-operator">&gt;</span> [<span class="ruby-value">1</span>, <span class="ruby-value">2</span>, <span class="ruby-value">3</span>]}, <span class="ruby-identifier">obj</span>)
+  <span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_json_anonymous_struct" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_json_anonymous_struct</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_json_anonymous_struct-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/oj-3.4.0/test/test_object.rb, line 665</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">test_json_anonymous_struct</span>
+  <span class="ruby-identifier">s</span> = <span class="ruby-constant">Struct</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">:x</span>, <span class="ruby-value">:y</span>)
+  <span class="ruby-identifier">obj</span> = <span class="ruby-identifier">s</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">1</span>, <span class="ruby-value">2</span>)
+  <span class="ruby-identifier">json</span> = <span class="ruby-constant">Oj</span>.<span class="ruby-identifier">dump</span>(<span class="ruby-identifier">obj</span>, <span class="ruby-value">:indent</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">2</span>, <span class="ruby-value">:mode</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">:object</span>)
+  <span class="ruby-comment">#puts json</span>
+  <span class="ruby-identifier">loaded</span> = <span class="ruby-constant">Oj</span>.<span class="ruby-identifier">object_load</span>(<span class="ruby-identifier">json</span>);
+  <span class="ruby-identifier">assert_equal</span>(<span class="ruby-identifier">obj</span>.<span class="ruby-identifier">members</span>, <span class="ruby-identifier">loaded</span>.<span class="ruby-identifier">members</span>)
+  <span class="ruby-identifier">assert_equal</span>(<span class="ruby-identifier">obj</span>.<span class="ruby-identifier">values</span>, <span class="ruby-identifier">loaded</span>.<span class="ruby-identifier">values</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_json_module_object" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_json_module_object</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_json_module_object-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/oj-3.4.0/test/test_object.rb, line 454</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">test_json_module_object</span>
+  <span class="ruby-identifier">obj</span> = <span class="ruby-constant">One</span><span class="ruby-operator">::</span><span class="ruby-constant">Two</span><span class="ruby-operator">::</span><span class="ruby-constant">Three</span><span class="ruby-operator">::</span><span class="ruby-constant">Deep</span>.<span class="ruby-identifier">new</span>()
+  <span class="ruby-identifier">dump_and_load</span>(<span class="ruby-identifier">obj</span>, <span class="ruby-keyword">false</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_json_non_str_hash" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_json_non_str_hash</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_json_non_str_hash-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/oj-3.4.0/test/test_object.rb, line 675</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">test_json_non_str_hash</span>
+  <span class="ruby-identifier">obj</span> = { <span class="ruby-value">59</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;young&quot;</span>, <span class="ruby-keyword">false</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword">true</span> }
+  <span class="ruby-identifier">dump_and_load</span>(<span class="ruby-identifier">obj</span>, <span class="ruby-keyword">false</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_json_object" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_json_object</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_json_object-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/oj-3.4.0/test/test_object.rb, line 624</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">test_json_object</span>
+  <span class="ruby-identifier">obj</span> = <span class="ruby-constant">Jeez</span>.<span class="ruby-identifier">new</span>(<span class="ruby-keyword">true</span>, <span class="ruby-value">58</span>)
+  <span class="ruby-identifier">dump_and_load</span>(<span class="ruby-identifier">obj</span>, <span class="ruby-keyword">false</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_json_object_bad" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_json_object_bad</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_json_object_bad-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/oj-3.4.0/test/test_object.rb, line 634</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">test_json_object_bad</span>
+  <span class="ruby-identifier">json</span> = <span class="ruby-string">%Q{{&quot;^o&quot;:&quot;Junk&quot;,&quot;x&quot;:true}}</span>
+  <span class="ruby-keyword">begin</span>
+    <span class="ruby-constant">Oj</span>.<span class="ruby-identifier">object_load</span>(<span class="ruby-identifier">json</span>)
+  <span class="ruby-keyword">rescue</span> <span class="ruby-constant">Exception</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">e</span>
+    <span class="ruby-identifier">assert_equal</span>(<span class="ruby-string">&quot;ArgumentError&quot;</span>, <span class="ruby-identifier">e</span>.<span class="ruby-identifier">class</span>().<span class="ruby-identifier">name</span>)
+    <span class="ruby-keyword">return</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">assert</span>(<span class="ruby-keyword">false</span>, <span class="ruby-string">&quot;*** expected an exception&quot;</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_json_object_create_deep" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_json_object_create_deep</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_json_object_create_deep-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/oj-3.4.0/test/test_object.rb, line 629</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">test_json_object_create_deep</span>
+  <span class="ruby-identifier">obj</span> = <span class="ruby-constant">One</span><span class="ruby-operator">::</span><span class="ruby-constant">Two</span><span class="ruby-operator">::</span><span class="ruby-constant">Three</span><span class="ruby-operator">::</span><span class="ruby-constant">Deep</span>.<span class="ruby-identifier">new</span>()
+  <span class="ruby-identifier">dump_and_load</span>(<span class="ruby-identifier">obj</span>, <span class="ruby-keyword">false</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_json_object_missing_fields" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_json_object_missing_fields</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_json_object_missing_fields-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/oj-3.4.0/test/test_object.rb, line 817</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">test_json_object_missing_fields</span>
+  <span class="ruby-identifier">json</span> = <span class="ruby-string">%Q{{ &quot;^u&quot;: [ &quot;ObjectJuice::Stuck&quot;,1]}}</span>
+
+  <span class="ruby-identifier">obj</span> = <span class="ruby-constant">Oj</span>.<span class="ruby-identifier">load</span>(<span class="ruby-identifier">json</span>, <span class="ruby-identifier">mode</span><span class="ruby-operator">:</span> <span class="ruby-value">:object</span>)
+  <span class="ruby-identifier">assert_nil</span>(<span class="ruby-identifier">obj</span>[<span class="ruby-string">&#39;b&#39;</span>])
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_json_object_not_hat_hash" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_json_object_not_hat_hash</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_json_object_not_hat_hash-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/oj-3.4.0/test/test_object.rb, line 645</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">test_json_object_not_hat_hash</span>
+  <span class="ruby-identifier">json</span> = <span class="ruby-node">%Q{{&quot;^#x&quot;:[1,2]}}</span>
+  <span class="ruby-identifier">h</span> = <span class="ruby-constant">Oj</span>.<span class="ruby-identifier">object_load</span>(<span class="ruby-identifier">json</span>)
+  <span class="ruby-identifier">assert_equal</span>({<span class="ruby-value">1</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">2</span>}, <span class="ruby-identifier">h</span>);
+
+  <span class="ruby-identifier">json</span> = <span class="ruby-node">%Q{{&quot;~#x&quot;:[1,2]}}</span>
+  <span class="ruby-identifier">h</span> = <span class="ruby-constant">Oj</span>.<span class="ruby-identifier">object_load</span>(<span class="ruby-identifier">json</span>)
+  <span class="ruby-identifier">assert_equal</span>({<span class="ruby-string">&#39;~#x&#39;</span> =<span class="ruby-operator">&gt;</span> [<span class="ruby-value">1</span>,<span class="ruby-value">2</span>]}, <span class="ruby-identifier">h</span>);
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_json_object_object" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_json_object_object</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_json_object_object-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/oj-3.4.0/test/test_object.rb, line 687</span>
+  <span class="ruby-keyword">def</span> <span class="ruby-identifier">test_json_object_object</span>
+    <span class="ruby-identifier">obj</span> = <span class="ruby-constant">Jeez</span>.<span class="ruby-identifier">new</span>(<span class="ruby-keyword">true</span>, <span class="ruby-value">58</span>)
+    <span class="ruby-identifier">json</span> = <span class="ruby-constant">Oj</span>.<span class="ruby-identifier">dump</span>(<span class="ruby-identifier">obj</span>, <span class="ruby-value">:mode</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">:object</span>, <span class="ruby-value">:indent</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">2</span>)
+    <span class="ruby-identifier">assert</span>(<span class="ruby-string">%Q{{
+  &quot;^o&quot;:&quot;ObjectJuice::Jeez&quot;,
+  &quot;x&quot;:true,
+  &quot;y&quot;:58
+}
+}</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">json</span> <span class="ruby-operator">||</span>
+<span class="ruby-string">%Q{{
+  &quot;^o&quot;:&quot;ObjectJuice::Jeez&quot;,
+  &quot;y&quot;:58,
+  &quot;x&quot;:true
+}
+}</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">json</span>)
+    <span class="ruby-identifier">obj2</span> = <span class="ruby-constant">Oj</span>.<span class="ruby-identifier">load</span>(<span class="ruby-identifier">json</span>, <span class="ruby-value">:mode</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">:object</span>)
+    <span class="ruby-identifier">assert_equal</span>(<span class="ruby-identifier">obj</span>, <span class="ruby-identifier">obj2</span>)
+  <span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_json_struct" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_json_struct</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_json_struct-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/oj-3.4.0/test/test_object.rb, line 655</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">test_json_struct</span>
+  <span class="ruby-identifier">obj</span> = <span class="ruby-constant">Stuck</span>.<span class="ruby-identifier">new</span>(<span class="ruby-keyword">false</span>, <span class="ruby-value">7</span>)
+  <span class="ruby-identifier">dump_and_load</span>(<span class="ruby-identifier">obj</span>, <span class="ruby-keyword">false</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_json_struct2" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_json_struct2</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_json_struct2-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/oj-3.4.0/test/test_object.rb, line 660</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">test_json_struct2</span>
+  <span class="ruby-identifier">obj</span> = <span class="ruby-constant">One</span><span class="ruby-operator">::</span><span class="ruby-constant">Stuck2</span>.<span class="ruby-identifier">new</span>(<span class="ruby-keyword">false</span>, <span class="ruby-value">7</span>)
+  <span class="ruby-identifier">dump_and_load</span>(<span class="ruby-identifier">obj</span>, <span class="ruby-keyword">false</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_mixed_hash_object" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_mixed_hash_object</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_mixed_hash_object-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/oj-3.4.0/test/test_object.rb, line 680</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">test_mixed_hash_object</span>
+  <span class="ruby-constant">Oj</span>.<span class="ruby-identifier">default_options</span> = { <span class="ruby-value">:mode</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">:object</span> }
+  <span class="ruby-identifier">json</span> = <span class="ruby-constant">Oj</span>.<span class="ruby-identifier">dump</span>({ <span class="ruby-value">1</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword">true</span>, <span class="ruby-string">&#39;nil&#39;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword">nil</span>, <span class="ruby-value">:sim</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">4</span> })
+  <span class="ruby-identifier">h</span> = <span class="ruby-constant">Oj</span>.<span class="ruby-identifier">object_load</span>(<span class="ruby-identifier">json</span>)
+  <span class="ruby-identifier">assert_equal</span>({ <span class="ruby-value">1</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword">true</span>, <span class="ruby-string">&#39;nil&#39;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword">nil</span>, <span class="ruby-value">:sim</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">4</span> }, <span class="ruby-identifier">h</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_module_object" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_module_object</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_module_object-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/oj-3.4.0/test/test_object.rb, line 406</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">test_module_object</span>
+  <span class="ruby-identifier">dump_and_load</span>(<span class="ruby-constant">One</span>, <span class="ruby-keyword">false</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_nil" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_nil</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_nil-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/oj-3.4.0/test/test_object.rb, line 224</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">test_nil</span>
+  <span class="ruby-identifier">dump_and_load</span>(<span class="ruby-keyword">nil</span>, <span class="ruby-keyword">false</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_non_str_hash_object" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_non_str_hash_object</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_non_str_hash_object-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/oj-3.4.0/test/test_object.rb, line 410</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">test_non_str_hash_object</span>
+  <span class="ruby-identifier">json</span> = <span class="ruby-constant">Oj</span>.<span class="ruby-identifier">dump</span>({ <span class="ruby-value">1</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword">true</span>, <span class="ruby-value">:sim</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword">nil</span> }, <span class="ruby-value">:mode</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">:object</span>)
+  <span class="ruby-identifier">h</span> = <span class="ruby-constant">Oj</span>.<span class="ruby-identifier">load</span>(<span class="ruby-identifier">json</span>, <span class="ruby-value">:mode</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">:strict</span>)
+  <span class="ruby-identifier">assert_equal</span>({<span class="ruby-node">&quot;^#1&quot;</span> =<span class="ruby-operator">&gt;</span> [<span class="ruby-value">1</span>, <span class="ruby-keyword">true</span>], <span class="ruby-string">&quot;:sim&quot;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword">nil</span>}, <span class="ruby-identifier">h</span>)
+  <span class="ruby-identifier">h</span> = <span class="ruby-constant">Oj</span>.<span class="ruby-identifier">load</span>(<span class="ruby-identifier">json</span>, <span class="ruby-value">:mode</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">:object</span>)
+  <span class="ruby-identifier">assert_equal</span>({ <span class="ruby-value">1</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword">true</span>, <span class="ruby-value">:sim</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword">nil</span> }, <span class="ruby-identifier">h</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_object_object_no_cache" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_object_object_no_cache</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_object_object_no_cache-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/oj-3.4.0/test/test_object.rb, line 744</span>
+  <span class="ruby-keyword">def</span> <span class="ruby-identifier">test_object_object_no_cache</span>
+    <span class="ruby-identifier">obj</span> = <span class="ruby-constant">Jam</span>.<span class="ruby-identifier">new</span>(<span class="ruby-keyword">true</span>, <span class="ruby-value">58</span>)
+    <span class="ruby-identifier">json</span> = <span class="ruby-constant">Oj</span>.<span class="ruby-identifier">dump</span>(<span class="ruby-identifier">obj</span>, <span class="ruby-value">:mode</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">:object</span>, <span class="ruby-value">:indent</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">2</span>)
+    <span class="ruby-identifier">assert</span>(<span class="ruby-string">%Q{{
+  &quot;^o&quot;:&quot;ObjectJuice::Jam&quot;,
+  &quot;x&quot;:true,
+  &quot;y&quot;:58
+}
+}</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">json</span> <span class="ruby-operator">||</span>
+<span class="ruby-string">%Q{{
+  &quot;^o&quot;:&quot;ObjectJuice::Jam&quot;,
+  &quot;y&quot;:58,
+  &quot;x&quot;:true
+}
+}</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">json</span>)
+    <span class="ruby-identifier">obj2</span> = <span class="ruby-constant">Oj</span>.<span class="ruby-identifier">load</span>(<span class="ruby-identifier">json</span>, <span class="ruby-value">:mode</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">:object</span>, <span class="ruby-value">:class_cache</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword">false</span>)
+    <span class="ruby-identifier">assert_equal</span>(<span class="ruby-identifier">obj</span>, <span class="ruby-identifier">obj2</span>)
+  <span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_odd_date" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_odd_date</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_odd_date-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/oj-3.4.0/test/test_object.rb, line 915</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">test_odd_date</span>
+  <span class="ruby-identifier">dump_and_load</span>(<span class="ruby-constant">Date</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">2012</span>, <span class="ruby-value">6</span>, <span class="ruby-value">19</span>), <span class="ruby-keyword">false</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_odd_date_replaced" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_odd_date_replaced</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_odd_date_replaced-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/oj-3.4.0/test/test_object.rb, line 941</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">test_odd_date_replaced</span>
+  <span class="ruby-constant">Oj</span>.<span class="ruby-identifier">register_odd</span>(<span class="ruby-constant">Date</span>, <span class="ruby-constant">Date</span>, <span class="ruby-value">:jd</span>, <span class="ruby-value">:jd</span>)
+  <span class="ruby-identifier">json</span> = <span class="ruby-constant">Oj</span>.<span class="ruby-identifier">dump</span>(<span class="ruby-constant">Date</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">2015</span>, <span class="ruby-value">3</span>, <span class="ruby-value">7</span>), <span class="ruby-value">:mode</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">:object</span>)
+  <span class="ruby-identifier">assert_equal</span>(<span class="ruby-string">%Q|{&quot;^O&quot;:&quot;Date&quot;,&quot;jd&quot;:2457089}|</span>, <span class="ruby-identifier">json</span>)
+  <span class="ruby-identifier">dump_and_load</span>(<span class="ruby-constant">Date</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">2012</span>, <span class="ruby-value">6</span>, <span class="ruby-value">19</span>), <span class="ruby-keyword">false</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_odd_datetime" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_odd_datetime</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_odd_datetime-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/oj-3.4.0/test/test_object.rb, line 919</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">test_odd_datetime</span>
+  <span class="ruby-identifier">dump_and_load</span>(<span class="ruby-constant">DateTime</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">2012</span>, <span class="ruby-value">6</span>, <span class="ruby-value">19</span>, <span class="ruby-value">13</span>, <span class="ruby-value">5</span>, <span class="ruby-constant">Rational</span>(<span class="ruby-value">4</span>, <span class="ruby-value">3</span>)), <span class="ruby-keyword">false</span>)
+  <span class="ruby-identifier">dump_and_load</span>(<span class="ruby-constant">DateTime</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">2012</span>, <span class="ruby-value">6</span>, <span class="ruby-value">19</span>, <span class="ruby-value">13</span>, <span class="ruby-value">5</span>, <span class="ruby-constant">Rational</span>(<span class="ruby-value">7123456789</span>, <span class="ruby-value">1000000000</span>)), <span class="ruby-keyword">false</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_odd_mod" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_odd_mod</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_odd_mod-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/oj-3.4.0/test/test_object.rb, line 956</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">test_odd_mod</span>
+  <span class="ruby-constant">Oj</span>.<span class="ruby-identifier">register_odd</span>(<span class="ruby-constant">Ichi</span><span class="ruby-operator">::</span><span class="ruby-constant">Ni</span>, <span class="ruby-constant">Ichi</span><span class="ruby-operator">::</span><span class="ruby-constant">Ni</span>, <span class="ruby-value">:direct</span>, <span class="ruby-value">:dump</span>)
+  <span class="ruby-identifier">json</span> = <span class="ruby-constant">Oj</span>.<span class="ruby-identifier">dump</span>(<span class="ruby-constant">Ichi</span><span class="ruby-operator">::</span><span class="ruby-constant">Ni</span><span class="ruby-operator">::</span><span class="ruby-constant">San</span><span class="ruby-operator">::</span><span class="ruby-constant">Shi</span>.<span class="ruby-identifier">new</span>({<span class="ruby-string">&#39;a&#39;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">1</span>}), <span class="ruby-value">:mode</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">:object</span>)
+  <span class="ruby-identifier">assert_equal</span>(<span class="ruby-string">%Q|{&quot;^O&quot;:&quot;ObjectJuice::Ichi::Ni::San::Shi&quot;,&quot;dump&quot;:{&quot;a&quot;:1}}|</span>, <span class="ruby-identifier">json</span>)
+  <span class="ruby-identifier">h</span> = <span class="ruby-constant">Oj</span>.<span class="ruby-identifier">load</span>(<span class="ruby-identifier">json</span>, <span class="ruby-value">:mode</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">:object</span>)
+  <span class="ruby-identifier">assert_equal</span>({<span class="ruby-string">&#39;a&#39;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">1</span>}, <span class="ruby-identifier">h</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_odd_raw" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_odd_raw</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_odd_raw-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/oj-3.4.0/test/test_object.rb, line 948</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">test_odd_raw</span>
+  <span class="ruby-constant">Oj</span>.<span class="ruby-identifier">register_odd_raw</span>(<span class="ruby-constant">Raw</span>, <span class="ruby-constant">Raw</span>, <span class="ruby-value">:create</span>, <span class="ruby-value">:to_json</span>)
+  <span class="ruby-identifier">json</span> = <span class="ruby-constant">Oj</span>.<span class="ruby-identifier">dump</span>(<span class="ruby-constant">Raw</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">%Q|{&quot;a&quot;:1}|</span>), <span class="ruby-value">:mode</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">:object</span>)
+  <span class="ruby-identifier">assert_equal</span>(<span class="ruby-string">%Q|{&quot;^O&quot;:&quot;ObjectJuice::Raw&quot;,&quot;to_json&quot;:{&quot;a&quot;:1}}|</span>, <span class="ruby-identifier">json</span>)
+  <span class="ruby-identifier">h</span> = <span class="ruby-constant">Oj</span>.<span class="ruby-identifier">load</span>(<span class="ruby-identifier">json</span>, <span class="ruby-value">:mode</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">:object</span>)
+  <span class="ruby-identifier">assert_equal</span>({<span class="ruby-string">&#39;a&#39;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">1</span>}, <span class="ruby-identifier">h</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_odd_string" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_odd_string</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_odd_string-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/oj-3.4.0/test/test_object.rb, line 935</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">test_odd_string</span>
+  <span class="ruby-constant">Oj</span>.<span class="ruby-identifier">register_odd</span>(<span class="ruby-constant">Strung</span>, <span class="ruby-constant">Strung</span>, <span class="ruby-value">:create</span>, <span class="ruby-value">:to_s</span>, <span class="ruby-string">&#39;safe?&#39;</span>)
+  <span class="ruby-identifier">s</span> = <span class="ruby-constant">Strung</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&quot;Pete&quot;</span>, <span class="ruby-keyword">true</span>)
+  <span class="ruby-identifier">dump_and_load</span>(<span class="ruby-identifier">s</span>, <span class="ruby-keyword">false</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_omit_nil" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_omit_nil</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_omit_nil-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/oj-3.4.0/test/test_object.rb, line 908</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">test_omit_nil</span>
+  <span class="ruby-identifier">jam</span> = <span class="ruby-constant">Jam</span>.<span class="ruby-identifier">new</span>({<span class="ruby-string">&#39;a&#39;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">1</span>, <span class="ruby-string">&#39;b&#39;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword">nil</span> }, <span class="ruby-keyword">nil</span>)
+
+  <span class="ruby-identifier">json</span> = <span class="ruby-constant">Oj</span>.<span class="ruby-identifier">dump</span>(<span class="ruby-identifier">jam</span>, <span class="ruby-value">:omit_nil</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword">true</span>, <span class="ruby-value">:mode</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">:object</span>)
+  <span class="ruby-identifier">assert_equal</span>(<span class="ruby-string">%Q|{&quot;^o&quot;:&quot;ObjectJuice::Jam&quot;,&quot;x&quot;:{&quot;a&quot;:1}}|</span>, <span class="ruby-identifier">json</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_range_object" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_range_object</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_range_object-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/oj-3.4.0/test/test_object.rb, line 795</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">test_range_object</span>
+  <span class="ruby-constant">Oj</span>.<span class="ruby-identifier">default_options</span> = { <span class="ruby-value">:mode</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">:object</span> }
+  <span class="ruby-identifier">json</span> = <span class="ruby-constant">Oj</span>.<span class="ruby-identifier">dump</span>(<span class="ruby-value">1</span><span class="ruby-operator">..</span><span class="ruby-value">7</span>, <span class="ruby-value">:mode</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">:object</span>, <span class="ruby-value">:indent</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">0</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-string">&#39;rubinius&#39;</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">$ruby</span>
+    <span class="ruby-identifier">assert</span>(<span class="ruby-string">%Q{{&quot;^O&quot;:&quot;Range&quot;,&quot;begin&quot;:1,&quot;end&quot;:7,&quot;exclude_end?&quot;:false}}</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">json</span>)
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">assert_equal</span>(<span class="ruby-string">%Q{{&quot;^u&quot;:[&quot;Range&quot;,1,7,false]}}</span>, <span class="ruby-identifier">json</span>)
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">dump_and_load</span>(<span class="ruby-value">1</span><span class="ruby-operator">..</span><span class="ruby-value">7</span>, <span class="ruby-keyword">false</span>)
+  <span class="ruby-identifier">dump_and_load</span>(<span class="ruby-value">1</span><span class="ruby-operator">..</span><span class="ruby-value">1</span>, <span class="ruby-keyword">false</span>)
+  <span class="ruby-identifier">dump_and_load</span>(<span class="ruby-value">1</span><span class="ruby-operator">...</span><span class="ruby-value">7</span>, <span class="ruby-keyword">false</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_ruby_time" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_ruby_time</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_ruby_time-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/oj-3.4.0/test/test_object.rb, line 494</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">test_ruby_time</span>
+  <span class="ruby-identifier">t</span> = <span class="ruby-constant">Time</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">2015</span>, <span class="ruby-value">1</span>, <span class="ruby-value">5</span>, <span class="ruby-value">21</span>, <span class="ruby-value">37</span>, <span class="ruby-value">7.123456789</span>, <span class="ruby-value">-8</span> <span class="ruby-operator">*</span> <span class="ruby-value">3600</span>)
+  <span class="ruby-comment"># The fractional seconds are not always recreated exactly which causes a</span>
+  <span class="ruby-comment"># mismatch so instead the seconds, nsecs, and gmt_offset are checked</span>
+  <span class="ruby-comment"># separately along with utc.</span>
+  <span class="ruby-identifier">json</span> = <span class="ruby-constant">Oj</span>.<span class="ruby-identifier">dump</span>(<span class="ruby-identifier">t</span>, <span class="ruby-value">:mode</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">:object</span>, <span class="ruby-value">:time_format</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">:ruby</span>)
+  <span class="ruby-comment">#puts &quot;*** json for test_ruby_time &#39;#{json}&#39;&quot;</span>
+  <span class="ruby-identifier">loaded</span> = <span class="ruby-constant">Oj</span>.<span class="ruby-identifier">object_load</span>(<span class="ruby-identifier">json</span>);
+  <span class="ruby-identifier">assert_equal</span>(<span class="ruby-identifier">t</span>.<span class="ruby-identifier">tv_sec</span>, <span class="ruby-identifier">loaded</span>.<span class="ruby-identifier">tv_sec</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">t</span>.<span class="ruby-identifier">respond_to?</span>(<span class="ruby-value">:tv_nsec</span>)
+    <span class="ruby-identifier">assert_equal</span>(<span class="ruby-identifier">t</span>.<span class="ruby-identifier">tv_nsec</span>, <span class="ruby-identifier">loaded</span>.<span class="ruby-identifier">tv_nsec</span>)
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">assert_equal</span>(<span class="ruby-identifier">t</span>.<span class="ruby-identifier">tv_usec</span>, <span class="ruby-identifier">loaded</span>.<span class="ruby-identifier">tv_usec</span>)
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">assert_equal</span>(<span class="ruby-identifier">t</span>.<span class="ruby-identifier">utc?</span>, <span class="ruby-identifier">loaded</span>.<span class="ruby-identifier">utc?</span>)
+  <span class="ruby-identifier">assert_equal</span>(<span class="ruby-identifier">t</span>.<span class="ruby-identifier">utc_offset</span>, <span class="ruby-identifier">loaded</span>.<span class="ruby-identifier">utc_offset</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_ruby_time_12345" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_ruby_time_12345</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_ruby_time_12345-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/oj-3.4.0/test/test_object.rb, line 512</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">test_ruby_time_12345</span>
+  <span class="ruby-identifier">t</span> = <span class="ruby-constant">Time</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">2015</span>, <span class="ruby-value">1</span>, <span class="ruby-value">5</span>, <span class="ruby-value">21</span>, <span class="ruby-value">37</span>, <span class="ruby-value">7.123456789</span>, <span class="ruby-value">12345</span><span class="ruby-operator">/</span><span class="ruby-value">60</span><span class="ruby-operator">*</span><span class="ruby-value">60</span>)
+  <span class="ruby-comment"># The fractional seconds are not always recreated exactly which causes a</span>
+  <span class="ruby-comment"># mismatch so instead the seconds, nsecs, and gmt_offset are checked</span>
+  <span class="ruby-comment"># separately along with utc.</span>
+  <span class="ruby-identifier">json</span> = <span class="ruby-constant">Oj</span>.<span class="ruby-identifier">dump</span>(<span class="ruby-identifier">t</span>, <span class="ruby-value">:mode</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">:object</span>, <span class="ruby-value">:time_format</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">:ruby</span>)
+  <span class="ruby-comment">#puts &quot;*** json for test_ruby_time &#39;#{json}&#39;&quot;</span>
+  <span class="ruby-identifier">loaded</span> = <span class="ruby-constant">Oj</span>.<span class="ruby-identifier">object_load</span>(<span class="ruby-identifier">json</span>);
+  <span class="ruby-comment">#puts &quot;*** loaded: #{loaded}&quot;</span>
+  <span class="ruby-identifier">assert_equal</span>(<span class="ruby-identifier">t</span>.<span class="ruby-identifier">tv_sec</span>, <span class="ruby-identifier">loaded</span>.<span class="ruby-identifier">tv_sec</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">t</span>.<span class="ruby-identifier">respond_to?</span>(<span class="ruby-value">:tv_nsec</span>)
+    <span class="ruby-identifier">assert_equal</span>(<span class="ruby-identifier">t</span>.<span class="ruby-identifier">tv_nsec</span>, <span class="ruby-identifier">loaded</span>.<span class="ruby-identifier">tv_nsec</span>)
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">assert_equal</span>(<span class="ruby-identifier">t</span>.<span class="ruby-identifier">tv_usec</span>, <span class="ruby-identifier">loaded</span>.<span class="ruby-identifier">tv_usec</span>)
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">assert_equal</span>(<span class="ruby-identifier">t</span>.<span class="ruby-identifier">utc?</span>, <span class="ruby-identifier">loaded</span>.<span class="ruby-identifier">utc?</span>)
+  <span class="ruby-identifier">assert_equal</span>(<span class="ruby-identifier">t</span>.<span class="ruby-identifier">utc_offset</span>, <span class="ruby-identifier">loaded</span>.<span class="ruby-identifier">utc_offset</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_ruby_time_utc" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_ruby_time_utc</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_ruby_time_utc-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/oj-3.4.0/test/test_object.rb, line 531</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">test_ruby_time_utc</span>
+  <span class="ruby-identifier">t</span> = <span class="ruby-constant">Time</span>.<span class="ruby-identifier">utc</span>(<span class="ruby-value">2015</span>, <span class="ruby-value">1</span>, <span class="ruby-value">5</span>, <span class="ruby-value">21</span>, <span class="ruby-value">37</span>, <span class="ruby-value">7.123456789</span>)
+  <span class="ruby-comment"># The fractional seconds are not always recreated exactly which causes a</span>
+  <span class="ruby-comment"># mismatch so instead the seconds, nsecs, and gmt_offset are checked</span>
+  <span class="ruby-comment"># separately along with utc.</span>
+  <span class="ruby-identifier">json</span> = <span class="ruby-constant">Oj</span>.<span class="ruby-identifier">dump</span>(<span class="ruby-identifier">t</span>, <span class="ruby-value">:mode</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">:object</span>, <span class="ruby-value">:time_format</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">:ruby</span>)
+  <span class="ruby-comment">#puts json</span>
+  <span class="ruby-identifier">loaded</span> = <span class="ruby-constant">Oj</span>.<span class="ruby-identifier">object_load</span>(<span class="ruby-identifier">json</span>);
+  <span class="ruby-identifier">assert_equal</span>(<span class="ruby-identifier">t</span>.<span class="ruby-identifier">tv_sec</span>, <span class="ruby-identifier">loaded</span>.<span class="ruby-identifier">tv_sec</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">t</span>.<span class="ruby-identifier">respond_to?</span>(<span class="ruby-value">:tv_nsec</span>)
+    <span class="ruby-identifier">assert_equal</span>(<span class="ruby-identifier">t</span>.<span class="ruby-identifier">tv_nsec</span>, <span class="ruby-identifier">loaded</span>.<span class="ruby-identifier">tv_nsec</span>)
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">assert_equal</span>(<span class="ruby-identifier">t</span>.<span class="ruby-identifier">tv_usec</span>, <span class="ruby-identifier">loaded</span>.<span class="ruby-identifier">tv_usec</span>)
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">assert_equal</span>(<span class="ruby-identifier">t</span>.<span class="ruby-identifier">utc?</span>, <span class="ruby-identifier">loaded</span>.<span class="ruby-identifier">utc?</span>)
+  <span class="ruby-identifier">assert_equal</span>(<span class="ruby-identifier">t</span>.<span class="ruby-identifier">utc_offset</span>, <span class="ruby-identifier">loaded</span>.<span class="ruby-identifier">utc_offset</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_string" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_string</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_string-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/oj-3.4.0/test/test_object.rb, line 261</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">test_string</span>
+  <span class="ruby-identifier">dump_and_load</span>(<span class="ruby-string">&#39;&#39;</span>, <span class="ruby-keyword">false</span>)
+  <span class="ruby-identifier">dump_and_load</span>(<span class="ruby-string">&#39;abc&#39;</span>, <span class="ruby-keyword">false</span>)
+  <span class="ruby-identifier">dump_and_load</span>(<span class="ruby-string">&quot;abc\ndef&quot;</span>, <span class="ruby-keyword">false</span>)
+  <span class="ruby-identifier">dump_and_load</span>(<span class="ruby-string">&quot;a\u0041&quot;</span>, <span class="ruby-keyword">false</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_symbol" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_symbol</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_symbol-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/oj-3.4.0/test/test_object.rb, line 268</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">test_symbol</span>
+  <span class="ruby-identifier">dump_and_load</span>(<span class="ruby-value">:abc</span>, <span class="ruby-keyword">false</span>)
+  <span class="ruby-identifier">dump_and_load</span>(<span class="ruby-string">&quot;:abc&quot;</span>, <span class="ruby-keyword">false</span>)
+  <span class="ruby-identifier">dump_and_load</span>(<span class="ruby-string">&#39;:xyz&#39;</span>.<span class="ruby-identifier">to_sym</span>, <span class="ruby-keyword">false</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_symbol_keys" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_symbol_keys</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>symbol_keys option</p>
+          
+          
+
+          
+          <div class="method-source-code" id="test_symbol_keys-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/oj-3.4.0/test/test_object.rb, line 391</span>
+  <span class="ruby-keyword">def</span> <span class="ruby-identifier">test_symbol_keys</span>
+    <span class="ruby-identifier">json</span> = <span class="ruby-string">%Q{{
+  &quot;x&quot;:true,
+  &quot;y&quot;:58,
+  &quot;z&quot;: [1,2,3]
+}
+}</span>
+    <span class="ruby-identifier">obj</span> = <span class="ruby-constant">Oj</span>.<span class="ruby-identifier">object_load</span>(<span class="ruby-identifier">json</span>, <span class="ruby-value">:symbol_keys</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword">true</span>)
+    <span class="ruby-identifier">assert_equal</span>({ <span class="ruby-value">:x</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword">true</span>, <span class="ruby-value">:y</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">58</span>, <span class="ruby-value">:z</span> =<span class="ruby-operator">&gt;</span> [<span class="ruby-value">1</span>, <span class="ruby-value">2</span>, <span class="ruby-value">3</span>]}, <span class="ruby-identifier">obj</span>)
+  <span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_time_early" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_time_early</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_time_early-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/oj-3.4.0/test/test_object.rb, line 549</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">test_time_early</span>
+  <span class="ruby-comment"># Windows does not support dates before 1970.</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">if</span> <span class="ruby-constant">RbConfig</span><span class="ruby-operator">::</span><span class="ruby-constant">CONFIG</span>[<span class="ruby-string">&#39;host_os&#39;</span>] <span class="ruby-operator">=~</span> <span class="ruby-regexp">/(mingw|mswin)/</span>
+
+  <span class="ruby-identifier">t</span> = <span class="ruby-constant">Time</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">1954</span>, <span class="ruby-value">1</span>, <span class="ruby-value">5</span>, <span class="ruby-value">21</span>, <span class="ruby-value">37</span>, <span class="ruby-value">7.123456789</span>, <span class="ruby-value">-8</span> <span class="ruby-operator">*</span> <span class="ruby-value">3600</span>)
+  <span class="ruby-comment"># The fractional seconds are not always recreated exactly which causes a</span>
+  <span class="ruby-comment"># mismatch so instead the seconds, nsecs, and gmt_offset are checked</span>
+  <span class="ruby-comment"># separately along with utc.</span>
+  <span class="ruby-identifier">json</span> = <span class="ruby-constant">Oj</span>.<span class="ruby-identifier">dump</span>(<span class="ruby-identifier">t</span>, <span class="ruby-value">:mode</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">:object</span>, <span class="ruby-value">:time_format</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">:unix_zone</span>)
+  <span class="ruby-comment">#puts json</span>
+  <span class="ruby-identifier">loaded</span> = <span class="ruby-constant">Oj</span>.<span class="ruby-identifier">object_load</span>(<span class="ruby-identifier">json</span>);
+  <span class="ruby-identifier">assert_equal</span>(<span class="ruby-identifier">t</span>.<span class="ruby-identifier">tv_sec</span>, <span class="ruby-identifier">loaded</span>.<span class="ruby-identifier">tv_sec</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">t</span>.<span class="ruby-identifier">respond_to?</span>(<span class="ruby-value">:tv_nsec</span>)
+    <span class="ruby-identifier">assert_equal</span>(<span class="ruby-identifier">t</span>.<span class="ruby-identifier">tv_nsec</span>, <span class="ruby-identifier">loaded</span>.<span class="ruby-identifier">tv_nsec</span>)
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">assert_equal</span>(<span class="ruby-identifier">t</span>.<span class="ruby-identifier">tv_usec</span>, <span class="ruby-identifier">loaded</span>.<span class="ruby-identifier">tv_usec</span>)
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">assert_equal</span>(<span class="ruby-identifier">t</span>.<span class="ruby-identifier">utc?</span>, <span class="ruby-identifier">loaded</span>.<span class="ruby-identifier">utc?</span>)
+  <span class="ruby-identifier">assert_equal</span>(<span class="ruby-identifier">t</span>.<span class="ruby-identifier">utc_offset</span>, <span class="ruby-identifier">loaded</span>.<span class="ruby-identifier">utc_offset</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_time_unix_zone" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_time_unix_zone</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_time_unix_zone-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/oj-3.4.0/test/test_object.rb, line 570</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">test_time_unix_zone</span>
+  <span class="ruby-identifier">t</span> = <span class="ruby-constant">Time</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">2015</span>, <span class="ruby-value">1</span>, <span class="ruby-value">5</span>, <span class="ruby-value">21</span>, <span class="ruby-value">37</span>, <span class="ruby-value">7.123456789</span>, <span class="ruby-value">-8</span> <span class="ruby-operator">*</span> <span class="ruby-value">3600</span>)
+  <span class="ruby-comment"># The fractional seconds are not always recreated exactly which causes a</span>
+  <span class="ruby-comment"># mismatch so instead the seconds, nsecs, and gmt_offset are checked</span>
+  <span class="ruby-comment"># separately along with utc.</span>
+  <span class="ruby-identifier">json</span> = <span class="ruby-constant">Oj</span>.<span class="ruby-identifier">dump</span>(<span class="ruby-identifier">t</span>, <span class="ruby-value">:mode</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">:object</span>, <span class="ruby-value">:time_format</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">:unix_zone</span>)
+  <span class="ruby-comment">#puts json</span>
+  <span class="ruby-identifier">loaded</span> = <span class="ruby-constant">Oj</span>.<span class="ruby-identifier">object_load</span>(<span class="ruby-identifier">json</span>);
+  <span class="ruby-identifier">assert_equal</span>(<span class="ruby-identifier">t</span>.<span class="ruby-identifier">tv_sec</span>, <span class="ruby-identifier">loaded</span>.<span class="ruby-identifier">tv_sec</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">t</span>.<span class="ruby-identifier">respond_to?</span>(<span class="ruby-value">:tv_nsec</span>)
+    <span class="ruby-identifier">assert_equal</span>(<span class="ruby-identifier">t</span>.<span class="ruby-identifier">tv_nsec</span>, <span class="ruby-identifier">loaded</span>.<span class="ruby-identifier">tv_nsec</span>)
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">assert_equal</span>(<span class="ruby-identifier">t</span>.<span class="ruby-identifier">tv_usec</span>, <span class="ruby-identifier">loaded</span>.<span class="ruby-identifier">tv_usec</span>)
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">assert_equal</span>(<span class="ruby-identifier">t</span>.<span class="ruby-identifier">utc?</span>, <span class="ruby-identifier">loaded</span>.<span class="ruby-identifier">utc?</span>)
+  <span class="ruby-identifier">assert_equal</span>(<span class="ruby-identifier">t</span>.<span class="ruby-identifier">utc_offset</span>, <span class="ruby-identifier">loaded</span>.<span class="ruby-identifier">utc_offset</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_time_unix_zone_12345" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_time_unix_zone_12345</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_time_unix_zone_12345-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/oj-3.4.0/test/test_object.rb, line 588</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">test_time_unix_zone_12345</span>
+  <span class="ruby-identifier">t</span> = <span class="ruby-constant">Time</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">2015</span>, <span class="ruby-value">1</span>, <span class="ruby-value">5</span>, <span class="ruby-value">21</span>, <span class="ruby-value">37</span>, <span class="ruby-value">7.123456789</span>, <span class="ruby-value">12345</span>)
+  <span class="ruby-comment"># The fractional seconds are not always recreated exactly which causes a</span>
+  <span class="ruby-comment"># mismatch so instead the seconds, nsecs, and gmt_offset are checked</span>
+  <span class="ruby-comment"># separately along with utc.</span>
+  <span class="ruby-identifier">json</span> = <span class="ruby-constant">Oj</span>.<span class="ruby-identifier">dump</span>(<span class="ruby-identifier">t</span>, <span class="ruby-value">:mode</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">:object</span>, <span class="ruby-value">:time_format</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">:unix_zone</span>)
+  <span class="ruby-comment">#puts json</span>
+  <span class="ruby-identifier">loaded</span> = <span class="ruby-constant">Oj</span>.<span class="ruby-identifier">object_load</span>(<span class="ruby-identifier">json</span>);
+  <span class="ruby-identifier">assert_equal</span>(<span class="ruby-identifier">t</span>.<span class="ruby-identifier">tv_sec</span>, <span class="ruby-identifier">loaded</span>.<span class="ruby-identifier">tv_sec</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">t</span>.<span class="ruby-identifier">respond_to?</span>(<span class="ruby-value">:tv_nsec</span>)
+    <span class="ruby-identifier">assert_equal</span>(<span class="ruby-identifier">t</span>.<span class="ruby-identifier">tv_nsec</span>, <span class="ruby-identifier">loaded</span>.<span class="ruby-identifier">tv_nsec</span>)
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">assert_equal</span>(<span class="ruby-identifier">t</span>.<span class="ruby-identifier">tv_usec</span>, <span class="ruby-identifier">loaded</span>.<span class="ruby-identifier">tv_usec</span>)
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">assert_equal</span>(<span class="ruby-identifier">t</span>.<span class="ruby-identifier">utc?</span>, <span class="ruby-identifier">loaded</span>.<span class="ruby-identifier">utc?</span>)
+  <span class="ruby-identifier">assert_equal</span>(<span class="ruby-identifier">t</span>.<span class="ruby-identifier">utc_offset</span>, <span class="ruby-identifier">loaded</span>.<span class="ruby-identifier">utc_offset</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_time_unix_zone_utc" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_time_unix_zone_utc</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_time_unix_zone_utc-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/oj-3.4.0/test/test_object.rb, line 606</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">test_time_unix_zone_utc</span>
+  <span class="ruby-identifier">t</span> = <span class="ruby-constant">Time</span>.<span class="ruby-identifier">utc</span>(<span class="ruby-value">2015</span>, <span class="ruby-value">1</span>, <span class="ruby-value">5</span>, <span class="ruby-value">21</span>, <span class="ruby-value">37</span>, <span class="ruby-value">7.123456789</span>)
+  <span class="ruby-comment"># The fractional seconds are not always recreated exactly which causes a</span>
+  <span class="ruby-comment"># mismatch so instead the seconds, nsecs, and gmt_offset are checked</span>
+  <span class="ruby-comment"># separately along with utc.</span>
+  <span class="ruby-identifier">json</span> = <span class="ruby-constant">Oj</span>.<span class="ruby-identifier">dump</span>(<span class="ruby-identifier">t</span>, <span class="ruby-value">:mode</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">:object</span>, <span class="ruby-value">:time_format</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">:unix_zone</span>)
+  <span class="ruby-comment">#puts json</span>
+  <span class="ruby-identifier">loaded</span> = <span class="ruby-constant">Oj</span>.<span class="ruby-identifier">object_load</span>(<span class="ruby-identifier">json</span>);
+  <span class="ruby-identifier">assert_equal</span>(<span class="ruby-identifier">t</span>.<span class="ruby-identifier">tv_sec</span>, <span class="ruby-identifier">loaded</span>.<span class="ruby-identifier">tv_sec</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">t</span>.<span class="ruby-identifier">respond_to?</span>(<span class="ruby-value">:tv_nsec</span>)
+    <span class="ruby-identifier">assert_equal</span>(<span class="ruby-identifier">t</span>.<span class="ruby-identifier">tv_nsec</span>, <span class="ruby-identifier">loaded</span>.<span class="ruby-identifier">tv_nsec</span>)
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">assert_equal</span>(<span class="ruby-identifier">t</span>.<span class="ruby-identifier">tv_usec</span>, <span class="ruby-identifier">loaded</span>.<span class="ruby-identifier">tv_usec</span>)
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">assert_equal</span>(<span class="ruby-identifier">t</span>.<span class="ruby-identifier">utc?</span>, <span class="ruby-identifier">loaded</span>.<span class="ruby-identifier">utc?</span>)
+  <span class="ruby-identifier">assert_equal</span>(<span class="ruby-identifier">t</span>.<span class="ruby-identifier">utc_offset</span>, <span class="ruby-identifier">loaded</span>.<span class="ruby-identifier">utc_offset</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_to_hash_object_object" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_to_hash_object_object</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_to_hash_object_object-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/oj-3.4.0/test/test_object.rb, line 706</span>
+  <span class="ruby-keyword">def</span> <span class="ruby-identifier">test_to_hash_object_object</span>
+    <span class="ruby-identifier">obj</span> = <span class="ruby-constant">Jazz</span>.<span class="ruby-identifier">new</span>(<span class="ruby-keyword">true</span>, <span class="ruby-value">58</span>)
+    <span class="ruby-identifier">json</span> = <span class="ruby-constant">Oj</span>.<span class="ruby-identifier">dump</span>(<span class="ruby-identifier">obj</span>, <span class="ruby-value">:mode</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">:object</span>, <span class="ruby-value">:indent</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">2</span>)
+    <span class="ruby-identifier">assert</span>(<span class="ruby-string">%Q{{
+  &quot;^o&quot;:&quot;ObjectJuice::Jazz&quot;,
+  &quot;x&quot;:true,
+  &quot;y&quot;:58
+}
+}</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">json</span> <span class="ruby-operator">||</span>
+<span class="ruby-string">%Q{{
+  &quot;^o&quot;:&quot;ObjectJuice::Jazz&quot;,
+  &quot;y&quot;:58,
+  &quot;x&quot;:true
+}
+}</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">json</span>)
+    <span class="ruby-identifier">obj2</span> = <span class="ruby-constant">Oj</span>.<span class="ruby-identifier">load</span>(<span class="ruby-identifier">json</span>, <span class="ruby-value">:mode</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">:object</span>)
+    <span class="ruby-identifier">assert_equal</span>(<span class="ruby-identifier">obj</span>, <span class="ruby-identifier">obj2</span>)
+  <span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_true" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_true</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_true-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/oj-3.4.0/test/test_object.rb, line 228</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">test_true</span>
+  <span class="ruby-identifier">dump_and_load</span>(<span class="ruby-keyword">true</span>, <span class="ruby-keyword">false</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_unicode" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_unicode</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_unicode-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/oj-3.4.0/test/test_object.rb, line 285</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">test_unicode</span>
+  <span class="ruby-comment"># hits the 3 normal ranges and one extended surrogate pair</span>
+  <span class="ruby-identifier">json</span> = <span class="ruby-string">%Q{&quot;\\u019f\\u05e9\\u3074\\ud834\\udd1e&quot;}</span>
+  <span class="ruby-identifier">obj</span> = <span class="ruby-constant">Oj</span>.<span class="ruby-identifier">load</span>(<span class="ruby-identifier">json</span>)
+  <span class="ruby-identifier">json2</span> = <span class="ruby-constant">Oj</span>.<span class="ruby-identifier">dump</span>(<span class="ruby-identifier">obj</span>, <span class="ruby-value">:ascii_only</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword">true</span>)
+  <span class="ruby-identifier">assert_equal</span>(<span class="ruby-identifier">json</span>, <span class="ruby-identifier">json2</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_xml_time" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_xml_time</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_xml_time-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/oj-3.4.0/test/test_object.rb, line 459</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">test_xml_time</span>
+  <span class="ruby-identifier">t</span> = <span class="ruby-constant">Time</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">2015</span>, <span class="ruby-value">1</span>, <span class="ruby-value">5</span>, <span class="ruby-value">21</span>, <span class="ruby-value">37</span>, <span class="ruby-value">7.123456789</span>, <span class="ruby-value">-8</span> <span class="ruby-operator">*</span> <span class="ruby-value">3600</span>)
+  <span class="ruby-comment"># The fractional seconds are not always recreated exactly which causes a</span>
+  <span class="ruby-comment"># mismatch so instead the seconds, nsecs, and gmt_offset are checked</span>
+  <span class="ruby-comment"># separately along with utc.</span>
+  <span class="ruby-identifier">json</span> = <span class="ruby-constant">Oj</span>.<span class="ruby-identifier">dump</span>(<span class="ruby-identifier">t</span>, <span class="ruby-value">:mode</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">:object</span>, <span class="ruby-value">:time_format</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">:xmlschema</span>)
+  <span class="ruby-comment">#puts &quot;*** json for test_xml_time &#39;#{json}&#39;&quot;</span>
+  <span class="ruby-identifier">loaded</span> = <span class="ruby-constant">Oj</span>.<span class="ruby-identifier">object_load</span>(<span class="ruby-identifier">json</span>);
+  <span class="ruby-identifier">assert_equal</span>(<span class="ruby-identifier">t</span>.<span class="ruby-identifier">tv_sec</span>, <span class="ruby-identifier">loaded</span>.<span class="ruby-identifier">tv_sec</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">t</span>.<span class="ruby-identifier">respond_to?</span>(<span class="ruby-value">:tv_nsec</span>)
+    <span class="ruby-identifier">assert_equal</span>(<span class="ruby-identifier">t</span>.<span class="ruby-identifier">tv_nsec</span>, <span class="ruby-identifier">loaded</span>.<span class="ruby-identifier">tv_nsec</span>)
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">assert_equal</span>(<span class="ruby-identifier">t</span>.<span class="ruby-identifier">tv_usec</span>, <span class="ruby-identifier">loaded</span>.<span class="ruby-identifier">tv_usec</span>)
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">assert_equal</span>(<span class="ruby-identifier">t</span>.<span class="ruby-identifier">utc?</span>, <span class="ruby-identifier">loaded</span>.<span class="ruby-identifier">utc?</span>)
+  <span class="ruby-identifier">assert_equal</span>(<span class="ruby-identifier">t</span>.<span class="ruby-identifier">utc_offset</span>, <span class="ruby-identifier">loaded</span>.<span class="ruby-identifier">utc_offset</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_xml_time_utc" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_xml_time_utc</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_xml_time_utc-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/oj-3.4.0/test/test_object.rb, line 477</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">test_xml_time_utc</span>
+  <span class="ruby-identifier">t</span> = <span class="ruby-constant">Time</span>.<span class="ruby-identifier">utc</span>(<span class="ruby-value">2015</span>, <span class="ruby-value">1</span>, <span class="ruby-value">5</span>, <span class="ruby-value">21</span>, <span class="ruby-value">37</span>, <span class="ruby-value">7.123456789</span>)
+  <span class="ruby-comment"># The fractional seconds are not always recreated exactly which causes a</span>
+  <span class="ruby-comment"># mismatch so instead the seconds, nsecs, and gmt_offset are checked</span>
+  <span class="ruby-comment"># separately along with utc.</span>
+  <span class="ruby-identifier">json</span> = <span class="ruby-constant">Oj</span>.<span class="ruby-identifier">dump</span>(<span class="ruby-identifier">t</span>, <span class="ruby-value">:mode</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">:object</span>, <span class="ruby-value">:time_format</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">:xmlschema</span>)
+  <span class="ruby-identifier">loaded</span> = <span class="ruby-constant">Oj</span>.<span class="ruby-identifier">object_load</span>(<span class="ruby-identifier">json</span>);
+  <span class="ruby-identifier">assert_equal</span>(<span class="ruby-identifier">t</span>.<span class="ruby-identifier">tv_sec</span>, <span class="ruby-identifier">loaded</span>.<span class="ruby-identifier">tv_sec</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">t</span>.<span class="ruby-identifier">respond_to?</span>(<span class="ruby-value">:tv_nsec</span>)
+    <span class="ruby-identifier">assert_equal</span>(<span class="ruby-identifier">t</span>.<span class="ruby-identifier">tv_nsec</span>, <span class="ruby-identifier">loaded</span>.<span class="ruby-identifier">tv_nsec</span>)
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">assert_equal</span>(<span class="ruby-identifier">t</span>.<span class="ruby-identifier">tv_usec</span>, <span class="ruby-identifier">loaded</span>.<span class="ruby-identifier">tv_usec</span>)
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">assert_equal</span>(<span class="ruby-identifier">t</span>.<span class="ruby-identifier">utc?</span>, <span class="ruby-identifier">loaded</span>.<span class="ruby-identifier">utc?</span>)
+  <span class="ruby-identifier">assert_equal</span>(<span class="ruby-identifier">t</span>.<span class="ruby-identifier">utc_offset</span>, <span class="ruby-identifier">loaded</span>.<span class="ruby-identifier">utc_offset</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="https://rdoc.github.io/rdoc">RDoc</a> 5.0.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

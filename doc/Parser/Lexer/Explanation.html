@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>module Parser::Lexer::Explanation - RDoc Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../../";
+  var index_rel_prefix = "../../";
+</script>
+
+<script src="../../js/jquery.js"></script>
+<script src="../../js/darkfish.js"></script>
+
+<link href="../../css/fonts.css" rel="stylesheet">
+<link href="../../css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="module">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../../table_of_contents.html#pages">Pages</a>
+    <a href="../../table_of_contents.html#classes">Classes</a>
+    <a href="../../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-c-included">::included</a>
+    
+    <li ><a href="#method-i-advance">#advance</a>
+    
+    <li ><a href="#method-i-state-3D">#state=</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="module-Parser::Lexer::Explanation">
+  <h1 id="module-Parser::Lexer::Explanation" class="module">
+    module Parser::Lexer::Explanation
+  </h1>
+
+  <section class="description">
+    
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Class Methods</h3>
+       </header>
+
+    
+      <div id="method-c-included" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">included</span><span
+            class="method-args">(klass)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="included-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/parser-2.5.0.0/lib/parser/lexer/explanation.rb, line 6</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">included</span>(<span class="ruby-identifier">klass</span>)
+  <span class="ruby-identifier">klass</span>.<span class="ruby-identifier">class_exec</span> <span class="ruby-keyword">do</span>
+    <span class="ruby-identifier">alias_method</span> <span class="ruby-value">:state_before_explanation=</span>,  <span class="ruby-value">:state=</span>
+    <span class="ruby-identifier">alias_method</span> <span class="ruby-value">:advance_before_explanation</span>, <span class="ruby-value">:advance</span>
+
+    <span class="ruby-identifier">remove_method</span> <span class="ruby-value">:state=</span>, <span class="ruby-value">:advance</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-advance" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">advance</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Like <a href="Explanation.html#method-i-advance">advance</a>, but also
+pretty-print the token and its position in the stream to `stdout`.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="advance-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/parser-2.5.0.0/lib/parser/lexer/explanation.rb, line 17</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">advance</span>
+  <span class="ruby-identifier">type</span>, (<span class="ruby-identifier">val</span>, <span class="ruby-identifier">range</span>) = <span class="ruby-identifier">advance_before_explanation</span>
+
+  <span class="ruby-identifier">more</span> = <span class="ruby-string">&quot;(in-kwarg)&quot;</span> <span class="ruby-keyword">if</span> <span class="ruby-ivar">@in_kwarg</span>
+
+  <span class="ruby-identifier">puts</span> <span class="ruby-identifier">decorate</span>(<span class="ruby-identifier">range</span>,
+                <span class="ruby-node">&quot;\e[0;32m#{type} #{val.inspect}\e[0m&quot;</span>,
+                <span class="ruby-node">&quot;#{state.to_s.ljust(12)} #{@cond} #{@cmdarg} #{more}\e[0m&quot;</span>)
+
+  [ <span class="ruby-identifier">type</span>, [<span class="ruby-identifier">val</span>, <span class="ruby-identifier">range</span>] ]
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-state-3D" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">state=</span><span
+            class="method-args">(new_state)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="state-3D-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/parser-2.5.0.0/lib/parser/lexer/explanation.rb, line 29</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">state=</span>(<span class="ruby-identifier">new_state</span>)
+  <span class="ruby-identifier">puts</span> <span class="ruby-string">&quot;  \e[1;33m&gt;&gt;&gt; STATE SET &lt;&lt;&lt;\e[0m &quot;</span> <span class="ruby-operator">+</span>
+       <span class="ruby-node">&quot;#{new_state.to_s.ljust(12)} #{@cond} #{@cmdarg}&quot;</span>.<span class="ruby-identifier">rjust</span>(<span class="ruby-value">66</span>)
+
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">state_before_explanation</span> = <span class="ruby-identifier">new_state</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="https://rdoc.github.io/rdoc">RDoc</a> 5.0.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

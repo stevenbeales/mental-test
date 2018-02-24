@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>module FFI::Platform - RDoc Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../";
+  var index_rel_prefix = "../";
+</script>
+
+<script src="../js/jquery.js"></script>
+<script src="../js/darkfish.js"></script>
+
+<link href="../css/fonts.css" rel="stylesheet">
+<link href="../css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="module">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../table_of_contents.html#pages">Pages</a>
+    <a href="../table_of_contents.html#classes">Classes</a>
+    <a href="../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-c-bsd-3F">::bsd?</a>
+    
+    <li ><a href="#method-c-mac-3F">::mac?</a>
+    
+    <li ><a href="#method-c-solaris-3F">::solaris?</a>
+    
+    <li ><a href="#method-c-unix-3F">::unix?</a>
+    
+    <li ><a href="#method-c-windows-3F">::windows?</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="module-FFI::Platform">
+  <h1 id="module-FFI::Platform" class="module">
+    module FFI::Platform
+  </h1>
+
+  <section class="description">
+    
+<p>This module defines different constants and class methods to play with
+various platforms.</p>
+
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+    <section class="constants-list">
+      <header>
+        <h3>Constants</h3>
+      </header>
+      <dl>
+      
+        <dt id="ARCH">ARCH
+        
+        <dd>
+        
+      
+        <dt id="CONF_DIR">CONF_DIR
+        
+        <dd>
+        
+      
+        <dt id="IS_BSD">IS_BSD
+        
+        <dd>
+        
+      
+        <dt id="IS_FREEBSD">IS_FREEBSD
+        
+        <dd>
+        
+      
+        <dt id="IS_GNU">IS_GNU
+        
+        <dd>
+        
+      
+        <dt id="IS_LINUX">IS_LINUX
+        
+        <dd>
+        
+      
+        <dt id="IS_MAC">IS_MAC
+        
+        <dd>
+        
+      
+        <dt id="IS_NETBSD">IS_NETBSD
+        
+        <dd>
+        
+      
+        <dt id="IS_OPENBSD">IS_OPENBSD
+        
+        <dd>
+        
+      
+        <dt id="IS_SOLARIS">IS_SOLARIS
+        
+        <dd>
+        
+      
+        <dt id="IS_WINDOWS">IS_WINDOWS
+        
+        <dd>
+        
+      
+        <dt id="LIBC">LIBC
+        
+        <dd>
+        
+      
+        <dt id="LIBPREFIX">LIBPREFIX
+        
+        <dd>
+        
+      
+        <dt id="LIBSUFFIX">LIBSUFFIX
+        
+        <dd>
+        
+      
+        <dt id="NAME">NAME
+        
+        <dd>
+        
+      
+        <dt id="OS">OS
+        
+        <dd>
+        
+      
+      </dl>
+    </section>
+    
+
+    
+
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Class Methods</h3>
+       </header>
+
+    
+      <div id="method-c-bsd-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">bsd?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p><a href="../Test.html">Test</a> if current <a
+href="Platform.html#OS">OS</a> is a *BSD (include MAC) @return [Boolean]</p>
+          
+          
+
+          
+          <div class="method-source-code" id="bsd-3F-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/ffi-1.9.21-x64-mingw32/lib/ffi/platform.rb, line 135</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">bsd?</span>
+  <span class="ruby-constant">IS_BSD</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-mac-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">mac?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p><a href="../Test.html">Test</a> if current <a
+href="Platform.html#OS">OS</a> is Mac <a href="Platform.html#OS">OS</a>
+@return [Boolean]</p>
+          
+          
+
+          
+          <div class="method-source-code" id="mac-3F-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/ffi-1.9.21-x64-mingw32/lib/ffi/platform.rb, line 147</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">mac?</span>
+  <span class="ruby-constant">IS_MAC</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-solaris-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">solaris?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p><a href="../Test.html">Test</a> if current <a
+href="Platform.html#OS">OS</a> is Solaris (Sun <a
+href="Platform.html#OS">OS</a>) @return [Boolean]</p>
+          
+          
+
+          
+          <div class="method-source-code" id="solaris-3F-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/ffi-1.9.21-x64-mingw32/lib/ffi/platform.rb, line 153</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">solaris?</span>
+  <span class="ruby-constant">IS_SOLARIS</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-unix-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">unix?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p><a href="../Test.html">Test</a> if current <a
+href="Platform.html#OS">OS</a> is a unix <a href="Platform.html#OS">OS</a>
+@return [Boolean]</p>
+          
+          
+
+          
+          <div class="method-source-code" id="unix-3F-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/ffi-1.9.21-x64-mingw32/lib/ffi/platform.rb, line 159</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">unix?</span>
+  <span class="ruby-operator">!</span><span class="ruby-constant">IS_WINDOWS</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-windows-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">windows?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p><a href="../Test.html">Test</a> if current <a
+href="Platform.html#OS">OS</a> is Windows @return [Boolean]</p>
+          
+          
+
+          
+          <div class="method-source-code" id="windows-3F-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/ffi-1.9.21-x64-mingw32/lib/ffi/platform.rb, line 141</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">windows?</span>
+  <span class="ruby-constant">IS_WINDOWS</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="https://rdoc.github.io/rdoc">RDoc</a> 5.0.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class Custom_enum - RDoc Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "./";
+  var index_rel_prefix = "./";
+</script>
+
+<script src="./js/jquery.js"></script>
+<script src="./js/darkfish.js"></script>
+
+<link href="./css/fonts.css" rel="stylesheet">
+<link href="./css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="./index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="./table_of_contents.html#pages">Pages</a>
+    <a href="./table_of_contents.html#classes">Classes</a>
+    <a href="./table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link"><a href="Object.html">Object</a>
+  
+</div>
+
+    
+    <div id="extends-section" class="nav-section">
+  <h3>Extended With Modules</h3>
+
+  <ul class="link-list">
+    
+  
+    <li><span class="extend">FFI::DataConverter</span>
+  
+  
+  </ul>
+</div>
+
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-c-from_native">::from_native</a>
+    
+    <li ><a href="#method-c-from_native_called-3F">::from_native_called?</a>
+    
+    <li ><a href="#method-c-native_type">::native_type</a>
+    
+    <li ><a href="#method-c-native_type_called-3F">::native_type_called?</a>
+    
+    <li ><a href="#method-c-to_native">::to_native</a>
+    
+    <li ><a href="#method-c-to_native_called-3F">::to_native_called?</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-Custom_enum">
+  <h1 id="class-Custom_enum" class="class">
+    class Custom_enum
+  </h1>
+
+  <section class="description">
+    
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+    <section class="constants-list">
+      <header>
+        <h3>Constants</h3>
+      </header>
+      <dl>
+      
+        <dt id="FromNativeMap">FromNativeMap
+        
+        <dd>
+        
+      
+        <dt id="ToNativeMap">ToNativeMap
+        
+        <dd>
+        
+      
+      </dl>
+    </section>
+    
+
+    
+
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Class Methods</h3>
+       </header>
+
+    
+      <div id="method-c-from_native" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">from_native</span><span
+            class="method-args">(val, ctx)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="from_native-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/ffi-1.9.21-x64-mingw32/spec/ffi/custom_type_spec.rb, line 24</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">from_native</span>(<span class="ruby-identifier">val</span>, <span class="ruby-identifier">ctx</span>)
+  <span class="ruby-ivar">@from_native_called</span> = <span class="ruby-keyword">true</span>
+  <span class="ruby-constant">FromNativeMap</span>[<span class="ruby-identifier">val</span>]
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-from_native_called-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">from_native_called?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="from_native_called-3F-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/ffi-1.9.21-x64-mingw32/spec/ffi/custom_type_spec.rb, line 29</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">from_native_called?</span>; <span class="ruby-ivar">@from_native_called</span>; <span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-native_type" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">native_type</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="native_type-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/ffi-1.9.21-x64-mingw32/spec/ffi/custom_type_spec.rb, line 14</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">native_type</span>
+  <span class="ruby-ivar">@native_type_called</span> = <span class="ruby-keyword">true</span>
+  <span class="ruby-constant">FFI</span><span class="ruby-operator">::</span><span class="ruby-constant">Type</span><span class="ruby-operator">::</span><span class="ruby-constant">INT32</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-native_type_called-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">native_type_called?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="native_type_called-3F-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/ffi-1.9.21-x64-mingw32/spec/ffi/custom_type_spec.rb, line 28</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">native_type_called?</span>; <span class="ruby-ivar">@native_type_called</span>; <span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-to_native" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">to_native</span><span
+            class="method-args">(val, ctx)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="to_native-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/ffi-1.9.21-x64-mingw32/spec/ffi/custom_type_spec.rb, line 19</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">to_native</span>(<span class="ruby-identifier">val</span>, <span class="ruby-identifier">ctx</span>)
+  <span class="ruby-ivar">@to_native_called</span> = <span class="ruby-keyword">true</span>
+  <span class="ruby-constant">ToNativeMap</span>[<span class="ruby-identifier">val</span>]
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-to_native_called-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">to_native_called?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="to_native_called-3F-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/ffi-1.9.21-x64-mingw32/spec/ffi/custom_type_spec.rb, line 30</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">to_native_called?</span>; <span class="ruby-ivar">@to_native_called</span>; <span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="https://rdoc.github.io/rdoc">RDoc</a> 5.0.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

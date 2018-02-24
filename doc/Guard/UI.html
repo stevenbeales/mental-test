@@ -1,0 +1,713 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>module Guard::UI - RDoc Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../";
+  var index_rel_prefix = "../";
+</script>
+
+<script src="../js/jquery.js"></script>
+<script src="../js/darkfish.js"></script>
+
+<link href="../css/fonts.css" rel="stylesheet">
+<link href="../css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="module">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../table_of_contents.html#pages">Pages</a>
+    <a href="../table_of_contents.html#classes">Classes</a>
+    <a href="../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    
+    <div id="includes-section" class="nav-section">
+  <h3>Included Modules</h3>
+
+  <ul class="link-list">
+  
+  
+    <li><a class="include" href="UI/Colors.html">Guard::UI::Colors</a>
+  
+  
+  </ul>
+</div>
+
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-c-action_with_scopes">::action_with_scopes</a>
+    
+    <li ><a href="#method-c-clear">::clear</a>
+    
+    <li ><a href="#method-c-clearable">::clearable</a>
+    
+    <li ><a href="#method-c-debug">::debug</a>
+    
+    <li ><a href="#method-c-deprecation">::deprecation</a>
+    
+    <li ><a href="#method-c-error">::error</a>
+    
+    <li ><a href="#method-c-info">::info</a>
+    
+    <li ><a href="#method-c-level-3D">::level=</a>
+    
+    <li ><a href="#method-c-logger">::logger</a>
+    
+    <li ><a href="#method-c-options">::options</a>
+    
+    <li ><a href="#method-c-options-3D">::options=</a>
+    
+    <li ><a href="#method-c-reset_and_clear">::reset_and_clear</a>
+    
+    <li ><a href="#method-c-reset_line">::reset_line</a>
+    
+    <li ><a href="#method-c-reset_logger">::reset_logger</a>
+    
+    <li ><a href="#method-c-warning">::warning</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="module-Guard::UI">
+  <h1 id="module-Guard::UI" class="module">
+    module Guard::UI
+  </h1>
+
+  <section class="description">
+    
+<p>The <a href="UI.html">UI</a> class helps to format messages for the user.
+Everything that is logged through this class is considered either as an
+error message or a diagnostic message and is written to standard error
+($stderr).</p>
+
+<p>If your <a href="../Guard.html">Guard</a> plugin does some output that is
+piped into another process for further processing, please just write it to
+STDOUT with `puts`.</p>
+
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Class Methods</h3>
+       </header>
+
+    
+      <div id="method-c-action_with_scopes" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">action_with_scopes</span><span
+            class="method-args">(action, scope)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Show a scoped action message.</p>
+
+<p>@param [String] action the action to show @param [Hash] scope hash with a
+guard or a group scope</p>
+          
+          
+
+          
+          <div class="method-source-code" id="action_with_scopes-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/guard-2.14.2/lib/guard/ui.rb, line 161</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">action_with_scopes</span>(<span class="ruby-identifier">action</span>, <span class="ruby-identifier">scope</span>)
+  <span class="ruby-identifier">titles</span> = <span class="ruby-constant">Guard</span>.<span class="ruby-identifier">state</span>.<span class="ruby-identifier">scope</span>.<span class="ruby-identifier">titles</span>(<span class="ruby-identifier">scope</span>)
+  <span class="ruby-identifier">info</span> <span class="ruby-node">&quot;#{action} #{titles.join(&#39;, &#39;)}&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-clear" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">clear</span><span
+            class="method-args">(opts = {})</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Clear the output if clearable.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="clear-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/guard-2.14.2/lib/guard/ui.rb, line 131</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">clear</span>(<span class="ruby-identifier">opts</span> = {})
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">unless</span> <span class="ruby-constant">Guard</span>.<span class="ruby-identifier">state</span>.<span class="ruby-identifier">session</span>.<span class="ruby-identifier">clear?</span>
+
+  <span class="ruby-identifier">fail</span> <span class="ruby-string">&quot;UI not set up!&quot;</span> <span class="ruby-keyword">if</span> <span class="ruby-ivar">@clearable</span>.<span class="ruby-identifier">nil?</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">unless</span> <span class="ruby-ivar">@clearable</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">opts</span>[<span class="ruby-value">:force</span>]
+
+  <span class="ruby-ivar">@clearable</span> = <span class="ruby-keyword">false</span>
+  <span class="ruby-constant">Terminal</span>.<span class="ruby-identifier">clear</span>
+<span class="ruby-keyword">rescue</span> <span class="ruby-constant">Errno</span><span class="ruby-operator">::</span><span class="ruby-constant">ENOENT</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">e</span>
+  <span class="ruby-identifier">warning</span>(<span class="ruby-node">&quot;Failed to clear the screen: #{e.inspect}&quot;</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-clearable" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">clearable</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Allow the screen to be cleared again.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="clearable-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/guard-2.14.2/lib/guard/ui.rb, line 152</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">clearable</span>
+  <span class="ruby-ivar">@clearable</span> = <span class="ruby-keyword">true</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-debug" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">debug</span><span
+            class="method-args">(message, options = {})</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Show a debug message that is prefixed with DEBUG and a timestamp.</p>
+
+<p>@param [String] message the message to show @option options [Boolean] reset
+whether to clean the output before @option options [String] plugin manually
+define the calling plugin</p>
+          
+          
+
+          
+          <div class="method-source-code" id="debug-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/guard-2.14.2/lib/guard/ui.rb, line 119</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">debug</span>(<span class="ruby-identifier">message</span>, <span class="ruby-identifier">options</span> = {})
+  <span class="ruby-identifier">_filtered_logger_message</span>(<span class="ruby-identifier">message</span>, <span class="ruby-value">:debug</span>, <span class="ruby-value">:yellow</span>, <span class="ruby-identifier">options</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-deprecation" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">deprecation</span><span
+            class="method-args">(message, options = {})</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Show a red deprecation message that is prefixed with DEPRECATION. It has a
+log level of `warn`.</p>
+
+<p>@param [String] message the message to show @option options [Boolean] reset
+whether to clean the output before @option options [String] plugin manually
+define the calling plugin</p>
+          
+          
+
+          
+          <div class="method-source-code" id="deprecation-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/guard-2.14.2/lib/guard/ui.rb, line 105</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">deprecation</span>(<span class="ruby-identifier">message</span>, <span class="ruby-identifier">options</span> = {})
+  <span class="ruby-keyword">unless</span> <span class="ruby-constant">ENV</span>[<span class="ruby-string">&quot;GUARD_GEM_SILENCE_DEPRECATIONS&quot;</span>] <span class="ruby-operator">==</span> <span class="ruby-string">&quot;1&quot;</span>
+    <span class="ruby-identifier">backtrace</span> = <span class="ruby-constant">Thread</span>.<span class="ruby-identifier">current</span>.<span class="ruby-identifier">backtrace</span>[<span class="ruby-value">1</span><span class="ruby-operator">..</span><span class="ruby-value">5</span>].<span class="ruby-identifier">join</span>(<span class="ruby-string">&quot;\n\t &gt;&quot;</span>)
+    <span class="ruby-identifier">msg</span> = <span class="ruby-identifier">format</span>(<span class="ruby-string">&quot;%s\nDeprecation backtrace: %s&quot;</span>, <span class="ruby-identifier">message</span>, <span class="ruby-identifier">backtrace</span>)
+    <span class="ruby-identifier">warning</span>(<span class="ruby-identifier">msg</span>, <span class="ruby-identifier">options</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-error" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">error</span><span
+            class="method-args">(message, options = {})</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Show a red error message that is prefixed with ERROR.</p>
+
+<p>@param [String] message the message to show @option options [Boolean] reset
+whether to clean the output before @option options [String] plugin manually
+define the calling plugin</p>
+          
+          
+
+          
+          <div class="method-source-code" id="error-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/guard-2.14.2/lib/guard/ui.rb, line 94</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">error</span>(<span class="ruby-identifier">message</span>, <span class="ruby-identifier">options</span> = {})
+  <span class="ruby-identifier">_filtered_logger_message</span>(<span class="ruby-identifier">message</span>, <span class="ruby-value">:error</span>, <span class="ruby-value">:red</span>, <span class="ruby-identifier">options</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-info" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">info</span><span
+            class="method-args">(message, options = {})</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Show an info message.</p>
+
+<p>@param [String] message the message to show @option options [Boolean] reset
+whether to clean the output before @option options [String] plugin manually
+define the calling plugin</p>
+          
+          
+
+          
+          <div class="method-source-code" id="info-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/guard-2.14.2/lib/guard/ui.rb, line 74</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">info</span>(<span class="ruby-identifier">message</span>, <span class="ruby-identifier">options</span> = {})
+  <span class="ruby-identifier">_filtered_logger_message</span>(<span class="ruby-identifier">message</span>, <span class="ruby-value">:info</span>, <span class="ruby-keyword">nil</span>, <span class="ruby-identifier">options</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-level-3D" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">level=</span><span
+            class="method-args">(new_level)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Assigns a log level</p>
+          
+          
+
+          
+          <div class="method-source-code" id="level-3D-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/guard-2.14.2/lib/guard/ui.rb, line 63</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">level=</span>(<span class="ruby-identifier">new_level</span>)
+  <span class="ruby-identifier">options</span>.<span class="ruby-identifier">logger_config</span>.<span class="ruby-identifier">level</span> = <span class="ruby-identifier">new_level</span>
+  <span class="ruby-ivar">@logger</span>.<span class="ruby-identifier">level</span> = <span class="ruby-identifier">new_level</span> <span class="ruby-keyword">if</span> <span class="ruby-ivar">@logger</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-logger" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">logger</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Get the <a href="UI.html">Guard::UI</a> logger instance</p>
+          
+          
+
+          
+          <div class="method-source-code" id="logger-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/guard-2.14.2/lib/guard/ui.rb, line 26</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">logger</span>
+  <span class="ruby-ivar">@logger</span> <span class="ruby-operator">||=</span>
+    <span class="ruby-keyword">begin</span>
+      <span class="ruby-identifier">require</span> <span class="ruby-string">&quot;lumberjack&quot;</span>
+      <span class="ruby-constant">Lumberjack</span><span class="ruby-operator">::</span><span class="ruby-constant">Logger</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">options</span>.<span class="ruby-identifier">device</span>, <span class="ruby-identifier">options</span>.<span class="ruby-identifier">logger_config</span>)
+    <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-options" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">options</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Get the logger options</p>
+
+<p>@return [Hash] the logger options</p>
+          
+          
+
+          
+          <div class="method-source-code" id="options-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/guard-2.14.2/lib/guard/ui.rb, line 46</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">options</span>
+  <span class="ruby-ivar">@options</span> <span class="ruby-operator">||=</span> <span class="ruby-constant">Config</span>.<span class="ruby-identifier">new</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-options-3D" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">options=</span><span
+            class="method-args">(options)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Set the logger options</p>
+
+<p>@param [Hash] options the logger options @option options [Symbol] level the
+log level @option options [String] template the logger template @option
+options [String] time_format the time format</p>
+
+<p>TODO: deprecate?</p>
+          
+          
+
+          
+          <div class="method-source-code" id="options-3D-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/guard-2.14.2/lib/guard/ui.rb, line 58</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">options=</span>(<span class="ruby-identifier">options</span>)
+  <span class="ruby-ivar">@options</span> = <span class="ruby-constant">Config</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">options</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-reset_and_clear" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">reset_and_clear</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>TODO: arguments: <a href="UI.html">UI</a> uses Guard::options anyway
+@private api</p>
+          
+          
+
+          
+          <div class="method-source-code" id="reset_and_clear-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/guard-2.14.2/lib/guard/ui.rb, line 145</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">reset_and_clear</span>
+  <span class="ruby-ivar">@clearable</span> = <span class="ruby-keyword">false</span>
+  <span class="ruby-identifier">clear</span>(<span class="ruby-identifier">force</span><span class="ruby-operator">:</span> <span class="ruby-keyword">true</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-reset_line" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">reset_line</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Reset a line.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="reset_line-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/guard-2.14.2/lib/guard/ui.rb, line 125</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">reset_line</span>
+  <span class="ruby-identifier">$stderr</span>.<span class="ruby-identifier">print</span>(<span class="ruby-identifier">color_enabled?</span> <span class="ruby-operator">?</span> <span class="ruby-string">&quot;\r\e[0m&quot;</span> <span class="ruby-operator">:</span> <span class="ruby-string">&quot;\r\n&quot;</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-reset_logger" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">reset_logger</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Since logger is global, for Aruba in-process to properly separate output
+between calls, we need to reset</p>
+
+<p>We don&#39;t use logger=() since it&#39;s expected to be a <a
+href="../Lumberjack.html">Lumberjack</a> instance</p>
+          
+          
+
+          
+          <div class="method-source-code" id="reset_logger-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/guard-2.14.2/lib/guard/ui.rb, line 38</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">reset_logger</span>
+  <span class="ruby-ivar">@logger</span> = <span class="ruby-keyword">nil</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-warning" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">warning</span><span
+            class="method-args">(message, options = {})</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Show a yellow warning message that is prefixed with WARNING.</p>
+
+<p>@param [String] message the message to show @option options [Boolean] reset
+whether to clean the output before @option options [String] plugin manually
+define the calling plugin</p>
+          
+          
+
+          
+          <div class="method-source-code" id="warning-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/guard-2.14.2/lib/guard/ui.rb, line 84</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">warning</span>(<span class="ruby-identifier">message</span>, <span class="ruby-identifier">options</span> = {})
+  <span class="ruby-identifier">_filtered_logger_message</span>(<span class="ruby-identifier">message</span>, <span class="ruby-value">:warn</span>, <span class="ruby-value">:yellow</span>, <span class="ruby-identifier">options</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="https://rdoc.github.io/rdoc">RDoc</a> 5.0.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

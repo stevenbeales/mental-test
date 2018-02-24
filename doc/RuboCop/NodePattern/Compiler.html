@@ -1,0 +1,1801 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class RuboCop::NodePattern::Compiler - RDoc Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../../";
+  var index_rel_prefix = "../../";
+</script>
+
+<script src="../../js/jquery.js"></script>
+<script src="../../js/darkfish.js"></script>
+
+<link href="../../css/fonts.css" rel="stylesheet">
+<link href="../../css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../../table_of_contents.html#pages">Pages</a>
+    <a href="../../table_of_contents.html#classes">Classes</a>
+    <a href="../../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link"><a href="../../Object.html">Object</a>
+  
+</div>
+
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-c-new">::new</a>
+    
+    <li ><a href="#method-i-compile_arg">#compile_arg</a>
+    
+    <li ><a href="#method-i-compile_args">#compile_args</a>
+    
+    <li ><a href="#method-i-compile_ascend">#compile_ascend</a>
+    
+    <li ><a href="#method-i-compile_capt_ellip">#compile_capt_ellip</a>
+    
+    <li ><a href="#method-i-compile_capture">#compile_capture</a>
+    
+    <li ><a href="#method-i-compile_ellipsis">#compile_ellipsis</a>
+    
+    <li ><a href="#method-i-compile_expr">#compile_expr</a>
+    
+    <li ><a href="#method-i-compile_expr_with_capture_check">#compile_expr_with_capture_check</a>
+    
+    <li ><a href="#method-i-compile_expr_with_captures">#compile_expr_with_captures</a>
+    
+    <li ><a href="#method-i-compile_expr_with_index">#compile_expr_with_index</a>
+    
+    <li ><a href="#method-i-compile_funcall">#compile_funcall</a>
+    
+    <li ><a href="#method-i-compile_intersect">#compile_intersect</a>
+    
+    <li ><a href="#method-i-compile_literal">#compile_literal</a>
+    
+    <li ><a href="#method-i-compile_negation">#compile_negation</a>
+    
+    <li ><a href="#method-i-compile_nodetype">#compile_nodetype</a>
+    
+    <li ><a href="#method-i-compile_param">#compile_param</a>
+    
+    <li ><a href="#method-i-compile_predicate">#compile_predicate</a>
+    
+    <li ><a href="#method-i-compile_seq">#compile_seq</a>
+    
+    <li ><a href="#method-i-compile_seq_tail">#compile_seq_tail</a>
+    
+    <li ><a href="#method-i-compile_seq_terms">#compile_seq_terms</a>
+    
+    <li ><a href="#method-i-compile_seq_terms_with_size">#compile_seq_terms_with_size</a>
+    
+    <li ><a href="#method-i-compile_union">#compile_union</a>
+    
+    <li ><a href="#method-i-compile_wildcard">#compile_wildcard</a>
+    
+    <li ><a href="#method-i-emit_capture_list">#emit_capture_list</a>
+    
+    <li ><a href="#method-i-emit_guard_clause">#emit_guard_clause</a>
+    
+    <li ><a href="#method-i-emit_method_code">#emit_method_code</a>
+    
+    <li ><a href="#method-i-emit_param_list">#emit_param_list</a>
+    
+    <li ><a href="#method-i-emit_retval">#emit_retval</a>
+    
+    <li ><a href="#method-i-emit_trailing_params">#emit_trailing_params</a>
+    
+    <li ><a href="#method-i-fail_due_to">#fail_due_to</a>
+    
+    <li ><a href="#method-i-get_param">#get_param</a>
+    
+    <li ><a href="#method-i-join_terms">#join_terms</a>
+    
+    <li ><a href="#method-i-next_capture">#next_capture</a>
+    
+    <li ><a href="#method-i-next_temp_value">#next_temp_value</a>
+    
+    <li ><a href="#method-i-run">#run</a>
+    
+    <li ><a href="#method-i-union_terms">#union_terms</a>
+    
+    <li ><a href="#method-i-with_temp_node">#with_temp_node</a>
+    
+    <li ><a href="#method-i-with_temp_variable">#with_temp_variable</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-RuboCop::NodePattern::Compiler">
+  <h1 id="class-RuboCop::NodePattern::Compiler" class="class">
+    class RuboCop::NodePattern::Compiler
+  </h1>
+
+  <section class="description">
+    
+<p>@private Builds Ruby code which implements a pattern</p>
+
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+    <section class="constants-list">
+      <header>
+        <h3>Constants</h3>
+      </header>
+      <dl>
+      
+        <dt id="CLOSING">CLOSING
+        
+        <dd>
+        
+      
+        <dt id="FUNCALL">FUNCALL
+        
+        <dd>
+        
+      
+        <dt id="IDENTIFIER">IDENTIFIER
+        
+        <dd>
+        
+      
+        <dt id="LITERAL">LITERAL
+        
+        <dd>
+        
+      
+        <dt id="META">META
+        
+        <dd>
+        
+      
+        <dt id="METHOD_NAME">METHOD_NAME
+        
+        <dd>
+        
+      
+        <dt id="NODE">NODE
+        
+        <dd>
+        
+      
+        <dt id="NUMBER">NUMBER
+        
+        <dd>
+        
+      
+        <dt id="PARAM">PARAM
+        
+        <dd>
+        
+      
+        <dt id="PARAM_NUMBER">PARAM_NUMBER
+        
+        <dd>
+        
+      
+        <dt id="PREDICATE">PREDICATE
+        
+        <dd>
+        
+      
+        <dt id="SEPARATORS">SEPARATORS
+        
+        <dd>
+        
+      
+        <dt id="STRING">STRING
+        
+        <dd>
+        
+      
+        <dt id="SYMBOL">SYMBOL
+        
+        <dd>
+        
+      
+        <dt id="TOKEN">TOKEN
+        
+        <dd>
+        
+      
+        <dt id="TOKENS">TOKENS
+        
+        <dd>
+        
+      
+        <dt id="WILDCARD">WILDCARD
+        
+        <dd>
+        
+      
+      </dl>
+    </section>
+    
+
+    
+    <section class="attribute-method-details" class="method-section">
+      <header>
+        <h3>Attributes</h3>
+      </header>
+
+      
+      <div id="attribute-i-match_code" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">match_code</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+    </section>
+    
+
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Class Methods</h3>
+       </header>
+
+    
+      <div id="method-c-new" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">new</span><span
+            class="method-args">(str, node_var = 'node0')</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="new-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/rubocop-0.52.1/lib/rubocop/node_pattern.rb, line 122</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">str</span>, <span class="ruby-identifier">node_var</span> = <span class="ruby-string">&#39;node0&#39;</span>)
+  <span class="ruby-ivar">@string</span>   = <span class="ruby-identifier">str</span>
+  <span class="ruby-ivar">@root</span>     = <span class="ruby-identifier">node_var</span>
+
+  <span class="ruby-ivar">@temps</span>    = <span class="ruby-value">0</span>  <span class="ruby-comment"># avoid name clashes between temp variables</span>
+  <span class="ruby-ivar">@captures</span> = <span class="ruby-value">0</span>  <span class="ruby-comment"># number of captures seen</span>
+  <span class="ruby-ivar">@unify</span>    = {} <span class="ruby-comment"># named wildcard -&gt; temp variable number</span>
+  <span class="ruby-ivar">@params</span>   = <span class="ruby-value">0</span>  <span class="ruby-comment"># highest % (param) number seen</span>
+
+  <span class="ruby-identifier">run</span>(<span class="ruby-identifier">node_var</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-compile_arg" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">compile_arg</span><span
+            class="method-args">(token)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="compile_arg-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/rubocop-0.52.1/lib/rubocop/node_pattern.rb, line 392</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">compile_arg</span>(<span class="ruby-identifier">token</span>)
+  <span class="ruby-keyword">case</span> <span class="ruby-identifier">token</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-constant">WILDCARD</span>  <span class="ruby-keyword">then</span>
+    <span class="ruby-identifier">name</span>   = <span class="ruby-identifier">token</span>[<span class="ruby-value">1</span><span class="ruby-operator">..</span><span class="ruby-value">-1</span>]
+    <span class="ruby-identifier">number</span> = <span class="ruby-ivar">@unify</span>[<span class="ruby-identifier">name</span>] <span class="ruby-operator">||</span> <span class="ruby-identifier">fail_due_to</span>(<span class="ruby-string">&#39;invalid in arglist: &#39;</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">token</span>)
+    <span class="ruby-node">&quot;temp#{number}&quot;</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-constant">LITERAL</span>   <span class="ruby-keyword">then</span> <span class="ruby-identifier">token</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-constant">PARAM</span>     <span class="ruby-keyword">then</span> <span class="ruby-identifier">get_param</span>(<span class="ruby-identifier">token</span>[<span class="ruby-value">1</span><span class="ruby-operator">..</span><span class="ruby-value">-1</span>])
+  <span class="ruby-keyword">when</span> <span class="ruby-constant">CLOSING</span>   <span class="ruby-keyword">then</span> <span class="ruby-identifier">fail_due_to</span>(<span class="ruby-node">&quot;#{token} in invalid position&quot;</span>)
+  <span class="ruby-keyword">when</span> <span class="ruby-keyword">nil</span>       <span class="ruby-keyword">then</span> <span class="ruby-identifier">fail_due_to</span>(<span class="ruby-string">&#39;pattern ended prematurely&#39;</span>)
+  <span class="ruby-keyword">else</span> <span class="ruby-identifier">fail_due_to</span>(<span class="ruby-node">&quot;invalid token in arglist: #{token.inspect}&quot;</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-compile_args" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">compile_args</span><span
+            class="method-args">(tokens)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="compile_args-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/rubocop-0.52.1/lib/rubocop/node_pattern.rb, line 385</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">compile_args</span>(<span class="ruby-identifier">tokens</span>)
+  <span class="ruby-identifier">args</span> = []
+  <span class="ruby-identifier">args</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">compile_arg</span>(<span class="ruby-identifier">tokens</span>.<span class="ruby-identifier">shift</span>) <span class="ruby-keyword">until</span> <span class="ruby-identifier">tokens</span>.<span class="ruby-identifier">first</span> <span class="ruby-operator">==</span> <span class="ruby-string">&#39;)&#39;</span>
+  <span class="ruby-identifier">tokens</span>.<span class="ruby-identifier">shift</span> <span class="ruby-comment"># drop the )</span>
+  <span class="ruby-identifier">args</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-compile_ascend" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">compile_ascend</span><span
+            class="method-args">(tokens, cur_node, seq_head)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="compile_ascend-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/rubocop-0.52.1/lib/rubocop/node_pattern.rb, line 329</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">compile_ascend</span>(<span class="ruby-identifier">tokens</span>, <span class="ruby-identifier">cur_node</span>, <span class="ruby-identifier">seq_head</span>)
+  <span class="ruby-node">&quot;(#{cur_node}.parent &amp;&amp; &quot;</span>            <span class="ruby-node">&quot;#{compile_expr(tokens, &quot;#{cur_node}.parent&quot;, seq_head)})&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-compile_capt_ellip" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">compile_capt_ellip</span><span
+            class="method-args">(tokens, cur_node, terms, index)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="compile_capt_ellip-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/rubocop-0.52.1/lib/rubocop/node_pattern.rb, line 236</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">compile_capt_ellip</span>(<span class="ruby-identifier">tokens</span>, <span class="ruby-identifier">cur_node</span>, <span class="ruby-identifier">terms</span>, <span class="ruby-identifier">index</span>)
+  <span class="ruby-identifier">capture</span> = <span class="ruby-identifier">next_capture</span>
+  <span class="ruby-keyword">if</span> (<span class="ruby-identifier">term</span> = <span class="ruby-identifier">compile_seq_tail</span>(<span class="ruby-identifier">tokens</span>, <span class="ruby-node">&quot;#{cur_node}.children.last&quot;</span>))
+    <span class="ruby-identifier">terms</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-node">&quot;(#{cur_node}.children.size &gt; #{index})&quot;</span>
+    <span class="ruby-identifier">terms</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">term</span>
+    <span class="ruby-identifier">terms</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-node">&quot;(#{capture} = #{cur_node}.children[#{index}..-2])&quot;</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">terms</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-node">&quot;(#{cur_node}.children.size &gt;= #{index})&quot;</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">index</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">0</span>
+    <span class="ruby-identifier">terms</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-node">&quot;(#{capture} = #{cur_node}.children[#{index}..-1])&quot;</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">terms</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-compile_capture" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">compile_capture</span><span
+            class="method-args">(tokens, cur_node, seq_head)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="compile_capture-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/rubocop-0.52.1/lib/rubocop/node_pattern.rb, line 320</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">compile_capture</span>(<span class="ruby-identifier">tokens</span>, <span class="ruby-identifier">cur_node</span>, <span class="ruby-identifier">seq_head</span>)
+  <span class="ruby-node">&quot;(#{next_capture} = #{cur_node}#{&#39;.type&#39; if seq_head}; &quot;</span>            <span class="ruby-node">&quot;#{compile_expr(tokens, cur_node, seq_head)})&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-compile_ellipsis" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">compile_ellipsis</span><span
+            class="method-args">(tokens, cur_node, terms, index)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="compile_ellipsis-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/rubocop-0.52.1/lib/rubocop/node_pattern.rb, line 226</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">compile_ellipsis</span>(<span class="ruby-identifier">tokens</span>, <span class="ruby-identifier">cur_node</span>, <span class="ruby-identifier">terms</span>, <span class="ruby-identifier">index</span>)
+  <span class="ruby-keyword">if</span> (<span class="ruby-identifier">term</span> = <span class="ruby-identifier">compile_seq_tail</span>(<span class="ruby-identifier">tokens</span>, <span class="ruby-node">&quot;#{cur_node}.children.last&quot;</span>))
+    <span class="ruby-identifier">terms</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-node">&quot;(#{cur_node}.children.size &gt; #{index})&quot;</span>
+    <span class="ruby-identifier">terms</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">term</span>
+  <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">index</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">0</span>
+    <span class="ruby-identifier">terms</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-node">&quot;(#{cur_node}.children.size &gt;= #{index})&quot;</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">terms</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-compile_expr" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">compile_expr</span><span
+            class="method-args">(tokens, cur_node, seq_head)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>rubocop:disable Metrics/MethodLength, Metrics/AbcSize</p>
+          
+          
+
+          
+          <div class="method-source-code" id="compile_expr-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/rubocop-0.52.1/lib/rubocop/node_pattern.rb, line 144</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">compile_expr</span>(<span class="ruby-identifier">tokens</span>, <span class="ruby-identifier">cur_node</span>, <span class="ruby-identifier">seq_head</span>)
+  <span class="ruby-comment"># read a single pattern-matching expression from the token stream,</span>
+  <span class="ruby-comment"># return Ruby code which performs the corresponding matching operation</span>
+  <span class="ruby-comment"># on &#39;cur_node&#39; (which is Ruby code which evaluates to an AST node)</span>
+  <span class="ruby-comment">#</span>
+  <span class="ruby-comment"># the &#39;pattern-matching&#39; expression may be a composite which</span>
+  <span class="ruby-comment"># contains an arbitrary number of sub-expressions</span>
+  <span class="ruby-identifier">token</span> = <span class="ruby-identifier">tokens</span>.<span class="ruby-identifier">shift</span>
+  <span class="ruby-keyword">case</span> <span class="ruby-identifier">token</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-string">&#39;(&#39;</span>       <span class="ruby-keyword">then</span> <span class="ruby-identifier">compile_seq</span>(<span class="ruby-identifier">tokens</span>, <span class="ruby-identifier">cur_node</span>, <span class="ruby-identifier">seq_head</span>)
+  <span class="ruby-keyword">when</span> <span class="ruby-string">&#39;{&#39;</span>       <span class="ruby-keyword">then</span> <span class="ruby-identifier">compile_union</span>(<span class="ruby-identifier">tokens</span>, <span class="ruby-identifier">cur_node</span>, <span class="ruby-identifier">seq_head</span>)
+  <span class="ruby-keyword">when</span> <span class="ruby-string">&#39;[&#39;</span>       <span class="ruby-keyword">then</span> <span class="ruby-identifier">compile_intersect</span>(<span class="ruby-identifier">tokens</span>, <span class="ruby-identifier">cur_node</span>, <span class="ruby-identifier">seq_head</span>)
+  <span class="ruby-keyword">when</span> <span class="ruby-string">&#39;!&#39;</span>       <span class="ruby-keyword">then</span> <span class="ruby-identifier">compile_negation</span>(<span class="ruby-identifier">tokens</span>, <span class="ruby-identifier">cur_node</span>, <span class="ruby-identifier">seq_head</span>)
+  <span class="ruby-keyword">when</span> <span class="ruby-string">&#39;$&#39;</span>       <span class="ruby-keyword">then</span> <span class="ruby-identifier">compile_capture</span>(<span class="ruby-identifier">tokens</span>, <span class="ruby-identifier">cur_node</span>, <span class="ruby-identifier">seq_head</span>)
+  <span class="ruby-keyword">when</span> <span class="ruby-string">&#39;^&#39;</span>       <span class="ruby-keyword">then</span> <span class="ruby-identifier">compile_ascend</span>(<span class="ruby-identifier">tokens</span>, <span class="ruby-identifier">cur_node</span>, <span class="ruby-identifier">seq_head</span>)
+  <span class="ruby-keyword">when</span> <span class="ruby-constant">WILDCARD</span>  <span class="ruby-keyword">then</span> <span class="ruby-identifier">compile_wildcard</span>(<span class="ruby-identifier">cur_node</span>, <span class="ruby-identifier">token</span>[<span class="ruby-value">1</span><span class="ruby-operator">..</span><span class="ruby-value">-1</span>], <span class="ruby-identifier">seq_head</span>)
+  <span class="ruby-keyword">when</span> <span class="ruby-constant">FUNCALL</span>   <span class="ruby-keyword">then</span> <span class="ruby-identifier">compile_funcall</span>(<span class="ruby-identifier">tokens</span>, <span class="ruby-identifier">cur_node</span>, <span class="ruby-identifier">token</span>, <span class="ruby-identifier">seq_head</span>)
+  <span class="ruby-keyword">when</span> <span class="ruby-constant">LITERAL</span>   <span class="ruby-keyword">then</span> <span class="ruby-identifier">compile_literal</span>(<span class="ruby-identifier">cur_node</span>, <span class="ruby-identifier">token</span>, <span class="ruby-identifier">seq_head</span>)
+  <span class="ruby-keyword">when</span> <span class="ruby-constant">PREDICATE</span> <span class="ruby-keyword">then</span> <span class="ruby-identifier">compile_predicate</span>(<span class="ruby-identifier">tokens</span>, <span class="ruby-identifier">cur_node</span>, <span class="ruby-identifier">token</span>, <span class="ruby-identifier">seq_head</span>)
+  <span class="ruby-keyword">when</span> <span class="ruby-constant">NODE</span>      <span class="ruby-keyword">then</span> <span class="ruby-identifier">compile_nodetype</span>(<span class="ruby-identifier">cur_node</span>, <span class="ruby-identifier">token</span>)
+  <span class="ruby-keyword">when</span> <span class="ruby-constant">PARAM</span>     <span class="ruby-keyword">then</span> <span class="ruby-identifier">compile_param</span>(<span class="ruby-identifier">cur_node</span>, <span class="ruby-identifier">token</span>[<span class="ruby-value">1</span><span class="ruby-operator">..</span><span class="ruby-value">-1</span>], <span class="ruby-identifier">seq_head</span>)
+  <span class="ruby-keyword">when</span> <span class="ruby-constant">CLOSING</span>   <span class="ruby-keyword">then</span> <span class="ruby-identifier">fail_due_to</span>(<span class="ruby-node">&quot;#{token} in invalid position&quot;</span>)
+  <span class="ruby-keyword">when</span> <span class="ruby-keyword">nil</span>       <span class="ruby-keyword">then</span> <span class="ruby-identifier">fail_due_to</span>(<span class="ruby-string">&#39;pattern ended prematurely&#39;</span>)
+  <span class="ruby-keyword">else</span>                <span class="ruby-identifier">fail_due_to</span>(<span class="ruby-node">&quot;invalid token #{token.inspect}&quot;</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-compile_expr_with_capture_check" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">compile_expr_with_capture_check</span><span
+            class="method-args">(tokens, temp_node, seq_head, before, after)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="compile_expr_with_capture_check-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/rubocop-0.52.1/lib/rubocop/node_pattern.rb, line 295</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">compile_expr_with_capture_check</span>(<span class="ruby-identifier">tokens</span>, <span class="ruby-identifier">temp_node</span>, <span class="ruby-identifier">seq_head</span>, <span class="ruby-identifier">before</span>,
+                                    <span class="ruby-identifier">after</span>)
+  <span class="ruby-ivar">@captures</span> = <span class="ruby-identifier">before</span>
+  <span class="ruby-identifier">expr</span> = <span class="ruby-identifier">compile_expr</span>(<span class="ruby-identifier">tokens</span>, <span class="ruby-identifier">temp_node</span>, <span class="ruby-identifier">seq_head</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-ivar">@captures</span> <span class="ruby-operator">!=</span> <span class="ruby-identifier">after</span>
+    <span class="ruby-identifier">fail_due_to</span>(<span class="ruby-string">&#39;each branch of {} must have same # of captures&#39;</span>)
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">expr</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-compile_expr_with_captures" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">compile_expr_with_captures</span><span
+            class="method-args">(tokens, temp_node, seq_head) { |expr, captures_before, captures| ... }</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="compile_expr_with_captures-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/rubocop-0.52.1/lib/rubocop/node_pattern.rb, line 288</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">compile_expr_with_captures</span>(<span class="ruby-identifier">tokens</span>, <span class="ruby-identifier">temp_node</span>, <span class="ruby-identifier">seq_head</span>)
+  <span class="ruby-identifier">captures_before</span> = <span class="ruby-ivar">@captures</span>
+  <span class="ruby-identifier">expr</span> = <span class="ruby-identifier">compile_expr</span>(<span class="ruby-identifier">tokens</span>, <span class="ruby-identifier">temp_node</span>, <span class="ruby-identifier">seq_head</span>)
+
+  <span class="ruby-keyword">yield</span> <span class="ruby-identifier">expr</span>, <span class="ruby-identifier">captures_before</span>, <span class="ruby-ivar">@captures</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-compile_expr_with_index" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">compile_expr_with_index</span><span
+            class="method-args">(tokens, cur_node, index)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="compile_expr_with_index-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/rubocop-0.52.1/lib/rubocop/node_pattern.rb, line 214</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">compile_expr_with_index</span>(<span class="ruby-identifier">tokens</span>, <span class="ruby-identifier">cur_node</span>, <span class="ruby-identifier">index</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">index</span>.<span class="ruby-identifier">nil?</span>
+    <span class="ruby-comment"># in &#39;sequence head&#39; position; some expressions are compiled</span>
+    <span class="ruby-comment"># differently at &#39;sequence head&#39; (notably &#39;node type&#39; expressions)</span>
+    <span class="ruby-comment"># grep for seq_head to see where it makes a difference</span>
+    [<span class="ruby-identifier">compile_expr</span>(<span class="ruby-identifier">tokens</span>, <span class="ruby-identifier">cur_node</span>, <span class="ruby-keyword">true</span>), <span class="ruby-value">0</span>]
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">child_node</span> = <span class="ruby-node">&quot;#{cur_node}.children[#{index}]&quot;</span>
+    [<span class="ruby-identifier">compile_expr</span>(<span class="ruby-identifier">tokens</span>, <span class="ruby-identifier">child_node</span>, <span class="ruby-keyword">false</span>), <span class="ruby-identifier">index</span> <span class="ruby-operator">+</span> <span class="ruby-value">1</span>]
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-compile_funcall" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">compile_funcall</span><span
+            class="method-args">(tokens, cur_node, method, seq_head)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="compile_funcall-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/rubocop-0.52.1/lib/rubocop/node_pattern.rb, line 364</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">compile_funcall</span>(<span class="ruby-identifier">tokens</span>, <span class="ruby-identifier">cur_node</span>, <span class="ruby-identifier">method</span>, <span class="ruby-identifier">seq_head</span>)
+  <span class="ruby-comment"># call a method in the context which this pattern-matching</span>
+  <span class="ruby-comment"># code is used in. pass target value as an argument</span>
+  <span class="ruby-identifier">method</span> = <span class="ruby-identifier">method</span>[<span class="ruby-value">1</span><span class="ruby-operator">..</span><span class="ruby-value">-1</span>] <span class="ruby-comment"># drop the leading #</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">method</span>.<span class="ruby-identifier">end_with?</span>(<span class="ruby-string">&#39;(&#39;</span>) <span class="ruby-comment"># is there an arglist?</span>
+    <span class="ruby-identifier">args</span> = <span class="ruby-identifier">compile_args</span>(<span class="ruby-identifier">tokens</span>)
+    <span class="ruby-identifier">method</span> = <span class="ruby-identifier">method</span>[<span class="ruby-value">0</span><span class="ruby-operator">..</span><span class="ruby-value">-2</span>] <span class="ruby-comment"># drop the trailing (</span>
+    <span class="ruby-node">&quot;(#{method}(#{cur_node}#{&#39;.type&#39; if seq_head}),#{args.join(&#39;,&#39;)})&quot;</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-node">&quot;(#{method}(#{cur_node}#{&#39;.type&#39; if seq_head}))&quot;</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-compile_intersect" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">compile_intersect</span><span
+            class="method-args">(tokens, cur_node, seq_head)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="compile_intersect-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/rubocop-0.52.1/lib/rubocop/node_pattern.rb, line 306</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">compile_intersect</span>(<span class="ruby-identifier">tokens</span>, <span class="ruby-identifier">cur_node</span>, <span class="ruby-identifier">seq_head</span>)
+  <span class="ruby-identifier">fail_due_to</span>(<span class="ruby-string">&#39;empty intersection&#39;</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">tokens</span>.<span class="ruby-identifier">first</span> <span class="ruby-operator">==</span> <span class="ruby-string">&#39;]&#39;</span>
+
+  <span class="ruby-identifier">with_temp_node</span>(<span class="ruby-identifier">cur_node</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">init</span>, <span class="ruby-identifier">temp_node</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">terms</span> = []
+    <span class="ruby-keyword">until</span> <span class="ruby-identifier">tokens</span>.<span class="ruby-identifier">first</span> <span class="ruby-operator">==</span> <span class="ruby-string">&#39;]&#39;</span>
+      <span class="ruby-identifier">terms</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">compile_expr</span>(<span class="ruby-identifier">tokens</span>, <span class="ruby-identifier">temp_node</span>, <span class="ruby-identifier">seq_head</span>)
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-identifier">tokens</span>.<span class="ruby-identifier">shift</span>
+
+    <span class="ruby-identifier">join_terms</span>(<span class="ruby-identifier">init</span>, <span class="ruby-identifier">terms</span>, <span class="ruby-string">&#39; &amp;&amp; &#39;</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-compile_literal" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">compile_literal</span><span
+            class="method-args">(cur_node, literal, seq_head)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="compile_literal-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/rubocop-0.52.1/lib/rubocop/node_pattern.rb, line 350</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">compile_literal</span>(<span class="ruby-identifier">cur_node</span>, <span class="ruby-identifier">literal</span>, <span class="ruby-identifier">seq_head</span>)
+  <span class="ruby-node">&quot;(#{cur_node}#{&#39;.type&#39; if seq_head} == #{literal})&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-compile_negation" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">compile_negation</span><span
+            class="method-args">(tokens, cur_node, seq_head)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="compile_negation-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/rubocop-0.52.1/lib/rubocop/node_pattern.rb, line 325</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">compile_negation</span>(<span class="ruby-identifier">tokens</span>, <span class="ruby-identifier">cur_node</span>, <span class="ruby-identifier">seq_head</span>)
+  <span class="ruby-node">&quot;(!#{compile_expr(tokens, cur_node, seq_head)})&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-compile_nodetype" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">compile_nodetype</span><span
+            class="method-args">(cur_node, type)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="compile_nodetype-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/rubocop-0.52.1/lib/rubocop/node_pattern.rb, line 377</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">compile_nodetype</span>(<span class="ruby-identifier">cur_node</span>, <span class="ruby-identifier">type</span>)
+  <span class="ruby-node">&quot;(#{cur_node} &amp;&amp; #{cur_node}.#{type.tr(&#39;-&#39;, &#39;_&#39;)}_type?)&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-compile_param" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">compile_param</span><span
+            class="method-args">(cur_node, number, seq_head)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="compile_param-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/rubocop-0.52.1/lib/rubocop/node_pattern.rb, line 381</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">compile_param</span>(<span class="ruby-identifier">cur_node</span>, <span class="ruby-identifier">number</span>, <span class="ruby-identifier">seq_head</span>)
+  <span class="ruby-node">&quot;(#{cur_node}#{&#39;.type&#39; if seq_head} == #{get_param(number)})&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-compile_predicate" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">compile_predicate</span><span
+            class="method-args">(tokens, cur_node, predicate, seq_head)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="compile_predicate-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/rubocop-0.52.1/lib/rubocop/node_pattern.rb, line 354</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">compile_predicate</span>(<span class="ruby-identifier">tokens</span>, <span class="ruby-identifier">cur_node</span>, <span class="ruby-identifier">predicate</span>, <span class="ruby-identifier">seq_head</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">predicate</span>.<span class="ruby-identifier">end_with?</span>(<span class="ruby-string">&#39;(&#39;</span>) <span class="ruby-comment"># is there an arglist?</span>
+    <span class="ruby-identifier">args</span> = <span class="ruby-identifier">compile_args</span>(<span class="ruby-identifier">tokens</span>)
+    <span class="ruby-identifier">predicate</span> = <span class="ruby-identifier">predicate</span>[<span class="ruby-value">0</span><span class="ruby-operator">..</span><span class="ruby-value">-2</span>] <span class="ruby-comment"># drop the trailing (</span>
+    <span class="ruby-node">&quot;(#{cur_node}#{&#39;.type&#39; if seq_head}.#{predicate}(#{args.join(&#39;,&#39;)}))&quot;</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-node">&quot;(#{cur_node}#{&#39;.type&#39; if seq_head}.#{predicate})&quot;</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-compile_seq" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">compile_seq</span><span
+            class="method-args">(tokens, cur_node, seq_head)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>rubocop:enable Metrics/MethodLength, Metrics/AbcSize</p>
+          
+          
+
+          
+          <div class="method-source-code" id="compile_seq-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/rubocop-0.52.1/lib/rubocop/node_pattern.rb, line 172</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">compile_seq</span>(<span class="ruby-identifier">tokens</span>, <span class="ruby-identifier">cur_node</span>, <span class="ruby-identifier">seq_head</span>)
+  <span class="ruby-identifier">fail_due_to</span>(<span class="ruby-string">&#39;empty parentheses&#39;</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">tokens</span>.<span class="ruby-identifier">first</span> <span class="ruby-operator">==</span> <span class="ruby-string">&#39;)&#39;</span>
+  <span class="ruby-identifier">fail_due_to</span>(<span class="ruby-string">&#39;parentheses at sequence head&#39;</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">seq_head</span>
+
+  <span class="ruby-comment"># &#39;cur_node&#39; is a Ruby expression which evaluates to an AST node,</span>
+  <span class="ruby-comment"># but we don&#39;t know how expensive it is</span>
+  <span class="ruby-comment"># to be safe, cache the node in a temp variable and then use the</span>
+  <span class="ruby-comment"># temp variable as &#39;cur_node&#39;</span>
+  <span class="ruby-identifier">with_temp_node</span>(<span class="ruby-identifier">cur_node</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">init</span>, <span class="ruby-identifier">temp_node</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">terms</span> = <span class="ruby-identifier">compile_seq_terms</span>(<span class="ruby-identifier">tokens</span>, <span class="ruby-identifier">temp_node</span>)
+
+    <span class="ruby-identifier">join_terms</span>(<span class="ruby-identifier">init</span>, <span class="ruby-identifier">terms</span>, <span class="ruby-string">&#39; &amp;&amp; &#39;</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-compile_seq_tail" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">compile_seq_tail</span><span
+            class="method-args">(tokens, cur_node)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="compile_seq_tail-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/rubocop-0.52.1/lib/rubocop/node_pattern.rb, line 249</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">compile_seq_tail</span>(<span class="ruby-identifier">tokens</span>, <span class="ruby-identifier">cur_node</span>)
+  <span class="ruby-identifier">tokens</span>.<span class="ruby-identifier">shift</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">tokens</span>.<span class="ruby-identifier">first</span> <span class="ruby-operator">==</span> <span class="ruby-string">&#39;)&#39;</span>
+    <span class="ruby-identifier">tokens</span>.<span class="ruby-identifier">shift</span>
+    <span class="ruby-keyword">nil</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">expr</span> = <span class="ruby-identifier">compile_expr</span>(<span class="ruby-identifier">tokens</span>, <span class="ruby-identifier">cur_node</span>, <span class="ruby-keyword">false</span>)
+    <span class="ruby-identifier">fail_due_to</span>(<span class="ruby-string">&#39;missing )&#39;</span>) <span class="ruby-keyword">unless</span> <span class="ruby-identifier">tokens</span>.<span class="ruby-identifier">shift</span> <span class="ruby-operator">==</span> <span class="ruby-string">&#39;)&#39;</span>
+    <span class="ruby-identifier">expr</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-compile_seq_terms" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">compile_seq_terms</span><span
+            class="method-args">(tokens, cur_node)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="compile_seq_terms-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/rubocop-0.52.1/lib/rubocop/node_pattern.rb, line 187</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">compile_seq_terms</span>(<span class="ruby-identifier">tokens</span>, <span class="ruby-identifier">cur_node</span>)
+  <span class="ruby-identifier">ret</span>, <span class="ruby-identifier">size</span> =
+    <span class="ruby-identifier">compile_seq_terms_with_size</span>(<span class="ruby-identifier">tokens</span>, <span class="ruby-identifier">cur_node</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">token</span>, <span class="ruby-identifier">terms</span>, <span class="ruby-identifier">index</span><span class="ruby-operator">|</span>
+      <span class="ruby-keyword">case</span> <span class="ruby-identifier">token</span>
+      <span class="ruby-keyword">when</span> <span class="ruby-string">&#39;...&#39;</span>.<span class="ruby-identifier">freeze</span>
+        <span class="ruby-keyword">return</span> <span class="ruby-identifier">compile_ellipsis</span>(<span class="ruby-identifier">tokens</span>, <span class="ruby-identifier">cur_node</span>, <span class="ruby-identifier">terms</span>, <span class="ruby-identifier">index</span>)
+      <span class="ruby-keyword">when</span> <span class="ruby-string">&#39;$...&#39;</span>.<span class="ruby-identifier">freeze</span>
+        <span class="ruby-keyword">return</span> <span class="ruby-identifier">compile_capt_ellip</span>(<span class="ruby-identifier">tokens</span>, <span class="ruby-identifier">cur_node</span>, <span class="ruby-identifier">terms</span>, <span class="ruby-identifier">index</span>)
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">ret</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-node">&quot;(#{cur_node}.children.size == #{size})&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-compile_seq_terms_with_size" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">compile_seq_terms_with_size</span><span
+            class="method-args">(tokens, cur_node) { |first, terms, index || 0| ... }</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="compile_seq_terms_with_size-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/rubocop-0.52.1/lib/rubocop/node_pattern.rb, line 201</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">compile_seq_terms_with_size</span>(<span class="ruby-identifier">tokens</span>, <span class="ruby-identifier">cur_node</span>)
+  <span class="ruby-identifier">index</span> = <span class="ruby-keyword">nil</span>
+  <span class="ruby-identifier">terms</span> = []
+  <span class="ruby-keyword">until</span> <span class="ruby-identifier">tokens</span>.<span class="ruby-identifier">first</span> <span class="ruby-operator">==</span> <span class="ruby-string">&#39;)&#39;</span>
+    <span class="ruby-keyword">yield</span> <span class="ruby-identifier">tokens</span>.<span class="ruby-identifier">first</span>, <span class="ruby-identifier">terms</span>, <span class="ruby-identifier">index</span> <span class="ruby-operator">||</span> <span class="ruby-value">0</span>
+    <span class="ruby-identifier">term</span>, <span class="ruby-identifier">index</span> = <span class="ruby-identifier">compile_expr_with_index</span>(<span class="ruby-identifier">tokens</span>, <span class="ruby-identifier">cur_node</span>, <span class="ruby-identifier">index</span>)
+    <span class="ruby-identifier">terms</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">term</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">tokens</span>.<span class="ruby-identifier">shift</span> <span class="ruby-comment"># drop concluding )</span>
+  [<span class="ruby-identifier">terms</span>, <span class="ruby-identifier">index</span>]
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-compile_union" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">compile_union</span><span
+            class="method-args">(tokens, cur_node, seq_head)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="compile_union-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/rubocop-0.52.1/lib/rubocop/node_pattern.rb, line 261</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">compile_union</span>(<span class="ruby-identifier">tokens</span>, <span class="ruby-identifier">cur_node</span>, <span class="ruby-identifier">seq_head</span>)
+  <span class="ruby-identifier">fail_due_to</span>(<span class="ruby-string">&#39;empty union&#39;</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">tokens</span>.<span class="ruby-identifier">first</span> <span class="ruby-operator">==</span> <span class="ruby-string">&#39;}&#39;</span>
+
+  <span class="ruby-identifier">with_temp_node</span>(<span class="ruby-identifier">cur_node</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">init</span>, <span class="ruby-identifier">temp_node</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">terms</span> = <span class="ruby-identifier">union_terms</span>(<span class="ruby-identifier">tokens</span>, <span class="ruby-identifier">temp_node</span>, <span class="ruby-identifier">seq_head</span>)
+    <span class="ruby-identifier">join_terms</span>(<span class="ruby-identifier">init</span>, <span class="ruby-identifier">terms</span>, <span class="ruby-string">&#39; || &#39;</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-compile_wildcard" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">compile_wildcard</span><span
+            class="method-args">(cur_node, name, seq_head)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="compile_wildcard-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/rubocop-0.52.1/lib/rubocop/node_pattern.rb, line 334</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">compile_wildcard</span>(<span class="ruby-identifier">cur_node</span>, <span class="ruby-identifier">name</span>, <span class="ruby-identifier">seq_head</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">name</span>.<span class="ruby-identifier">empty?</span>
+    <span class="ruby-string">&#39;true&#39;</span>
+  <span class="ruby-keyword">elsif</span> <span class="ruby-ivar">@unify</span>.<span class="ruby-identifier">key?</span>(<span class="ruby-identifier">name</span>)
+    <span class="ruby-comment"># we have already seen a wildcard with this name before</span>
+    <span class="ruby-comment"># so the value it matched the first time will already be stored</span>
+    <span class="ruby-comment"># in a temp. check if this value matches the one stored in the temp</span>
+    <span class="ruby-node">&quot;(#{cur_node}#{&#39;.type&#39; if seq_head} == temp#{@unify[name]})&quot;</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">n</span> = <span class="ruby-ivar">@unify</span>[<span class="ruby-identifier">name</span>] = <span class="ruby-identifier">next_temp_value</span>
+    <span class="ruby-comment"># double assign to temp#{n} to avoid &quot;assigned but unused variable&quot;</span>
+    <span class="ruby-node">&quot;(temp#{n} = #{cur_node}#{&#39;.type&#39; if seq_head}; &quot;</span>            <span class="ruby-node">&quot;temp#{n} = temp#{n}; true)&quot;</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-emit_capture_list" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">emit_capture_list</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="emit_capture_list-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/rubocop-0.52.1/lib/rubocop/node_pattern.rb, line 420</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">emit_capture_list</span>
+  (<span class="ruby-value">1</span><span class="ruby-operator">..</span><span class="ruby-ivar">@captures</span>).<span class="ruby-identifier">map</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">n</span><span class="ruby-operator">|</span> <span class="ruby-node">&quot;capture#{n}&quot;</span> }.<span class="ruby-identifier">join</span>(<span class="ruby-string">&#39;,&#39;</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-emit_guard_clause" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">emit_guard_clause</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="emit_guard_clause-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/rubocop-0.52.1/lib/rubocop/node_pattern.rb, line 443</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">emit_guard_clause</span>
+  <span class="ruby-value">&lt;&lt;-RUBY
+    return unless node.is_a?(RuboCop::AST::Node)
+  RUBY</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-emit_method_code" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">emit_method_code</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="emit_method_code-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/rubocop-0.52.1/lib/rubocop/node_pattern.rb, line 449</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">emit_method_code</span>
+  <span class="ruby-value">&lt;&lt;-RUBY
+    return unless #{@match_code}
+    block_given? ? yield(#{emit_capture_list}) : (return #{emit_retval})
+  RUBY</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-emit_param_list" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">emit_param_list</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="emit_param_list-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/rubocop-0.52.1/lib/rubocop/node_pattern.rb, line 434</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">emit_param_list</span>
+  (<span class="ruby-value">1</span><span class="ruby-operator">..</span><span class="ruby-ivar">@params</span>).<span class="ruby-identifier">map</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">n</span><span class="ruby-operator">|</span> <span class="ruby-node">&quot;param#{n}&quot;</span> }.<span class="ruby-identifier">join</span>(<span class="ruby-string">&#39;,&#39;</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-emit_retval" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">emit_retval</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="emit_retval-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/rubocop-0.52.1/lib/rubocop/node_pattern.rb, line 424</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">emit_retval</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-ivar">@captures</span>.<span class="ruby-identifier">zero?</span>
+    <span class="ruby-string">&#39;true&#39;</span>
+  <span class="ruby-keyword">elsif</span> <span class="ruby-ivar">@captures</span> <span class="ruby-operator">==</span> <span class="ruby-value">1</span>
+    <span class="ruby-string">&#39;capture1&#39;</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-node">&quot;[#{emit_capture_list}]&quot;</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-emit_trailing_params" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">emit_trailing_params</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="emit_trailing_params-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/rubocop-0.52.1/lib/rubocop/node_pattern.rb, line 438</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">emit_trailing_params</span>
+  <span class="ruby-identifier">params</span> = <span class="ruby-identifier">emit_param_list</span>
+  <span class="ruby-identifier">params</span>.<span class="ruby-identifier">empty?</span> <span class="ruby-operator">?</span> <span class="ruby-string">&#39;&#39;</span> <span class="ruby-operator">:</span> <span class="ruby-node">&quot;,#{params}&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-fail_due_to" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">fail_due_to</span><span
+            class="method-args">(message)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="fail_due_to-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/rubocop-0.52.1/lib/rubocop/node_pattern.rb, line 456</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">fail_due_to</span>(<span class="ruby-identifier">message</span>)
+  <span class="ruby-identifier">raise</span> <span class="ruby-constant">Invalid</span>, <span class="ruby-node">&quot;Couldn&#39;t compile due to #{message}. Pattern: #{@string}&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-get_param" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">get_param</span><span
+            class="method-args">(number)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="get_param-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/rubocop-0.52.1/lib/rubocop/node_pattern.rb, line 410</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">get_param</span>(<span class="ruby-identifier">number</span>)
+  <span class="ruby-identifier">number</span> = <span class="ruby-identifier">number</span>.<span class="ruby-identifier">empty?</span> <span class="ruby-operator">?</span> <span class="ruby-value">1</span> <span class="ruby-operator">:</span> <span class="ruby-constant">Integer</span>(<span class="ruby-identifier">number</span>)
+  <span class="ruby-ivar">@params</span> = <span class="ruby-identifier">number</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">number</span> <span class="ruby-operator">&gt;</span> <span class="ruby-ivar">@params</span>
+  <span class="ruby-identifier">number</span>.<span class="ruby-identifier">zero?</span> <span class="ruby-operator">?</span> <span class="ruby-ivar">@root</span> <span class="ruby-operator">:</span> <span class="ruby-node">&quot;param#{number}&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-join_terms" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">join_terms</span><span
+            class="method-args">(init, terms, operator)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="join_terms-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/rubocop-0.52.1/lib/rubocop/node_pattern.rb, line 416</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">join_terms</span>(<span class="ruby-identifier">init</span>, <span class="ruby-identifier">terms</span>, <span class="ruby-identifier">operator</span>)
+  <span class="ruby-node">&quot;(#{init};#{terms.join(operator)})&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-next_capture" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">next_capture</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="next_capture-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/rubocop-0.52.1/lib/rubocop/node_pattern.rb, line 406</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">next_capture</span>
+  <span class="ruby-node">&quot;capture#{@captures += 1}&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-next_temp_value" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">next_temp_value</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="next_temp_value-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/rubocop-0.52.1/lib/rubocop/node_pattern.rb, line 471</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">next_temp_value</span>
+  <span class="ruby-ivar">@temps</span> <span class="ruby-operator">+=</span> <span class="ruby-value">1</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-run" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">run</span><span
+            class="method-args">(node_var)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="run-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/rubocop-0.52.1/lib/rubocop/node_pattern.rb, line 134</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">run</span>(<span class="ruby-identifier">node_var</span>)
+  <span class="ruby-identifier">tokens</span> =
+    <span class="ruby-ivar">@string</span>.<span class="ruby-identifier">scan</span>(<span class="ruby-constant">TOKEN</span>).<span class="ruby-identifier">reject</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">token</span><span class="ruby-operator">|</span> <span class="ruby-identifier">token</span> <span class="ruby-operator">=~</span> <span class="ruby-node">/\A#{SEPARATORS}\Z/</span> }
+
+  <span class="ruby-ivar">@match_code</span> = <span class="ruby-identifier">compile_expr</span>(<span class="ruby-identifier">tokens</span>, <span class="ruby-identifier">node_var</span>, <span class="ruby-keyword">false</span>)
+
+  <span class="ruby-identifier">fail_due_to</span>(<span class="ruby-string">&#39;unbalanced pattern&#39;</span>) <span class="ruby-keyword">unless</span> <span class="ruby-identifier">tokens</span>.<span class="ruby-identifier">empty?</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-union_terms" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">union_terms</span><span
+            class="method-args">(tokens, temp_node, seq_head)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="union_terms-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/rubocop-0.52.1/lib/rubocop/node_pattern.rb, line 270</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">union_terms</span>(<span class="ruby-identifier">tokens</span>, <span class="ruby-identifier">temp_node</span>, <span class="ruby-identifier">seq_head</span>)
+  <span class="ruby-comment"># we need to ensure that each branch of the {} contains the same</span>
+  <span class="ruby-comment"># number of captures (since only one branch of the {} can actually</span>
+  <span class="ruby-comment"># match, the same variables are used to hold the captures for each</span>
+  <span class="ruby-comment"># branch)</span>
+  <span class="ruby-identifier">compile_expr_with_captures</span>(<span class="ruby-identifier">tokens</span>,
+                             <span class="ruby-identifier">temp_node</span>, <span class="ruby-identifier">seq_head</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">term</span>, <span class="ruby-identifier">before</span>, <span class="ruby-identifier">after</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">terms</span> = [<span class="ruby-identifier">term</span>]
+    <span class="ruby-keyword">until</span> <span class="ruby-identifier">tokens</span>.<span class="ruby-identifier">first</span> <span class="ruby-operator">==</span> <span class="ruby-string">&#39;}&#39;</span>
+      <span class="ruby-identifier">terms</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">compile_expr_with_capture_check</span>(<span class="ruby-identifier">tokens</span>, <span class="ruby-identifier">temp_node</span>,
+                                               <span class="ruby-identifier">seq_head</span>, <span class="ruby-identifier">before</span>, <span class="ruby-identifier">after</span>)
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-identifier">tokens</span>.<span class="ruby-identifier">shift</span>
+
+    <span class="ruby-identifier">terms</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-with_temp_node" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">with_temp_node</span><span
+            class="method-args">(cur_node) { |"| ... }</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="with_temp_node-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/rubocop-0.52.1/lib/rubocop/node_pattern.rb, line 460</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">with_temp_node</span>(<span class="ruby-identifier">cur_node</span>)
+  <span class="ruby-identifier">with_temp_variable</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">temp_var</span><span class="ruby-operator">|</span>
+    <span class="ruby-comment"># double assign to temp#{n} to avoid &quot;assigned but unused variable&quot;</span>
+    <span class="ruby-keyword">yield</span> <span class="ruby-node">&quot;#{temp_var} = #{cur_node}; #{temp_var} = #{temp_var}&quot;</span>, <span class="ruby-identifier">temp_var</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-with_temp_variable" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">with_temp_variable</span><span
+            class="method-args">() { |"temp| ... }</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="with_temp_variable-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/rubocop-0.52.1/lib/rubocop/node_pattern.rb, line 467</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">with_temp_variable</span>
+  <span class="ruby-keyword">yield</span> <span class="ruby-node">&quot;temp#{next_temp_value}&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="https://rdoc.github.io/rdoc">RDoc</a> 5.0.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

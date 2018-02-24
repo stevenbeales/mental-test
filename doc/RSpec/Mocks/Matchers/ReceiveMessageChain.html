@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class RSpec::Mocks::Matchers::ReceiveMessageChain - RDoc Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../../../";
+  var index_rel_prefix = "../../../";
+</script>
+
+<script src="../../../js/jquery.js"></script>
+<script src="../../../js/darkfish.js"></script>
+
+<link href="../../../css/fonts.css" rel="stylesheet">
+<link href="../../../css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../../../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../../../table_of_contents.html#pages">Pages</a>
+    <a href="../../../table_of_contents.html#classes">Classes</a>
+    <a href="../../../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link"><a href="../../../Object.html">Object</a>
+  
+</div>
+
+    <div id="includes-section" class="nav-section">
+  <h3>Included Modules</h3>
+
+  <ul class="link-list">
+  
+  
+    <li><a class="include" href="Matcher.html">RSpec::Mocks::Matchers::Matcher</a>
+  
+  
+  </ul>
+</div>
+
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-c-new">::new</a>
+    
+    <li ><a href="#method-i-description">#description</a>
+    
+    <li ><a href="#method-i-does_not_match-3F">#does_not_match?</a>
+    
+    <li ><a href="#method-i-matches-3F">#matches?</a>
+    
+    <li ><a href="#method-i-name">#name</a>
+    
+    <li ><a href="#method-i-setup_allowance">#setup_allowance</a>
+    
+    <li ><a href="#method-i-setup_any_instance_allowance">#setup_any_instance_allowance</a>
+    
+    <li ><a href="#method-i-setup_any_instance_expectation">#setup_any_instance_expectation</a>
+    
+    <li ><a href="#method-i-setup_expectation">#setup_expectation</a>
+    
+    <li ><a href="#method-i-setup_negative_expectation">#setup_negative_expectation</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-RSpec::Mocks::Matchers::ReceiveMessageChain">
+  <h1 id="class-RSpec::Mocks::Matchers::ReceiveMessageChain" class="class">
+    class RSpec::Mocks::Matchers::ReceiveMessageChain
+  </h1>
+
+  <section class="description">
+    
+<p>@private</p>
+
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Class Methods</h3>
+       </header>
+
+    
+      <div id="method-c-new" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">new</span><span
+            class="method-args">(chain, &block)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="new-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/rspec-mocks-3.7.0/lib/rspec/mocks/matchers/receive_message_chain.rb, line 10</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">chain</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+  <span class="ruby-ivar">@chain</span> = <span class="ruby-identifier">chain</span>
+  <span class="ruby-ivar">@block</span> = <span class="ruby-identifier">block</span>
+  <span class="ruby-ivar">@recorded_customizations</span>  = []
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-description" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">description</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="description-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/rspec-mocks-3.7.0/lib/rspec/mocks/matchers/receive_message_chain.rb, line 27</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">description</span>
+  <span class="ruby-node">&quot;receive message chain #{formatted_chain}&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-does_not_match-3F" class="method-detail method-alias">
+        
+        <div class="method-heading">
+          <span class="method-name">does_not_match?</span><span
+            class="method-args">(*_args)</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+        </div>
+
+        
+
+        
+        <div class="aliases">
+          Alias for: <a href="ReceiveMessageChain.html#method-i-setup_negative_expectation">setup_negative_expectation</a>
+        </div>
+        
+      </div>
+
+    
+      <div id="method-i-matches-3F" class="method-detail method-alias">
+        
+        <div class="method-heading">
+          <span class="method-name">matches?</span><span
+            class="method-args">(subject, &block)</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+        </div>
+
+        
+
+        
+        <div class="aliases">
+          Alias for: <a href="ReceiveMessageChain.html#method-i-setup_expectation">setup_expectation</a>
+        </div>
+        
+      </div>
+
+    
+      <div id="method-i-name" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">name</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="name-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/rspec-mocks-3.7.0/lib/rspec/mocks/matchers/receive_message_chain.rb, line 23</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">name</span>
+  <span class="ruby-string">&quot;receive_message_chain&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-setup_allowance" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">setup_allowance</span><span
+            class="method-args">(subject, &block)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="setup_allowance-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/rspec-mocks-3.7.0/lib/rspec/mocks/matchers/receive_message_chain.rb, line 31</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">setup_allowance</span>(<span class="ruby-identifier">subject</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+  <span class="ruby-identifier">chain</span> = <span class="ruby-constant">StubChain</span>.<span class="ruby-identifier">stub_chain_on</span>(<span class="ruby-identifier">subject</span>, <span class="ruby-operator">*</span><span class="ruby-ivar">@chain</span>, <span class="ruby-operator">&amp;</span>(<span class="ruby-ivar">@block</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">block</span>))
+  <span class="ruby-identifier">replay_customizations</span>(<span class="ruby-identifier">chain</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-setup_any_instance_allowance" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">setup_any_instance_allowance</span><span
+            class="method-args">(subject, &block)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="setup_any_instance_allowance-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/rspec-mocks-3.7.0/lib/rspec/mocks/matchers/receive_message_chain.rb, line 36</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">setup_any_instance_allowance</span>(<span class="ruby-identifier">subject</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+  <span class="ruby-identifier">proxy</span> = <span class="ruby-operator">::</span><span class="ruby-constant">RSpec</span><span class="ruby-operator">::</span><span class="ruby-constant">Mocks</span>.<span class="ruby-identifier">space</span>.<span class="ruby-identifier">any_instance_proxy_for</span>(<span class="ruby-identifier">subject</span>)
+  <span class="ruby-identifier">chain</span> = <span class="ruby-identifier">proxy</span>.<span class="ruby-identifier">stub_chain</span>(<span class="ruby-operator">*</span><span class="ruby-ivar">@chain</span>, <span class="ruby-operator">&amp;</span>(<span class="ruby-ivar">@block</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">block</span>))
+  <span class="ruby-identifier">replay_customizations</span>(<span class="ruby-identifier">chain</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-setup_any_instance_expectation" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">setup_any_instance_expectation</span><span
+            class="method-args">(subject, &block)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="setup_any_instance_expectation-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/rspec-mocks-3.7.0/lib/rspec/mocks/matchers/receive_message_chain.rb, line 42</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">setup_any_instance_expectation</span>(<span class="ruby-identifier">subject</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+  <span class="ruby-identifier">proxy</span> = <span class="ruby-operator">::</span><span class="ruby-constant">RSpec</span><span class="ruby-operator">::</span><span class="ruby-constant">Mocks</span>.<span class="ruby-identifier">space</span>.<span class="ruby-identifier">any_instance_proxy_for</span>(<span class="ruby-identifier">subject</span>)
+  <span class="ruby-identifier">chain</span> = <span class="ruby-identifier">proxy</span>.<span class="ruby-identifier">expect_chain</span>(<span class="ruby-operator">*</span><span class="ruby-ivar">@chain</span>, <span class="ruby-operator">&amp;</span>(<span class="ruby-ivar">@block</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">block</span>))
+  <span class="ruby-identifier">replay_customizations</span>(<span class="ruby-identifier">chain</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-setup_expectation" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">setup_expectation</span><span
+            class="method-args">(subject, &block)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="setup_expectation-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/rspec-mocks-3.7.0/lib/rspec/mocks/matchers/receive_message_chain.rb, line 48</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">setup_expectation</span>(<span class="ruby-identifier">subject</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+  <span class="ruby-identifier">chain</span> = <span class="ruby-constant">ExpectChain</span>.<span class="ruby-identifier">expect_chain_on</span>(<span class="ruby-identifier">subject</span>, <span class="ruby-operator">*</span><span class="ruby-ivar">@chain</span>, <span class="ruby-operator">&amp;</span>(<span class="ruby-ivar">@block</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">block</span>))
+  <span class="ruby-identifier">replay_customizations</span>(<span class="ruby-identifier">chain</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+        <div class="aliases">
+          Also aliased as: <a href="ReceiveMessageChain.html#method-i-matches-3F">matches?</a>
+        </div>
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-setup_negative_expectation" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">setup_negative_expectation</span><span
+            class="method-args">(*_args)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="setup_negative_expectation-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/rspec-mocks-3.7.0/lib/rspec/mocks/matchers/receive_message_chain.rb, line 53</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">setup_negative_expectation</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">_args</span>)
+  <span class="ruby-identifier">raise</span> <span class="ruby-constant">NegationUnsupportedError</span>,
+        <span class="ruby-string">&quot;`expect(...).not_to receive_message_chain` is not supported &quot;</span>                  <span class="ruby-string">&quot;since it doesn&#39;t really make sense. What would it even mean?&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+        <div class="aliases">
+          Also aliased as: <a href="ReceiveMessageChain.html#method-i-does_not_match-3F">does_not_match?</a>
+        </div>
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="https://rdoc.github.io/rdoc">RDoc</a> 5.0.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class Oj::ScHandler - RDoc Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../";
+  var index_rel_prefix = "../";
+</script>
+
+<script src="../js/jquery.js"></script>
+<script src="../js/darkfish.js"></script>
+
+<link href="../css/fonts.css" rel="stylesheet">
+<link href="../css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../table_of_contents.html#pages">Pages</a>
+    <a href="../table_of_contents.html#classes">Classes</a>
+    <a href="../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link"><a href="../Object.html">Object</a>
+  
+</div>
+
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-c-new">::new</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-Oj::ScHandler">
+  <h1 id="class-Oj::ScHandler" class="class">
+    class Oj::ScHandler
+  </h1>
+
+  <section class="description">
+    
+<p>A Simple Callback <a href="../Parser.html">Parser</a> (SCP) for <a
+href="../JSON.html">JSON</a>. The <a
+href="ScHandler.html">Oj::ScHandler</a> class should be subclassed and then
+used with the <a href="../Oj.html#method-c-sc_parse">Oj.sc_parse</a>
+method. The Scp methods will then be called as the file is parsed. The
+handler does not have to be a subclass of the <a
+href="ScHandler.html">ScHandler</a> class as long as it responds to the
+desired methods.</p>
+
+<p>@example</p>
+
+<pre class="ruby"><span class="ruby-identifier">require</span> <span class="ruby-string">&#39;oj&#39;</span>
+
+<span class="ruby-keyword">class</span> <span class="ruby-constant">MyHandler</span> <span class="ruby-operator">&lt;</span> <span class="ruby-operator">::</span><span class="ruby-constant">Oj</span><span class="ruby-operator">::</span><span class="ruby-constant">ScHandler</span>
+  <span class="ruby-keyword">def</span> <span class="ruby-identifier">hash_start</span>
+    {}
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">def</span> <span class="ruby-identifier">hash_set</span>(<span class="ruby-identifier">h</span>,<span class="ruby-identifier">k</span>,<span class="ruby-identifier">v</span>)
+    <span class="ruby-identifier">h</span>[<span class="ruby-identifier">k</span>] = <span class="ruby-identifier">v</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">def</span> <span class="ruby-identifier">array_start</span>
+    []
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">def</span> <span class="ruby-identifier">array_append</span>(<span class="ruby-identifier">a</span>,<span class="ruby-identifier">v</span>)
+    <span class="ruby-identifier">a</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">v</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">def</span> <span class="ruby-identifier">add_value</span>(<span class="ruby-identifier">v</span>)
+    <span class="ruby-identifier">p</span> <span class="ruby-identifier">v</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">def</span> <span class="ruby-identifier">error</span>(<span class="ruby-identifier">message</span>, <span class="ruby-identifier">line</span>, <span class="ruby-identifier">column</span>)
+    <span class="ruby-identifier">p</span> <span class="ruby-node">&quot;ERROR: #{message}&quot;</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span>
+
+<span class="ruby-constant">File</span>.<span class="ruby-identifier">open</span>(<span class="ruby-string">&#39;any.json&#39;</span>, <span class="ruby-string">&#39;r&#39;</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">f</span><span class="ruby-operator">|</span>
+  <span class="ruby-constant">Oj</span>.<span class="ruby-identifier">sc_parse</span>(<span class="ruby-constant">MyHandler</span>.<span class="ruby-identifier">new</span>, <span class="ruby-identifier">f</span>)
+<span class="ruby-keyword">end</span>
+</pre>
+
+<p>To make the desired methods active while parsing the desired method should
+be made public in the subclasses. If the methods remain private they will
+not be called during parsing.</p>
+
+<pre class="ruby"><span class="ruby-keyword">def</span> <span class="ruby-identifier">hash_start</span>(); <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">hash_end</span>(); <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">hash_key</span>(<span class="ruby-identifier">key</span>); <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">hash_set</span>(<span class="ruby-identifier">h</span>, <span class="ruby-identifier">key</span>, <span class="ruby-identifier">value</span>); <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">array_start</span>(); <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">array_end</span>(); <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">array_append</span>(<span class="ruby-identifier">a</span>, <span class="ruby-identifier">value</span>); <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">add_value</span>(<span class="ruby-identifier">value</span>); <span class="ruby-keyword">end</span>
+</pre>
+
+<p>As certain elements of a <a href="../JSON.html">JSON</a> document are
+reached during parsing the callbacks are called. The parser helps by
+keeping track of objects created by the callbacks but does not create those
+objects itself.</p>
+
+<pre class="ruby"><span class="ruby-identifier">hash_start</span>
+</pre>
+
+<p>When a <a href="../JSON.html">JSON</a> object element starts the
+hash_start() callback is called if public. It should return what ever Ruby
+<a href="../Object.html">Object</a> is to be used as the element that will
+later be included in the hash_set() callback.</p>
+
+<pre class="ruby"><span class="ruby-identifier">hash_end</span>
+</pre>
+
+<p>When a hash key is encountered the hash_key method is called with the
+parsed hash value key. The return value from the call is then used as the
+key in the key-value pair that follows.</p>
+
+<pre class="ruby"><span class="ruby-identifier">hash_key</span>
+</pre>
+
+<p>At the end of a <a href="../JSON.html">JSON</a> object element the
+hash_end() callback is called if public.</p>
+
+<pre class="ruby"><span class="ruby-identifier">hash_set</span>
+</pre>
+
+<p>When a key value pair is encountered during parsing the hash_set() callback
+is called if public. The first element will be the object returned from the
+enclosing hash_start() callback. The second argument is the key and the
+last is the value.</p>
+
+<pre class="ruby"><span class="ruby-identifier">array_start</span>
+</pre>
+
+<p>When a <a href="../JSON.html">JSON</a> array element is started the
+array_start() callback is called if public. It should return what ever Ruby
+<a href="../Object.html">Object</a> is to be used as the element that will
+later be included in the array_append() callback.</p>
+
+<pre class="ruby"><span class="ruby-identifier">array_end</span>
+</pre>
+
+<p>At the end of a <a href="../JSON.html">JSON</a> array element the
+array_end() callback is called if public.</p>
+
+<pre class="ruby"><span class="ruby-identifier">array_append</span>
+</pre>
+
+<p>When a element is encountered that is an element of an array the
+array_append() callback is called if public. The first argument to the
+callback is the Ruby object returned from the enclosing array_start()
+callback.</p>
+
+<pre class="ruby"><span class="ruby-identifier">add_value</span>
+</pre>
+
+<p>The handler is expected to handle multiple <a href="../JSON.html">JSON</a>
+elements in one stream, file, or string. When a top level <a
+href="../JSON.html">JSON</a> has been read completely the add_value()
+callback is called. Even if only one element was ready this callback
+returns the Ruby object that was constructed during the parsing.</p>
+
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Class Methods</h3>
+       </header>
+
+    
+      <div id="method-c-new" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">new</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Create a new instance of the <a href="ScHandler.html">ScHandler</a> class.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="new-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/oj-3.4.0/lib/oj/schandler.rb, line 108</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span>()
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="https://rdoc.github.io/rdoc">RDoc</a> 5.0.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

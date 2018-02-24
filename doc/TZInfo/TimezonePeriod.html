@@ -1,0 +1,1301 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class TZInfo::TimezonePeriod - RDoc Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../";
+  var index_rel_prefix = "../";
+</script>
+
+<script src="../js/jquery.js"></script>
+<script src="../js/darkfish.js"></script>
+
+<link href="../css/fonts.css" rel="stylesheet">
+<link href="../css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../table_of_contents.html#pages">Pages</a>
+    <a href="../table_of_contents.html#classes">Classes</a>
+    <a href="../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link"><a href="../Object.html">Object</a>
+  
+</div>
+
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-c-new">::new</a>
+    
+    <li ><a href="#method-i-3D-3D">#==</a>
+    
+    <li ><a href="#method-i-abbreviation">#abbreviation</a>
+    
+    <li ><a href="#method-i-dst-3F">#dst?</a>
+    
+    <li ><a href="#method-i-eql-3F">#eql?</a>
+    
+    <li ><a href="#method-i-hash">#hash</a>
+    
+    <li ><a href="#method-i-inspect">#inspect</a>
+    
+    <li ><a href="#method-i-local_after_start-3F">#local_after_start?</a>
+    
+    <li ><a href="#method-i-local_before_end-3F">#local_before_end?</a>
+    
+    <li ><a href="#method-i-local_end">#local_end</a>
+    
+    <li ><a href="#method-i-local_end_time">#local_end_time</a>
+    
+    <li ><a href="#method-i-local_start">#local_start</a>
+    
+    <li ><a href="#method-i-local_start_time">#local_start_time</a>
+    
+    <li ><a href="#method-i-std_offset">#std_offset</a>
+    
+    <li ><a href="#method-i-to_local">#to_local</a>
+    
+    <li ><a href="#method-i-to_utc">#to_utc</a>
+    
+    <li ><a href="#method-i-utc_after_start-3F">#utc_after_start?</a>
+    
+    <li ><a href="#method-i-utc_before_end-3F">#utc_before_end?</a>
+    
+    <li ><a href="#method-i-utc_end">#utc_end</a>
+    
+    <li ><a href="#method-i-utc_end_time">#utc_end_time</a>
+    
+    <li ><a href="#method-i-utc_offset">#utc_offset</a>
+    
+    <li ><a href="#method-i-utc_start">#utc_start</a>
+    
+    <li ><a href="#method-i-utc_start_time">#utc_start_time</a>
+    
+    <li ><a href="#method-i-utc_total_offset">#utc_total_offset</a>
+    
+    <li ><a href="#method-i-utc_total_offset_rational">#utc_total_offset_rational</a>
+    
+    <li ><a href="#method-i-valid_for_local-3F">#valid_for_local?</a>
+    
+    <li ><a href="#method-i-valid_for_utc-3F">#valid_for_utc?</a>
+    
+    <li ><a href="#method-i-zone_identifier">#zone_identifier</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-TZInfo::TimezonePeriod">
+  <h1 id="class-TZInfo::TimezonePeriod" class="class">
+    class TZInfo::TimezonePeriod
+  </h1>
+
+  <section class="description">
+    
+<p>A period of time in a timezone where the same offset from UTC applies.</p>
+
+<p>All the methods that take times accept instances of <a
+href="../Time.html">Time</a> or <a href="../DateTime.html">DateTime</a> as
+well as <a href="../Integer.html">Integer</a> timestamps.</p>
+
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+    <section class="attribute-method-details" class="method-section">
+      <header>
+        <h3>Attributes</h3>
+      </header>
+
+      
+      <div id="attribute-i-end_transition" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">end_transition</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        <p>The <a href="TimezoneTransition.html">TimezoneTransition</a> that defines
+the end of this <a href="TimezonePeriod.html">TimezonePeriod</a> (may be
+nil if unbounded).</p>
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-offset" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">offset</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        <p>The <a href="TimezoneOffset.html">TimezoneOffset</a> for this period.</p>
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-start_transition" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">start_transition</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        <p>The <a href="TimezoneTransition.html">TimezoneTransition</a> that defines
+the start of this <a href="TimezonePeriod.html">TimezonePeriod</a>  (may be
+nil if unbounded).</p>
+        
+        </div>
+      </div>
+      
+    </section>
+    
+
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Class Methods</h3>
+       </header>
+
+    
+      <div id="method-c-new" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">new</span><span
+            class="method-args">(start_transition, end_transition, offset = nil)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Initializes a new <a href="TimezonePeriod.html">TimezonePeriod</a>.</p>
+
+<p><a href="TimezonePeriod.html">TimezonePeriod</a> instances should not
+normally be constructed manually.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="new-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/tzinfo-1.2.5/lib/tzinfo/timezone_period.rb, line 21</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">start_transition</span>, <span class="ruby-identifier">end_transition</span>, <span class="ruby-identifier">offset</span> = <span class="ruby-keyword">nil</span>)
+  <span class="ruby-ivar">@start_transition</span> = <span class="ruby-identifier">start_transition</span>
+  <span class="ruby-ivar">@end_transition</span> = <span class="ruby-identifier">end_transition</span>
+  
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">offset</span>
+    <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>, <span class="ruby-string">&#39;Offset specified with transitions&#39;</span> <span class="ruby-keyword">if</span> <span class="ruby-ivar">@start_transition</span> <span class="ruby-operator">||</span> <span class="ruby-ivar">@end_transition</span>
+    <span class="ruby-ivar">@offset</span> = <span class="ruby-identifier">offset</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-ivar">@start_transition</span> 
+      <span class="ruby-ivar">@offset</span> = <span class="ruby-ivar">@start_transition</span>.<span class="ruby-identifier">offset</span>
+    <span class="ruby-keyword">elsif</span> <span class="ruby-ivar">@end_transition</span>
+      <span class="ruby-ivar">@offset</span> = <span class="ruby-ivar">@end_transition</span>.<span class="ruby-identifier">previous_offset</span>
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>, <span class="ruby-string">&#39;No offset specified and no transitions to determine it from&#39;</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+  
+  <span class="ruby-ivar">@utc_total_offset_rational</span> = <span class="ruby-keyword">nil</span>      
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-3D-3D" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">==</span><span
+            class="method-args">(p)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Returns true if this <a href="TimezonePeriod.html">TimezonePeriod</a> is
+equal to p. This compares the  <a
+href="TimezonePeriod.html#attribute-i-start_transition">#start_transition</a>,
+<a
+href="TimezonePeriod.html#attribute-i-end_transition">#end_transition</a>
+and offset using ==.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="3D-3D-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/tzinfo-1.2.5/lib/tzinfo/timezone_period.rb, line 215</span>
+<span class="ruby-keyword">def</span> <span class="ruby-operator">==</span>(<span class="ruby-identifier">p</span>)
+  <span class="ruby-identifier">p</span>.<span class="ruby-identifier">kind_of?</span>(<span class="ruby-constant">TimezonePeriod</span>) <span class="ruby-operator">&amp;&amp;</span>
+    <span class="ruby-identifier">start_transition</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">p</span>.<span class="ruby-identifier">start_transition</span> <span class="ruby-operator">&amp;&amp;</span>
+    <span class="ruby-identifier">end_transition</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">p</span>.<span class="ruby-identifier">end_transition</span> <span class="ruby-operator">&amp;&amp;</span>
+    <span class="ruby-identifier">offset</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">p</span>.<span class="ruby-identifier">offset</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-abbreviation" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">abbreviation</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>The identifier of this period, e.g. “GMT” (Greenwich Mean <a
+href="../Time.html">Time</a>) or “BST” (British Summer <a
+href="../Time.html">Time</a>) for “Europe/London”. The returned identifier
+is a  symbol.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="abbreviation-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/tzinfo-1.2.5/lib/tzinfo/timezone_period.rb, line 78</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">abbreviation</span>
+  <span class="ruby-ivar">@offset</span>.<span class="ruby-identifier">abbreviation</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+        <div class="aliases">
+          Also aliased as: <a href="TimezonePeriod.html#method-i-zone_identifier">zone_identifier</a>
+        </div>
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-dst-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">dst?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>true if daylight savings is in effect for this period; otherwise false.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="dst-3F-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/tzinfo-1.2.5/lib/tzinfo/timezone_period.rb, line 148</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">dst?</span>
+  <span class="ruby-ivar">@offset</span>.<span class="ruby-identifier">dst?</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-eql-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">eql?</span><span
+            class="method-args">(p)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Returns true if this TimezonePeriods is equal to p. This compares the <a
+href="TimezonePeriod.html#attribute-i-start_transition">#start_transition</a>,
+<a
+href="TimezonePeriod.html#attribute-i-end_transition">#end_transition</a>
+and offset using eql?</p>
+          
+          
+
+          
+          <div class="method-source-code" id="eql-3F-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/tzinfo-1.2.5/lib/tzinfo/timezone_period.rb, line 224</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">eql?</span>(<span class="ruby-identifier">p</span>)
+  <span class="ruby-identifier">p</span>.<span class="ruby-identifier">kind_of?</span>(<span class="ruby-constant">TimezonePeriod</span>) <span class="ruby-operator">&amp;&amp;</span>
+    <span class="ruby-identifier">start_transition</span>.<span class="ruby-identifier">eql?</span>(<span class="ruby-identifier">p</span>.<span class="ruby-identifier">start_transition</span>) <span class="ruby-operator">&amp;&amp;</span>
+    <span class="ruby-identifier">end_transition</span>.<span class="ruby-identifier">eql?</span>(<span class="ruby-identifier">p</span>.<span class="ruby-identifier">end_transition</span>) <span class="ruby-operator">&amp;&amp;</span>
+    <span class="ruby-identifier">offset</span>.<span class="ruby-identifier">eql?</span>(<span class="ruby-identifier">p</span>.<span class="ruby-identifier">offset</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-hash" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">hash</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Returns a hash of this <a href="TimezonePeriod.html">TimezonePeriod</a>.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="hash-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/tzinfo-1.2.5/lib/tzinfo/timezone_period.rb, line 232</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">hash</span>
+  <span class="ruby-identifier">result</span> = <span class="ruby-ivar">@start_transition</span>.<span class="ruby-identifier">hash</span> <span class="ruby-operator">^</span> <span class="ruby-ivar">@end_transition</span>.<span class="ruby-identifier">hash</span>
+  <span class="ruby-identifier">result</span> <span class="ruby-operator">^=</span> <span class="ruby-ivar">@offset</span>.<span class="ruby-identifier">hash</span> <span class="ruby-keyword">unless</span> <span class="ruby-ivar">@start_transition</span> <span class="ruby-operator">||</span> <span class="ruby-ivar">@end_transition</span>
+  <span class="ruby-identifier">result</span>       
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-inspect" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">inspect</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Returns internal object state as a programmer-readable string.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="inspect-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/tzinfo-1.2.5/lib/tzinfo/timezone_period.rb, line 239</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">inspect</span>
+  <span class="ruby-identifier">result</span> = <span class="ruby-node">&quot;#&lt;#{self.class}: #{@start_transition.inspect},#{@end_transition.inspect}&quot;</span>
+  <span class="ruby-identifier">result</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-node">&quot;,#{@offset.inspect}&gt;&quot;</span> <span class="ruby-keyword">unless</span> <span class="ruby-ivar">@start_transition</span> <span class="ruby-operator">||</span> <span class="ruby-ivar">@end_transition</span>
+  <span class="ruby-identifier">result</span> <span class="ruby-operator">+</span> <span class="ruby-string">&#39;&gt;&#39;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-local_after_start-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">local_after_start?</span><span
+            class="method-args">(local)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>true if the given local <a href="../DateTime.html">DateTime</a> is after
+the start of the period  (inclusive); otherwise false.</p>
+
+<p>Deprecation warning: this method will be removed in <a
+href="../TZInfo.html">TZInfo</a> version 2.0.0.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="local_after_start-3F-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/tzinfo-1.2.5/lib/tzinfo/timezone_period.rb, line 187</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">local_after_start?</span>(<span class="ruby-identifier">local</span>)
+  <span class="ruby-operator">!</span><span class="ruby-ivar">@start_transition</span> <span class="ruby-operator">||</span> <span class="ruby-ivar">@start_transition</span>.<span class="ruby-identifier">local_start_at</span> <span class="ruby-operator">&lt;=</span> <span class="ruby-identifier">local</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-local_before_end-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">local_before_end?</span><span
+            class="method-args">(local)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>true if the given local <a href="../DateTime.html">DateTime</a> is before
+the end of the period  (exclusive); otherwise false.</p>
+
+<p>Deprecation warning: this method will be removed in <a
+href="../TZInfo.html">TZInfo</a> version 2.0.0.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="local_before_end-3F-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/tzinfo-1.2.5/lib/tzinfo/timezone_period.rb, line 195</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">local_before_end?</span>(<span class="ruby-identifier">local</span>)
+  <span class="ruby-operator">!</span><span class="ruby-ivar">@end_transition</span> <span class="ruby-operator">||</span> <span class="ruby-ivar">@end_transition</span>.<span class="ruby-identifier">local_end_at</span> <span class="ruby-operator">&gt;</span> <span class="ruby-identifier">local</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-local_end" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">local_end</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>The end time of the period in local time as a <a
+href="../DateTime.html">DateTime</a>. May be nil if  unbounded.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="local_end-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/tzinfo-1.2.5/lib/tzinfo/timezone_period.rb, line 137</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">local_end</span>
+  <span class="ruby-ivar">@end_transition</span> <span class="ruby-operator">?</span> <span class="ruby-ivar">@end_transition</span>.<span class="ruby-identifier">local_end_at</span>.<span class="ruby-identifier">to_datetime</span> <span class="ruby-operator">:</span> <span class="ruby-keyword">nil</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-local_end_time" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">local_end_time</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>The end time of the period in local time as a <a
+href="../Time.html">Time</a>. May be nil if  unbounded.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="local_end_time-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/tzinfo-1.2.5/lib/tzinfo/timezone_period.rb, line 143</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">local_end_time</span>
+  <span class="ruby-ivar">@end_transition</span> <span class="ruby-operator">?</span> <span class="ruby-ivar">@end_transition</span>.<span class="ruby-identifier">local_end_at</span>.<span class="ruby-identifier">to_time</span> <span class="ruby-operator">:</span> <span class="ruby-keyword">nil</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-local_start" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">local_start</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>The start time of the period in local time as a <a
+href="../DateTime.html">DateTime</a>. May be nil if  unbounded.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="local_start-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/tzinfo-1.2.5/lib/tzinfo/timezone_period.rb, line 125</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">local_start</span>
+  <span class="ruby-ivar">@start_transition</span> <span class="ruby-operator">?</span> <span class="ruby-ivar">@start_transition</span>.<span class="ruby-identifier">local_start_at</span>.<span class="ruby-identifier">to_datetime</span> <span class="ruby-operator">:</span> <span class="ruby-keyword">nil</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-local_start_time" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">local_start_time</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>The start time of the period in local time as a <a
+href="../Time.html">Time</a>. May be nil if  unbounded.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="local_start_time-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/tzinfo-1.2.5/lib/tzinfo/timezone_period.rb, line 131</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">local_start_time</span>
+  <span class="ruby-ivar">@start_transition</span> <span class="ruby-operator">?</span> <span class="ruby-ivar">@start_transition</span>.<span class="ruby-identifier">local_start_at</span>.<span class="ruby-identifier">to_time</span> <span class="ruby-operator">:</span> <span class="ruby-keyword">nil</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-std_offset" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">std_offset</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>The offset from the time zone&#39;s standard time in seconds. Zero when
+daylight savings time is not in effect. Non-zero (usually 3600 = 1 hour) if
+daylight savings is being observed.</p>
+
+<p>Note that zoneinfo files only include the value of <a
+href="TimezonePeriod.html#method-i-utc_total_offset">#utc_total_offset</a>
+and a DST flag. When using DataSources::ZoneinfoDataSource, the <a
+href="TimezonePeriod.html#method-i-std_offset">#std_offset</a> will be
+derived from changes to the UTC total offset and the DST flag. As a
+consequence, <a
+href="TimezonePeriod.html#method-i-utc_total_offset">#utc_total_offset</a>
+will always be correct, but <a
+href="TimezonePeriod.html#method-i-std_offset">#std_offset</a> may be
+inaccurate.</p>
+
+<p>If you require <a
+href="TimezonePeriod.html#method-i-std_offset">#std_offset</a> to be
+accurate, install the tzinfo-data gem and set <a
+href="RubyDataSource.html">RubyDataSource</a> as the <a
+href="DataSource.html">DataSource</a>.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="std_offset-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/tzinfo-1.2.5/lib/tzinfo/timezone_period.rb, line 71</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">std_offset</span>
+  <span class="ruby-ivar">@offset</span>.<span class="ruby-identifier">std_offset</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-to_local" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">to_local</span><span
+            class="method-args">(utc)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Converts a UTC <a href="../DateTime.html">DateTime</a> to local time based
+on the offset of this period.</p>
+
+<p>Deprecation warning: this method will be removed in <a
+href="../TZInfo.html">TZInfo</a> version 2.0.0.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="to_local-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/tzinfo-1.2.5/lib/tzinfo/timezone_period.rb, line 202</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">to_local</span>(<span class="ruby-identifier">utc</span>)
+  <span class="ruby-ivar">@offset</span>.<span class="ruby-identifier">to_local</span>(<span class="ruby-identifier">utc</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-to_utc" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">to_utc</span><span
+            class="method-args">(local)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Converts a local <a href="../DateTime.html">DateTime</a> to UTC based on
+the offset of this period.</p>
+
+<p>Deprecation warning: this method will be removed in <a
+href="../TZInfo.html">TZInfo</a> version 2.0.0.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="to_utc-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/tzinfo-1.2.5/lib/tzinfo/timezone_period.rb, line 209</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">to_utc</span>(<span class="ruby-identifier">local</span>)
+  <span class="ruby-ivar">@offset</span>.<span class="ruby-identifier">to_utc</span>(<span class="ruby-identifier">local</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-utc_after_start-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">utc_after_start?</span><span
+            class="method-args">(utc)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>true if the given UTC <a href="../DateTime.html">DateTime</a> is after the
+start of the period  (inclusive); otherwise false.</p>
+
+<p>Deprecation warning: this method will be removed in <a
+href="../TZInfo.html">TZInfo</a> version 2.0.0.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="utc_after_start-3F-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/tzinfo-1.2.5/lib/tzinfo/timezone_period.rb, line 163</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">utc_after_start?</span>(<span class="ruby-identifier">utc</span>)
+  <span class="ruby-operator">!</span><span class="ruby-ivar">@start_transition</span> <span class="ruby-operator">||</span> <span class="ruby-ivar">@start_transition</span>.<span class="ruby-identifier">at</span> <span class="ruby-operator">&lt;=</span> <span class="ruby-identifier">utc</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-utc_before_end-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">utc_before_end?</span><span
+            class="method-args">(utc)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>true if the given UTC <a href="../DateTime.html">DateTime</a> is before the
+end of the period  (exclusive); otherwise false.</p>
+
+<p>Deprecation warning: this method will be removed in <a
+href="../TZInfo.html">TZInfo</a> version 2.0.0.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="utc_before_end-3F-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/tzinfo-1.2.5/lib/tzinfo/timezone_period.rb, line 171</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">utc_before_end?</span>(<span class="ruby-identifier">utc</span>)
+  <span class="ruby-operator">!</span><span class="ruby-ivar">@end_transition</span> <span class="ruby-operator">||</span> <span class="ruby-ivar">@end_transition</span>.<span class="ruby-identifier">at</span> <span class="ruby-operator">&gt;</span> <span class="ruby-identifier">utc</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-utc_end" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">utc_end</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>The end time of the period in UTC as a <a
+href="../DateTime.html">DateTime</a>. May be nil if unbounded.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="utc_end-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/tzinfo-1.2.5/lib/tzinfo/timezone_period.rb, line 114</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">utc_end</span>
+  <span class="ruby-ivar">@end_transition</span> <span class="ruby-operator">?</span> <span class="ruby-ivar">@end_transition</span>.<span class="ruby-identifier">at</span>.<span class="ruby-identifier">to_datetime</span> <span class="ruby-operator">:</span> <span class="ruby-keyword">nil</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-utc_end_time" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">utc_end_time</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>The end time of the period in UTC as a <a href="../Time.html">Time</a>. May
+be nil if unbounded.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="utc_end_time-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/tzinfo-1.2.5/lib/tzinfo/timezone_period.rb, line 119</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">utc_end_time</span>
+  <span class="ruby-ivar">@end_transition</span> <span class="ruby-operator">?</span> <span class="ruby-ivar">@end_transition</span>.<span class="ruby-identifier">at</span>.<span class="ruby-identifier">to_time</span> <span class="ruby-operator">:</span> <span class="ruby-keyword">nil</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-utc_offset" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">utc_offset</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>The base offset of the timezone from UTC in seconds. This does not include
+any adjustment made for daylight savings time and will typically remain
+constant throughout the year.</p>
+
+<p>To obtain the currently observed offset from UTC, including the effect of
+daylight savings time, use <a
+href="TimezonePeriod.html#method-i-utc_total_offset">#utc_total_offset</a>
+instead.</p>
+
+<p>Note that zoneinfo files only include the value of <a
+href="TimezonePeriod.html#method-i-utc_total_offset">#utc_total_offset</a>
+and a DST flag. When using <a
+href="ZoneinfoDataSource.html">ZoneinfoDataSource</a>, the <a
+href="TimezonePeriod.html#method-i-utc_offset">#utc_offset</a> will be
+derived from changes to the UTC total offset and the DST flag. As a
+consequence, <a
+href="TimezonePeriod.html#method-i-utc_total_offset">#utc_total_offset</a>
+will always be correct, but <a
+href="TimezonePeriod.html#method-i-utc_offset">#utc_offset</a> may be
+inaccurate.</p>
+
+<p>If you require <a
+href="TimezonePeriod.html#method-i-utc_offset">#utc_offset</a> to be
+accurate, install the tzinfo-data gem and set <a
+href="RubyDataSource.html">RubyDataSource</a> as the <a
+href="DataSource.html">DataSource</a>.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="utc_offset-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/tzinfo-1.2.5/lib/tzinfo/timezone_period.rb, line 55</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">utc_offset</span>
+  <span class="ruby-ivar">@offset</span>.<span class="ruby-identifier">utc_offset</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-utc_start" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">utc_start</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>The start time of the period in UTC as a <a
+href="../DateTime.html">DateTime</a>. May be nil if unbounded.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="utc_start-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/tzinfo-1.2.5/lib/tzinfo/timezone_period.rb, line 104</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">utc_start</span>
+  <span class="ruby-ivar">@start_transition</span> <span class="ruby-operator">?</span> <span class="ruby-ivar">@start_transition</span>.<span class="ruby-identifier">at</span>.<span class="ruby-identifier">to_datetime</span> <span class="ruby-operator">:</span> <span class="ruby-keyword">nil</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-utc_start_time" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">utc_start_time</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>The start time of the period in UTC as a <a href="../Time.html">Time</a>.
+May be nil if unbounded.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="utc_start_time-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/tzinfo-1.2.5/lib/tzinfo/timezone_period.rb, line 109</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">utc_start_time</span>
+  <span class="ruby-ivar">@start_transition</span> <span class="ruby-operator">?</span> <span class="ruby-ivar">@start_transition</span>.<span class="ruby-identifier">at</span>.<span class="ruby-identifier">to_time</span> <span class="ruby-operator">:</span> <span class="ruby-keyword">nil</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-utc_total_offset" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">utc_total_offset</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Total offset from UTC (seconds). Equal to <a
+href="TimezonePeriod.html#method-i-utc_offset">#utc_offset</a> +
+std_offset.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="utc_total_offset-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/tzinfo-1.2.5/lib/tzinfo/timezone_period.rb, line 84</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">utc_total_offset</span>
+  <span class="ruby-ivar">@offset</span>.<span class="ruby-identifier">utc_total_offset</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-utc_total_offset_rational" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">utc_total_offset_rational</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Total offset from UTC (days). Result is a <a
+href="../Rational.html">Rational</a>.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="utc_total_offset_rational-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/tzinfo-1.2.5/lib/tzinfo/timezone_period.rb, line 89</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">utc_total_offset_rational</span>
+  <span class="ruby-comment"># Thread-safety: It is possible that the value of </span>
+  <span class="ruby-comment"># @utc_total_offset_rational may be calculated multiple times in </span>
+  <span class="ruby-comment"># concurrently executing threads. It is not worth the overhead of locking</span>
+  <span class="ruby-comment"># to ensure that @zone_identifiers is only calculated once.</span>
+
+  <span class="ruby-keyword">unless</span> <span class="ruby-ivar">@utc_total_offset_rational</span>
+    <span class="ruby-identifier">result</span> = <span class="ruby-constant">OffsetRationals</span>.<span class="ruby-identifier">rational_for_offset</span>(<span class="ruby-identifier">utc_total_offset</span>)
+    <span class="ruby-keyword">return</span> <span class="ruby-identifier">result</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">frozen?</span>
+    <span class="ruby-ivar">@utc_total_offset_rational</span> = <span class="ruby-identifier">result</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-ivar">@utc_total_offset_rational</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-valid_for_local-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">valid_for_local?</span><span
+            class="method-args">(local)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>true if this period is valid for the given local <a
+href="../DateTime.html">DateTime</a>; otherwise false.</p>
+
+<p>Deprecation warning: this method will be removed in <a
+href="../TZInfo.html">TZInfo</a> version 2.0.0.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="valid_for_local-3F-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/tzinfo-1.2.5/lib/tzinfo/timezone_period.rb, line 179</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">valid_for_local?</span>(<span class="ruby-identifier">local</span>)      
+  <span class="ruby-identifier">local_after_start?</span>(<span class="ruby-identifier">local</span>) <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">local_before_end?</span>(<span class="ruby-identifier">local</span>) 
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-valid_for_utc-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">valid_for_utc?</span><span
+            class="method-args">(utc)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>true if this period is valid for the given UTC <a
+href="../DateTime.html">DateTime</a>; otherwise false.</p>
+
+<p>Deprecation warning: this method will be removed in <a
+href="../TZInfo.html">TZInfo</a> version 2.0.0.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="valid_for_utc-3F-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/tzinfo-1.2.5/lib/tzinfo/timezone_period.rb, line 155</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">valid_for_utc?</span>(<span class="ruby-identifier">utc</span>)
+  <span class="ruby-identifier">utc_after_start?</span>(<span class="ruby-identifier">utc</span>) <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">utc_before_end?</span>(<span class="ruby-identifier">utc</span>) 
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-zone_identifier" class="method-detail method-alias">
+        
+        <div class="method-heading">
+          <span class="method-name">zone_identifier</span><span
+            class="method-args">()</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+        </div>
+
+        
+
+        
+        <div class="aliases">
+          Alias for: <a href="TimezonePeriod.html#method-i-abbreviation">abbreviation</a>
+        </div>
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="https://rdoc.github.io/rdoc">RDoc</a> 5.0.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

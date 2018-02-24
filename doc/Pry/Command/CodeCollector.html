@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class Pry::Command::CodeCollector - RDoc Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../../";
+  var index_rel_prefix = "../../";
+</script>
+
+<script src="../../js/jquery.js"></script>
+<script src="../../js/darkfish.js"></script>
+
+<link href="../../css/fonts.css" rel="stylesheet">
+<link href="../../css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../../table_of_contents.html#pages">Pages</a>
+    <a href="../../table_of_contents.html#classes">Classes</a>
+    <a href="../../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link"><a href="../../Object.html">Object</a>
+  
+</div>
+
+    <div id="includes-section" class="nav-section">
+  <h3>Included Modules</h3>
+
+  <ul class="link-list">
+  
+  
+    <li><a class="include" href="../Helpers/CommandHelpers.html">Pry::Helpers::CommandHelpers</a>
+  
+  
+  </ul>
+</div>
+
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-c-inject_options">::inject_options</a>
+    
+    <li ><a href="#method-c-new">::new</a>
+    
+    <li ><a href="#method-i-code_object">#code_object</a>
+    
+    <li ><a href="#method-i-content">#content</a>
+    
+    <li ><a href="#method-i-line_range">#line_range</a>
+    
+    <li ><a href="#method-i-obj_name">#obj_name</a>
+    
+    <li ><a href="#method-i-pry_input_content">#pry_input_content</a>
+    
+    <li ><a href="#method-i-pry_output_content">#pry_output_content</a>
+    
+    <li ><a href="#method-i-restrict_to_lines">#restrict_to_lines</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-Pry::Command::CodeCollector">
+  <h1 id="class-Pry::Command::CodeCollector" class="class">
+    class Pry::Command::CodeCollector
+  </h1>
+
+  <section class="description">
+    
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+    <section class="attribute-method-details" class="method-section">
+      <header>
+        <h3>Attributes</h3>
+      </header>
+
+      
+      <div id="attribute-c-input_expression_ranges" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">input_expression_ranges</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+      <div id="attribute-c-output_result_ranges" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">output_result_ranges</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-_pry_" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">_pry_</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-args" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">args</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-file" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">file</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        <p>The name of the explicitly given file (if any).</p>
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-opts" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">opts</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+    </section>
+    
+
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Class Methods</h3>
+       </header>
+
+    
+      <div id="method-c-inject_options" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">inject_options</span><span
+            class="method-args">(opt)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Add the `–lines`, `-o`, `-i`, `-s`, `-d` options.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="inject_options-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/pry-0.11.3/lib/pry/commands/code_collector.rb, line 27</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">inject_options</span>(<span class="ruby-identifier">opt</span>)
+  <span class="ruby-ivar">@input_expression_ranges</span> = []
+  <span class="ruby-ivar">@output_result_ranges</span> = []
+
+  <span class="ruby-identifier">opt</span>.<span class="ruby-identifier">on</span> <span class="ruby-value">:l</span>, <span class="ruby-value">:lines</span>, <span class="ruby-string">&quot;Restrict to a subset of lines. Takes a line number or range&quot;</span>,
+                     <span class="ruby-value">:optional_argument</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword">true</span>, <span class="ruby-value">:as</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-constant">Range</span>, <span class="ruby-value">:default</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">1</span><span class="ruby-operator">..</span><span class="ruby-value">-1</span>
+  <span class="ruby-identifier">opt</span>.<span class="ruby-identifier">on</span> <span class="ruby-value">:o</span>, <span class="ruby-value">:out</span>,   <span class="ruby-string">&quot;Select lines from Pry&#39;s output result history. Takes an index or range&quot;</span>,
+  <span class="ruby-value">:optional_argument</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword">true</span>, <span class="ruby-value">:as</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-constant">Range</span>, <span class="ruby-value">:default</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">-5</span><span class="ruby-operator">..</span><span class="ruby-value">-1</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">r</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">output_result_ranges</span> <span class="ruby-operator">&lt;&lt;</span> (<span class="ruby-identifier">r</span> <span class="ruby-operator">||</span> (<span class="ruby-value">-5</span><span class="ruby-operator">..</span><span class="ruby-value">-1</span>))
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">opt</span>.<span class="ruby-identifier">on</span> <span class="ruby-value">:i</span>, <span class="ruby-value">:in</span>,    <span class="ruby-string">&quot;Select lines from Pry&#39;s input expression history. Takes an index or range&quot;</span>,
+  <span class="ruby-value">:optional_argument</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword">true</span>, <span class="ruby-value">:as</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-constant">Range</span>, <span class="ruby-value">:default</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">-5</span><span class="ruby-operator">..</span><span class="ruby-value">-1</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">r</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">input_expression_ranges</span> <span class="ruby-operator">&lt;&lt;</span> (<span class="ruby-identifier">r</span> <span class="ruby-operator">||</span> (<span class="ruby-value">-5</span><span class="ruby-operator">..</span><span class="ruby-value">-1</span>))
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">opt</span>.<span class="ruby-identifier">on</span> <span class="ruby-value">:s</span>, <span class="ruby-value">:super</span>, <span class="ruby-string">&quot;Select the &#39;super&#39; method. Can be repeated to traverse the ancestors&quot;</span>,
+                     <span class="ruby-value">:as</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">:count</span>
+  <span class="ruby-identifier">opt</span>.<span class="ruby-identifier">on</span> <span class="ruby-value">:d</span>, <span class="ruby-value">:doc</span>,   <span class="ruby-string">&quot;Select lines from the code object&#39;s documentation&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-new" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">new</span><span
+            class="method-args">(args, opts, _pry_)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="new-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/pry-0.11.3/lib/pry/commands/code_collector.rb, line 20</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">args</span>, <span class="ruby-identifier">opts</span>, <span class="ruby-identifier">_pry_</span>)
+  <span class="ruby-ivar">@args</span> = <span class="ruby-identifier">args</span>
+  <span class="ruby-ivar">@opts</span> = <span class="ruby-identifier">opts</span>
+  <span class="ruby-ivar">@_pry_</span> = <span class="ruby-identifier">_pry_</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-code_object" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">code_object</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>The code object</p>
+
+<p>@return [Pry::WrappedModule, <a href="../Method.html">Pry::Method</a>,
+Pry::Command]</p>
+          
+          
+
+          
+          <div class="method-source-code" id="code_object-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/pry-0.11.3/lib/pry/commands/code_collector.rb, line 76</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">code_object</span>
+  <span class="ruby-constant">Pry</span><span class="ruby-operator">::</span><span class="ruby-constant">CodeObject</span>.<span class="ruby-identifier">lookup</span>(<span class="ruby-identifier">obj_name</span>, <span class="ruby-identifier">_pry_</span>,  <span class="ruby-value">:super</span> =<span class="ruby-operator">&gt;</span>  <span class="ruby-identifier">opts</span>[<span class="ruby-value">:super</span>])
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-content" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">content</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>The content (i.e code/docs) for the selected object. If the user provided a
+bare code object, it returns the source. If the user provided the `-i` or
+`-o` switches, it returns the selected input/output lines joined as a
+string. If the user used `-d CODE_OBJECT` it returns the docs for that code
+object.</p>
+
+<p>@return [String]</p>
+          
+          
+
+          
+          <div class="method-source-code" id="content-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/pry-0.11.3/lib/pry/commands/code_collector.rb, line 53</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">content</span>
+  <span class="ruby-ivar">@content</span> <span class="ruby-operator">||=</span>
+    <span class="ruby-keyword">begin</span>
+      <span class="ruby-identifier">raise</span> <span class="ruby-constant">CommandError</span>, <span class="ruby-string">&quot;Only one of --out, --in, --doc and CODE_OBJECT may be specified.&quot;</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">bad_option_combination?</span>
+
+      <span class="ruby-identifier">content</span> = <span class="ruby-keyword">case</span>
+                <span class="ruby-keyword">when</span> <span class="ruby-identifier">opts</span>.<span class="ruby-identifier">present?</span>(<span class="ruby-value">:o</span>)
+                  <span class="ruby-identifier">pry_output_content</span>
+                <span class="ruby-keyword">when</span> <span class="ruby-identifier">opts</span>.<span class="ruby-identifier">present?</span>(<span class="ruby-value">:i</span>)
+                  <span class="ruby-identifier">pry_input_content</span>
+                <span class="ruby-keyword">when</span> <span class="ruby-identifier">opts</span>.<span class="ruby-identifier">present?</span>(<span class="ruby-value">:d</span>)
+                  <span class="ruby-identifier">code_object_doc</span>
+                <span class="ruby-keyword">else</span>
+                  <span class="ruby-identifier">code_object_source_or_file</span>
+                <span class="ruby-keyword">end</span>
+
+      <span class="ruby-identifier">restrict_to_lines</span>(<span class="ruby-identifier">content</span>, <span class="ruby-identifier">line_range</span>)
+    <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-line_range" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">line_range</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>The line range passed to `–lines`, converted to a 0-indexed range.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="line_range-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/pry-0.11.3/lib/pry/commands/code_collector.rb, line 109</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">line_range</span>
+  <span class="ruby-identifier">opts</span>.<span class="ruby-identifier">present?</span>(<span class="ruby-value">:lines</span>) <span class="ruby-operator">?</span> <span class="ruby-identifier">one_index_range_or_number</span>(<span class="ruby-identifier">opts</span>[<span class="ruby-value">:lines</span>]) <span class="ruby-operator">:</span> <span class="ruby-value">0</span><span class="ruby-operator">..</span><span class="ruby-value">-1</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-obj_name" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">obj_name</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Name of the object argument</p>
+          
+          
+
+          
+          <div class="method-source-code" id="obj_name-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/pry-0.11.3/lib/pry/commands/code_collector.rb, line 114</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">obj_name</span>
+  <span class="ruby-ivar">@obj_name</span> <span class="ruby-operator">||=</span> <span class="ruby-identifier">args</span>.<span class="ruby-identifier">empty?</span> <span class="ruby-operator">?</span> <span class="ruby-string">&quot;&quot;</span> <span class="ruby-operator">:</span> <span class="ruby-identifier">args</span>.<span class="ruby-identifier">join</span>(<span class="ruby-string">&quot; &quot;</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-pry_input_content" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">pry_input_content</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>The selected `<em>pry</em>.input_array` as a string, as specified by the
+`-i` switch.</p>
+
+<p>@return [String]</p>
+          
+          
+
+          
+          <div class="method-source-code" id="pry_input_content-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/pry-0.11.3/lib/pry/commands/code_collector.rb, line 104</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">pry_input_content</span>
+  <span class="ruby-identifier">pry_array_content_as_string</span>(<span class="ruby-identifier">_pry_</span>.<span class="ruby-identifier">input_array</span>, <span class="ruby-keyword">self</span>.<span class="ruby-identifier">class</span>.<span class="ruby-identifier">input_expression_ranges</span>) { <span class="ruby-operator">|</span><span class="ruby-identifier">v</span><span class="ruby-operator">|</span> <span class="ruby-identifier">v</span> }
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-pry_output_content" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">pry_output_content</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>The selected `<em>pry</em>.output_array` as a string, as specified by the
+`-o` switch.</p>
+
+<p>@return [String]</p>
+          
+          
+
+          
+          <div class="method-source-code" id="pry_output_content-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/pry-0.11.3/lib/pry/commands/code_collector.rb, line 94</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">pry_output_content</span>
+  <span class="ruby-identifier">pry_array_content_as_string</span>(<span class="ruby-identifier">_pry_</span>.<span class="ruby-identifier">output_array</span>, <span class="ruby-keyword">self</span>.<span class="ruby-identifier">class</span>.<span class="ruby-identifier">output_result_ranges</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">v</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">_pry_</span>.<span class="ruby-identifier">config</span>.<span class="ruby-identifier">gist</span>.<span class="ruby-identifier">inspecter</span>.<span class="ruby-identifier">call</span>(<span class="ruby-identifier">v</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-restrict_to_lines" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">restrict_to_lines</span><span
+            class="method-args">(content, range)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Given a string and a range, return the `range` lines of that string.</p>
+
+<p>@param [String] content @param [Range, Fixnum] range @return [String] The
+string restricted to the given range</p>
+          
+          
+
+          
+          <div class="method-source-code" id="restrict_to_lines-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/pry-0.11.3/lib/pry/commands/code_collector.rb, line 86</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">restrict_to_lines</span>(<span class="ruby-identifier">content</span>, <span class="ruby-identifier">range</span>)
+  <span class="ruby-constant">Array</span>(<span class="ruby-identifier">content</span>.<span class="ruby-identifier">lines</span>.<span class="ruby-identifier">to_a</span>[<span class="ruby-identifier">range</span>]).<span class="ruby-identifier">join</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="https://rdoc.github.io/rdoc">RDoc</a> 5.0.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

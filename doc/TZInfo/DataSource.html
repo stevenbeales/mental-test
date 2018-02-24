@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class TZInfo::DataSource - RDoc Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../";
+  var index_rel_prefix = "../";
+</script>
+
+<script src="../js/jquery.js"></script>
+<script src="../js/darkfish.js"></script>
+
+<link href="../css/fonts.css" rel="stylesheet">
+<link href="../css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../table_of_contents.html#pages">Pages</a>
+    <a href="../table_of_contents.html#classes">Classes</a>
+    <a href="../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link"><a href="../Object.html">Object</a>
+  
+</div>
+
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-c-get">::get</a>
+    
+    <li ><a href="#method-c-set">::set</a>
+    
+    <li ><a href="#method-i-country_codes">#country_codes</a>
+    
+    <li ><a href="#method-i-data_timezone_identifiers">#data_timezone_identifiers</a>
+    
+    <li ><a href="#method-i-inspect">#inspect</a>
+    
+    <li ><a href="#method-i-linked_timezone_identifiers">#linked_timezone_identifiers</a>
+    
+    <li ><a href="#method-i-load_country_info">#load_country_info</a>
+    
+    <li ><a href="#method-i-load_timezone_info">#load_timezone_info</a>
+    
+    <li ><a href="#method-i-timezone_identifiers">#timezone_identifiers</a>
+    
+    <li ><a href="#method-i-to_s">#to_s</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-TZInfo::DataSource">
+  <h1 id="class-TZInfo::DataSource" class="class">
+    class TZInfo::DataSource
+  </h1>
+
+  <section class="description">
+    
+<p>The base class for data sources of timezone and country data.</p>
+
+<p>Use <a href="DataSource.html#method-c-set">::set</a> to change the data
+source being used.</p>
+
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Class Methods</h3>
+       </header>
+
+    
+      <div id="method-c-get" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">get</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Returns the currently selected <a href="DataSource.html">DataSource</a>
+instance.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="get-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/tzinfo-1.2.5/lib/tzinfo/data_source.rb, line 26</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">get</span>
+  <span class="ruby-comment"># If a DataSource hasn&#39;t been manually set when the first request is</span>
+  <span class="ruby-comment"># made to obtain a DataSource, then a Default data source is created.</span>
+  
+  <span class="ruby-comment"># This is done at the first request rather than when TZInfo is loaded to</span>
+  <span class="ruby-comment"># avoid unnecessary (or in some cases potentially harmful) attempts to </span>
+  <span class="ruby-comment"># find a suitable DataSource.</span>
+  
+  <span class="ruby-comment"># A Mutex is used to ensure that only a single default instance is</span>
+  <span class="ruby-comment"># created (having two different DataSources in use simultaneously could </span>
+  <span class="ruby-comment"># cause unexpected results).</span>
+  
+  <span class="ruby-keyword">unless</span> <span class="ruby-identifier">@@instance</span>
+    <span class="ruby-identifier">@@default_mutex</span>.<span class="ruby-identifier">synchronize</span> <span class="ruby-keyword">do</span>
+      <span class="ruby-identifier">set</span>(<span class="ruby-identifier">create_default_data_source</span>) <span class="ruby-keyword">unless</span> <span class="ruby-identifier">@@instance</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>      
+  
+  <span class="ruby-identifier">@@instance</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-set" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">set</span><span
+            class="method-args">(data_source_or_type, *args)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Sets the currently selected data source for <a
+href="Timezone.html">Timezone</a> and <a href="Country.html">Country</a>
+data.</p>
+
+<p>This should usually be set to one of the two standard data source types:</p>
+<ul><li>
+<p><code>:ruby</code> - read data from the Ruby modules included in the <a
+href="Data.html">TZInfo::Data</a>  library (tzinfo-data gem).</p>
+</li><li>
+<p><code>:zoneinfo</code> - read data from the zoneinfo files included with
+most Unix-like operating sytems (e.g. in /usr/share/zoneinfo).</p>
+</li></ul>
+
+<p>To set <a href="../TZInfo.html">TZInfo</a> to use one of the standard data
+source types, call TZInfo::DataSource.set in one of the following ways:</p>
+
+<pre class="ruby"><span class="ruby-constant">TZInfo</span><span class="ruby-operator">::</span><span class="ruby-constant">DataSource</span>.<span class="ruby-identifier">set</span>(:<span class="ruby-identifier">ruby</span>)
+<span class="ruby-constant">TZInfo</span><span class="ruby-operator">::</span><span class="ruby-constant">DataSource</span>.<span class="ruby-identifier">set</span>(:<span class="ruby-identifier">zoneinfo</span>)
+<span class="ruby-constant">TZInfo</span><span class="ruby-operator">::</span><span class="ruby-constant">DataSource</span>.<span class="ruby-identifier">set</span>(:<span class="ruby-identifier">zoneinfo</span>, <span class="ruby-identifier">zoneinfo_dir</span>)
+<span class="ruby-constant">TZInfo</span><span class="ruby-operator">::</span><span class="ruby-constant">DataSource</span>.<span class="ruby-identifier">set</span>(:<span class="ruby-identifier">zoneinfo</span>, <span class="ruby-identifier">zoneinfo_dir</span>, <span class="ruby-identifier">iso3166_tab_file</span>)
+</pre>
+
+<p>DataSource.set(:zoneinfo) will automatically search for the zoneinfo
+directory by checking the paths specified in 
+ZoneinfoDataSource.search_paths. <a
+href="ZoneinfoDirectoryNotFound.html">ZoneinfoDirectoryNotFound</a> will be
+raised if no valid zoneinfo directory could be found.</p>
+
+<p>DataSource.set(:zoneinfo, zoneinfo_dir) uses the specified zoneinfo
+directory as the data source. If the directory is not a valid zoneinfo
+directory, an <a
+href="InvalidZoneinfoDirectory.html">InvalidZoneinfoDirectory</a> exception
+will be raised.</p>
+
+<p>DataSource.set(:zoneinfo, zoneinfo_dir, iso3166_tab_file) uses the
+specified zoneinfo directory as the data source, but loads the iso3166.tab
+file from an alternate path. If the directory is not a valid zoneinfo
+directory, an <a
+href="InvalidZoneinfoDirectory.html">InvalidZoneinfoDirectory</a> exception
+will be raised.</p>
+
+<p><a
+href="../vendor/bundle/ruby/2_4_0/gems/oj-3_4_0/pages/Custom_md.html">Custom</a>
+data sources can be created by subclassing <a
+href="DataSource.html">TZInfo::DataSource</a> and implementing the
+following methods:</p>
+<ul><li>
+<p>load_timezone_info</p>
+</li><li>
+<p>timezone_identifiers</p>
+</li><li>
+<p>data_timezone_identifiers</p>
+</li><li>
+<p>linked_timezone_identifiers</p>
+</li><li>
+<p>load_country_info</p>
+</li><li>
+<p>country_codes</p>
+</li></ul>
+
+<p>To have <a href="../TZInfo.html">TZInfo</a> use the custom data source,
+call DataSource.set  as follows:</p>
+
+<pre class="ruby"><span class="ruby-constant">TZInfo</span><span class="ruby-operator">::</span><span class="ruby-constant">DataSource</span>.<span class="ruby-identifier">set</span>(<span class="ruby-constant">CustomDataSource</span>.<span class="ruby-identifier">new</span>)
+</pre>
+
+<p>To avoid inconsistent data, DataSource.set should be called before
+accessing any <a href="Timezone.html">Timezone</a> or <a
+href="Country.html">Country</a> data.</p>
+
+<p>If DataSource.set is not called, <a href="../TZInfo.html">TZInfo</a> will
+by default use <a href="Data.html">TZInfo::Data</a>  as the data source. If
+<a href="Data.html">TZInfo::Data</a> is not available (i.e. if require 
+&#39;tzinfo/data&#39; fails), then <a href="../TZInfo.html">TZInfo</a> will
+search for a zoneinfo directory  instead (using the search path specified
+by TZInfo::ZoneinfoDataSource::DEFAULT_SEARCH_PATH).</p>
+          
+          
+
+          
+          <div class="method-source-code" id="set-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/tzinfo-1.2.5/lib/tzinfo/data_source.rb, line 101</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">set</span>(<span class="ruby-identifier">data_source_or_type</span>, <span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">data_source_or_type</span>.<span class="ruby-identifier">kind_of?</span>(<span class="ruby-constant">DataSource</span>)
+    <span class="ruby-identifier">@@instance</span> = <span class="ruby-identifier">data_source_or_type</span>
+  <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">data_source_or_type</span> <span class="ruby-operator">==</span> <span class="ruby-value">:ruby</span>
+    <span class="ruby-identifier">@@instance</span> = <span class="ruby-constant">RubyDataSource</span>.<span class="ruby-identifier">new</span>
+  <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">data_source_or_type</span> <span class="ruby-operator">==</span> <span class="ruby-value">:zoneinfo</span>
+    <span class="ruby-identifier">@@instance</span> = <span class="ruby-constant">ZoneinfoDataSource</span>.<span class="ruby-identifier">new</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>, <span class="ruby-string">&#39;data_source_or_type must be a DataSource instance or a data source type (:ruby)&#39;</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-country_codes" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">country_codes</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Returns an array of all the available ISO 3166-1 alpha-2 country codes.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="country_codes-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/tzinfo-1.2.5/lib/tzinfo/data_source.rb, line 150</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">country_codes</span>
+  <span class="ruby-identifier">raise_invalid_data_source</span>(<span class="ruby-string">&#39;country_codes&#39;</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-data_timezone_identifiers" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">data_timezone_identifiers</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Returns an array of all the available timezone identifiers for data
+timezones (i.e. those that actually contain definitions).</p>
+          
+          
+
+          
+          <div class="method-source-code" id="data_timezone_identifiers-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/tzinfo-1.2.5/lib/tzinfo/data_source.rb, line 131</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">data_timezone_identifiers</span>
+  <span class="ruby-identifier">raise_invalid_data_source</span>(<span class="ruby-string">&#39;data_timezone_identifiers&#39;</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-inspect" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">inspect</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Returns internal object state as a programmer-readable string.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="inspect-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/tzinfo-1.2.5/lib/tzinfo/data_source.rb, line 160</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">inspect</span>
+  <span class="ruby-node">&quot;#&lt;#{self.class}&gt;&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-linked_timezone_identifiers" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">linked_timezone_identifiers</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Returns an array of all the available timezone identifiers that are links
+to other timezones.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="linked_timezone_identifiers-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/tzinfo-1.2.5/lib/tzinfo/data_source.rb, line 137</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">linked_timezone_identifiers</span>
+  <span class="ruby-identifier">raise_invalid_data_source</span>(<span class="ruby-string">&#39;linked_timezone_identifiers&#39;</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-load_country_info" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">load_country_info</span><span
+            class="method-args">(code)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Returns a <a href="CountryInfo.html">CountryInfo</a> instance for the given
+ISO 3166-1 alpha-2 country code. Raises <a
+href="InvalidCountryCode.html">InvalidCountryCode</a> if the country could
+not be found or the code is invalid.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="load_country_info-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/tzinfo-1.2.5/lib/tzinfo/data_source.rb, line 144</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">load_country_info</span>(<span class="ruby-identifier">code</span>)
+  <span class="ruby-identifier">raise_invalid_data_source</span>(<span class="ruby-string">&#39;load_country_info&#39;</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-load_timezone_info" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">load_timezone_info</span><span
+            class="method-args">(identifier)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Returns a <a href="TimezoneInfo.html">TimezoneInfo</a> instance for a given
+identifier. The <a href="TimezoneInfo.html">TimezoneInfo</a> instance
+should derive from either DataTimzoneInfo for timezones that define their
+own data or <a href="LinkedTimezoneInfo.html">LinkedTimezoneInfo</a> for
+links or aliases to other timezones.</p>
+
+<p>Raises <a
+href="InvalidTimezoneIdentifier.html">InvalidTimezoneIdentifier</a> if the
+timezone is not found or the  identifier is invalid.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="load_timezone_info-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/tzinfo-1.2.5/lib/tzinfo/data_source.rb, line 120</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">load_timezone_info</span>(<span class="ruby-identifier">identifier</span>)
+  <span class="ruby-identifier">raise_invalid_data_source</span>(<span class="ruby-string">&#39;load_timezone_info&#39;</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-timezone_identifiers" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">timezone_identifiers</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Returns an array of all the available timezone identifiers.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="timezone_identifiers-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/tzinfo-1.2.5/lib/tzinfo/data_source.rb, line 125</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">timezone_identifiers</span>
+  <span class="ruby-identifier">raise_invalid_data_source</span>(<span class="ruby-string">&#39;timezone_identifiers&#39;</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-to_s" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">to_s</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Returns the name of this <a href="DataSource.html">DataSource</a>.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="to_s-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/tzinfo-1.2.5/lib/tzinfo/data_source.rb, line 155</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">to_s</span>
+  <span class="ruby-string">&quot;Default DataSource&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="https://rdoc.github.io/rdoc">RDoc</a> 5.0.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

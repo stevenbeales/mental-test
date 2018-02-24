@@ -1,0 +1,1509 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class Concurrent::Promise - RDoc Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../";
+  var index_rel_prefix = "../";
+</script>
+
+<script src="../js/jquery.js"></script>
+<script src="../js/darkfish.js"></script>
+
+<link href="../css/fonts.css" rel="stylesheet">
+<link href="../css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../table_of_contents.html#pages">Pages</a>
+    <a href="../table_of_contents.html#classes">Classes</a>
+    <a href="../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link"><a href="IVar.html">Concurrent::IVar</a>
+  
+</div>
+
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-c-aggregate">::aggregate</a>
+    
+    <li ><a href="#method-c-all-3F">::all?</a>
+    
+    <li ><a href="#method-c-any-3F">::any?</a>
+    
+    <li ><a href="#method-c-execute">::execute</a>
+    
+    <li ><a href="#method-c-fulfill">::fulfill</a>
+    
+    <li class="calls-super" ><a href="#method-c-new">::new</a>
+    
+    <li ><a href="#method-c-reject">::reject</a>
+    
+    <li ><a href="#method-c-zip">::zip</a>
+    
+    <li ><a href="#method-i-catch">#catch</a>
+    
+    <li ><a href="#method-i-complete">#complete</a>
+    
+    <li ><a href="#method-i-execute">#execute</a>
+    
+    <li ><a href="#method-i-fail">#fail</a>
+    
+    <li ><a href="#method-i-flat_map">#flat_map</a>
+    
+    <li ><a href="#method-i-notify_child">#notify_child</a>
+    
+    <li class="calls-super" ><a href="#method-i-ns_initialize">#ns_initialize</a>
+    
+    <li ><a href="#method-i-on_error">#on_error</a>
+    
+    <li ><a href="#method-i-on_fulfill">#on_fulfill</a>
+    
+    <li ><a href="#method-i-on_reject">#on_reject</a>
+    
+    <li ><a href="#method-i-on_success">#on_success</a>
+    
+    <li ><a href="#method-i-realize">#realize</a>
+    
+    <li ><a href="#method-i-rescue">#rescue</a>
+    
+    <li ><a href="#method-i-set">#set</a>
+    
+    <li ><a href="#method-i-set_pending">#set_pending</a>
+    
+    <li ><a href="#method-i-set_state-21">#set_state!</a>
+    
+    <li ><a href="#method-i-synchronized_set_state-21">#synchronized_set_state!</a>
+    
+    <li ><a href="#method-i-then">#then</a>
+    
+    <li ><a href="#method-i-zip">#zip</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-Concurrent::Promise">
+  <h1 id="class-Concurrent::Promise" class="class">
+    class Concurrent::Promise
+  </h1>
+
+  <section class="description">
+    
+<p>Promises are inspired by the JavaScript [Promises/A](<a
+href="http://wiki.commonjs.org/wiki/Promises/A">wiki.commonjs.org/wiki/Promises/A</a>)
+and [Promises/A+](<a
+href="http://promises-aplus.github.io/promises-spec">promises-aplus.github.io/promises-spec</a>/)
+specifications.</p>
+
+<p>&gt; A promise represents the eventual value returned from the single &gt;
+completion of an operation.</p>
+
+<p>Promises are similar to futures and share many of the same behaviours.
+Promises are far more robust, however. Promises can be chained in a tree
+structure where each promise may have zero or more children. Promises are
+chained using the `then` method. The result of a call to `then` is always
+another promise. Promises are resolved asynchronously (with respect to the
+main thread) but in a strict order: parents are guaranteed to be resolved
+before their children, children before their younger siblings. The `then`
+method takes two parameters: an optional block to be executed upon parent
+resolution and an optional callable to be executed upon parent failure. The
+result of each promise is passed to each of its children upon resolution.
+When a promise is rejected all its children will be summarily rejected and
+will receive the reason.</p>
+
+<p>Promises have several possible states: <strong>:unscheduled</strong>,
+<strong>:pending</strong>, <strong>:processing</strong>,
+<strong>:rejected</strong>, or <strong>:fulfilled</strong>. These are also
+aggregated as `#incomplete?` and `#complete?`. When a <a
+href="Promise.html">Promise</a> is created it is set to
+<strong>:unscheduled</strong>. Once the `#execute` method is called the
+state becomes <strong>:pending</strong>. Once a job is pulled from the
+thread pool&#39;s queue and is given to a thread for processing (often
+immediately upon `#post`) the state becomes <strong>:processing</strong>.
+The future will remain in this state until processing is complete. A future
+that is in the <strong>:unscheduled</strong>, <strong>:pending</strong>, or
+<strong>:processing</strong> is considered `#incomplete?`. A `#complete?`
+<a href="Promise.html">Promise</a> is either <strong>:rejected</strong>,
+indicating that an exception was thrown during processing, or
+<strong>:fulfilled</strong>, indicating success. If a <a
+href="Promise.html">Promise</a> is <strong>:fulfilled</strong> its `#value`
+will be updated to reflect the result of the operation. If
+<strong>:rejected</strong> the `reason` will be updated with a reference to
+the thrown exception. The predicate methods `#unscheduled?`, `#pending?`,
+`#rejected?`, and `#fulfilled?` can be called at any time to obtain the
+state of the <a href="Promise.html">Promise</a>, as can the `#state`
+method, which returns a symbol.</p>
+
+<p>Retrieving the value of a promise is done through the `value` (alias:
+`deref`) method. Obtaining the value of a promise is a potentially blocking
+operation. When a promise is <strong>rejected</strong> a call to `value`
+will return `nil` immediately. When a promise is <strong>fulfilled</strong>
+a call to `value` will immediately return the current value. When a promise
+is <strong>pending</strong> a call to `value` will block until the promise
+is either <strong>rejected</strong> or <strong>fulfilled</strong>. A
+<strong>timeout</strong> value can be passed to `value` to limit how long
+the call will block. If `nil` the call will block indefinitely. If `0` the
+call will not block. Any other integer or float value will indicate the
+maximum number of seconds to block.</p>
+
+<p>Promises run on the global thread pool.</p>
+
+<p>@!macro copy_options</p>
+
+<p>### Examples</p>
+
+<p>Start by requiring promises</p>
+
+<p>“`ruby require &#39;concurrent&#39; “`</p>
+
+<p>Then create one</p>
+
+<p>“`ruby p = <a href="Promise.html#method-i-execute">#execute</a> do</p>
+
+<pre>  # do something
+  42
+end</pre>
+
+<p>“`</p>
+
+<p>Promises can be chained using the `then` method. The `then` method accepts
+a block and an executor, to be executed on fulfillment, and a callable
+argument to be executed on rejection. The result of the each promise is
+passed as the block argument to chained promises.</p>
+
+<p>“`ruby p = <a href="Promise.html#method-c-new">::new</a>{10}.then{|x| x *
+2}.then{|result| result - 10 }.execute “`</p>
+
+<p>And so on, and so on, and so on…</p>
+
+<p>“`ruby p = <a href="Promise.html#method-c-fulfill">::fulfill</a>.</p>
+
+<pre>then{|result| result - 10 }.
+then{|result| result * 3 }.
+then(executor: different_executor){|result| result % 5 }.execute</pre>
+
+<p>“`</p>
+
+<p>The initial state of a newly created <a href="Promise.html">Promise</a>
+depends on the state of its parent:</p>
+<ul><li>
+<p>if parent is <strong>unscheduled</strong> the child will be
+<strong>unscheduled</strong></p>
+</li><li>
+<p>if parent is <strong>pending</strong> the child will be
+<strong>pending</strong></p>
+</li><li>
+<p>if parent is <strong>fulfilled</strong> the child will be
+<strong>pending</strong></p>
+</li><li>
+<p>if parent is <strong>rejected</strong> the child will be
+<strong>pending</strong> (but will ultimately be <strong>rejected</strong>)</p>
+</li></ul>
+
+<p>Promises are executed asynchronously from the main thread. By the time a
+child <a href="Promise.html">Promise</a> finishes intialization it may be
+in a different state than its parent (by the time a child is created its
+parent may have completed execution and changed state). Despite being
+asynchronous, however, the order of execution of <a
+href="Promise.html">Promise</a> objects in a chain (or tree) is strictly
+defined.</p>
+
+<p>There are multiple ways to create and execute a new `Promise`. Both ways
+provide identical behavior:</p>
+
+<p>“`ruby # create, operate, then execute p1 = <a
+href="Promise.html#method-c-new">::new</a>{ “Hello World!” } p1.state
+#=&gt; :unscheduled p1.execute</p>
+
+<p># create and immediately execute p2 = <a
+href="Promise.html#method-c-new">::new</a>{ “Hello World!” }.execute</p>
+
+<p># execute during creation p3 = <a
+href="Promise.html#method-i-execute">#execute</a>{ “Hello World!” } “`</p>
+
+<p>Once the `execute` method is called a `Promise` becomes `pending`:</p>
+
+<p>“`ruby p = <a href="Promise.html#method-i-execute">#execute</a>{ “Hello,
+world!” } p.state    #=&gt; :pending p.pending? #=&gt; true “`</p>
+
+<p>Wait a little bit, and the promise will resolve and provide a value:</p>
+
+<p>“`ruby p = <a href="Promise.html#method-i-execute">#execute</a>{ “Hello,
+world!” } sleep(0.1)</p>
+
+<p>p.state      #=&gt; :fulfilled p.fulfilled? #=&gt; true p.value      #=&gt;
+“Hello, world!” “`</p>
+
+<p>If an exception occurs, the promise will be rejected and will provide a
+reason for the rejection:</p>
+
+<p>“`ruby p = <a href="Promise.html#method-i-execute">#execute</a>{ raise
+StandardError.new(“Here comes the Boom!”) } sleep(0.1)</p>
+
+<p>p.state     #=&gt; :rejected p.rejected? #=&gt; true p.reason    #=&gt;
+“#&lt;StandardError: Here comes the Boom!&gt;” “`</p>
+
+<p>#### Rejection</p>
+
+<p>When a promise is rejected all its children will be rejected and will
+receive the rejection `reason` as the rejection callable parameter:</p>
+
+<p>“`ruby p = [ <a href="Promise.html#method-i-execute">#execute</a>{
+Thread.pass; raise StandardError } ]</p>
+
+<p>c1 = p.then(Proc.new{ |reason| 42 }) c2 = p.then(Proc.new{ |reason| raise
+&#39;Boom!&#39; })</p>
+
+<p>sleep(0.1)</p>
+
+<p>c1.state  #=&gt; :rejected c2.state  #=&gt; :rejected “`</p>
+
+<p>Once a promise is rejected it will continue to accept children that will
+receive immediately rejection (they will be executed asynchronously).</p>
+
+<p>#### Aliases</p>
+
+<p>The `then` method is the most generic alias: it accepts a block to be
+executed upon parent fulfillment and a callable to be executed upon parent
+rejection. At least one of them should be passed. The default block is `{
+|result| result }` that fulfills the child with the parent value. The
+default callable is `{ |reason| raise reason }` that rejects the child with
+the parent reason.</p>
+<ul><li>
+<p>`on_success { |result| … }` is the same as `then {|result| … }`</p>
+</li><li>
+<p>`rescue { |reason| … }` is the same as `then(Proc.new { |reason| … } )`</p>
+</li><li>
+<p>`rescue` is aliased by `catch` and `on_error`</p>
+</li></ul>
+
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Class Methods</h3>
+       </header>
+
+    
+      <div id="method-c-all-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">all?</span><span
+            class="method-args">(*promises)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Aggregates a collection of promises and executes the `then` condition if
+all aggregated promises succeed. Executes the `rescue` handler with a
+`Concurrent::PromiseExecutionError` if any of the aggregated promises fail.
+Upon execution will execute any of the aggregate promises that were not
+already executed.</p>
+
+<p>@!macro [attach] promise_self_aggregate</p>
+
+<pre>The returned promise will not yet have been executed. Additional `#then`
+and `#rescue` handlers may still be provided. Once the returned promise
+is execute the aggregate promises will be also be executed (if they have
+not been executed already). The results of the aggregate promises will
+be checked upon completion. The necessary `#then` and `#rescue` blocks
+on the aggregating promise will then be executed as appropriate. If the
+`#rescue` handlers are executed the raises exception will be
+`Concurrent::PromiseExecutionError`.
+
+@param [Array] promises Zero or more promises to aggregate
+@return [Promise] an unscheduled (not executed) promise that aggregates
+  the promises given as arguments</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="all-3F-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/concurrent-ruby-1.0.5/lib/concurrent/promise.rb, line 431</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">all?</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">promises</span>)
+  <span class="ruby-identifier">aggregate</span>(<span class="ruby-value">:all?</span>, <span class="ruby-operator">*</span><span class="ruby-identifier">promises</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-any-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">any?</span><span
+            class="method-args">(*promises)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Aggregates a collection of promises and executes the `then` condition if
+any aggregated promises succeed. Executes the `rescue` handler with a
+`Concurrent::PromiseExecutionError` if any of the aggregated promises fail.
+Upon execution will execute any of the aggregate promises that were not
+already executed.</p>
+
+<p>@!macro promise_self_aggregate</p>
+          
+          
+
+          
+          <div class="method-source-code" id="any-3F-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/concurrent-ruby-1.0.5/lib/concurrent/promise.rb, line 442</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">any?</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">promises</span>)
+  <span class="ruby-identifier">aggregate</span>(<span class="ruby-value">:any?</span>, <span class="ruby-operator">*</span><span class="ruby-identifier">promises</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-execute" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">execute</span><span
+            class="method-args">(opts = {}, &block)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Create a new `Promise` object with the given block, execute it, and return
+the `:pending` object.</p>
+
+<p>@!macro executor_and_deref_options</p>
+
+<p>@!macro promise_init_options</p>
+
+<p>@return [Promise] the newly created `Promise` in the `:pending` state</p>
+
+<p>@raise [ArgumentError] if no block is given</p>
+
+<p>@example</p>
+
+<pre class="ruby"><span class="ruby-identifier">promise</span> = <span class="ruby-constant">Concurrent</span><span class="ruby-operator">::</span><span class="ruby-constant">Promise</span>.<span class="ruby-identifier">execute</span>{ <span class="ruby-identifier">sleep</span>(<span class="ruby-value">1</span>); <span class="ruby-value">42</span> }
+<span class="ruby-identifier">promise</span>.<span class="ruby-identifier">state</span> <span class="ruby-comment">#=&gt; :pending</span>
+</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="execute-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/concurrent-ruby-1.0.5/lib/concurrent/promise.rb, line 295</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">execute</span>(<span class="ruby-identifier">opts</span> = {}, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+  <span class="ruby-identifier">new</span>(<span class="ruby-identifier">opts</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>).<span class="ruby-identifier">execute</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-fulfill" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">fulfill</span><span
+            class="method-args">(value, opts = {})</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Create a new `Promise` and fulfill it immediately.</p>
+
+<p>@!macro executor_and_deref_options</p>
+
+<p>@!macro promise_init_options</p>
+
+<p>@raise [ArgumentError] if no block is given</p>
+
+<p>@return [Promise] the newly created `Promise`</p>
+          
+          
+
+          
+          <div class="method-source-code" id="fulfill-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/concurrent-ruby-1.0.5/lib/concurrent/promise.rb, line 224</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">fulfill</span>(<span class="ruby-identifier">value</span>, <span class="ruby-identifier">opts</span> = {})
+  <span class="ruby-constant">Promise</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">opts</span>).<span class="ruby-identifier">tap</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">p</span><span class="ruby-operator">|</span> <span class="ruby-identifier">p</span>.<span class="ruby-identifier">send</span>(<span class="ruby-value">:synchronized_set_state!</span>, <span class="ruby-keyword">true</span>, <span class="ruby-identifier">value</span>, <span class="ruby-keyword">nil</span>) }
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-new" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">new</span><span
+            class="method-args">(opts = {}, &block)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Initialize a new <a href="Promise.html">Promise</a> with the provided
+options.</p>
+
+<p>@!macro executor_and_deref_options</p>
+
+<p>@!macro [attach] promise_init_options</p>
+
+<pre>@option opts [Promise] :parent the parent `Promise` when building a chain/tree
+@option opts [Proc] :on_fulfill fulfillment handler
+@option opts [Proc] :on_reject rejection handler
+@option opts [object, Array] :args zero or more arguments to be passed
+ the task block on execution</pre>
+
+<p>@yield The block operation to be performed asynchronously.</p>
+
+<p>@raise [ArgumentError] if no block is given</p>
+
+<p>@see <a
+href="http://wiki.commonjs.org/wiki/Promises/A">wiki.commonjs.org/wiki/Promises/A</a>
+@see <a
+href="http://promises-aplus.github.io/promises-spec">promises-aplus.github.io/promises-spec</a>/</p>
+          
+          
+            <div class="method-calls-super">
+              Calls superclass method
+              <a href="IVar.html#method-c-new">Concurrent::IVar.new</a>
+            </div>
+          
+
+          
+          <div class="method-source-code" id="new-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/concurrent-ruby-1.0.5/lib/concurrent/promise.rb, line 210</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">opts</span> = {}, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+  <span class="ruby-identifier">opts</span>.<span class="ruby-identifier">delete_if</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">k</span>, <span class="ruby-identifier">v</span><span class="ruby-operator">|</span> <span class="ruby-identifier">v</span>.<span class="ruby-identifier">nil?</span> }
+  <span class="ruby-keyword">super</span>(<span class="ruby-constant">NULL</span>, <span class="ruby-identifier">opts</span>.<span class="ruby-identifier">merge</span>(<span class="ruby-identifier">__promise_body_from_block__</span><span class="ruby-operator">:</span> <span class="ruby-identifier">block</span>), <span class="ruby-operator">&amp;</span><span class="ruby-keyword">nil</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-reject" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">reject</span><span
+            class="method-args">(reason, opts = {})</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Create a new `Promise` and reject it immediately.</p>
+
+<p>@!macro executor_and_deref_options</p>
+
+<p>@!macro promise_init_options</p>
+
+<p>@raise [ArgumentError] if no block is given</p>
+
+<p>@return [Promise] the newly created `Promise`</p>
+          
+          
+
+          
+          <div class="method-source-code" id="reject-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/concurrent-ruby-1.0.5/lib/concurrent/promise.rb, line 237</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">reject</span>(<span class="ruby-identifier">reason</span>, <span class="ruby-identifier">opts</span> = {})
+  <span class="ruby-constant">Promise</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">opts</span>).<span class="ruby-identifier">tap</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">p</span><span class="ruby-operator">|</span> <span class="ruby-identifier">p</span>.<span class="ruby-identifier">send</span>(<span class="ruby-value">:synchronized_set_state!</span>, <span class="ruby-keyword">false</span>, <span class="ruby-keyword">nil</span>, <span class="ruby-identifier">reason</span>) }
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-zip" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">zip</span><span
+            class="method-args">(*promises)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Builds a promise that produces the result of promises in an <a
+href="Array.html">Array</a> and fails if any of them fails.</p>
+
+<p>@param [Array&lt;Promise&gt;] promises</p>
+
+<p>@return [Promise&lt;Array&gt;]</p>
+          
+          
+
+          
+          <div class="method-source-code" id="zip-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/concurrent-ruby-1.0.5/lib/concurrent/promise.rb, line 389</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">zip</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">promises</span>)
+  <span class="ruby-identifier">zero</span> = <span class="ruby-identifier">fulfill</span>([], <span class="ruby-identifier">executor</span><span class="ruby-operator">:</span> <span class="ruby-constant">ImmediateExecutor</span>.<span class="ruby-identifier">new</span>)
+
+  <span class="ruby-identifier">promises</span>.<span class="ruby-identifier">reduce</span>(<span class="ruby-identifier">zero</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">p1</span>, <span class="ruby-identifier">p2</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">p1</span>.<span class="ruby-identifier">flat_map</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">results</span><span class="ruby-operator">|</span>
+      <span class="ruby-identifier">p2</span>.<span class="ruby-identifier">then</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">next_result</span><span class="ruby-operator">|</span>
+        <span class="ruby-identifier">results</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">next_result</span>
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="protected-class-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Protected Class Methods</h3>
+       </header>
+
+    
+      <div id="method-c-aggregate" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">aggregate</span><span
+            class="method-args">(method, *promises)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Aggregate a collection of zero or more promises under a composite promise,
+execute the aggregated promises and collect them into a standard Ruby
+array, call the given Ruby `Ennnumerable` predicate (such as `any?`,
+`all?`, `none?`, or `one?`) on the collection checking for the success or
+failure of each, then executing the composite&#39;s `#then` handlers if the
+predicate returns `true` or executing the composite&#39;s `#rescue`
+handlers if the predicate returns false.</p>
+
+<p>@!macro promise_self_aggregate</p>
+          
+          
+
+          
+          <div class="method-source-code" id="aggregate-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/concurrent-ruby-1.0.5/lib/concurrent/promise.rb, line 472</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">aggregate</span>(<span class="ruby-identifier">method</span>, <span class="ruby-operator">*</span><span class="ruby-identifier">promises</span>)
+  <span class="ruby-identifier">composite</span> = <span class="ruby-constant">Promise</span>.<span class="ruby-identifier">new</span> <span class="ruby-keyword">do</span>
+    <span class="ruby-identifier">completed</span> = <span class="ruby-identifier">promises</span>.<span class="ruby-identifier">collect</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">promise</span><span class="ruby-operator">|</span>
+      <span class="ruby-identifier">promise</span>.<span class="ruby-identifier">execute</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">promise</span>.<span class="ruby-identifier">unscheduled?</span>
+      <span class="ruby-identifier">promise</span>.<span class="ruby-identifier">wait</span>
+      <span class="ruby-identifier">promise</span>
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">unless</span> <span class="ruby-identifier">completed</span>.<span class="ruby-identifier">empty?</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">completed</span>.<span class="ruby-identifier">send</span>(<span class="ruby-identifier">method</span>){<span class="ruby-operator">|</span><span class="ruby-identifier">promise</span><span class="ruby-operator">|</span> <span class="ruby-identifier">promise</span>.<span class="ruby-identifier">fulfilled?</span> }
+      <span class="ruby-identifier">raise</span> <span class="ruby-constant">PromiseExecutionError</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">composite</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-catch" class="method-detail method-alias">
+        
+        <div class="method-heading">
+          <span class="method-name">catch</span><span
+            class="method-args">(&block)</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+        </div>
+
+        
+
+        
+        <div class="aliases">
+          Alias for: <a href="Promise.html#method-i-rescue">rescue</a>
+        </div>
+        
+      </div>
+
+    
+      <div id="method-i-execute" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">execute</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Execute an `:unscheduled` `Promise`. Immediately sets the state to
+`:pending` and passes the block to a new thread/thread pool for eventual
+execution. Does nothing if the `Promise` is in any state other than
+`:unscheduled`.</p>
+
+<p>@return [Promise] a reference to `self`</p>
+          
+          
+
+          
+          <div class="method-source-code" id="execute-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/concurrent-ruby-1.0.5/lib/concurrent/promise.rb, line 246</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">execute</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">root?</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">compare_and_set_state</span>(<span class="ruby-value">:pending</span>, <span class="ruby-value">:unscheduled</span>)
+      <span class="ruby-identifier">set_pending</span>
+      <span class="ruby-identifier">realize</span>(<span class="ruby-ivar">@promise_body</span>)
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-ivar">@parent</span>.<span class="ruby-identifier">execute</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">self</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-fail" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">fail</span><span
+            class="method-args">(reason = StandardError.new)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>@!macro ivar_fail_method</p>
+
+<p>@raise [Concurrent::PromiseExecutionError] if not the root promise</p>
+          
+          
+
+          
+          <div class="method-source-code" id="fail-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/concurrent-ruby-1.0.5/lib/concurrent/promise.rb, line 277</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">fail</span>(<span class="ruby-identifier">reason</span> = <span class="ruby-constant">StandardError</span>.<span class="ruby-identifier">new</span>)
+  <span class="ruby-identifier">set</span> { <span class="ruby-identifier">raise</span> <span class="ruby-identifier">reason</span> }
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-flat_map" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">flat_map</span><span
+            class="method-args">(&block)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Yield the successful result to the block that returns a promise. If that
+promise is also successful the result is the result of the yielded promise.
+If either part fails the whole also fails.</p>
+
+<p>@example</p>
+
+<pre class="ruby"><span class="ruby-constant">Promise</span>.<span class="ruby-identifier">execute</span> { <span class="ruby-value">1</span> }.<span class="ruby-identifier">flat_map</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">v</span><span class="ruby-operator">|</span> <span class="ruby-constant">Promise</span>.<span class="ruby-identifier">execute</span> { <span class="ruby-identifier">v</span> <span class="ruby-operator">+</span> <span class="ruby-value">2</span> } }.<span class="ruby-identifier">value!</span> <span class="ruby-comment">#=&gt; 3</span>
+</pre>
+
+<p>@return [Promise]</p>
+          
+          
+
+          
+          <div class="method-source-code" id="flat_map-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/concurrent-ruby-1.0.5/lib/concurrent/promise.rb, line 362</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">flat_map</span>(<span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+  <span class="ruby-identifier">child</span> = <span class="ruby-constant">Promise</span>.<span class="ruby-identifier">new</span>(
+    <span class="ruby-identifier">parent</span><span class="ruby-operator">:</span> <span class="ruby-keyword">self</span>,
+    <span class="ruby-identifier">executor</span><span class="ruby-operator">:</span> <span class="ruby-constant">ImmediateExecutor</span>.<span class="ruby-identifier">new</span>,
+  )
+
+  <span class="ruby-identifier">on_error</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">e</span><span class="ruby-operator">|</span> <span class="ruby-identifier">child</span>.<span class="ruby-identifier">on_reject</span>(<span class="ruby-identifier">e</span>) }
+  <span class="ruby-identifier">on_success</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">result1</span><span class="ruby-operator">|</span>
+    <span class="ruby-keyword">begin</span>
+      <span class="ruby-identifier">inner</span> = <span class="ruby-identifier">block</span>.<span class="ruby-identifier">call</span>(<span class="ruby-identifier">result1</span>)
+      <span class="ruby-identifier">inner</span>.<span class="ruby-identifier">execute</span>
+      <span class="ruby-identifier">inner</span>.<span class="ruby-identifier">on_success</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">result2</span><span class="ruby-operator">|</span> <span class="ruby-identifier">child</span>.<span class="ruby-identifier">on_fulfill</span>(<span class="ruby-identifier">result2</span>) }
+      <span class="ruby-identifier">inner</span>.<span class="ruby-identifier">on_error</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">e</span><span class="ruby-operator">|</span> <span class="ruby-identifier">child</span>.<span class="ruby-identifier">on_reject</span>(<span class="ruby-identifier">e</span>) }
+    <span class="ruby-keyword">rescue</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">e</span>
+      <span class="ruby-identifier">child</span>.<span class="ruby-identifier">on_reject</span>(<span class="ruby-identifier">e</span>)
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">child</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-on_error" class="method-detail method-alias">
+        
+        <div class="method-heading">
+          <span class="method-name">on_error</span><span
+            class="method-args">(&block)</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+        </div>
+
+        
+
+        
+        <div class="aliases">
+          Alias for: <a href="Promise.html#method-i-rescue">rescue</a>
+        </div>
+        
+      </div>
+
+    
+      <div id="method-i-on_success" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">on_success</span><span
+            class="method-args">(&block)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Chain onto this promise an action to be undertaken on success
+(fulfillment).</p>
+
+<p>@yield The block to execute</p>
+
+<p>@return [Promise] self</p>
+          
+          
+
+          
+          <div class="method-source-code" id="on_success-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/concurrent-ruby-1.0.5/lib/concurrent/promise.rb, line 336</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">on_success</span>(<span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+  <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&#39;no block given&#39;</span>) <span class="ruby-keyword">unless</span> <span class="ruby-identifier">block_given?</span>
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">then</span>(<span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-rescue" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">rescue</span><span
+            class="method-args">(&block)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Chain onto this promise an action to be undertaken on failure (rejection).</p>
+
+<p>@yield The block to execute</p>
+
+<p>@return [Promise] self</p>
+          
+          
+
+          
+          <div class="method-source-code" id="rescue-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/concurrent-ruby-1.0.5/lib/concurrent/promise.rb, line 347</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">rescue</span>(<span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">then</span>(<span class="ruby-identifier">block</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+        <div class="aliases">
+          Also aliased as: <a href="Promise.html#method-i-catch">catch</a>, <a href="Promise.html#method-i-on_error">on_error</a>
+        </div>
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-set" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">set</span><span
+            class="method-args">(value = NULL, &block)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>@!macro ivar_set_method</p>
+
+<p>@raise [Concurrent::PromiseExecutionError] if not the root promise</p>
+          
+          
+
+          
+          <div class="method-source-code" id="set-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/concurrent-ruby-1.0.5/lib/concurrent/promise.rb, line 261</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">set</span>(<span class="ruby-identifier">value</span> = <span class="ruby-constant">NULL</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+  <span class="ruby-identifier">raise</span> <span class="ruby-constant">PromiseExecutionError</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&#39;supported only on root promise&#39;</span>) <span class="ruby-keyword">unless</span> <span class="ruby-identifier">root?</span>
+  <span class="ruby-identifier">check_for_block_or_value!</span>(<span class="ruby-identifier">block_given?</span>, <span class="ruby-identifier">value</span>)
+  <span class="ruby-identifier">synchronize</span> <span class="ruby-keyword">do</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-ivar">@state</span> <span class="ruby-operator">!=</span> <span class="ruby-value">:unscheduled</span>
+      <span class="ruby-identifier">raise</span> <span class="ruby-constant">MultipleAssignmentError</span>
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-ivar">@promise_body</span> = <span class="ruby-identifier">block</span> <span class="ruby-operator">||</span> <span class="ruby-constant">Proc</span>.<span class="ruby-identifier">new</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">result</span><span class="ruby-operator">|</span> <span class="ruby-identifier">value</span> }
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">execute</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-then" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">then</span><span
+            class="method-args">(rescuer = nil, executor = @executor, &block)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Chain a new promise off the current promise.</p>
+
+<p>@param [Proc] rescuer An optional rescue block to be executed if the</p>
+
+<pre>promise is rejected.</pre>
+
+<p>@param [ThreadPool] executor An optional thread pool executor to be used in
+the new <a href="Promise.html">Promise</a></p>
+
+<p>@yield The block operation to be performed asynchronously.</p>
+
+<p>@return [Promise] the new promise</p>
+          
+          
+
+          
+          <div class="method-source-code" id="then-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/concurrent-ruby-1.0.5/lib/concurrent/promise.rb, line 310</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">then</span>(<span class="ruby-identifier">rescuer</span> = <span class="ruby-keyword">nil</span>, <span class="ruby-identifier">executor</span> = <span class="ruby-ivar">@executor</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+  <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&#39;rescuers and block are both missing&#39;</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">rescuer</span>.<span class="ruby-identifier">nil?</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-operator">!</span><span class="ruby-identifier">block_given?</span>
+  <span class="ruby-identifier">block</span> = <span class="ruby-constant">Proc</span>.<span class="ruby-identifier">new</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">result</span><span class="ruby-operator">|</span> <span class="ruby-identifier">result</span> } <span class="ruby-keyword">unless</span> <span class="ruby-identifier">block_given?</span>
+  <span class="ruby-identifier">child</span> = <span class="ruby-constant">Promise</span>.<span class="ruby-identifier">new</span>(
+    <span class="ruby-identifier">parent</span><span class="ruby-operator">:</span> <span class="ruby-keyword">self</span>,
+    <span class="ruby-identifier">executor</span><span class="ruby-operator">:</span> <span class="ruby-identifier">executor</span>,
+    <span class="ruby-identifier">on_fulfill</span><span class="ruby-operator">:</span> <span class="ruby-identifier">block</span>,
+    <span class="ruby-identifier">on_reject</span><span class="ruby-operator">:</span> <span class="ruby-identifier">rescuer</span>
+  )
+
+  <span class="ruby-identifier">synchronize</span> <span class="ruby-keyword">do</span>
+    <span class="ruby-identifier">child</span>.<span class="ruby-identifier">state</span> = <span class="ruby-value">:pending</span> <span class="ruby-keyword">if</span> <span class="ruby-ivar">@state</span> <span class="ruby-operator">==</span> <span class="ruby-value">:pending</span>
+    <span class="ruby-identifier">child</span>.<span class="ruby-identifier">on_fulfill</span>(<span class="ruby-identifier">apply_deref_options</span>(<span class="ruby-ivar">@value</span>)) <span class="ruby-keyword">if</span> <span class="ruby-ivar">@state</span> <span class="ruby-operator">==</span> <span class="ruby-value">:fulfilled</span>
+    <span class="ruby-identifier">child</span>.<span class="ruby-identifier">on_reject</span>(<span class="ruby-ivar">@reason</span>) <span class="ruby-keyword">if</span> <span class="ruby-ivar">@state</span> <span class="ruby-operator">==</span> <span class="ruby-value">:rejected</span>
+    <span class="ruby-ivar">@children</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">child</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">child</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-zip" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">zip</span><span
+            class="method-args">(*others)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Builds a promise that produces the result of self and others in an <a
+href="Array.html">Array</a> and fails if any of them fails.</p>
+
+<p>@param [Array&lt;Promise&gt;] others</p>
+
+<p>@return [Promise&lt;Array&gt;]</p>
+          
+          
+
+          
+          <div class="method-source-code" id="zip-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/concurrent-ruby-1.0.5/lib/concurrent/promise.rb, line 407</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">zip</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">others</span>)
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">class</span>.<span class="ruby-identifier">zip</span>(<span class="ruby-keyword">self</span>, <span class="ruby-operator">*</span><span class="ruby-identifier">others</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="protected-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Protected Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-complete" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">complete</span><span
+            class="method-args">(success, value, reason)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>@!visibility private</p>
+          
+          
+
+          
+          <div class="method-source-code" id="complete-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/concurrent-ruby-1.0.5/lib/concurrent/promise.rb, line 518</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">complete</span>(<span class="ruby-identifier">success</span>, <span class="ruby-identifier">value</span>, <span class="ruby-identifier">reason</span>)
+  <span class="ruby-identifier">children_to_notify</span> = <span class="ruby-identifier">synchronize</span> <span class="ruby-keyword">do</span>
+    <span class="ruby-identifier">set_state!</span>(<span class="ruby-identifier">success</span>, <span class="ruby-identifier">value</span>, <span class="ruby-identifier">reason</span>)
+    <span class="ruby-ivar">@children</span>.<span class="ruby-identifier">dup</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">children_to_notify</span>.<span class="ruby-identifier">each</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">child</span><span class="ruby-operator">|</span> <span class="ruby-identifier">notify_child</span>(<span class="ruby-identifier">child</span>) }
+  <span class="ruby-identifier">observers</span>.<span class="ruby-identifier">notify_and_delete_observers</span>{ [<span class="ruby-constant">Time</span>.<span class="ruby-identifier">now</span>, <span class="ruby-keyword">self</span>.<span class="ruby-identifier">value</span>, <span class="ruby-identifier">reason</span>] }
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-notify_child" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">notify_child</span><span
+            class="method-args">(child)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>@!visibility private</p>
+          
+          
+
+          
+          <div class="method-source-code" id="notify_child-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/concurrent-ruby-1.0.5/lib/concurrent/promise.rb, line 512</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">notify_child</span>(<span class="ruby-identifier">child</span>)
+  <span class="ruby-identifier">if_state</span>(<span class="ruby-value">:fulfilled</span>) { <span class="ruby-identifier">child</span>.<span class="ruby-identifier">on_fulfill</span>(<span class="ruby-identifier">apply_deref_options</span>(<span class="ruby-ivar">@value</span>)) }
+  <span class="ruby-identifier">if_state</span>(<span class="ruby-value">:rejected</span>) { <span class="ruby-identifier">child</span>.<span class="ruby-identifier">on_reject</span>(<span class="ruby-ivar">@reason</span>) }
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-ns_initialize" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">ns_initialize</span><span
+            class="method-args">(value, opts)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+            <div class="method-calls-super">
+              Calls superclass method
+              <a href="IVar.html#method-i-ns_initialize">Concurrent::IVar#ns_initialize</a>
+            </div>
+          
+
+          
+          <div class="method-source-code" id="ns_initialize-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/concurrent-ruby-1.0.5/lib/concurrent/promise.rb, line 448</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">ns_initialize</span>(<span class="ruby-identifier">value</span>, <span class="ruby-identifier">opts</span>)
+  <span class="ruby-keyword">super</span>
+
+  <span class="ruby-ivar">@executor</span> = <span class="ruby-constant">Options</span>.<span class="ruby-identifier">executor_from_options</span>(<span class="ruby-identifier">opts</span>) <span class="ruby-operator">||</span> <span class="ruby-constant">Concurrent</span>.<span class="ruby-identifier">global_io_executor</span>
+  <span class="ruby-ivar">@args</span> = <span class="ruby-identifier">get_arguments_from</span>(<span class="ruby-identifier">opts</span>)
+
+  <span class="ruby-ivar">@parent</span> = <span class="ruby-identifier">opts</span>.<span class="ruby-identifier">fetch</span>(<span class="ruby-value">:parent</span>) { <span class="ruby-keyword">nil</span> }
+  <span class="ruby-ivar">@on_fulfill</span> = <span class="ruby-identifier">opts</span>.<span class="ruby-identifier">fetch</span>(<span class="ruby-value">:on_fulfill</span>) { <span class="ruby-constant">Proc</span>.<span class="ruby-identifier">new</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">result</span><span class="ruby-operator">|</span> <span class="ruby-identifier">result</span> } }
+  <span class="ruby-ivar">@on_reject</span> = <span class="ruby-identifier">opts</span>.<span class="ruby-identifier">fetch</span>(<span class="ruby-value">:on_reject</span>) { <span class="ruby-constant">Proc</span>.<span class="ruby-identifier">new</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">reason</span><span class="ruby-operator">|</span> <span class="ruby-identifier">raise</span> <span class="ruby-identifier">reason</span> } }
+
+  <span class="ruby-ivar">@promise_body</span> = <span class="ruby-identifier">opts</span>[<span class="ruby-value">:__promise_body_from_block__</span>] <span class="ruby-operator">||</span> <span class="ruby-constant">Proc</span>.<span class="ruby-identifier">new</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">result</span><span class="ruby-operator">|</span> <span class="ruby-identifier">result</span> }
+  <span class="ruby-ivar">@state</span> = <span class="ruby-value">:unscheduled</span>
+  <span class="ruby-ivar">@children</span> = []
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-on_fulfill" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">on_fulfill</span><span
+            class="method-args">(result)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>@!visibility private</p>
+          
+          
+
+          
+          <div class="method-source-code" id="on_fulfill-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/concurrent-ruby-1.0.5/lib/concurrent/promise.rb, line 500</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">on_fulfill</span>(<span class="ruby-identifier">result</span>)
+  <span class="ruby-identifier">realize</span> <span class="ruby-constant">Proc</span>.<span class="ruby-identifier">new</span> { <span class="ruby-ivar">@on_fulfill</span>.<span class="ruby-identifier">call</span>(<span class="ruby-identifier">result</span>) }
+  <span class="ruby-keyword">nil</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-on_reject" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">on_reject</span><span
+            class="method-args">(reason)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>@!visibility private</p>
+          
+          
+
+          
+          <div class="method-source-code" id="on_reject-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/concurrent-ruby-1.0.5/lib/concurrent/promise.rb, line 506</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">on_reject</span>(<span class="ruby-identifier">reason</span>)
+  <span class="ruby-identifier">realize</span> <span class="ruby-constant">Proc</span>.<span class="ruby-identifier">new</span> { <span class="ruby-ivar">@on_reject</span>.<span class="ruby-identifier">call</span>(<span class="ruby-identifier">reason</span>) }
+  <span class="ruby-keyword">nil</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-realize" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">realize</span><span
+            class="method-args">(task)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>@!visibility private</p>
+          
+          
+
+          
+          <div class="method-source-code" id="realize-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/concurrent-ruby-1.0.5/lib/concurrent/promise.rb, line 529</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">realize</span>(<span class="ruby-identifier">task</span>)
+  <span class="ruby-ivar">@executor</span>.<span class="ruby-identifier">post</span> <span class="ruby-keyword">do</span>
+    <span class="ruby-identifier">success</span>, <span class="ruby-identifier">value</span>, <span class="ruby-identifier">reason</span> = <span class="ruby-constant">SafeTaskExecutor</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">task</span>, <span class="ruby-identifier">rescue_exception</span><span class="ruby-operator">:</span> <span class="ruby-keyword">true</span>).<span class="ruby-identifier">execute</span>(<span class="ruby-operator">*</span><span class="ruby-ivar">@args</span>)
+    <span class="ruby-identifier">complete</span>(<span class="ruby-identifier">success</span>, <span class="ruby-identifier">value</span>, <span class="ruby-identifier">reason</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-set_pending" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">set_pending</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>@!visibility private</p>
+          
+          
+
+          
+          <div class="method-source-code" id="set_pending-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/concurrent-ruby-1.0.5/lib/concurrent/promise.rb, line 487</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">set_pending</span>
+  <span class="ruby-identifier">synchronize</span> <span class="ruby-keyword">do</span>
+    <span class="ruby-ivar">@state</span> = <span class="ruby-value">:pending</span>
+    <span class="ruby-ivar">@children</span>.<span class="ruby-identifier">each</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">c</span><span class="ruby-operator">|</span> <span class="ruby-identifier">c</span>.<span class="ruby-identifier">set_pending</span> }
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-set_state-21" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">set_state!</span><span
+            class="method-args">(success, value, reason)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>@!visibility private</p>
+          
+          
+
+          
+          <div class="method-source-code" id="set_state-21-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/concurrent-ruby-1.0.5/lib/concurrent/promise.rb, line 537</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">set_state!</span>(<span class="ruby-identifier">success</span>, <span class="ruby-identifier">value</span>, <span class="ruby-identifier">reason</span>)
+  <span class="ruby-identifier">set_state</span>(<span class="ruby-identifier">success</span>, <span class="ruby-identifier">value</span>, <span class="ruby-identifier">reason</span>)
+  <span class="ruby-identifier">event</span>.<span class="ruby-identifier">set</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-synchronized_set_state-21" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">synchronized_set_state!</span><span
+            class="method-args">(success, value, reason)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>@!visibility private</p>
+          
+          
+
+          
+          <div class="method-source-code" id="synchronized_set_state-21-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/concurrent-ruby-1.0.5/lib/concurrent/promise.rb, line 543</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">synchronized_set_state!</span>(<span class="ruby-identifier">success</span>, <span class="ruby-identifier">value</span>, <span class="ruby-identifier">reason</span>)
+  <span class="ruby-identifier">synchronize</span> { <span class="ruby-identifier">set_state!</span>(<span class="ruby-identifier">success</span>, <span class="ruby-identifier">value</span>, <span class="ruby-identifier">reason</span>) }
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="https://rdoc.github.io/rdoc">RDoc</a> 5.0.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

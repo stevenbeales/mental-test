@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class TestLogging::TestLayouts::TestYaml - RDoc Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../../";
+  var index_rel_prefix = "../../";
+</script>
+
+<script src="../../js/jquery.js"></script>
+<script src="../../js/darkfish.js"></script>
+
+<link href="../../css/fonts.css" rel="stylesheet">
+<link href="../../css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../../table_of_contents.html#pages">Pages</a>
+    <a href="../../table_of_contents.html#classes">Classes</a>
+    <a href="../../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link">Test::Unit::TestCase
+  
+</div>
+
+    <div id="includes-section" class="nav-section">
+  <h3>Included Modules</h3>
+
+  <ul class="link-list">
+  
+  
+    <li><a class="include" href="../LoggingTestCase.html">TestLogging::LoggingTestCase</a>
+  
+  
+  </ul>
+</div>
+
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li class="calls-super" ><a href="#method-i-setup">#setup</a>
+    
+    <li ><a href="#method-i-test_format">#test_format</a>
+    
+    <li ><a href="#method-i-test_items">#test_items</a>
+    
+    <li ><a href="#method-i-test_items_all">#test_items_all</a>
+    
+    <li ><a href="#method-i-test_items_eq">#test_items_eq</a>
+    
+    <li ><a href="#method-i-test_mdc_output">#test_mdc_output</a>
+    
+    <li ><a href="#method-i-test_ndc_output">#test_ndc_output</a>
+    
+    <li ><a href="#method-i-test_utc_offset">#test_utc_offset</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-TestLogging::TestLayouts::TestYaml">
+  <h1 id="class-TestLogging::TestLayouts::TestYaml" class="class">
+    class TestLogging::TestLayouts::TestYaml
+  </h1>
+
+  <section class="description">
+    
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+
+    
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-setup" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">setup</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+            <div class="method-calls-super">
+              Calls superclass method
+              <a href="../LoggingTestCase.html#method-i-setup">TestLogging::LoggingTestCase#setup</a>
+            </div>
+          
+
+          
+          <div class="method-source-code" id="setup-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/logging-2.2.2/test/layouts/test_yaml.rb, line 10</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">setup</span>
+  <span class="ruby-keyword">super</span>
+  <span class="ruby-ivar">@layout</span> = <span class="ruby-constant">Logging</span>.<span class="ruby-identifier">layouts</span>.<span class="ruby-identifier">yaml</span>({})
+  <span class="ruby-ivar">@levels</span> = <span class="ruby-constant">Logging</span><span class="ruby-operator">::</span><span class="ruby-constant">LEVELS</span>
+  <span class="ruby-ivar">@date_fmt</span> = <span class="ruby-string">&#39;\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}\.\d{6}(Z|[+-]\d{2}:\d{2})&#39;</span>
+  <span class="ruby-constant">Thread</span>.<span class="ruby-identifier">current</span>[<span class="ruby-value">:name</span>] = <span class="ruby-keyword">nil</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_format" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_format</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_format-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/logging-2.2.2/test/layouts/test_yaml.rb, line 18</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">test_format</span>
+  <span class="ruby-identifier">h</span> = {
+    <span class="ruby-string">&#39;level&#39;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&#39;INFO&#39;</span>,
+    <span class="ruby-string">&#39;logger&#39;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&#39;ArrayLogger&#39;</span>,
+    <span class="ruby-string">&#39;message&#39;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&#39;log message&#39;</span>
+  }
+
+  <span class="ruby-identifier">event</span> = <span class="ruby-constant">Logging</span><span class="ruby-operator">::</span><span class="ruby-constant">LogEvent</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&#39;ArrayLogger&#39;</span>, <span class="ruby-ivar">@levels</span>[<span class="ruby-string">&#39;info&#39;</span>],
+                                <span class="ruby-string">&#39;log message&#39;</span>, <span class="ruby-keyword">false</span>)
+  <span class="ruby-identifier">assert_yaml_match</span> <span class="ruby-identifier">h</span>, <span class="ruby-ivar">@layout</span>.<span class="ruby-identifier">format</span>(<span class="ruby-identifier">event</span>)
+
+  <span class="ruby-identifier">event</span>.<span class="ruby-identifier">data</span> = [<span class="ruby-value">1</span>, <span class="ruby-value">2</span>, <span class="ruby-value">3</span>, <span class="ruby-value">4</span>]
+  <span class="ruby-identifier">h</span>[<span class="ruby-string">&#39;message&#39;</span>] = [<span class="ruby-value">1</span>,<span class="ruby-value">2</span>,<span class="ruby-value">3</span>,<span class="ruby-value">4</span>]
+  <span class="ruby-identifier">assert_yaml_match</span> <span class="ruby-identifier">h</span>, <span class="ruby-ivar">@layout</span>.<span class="ruby-identifier">format</span>(<span class="ruby-identifier">event</span>)
+
+  <span class="ruby-identifier">event</span>.<span class="ruby-identifier">level</span> = <span class="ruby-ivar">@levels</span>[<span class="ruby-string">&#39;debug&#39;</span>]
+  <span class="ruby-identifier">event</span>.<span class="ruby-identifier">data</span> = <span class="ruby-string">&#39;and another message&#39;</span>
+  <span class="ruby-identifier">h</span>[<span class="ruby-string">&#39;level&#39;</span>] = <span class="ruby-string">&#39;DEBUG&#39;</span>
+  <span class="ruby-identifier">h</span>[<span class="ruby-string">&#39;message&#39;</span>] = <span class="ruby-string">&#39;and another message&#39;</span>
+  <span class="ruby-identifier">assert_yaml_match</span> <span class="ruby-identifier">h</span>, <span class="ruby-ivar">@layout</span>.<span class="ruby-identifier">format</span>(<span class="ruby-identifier">event</span>)
+
+  <span class="ruby-identifier">event</span>.<span class="ruby-identifier">logger</span> = <span class="ruby-string">&#39;Test&#39;</span>
+  <span class="ruby-identifier">event</span>.<span class="ruby-identifier">level</span> = <span class="ruby-ivar">@levels</span>[<span class="ruby-string">&#39;fatal&#39;</span>]
+  <span class="ruby-identifier">event</span>.<span class="ruby-identifier">data</span> = <span class="ruby-constant">Exception</span>.<span class="ruby-identifier">new</span>
+  <span class="ruby-identifier">h</span>[<span class="ruby-string">&#39;level&#39;</span>] = <span class="ruby-string">&#39;FATAL&#39;</span>
+  <span class="ruby-identifier">h</span>[<span class="ruby-string">&#39;logger&#39;</span>] = <span class="ruby-string">&#39;Test&#39;</span>
+  <span class="ruby-identifier">h</span>[<span class="ruby-string">&#39;message&#39;</span>] = {<span class="ruby-value">:class</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&#39;Exception&#39;</span>, <span class="ruby-value">:message</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&#39;Exception&#39;</span>}
+  <span class="ruby-identifier">assert_yaml_match</span> <span class="ruby-identifier">h</span>, <span class="ruby-ivar">@layout</span>.<span class="ruby-identifier">format</span>(<span class="ruby-identifier">event</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_items" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_items</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_items-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/logging-2.2.2/test/layouts/test_yaml.rb, line 48</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">test_items</span>
+  <span class="ruby-identifier">assert_equal</span> <span class="ruby-node">%w[timestamp level logger message]</span>, <span class="ruby-ivar">@layout</span>.<span class="ruby-identifier">items</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_items_all" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_items_all</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_items_all-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/logging-2.2.2/test/layouts/test_yaml.rb, line 66</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">test_items_all</span>
+  <span class="ruby-identifier">event</span> = <span class="ruby-constant">Logging</span><span class="ruby-operator">::</span><span class="ruby-constant">LogEvent</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&#39;TestLogger&#39;</span>, <span class="ruby-ivar">@levels</span>[<span class="ruby-string">&#39;info&#39;</span>],
+                                <span class="ruby-string">&#39;log message&#39;</span>, <span class="ruby-keyword">false</span>)
+  <span class="ruby-identifier">event</span>.<span class="ruby-identifier">file</span> = <span class="ruby-string">&#39;test_file.rb&#39;</span>
+  <span class="ruby-identifier">event</span>.<span class="ruby-identifier">line</span> = <span class="ruby-value">123</span>
+  <span class="ruby-identifier">event</span>.<span class="ruby-identifier">method</span> = <span class="ruby-string">&#39;method_name&#39;</span>
+
+  <span class="ruby-ivar">@layout</span>.<span class="ruby-identifier">items</span> = <span class="ruby-node">%w[logger]</span>
+  <span class="ruby-identifier">assert_match</span> <span class="ruby-regexp">/\A--- ?\nlogger: TestLogger\n/</span>, <span class="ruby-ivar">@layout</span>.<span class="ruby-identifier">format</span>(<span class="ruby-identifier">event</span>)
+
+  <span class="ruby-ivar">@layout</span>.<span class="ruby-identifier">items</span> = <span class="ruby-node">%w[file]</span>
+  <span class="ruby-identifier">assert_match</span> <span class="ruby-regexp">/\A--- ?\nfile: test_file.rb\n/</span>, <span class="ruby-ivar">@layout</span>.<span class="ruby-identifier">format</span>(<span class="ruby-identifier">event</span>)
+
+  <span class="ruby-ivar">@layout</span>.<span class="ruby-identifier">items</span> = <span class="ruby-node">%w[level]</span>
+  <span class="ruby-identifier">assert_match</span> <span class="ruby-regexp">/\A--- ?\nlevel: INFO\n/</span>, <span class="ruby-ivar">@layout</span>.<span class="ruby-identifier">format</span>(<span class="ruby-identifier">event</span>)
+
+  <span class="ruby-ivar">@layout</span>.<span class="ruby-identifier">items</span> = <span class="ruby-node">%w[line]</span>
+  <span class="ruby-identifier">assert_match</span> <span class="ruby-regexp">/\A--- ?\nline: 123\n/</span>, <span class="ruby-ivar">@layout</span>.<span class="ruby-identifier">format</span>(<span class="ruby-identifier">event</span>)
+
+  <span class="ruby-ivar">@layout</span>.<span class="ruby-identifier">items</span> = <span class="ruby-node">%w[message]</span>
+  <span class="ruby-identifier">assert_match</span> <span class="ruby-regexp">/\A--- ?\nmessage: log message\n/</span>, <span class="ruby-ivar">@layout</span>.<span class="ruby-identifier">format</span>(<span class="ruby-identifier">event</span>)
+
+  <span class="ruby-ivar">@layout</span>.<span class="ruby-identifier">items</span> = <span class="ruby-node">%w[method]</span>
+  <span class="ruby-identifier">assert_match</span> <span class="ruby-regexp">/\A--- ?\nmethod: method_name\n/</span>, <span class="ruby-ivar">@layout</span>.<span class="ruby-identifier">format</span>(<span class="ruby-identifier">event</span>)
+
+  <span class="ruby-ivar">@layout</span>.<span class="ruby-identifier">items</span> = <span class="ruby-node">%w[hostname]</span>
+  <span class="ruby-identifier">assert_match</span> <span class="ruby-node">/\A--- ?\nhostname: #{Socket.gethostname}\n/</span>, <span class="ruby-ivar">@layout</span>.<span class="ruby-identifier">format</span>(<span class="ruby-identifier">event</span>)
+
+  <span class="ruby-ivar">@layout</span>.<span class="ruby-identifier">items</span> = <span class="ruby-node">%w[pid]</span>
+  <span class="ruby-identifier">assert_match</span> <span class="ruby-regexp">/\A--- ?\npid: \d+\n\z/</span>, <span class="ruby-ivar">@layout</span>.<span class="ruby-identifier">format</span>(<span class="ruby-identifier">event</span>)
+
+  <span class="ruby-ivar">@layout</span>.<span class="ruby-identifier">items</span> = <span class="ruby-node">%w[millis]</span>
+  <span class="ruby-identifier">assert_match</span> <span class="ruby-regexp">/\A--- ?\nmillis: \d+\n\z/</span>, <span class="ruby-ivar">@layout</span>.<span class="ruby-identifier">format</span>(<span class="ruby-identifier">event</span>)
+
+  <span class="ruby-ivar">@layout</span>.<span class="ruby-identifier">items</span> = <span class="ruby-node">%w[thread_id]</span>
+  <span class="ruby-identifier">assert_match</span> <span class="ruby-regexp">/\A--- ?\nthread_id: -?\d+\n\z/</span>, <span class="ruby-ivar">@layout</span>.<span class="ruby-identifier">format</span>(<span class="ruby-identifier">event</span>)
+
+  <span class="ruby-ivar">@layout</span>.<span class="ruby-identifier">items</span> = <span class="ruby-node">%w[thread]</span>
+  <span class="ruby-identifier">assert_match</span> <span class="ruby-regexp">/\A--- ?\nthread: ?\n/</span>, <span class="ruby-ivar">@layout</span>.<span class="ruby-identifier">format</span>(<span class="ruby-identifier">event</span>)
+  <span class="ruby-constant">Thread</span>.<span class="ruby-identifier">current</span>[<span class="ruby-value">:name</span>] = <span class="ruby-string">&quot;Main&quot;</span>
+  <span class="ruby-identifier">assert_match</span> <span class="ruby-regexp">/\A--- ?\nthread: Main\n/</span>, <span class="ruby-ivar">@layout</span>.<span class="ruby-identifier">format</span>(<span class="ruby-identifier">event</span>)
+
+  <span class="ruby-ivar">@layout</span>.<span class="ruby-identifier">items</span> = <span class="ruby-node">%w[mdc]</span>
+  <span class="ruby-identifier">assert_match</span> <span class="ruby-regexp">/\A--- ?\nmdc: \{\}\n/</span>, <span class="ruby-ivar">@layout</span>.<span class="ruby-identifier">format</span>(<span class="ruby-identifier">event</span>)
+
+  <span class="ruby-ivar">@layout</span>.<span class="ruby-identifier">items</span> = <span class="ruby-node">%w[ndc]</span>
+  <span class="ruby-identifier">assert_match</span> <span class="ruby-regexp">/\A--- ?\nndc: \[\]\n/</span>, <span class="ruby-ivar">@layout</span>.<span class="ruby-identifier">format</span>(<span class="ruby-identifier">event</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_items_eq" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_items_eq</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_items_eq-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/logging-2.2.2/test/layouts/test_yaml.rb, line 52</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">test_items_eq</span>
+  <span class="ruby-identifier">event</span> = <span class="ruby-constant">Logging</span><span class="ruby-operator">::</span><span class="ruby-constant">LogEvent</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&#39;TestLogger&#39;</span>, <span class="ruby-ivar">@levels</span>[<span class="ruby-string">&#39;info&#39;</span>],
+                                [<span class="ruby-string">&#39;log message&#39;</span>], <span class="ruby-keyword">false</span>)
+
+  <span class="ruby-ivar">@layout</span>.<span class="ruby-identifier">items</span> = <span class="ruby-node">%w[timestamp]</span>
+  <span class="ruby-identifier">assert_equal</span> <span class="ruby-node">%w[timestamp]</span>, <span class="ruby-ivar">@layout</span>.<span class="ruby-identifier">items</span>
+  <span class="ruby-identifier">assert_match</span> <span class="ruby-node">/\A--- ?\ntimestamp: [&quot;&#39;]#@date_fmt[&quot;&#39;]\n/</span>, <span class="ruby-ivar">@layout</span>.<span class="ruby-identifier">format</span>(<span class="ruby-identifier">event</span>)
+
+  <span class="ruby-comment"># &#39;foo&#39; is not a recognized item</span>
+  <span class="ruby-identifier">assert_raise</span>(<span class="ruby-constant">ArgumentError</span>) {
+    <span class="ruby-ivar">@layout</span>.<span class="ruby-identifier">items</span> = <span class="ruby-node">%w[timestamp logger foo]</span>
+  }
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_mdc_output" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_mdc_output</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_mdc_output-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/logging-2.2.2/test/layouts/test_yaml.rb, line 115</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">test_mdc_output</span>
+  <span class="ruby-identifier">event</span> = <span class="ruby-constant">Logging</span><span class="ruby-operator">::</span><span class="ruby-constant">LogEvent</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&#39;TestLogger&#39;</span>, <span class="ruby-ivar">@levels</span>[<span class="ruby-string">&#39;info&#39;</span>],
+                                <span class="ruby-string">&#39;log message&#39;</span>, <span class="ruby-keyword">false</span>)
+  <span class="ruby-constant">Logging</span>.<span class="ruby-identifier">mdc</span>[<span class="ruby-string">&#39;X-Session&#39;</span>] = <span class="ruby-string">&#39;123abc&#39;</span>
+  <span class="ruby-constant">Logging</span>.<span class="ruby-identifier">mdc</span>[<span class="ruby-string">&#39;Cookie&#39;</span>] = <span class="ruby-string">&#39;monster&#39;</span>
+
+  <span class="ruby-ivar">@layout</span>.<span class="ruby-identifier">items</span> = <span class="ruby-node">%w[timestamp level logger message mdc]</span>
+
+  <span class="ruby-identifier">format</span> = <span class="ruby-ivar">@layout</span>.<span class="ruby-identifier">format</span>(<span class="ruby-identifier">event</span>)
+  <span class="ruby-identifier">assert_match</span> <span class="ruby-regexp">/\nmdc: ?(?:\n  (?:X-Session: 123abc|Cookie: monster)\n?){2}/</span>, <span class="ruby-identifier">format</span>
+
+  <span class="ruby-constant">Logging</span>.<span class="ruby-identifier">mdc</span>.<span class="ruby-identifier">delete</span> <span class="ruby-string">&#39;Cookie&#39;</span>
+  <span class="ruby-identifier">format</span> = <span class="ruby-ivar">@layout</span>.<span class="ruby-identifier">format</span>(<span class="ruby-identifier">event</span>)
+  <span class="ruby-identifier">assert_match</span> <span class="ruby-regexp">/\nmdc: ?\n  X-Session: 123abc\n/</span>, <span class="ruby-identifier">format</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_ndc_output" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_ndc_output</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_ndc_output-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/logging-2.2.2/test/layouts/test_yaml.rb, line 131</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">test_ndc_output</span>
+  <span class="ruby-identifier">event</span> = <span class="ruby-constant">Logging</span><span class="ruby-operator">::</span><span class="ruby-constant">LogEvent</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&#39;TestLogger&#39;</span>, <span class="ruby-ivar">@levels</span>[<span class="ruby-string">&#39;info&#39;</span>],
+                                <span class="ruby-string">&#39;log message&#39;</span>, <span class="ruby-keyword">false</span>)
+  <span class="ruby-constant">Logging</span>.<span class="ruby-identifier">ndc</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-string">&#39;context a&#39;</span>
+  <span class="ruby-constant">Logging</span>.<span class="ruby-identifier">ndc</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-string">&#39;context b&#39;</span>
+
+  <span class="ruby-ivar">@layout</span>.<span class="ruby-identifier">items</span> = <span class="ruby-node">%w[timestamp level logger message ndc]</span>
+
+  <span class="ruby-identifier">format</span> = <span class="ruby-ivar">@layout</span>.<span class="ruby-identifier">format</span>(<span class="ruby-identifier">event</span>)
+  <span class="ruby-identifier">assert_match</span> <span class="ruby-regexp">/\nndc: ?\n\s*- context a\n\s*- context b\n/</span>, <span class="ruby-identifier">format</span>
+
+  <span class="ruby-constant">Logging</span>.<span class="ruby-identifier">ndc</span>.<span class="ruby-identifier">pop</span>
+  <span class="ruby-identifier">format</span> = <span class="ruby-ivar">@layout</span>.<span class="ruby-identifier">format</span>(<span class="ruby-identifier">event</span>)
+  <span class="ruby-identifier">assert_match</span> <span class="ruby-regexp">/\nndc: ?\n\s*- context a\n/</span>, <span class="ruby-identifier">format</span>
+
+  <span class="ruby-constant">Logging</span>.<span class="ruby-identifier">ndc</span>.<span class="ruby-identifier">pop</span>
+  <span class="ruby-identifier">format</span> = <span class="ruby-ivar">@layout</span>.<span class="ruby-identifier">format</span>(<span class="ruby-identifier">event</span>)
+  <span class="ruby-identifier">assert_match</span> <span class="ruby-regexp">/\nndc: \[\]\n/</span>, <span class="ruby-identifier">format</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_utc_offset" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_utc_offset</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_utc_offset-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/logging-2.2.2/test/layouts/test_yaml.rb, line 151</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">test_utc_offset</span>
+  <span class="ruby-identifier">layout</span> = <span class="ruby-constant">Logging</span>.<span class="ruby-identifier">layouts</span>.<span class="ruby-identifier">yaml</span>(<span class="ruby-value">:items</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-node">%w[timestamp]</span>)
+  <span class="ruby-identifier">event</span> = <span class="ruby-constant">Logging</span><span class="ruby-operator">::</span><span class="ruby-constant">LogEvent</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&#39;TimestampLogger&#39;</span>, <span class="ruby-ivar">@levels</span>[<span class="ruby-string">&#39;info&#39;</span>], <span class="ruby-string">&#39;log message&#39;</span>, <span class="ruby-keyword">false</span>)
+  <span class="ruby-identifier">event</span>.<span class="ruby-identifier">time</span> = <span class="ruby-constant">Time</span>.<span class="ruby-identifier">utc</span>(<span class="ruby-value">2016</span>, <span class="ruby-value">12</span>, <span class="ruby-value">1</span>, <span class="ruby-value">12</span>, <span class="ruby-value">0</span>, <span class="ruby-value">0</span>).<span class="ruby-identifier">freeze</span>
+
+  <span class="ruby-identifier">assert_equal</span> <span class="ruby-string">%Q{---\ntimestamp: &#39;2016-12-01T12:00:00.000000Z&#39;\n}</span>, <span class="ruby-identifier">layout</span>.<span class="ruby-identifier">format</span>(<span class="ruby-identifier">event</span>)
+
+  <span class="ruby-identifier">layout</span>.<span class="ruby-identifier">utc_offset</span> = <span class="ruby-string">&quot;-06:00&quot;</span>
+  <span class="ruby-identifier">assert_equal</span> <span class="ruby-string">%Q{---\ntimestamp: &#39;2016-12-01T06:00:00.000000-06:00&#39;\n}</span>, <span class="ruby-identifier">layout</span>.<span class="ruby-identifier">format</span>(<span class="ruby-identifier">event</span>)
+
+  <span class="ruby-identifier">layout</span>.<span class="ruby-identifier">utc_offset</span> = <span class="ruby-string">&quot;+01:00&quot;</span>
+  <span class="ruby-identifier">assert_equal</span> <span class="ruby-string">%Q{---\ntimestamp: &#39;2016-12-01T13:00:00.000000+01:00&#39;\n}</span>, <span class="ruby-identifier">layout</span>.<span class="ruby-identifier">format</span>(<span class="ruby-identifier">event</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="https://rdoc.github.io/rdoc">RDoc</a> 5.0.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

@@ -1,0 +1,1133 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class TestMinitestReporter - RDoc Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "./";
+  var index_rel_prefix = "./";
+</script>
+
+<script src="./js/jquery.js"></script>
+<script src="./js/darkfish.js"></script>
+
+<link href="./css/fonts.css" rel="stylesheet">
+<link href="./css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="./index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="./table_of_contents.html#pages">Pages</a>
+    <a href="./table_of_contents.html#classes">Classes</a>
+    <a href="./table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link"><a href="MetaMetaMetaTestCase.html">MetaMetaMetaTestCase</a>
+  
+</div>
+
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-i-error_test">#error_test</a>
+    
+    <li ><a href="#method-i-fail_test">#fail_test</a>
+    
+    <li ><a href="#method-i-new_composite_reporter">#new_composite_reporter</a>
+    
+    <li ><a href="#method-i-passing_test">#passing_test</a>
+    
+    <li ><a href="#method-i-setup">#setup</a>
+    
+    <li ><a href="#method-i-skip_test">#skip_test</a>
+    
+    <li ><a href="#method-i-test_passed_eh_empty">#test_passed_eh_empty</a>
+    
+    <li ><a href="#method-i-test_passed_eh_error">#test_passed_eh_error</a>
+    
+    <li ><a href="#method-i-test_passed_eh_failure">#test_passed_eh_failure</a>
+    
+    <li ><a href="#method-i-test_passed_eh_skipped">#test_passed_eh_skipped</a>
+    
+    <li ><a href="#method-i-test_passed_eh_skipped_verbose">#test_passed_eh_skipped_verbose</a>
+    
+    <li ><a href="#method-i-test_record_error">#test_record_error</a>
+    
+    <li ><a href="#method-i-test_record_fail">#test_record_fail</a>
+    
+    <li ><a href="#method-i-test_record_pass">#test_record_pass</a>
+    
+    <li ><a href="#method-i-test_record_skip">#test_record_skip</a>
+    
+    <li ><a href="#method-i-test_report_empty">#test_report_empty</a>
+    
+    <li ><a href="#method-i-test_report_error">#test_report_error</a>
+    
+    <li ><a href="#method-i-test_report_failure">#test_report_failure</a>
+    
+    <li ><a href="#method-i-test_report_passing">#test_report_passing</a>
+    
+    <li ><a href="#method-i-test_report_skipped">#test_report_skipped</a>
+    
+    <li ><a href="#method-i-test_start">#test_start</a>
+    
+    <li ><a href="#method-i-test_to_s">#test_to_s</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-TestMinitestReporter">
+  <h1 id="class-TestMinitestReporter" class="class">
+    class TestMinitestReporter
+  </h1>
+
+  <section class="description">
+    
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+    <section class="constants-list">
+      <header>
+        <h3>Constants</h3>
+      </header>
+      <dl>
+      
+        <dt id="SKIP_MSG">SKIP_MSG
+        
+        <dd>
+        
+      
+      </dl>
+    </section>
+    
+
+    
+    <section class="attribute-method-details" class="method-section">
+      <header>
+        <h3>Attributes</h3>
+      </header>
+
+      
+      <div id="attribute-i-io" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">io</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-r" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">r</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+    </section>
+    
+
+    
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-error_test" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">error_test</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="error_test-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/minitest-5.11.3/test/minitest/test_minitest_reporter.rb, line 43</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">error_test</span>
+  <span class="ruby-keyword">unless</span> <span class="ruby-keyword">defined?</span> <span class="ruby-ivar">@et</span> <span class="ruby-keyword">then</span>
+    <span class="ruby-ivar">@et</span> = <span class="ruby-constant">Minitest</span><span class="ruby-operator">::</span><span class="ruby-constant">Test</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">:woot</span>)
+    <span class="ruby-ivar">@et</span>.<span class="ruby-identifier">failures</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-constant">Minitest</span><span class="ruby-operator">::</span><span class="ruby-constant">UnexpectedError</span>.<span class="ruby-identifier">new</span>(<span class="ruby-keyword">begin</span>
+                                                    <span class="ruby-identifier">raise</span> <span class="ruby-string">&quot;no&quot;</span>
+                                                  <span class="ruby-keyword">rescue</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">e</span>
+                                                    <span class="ruby-identifier">e</span>
+                                                  <span class="ruby-keyword">end</span>)
+    <span class="ruby-ivar">@et</span> = <span class="ruby-constant">Minitest</span><span class="ruby-operator">::</span><span class="ruby-constant">Result</span>.<span class="ruby-identifier">from</span> <span class="ruby-ivar">@et</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-ivar">@et</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-fail_test" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">fail_test</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="fail_test-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/minitest-5.11.3/test/minitest/test_minitest_reporter.rb, line 56</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">fail_test</span>
+  <span class="ruby-keyword">unless</span> <span class="ruby-keyword">defined?</span> <span class="ruby-ivar">@ft</span> <span class="ruby-keyword">then</span>
+    <span class="ruby-ivar">@ft</span> = <span class="ruby-constant">Minitest</span><span class="ruby-operator">::</span><span class="ruby-constant">Test</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">:woot</span>)
+    <span class="ruby-ivar">@ft</span>.<span class="ruby-identifier">failures</span> <span class="ruby-operator">&lt;&lt;</span>   <span class="ruby-keyword">begin</span>
+                        <span class="ruby-identifier">raise</span> <span class="ruby-constant">Minitest</span><span class="ruby-operator">::</span><span class="ruby-constant">Assertion</span>, <span class="ruby-string">&quot;boo&quot;</span>
+                      <span class="ruby-keyword">rescue</span> <span class="ruby-constant">Minitest</span><span class="ruby-operator">::</span><span class="ruby-constant">Assertion</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">e</span>
+                        <span class="ruby-identifier">e</span>
+                      <span class="ruby-keyword">end</span>
+    <span class="ruby-ivar">@ft</span> = <span class="ruby-constant">Minitest</span><span class="ruby-operator">::</span><span class="ruby-constant">Result</span>.<span class="ruby-identifier">from</span> <span class="ruby-ivar">@ft</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-ivar">@ft</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-new_composite_reporter" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">new_composite_reporter</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="new_composite_reporter-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/minitest-5.11.3/test/minitest/test_minitest_reporter.rb, line 14</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">new_composite_reporter</span>
+  <span class="ruby-identifier">reporter</span> = <span class="ruby-constant">Minitest</span><span class="ruby-operator">::</span><span class="ruby-constant">CompositeReporter</span>.<span class="ruby-identifier">new</span>
+  <span class="ruby-identifier">reporter</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-constant">Minitest</span><span class="ruby-operator">::</span><span class="ruby-constant">SummaryReporter</span>.<span class="ruby-identifier">new</span>(<span class="ruby-keyword">self</span>.<span class="ruby-identifier">io</span>)
+  <span class="ruby-identifier">reporter</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-constant">Minitest</span><span class="ruby-operator">::</span><span class="ruby-constant">ProgressReporter</span>.<span class="ruby-identifier">new</span>(<span class="ruby-keyword">self</span>.<span class="ruby-identifier">io</span>)
+
+  <span class="ruby-keyword">def</span> <span class="ruby-identifier">reporter</span>.<span class="ruby-identifier">first</span>
+    <span class="ruby-identifier">reporters</span>.<span class="ruby-identifier">first</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">def</span> <span class="ruby-identifier">reporter</span>.<span class="ruby-identifier">results</span>
+    <span class="ruby-identifier">first</span>.<span class="ruby-identifier">results</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">def</span> <span class="ruby-identifier">reporter</span>.<span class="ruby-identifier">count</span>
+    <span class="ruby-identifier">first</span>.<span class="ruby-identifier">count</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">def</span> <span class="ruby-identifier">reporter</span>.<span class="ruby-identifier">assertions</span>
+    <span class="ruby-identifier">first</span>.<span class="ruby-identifier">assertions</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">reporter</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-passing_test" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">passing_test</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="passing_test-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/minitest-5.11.3/test/minitest/test_minitest_reporter.rb, line 69</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">passing_test</span>
+  <span class="ruby-ivar">@pt</span> <span class="ruby-operator">||=</span> <span class="ruby-constant">Minitest</span><span class="ruby-operator">::</span><span class="ruby-constant">Result</span>.<span class="ruby-identifier">from</span> <span class="ruby-constant">Minitest</span><span class="ruby-operator">::</span><span class="ruby-constant">Test</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">:woot</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-setup" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">setup</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="setup-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/minitest-5.11.3/test/minitest/test_minitest_reporter.rb, line 38</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">setup</span>
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">io</span> = <span class="ruby-constant">StringIO</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&quot;&quot;</span>)
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">r</span>  = <span class="ruby-identifier">new_composite_reporter</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-skip_test" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">skip_test</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="skip_test-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/minitest-5.11.3/test/minitest/test_minitest_reporter.rb, line 73</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">skip_test</span>
+  <span class="ruby-keyword">unless</span> <span class="ruby-keyword">defined?</span> <span class="ruby-ivar">@st</span> <span class="ruby-keyword">then</span>
+    <span class="ruby-ivar">@st</span> = <span class="ruby-constant">Minitest</span><span class="ruby-operator">::</span><span class="ruby-constant">Test</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">:woot</span>)
+    <span class="ruby-ivar">@st</span>.<span class="ruby-identifier">failures</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-keyword">begin</span>
+                      <span class="ruby-identifier">raise</span> <span class="ruby-constant">Minitest</span><span class="ruby-operator">::</span><span class="ruby-constant">Skip</span>
+                    <span class="ruby-keyword">rescue</span> <span class="ruby-constant">Minitest</span><span class="ruby-operator">::</span><span class="ruby-constant">Assertion</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">e</span>
+                      <span class="ruby-identifier">e</span>
+                    <span class="ruby-keyword">end</span>
+    <span class="ruby-ivar">@st</span> = <span class="ruby-constant">Minitest</span><span class="ruby-operator">::</span><span class="ruby-constant">Result</span>.<span class="ruby-identifier">from</span> <span class="ruby-ivar">@st</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-ivar">@st</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_passed_eh_empty" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_passed_eh_empty</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_passed_eh_empty-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/minitest-5.11.3/test/minitest/test_minitest_reporter.rb, line 92</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">test_passed_eh_empty</span>
+  <span class="ruby-identifier">assert_predicate</span> <span class="ruby-identifier">r</span>, <span class="ruby-value">:passed?</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_passed_eh_error" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_passed_eh_error</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_passed_eh_error-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/minitest-5.11.3/test/minitest/test_minitest_reporter.rb, line 104</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">test_passed_eh_error</span>
+  <span class="ruby-identifier">r</span>.<span class="ruby-identifier">start</span>
+
+  <span class="ruby-identifier">r</span>.<span class="ruby-identifier">results</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">error_test</span>
+
+  <span class="ruby-identifier">refute_predicate</span> <span class="ruby-identifier">r</span>, <span class="ruby-value">:passed?</span>
+
+  <span class="ruby-identifier">r</span>.<span class="ruby-identifier">report</span>
+
+  <span class="ruby-identifier">refute_match</span> <span class="ruby-constant">SKIP_MSG</span>, <span class="ruby-identifier">io</span>.<span class="ruby-identifier">string</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_passed_eh_failure" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_passed_eh_failure</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_passed_eh_failure-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/minitest-5.11.3/test/minitest/test_minitest_reporter.rb, line 96</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">test_passed_eh_failure</span>
+  <span class="ruby-identifier">r</span>.<span class="ruby-identifier">results</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">fail_test</span>
+
+  <span class="ruby-identifier">refute_predicate</span> <span class="ruby-identifier">r</span>, <span class="ruby-value">:passed?</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_passed_eh_skipped" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_passed_eh_skipped</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_passed_eh_skipped-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/minitest-5.11.3/test/minitest/test_minitest_reporter.rb, line 116</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">test_passed_eh_skipped</span>
+  <span class="ruby-identifier">r</span>.<span class="ruby-identifier">start</span>
+  <span class="ruby-identifier">r</span>.<span class="ruby-identifier">results</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">skip_test</span>
+  <span class="ruby-identifier">assert</span> <span class="ruby-identifier">r</span>.<span class="ruby-identifier">passed?</span>
+
+  <span class="ruby-identifier">restore_env</span> <span class="ruby-keyword">do</span>
+    <span class="ruby-identifier">r</span>.<span class="ruby-identifier">report</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">assert_match</span> <span class="ruby-constant">SKIP_MSG</span>, <span class="ruby-identifier">io</span>.<span class="ruby-identifier">string</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_passed_eh_skipped_verbose" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_passed_eh_skipped_verbose</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_passed_eh_skipped_verbose-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/minitest-5.11.3/test/minitest/test_minitest_reporter.rb, line 128</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">test_passed_eh_skipped_verbose</span>
+  <span class="ruby-identifier">r</span>.<span class="ruby-identifier">first</span>.<span class="ruby-identifier">options</span>[<span class="ruby-value">:verbose</span>] = <span class="ruby-keyword">true</span>
+
+  <span class="ruby-identifier">r</span>.<span class="ruby-identifier">start</span>
+  <span class="ruby-identifier">r</span>.<span class="ruby-identifier">results</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">skip_test</span>
+  <span class="ruby-identifier">assert</span> <span class="ruby-identifier">r</span>.<span class="ruby-identifier">passed?</span>
+  <span class="ruby-identifier">r</span>.<span class="ruby-identifier">report</span>
+
+  <span class="ruby-identifier">refute_match</span> <span class="ruby-constant">SKIP_MSG</span>, <span class="ruby-identifier">io</span>.<span class="ruby-identifier">string</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_record_error" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_record_error</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_record_error-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/minitest-5.11.3/test/minitest/test_minitest_reporter.rb, line 166</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">test_record_error</span>
+  <span class="ruby-identifier">error_test</span> = <span class="ruby-keyword">self</span>.<span class="ruby-identifier">error_test</span>
+  <span class="ruby-identifier">r</span>.<span class="ruby-identifier">record</span> <span class="ruby-identifier">error_test</span>
+
+  <span class="ruby-identifier">assert_equal</span> <span class="ruby-string">&quot;E&quot;</span>, <span class="ruby-identifier">io</span>.<span class="ruby-identifier">string</span>
+  <span class="ruby-identifier">assert_equal</span> [<span class="ruby-identifier">error_test</span>], <span class="ruby-identifier">r</span>.<span class="ruby-identifier">results</span>
+  <span class="ruby-identifier">assert_equal</span> <span class="ruby-value">1</span>, <span class="ruby-identifier">r</span>.<span class="ruby-identifier">count</span>
+  <span class="ruby-identifier">assert_equal</span> <span class="ruby-value">0</span>, <span class="ruby-identifier">r</span>.<span class="ruby-identifier">assertions</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_record_fail" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_record_fail</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_record_fail-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/minitest-5.11.3/test/minitest/test_minitest_reporter.rb, line 156</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">test_record_fail</span>
+  <span class="ruby-identifier">fail_test</span> = <span class="ruby-keyword">self</span>.<span class="ruby-identifier">fail_test</span>
+  <span class="ruby-identifier">r</span>.<span class="ruby-identifier">record</span> <span class="ruby-identifier">fail_test</span>
+
+  <span class="ruby-identifier">assert_equal</span> <span class="ruby-string">&quot;F&quot;</span>, <span class="ruby-identifier">io</span>.<span class="ruby-identifier">string</span>
+  <span class="ruby-identifier">assert_equal</span> [<span class="ruby-identifier">fail_test</span>], <span class="ruby-identifier">r</span>.<span class="ruby-identifier">results</span>
+  <span class="ruby-identifier">assert_equal</span> <span class="ruby-value">1</span>, <span class="ruby-identifier">r</span>.<span class="ruby-identifier">count</span>
+  <span class="ruby-identifier">assert_equal</span> <span class="ruby-value">0</span>, <span class="ruby-identifier">r</span>.<span class="ruby-identifier">assertions</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_record_pass" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_record_pass</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_record_pass-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/minitest-5.11.3/test/minitest/test_minitest_reporter.rb, line 147</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">test_record_pass</span>
+  <span class="ruby-identifier">r</span>.<span class="ruby-identifier">record</span> <span class="ruby-identifier">passing_test</span>
+
+  <span class="ruby-identifier">assert_equal</span> <span class="ruby-string">&quot;.&quot;</span>, <span class="ruby-identifier">io</span>.<span class="ruby-identifier">string</span>
+  <span class="ruby-identifier">assert_empty</span> <span class="ruby-identifier">r</span>.<span class="ruby-identifier">results</span>
+  <span class="ruby-identifier">assert_equal</span> <span class="ruby-value">1</span>, <span class="ruby-identifier">r</span>.<span class="ruby-identifier">count</span>
+  <span class="ruby-identifier">assert_equal</span> <span class="ruby-value">0</span>, <span class="ruby-identifier">r</span>.<span class="ruby-identifier">assertions</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_record_skip" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_record_skip</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_record_skip-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/minitest-5.11.3/test/minitest/test_minitest_reporter.rb, line 176</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">test_record_skip</span>
+  <span class="ruby-identifier">skip_test</span> = <span class="ruby-keyword">self</span>.<span class="ruby-identifier">skip_test</span>
+  <span class="ruby-identifier">r</span>.<span class="ruby-identifier">record</span> <span class="ruby-identifier">skip_test</span>
+
+  <span class="ruby-identifier">assert_equal</span> <span class="ruby-string">&quot;S&quot;</span>, <span class="ruby-identifier">io</span>.<span class="ruby-identifier">string</span>
+  <span class="ruby-identifier">assert_equal</span> [<span class="ruby-identifier">skip_test</span>], <span class="ruby-identifier">r</span>.<span class="ruby-identifier">results</span>
+  <span class="ruby-identifier">assert_equal</span> <span class="ruby-value">1</span>, <span class="ruby-identifier">r</span>.<span class="ruby-identifier">count</span>
+  <span class="ruby-identifier">assert_equal</span> <span class="ruby-value">0</span>, <span class="ruby-identifier">r</span>.<span class="ruby-identifier">assertions</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_report_empty" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_report_empty</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_report_empty-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/minitest-5.11.3/test/minitest/test_minitest_reporter.rb, line 186</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">test_report_empty</span>
+  <span class="ruby-identifier">r</span>.<span class="ruby-identifier">start</span>
+  <span class="ruby-identifier">r</span>.<span class="ruby-identifier">report</span>
+
+  <span class="ruby-identifier">exp</span> = <span class="ruby-identifier">clean</span> <span class="ruby-value">&lt;&lt;-EOM
+    Run options:
+
+    # Running:
+
+
+
+    Finished in 0.00
+
+    0 runs, 0 assertions, 0 failures, 0 errors, 0 skips
+  EOM</span>
+
+  <span class="ruby-identifier">assert_equal</span> <span class="ruby-identifier">exp</span>, <span class="ruby-identifier">normalize_output</span>(<span class="ruby-identifier">io</span>.<span class="ruby-identifier">string</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_report_error" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_report_error</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_report_error-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/minitest-5.11.3/test/minitest/test_minitest_reporter.rb, line 249</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">test_report_error</span>
+  <span class="ruby-identifier">r</span>.<span class="ruby-identifier">start</span>
+  <span class="ruby-identifier">r</span>.<span class="ruby-identifier">record</span> <span class="ruby-identifier">error_test</span>
+  <span class="ruby-identifier">r</span>.<span class="ruby-identifier">report</span>
+
+  <span class="ruby-identifier">exp</span> = <span class="ruby-identifier">clean</span> <span class="ruby-value">&lt;&lt;-EOM
+    Run options:
+
+    # Running:
+
+    E
+
+    Finished in 0.00
+
+      1) Error:
+    Minitest::Test#woot:
+    RuntimeError: no
+        FILE:LINE:in `error_test&#39;
+        FILE:LINE:in `test_report_error&#39;
+
+    1 runs, 0 assertions, 0 failures, 1 errors, 0 skips
+  EOM</span>
+
+  <span class="ruby-identifier">assert_equal</span> <span class="ruby-identifier">exp</span>, <span class="ruby-identifier">normalize_output</span>(<span class="ruby-identifier">io</span>.<span class="ruby-identifier">string</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_report_failure" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_report_failure</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_report_failure-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/minitest-5.11.3/test/minitest/test_minitest_reporter.rb, line 225</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">test_report_failure</span>
+  <span class="ruby-identifier">r</span>.<span class="ruby-identifier">start</span>
+  <span class="ruby-identifier">r</span>.<span class="ruby-identifier">record</span> <span class="ruby-identifier">fail_test</span>
+  <span class="ruby-identifier">r</span>.<span class="ruby-identifier">report</span>
+
+  <span class="ruby-identifier">exp</span> = <span class="ruby-identifier">clean</span> <span class="ruby-value">&lt;&lt;-EOM
+    Run options:
+
+    # Running:
+
+    F
+
+    Finished in 0.00
+
+      1) Failure:
+    Minitest::Test#woot [FILE:LINE]:
+    boo
+
+    1 runs, 0 assertions, 1 failures, 0 errors, 0 skips
+  EOM</span>
+
+  <span class="ruby-identifier">assert_equal</span> <span class="ruby-identifier">exp</span>, <span class="ruby-identifier">normalize_output</span>(<span class="ruby-identifier">io</span>.<span class="ruby-identifier">string</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_report_passing" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_report_passing</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_report_passing-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/minitest-5.11.3/test/minitest/test_minitest_reporter.rb, line 205</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">test_report_passing</span>
+  <span class="ruby-identifier">r</span>.<span class="ruby-identifier">start</span>
+  <span class="ruby-identifier">r</span>.<span class="ruby-identifier">record</span> <span class="ruby-identifier">passing_test</span>
+  <span class="ruby-identifier">r</span>.<span class="ruby-identifier">report</span>
+
+  <span class="ruby-identifier">exp</span> = <span class="ruby-identifier">clean</span> <span class="ruby-value">&lt;&lt;-EOM
+    Run options:
+
+    # Running:
+
+    .
+
+    Finished in 0.00
+
+    1 runs, 0 assertions, 0 failures, 0 errors, 0 skips
+  EOM</span>
+
+  <span class="ruby-identifier">assert_equal</span> <span class="ruby-identifier">exp</span>, <span class="ruby-identifier">normalize_output</span>(<span class="ruby-identifier">io</span>.<span class="ruby-identifier">string</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_report_skipped" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_report_skipped</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_report_skipped-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/minitest-5.11.3/test/minitest/test_minitest_reporter.rb, line 275</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">test_report_skipped</span>
+  <span class="ruby-identifier">r</span>.<span class="ruby-identifier">start</span>
+  <span class="ruby-identifier">r</span>.<span class="ruby-identifier">record</span> <span class="ruby-identifier">skip_test</span>
+
+  <span class="ruby-identifier">restore_env</span> <span class="ruby-keyword">do</span>
+    <span class="ruby-identifier">r</span>.<span class="ruby-identifier">report</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">exp</span> = <span class="ruby-identifier">clean</span> <span class="ruby-value">&lt;&lt;-EOM
+    Run options:
+
+    # Running:
+
+    S
+
+    Finished in 0.00
+
+    1 runs, 0 assertions, 0 failures, 0 errors, 1 skips
+
+    You have skipped tests. Run with --verbose for details.
+  EOM</span>
+
+  <span class="ruby-identifier">assert_equal</span> <span class="ruby-identifier">exp</span>, <span class="ruby-identifier">normalize_output</span>(<span class="ruby-identifier">io</span>.<span class="ruby-identifier">string</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_start" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_start</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_start-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/minitest-5.11.3/test/minitest/test_minitest_reporter.rb, line 139</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">test_start</span>
+  <span class="ruby-identifier">r</span>.<span class="ruby-identifier">start</span>
+
+  <span class="ruby-identifier">exp</span> = <span class="ruby-node">&quot;Run options: \n\n# Running:\n\n&quot;</span>
+
+  <span class="ruby-identifier">assert_equal</span> <span class="ruby-identifier">exp</span>, <span class="ruby-identifier">io</span>.<span class="ruby-identifier">string</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_to_s" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_to_s</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_to_s-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/minitest-5.11.3/test/minitest/test_minitest_reporter.rb, line 86</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">test_to_s</span>
+  <span class="ruby-identifier">r</span>.<span class="ruby-identifier">record</span> <span class="ruby-identifier">passing_test</span>
+  <span class="ruby-identifier">r</span>.<span class="ruby-identifier">record</span> <span class="ruby-identifier">fail_test</span>
+  <span class="ruby-identifier">assert_match</span> <span class="ruby-string">&quot;woot&quot;</span>, <span class="ruby-identifier">r</span>.<span class="ruby-identifier">first</span>.<span class="ruby-identifier">to_s</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="https://rdoc.github.io/rdoc">RDoc</a> 5.0.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

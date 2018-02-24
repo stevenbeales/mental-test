@@ -1,0 +1,687 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class Pry::Command::Help - RDoc Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../../";
+  var index_rel_prefix = "../../";
+</script>
+
+<script src="../../js/jquery.js"></script>
+<script src="../../js/darkfish.js"></script>
+
+<link href="../../css/fonts.css" rel="stylesheet">
+<link href="../../css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../../table_of_contents.html#pages">Pages</a>
+    <a href="../../table_of_contents.html#classes">Classes</a>
+    <a href="../../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link"><a href="../ClassCommand.html">Pry::ClassCommand</a>
+  
+</div>
+
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-i-command_groups">#command_groups</a>
+    
+    <li ><a href="#method-i-display_command">#display_command</a>
+    
+    <li ><a href="#method-i-display_filtered_commands">#display_filtered_commands</a>
+    
+    <li ><a href="#method-i-display_filtered_search_results">#display_filtered_search_results</a>
+    
+    <li ><a href="#method-i-display_index">#display_index</a>
+    
+    <li ><a href="#method-i-display_search">#display_search</a>
+    
+    <li ><a href="#method-i-group_sort_key">#group_sort_key</a>
+    
+    <li ><a href="#method-i-help_text_for_commands">#help_text_for_commands</a>
+    
+    <li ><a href="#method-i-normalize">#normalize</a>
+    
+    <li ><a href="#method-i-process">#process</a>
+    
+    <li ><a href="#method-i-search_hash">#search_hash</a>
+    
+    <li ><a href="#method-i-sorted_commands">#sorted_commands</a>
+    
+    <li ><a href="#method-i-sorted_group_names">#sorted_group_names</a>
+    
+    <li ><a href="#method-i-visible_commands">#visible_commands</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-Pry::Command::Help">
+  <h1 id="class-Pry::Command::Help" class="class">
+    class Pry::Command::Help
+  </h1>
+
+  <section class="description">
+    
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+
+    
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-command_groups" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">command_groups</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Get a hash of available commands grouped by the “group” name.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="command_groups-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/pry-0.11.3/lib/pry/commands/help.rb, line 26</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">command_groups</span>
+  <span class="ruby-identifier">visible_commands</span>.<span class="ruby-identifier">values</span>.<span class="ruby-identifier">group_by</span>(<span class="ruby-operator">&amp;</span><span class="ruby-value">:group</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-display_command" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">display_command</span><span
+            class="method-args">(command)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Display help for an individual command.</p>
+
+<p>@param [Pry::Command] command</p>
+          
+          
+
+          
+          <div class="method-source-code" id="display_command-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/pry-0.11.3/lib/pry/commands/help.rb, line 123</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">display_command</span>(<span class="ruby-identifier">command</span>)
+  <span class="ruby-identifier">_pry_</span>.<span class="ruby-identifier">pager</span>.<span class="ruby-identifier">page</span> <span class="ruby-identifier">command</span>.<span class="ruby-identifier">new</span>.<span class="ruby-identifier">help</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-display_filtered_commands" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">display_filtered_commands</span><span
+            class="method-args">(search)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Display help for a searched item, filtered by group</p>
+
+<p>@param [String] search The string to search for.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="display_filtered_commands-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/pry-0.11.3/lib/pry/commands/help.rb, line 109</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">display_filtered_commands</span>(<span class="ruby-identifier">search</span>)
+  <span class="ruby-identifier">filtered</span> = <span class="ruby-identifier">search_hash</span>(<span class="ruby-identifier">search</span>, <span class="ruby-identifier">visible_commands</span>)
+  <span class="ruby-identifier">raise</span> <span class="ruby-constant">CommandError</span>, <span class="ruby-node">&quot;No help found for &#39;#{args.first}&#39;&quot;</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">filtered</span>.<span class="ruby-identifier">empty?</span>
+
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">filtered</span>.<span class="ruby-identifier">size</span> <span class="ruby-operator">==</span> <span class="ruby-value">1</span>
+    <span class="ruby-identifier">display_command</span>(<span class="ruby-identifier">filtered</span>.<span class="ruby-identifier">values</span>.<span class="ruby-identifier">first</span>)
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">display_index</span>({<span class="ruby-node">&quot;&#39;#{search}&#39; commands&quot;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">filtered</span>.<span class="ruby-identifier">values</span>})
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-display_filtered_search_results" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">display_filtered_search_results</span><span
+            class="method-args">(search)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Display help for a searched item, filtered first by group and if that
+fails, filtered by command name.</p>
+
+<p>@param [String] search The string to search for.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="display_filtered_search_results-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/pry-0.11.3/lib/pry/commands/help.rb, line 96</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">display_filtered_search_results</span>(<span class="ruby-identifier">search</span>)
+  <span class="ruby-identifier">groups</span> = <span class="ruby-identifier">search_hash</span>(<span class="ruby-identifier">search</span>, <span class="ruby-identifier">command_groups</span>)
+
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">groups</span>.<span class="ruby-identifier">size</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">0</span>
+    <span class="ruby-identifier">display_index</span>(<span class="ruby-identifier">groups</span>)
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">display_filtered_commands</span>(<span class="ruby-identifier">search</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-display_index" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">display_index</span><span
+            class="method-args">(groups)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Display the index view, with headings and short descriptions per command.</p>
+
+<p>@param [Hash&lt;String, <a
+href="../../Array.html">Array</a>&lt;Commands&gt;&gt;] groups</p>
+          
+          
+
+          
+          <div class="method-source-code" id="display_index-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/pry-0.11.3/lib/pry/commands/help.rb, line 41</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">display_index</span>(<span class="ruby-identifier">groups</span>)
+  <span class="ruby-identifier">help_text</span> = []
+
+  <span class="ruby-identifier">sorted_group_names</span>(<span class="ruby-identifier">groups</span>).<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">group_name</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">commands</span> = <span class="ruby-identifier">sorted_commands</span>(<span class="ruby-identifier">groups</span>[<span class="ruby-identifier">group_name</span>])
+
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">commands</span>.<span class="ruby-identifier">any?</span>
+       <span class="ruby-identifier">help_text</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">help_text_for_commands</span>(<span class="ruby-identifier">group_name</span>, <span class="ruby-identifier">commands</span>)
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">_pry_</span>.<span class="ruby-identifier">pager</span>.<span class="ruby-identifier">page</span> <span class="ruby-identifier">help_text</span>.<span class="ruby-identifier">join</span>(<span class="ruby-string">&quot;\n\n&quot;</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-display_search" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">display_search</span><span
+            class="method-args">(search)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Display help for an individual command or group.</p>
+
+<p>@param [String] search  The string to search for.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="display_search-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/pry-0.11.3/lib/pry/commands/help.rb, line 84</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">display_search</span>(<span class="ruby-identifier">search</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">command</span> = <span class="ruby-identifier">command_set</span>.<span class="ruby-identifier">find_command_for_help</span>(<span class="ruby-identifier">search</span>)
+    <span class="ruby-identifier">display_command</span>(<span class="ruby-identifier">command</span>)
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">display_filtered_search_results</span>(<span class="ruby-identifier">search</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-group_sort_key" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">group_sort_key</span><span
+            class="method-args">(group_name)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="group_sort_key-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/pry-0.11.3/lib/pry/commands/help.rb, line 158</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">group_sort_key</span>(<span class="ruby-identifier">group_name</span>)
+  [<span class="ruby-node">%w(Help Context Editing Introspection Input_and_output Navigating_pry Gems Basic Commands)</span>.<span class="ruby-identifier">index</span>(<span class="ruby-identifier">group_name</span>.<span class="ruby-identifier">gsub</span>(<span class="ruby-string">&#39; &#39;</span>, <span class="ruby-string">&#39;_&#39;</span>)) <span class="ruby-operator">||</span> <span class="ruby-value">99</span>, <span class="ruby-identifier">group_name</span>]
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-help_text_for_commands" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">help_text_for_commands</span><span
+            class="method-args">(name, commands)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Given a group name and an array of commands, return the help string for
+those commands.</p>
+
+<p>@param [String] name The group name. @param [Array&lt;Pry::Command&gt;]
+commands @return [String] The generated help string.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="help_text_for_commands-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/pry-0.11.3/lib/pry/commands/help.rb, line 61</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">help_text_for_commands</span>(<span class="ruby-identifier">name</span>, <span class="ruby-identifier">commands</span>)
+  <span class="ruby-node">&quot;#{text.bold(name.capitalize)}\n&quot;</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">commands</span>.<span class="ruby-identifier">map</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">command</span><span class="ruby-operator">|</span>
+    <span class="ruby-node">&quot;  #{command.options[:listing].to_s.ljust(18)} #{command.description.capitalize}&quot;</span>
+  <span class="ruby-keyword">end</span>.<span class="ruby-identifier">join</span>(<span class="ruby-string">&quot;\n&quot;</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-normalize" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">normalize</span><span
+            class="method-args">(key)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Clean search terms to make it easier to search group names</p>
+
+<p>@param [String] key @return [String]</p>
+          
+          
+
+          
+          <div class="method-source-code" id="normalize-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/pry-0.11.3/lib/pry/commands/help.rb, line 154</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">normalize</span>(<span class="ruby-identifier">key</span>)
+  <span class="ruby-identifier">key</span>.<span class="ruby-identifier">downcase</span>.<span class="ruby-identifier">gsub</span>(<span class="ruby-regexp">/pry\W+/</span>, <span class="ruby-string">&#39;&#39;</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-process" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">process</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="process-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/pry-0.11.3/lib/pry/commands/help.rb, line 30</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">process</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">args</span>.<span class="ruby-identifier">empty?</span>
+    <span class="ruby-identifier">display_index</span>(<span class="ruby-identifier">command_groups</span>)
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">display_search</span>(<span class="ruby-identifier">args</span>.<span class="ruby-identifier">first</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-search_hash" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">search_hash</span><span
+            class="method-args">(search, hash)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Find a subset of a hash that matches the user&#39;s search term.</p>
+
+<p>If there&#39;s an exact match a <a href="../../Hash.html">Hash</a> of one
+element will be returned, otherwise a sub-Hash with every key that matches
+the search will be returned.</p>
+
+<p>@param [String] search the search term @param [Hash] hash the hash to
+search</p>
+          
+          
+
+          
+          <div class="method-source-code" id="search_hash-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/pry-0.11.3/lib/pry/commands/help.rb, line 135</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">search_hash</span>(<span class="ruby-identifier">search</span>, <span class="ruby-identifier">hash</span>)
+  <span class="ruby-identifier">matching</span> = {}
+
+  <span class="ruby-identifier">hash</span>.<span class="ruby-identifier">each_pair</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">key</span>, <span class="ruby-identifier">value</span><span class="ruby-operator">|</span>
+    <span class="ruby-keyword">next</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">key</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">String</span>)
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">normalize</span>(<span class="ruby-identifier">key</span>) <span class="ruby-operator">==</span> <span class="ruby-identifier">normalize</span>(<span class="ruby-identifier">search</span>)
+      <span class="ruby-keyword">return</span> {<span class="ruby-identifier">key</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">value</span>}
+    <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">normalize</span>(<span class="ruby-identifier">key</span>).<span class="ruby-identifier">start_with?</span>(<span class="ruby-identifier">normalize</span>(<span class="ruby-identifier">search</span>))
+      <span class="ruby-identifier">matching</span>[<span class="ruby-identifier">key</span>] = <span class="ruby-identifier">value</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">matching</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-sorted_commands" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">sorted_commands</span><span
+            class="method-args">(commands)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Sort an array of commands by their `listing` name.</p>
+
+<p>@param [Array&lt;Pry::Command&gt;] commands The commands to sort @return
+[Array&lt;Pry::Command&gt;] commands sorted by listing name.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="sorted_commands-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/pry-0.11.3/lib/pry/commands/help.rb, line 77</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">sorted_commands</span>(<span class="ruby-identifier">commands</span>)
+  <span class="ruby-identifier">commands</span>.<span class="ruby-identifier">sort_by</span>{ <span class="ruby-operator">|</span><span class="ruby-identifier">command</span><span class="ruby-operator">|</span> <span class="ruby-identifier">command</span>.<span class="ruby-identifier">options</span>[<span class="ruby-value">:listing</span>].<span class="ruby-identifier">to_s</span> }
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-sorted_group_names" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">sorted_group_names</span><span
+            class="method-args">(groups)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>@param [Hash] groups @return [Array&lt;String&gt;] An array of sorted group
+names.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="sorted_group_names-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/pry-0.11.3/lib/pry/commands/help.rb, line 69</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">sorted_group_names</span>(<span class="ruby-identifier">groups</span>)
+  <span class="ruby-identifier">groups</span>.<span class="ruby-identifier">keys</span>.<span class="ruby-identifier">sort_by</span>(<span class="ruby-operator">&amp;</span><span class="ruby-identifier">method</span>(<span class="ruby-value">:group_sort_key</span>))
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-visible_commands" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">visible_commands</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>We only want to show commands that have descriptions, so that the easter
+eggs don&#39;t show up.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="visible_commands-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/pry-0.11.3/lib/pry/commands/help.rb, line 17</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">visible_commands</span>
+  <span class="ruby-identifier">visible</span> = {}
+  <span class="ruby-identifier">commands</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">key</span>, <span class="ruby-identifier">command</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">visible</span>[<span class="ruby-identifier">key</span>] = <span class="ruby-identifier">command</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">command</span>.<span class="ruby-identifier">description</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-operator">!</span><span class="ruby-identifier">command</span>.<span class="ruby-identifier">description</span>.<span class="ruby-identifier">empty?</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">visible</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="https://rdoc.github.io/rdoc">RDoc</a> 5.0.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

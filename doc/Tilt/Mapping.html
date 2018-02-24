@@ -1,0 +1,689 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class Tilt::Mapping - RDoc Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../";
+  var index_rel_prefix = "../";
+</script>
+
+<script src="../js/jquery.js"></script>
+<script src="../js/darkfish.js"></script>
+
+<link href="../css/fonts.css" rel="stylesheet">
+<link href="../css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../table_of_contents.html#pages">Pages</a>
+    <a href="../table_of_contents.html#classes">Classes</a>
+    <a href="../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link"><a href="../Object.html">Object</a>
+  
+</div>
+
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-c-new">::new</a>
+    
+    <li ><a href="#method-i-5B-5D">#[]</a>
+    
+    <li ><a href="#method-i-extensions_for">#extensions_for</a>
+    
+    <li ><a href="#method-i-initialize_copy">#initialize_copy</a>
+    
+    <li ><a href="#method-i-new">#new</a>
+    
+    <li ><a href="#method-i-register">#register</a>
+    
+    <li ><a href="#method-i-register_lazy">#register_lazy</a>
+    
+    <li ><a href="#method-i-registered-3F">#registered?</a>
+    
+    <li ><a href="#method-i-template_for">#template_for</a>
+    
+    <li ><a href="#method-i-templates_for">#templates_for</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-Tilt::Mapping">
+  <h1 id="class-Tilt::Mapping" class="class">
+    class Tilt::Mapping
+  </h1>
+
+  <section class="description">
+    
+<p><a href="Mapping.html">Tilt::Mapping</a> associates file extensions with
+template implementations.</p>
+
+<pre class="ruby"><span class="ruby-identifier">mapping</span> = <span class="ruby-constant">Tilt</span><span class="ruby-operator">::</span><span class="ruby-constant">Mapping</span>.<span class="ruby-identifier">new</span>
+<span class="ruby-identifier">mapping</span>.<span class="ruby-identifier">register</span>(<span class="ruby-constant">Tilt</span><span class="ruby-operator">::</span><span class="ruby-constant">RDocTemplate</span>, <span class="ruby-string">&#39;rdoc&#39;</span>)
+<span class="ruby-identifier">mapping</span>[<span class="ruby-string">&#39;index.rdoc&#39;</span>] <span class="ruby-comment"># =&gt; Tilt::RDocTemplate</span>
+<span class="ruby-identifier">mapping</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&#39;index.rdoc&#39;</span>).<span class="ruby-identifier">render</span>
+</pre>
+
+<p>You can use {#register} to register a template class by file extension,
+{#registered?} to see if a file extension is mapped, {#[]} to lookup
+template classes, and {#new} to instantiate template objects.</p>
+
+<p><a href="Mapping.html">Mapping</a> also supports <strong>lazy</strong>
+template implementations. Note that regularly registered template
+implementations <strong>always</strong> have preference over lazily
+registered template implementations. You should use {#register} if you
+depend on a specific template implementation and {#register_lazy} if there
+are multiple alternatives.</p>
+
+<pre class="ruby"><span class="ruby-identifier">mapping</span> = <span class="ruby-constant">Tilt</span><span class="ruby-operator">::</span><span class="ruby-constant">Mapping</span>.<span class="ruby-identifier">new</span>
+<span class="ruby-identifier">mapping</span>.<span class="ruby-identifier">register_lazy</span>(<span class="ruby-string">&#39;RDiscount::Template&#39;</span>, <span class="ruby-string">&#39;rdiscount/template&#39;</span>, <span class="ruby-string">&#39;md&#39;</span>)
+<span class="ruby-identifier">mapping</span>[<span class="ruby-string">&#39;index.md&#39;</span>]
+<span class="ruby-comment"># =&gt; RDiscount::Template</span>
+</pre>
+
+<p>{#register_lazy} takes a class name, a filename, and a list of file
+extensions. When you try to lookup a template name that matches the file
+extension, <a href="../Tilt.html">Tilt</a> will automatically try to
+require the filename and constantize the class name.</p>
+
+<p>Unlike {#register}, there can be multiple template implementations
+registered lazily to the same file extension. <a
+href="../Tilt.html">Tilt</a> will attempt to load the template
+implementations in order (registered <strong>last</strong> would be tried
+first), returning the first which doesn&#39;t raise <a
+href="../LoadError.html">LoadError</a>.</p>
+
+<p>If all of the registered template implementations fails, <a
+href="../Tilt.html">Tilt</a> will raise the exception of the first, since
+that was the most preferred one.</p>
+
+<pre class="ruby"><span class="ruby-identifier">mapping</span> = <span class="ruby-constant">Tilt</span><span class="ruby-operator">::</span><span class="ruby-constant">Mapping</span>.<span class="ruby-identifier">new</span>
+<span class="ruby-identifier">mapping</span>.<span class="ruby-identifier">register_lazy</span>(<span class="ruby-string">&#39;Bluecloth::Template&#39;</span>, <span class="ruby-string">&#39;bluecloth/template&#39;</span>, <span class="ruby-string">&#39;md&#39;</span>)
+<span class="ruby-identifier">mapping</span>.<span class="ruby-identifier">register_lazy</span>(<span class="ruby-string">&#39;RDiscount::Template&#39;</span>, <span class="ruby-string">&#39;rdiscount/template&#39;</span>, <span class="ruby-string">&#39;md&#39;</span>)
+<span class="ruby-identifier">mapping</span>[<span class="ruby-string">&#39;index.md&#39;</span>]
+<span class="ruby-comment"># =&gt; RDiscount::Template</span>
+</pre>
+
+<p>In the previous example we say that RDiscount has a *higher priority* than
+BlueCloth. <a href="../Tilt.html">Tilt</a> will first try to `require
+“rdiscount/template”`, falling back to `require “bluecloth/template”`. If
+none of these are successful, the first error will be raised.</p>
+
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+    <section class="constants-list">
+      <header>
+        <h3>Constants</h3>
+      </header>
+      <dl>
+      
+        <dt id="AUTOLOAD_IS_BROKEN">AUTOLOAD_IS_BROKEN
+        
+        <dd>
+        
+      
+        <dt id="LOCK">LOCK
+        
+        <dd>
+        
+      
+      </dl>
+    </section>
+    
+
+    
+    <section class="attribute-method-details" class="method-section">
+      <header>
+        <h3>Attributes</h3>
+      </header>
+
+      
+      <div id="attribute-i-lazy_map" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">lazy_map</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        <p>@private</p>
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-template_map" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">template_map</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        <p>@private</p>
+        
+        </div>
+      </div>
+      
+    </section>
+    
+
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Class Methods</h3>
+       </header>
+
+    
+      <div id="method-c-new" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">new</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="new-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/tilt-2.0.8/lib/tilt/mapping.rb, line 54</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span>
+  <span class="ruby-ivar">@template_map</span> = <span class="ruby-constant">Hash</span>.<span class="ruby-identifier">new</span>
+  <span class="ruby-ivar">@lazy_map</span> = <span class="ruby-constant">Hash</span>.<span class="ruby-identifier">new</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">h</span>, <span class="ruby-identifier">k</span><span class="ruby-operator">|</span> <span class="ruby-identifier">h</span>[<span class="ruby-identifier">k</span>] = [] }
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-5B-5D" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">[]</span><span
+            class="method-args">(file)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Looks up a template class based on file name and/or extension.</p>
+
+<p>@example</p>
+
+<pre class="ruby"><span class="ruby-identifier">mapping</span>[<span class="ruby-string">&#39;views/hello.erb&#39;</span>] <span class="ruby-comment"># =&gt; Tilt::ERBTemplate</span>
+<span class="ruby-identifier">mapping</span>[<span class="ruby-string">&#39;hello.erb&#39;</span>]       <span class="ruby-comment"># =&gt; Tilt::ERBTemplate</span>
+<span class="ruby-identifier">mapping</span>[<span class="ruby-string">&#39;erb&#39;</span>]             <span class="ruby-comment"># =&gt; Tilt::ERBTemplate</span>
+</pre>
+
+<p>@return [template class]</p>
+          
+          
+
+          
+          <div class="method-source-code" id="5B-5D-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/tilt-2.0.8/lib/tilt/mapping.rb, line 152</span>
+<span class="ruby-keyword">def</span> <span class="ruby-operator">[]</span>(<span class="ruby-identifier">file</span>)
+  <span class="ruby-identifier">_</span>, <span class="ruby-identifier">ext</span> = <span class="ruby-identifier">split</span>(<span class="ruby-identifier">file</span>)
+  <span class="ruby-identifier">ext</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">lookup</span>(<span class="ruby-identifier">ext</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+        <div class="aliases">
+          Also aliased as: <a href="Mapping.html#method-i-template_for">template_for</a>
+        </div>
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-extensions_for" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">extensions_for</span><span
+            class="method-args">(template_class)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Finds the extensions the template class has been registered under. @param
+[template class] template_class</p>
+          
+          
+
+          
+          <div class="method-source-code" id="extensions_for-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/tilt-2.0.8/lib/tilt/mapping.rb, line 183</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">extensions_for</span>(<span class="ruby-identifier">template_class</span>)
+  <span class="ruby-identifier">res</span> = []
+  <span class="ruby-identifier">template_map</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">ext</span>, <span class="ruby-identifier">klass</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">res</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">ext</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">template_class</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">klass</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">lazy_map</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">ext</span>, <span class="ruby-identifier">choices</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">res</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">ext</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">choices</span>.<span class="ruby-identifier">any?</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">klass</span>, <span class="ruby-identifier">file</span><span class="ruby-operator">|</span> <span class="ruby-identifier">template_class</span>.<span class="ruby-identifier">to_s</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">klass</span> }
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">res</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-initialize_copy" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">initialize_copy</span><span
+            class="method-args">(other)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>@private</p>
+          
+          
+
+          
+          <div class="method-source-code" id="initialize_copy-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/tilt-2.0.8/lib/tilt/mapping.rb, line 60</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize_copy</span>(<span class="ruby-identifier">other</span>)
+  <span class="ruby-ivar">@template_map</span> = <span class="ruby-identifier">other</span>.<span class="ruby-identifier">template_map</span>.<span class="ruby-identifier">dup</span>
+  <span class="ruby-ivar">@lazy_map</span> = <span class="ruby-identifier">other</span>.<span class="ruby-identifier">lazy_map</span>.<span class="ruby-identifier">dup</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-new" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">new</span><span
+            class="method-args">(file, line=nil, options={}, &block)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Instantiates a new template class based on the file.</p>
+
+<p>@raise [RuntimeError] if there is no template class registered for the</p>
+
+<pre>file name.</pre>
+
+<p>@example</p>
+
+<pre class="ruby"><span class="ruby-identifier">mapping</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&#39;index.mt&#39;</span>) <span class="ruby-comment"># =&gt; instance of MyEngine::Template</span>
+</pre>
+
+<p>@see Tilt::Template.new</p>
+          
+          
+
+          
+          <div class="method-source-code" id="new-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/tilt-2.0.8/lib/tilt/mapping.rb, line 136</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">new</span>(<span class="ruby-identifier">file</span>, <span class="ruby-identifier">line</span>=<span class="ruby-keyword">nil</span>, <span class="ruby-identifier">options</span>={}, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">template_class</span> = <span class="ruby-keyword">self</span>[<span class="ruby-identifier">file</span>]
+    <span class="ruby-identifier">template_class</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">file</span>, <span class="ruby-identifier">line</span>, <span class="ruby-identifier">options</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">fail</span> <span class="ruby-node">&quot;No template engine registered for #{File.basename(file)}&quot;</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-register" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">register</span><span
+            class="method-args">(template_class, *extensions)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Registers a template implementation by file extension. There can only be
+one template implementation per file extension, and this method will
+override any existing mapping.</p>
+
+<p>@param template_class @param extensions [Array&lt;String&gt;] List of
+extensions. @return [void]</p>
+
+<p>@example</p>
+
+<pre class="ruby"><span class="ruby-identifier">mapping</span>.<span class="ruby-identifier">register</span> <span class="ruby-constant">MyEngine</span><span class="ruby-operator">::</span><span class="ruby-constant">Template</span>, <span class="ruby-string">&#39;mt&#39;</span>
+<span class="ruby-identifier">mapping</span>[<span class="ruby-string">&#39;index.mt&#39;</span>] <span class="ruby-comment"># =&gt; MyEngine::Template</span>
+</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="register-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/tilt-2.0.8/lib/tilt/mapping.rb, line 104</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">register</span>(<span class="ruby-identifier">template_class</span>, <span class="ruby-operator">*</span><span class="ruby-identifier">extensions</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">template_class</span>.<span class="ruby-identifier">respond_to?</span>(<span class="ruby-value">:to_str</span>)
+    <span class="ruby-comment"># Support register(ext, template_class) too</span>
+    <span class="ruby-identifier">extensions</span>, <span class="ruby-identifier">template_class</span> = [<span class="ruby-identifier">template_class</span>], <span class="ruby-identifier">extensions</span>[<span class="ruby-value">0</span>]
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">extensions</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">ext</span><span class="ruby-operator">|</span>
+    <span class="ruby-ivar">@template_map</span>[<span class="ruby-identifier">ext</span>.<span class="ruby-identifier">to_s</span>] = <span class="ruby-identifier">template_class</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-register_lazy" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">register_lazy</span><span
+            class="method-args">(class_name, file, *extensions)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Registers a lazy template implementation by file extension. You can have
+multiple lazy template implementations defined on the same file extension,
+in which case the template implementation defined <strong>last</strong>
+will be attempted loaded <strong>first</strong>.</p>
+
+<p>@param class_name [String] <a href="../Class.html">Class</a> name of a
+template class. @param file [String] Filename where the template class is
+defined. @param extensions [Array&lt;String&gt;] List of extensions.
+@return [void]</p>
+
+<p>@example</p>
+
+<pre class="ruby"><span class="ruby-identifier">mapping</span>.<span class="ruby-identifier">register_lazy</span> <span class="ruby-string">&#39;MyEngine::Template&#39;</span>, <span class="ruby-string">&#39;my_engine/template&#39;</span>,  <span class="ruby-string">&#39;mt&#39;</span>
+
+<span class="ruby-keyword">defined?</span>(<span class="ruby-constant">MyEngine</span><span class="ruby-operator">::</span><span class="ruby-constant">Template</span>) <span class="ruby-comment"># =&gt; false</span>
+<span class="ruby-identifier">mapping</span>[<span class="ruby-string">&#39;index.mt&#39;</span>] <span class="ruby-comment"># =&gt; MyEngine::Template</span>
+<span class="ruby-keyword">defined?</span>(<span class="ruby-constant">MyEngine</span><span class="ruby-operator">::</span><span class="ruby-constant">Template</span>) <span class="ruby-comment"># =&gt; true</span>
+</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="register_lazy-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/tilt-2.0.8/lib/tilt/mapping.rb, line 81</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">register_lazy</span>(<span class="ruby-identifier">class_name</span>, <span class="ruby-identifier">file</span>, <span class="ruby-operator">*</span><span class="ruby-identifier">extensions</span>)
+  <span class="ruby-comment"># Internal API</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">class_name</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">Symbol</span>)
+    <span class="ruby-constant">Tilt</span>.<span class="ruby-identifier">autoload</span> <span class="ruby-identifier">class_name</span>, <span class="ruby-identifier">file</span>
+    <span class="ruby-identifier">class_name</span> = <span class="ruby-node">&quot;Tilt::#{class_name}&quot;</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">extensions</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">ext</span><span class="ruby-operator">|</span>
+    <span class="ruby-ivar">@lazy_map</span>[<span class="ruby-identifier">ext</span>].<span class="ruby-identifier">unshift</span>([<span class="ruby-identifier">class_name</span>, <span class="ruby-identifier">file</span>])
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-registered-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">registered?</span><span
+            class="method-args">(ext)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Checks if a file extension is registered (either eagerly or lazily) in this
+mapping.</p>
+
+<p>@param ext [String] <a href="../File.html">File</a> extension.</p>
+
+<p>@example</p>
+
+<pre class="ruby"><span class="ruby-identifier">mapping</span>.<span class="ruby-identifier">registered?</span>(<span class="ruby-string">&#39;erb&#39;</span>)  <span class="ruby-comment"># =&gt; true</span>
+<span class="ruby-identifier">mapping</span>.<span class="ruby-identifier">registered?</span>(<span class="ruby-string">&#39;nope&#39;</span>) <span class="ruby-comment"># =&gt; false</span>
+</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="registered-3F-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/tilt-2.0.8/lib/tilt/mapping.rb, line 123</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">registered?</span>(<span class="ruby-identifier">ext</span>)
+  <span class="ruby-ivar">@template_map</span>.<span class="ruby-identifier">has_key?</span>(<span class="ruby-identifier">ext</span>.<span class="ruby-identifier">downcase</span>) <span class="ruby-keyword">or</span> <span class="ruby-identifier">lazy?</span>(<span class="ruby-identifier">ext</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-template_for" class="method-detail method-alias">
+        
+        <div class="method-heading">
+          <span class="method-name">template_for</span><span
+            class="method-args">(file)</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+        </div>
+
+        
+
+        
+        <div class="aliases">
+          Alias for: <a href="Mapping.html#method-i-5B-5D">[]</a>
+        </div>
+        
+      </div>
+
+    
+      <div id="method-i-templates_for" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">templates_for</span><span
+            class="method-args">(file)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Looks up a list of template classes based on file name. If the file name
+has multiple extensions, it will return all template classes matching the
+extensions from the end.</p>
+
+<p>@example</p>
+
+<pre class="ruby"><span class="ruby-identifier">mapping</span>.<span class="ruby-identifier">templates_for</span>(<span class="ruby-string">&#39;views/index.haml.erb&#39;</span>)
+<span class="ruby-comment"># =&gt; [Tilt::ERBTemplate, Tilt::HamlTemplate]</span>
+</pre>
+
+<p>@return [Array&lt;template class&gt;]</p>
+          
+          
+
+          
+          <div class="method-source-code" id="templates_for-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/tilt-2.0.8/lib/tilt/mapping.rb, line 168</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">templates_for</span>(<span class="ruby-identifier">file</span>)
+  <span class="ruby-identifier">templates</span> = []
+
+  <span class="ruby-keyword">while</span> <span class="ruby-keyword">true</span>
+    <span class="ruby-identifier">prefix</span>, <span class="ruby-identifier">ext</span> = <span class="ruby-identifier">split</span>(<span class="ruby-identifier">file</span>)
+    <span class="ruby-keyword">break</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">ext</span>
+    <span class="ruby-identifier">templates</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">lookup</span>(<span class="ruby-identifier">ext</span>)
+    <span class="ruby-identifier">file</span> = <span class="ruby-identifier">prefix</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">templates</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="https://rdoc.github.io/rdoc">RDoc</a> 5.0.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

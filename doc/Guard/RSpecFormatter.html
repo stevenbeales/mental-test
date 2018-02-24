@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class Guard::RSpecFormatter - RDoc Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../";
+  var index_rel_prefix = "../";
+</script>
+
+<script src="../js/jquery.js"></script>
+<script src="../js/darkfish.js"></script>
+
+<link href="../css/fonts.css" rel="stylesheet">
+<link href="../css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../table_of_contents.html#pages">Pages</a>
+    <a href="../table_of_contents.html#classes">Classes</a>
+    <a href="../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link"><a href="../RSpec/Core/Formatters/BaseFormatter.html">RSpec::Core::Formatters::BaseFormatter</a>
+  
+</div>
+
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-c-extract_spec_location">::extract_spec_location</a>
+    
+    <li ><a href="#method-c-rspec_3-3F">::rspec_3?</a>
+    
+    <li ><a href="#method-c-spec_path-3F">::spec_path?</a>
+    
+    <li ><a href="#method-i-dump_summary">#dump_summary</a>
+    
+    <li ><a href="#method-i-example_failed">#example_failed</a>
+    
+    <li ><a href="#method-i-examples">#examples</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-Guard::RSpecFormatter">
+  <h1 id="class-Guard::RSpecFormatter" class="class">
+    class Guard::RSpecFormatter
+  </h1>
+
+  <section class="description">
+    
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+    <section class="constants-list">
+      <header>
+        <h3>Constants</h3>
+      </header>
+      <dl>
+      
+        <dt id="UNSUPPORTED_PATTERN">UNSUPPORTED_PATTERN
+        
+        <dd>
+        
+      
+      </dl>
+    </section>
+    
+
+    
+
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Class Methods</h3>
+       </header>
+
+    
+      <div id="method-c-extract_spec_location" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">extract_spec_location</span><span
+            class="method-args">(metadata)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>rspec issue <a
+href="https://github.com/rspec/rspec-core/issues/793">github.com/rspec/rspec-core/issues/793</a></p>
+          
+          
+
+          
+          <div class="method-source-code" id="extract_spec_location-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/guard-rspec-4.7.3/lib/guard/rspec_formatter.rb, line 44</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">extract_spec_location</span>(<span class="ruby-identifier">metadata</span>)
+  <span class="ruby-identifier">root_metadata</span> = <span class="ruby-identifier">metadata</span>
+  <span class="ruby-identifier">location</span> = <span class="ruby-identifier">metadata</span>[<span class="ruby-value">:location</span>]
+
+  <span class="ruby-keyword">until</span> <span class="ruby-identifier">spec_path?</span>(<span class="ruby-identifier">location</span>)
+    <span class="ruby-keyword">unless</span> (<span class="ruby-identifier">metadata</span> = <span class="ruby-identifier">_extract_group</span>(<span class="ruby-identifier">metadata</span>))
+      <span class="ruby-constant">STDERR</span>.<span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;no spec file location in #{root_metadata.inspect}&quot;</span>
+      <span class="ruby-keyword">return</span> <span class="ruby-identifier">root_metadata</span>[<span class="ruby-value">:location</span>]
+    <span class="ruby-keyword">end</span>
+
+    <span class="ruby-comment"># rspec issue https://github.com/rspec/rspec-core/issues/1243</span>
+    <span class="ruby-identifier">location</span> = <span class="ruby-identifier">first_colon_separated_entry</span>(<span class="ruby-identifier">metadata</span>[<span class="ruby-value">:location</span>])
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">location</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-rspec_3-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">rspec_3?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="rspec_3-3F-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/guard-rspec-4.7.3/lib/guard/rspec_formatter.rb, line 26</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">rspec_3?</span>
+  <span class="ruby-operator">::</span><span class="ruby-constant">RSpec</span><span class="ruby-operator">::</span><span class="ruby-constant">Core</span><span class="ruby-operator">::</span><span class="ruby-constant">Version</span><span class="ruby-operator">::</span><span class="ruby-constant">STRING</span>.<span class="ruby-identifier">split</span>(<span class="ruby-string">&quot;.&quot;</span>).<span class="ruby-identifier">first</span> <span class="ruby-operator">==</span> <span class="ruby-string">&quot;3&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-spec_path-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">spec_path?</span><span
+            class="method-args">(path)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="spec_path-3F-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/guard-rspec-4.7.3/lib/guard/rspec_formatter.rb, line 61</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">spec_path?</span>(<span class="ruby-identifier">path</span>)
+  <span class="ruby-identifier">pattern</span> = <span class="ruby-operator">::</span><span class="ruby-constant">RSpec</span>.<span class="ruby-identifier">configuration</span>.<span class="ruby-identifier">pattern</span>
+
+  <span class="ruby-identifier">flags</span> = <span class="ruby-identifier">supported_fnmatch_flags</span>(<span class="ruby-identifier">pattern</span>)
+  <span class="ruby-identifier">path</span> <span class="ruby-operator">||=</span> <span class="ruby-string">&quot;&quot;</span>
+  <span class="ruby-identifier">path</span> = <span class="ruby-identifier">path</span>.<span class="ruby-identifier">sub</span>(<span class="ruby-regexp">/:\d+\z/</span>, <span class="ruby-string">&quot;&quot;</span>)
+  <span class="ruby-identifier">path</span> = <span class="ruby-constant">Pathname</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">path</span>).<span class="ruby-identifier">cleanpath</span>.<span class="ruby-identifier">to_s</span>
+  <span class="ruby-identifier">stripped</span> = <span class="ruby-node">&quot;{#{pattern.gsub(/\s*,\s*/, &#39;,&#39;)}}&quot;</span>
+  <span class="ruby-constant">File</span>.<span class="ruby-identifier">fnmatch</span>(<span class="ruby-identifier">stripped</span>, <span class="ruby-identifier">path</span>, <span class="ruby-identifier">flags</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-dump_summary" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">dump_summary</span><span
+            class="method-args">(*args)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="dump_summary-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/guard-rspec-4.7.3/lib/guard/rspec_formatter.rb, line 94</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">dump_summary</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">write_summary</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>) <span class="ruby-keyword">unless</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">class</span>.<span class="ruby-identifier">rspec_3?</span>
+
+  <span class="ruby-identifier">notification</span> = <span class="ruby-identifier">args</span>[<span class="ruby-value">0</span>]
+  <span class="ruby-identifier">write_summary</span>(
+    <span class="ruby-identifier">notification</span>.<span class="ruby-identifier">duration</span>,
+    <span class="ruby-identifier">notification</span>.<span class="ruby-identifier">example_count</span>,
+    <span class="ruby-identifier">notification</span>.<span class="ruby-identifier">failure_count</span>,
+    <span class="ruby-identifier">notification</span>.<span class="ruby-identifier">pending_count</span>
+  )
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-example_failed" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">example_failed</span><span
+            class="method-args">(failure)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="example_failed-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/guard-rspec-4.7.3/lib/guard/rspec_formatter.rb, line 33</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">example_failed</span>(<span class="ruby-identifier">failure</span>)
+  <span class="ruby-identifier">examples</span>.<span class="ruby-identifier">push</span> <span class="ruby-identifier">failure</span>.<span class="ruby-identifier">example</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-examples" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">examples</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="examples-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/guard-rspec-4.7.3/lib/guard/rspec_formatter.rb, line 37</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">examples</span>
+  <span class="ruby-ivar">@examples</span> <span class="ruby-operator">||=</span> []
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="https://rdoc.github.io/rdoc">RDoc</a> 5.0.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

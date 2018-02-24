@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class Rack::Auth::Digest::MD5 - RDoc Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../../../";
+  var index_rel_prefix = "../../../";
+</script>
+
+<script src="../../../js/jquery.js"></script>
+<script src="../../../js/darkfish.js"></script>
+
+<link href="../../../css/fonts.css" rel="stylesheet">
+<link href="../../../css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../../../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../../../table_of_contents.html#pages">Pages</a>
+    <a href="../../../table_of_contents.html#classes">Classes</a>
+    <a href="../../../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link"><a href="../AbstractHandler.html">Rack::Auth::AbstractHandler</a>
+  
+</div>
+
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li class="calls-super" ><a href="#method-c-new">::new</a>
+    
+    <li ><a href="#method-i-call">#call</a>
+    
+    <li ><a href="#method-i-passwords_hashed-3F">#passwords_hashed?</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-Rack::Auth::Digest::MD5">
+  <h1 id="class-Rack::Auth::Digest::MD5" class="class">
+    class Rack::Auth::Digest::MD5
+  </h1>
+
+  <section class="description">
+    
+<p><a href="MD5.html">Rack::Auth::Digest::MD5</a> implements the <a
+href="MD5.html">MD5</a> algorithm version of HTTP <a
+href="../Digest.html">Digest</a> Authentication, as per RFC 2617.</p>
+
+<p>Initialize with the [Rack] application that you want protecting, and a
+block that looks up a plaintext password for a given username.</p>
+
+<p><code>opaque</code> needs to be set to a constant base64/hexadecimal
+string.</p>
+
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+    <section class="constants-list">
+      <header>
+        <h3>Constants</h3>
+      </header>
+      <dl>
+      
+        <dt id="QOP">QOP
+        
+        <dd>
+        
+      
+      </dl>
+    </section>
+    
+
+    
+    <section class="attribute-method-details" class="method-section">
+      <header>
+        <h3>Attributes</h3>
+      </header>
+
+      
+      <div id="attribute-i-opaque" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">opaque</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-passwords_hashed" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">passwords_hashed</span><span
+            class="attribute-access-type">[W]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+    </section>
+    
+
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Class Methods</h3>
+       </header>
+
+    
+      <div id="method-c-new" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">new</span><span
+            class="method-args">(app, realm=nil, opaque=nil, &authenticator)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+            <div class="method-calls-super">
+              Calls superclass method
+              <a href="../AbstractHandler.html#method-c-new">Rack::Auth::AbstractHandler.new</a>
+            </div>
+          
+
+          
+          <div class="method-source-code" id="new-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/rack-2.0.4/lib/rack/auth/digest/md5.rb, line 24</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">app</span>, <span class="ruby-identifier">realm</span>=<span class="ruby-keyword">nil</span>, <span class="ruby-identifier">opaque</span>=<span class="ruby-keyword">nil</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">authenticator</span>)
+  <span class="ruby-ivar">@passwords_hashed</span> = <span class="ruby-keyword">nil</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">opaque</span>.<span class="ruby-identifier">nil?</span> <span class="ruby-keyword">and</span> <span class="ruby-identifier">realm</span>.<span class="ruby-identifier">respond_to?</span> <span class="ruby-value">:values_at</span>
+    <span class="ruby-identifier">realm</span>, <span class="ruby-identifier">opaque</span>, <span class="ruby-ivar">@passwords_hashed</span> = <span class="ruby-identifier">realm</span>.<span class="ruby-identifier">values_at</span> <span class="ruby-value">:realm</span>, <span class="ruby-value">:opaque</span>, <span class="ruby-value">:passwords_hashed</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">super</span>(<span class="ruby-identifier">app</span>, <span class="ruby-identifier">realm</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">authenticator</span>)
+  <span class="ruby-ivar">@opaque</span> = <span class="ruby-identifier">opaque</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-call" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">call</span><span
+            class="method-args">(env)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="call-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/rack-2.0.4/lib/rack/auth/digest/md5.rb, line 37</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">call</span>(<span class="ruby-identifier">env</span>)
+  <span class="ruby-identifier">auth</span> = <span class="ruby-constant">Request</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">env</span>)
+
+  <span class="ruby-keyword">unless</span> <span class="ruby-identifier">auth</span>.<span class="ruby-identifier">provided?</span>
+    <span class="ruby-keyword">return</span> <span class="ruby-identifier">unauthorized</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">if</span> <span class="ruby-operator">!</span><span class="ruby-identifier">auth</span>.<span class="ruby-identifier">digest?</span> <span class="ruby-operator">||</span> <span class="ruby-operator">!</span><span class="ruby-identifier">auth</span>.<span class="ruby-identifier">correct_uri?</span> <span class="ruby-operator">||</span> <span class="ruby-operator">!</span><span class="ruby-identifier">valid_qop?</span>(<span class="ruby-identifier">auth</span>)
+    <span class="ruby-keyword">return</span> <span class="ruby-identifier">bad_request</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">valid?</span>(<span class="ruby-identifier">auth</span>)
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">auth</span>.<span class="ruby-identifier">nonce</span>.<span class="ruby-identifier">stale?</span>
+      <span class="ruby-keyword">return</span> <span class="ruby-identifier">unauthorized</span>(<span class="ruby-identifier">challenge</span>(<span class="ruby-value">:stale</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword">true</span>))
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-identifier">env</span>[<span class="ruby-string">&#39;REMOTE_USER&#39;</span>] = <span class="ruby-identifier">auth</span>.<span class="ruby-identifier">username</span>
+
+      <span class="ruby-keyword">return</span> <span class="ruby-ivar">@app</span>.<span class="ruby-identifier">call</span>(<span class="ruby-identifier">env</span>)
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">unauthorized</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-passwords_hashed-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">passwords_hashed?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="passwords_hashed-3F-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/rack-2.0.4/lib/rack/auth/digest/md5.rb, line 33</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">passwords_hashed?</span>
+  <span class="ruby-operator">!</span><span class="ruby-operator">!</span><span class="ruby-ivar">@passwords_hashed</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="https://rdoc.github.io/rdoc">RDoc</a> 5.0.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

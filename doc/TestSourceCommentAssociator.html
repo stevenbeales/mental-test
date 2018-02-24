@@ -1,0 +1,1203 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class TestSourceCommentAssociator - RDoc Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "./";
+  var index_rel_prefix = "./";
+</script>
+
+<script src="./js/jquery.js"></script>
+<script src="./js/darkfish.js"></script>
+
+<link href="./css/fonts.css" rel="stylesheet">
+<link href="./css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="./index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="./table_of_contents.html#pages">Pages</a>
+    <a href="./table_of_contents.html#classes">Classes</a>
+    <a href="./table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link"><a href="Minitest/Test.html">Minitest::Test</a>
+  
+</div>
+
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-i-associate">#associate</a>
+    
+    <li ><a href="#method-i-associate_locations">#associate_locations</a>
+    
+    <li ><a href="#method-i-parse_with_comments">#parse_with_comments</a>
+    
+    <li ><a href="#method-i-test_associate">#test_associate</a>
+    
+    <li ><a href="#method-i-test_associate___ENCODING__">#test_associate___ENCODING__</a>
+    
+    <li ><a href="#method-i-test_associate_comments_after_root_node">#test_associate_comments_after_root_node</a>
+    
+    <li ><a href="#method-i-test_associate_dupe_statement">#test_associate_dupe_statement</a>
+    
+    <li ><a href="#method-i-test_associate_empty_tree">#test_associate_empty_tree</a>
+    
+    <li ><a href="#method-i-test_associate_frozen_string_literal">#test_associate_frozen_string_literal</a>
+    
+    <li ><a href="#method-i-test_associate_frozen_string_literal_dash_star_dash">#test_associate_frozen_string_literal_dash_star_dash</a>
+    
+    <li ><a href="#method-i-test_associate_frozen_string_literal_no_space_after_colon">#test_associate_frozen_string_literal_no_space_after_colon</a>
+    
+    <li ><a href="#method-i-test_associate_inside_heredoc">#test_associate_inside_heredoc</a>
+    
+    <li ><a href="#method-i-test_associate_locations">#test_associate_locations</a>
+    
+    <li ><a href="#method-i-test_associate_locations_dupe_statement">#test_associate_locations_dupe_statement</a>
+    
+    <li ><a href="#method-i-test_associate_multiple">#test_associate_multiple</a>
+    
+    <li ><a href="#method-i-test_associate_multiple_dash_star_dash">#test_associate_multiple_dash_star_dash</a>
+    
+    <li ><a href="#method-i-test_associate_no_body">#test_associate_no_body</a>
+    
+    <li ><a href="#method-i-test_associate_no_comments">#test_associate_no_comments</a>
+    
+    <li ><a href="#method-i-test_associate_shebang_only">#test_associate_shebang_only</a>
+    
+    <li ><a href="#method-i-test_associate_stray_comment">#test_associate_stray_comment</a>
+    
+    <li ><a href="#method-i-test_associate_warn_indent">#test_associate_warn_indent</a>
+    
+    <li ><a href="#method-i-test_associate_warn_indent_dash_star_dash">#test_associate_warn_indent_dash_star_dash</a>
+    
+    <li ><a href="#method-i-test_associate_warn_past_scope">#test_associate_warn_past_scope</a>
+    
+    <li ><a href="#method-i-test_associate_warn_past_scope_dash_star_dash">#test_associate_warn_past_scope_dash_star_dash</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-TestSourceCommentAssociator">
+  <h1 id="class-TestSourceCommentAssociator" class="class">
+    class TestSourceCommentAssociator
+  </h1>
+
+  <section class="description">
+    
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+
+    
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-associate" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">associate</span><span
+            class="method-args">(code)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="associate-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/parser-2.5.0.0/test/test_source_comment_associator.rb, line 15</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">associate</span>(<span class="ruby-identifier">code</span>)
+  <span class="ruby-identifier">ast</span>, <span class="ruby-identifier">comments</span> = <span class="ruby-identifier">parse_with_comments</span>(<span class="ruby-identifier">code</span>)
+  <span class="ruby-identifier">associations</span>  = <span class="ruby-constant">Parser</span><span class="ruby-operator">::</span><span class="ruby-constant">Source</span><span class="ruby-operator">::</span><span class="ruby-constant">Comment</span>.<span class="ruby-identifier">associate</span>(<span class="ruby-identifier">ast</span>, <span class="ruby-identifier">comments</span>)
+
+  [ <span class="ruby-identifier">ast</span>, <span class="ruby-identifier">associations</span> ]
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-associate_locations" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">associate_locations</span><span
+            class="method-args">(code)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="associate_locations-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/parser-2.5.0.0/test/test_source_comment_associator.rb, line 22</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">associate_locations</span>(<span class="ruby-identifier">code</span>)
+  <span class="ruby-identifier">ast</span>, <span class="ruby-identifier">comments</span> = <span class="ruby-identifier">parse_with_comments</span>(<span class="ruby-identifier">code</span>)
+  <span class="ruby-identifier">associations</span>  = <span class="ruby-constant">Parser</span><span class="ruby-operator">::</span><span class="ruby-constant">Source</span><span class="ruby-operator">::</span><span class="ruby-constant">Comment</span>.<span class="ruby-identifier">associate_locations</span>(<span class="ruby-identifier">ast</span>, <span class="ruby-identifier">comments</span>)
+
+  [ <span class="ruby-identifier">ast</span>, <span class="ruby-identifier">associations</span> ]
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-parse_with_comments" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">parse_with_comments</span><span
+            class="method-args">(code)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="parse_with_comments-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/parser-2.5.0.0/test/test_source_comment_associator.rb, line 6</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">parse_with_comments</span>(<span class="ruby-identifier">code</span>)
+  <span class="ruby-identifier">parser</span> = <span class="ruby-constant">Parser</span><span class="ruby-operator">::</span><span class="ruby-constant">Ruby18</span>.<span class="ruby-identifier">new</span>
+
+  <span class="ruby-identifier">buffer</span> = <span class="ruby-constant">Parser</span><span class="ruby-operator">::</span><span class="ruby-constant">Source</span><span class="ruby-operator">::</span><span class="ruby-constant">Buffer</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&#39;(comments)&#39;</span>)
+  <span class="ruby-identifier">buffer</span>.<span class="ruby-identifier">source</span> = <span class="ruby-identifier">code</span>
+
+  <span class="ruby-identifier">parser</span>.<span class="ruby-identifier">parse_with_comments</span>(<span class="ruby-identifier">buffer</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_associate" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_associate</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_associate-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/parser-2.5.0.0/test/test_source_comment_associator.rb, line 29</span>
+  <span class="ruby-keyword">def</span> <span class="ruby-identifier">test_associate</span>
+    <span class="ruby-identifier">ast</span>, <span class="ruby-identifier">associations</span> = <span class="ruby-identifier">associate</span>(<span class="ruby-string">&quot;#!/usr/bin/env ruby
+# coding: utf-8
+# class preceeding
+# another class preceeding
+class Foo # class keyword line
+  # method foo preceeding
+  def foo
+    puts &#39;foo&#39;
+  end # method foo decorating
+  # method bar preceeding
+  def bar
+    # expression preceeding
+    1 + # 1 decorating
+      2
+    # method bar sparse
+  end # method bar decorating
+  # class sparse
+end # class decorating
+&quot;</span>)
+
+    <span class="ruby-identifier">klass_node</span>      = <span class="ruby-identifier">ast</span>
+    <span class="ruby-identifier">klass_name_node</span> = <span class="ruby-identifier">klass_node</span>.<span class="ruby-identifier">children</span>[<span class="ruby-value">0</span>]
+    <span class="ruby-identifier">foo_node</span>        = <span class="ruby-identifier">klass_node</span>.<span class="ruby-identifier">children</span>[<span class="ruby-value">2</span>].<span class="ruby-identifier">children</span>[<span class="ruby-value">0</span>] <span class="ruby-comment"># def foo</span>
+    <span class="ruby-identifier">bar_node</span>        = <span class="ruby-identifier">klass_node</span>.<span class="ruby-identifier">children</span>[<span class="ruby-value">2</span>].<span class="ruby-identifier">children</span>[<span class="ruby-value">1</span>] <span class="ruby-comment"># def bar</span>
+    <span class="ruby-identifier">expr_node</span>       = <span class="ruby-identifier">bar_node</span>.<span class="ruby-identifier">children</span>[<span class="ruby-value">2</span>] <span class="ruby-comment"># 1 + 2</span>
+    <span class="ruby-identifier">one_node</span>        = <span class="ruby-identifier">expr_node</span>.<span class="ruby-identifier">children</span>[<span class="ruby-value">0</span>] <span class="ruby-comment"># 1</span>
+
+    <span class="ruby-identifier">assert_equal</span> <span class="ruby-value">6</span>, <span class="ruby-identifier">associations</span>.<span class="ruby-identifier">size</span>
+    <span class="ruby-identifier">assert_equal</span> [
+      <span class="ruby-string">&#39;# class preceeding&#39;</span>,
+      <span class="ruby-string">&#39;# another class preceeding&#39;</span>,
+      <span class="ruby-string">&#39;# class sparse&#39;</span>,
+      <span class="ruby-string">&#39;# class decorating&#39;</span>
+    ], <span class="ruby-identifier">associations</span>[<span class="ruby-identifier">klass_node</span>].<span class="ruby-identifier">map</span>(<span class="ruby-operator">&amp;</span><span class="ruby-value">:text</span>)
+    <span class="ruby-identifier">assert_equal</span> [
+      <span class="ruby-string">&#39;# class keyword line&#39;</span>
+    ], <span class="ruby-identifier">associations</span>[<span class="ruby-identifier">klass_name_node</span>].<span class="ruby-identifier">map</span>(<span class="ruby-operator">&amp;</span><span class="ruby-value">:text</span>)
+    <span class="ruby-identifier">assert_equal</span> [
+      <span class="ruby-string">&#39;# method foo preceeding&#39;</span>,
+      <span class="ruby-string">&#39;# method foo decorating&#39;</span>
+    ], <span class="ruby-identifier">associations</span>[<span class="ruby-identifier">foo_node</span>].<span class="ruby-identifier">map</span>(<span class="ruby-operator">&amp;</span><span class="ruby-value">:text</span>)
+    <span class="ruby-identifier">assert_equal</span> [
+      <span class="ruby-string">&#39;# method bar preceeding&#39;</span>,
+      <span class="ruby-string">&#39;# method bar sparse&#39;</span>,
+      <span class="ruby-string">&#39;# method bar decorating&#39;</span>
+    ], <span class="ruby-identifier">associations</span>[<span class="ruby-identifier">bar_node</span>].<span class="ruby-identifier">map</span>(<span class="ruby-operator">&amp;</span><span class="ruby-value">:text</span>)
+    <span class="ruby-identifier">assert_equal</span> [
+      <span class="ruby-string">&#39;# expression preceeding&#39;</span>
+    ], <span class="ruby-identifier">associations</span>[<span class="ruby-identifier">expr_node</span>].<span class="ruby-identifier">map</span>(<span class="ruby-operator">&amp;</span><span class="ruby-value">:text</span>)
+    <span class="ruby-identifier">assert_equal</span> [
+      <span class="ruby-string">&#39;# 1 decorating&#39;</span>
+    ], <span class="ruby-identifier">associations</span>[<span class="ruby-identifier">one_node</span>].<span class="ruby-identifier">map</span>(<span class="ruby-operator">&amp;</span><span class="ruby-value">:text</span>)
+  <span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_associate___ENCODING__" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_associate___ENCODING__</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_associate___ENCODING__-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/parser-2.5.0.0/test/test_source_comment_associator.rb, line 339</span>
+  <span class="ruby-keyword">def</span> <span class="ruby-identifier">test_associate___ENCODING__</span>
+    <span class="ruby-identifier">ast</span>, <span class="ruby-identifier">associations</span> = <span class="ruby-identifier">associate</span>(<span class="ruby-string">&quot;# foo
+__ENCODING__
+&quot;</span>)
+
+    <span class="ruby-identifier">assert_equal</span> <span class="ruby-value">1</span>, <span class="ruby-identifier">associations</span>.<span class="ruby-identifier">size</span>
+    <span class="ruby-identifier">assert_equal</span> [<span class="ruby-string">&#39;# foo&#39;</span>],
+                 <span class="ruby-identifier">associations</span>[<span class="ruby-identifier">ast</span>].<span class="ruby-identifier">map</span>(<span class="ruby-operator">&amp;</span><span class="ruby-value">:text</span>)
+  <span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_associate_comments_after_root_node" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_associate_comments_after_root_node</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_associate_comments_after_root_node-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/parser-2.5.0.0/test/test_source_comment_associator.rb, line 316</span>
+  <span class="ruby-keyword">def</span> <span class="ruby-identifier">test_associate_comments_after_root_node</span>
+    <span class="ruby-identifier">ast</span>, <span class="ruby-identifier">associations</span> = <span class="ruby-identifier">associate</span>(<span class="ruby-string">&quot;class Foo
+end
+# not associated
+&quot;</span>)
+
+    <span class="ruby-identifier">assert_equal</span> <span class="ruby-value">0</span>, <span class="ruby-identifier">associations</span>.<span class="ruby-identifier">size</span>
+  <span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_associate_dupe_statement" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_associate_dupe_statement</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>The bug below is fixed by using <a
+href="TestSourceCommentAssociator.html#method-i-associate_locations">#associate_locations</a></p>
+          
+          
+
+          
+          <div class="method-source-code" id="test_associate_dupe_statement-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/parser-2.5.0.0/test/test_source_comment_associator.rb, line 86</span>
+  <span class="ruby-keyword">def</span> <span class="ruby-identifier">test_associate_dupe_statement</span>
+    <span class="ruby-identifier">ast</span>, <span class="ruby-identifier">associations</span> = <span class="ruby-identifier">associate</span>(<span class="ruby-string">&quot;class Foo
+  def bar
+    f1 # comment on 1st call to f1
+    f2
+    f1 # comment on 2nd call to f1
+  end
+end
+&quot;</span>)
+
+    <span class="ruby-identifier">klass_node</span>         = <span class="ruby-identifier">ast</span>
+    <span class="ruby-identifier">method_node</span>        = <span class="ruby-identifier">ast</span>.<span class="ruby-identifier">children</span>[<span class="ruby-value">2</span>]
+    <span class="ruby-identifier">body</span>               = <span class="ruby-identifier">method_node</span>.<span class="ruby-identifier">children</span>[<span class="ruby-value">2</span>]
+    <span class="ruby-identifier">f1_1_node</span>          = <span class="ruby-identifier">body</span>.<span class="ruby-identifier">children</span>[<span class="ruby-value">0</span>]
+    <span class="ruby-identifier">f1_2_node</span>          = <span class="ruby-identifier">body</span>.<span class="ruby-identifier">children</span>[<span class="ruby-value">2</span>]
+
+    <span class="ruby-identifier">assert_equal</span> <span class="ruby-value">1</span>, <span class="ruby-identifier">associations</span>.<span class="ruby-identifier">size</span>
+    <span class="ruby-identifier">assert_equal</span> [<span class="ruby-string">&#39;# comment on 1st call to f1&#39;</span>, <span class="ruby-string">&#39;# comment on 2nd call to f1&#39;</span>],
+                 <span class="ruby-identifier">associations</span>[<span class="ruby-identifier">f1_1_node</span>].<span class="ruby-identifier">map</span>(<span class="ruby-operator">&amp;</span><span class="ruby-value">:text</span>)
+    <span class="ruby-identifier">assert_equal</span> [<span class="ruby-string">&#39;# comment on 1st call to f1&#39;</span>, <span class="ruby-string">&#39;# comment on 2nd call to f1&#39;</span>],
+                 <span class="ruby-identifier">associations</span>[<span class="ruby-identifier">f1_2_node</span>].<span class="ruby-identifier">map</span>(<span class="ruby-operator">&amp;</span><span class="ruby-value">:text</span>)
+  <span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_associate_empty_tree" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_associate_empty_tree</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_associate_empty_tree-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/parser-2.5.0.0/test/test_source_comment_associator.rb, line 202</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">test_associate_empty_tree</span>
+  <span class="ruby-identifier">ast</span>, <span class="ruby-identifier">associations</span> = <span class="ruby-identifier">associate</span>(<span class="ruby-string">&quot;&quot;</span>)
+  <span class="ruby-identifier">assert_equal</span> <span class="ruby-value">0</span>, <span class="ruby-identifier">associations</span>.<span class="ruby-identifier">size</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_associate_frozen_string_literal" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_associate_frozen_string_literal</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_associate_frozen_string_literal-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/parser-2.5.0.0/test/test_source_comment_associator.rb, line 217</span>
+  <span class="ruby-keyword">def</span> <span class="ruby-identifier">test_associate_frozen_string_literal</span>
+    <span class="ruby-identifier">ast</span>, <span class="ruby-identifier">associations</span> = <span class="ruby-identifier">associate</span>(<span class="ruby-string">&quot;# frozen_string_literal: true
+class Foo
+end
+&quot;</span>)
+
+    <span class="ruby-identifier">assert_equal</span> <span class="ruby-value">0</span>, <span class="ruby-identifier">associations</span>.<span class="ruby-identifier">size</span>
+  <span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_associate_frozen_string_literal_dash_star_dash" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_associate_frozen_string_literal_dash_star_dash</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_associate_frozen_string_literal_dash_star_dash-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/parser-2.5.0.0/test/test_source_comment_associator.rb, line 227</span>
+  <span class="ruby-keyword">def</span> <span class="ruby-identifier">test_associate_frozen_string_literal_dash_star_dash</span>
+    <span class="ruby-identifier">ast</span>, <span class="ruby-identifier">associations</span> = <span class="ruby-identifier">associate</span>(<span class="ruby-string">&quot;# -*- frozen_string_literal: true -*-
+class Foo
+end
+&quot;</span>)
+
+    <span class="ruby-identifier">assert_equal</span> <span class="ruby-value">0</span>, <span class="ruby-identifier">associations</span>.<span class="ruby-identifier">size</span>
+  <span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_associate_frozen_string_literal_no_space_after_colon" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_associate_frozen_string_literal_no_space_after_colon</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_associate_frozen_string_literal_no_space_after_colon-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/parser-2.5.0.0/test/test_source_comment_associator.rb, line 237</span>
+  <span class="ruby-keyword">def</span> <span class="ruby-identifier">test_associate_frozen_string_literal_no_space_after_colon</span>
+    <span class="ruby-identifier">ast</span>, <span class="ruby-identifier">associations</span> = <span class="ruby-identifier">associate</span>(<span class="ruby-string">&quot;# frozen_string_literal:true
+class Foo
+end
+&quot;</span>)
+
+    <span class="ruby-identifier">assert_equal</span> <span class="ruby-value">0</span>, <span class="ruby-identifier">associations</span>.<span class="ruby-identifier">size</span>
+  <span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_associate_inside_heredoc" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_associate_inside_heredoc</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_associate_inside_heredoc-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/parser-2.5.0.0/test/test_source_comment_associator.rb, line 350</span>
+  <span class="ruby-keyword">def</span> <span class="ruby-identifier">test_associate_inside_heredoc</span>
+    <span class="ruby-identifier">ast</span>, <span class="ruby-identifier">associations</span> = <span class="ruby-identifier">associate</span>(<span class="ruby-string">&quot;&lt;&lt;x
+\#{
+  foo # bar
+}
+x
+&quot;</span>)
+
+    <span class="ruby-identifier">begin_node</span> = <span class="ruby-identifier">ast</span>.<span class="ruby-identifier">children</span>[<span class="ruby-value">0</span>]
+    <span class="ruby-identifier">send_node</span>  = <span class="ruby-identifier">begin_node</span>.<span class="ruby-identifier">children</span>[<span class="ruby-value">0</span>]
+
+    <span class="ruby-identifier">assert_equal</span> <span class="ruby-value">1</span>, <span class="ruby-identifier">associations</span>.<span class="ruby-identifier">size</span>
+    <span class="ruby-identifier">assert_equal</span> [<span class="ruby-string">&#39;# bar&#39;</span>],
+                 <span class="ruby-identifier">associations</span>[<span class="ruby-identifier">send_node</span>].<span class="ruby-identifier">map</span>(<span class="ruby-operator">&amp;</span><span class="ruby-value">:text</span>)
+  <span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_associate_locations" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_associate_locations</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_associate_locations-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/parser-2.5.0.0/test/test_source_comment_associator.rb, line 110</span>
+  <span class="ruby-keyword">def</span> <span class="ruby-identifier">test_associate_locations</span>
+    <span class="ruby-identifier">ast</span>, <span class="ruby-identifier">associations</span> = <span class="ruby-identifier">associate_locations</span>(<span class="ruby-string">&quot;#!/usr/bin/env ruby
+# coding: utf-8
+# class preceeding
+# another class preceeding
+class Foo # class keyword line
+  # method foo preceeding
+  def foo
+    puts &#39;foo&#39;
+  end # method foo decorating
+  # method bar preceeding
+  def bar
+    # expression preceeding
+    1 + # 1 decorating
+      2
+    # method bar sparse
+  end # method bar decorating
+  # class sparse
+end # class decorating
+&quot;</span>)
+
+    <span class="ruby-identifier">klass_node</span>      = <span class="ruby-identifier">ast</span>
+    <span class="ruby-identifier">klass_name_node</span> = <span class="ruby-identifier">klass_node</span>.<span class="ruby-identifier">children</span>[<span class="ruby-value">0</span>]
+    <span class="ruby-identifier">foo_node</span>        = <span class="ruby-identifier">klass_node</span>.<span class="ruby-identifier">children</span>[<span class="ruby-value">2</span>].<span class="ruby-identifier">children</span>[<span class="ruby-value">0</span>] <span class="ruby-comment"># def foo</span>
+    <span class="ruby-identifier">bar_node</span>        = <span class="ruby-identifier">klass_node</span>.<span class="ruby-identifier">children</span>[<span class="ruby-value">2</span>].<span class="ruby-identifier">children</span>[<span class="ruby-value">1</span>] <span class="ruby-comment"># def bar</span>
+    <span class="ruby-identifier">expr_node</span>       = <span class="ruby-identifier">bar_node</span>.<span class="ruby-identifier">children</span>[<span class="ruby-value">2</span>] <span class="ruby-comment"># 1 + 2</span>
+    <span class="ruby-identifier">one_node</span>        = <span class="ruby-identifier">expr_node</span>.<span class="ruby-identifier">children</span>[<span class="ruby-value">0</span>] <span class="ruby-comment"># 1</span>
+
+    <span class="ruby-identifier">assert_equal</span> <span class="ruby-value">6</span>, <span class="ruby-identifier">associations</span>.<span class="ruby-identifier">size</span>
+    <span class="ruby-identifier">assert_equal</span> [
+      <span class="ruby-string">&#39;# class preceeding&#39;</span>,
+      <span class="ruby-string">&#39;# another class preceeding&#39;</span>,
+      <span class="ruby-string">&#39;# class sparse&#39;</span>,
+      <span class="ruby-string">&#39;# class decorating&#39;</span>
+    ], <span class="ruby-identifier">associations</span>[<span class="ruby-identifier">klass_node</span>.<span class="ruby-identifier">loc</span>].<span class="ruby-identifier">map</span>(<span class="ruby-operator">&amp;</span><span class="ruby-value">:text</span>)
+    <span class="ruby-identifier">assert_equal</span> [
+      <span class="ruby-string">&#39;# class keyword line&#39;</span>
+    ], <span class="ruby-identifier">associations</span>[<span class="ruby-identifier">klass_name_node</span>.<span class="ruby-identifier">loc</span>].<span class="ruby-identifier">map</span>(<span class="ruby-operator">&amp;</span><span class="ruby-value">:text</span>)
+    <span class="ruby-identifier">assert_equal</span> [
+      <span class="ruby-string">&#39;# method foo preceeding&#39;</span>,
+      <span class="ruby-string">&#39;# method foo decorating&#39;</span>
+    ], <span class="ruby-identifier">associations</span>[<span class="ruby-identifier">foo_node</span>.<span class="ruby-identifier">loc</span>].<span class="ruby-identifier">map</span>(<span class="ruby-operator">&amp;</span><span class="ruby-value">:text</span>)
+    <span class="ruby-identifier">assert_equal</span> [
+      <span class="ruby-string">&#39;# method bar preceeding&#39;</span>,
+      <span class="ruby-string">&#39;# method bar sparse&#39;</span>,
+      <span class="ruby-string">&#39;# method bar decorating&#39;</span>
+    ], <span class="ruby-identifier">associations</span>[<span class="ruby-identifier">bar_node</span>.<span class="ruby-identifier">loc</span>].<span class="ruby-identifier">map</span>(<span class="ruby-operator">&amp;</span><span class="ruby-value">:text</span>)
+    <span class="ruby-identifier">assert_equal</span> [
+      <span class="ruby-string">&#39;# expression preceeding&#39;</span>
+    ], <span class="ruby-identifier">associations</span>[<span class="ruby-identifier">expr_node</span>.<span class="ruby-identifier">loc</span>].<span class="ruby-identifier">map</span>(<span class="ruby-operator">&amp;</span><span class="ruby-value">:text</span>)
+    <span class="ruby-identifier">assert_equal</span> [
+      <span class="ruby-string">&#39;# 1 decorating&#39;</span>
+    ], <span class="ruby-identifier">associations</span>[<span class="ruby-identifier">one_node</span>.<span class="ruby-identifier">loc</span>].<span class="ruby-identifier">map</span>(<span class="ruby-operator">&amp;</span><span class="ruby-value">:text</span>)
+  <span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_associate_locations_dupe_statement" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_associate_locations_dupe_statement</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_associate_locations_dupe_statement-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/parser-2.5.0.0/test/test_source_comment_associator.rb, line 166</span>
+  <span class="ruby-keyword">def</span> <span class="ruby-identifier">test_associate_locations_dupe_statement</span>
+    <span class="ruby-identifier">ast</span>, <span class="ruby-identifier">associations</span> = <span class="ruby-identifier">associate_locations</span>(<span class="ruby-string">&quot;class Foo
+  def bar
+    f1 # comment on 1st call to f1
+    f2
+    f1 # comment on 2nd call to f1
+  end
+end
+&quot;</span>)
+
+    <span class="ruby-identifier">klass_node</span>         = <span class="ruby-identifier">ast</span>
+    <span class="ruby-identifier">method_node</span>        = <span class="ruby-identifier">ast</span>.<span class="ruby-identifier">children</span>[<span class="ruby-value">2</span>]
+    <span class="ruby-identifier">body</span>               = <span class="ruby-identifier">method_node</span>.<span class="ruby-identifier">children</span>[<span class="ruby-value">2</span>]
+    <span class="ruby-identifier">f1_1_node</span>          = <span class="ruby-identifier">body</span>.<span class="ruby-identifier">children</span>[<span class="ruby-value">0</span>]
+    <span class="ruby-identifier">f1_2_node</span>          = <span class="ruby-identifier">body</span>.<span class="ruby-identifier">children</span>[<span class="ruby-value">2</span>]
+
+    <span class="ruby-identifier">assert_equal</span> <span class="ruby-value">2</span>, <span class="ruby-identifier">associations</span>.<span class="ruby-identifier">size</span>
+    <span class="ruby-identifier">assert_equal</span> [<span class="ruby-string">&#39;# comment on 1st call to f1&#39;</span>],
+                 <span class="ruby-identifier">associations</span>[<span class="ruby-identifier">f1_1_node</span>.<span class="ruby-identifier">loc</span>].<span class="ruby-identifier">map</span>(<span class="ruby-operator">&amp;</span><span class="ruby-value">:text</span>)
+    <span class="ruby-identifier">assert_equal</span> [<span class="ruby-string">&#39;# comment on 2nd call to f1&#39;</span>],
+                 <span class="ruby-identifier">associations</span>[<span class="ruby-identifier">f1_2_node</span>.<span class="ruby-identifier">loc</span>].<span class="ruby-identifier">map</span>(<span class="ruby-operator">&amp;</span><span class="ruby-value">:text</span>)
+  <span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_associate_multiple" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_associate_multiple</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_associate_multiple-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/parser-2.5.0.0/test/test_source_comment_associator.rb, line 287</span>
+  <span class="ruby-keyword">def</span> <span class="ruby-identifier">test_associate_multiple</span>
+    <span class="ruby-identifier">ast</span>, <span class="ruby-identifier">associations</span> = <span class="ruby-identifier">associate</span>(<span class="ruby-string">&quot;# frozen_string_literal: true; warn_indent: true
+class Foo
+end
+&quot;</span>)
+
+    <span class="ruby-identifier">assert_equal</span> <span class="ruby-value">0</span>, <span class="ruby-identifier">associations</span>.<span class="ruby-identifier">size</span>
+  <span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_associate_multiple_dash_star_dash" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_associate_multiple_dash_star_dash</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_associate_multiple_dash_star_dash-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/parser-2.5.0.0/test/test_source_comment_associator.rb, line 297</span>
+  <span class="ruby-keyword">def</span> <span class="ruby-identifier">test_associate_multiple_dash_star_dash</span>
+    <span class="ruby-identifier">ast</span>, <span class="ruby-identifier">associations</span> = <span class="ruby-identifier">associate</span>(<span class="ruby-string">&quot;# -*- frozen_string_literal: true; warn_indent: true -*-
+class Foo
+end
+&quot;</span>)
+
+    <span class="ruby-identifier">assert_equal</span> <span class="ruby-value">0</span>, <span class="ruby-identifier">associations</span>.<span class="ruby-identifier">size</span>
+  <span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_associate_no_body" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_associate_no_body</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_associate_no_body-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/parser-2.5.0.0/test/test_source_comment_associator.rb, line 190</span>
+  <span class="ruby-keyword">def</span> <span class="ruby-identifier">test_associate_no_body</span>
+    <span class="ruby-identifier">ast</span>, <span class="ruby-identifier">associations</span> = <span class="ruby-identifier">associate</span>(<span class="ruby-string">&quot;# foo
+class Foo
+end
+&quot;</span>)
+
+    <span class="ruby-identifier">assert_equal</span> <span class="ruby-value">1</span>, <span class="ruby-identifier">associations</span>.<span class="ruby-identifier">size</span>
+    <span class="ruby-identifier">assert_equal</span> [<span class="ruby-string">&#39;# foo&#39;</span>],
+                 <span class="ruby-identifier">associations</span>[<span class="ruby-identifier">ast</span>].<span class="ruby-identifier">map</span>(<span class="ruby-operator">&amp;</span><span class="ruby-value">:text</span>)
+  <span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_associate_no_comments" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_associate_no_comments</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_associate_no_comments-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/parser-2.5.0.0/test/test_source_comment_associator.rb, line 307</span>
+  <span class="ruby-keyword">def</span> <span class="ruby-identifier">test_associate_no_comments</span>
+    <span class="ruby-identifier">ast</span>, <span class="ruby-identifier">associations</span> = <span class="ruby-identifier">associate</span>(<span class="ruby-string">&quot;class Foo
+end
+&quot;</span>)
+
+    <span class="ruby-identifier">assert_equal</span> <span class="ruby-value">0</span>, <span class="ruby-identifier">associations</span>.<span class="ruby-identifier">size</span>
+  <span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_associate_shebang_only" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_associate_shebang_only</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_associate_shebang_only-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/parser-2.5.0.0/test/test_source_comment_associator.rb, line 207</span>
+  <span class="ruby-keyword">def</span> <span class="ruby-identifier">test_associate_shebang_only</span>
+    <span class="ruby-identifier">ast</span>, <span class="ruby-identifier">associations</span> = <span class="ruby-identifier">associate</span>(<span class="ruby-string">&quot;#!ruby
+class Foo
+end
+&quot;</span>)
+
+    <span class="ruby-identifier">assert_equal</span> <span class="ruby-value">0</span>, <span class="ruby-identifier">associations</span>.<span class="ruby-identifier">size</span>
+  <span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_associate_stray_comment" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_associate_stray_comment</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_associate_stray_comment-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/parser-2.5.0.0/test/test_source_comment_associator.rb, line 327</span>
+  <span class="ruby-keyword">def</span> <span class="ruby-identifier">test_associate_stray_comment</span>
+    <span class="ruby-identifier">ast</span>, <span class="ruby-identifier">associations</span> = <span class="ruby-identifier">associate</span>(<span class="ruby-string">&quot;def foo
+  # foo
+end
+&quot;</span>)
+
+    <span class="ruby-identifier">assert_equal</span> <span class="ruby-value">1</span>, <span class="ruby-identifier">associations</span>.<span class="ruby-identifier">size</span>
+    <span class="ruby-identifier">assert_equal</span> [<span class="ruby-string">&#39;# foo&#39;</span>],
+                 <span class="ruby-identifier">associations</span>[<span class="ruby-identifier">ast</span>].<span class="ruby-identifier">map</span>(<span class="ruby-operator">&amp;</span><span class="ruby-value">:text</span>)
+  <span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_associate_warn_indent" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_associate_warn_indent</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_associate_warn_indent-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/parser-2.5.0.0/test/test_source_comment_associator.rb, line 247</span>
+  <span class="ruby-keyword">def</span> <span class="ruby-identifier">test_associate_warn_indent</span>
+    <span class="ruby-identifier">ast</span>, <span class="ruby-identifier">associations</span> = <span class="ruby-identifier">associate</span>(<span class="ruby-string">&quot;# warn_indent: true
+class Foo
+end
+&quot;</span>)
+
+    <span class="ruby-identifier">assert_equal</span> <span class="ruby-value">0</span>, <span class="ruby-identifier">associations</span>.<span class="ruby-identifier">size</span>
+  <span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_associate_warn_indent_dash_star_dash" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_associate_warn_indent_dash_star_dash</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_associate_warn_indent_dash_star_dash-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/parser-2.5.0.0/test/test_source_comment_associator.rb, line 257</span>
+  <span class="ruby-keyword">def</span> <span class="ruby-identifier">test_associate_warn_indent_dash_star_dash</span>
+    <span class="ruby-identifier">ast</span>, <span class="ruby-identifier">associations</span> = <span class="ruby-identifier">associate</span>(<span class="ruby-string">&quot;# -*- warn_indent: true -*-
+class Foo
+end
+&quot;</span>)
+
+    <span class="ruby-identifier">assert_equal</span> <span class="ruby-value">0</span>, <span class="ruby-identifier">associations</span>.<span class="ruby-identifier">size</span>
+  <span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_associate_warn_past_scope" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_associate_warn_past_scope</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_associate_warn_past_scope-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/parser-2.5.0.0/test/test_source_comment_associator.rb, line 267</span>
+  <span class="ruby-keyword">def</span> <span class="ruby-identifier">test_associate_warn_past_scope</span>
+    <span class="ruby-identifier">ast</span>, <span class="ruby-identifier">associations</span> = <span class="ruby-identifier">associate</span>(<span class="ruby-string">&quot;# warn_past_scope: true
+class Foo
+end
+&quot;</span>)
+
+    <span class="ruby-identifier">assert_equal</span> <span class="ruby-value">0</span>, <span class="ruby-identifier">associations</span>.<span class="ruby-identifier">size</span>
+  <span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_associate_warn_past_scope_dash_star_dash" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_associate_warn_past_scope_dash_star_dash</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_associate_warn_past_scope_dash_star_dash-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/parser-2.5.0.0/test/test_source_comment_associator.rb, line 277</span>
+  <span class="ruby-keyword">def</span> <span class="ruby-identifier">test_associate_warn_past_scope_dash_star_dash</span>
+    <span class="ruby-identifier">ast</span>, <span class="ruby-identifier">associations</span> = <span class="ruby-identifier">associate</span>(<span class="ruby-string">&quot;# -*- warn_past_scope: true -*-
+class Foo
+end
+&quot;</span>)
+
+    <span class="ruby-identifier">assert_equal</span> <span class="ruby-value">0</span>, <span class="ruby-identifier">associations</span>.<span class="ruby-identifier">size</span>
+  <span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="https://rdoc.github.io/rdoc">RDoc</a> 5.0.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

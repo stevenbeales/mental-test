@@ -1,0 +1,903 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class Mustermann::AST::Parser - RDoc Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../../";
+  var index_rel_prefix = "../../";
+</script>
+
+<script src="../../js/jquery.js"></script>
+<script src="../../js/darkfish.js"></script>
+
+<link href="../../css/fonts.css" rel="stylesheet">
+<link href="../../css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../../table_of_contents.html#pages">Pages</a>
+    <a href="../../table_of_contents.html#classes">Classes</a>
+    <a href="../../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link"><a href="../../Object.html">Object</a>
+  
+</div>
+
+    
+    <div id="extends-section" class="nav-section">
+  <h3>Extended With Modules</h3>
+
+  <ul class="link-list">
+    
+  
+    <li><span class="extend">Forwardable</span>
+  
+  
+  </ul>
+</div>
+
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-c-new">::new</a>
+    
+    <li ><a href="#method-c-on">::on</a>
+    
+    <li ><a href="#method-c-parse">::parse</a>
+    
+    <li ><a href="#method-c-suffix">::suffix</a>
+    
+    <li ><a href="#method-i-default_node">#default_node</a>
+    
+    <li ><a href="#method-i-expect">#expect</a>
+    
+    <li ><a href="#method-i-min_size">#min_size</a>
+    
+    <li ><a href="#method-i-node">#node</a>
+    
+    <li ><a href="#method-i-parse">#parse</a>
+    
+    <li ><a href="#method-i-read">#read</a>
+    
+    <li ><a href="#method-i-read_args">#read_args</a>
+    
+    <li ><a href="#method-i-read_brackets">#read_brackets</a>
+    
+    <li ><a href="#method-i-read_escaped">#read_escaped</a>
+    
+    <li ><a href="#method-i-read_list">#read_list</a>
+    
+    <li ><a href="#method-i-read_suffix">#read_suffix</a>
+    
+    <li ><a href="#method-i-scan">#scan</a>
+    
+    <li ><a href="#method-i-unexpected">#unexpected</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-Mustermann::AST::Parser">
+  <h1 id="class-Mustermann::AST::Parser" class="class">
+    class Mustermann::AST::Parser
+  </h1>
+
+  <section class="description">
+    
+<p>Simple, StringScanner based parser. @!visibility private</p>
+
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+    <section class="attribute-method-details" class="method-section">
+      <header>
+        <h3>Attributes</h3>
+      </header>
+
+      
+      <div id="attribute-i-buffer" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">buffer</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        <p>@!visibility private</p>
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-pattern" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">pattern</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        <p>@!visibility private</p>
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-string" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">string</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        <p>@!visibility private</p>
+        
+        </div>
+      </div>
+      
+    </section>
+    
+
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Class Methods</h3>
+       </header>
+
+    
+      <div id="method-c-new" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">new</span><span
+            class="method-args">(pattern: nil, **options)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>@!visibility private</p>
+          
+          
+
+          
+          <div class="method-source-code" id="new-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/mustermann-1.0.2/lib/mustermann/ast/parser.rb, line 47</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">pattern</span><span class="ruby-operator">:</span> <span class="ruby-keyword">nil</span>, <span class="ruby-operator">**</span><span class="ruby-identifier">options</span>)
+  <span class="ruby-ivar">@pattern</span> = <span class="ruby-identifier">pattern</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-on" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">on</span><span
+            class="method-args">(*chars, &block)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Defines another grammar rule for first character.</p>
+
+<p>@see Mustermann::Rails @see <a
+href="../Sinatra.html">Mustermann::Sinatra</a> @see Mustermann::Template
+@!visibility private</p>
+          
+          
+
+          
+          <div class="method-source-code" id="on-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/mustermann-1.0.2/lib/mustermann/ast/parser.rb, line 24</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">on</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">chars</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+  <span class="ruby-identifier">chars</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">char</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">define_method</span>(<span class="ruby-string">&quot;read %p&quot;</span> <span class="ruby-operator">%</span> <span class="ruby-identifier">char</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-parse" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">parse</span><span
+            class="method-args">(string, **options)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>@param [String] string to be parsed @return [Mustermann::AST::Node] parse
+tree for string @!visibility private</p>
+          
+          
+
+          
+          <div class="method-source-code" id="parse-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/mustermann-1.0.2/lib/mustermann/ast/parser.rb, line 14</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">parse</span>(<span class="ruby-identifier">string</span>, <span class="ruby-operator">**</span><span class="ruby-identifier">options</span>)
+  <span class="ruby-identifier">new</span>(<span class="ruby-operator">**</span><span class="ruby-identifier">options</span>).<span class="ruby-identifier">parse</span>(<span class="ruby-identifier">string</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-suffix" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">suffix</span><span
+            class="method-args">(pattern = /./, after: :node, &block)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Defines another grammar rule for a suffix.</p>
+
+<p>@see <a href="../Sinatra.html">Mustermann::Sinatra</a> @!visibility private</p>
+          
+          
+
+          
+          <div class="method-source-code" id="suffix-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/mustermann-1.0.2/lib/mustermann/ast/parser.rb, line 34</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">suffix</span>(<span class="ruby-identifier">pattern</span> = <span class="ruby-regexp">/./</span>, <span class="ruby-identifier">after</span><span class="ruby-operator">:</span> <span class="ruby-value">:node</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+  <span class="ruby-ivar">@suffix</span> <span class="ruby-operator">||=</span> []
+  <span class="ruby-ivar">@suffix</span> <span class="ruby-operator">&lt;&lt;</span> [<span class="ruby-identifier">pattern</span>, <span class="ruby-identifier">after</span>, <span class="ruby-identifier">block</span>] <span class="ruby-keyword">if</span> <span class="ruby-identifier">block</span>
+  <span class="ruby-ivar">@suffix</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-default_node" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">default_node</span><span
+            class="method-args">(char)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Create a node for a character we don&#39;t have an explicit rule for.</p>
+
+<p>@param [String] char the character @return [Mustermann::AST::Node] the node
+@!visibility private</p>
+          
+          
+
+          
+          <div class="method-source-code" id="default_node-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/mustermann-1.0.2/lib/mustermann/ast/parser.rb, line 78</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">default_node</span>(<span class="ruby-identifier">char</span>)
+  <span class="ruby-identifier">char</span> <span class="ruby-operator">==</span> <span class="ruby-value">?/</span> <span class="ruby-operator">?</span> <span class="ruby-identifier">node</span>(<span class="ruby-value">:separator</span>, <span class="ruby-identifier">char</span>) <span class="ruby-operator">:</span> <span class="ruby-identifier">node</span>(<span class="ruby-value">:char</span>, <span class="ruby-identifier">char</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-expect" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">expect</span><span
+            class="method-args">(regexp, char: nil, **options)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Asserts a regular expression matches what&#39;s next on the buffer. Will
+return corresponding MatchData if regexp includes named captures.</p>
+
+<p>@param [Regexp] regexp expected to match @return [String, MatchData] the
+match @raise [Mustermann::ParseError] if expectation wasn&#39;t met
+@!visibility private</p>
+          
+          
+
+          
+          <div class="method-source-code" id="expect-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/mustermann-1.0.2/lib/mustermann/ast/parser.rb, line 139</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">expect</span>(<span class="ruby-identifier">regexp</span>, <span class="ruby-identifier">char</span><span class="ruby-operator">:</span> <span class="ruby-keyword">nil</span>, <span class="ruby-operator">**</span><span class="ruby-identifier">options</span>)
+  <span class="ruby-identifier">scan</span>(<span class="ruby-identifier">regexp</span>) <span class="ruby-operator">||</span> <span class="ruby-identifier">unexpected</span>(<span class="ruby-identifier">char</span>, <span class="ruby-operator">**</span><span class="ruby-identifier">options</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-min_size" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">min_size</span><span
+            class="method-args">(start, stop, node)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>sets start on node to start if it&#39;s not set to a lower value. sets stop
+on node to stop if it&#39;s not set to a higher value. @return
+[Mustermann::AST::Node] the node passed as third argument @!visibility
+private</p>
+          
+          
+
+          
+          <div class="method-source-code" id="min_size-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/mustermann-1.0.2/lib/mustermann/ast/parser.rb, line 98</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">min_size</span>(<span class="ruby-identifier">start</span>, <span class="ruby-identifier">stop</span>, <span class="ruby-identifier">node</span>)
+  <span class="ruby-identifier">stop</span>  <span class="ruby-operator">||=</span> <span class="ruby-identifier">start</span>
+  <span class="ruby-identifier">start</span> <span class="ruby-operator">||=</span> <span class="ruby-identifier">stop</span>
+  <span class="ruby-identifier">node</span>.<span class="ruby-identifier">start</span> = <span class="ruby-identifier">start</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">node</span>.<span class="ruby-identifier">start</span> <span class="ruby-keyword">and</span> <span class="ruby-identifier">node</span>.<span class="ruby-identifier">start</span> <span class="ruby-operator">&lt;</span> <span class="ruby-identifier">start</span>
+  <span class="ruby-identifier">node</span>.<span class="ruby-identifier">stop</span>  = <span class="ruby-identifier">stop</span>  <span class="ruby-keyword">unless</span> <span class="ruby-identifier">node</span>.<span class="ruby-identifier">stop</span>  <span class="ruby-keyword">and</span> <span class="ruby-identifier">node</span>.<span class="ruby-identifier">stop</span>  <span class="ruby-operator">&gt;</span> <span class="ruby-identifier">stop</span>
+  <span class="ruby-identifier">node</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-node" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">node</span><span
+            class="method-args">(type, *args, &block)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>@example</p>
+
+<pre class="ruby"><span class="ruby-identifier">node</span>(:<span class="ruby-identifier">char</span>, <span class="ruby-string">&#39;x&#39;</span>).<span class="ruby-identifier">compile</span> <span class="ruby-operator">=~</span> <span class="ruby-string">&#39;x&#39;</span> <span class="ruby-comment"># =&gt; true</span>
+</pre>
+
+<p>@param [Symbol] type node type @return [Mustermann::AST::Node] @!visibility
+private</p>
+          
+          
+
+          
+          <div class="method-source-code" id="node-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/mustermann-1.0.2/lib/mustermann/ast/parser.rb, line 66</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">node</span>(<span class="ruby-identifier">type</span>, <span class="ruby-operator">*</span><span class="ruby-identifier">args</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+  <span class="ruby-identifier">type</span>  = <span class="ruby-constant">Node</span>[<span class="ruby-identifier">type</span>] <span class="ruby-keyword">unless</span> <span class="ruby-identifier">type</span>.<span class="ruby-identifier">respond_to?</span> <span class="ruby-value">:new</span>
+  <span class="ruby-identifier">start</span> = <span class="ruby-identifier">pos</span>
+  <span class="ruby-identifier">node</span>  = <span class="ruby-identifier">block</span> <span class="ruby-operator">?</span> <span class="ruby-identifier">type</span>.<span class="ruby-identifier">parse</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>) <span class="ruby-operator">:</span> <span class="ruby-identifier">type</span>.<span class="ruby-identifier">new</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
+  <span class="ruby-identifier">min_size</span>(<span class="ruby-identifier">start</span>, <span class="ruby-identifier">pos</span>, <span class="ruby-identifier">node</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-parse" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">parse</span><span
+            class="method-args">(string)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>@param [String] string to be parsed @return [Mustermann::AST::Node] parse
+tree for string @!visibility private</p>
+          
+          
+
+          
+          <div class="method-source-code" id="parse-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/mustermann-1.0.2/lib/mustermann/ast/parser.rb, line 54</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">parse</span>(<span class="ruby-identifier">string</span>)
+  <span class="ruby-ivar">@string</span> = <span class="ruby-identifier">string</span>
+  <span class="ruby-ivar">@buffer</span> = <span class="ruby-operator">::</span><span class="ruby-constant">StringScanner</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">string</span>)
+  <span class="ruby-identifier">node</span>(<span class="ruby-value">:root</span>, <span class="ruby-identifier">string</span>) { <span class="ruby-identifier">read</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">eos?</span> }
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-read" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">read</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Reads the next element from the buffer. @return [Mustermann::AST::Node]
+next element @!visibility private</p>
+          
+          
+
+          
+          <div class="method-source-code" id="read-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/mustermann-1.0.2/lib/mustermann/ast/parser.rb, line 85</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">read</span>
+  <span class="ruby-identifier">start</span>  = <span class="ruby-identifier">pos</span>
+  <span class="ruby-identifier">char</span>   = <span class="ruby-identifier">getch</span>
+  <span class="ruby-identifier">method</span> = <span class="ruby-string">&quot;read %p&quot;</span> <span class="ruby-operator">%</span> <span class="ruby-identifier">char</span>
+  <span class="ruby-identifier">element</span>= <span class="ruby-identifier">respond_to?</span>(<span class="ruby-identifier">method</span>) <span class="ruby-operator">?</span> <span class="ruby-identifier">send</span>(<span class="ruby-identifier">method</span>, <span class="ruby-identifier">char</span>) <span class="ruby-operator">:</span> <span class="ruby-identifier">default_node</span>(<span class="ruby-identifier">char</span>)
+  <span class="ruby-identifier">min_size</span>(<span class="ruby-identifier">start</span>, <span class="ruby-identifier">pos</span>, <span class="ruby-identifier">element</span>)
+  <span class="ruby-identifier">read_suffix</span>(<span class="ruby-identifier">element</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-read_args" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">read_args</span><span
+            class="method-args">(key_separator, close, separator: ?,, symbol_keys: true, **options)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Reads an argument string of the format arg1,args2,key:value</p>
+
+<p>@!visibility private</p>
+          
+          
+
+          
+          <div class="method-source-code" id="read_args-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/mustermann-1.0.2/lib/mustermann/ast/parser.rb, line 170</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">read_args</span>(<span class="ruby-identifier">key_separator</span>, <span class="ruby-identifier">close</span>, <span class="ruby-identifier">separator</span><span class="ruby-operator">:</span> <span class="ruby-value">?,</span>, <span class="ruby-identifier">symbol_keys</span><span class="ruby-operator">:</span> <span class="ruby-keyword">true</span>, <span class="ruby-operator">**</span><span class="ruby-identifier">options</span>)
+  <span class="ruby-identifier">list</span>, <span class="ruby-identifier">map</span> = [], {}
+  <span class="ruby-keyword">while</span> <span class="ruby-identifier">buffer</span>.<span class="ruby-identifier">peek</span>(<span class="ruby-value">1</span>) <span class="ruby-operator">!=</span> <span class="ruby-identifier">close</span>
+    <span class="ruby-identifier">scan</span>(<span class="ruby-identifier">separator</span>)
+    <span class="ruby-identifier">entries</span> = <span class="ruby-identifier">read_list</span>(<span class="ruby-identifier">close</span>, <span class="ruby-identifier">separator</span>, <span class="ruby-identifier">separator</span><span class="ruby-operator">:</span> <span class="ruby-identifier">key_separator</span>, <span class="ruby-operator">**</span><span class="ruby-identifier">options</span>)
+    <span class="ruby-keyword">case</span> <span class="ruby-identifier">entries</span>.<span class="ruby-identifier">size</span>
+    <span class="ruby-keyword">when</span> <span class="ruby-value">1</span> <span class="ruby-keyword">then</span> <span class="ruby-identifier">list</span> <span class="ruby-operator">+=</span> <span class="ruby-identifier">entries</span>
+    <span class="ruby-keyword">when</span> <span class="ruby-value">2</span> <span class="ruby-keyword">then</span> <span class="ruby-identifier">map</span>[<span class="ruby-identifier">symbol_keys</span> <span class="ruby-operator">?</span> <span class="ruby-identifier">entries</span>.<span class="ruby-identifier">first</span>.<span class="ruby-identifier">to_sym</span> <span class="ruby-operator">:</span> <span class="ruby-identifier">entries</span>.<span class="ruby-identifier">first</span>] = <span class="ruby-identifier">entries</span>.<span class="ruby-identifier">last</span>
+    <span class="ruby-keyword">else</span>        <span class="ruby-identifier">unexpected</span>(<span class="ruby-identifier">key_separator</span>)
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-identifier">buffer</span>.<span class="ruby-identifier">pos</span> <span class="ruby-operator">-=</span> <span class="ruby-value">1</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">expect</span>(<span class="ruby-identifier">close</span>)
+  [<span class="ruby-identifier">list</span>, <span class="ruby-identifier">map</span>]
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-read_brackets" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">read_brackets</span><span
+            class="method-args">(open, close, char: nil, escape: ?\\, quote: false, **options)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Allows to read a string inside brackets. It does not expect the string to
+start with an opening bracket.</p>
+
+<p>@example</p>
+
+<pre class="ruby"><span class="ruby-identifier">buffer</span>.<span class="ruby-identifier">string</span> = <span class="ruby-string">&quot;fo&lt;o&gt;&gt;ba&lt;r&gt;&quot;</span>
+<span class="ruby-identifier">read_brackets</span>(<span class="ruby-value">?&lt;</span>, <span class="ruby-value">?&gt;</span>) <span class="ruby-comment"># =&gt; &quot;fo&lt;o&gt;&quot;</span>
+<span class="ruby-identifier">buffer</span>.<span class="ruby-identifier">rest</span> <span class="ruby-comment"># =&gt; &quot;ba&lt;r&gt;&quot;</span>
+</pre>
+
+<p>@!visibility private</p>
+          
+          
+
+          
+          <div class="method-source-code" id="read_brackets-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/mustermann-1.0.2/lib/mustermann/ast/parser.rb, line 152</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">read_brackets</span>(<span class="ruby-identifier">open</span>, <span class="ruby-identifier">close</span>, <span class="ruby-identifier">char</span><span class="ruby-operator">:</span> <span class="ruby-keyword">nil</span>, <span class="ruby-identifier">escape</span><span class="ruby-operator">:</span> <span class="ruby-value">?\</span>\, <span class="ruby-identifier">quote</span><span class="ruby-operator">:</span> <span class="ruby-keyword">false</span>, <span class="ruby-operator">**</span><span class="ruby-identifier">options</span>)
+  <span class="ruby-identifier">result</span> = <span class="ruby-constant">String</span>.<span class="ruby-identifier">new</span>
+  <span class="ruby-identifier">escape</span> = <span class="ruby-keyword">false</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">escape</span>.<span class="ruby-identifier">nil?</span>
+  <span class="ruby-keyword">while</span> <span class="ruby-identifier">current</span> = <span class="ruby-identifier">getch</span>
+    <span class="ruby-keyword">case</span> <span class="ruby-identifier">current</span>
+    <span class="ruby-keyword">when</span> <span class="ruby-identifier">close</span>  <span class="ruby-keyword">then</span> <span class="ruby-keyword">return</span> <span class="ruby-identifier">result</span>
+    <span class="ruby-keyword">when</span> <span class="ruby-identifier">open</span>   <span class="ruby-keyword">then</span> <span class="ruby-identifier">result</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">open</span>   <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">read_brackets</span>(<span class="ruby-identifier">open</span>, <span class="ruby-identifier">close</span>) <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">close</span>
+    <span class="ruby-keyword">when</span> <span class="ruby-identifier">escape</span> <span class="ruby-keyword">then</span> <span class="ruby-identifier">result</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">escape</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">getch</span>
+    <span class="ruby-keyword">else</span> <span class="ruby-identifier">result</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">current</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">unexpected</span>(<span class="ruby-identifier">char</span>, <span class="ruby-operator">**</span><span class="ruby-identifier">options</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-read_escaped" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">read_escaped</span><span
+            class="method-args">(close, escape: ?\\, **options)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Read a string until a terminating character, ignoring escaped versions of
+said character.</p>
+
+<p>@!visibility private</p>
+          
+          
+
+          
+          <div class="method-source-code" id="read_escaped-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/mustermann-1.0.2/lib/mustermann/ast/parser.rb, line 208</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">read_escaped</span>(<span class="ruby-identifier">close</span>, <span class="ruby-identifier">escape</span><span class="ruby-operator">:</span> <span class="ruby-value">?\</span>\, <span class="ruby-operator">**</span><span class="ruby-identifier">options</span>)
+  <span class="ruby-identifier">result</span> = <span class="ruby-constant">String</span>.<span class="ruby-identifier">new</span>
+  <span class="ruby-keyword">while</span> <span class="ruby-identifier">current</span> = <span class="ruby-identifier">getch</span>
+    <span class="ruby-keyword">case</span> <span class="ruby-identifier">current</span>
+    <span class="ruby-keyword">when</span> <span class="ruby-identifier">close</span>  <span class="ruby-keyword">then</span> <span class="ruby-keyword">return</span> <span class="ruby-identifier">result</span>
+    <span class="ruby-keyword">when</span> <span class="ruby-identifier">escape</span> <span class="ruby-keyword">then</span> <span class="ruby-identifier">result</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">getch</span>
+    <span class="ruby-keyword">else</span> <span class="ruby-identifier">result</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">current</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">unexpected</span>(<span class="ruby-identifier">current</span>, <span class="ruby-operator">**</span><span class="ruby-identifier">options</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-read_list" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">read_list</span><span
+            class="method-args">(*close, separator: ?,, escape: ?\\, quotes: [?", ?'], ignore: " ", **options)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Reads a separated list with the ability to quote, escape and add spaces.</p>
+
+<p>@!visibility private</p>
+          
+          
+
+          
+          <div class="method-source-code" id="read_list-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/mustermann-1.0.2/lib/mustermann/ast/parser.rb, line 189</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">read_list</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">close</span>, <span class="ruby-identifier">separator</span><span class="ruby-operator">:</span> <span class="ruby-value">?,</span>, <span class="ruby-identifier">escape</span><span class="ruby-operator">:</span> <span class="ruby-value">?\</span>\, <span class="ruby-identifier">quotes</span><span class="ruby-operator">:</span> [<span class="ruby-value">?&quot;</span>, <span class="ruby-value">?&#39;</span>], <span class="ruby-identifier">ignore</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot; &quot;</span>, <span class="ruby-operator">**</span><span class="ruby-identifier">options</span>)
+  <span class="ruby-identifier">result</span> = []
+  <span class="ruby-keyword">while</span> <span class="ruby-identifier">current</span> = <span class="ruby-identifier">getch</span>
+    <span class="ruby-identifier">element</span> = <span class="ruby-identifier">result</span>.<span class="ruby-identifier">empty?</span> <span class="ruby-operator">?</span> <span class="ruby-identifier">result</span> <span class="ruby-operator">:</span> <span class="ruby-identifier">result</span>.<span class="ruby-identifier">last</span>
+    <span class="ruby-keyword">case</span> <span class="ruby-identifier">current</span>
+    <span class="ruby-keyword">when</span> <span class="ruby-operator">*</span><span class="ruby-identifier">close</span>    <span class="ruby-keyword">then</span> <span class="ruby-keyword">return</span> <span class="ruby-identifier">result</span>
+    <span class="ruby-keyword">when</span> <span class="ruby-identifier">ignore</span>    <span class="ruby-keyword">then</span> <span class="ruby-keyword">nil</span> <span class="ruby-comment"># do nothing</span>
+    <span class="ruby-keyword">when</span> <span class="ruby-identifier">separator</span> <span class="ruby-keyword">then</span> <span class="ruby-identifier">result</span>  <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-constant">String</span>.<span class="ruby-identifier">new</span>
+    <span class="ruby-keyword">when</span> <span class="ruby-identifier">escape</span>    <span class="ruby-keyword">then</span> <span class="ruby-identifier">element</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">getch</span>
+    <span class="ruby-keyword">when</span> <span class="ruby-operator">*</span><span class="ruby-identifier">quotes</span>   <span class="ruby-keyword">then</span> <span class="ruby-identifier">element</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">read_escaped</span>(<span class="ruby-identifier">current</span>, <span class="ruby-identifier">escape</span><span class="ruby-operator">:</span> <span class="ruby-identifier">escape</span>)
+    <span class="ruby-keyword">else</span> <span class="ruby-identifier">element</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">current</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">unexpected</span>(<span class="ruby-identifier">current</span>, <span class="ruby-operator">**</span><span class="ruby-identifier">options</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-read_suffix" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">read_suffix</span><span
+            class="method-args">(element)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Checks for a potential suffix on the buffer. @param [Mustermann::AST::Node]
+element node without suffix @return [Mustermann::AST::Node] node with
+suffix @!visibility private</p>
+          
+          
+
+          
+          <div class="method-source-code" id="read_suffix-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/mustermann-1.0.2/lib/mustermann/ast/parser.rb, line 110</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">read_suffix</span>(<span class="ruby-identifier">element</span>)
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">class</span>.<span class="ruby-identifier">suffix</span>.<span class="ruby-identifier">inject</span>(<span class="ruby-identifier">element</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">ele</span>, (<span class="ruby-identifier">regexp</span>, <span class="ruby-identifier">after</span>, <span class="ruby-identifier">callback</span>)<span class="ruby-operator">|</span>
+    <span class="ruby-keyword">next</span> <span class="ruby-identifier">ele</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">ele</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-identifier">after</span>) <span class="ruby-keyword">and</span> <span class="ruby-identifier">payload</span> = <span class="ruby-identifier">scan</span>(<span class="ruby-identifier">regexp</span>)
+    <span class="ruby-identifier">content</span> = <span class="ruby-identifier">instance_exec</span>(<span class="ruby-identifier">payload</span>, <span class="ruby-identifier">ele</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">callback</span>)
+    <span class="ruby-identifier">min_size</span>(<span class="ruby-identifier">element</span>.<span class="ruby-identifier">start</span>, <span class="ruby-identifier">pos</span>, <span class="ruby-identifier">content</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-scan" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">scan</span><span
+            class="method-args">(regexp)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Wrapper around {StringScanner#scan} that turns strings into escaped regular
+expressions and returns a MatchData if the regexp has any named captures.</p>
+
+<p>@param [Regexp, String] regexp @see StringScanner#scan @return [String,
+MatchData, nil] @!visibility private</p>
+          
+          
+
+          
+          <div class="method-source-code" id="scan-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/mustermann-1.0.2/lib/mustermann/ast/parser.rb, line 126</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">scan</span>(<span class="ruby-identifier">regexp</span>)
+  <span class="ruby-identifier">regexp</span> = <span class="ruby-constant">Regexp</span>.<span class="ruby-identifier">new</span>(<span class="ruby-constant">Regexp</span>.<span class="ruby-identifier">escape</span>(<span class="ruby-identifier">regexp</span>)) <span class="ruby-keyword">unless</span> <span class="ruby-identifier">regexp</span>.<span class="ruby-identifier">is_a?</span> <span class="ruby-constant">Regexp</span>
+  <span class="ruby-identifier">string</span> = <span class="ruby-identifier">buffer</span>.<span class="ruby-identifier">scan</span>(<span class="ruby-identifier">regexp</span>)
+  <span class="ruby-identifier">regexp</span>.<span class="ruby-identifier">names</span>.<span class="ruby-identifier">any?</span> <span class="ruby-operator">?</span> <span class="ruby-identifier">regexp</span>.<span class="ruby-identifier">match</span>(<span class="ruby-identifier">string</span>) <span class="ruby-operator">:</span> <span class="ruby-identifier">string</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-unexpected" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">unexpected</span><span
+            class="method-args">(char = nil, exception: ParseError)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Helper for raising an exception for an unexpected character. Will read
+character from buffer if buffer is passed in.</p>
+
+<p>@param [String, nil] char the unexpected character @raise
+[Mustermann::ParseError, Exception] @!visibility private</p>
+          
+          
+
+          
+          <div class="method-source-code" id="unexpected-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/mustermann-1.0.2/lib/mustermann/ast/parser.rb, line 226</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">unexpected</span>(<span class="ruby-identifier">char</span> = <span class="ruby-keyword">nil</span>, <span class="ruby-identifier">exception</span><span class="ruby-operator">:</span> <span class="ruby-constant">ParseError</span>)
+  <span class="ruby-identifier">char</span> <span class="ruby-operator">||=</span> <span class="ruby-identifier">getch</span>
+  <span class="ruby-identifier">char</span> = <span class="ruby-string">&quot;space&quot;</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">char</span> <span class="ruby-operator">==</span> <span class="ruby-string">&quot; &quot;</span>
+  <span class="ruby-identifier">raise</span> <span class="ruby-identifier">exception</span>, <span class="ruby-node">&quot;unexpected #{char || &quot;end of string&quot;} while parsing #{string.inspect}&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="https://rdoc.github.io/rdoc">RDoc</a> 5.0.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class I18n::Backend::KeyValue - RDoc Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../../";
+  var index_rel_prefix = "../../";
+</script>
+
+<script src="../../js/jquery.js"></script>
+<script src="../../js/darkfish.js"></script>
+
+<link href="../../css/fonts.css" rel="stylesheet">
+<link href="../../css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../../table_of_contents.html#pages">Pages</a>
+    <a href="../../table_of_contents.html#classes">Classes</a>
+    <a href="../../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+<div class="nav-section">
+  <h3>Table of Contents</h3>
+
+  <ul class="link-list" role="directory">
+    <li><a href="#class-I18n::Backend::KeyValue-label-Example">Example</a>
+    <li><a href="#class-I18n::Backend::KeyValue-label-Performance">Performance</a>
+    <li><a href="#class-I18n::Backend::KeyValue-label-Subtrees">Subtrees</a>
+  </ul>
+</div>
+
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link"><a href="../../Object.html">Object</a>
+  
+</div>
+
+    <div id="includes-section" class="nav-section">
+  <h3>Included Modules</h3>
+
+  <ul class="link-list">
+  
+  
+    <li><a class="include" href="KeyValue/Implementation.html">I18n::Backend::KeyValue::Implementation</a>
+  
+  
+  </ul>
+</div>
+
+    
+    
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-I18n::Backend::KeyValue">
+  <h1 id="class-I18n::Backend::KeyValue" class="class">
+    class I18n::Backend::KeyValue
+  </h1>
+
+  <section class="description">
+    
+<p>This is a basic backend for key value stores. It receives on initialization
+the store, which should respond to three methods:</p>
+<ul><li>
+<p>store#[](key)         - Used to get a value</p>
+</li><li>
+<p>store#[]=(key, value) - Used to set a value</p>
+</li><li>
+<p>store#keys            - Used to get all keys</p>
+</li></ul>
+
+<p>Since these stores only supports string, all values are converted to <a
+href="../JSON.html">JSON</a> before being stored, allowing it to also store
+booleans, hashes and arrays. However, this store does not support Procs.</p>
+
+<p>As the <a href="../../ActiveRecord.html">ActiveRecord</a> backend, Symbols
+are just supported when loading translations from the filesystem or through
+explicit store translations.</p>
+
+<p>Also, avoid calling I18n.available_locales since it&#39;s a somehow
+expensive operation in most stores.</p>
+
+<h2 id="class-I18n::Backend::KeyValue-label-Example">Example<span><a href="#class-I18n::Backend::KeyValue-label-Example">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<p>To setup <a href="../../I18n.html">I18n</a> to use TokyoCabinet in memory
+is quite straightforward:</p>
+
+<pre class="ruby"><span class="ruby-identifier">require</span> <span class="ruby-string">&#39;rufus/tokyo/cabinet&#39;</span> <span class="ruby-comment"># gem install rufus-tokyo</span>
+<span class="ruby-constant">I18n</span>.<span class="ruby-identifier">backend</span> = <span class="ruby-constant">I18n</span><span class="ruby-operator">::</span><span class="ruby-constant">Backend</span><span class="ruby-operator">::</span><span class="ruby-constant">KeyValue</span>.<span class="ruby-identifier">new</span>(<span class="ruby-constant">Rufus</span><span class="ruby-operator">::</span><span class="ruby-constant">Tokyo</span><span class="ruby-operator">::</span><span class="ruby-constant">Cabinet</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&#39;*&#39;</span>))
+</pre>
+
+<h2 id="class-I18n::Backend::KeyValue-label-Performance">Performance<span><a href="#class-I18n::Backend::KeyValue-label-Performance">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<p>You may make this backend even faster by including the <a
+href="Memoize.html">Memoize</a> module. However, notice that you should
+properly clear the cache if you change values directly in the key-store.</p>
+
+<h2 id="class-I18n::Backend::KeyValue-label-Subtrees">Subtrees<span><a href="#class-I18n::Backend::KeyValue-label-Subtrees">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<p>In most backends, you are allowed to retrieve part of a translation tree:</p>
+
+<pre class="ruby"><span class="ruby-constant">I18n</span>.<span class="ruby-identifier">backend</span>.<span class="ruby-identifier">store_translations</span> :<span class="ruby-identifier">en</span>, :<span class="ruby-identifier">foo</span> =<span class="ruby-operator">&gt;</span> { :<span class="ruby-identifier">bar</span> =<span class="ruby-operator">&gt;</span> :<span class="ruby-identifier">baz</span> }
+<span class="ruby-constant">I18n</span>.<span class="ruby-identifier">t</span> <span class="ruby-string">&quot;foo&quot;</span> <span class="ruby-comment">#=&gt; { :bar =&gt; :baz }</span>
+</pre>
+
+<p>This backend supports this feature by default, but it slows down the
+storage of new data considerably and makes hard to delete entries. That
+said, you are allowed to disable the storage of subtrees on initialization:</p>
+
+<pre class="ruby"><span class="ruby-constant">I18n</span><span class="ruby-operator">::</span><span class="ruby-constant">Backend</span><span class="ruby-operator">::</span><span class="ruby-constant">KeyValue</span>.<span class="ruby-identifier">new</span>(<span class="ruby-ivar">@store</span>, <span class="ruby-keyword">false</span>)
+</pre>
+
+<p>This is useful if you are using a <a href="KeyValue.html">KeyValue</a>
+backend chained to a <a href="Simple.html">Simple</a> backend.</p>
+
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+
+    
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="https://rdoc.github.io/rdoc">RDoc</a> 5.0.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

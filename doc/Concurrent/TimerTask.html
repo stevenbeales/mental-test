@@ -1,0 +1,688 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class Concurrent::TimerTask - RDoc Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../";
+  var index_rel_prefix = "../";
+</script>
+
+<script src="../js/jquery.js"></script>
+<script src="../js/darkfish.js"></script>
+
+<link href="../css/fonts.css" rel="stylesheet">
+<link href="../css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../table_of_contents.html#pages">Pages</a>
+    <a href="../table_of_contents.html#classes">Classes</a>
+    <a href="../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link"><a href="RubyExecutorService.html">Concurrent::RubyExecutorService</a>
+  
+</div>
+
+    <div id="includes-section" class="nav-section">
+  <h3>Included Modules</h3>
+
+  <ul class="link-list">
+  
+  
+    <li><a class="include" href="Concern/Dereferenceable.html">Concurrent::Concern::Dereferenceable</a>
+  
+  
+  
+    <li><a class="include" href="Concern/Observable.html">Concurrent::Concern::Observable</a>
+  
+  
+  </ul>
+</div>
+
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-c-execute">::execute</a>
+    
+    <li class="calls-super" ><a href="#method-c-new">::new</a>
+    
+    <li ><a href="#method-i-execute">#execute</a>
+    
+    <li ><a href="#method-i-execution_interval">#execution_interval</a>
+    
+    <li ><a href="#method-i-execution_interval-3D">#execution_interval=</a>
+    
+    <li ><a href="#method-i-running-3F">#running?</a>
+    
+    <li ><a href="#method-i-timeout_interval">#timeout_interval</a>
+    
+    <li ><a href="#method-i-timeout_interval-3D">#timeout_interval=</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-Concurrent::TimerTask">
+  <h1 id="class-Concurrent::TimerTask" class="class">
+    class Concurrent::TimerTask
+  </h1>
+
+  <section class="description">
+    
+<p>A very common concurrency pattern is to run a thread that performs a task
+at regular intervals. The thread that performs the task sleeps for the
+given interval then wakes up and performs the task. Lather, rinse, repeat…
+This pattern causes two problems. First, it is difficult to test the
+business logic of the task because the task itself is tightly coupled with
+the concurrency logic. Second, an exception raised while performing the
+task can cause the entire thread to abend. In a long-running application
+where the task thread is intended to run for days/weeks/years a crashed
+task thread can pose a significant problem. `TimerTask` alleviates both
+problems.</p>
+
+<p>When a `TimerTask` is launched it starts a thread for monitoring the
+execution interval. The `TimerTask` thread does not perform the task,
+however. Instead, the <a href="TimerTask.html">TimerTask</a> launches the
+task on a separate thread. Should the task experience an unrecoverable
+crash only the task thread will crash. This makes the `TimerTask` very
+fault tolerant. Additionally, the `TimerTask` thread can respond to the
+success or failure of the task, performing logging or ancillary operations.
+`TimerTask` can also be configured with a timeout value allowing it to kill
+a task that runs too long.</p>
+
+<p><a href="../One.html">One</a> other advantage of `TimerTask` is that it
+forces the business logic to be completely decoupled from the concurrency
+logic. The business logic can be tested separately then passed to the
+`TimerTask` for scheduling and running.</p>
+
+<p>In some cases it may be necessary for a `TimerTask` to affect its own
+execution cycle. To facilitate this, a reference to the <a
+href="TimerTask.html">TimerTask</a> instance is passed as an argument to
+the provided block every time the task is executed.</p>
+
+<p>The `TimerTask` class includes the `Dereferenceable` mixin module so the
+result of the last execution is always available via the `#value` method.
+Dereferencing options can be passed to the `TimerTask` during construction
+or at any later time using the `#set_deref_options` method.</p>
+
+<p>`TimerTask` supports notification through the Ruby standard library {<a
+href="http://ruby-doc.org/stdlib-2.0/libdoc/observer/rdoc/Observable.html">ruby-doc.org/stdlib-2.0/libdoc/observer/rdoc/Observable.html</a>
+Observable} module. On execution the `TimerTask` will notify the observers
+with three arguments: time of execution, the result of the block (or nil on
+failure), and any raised exceptions (or nil on success). If the timeout
+interval is exceeded the observer will receive a `Concurrent::TimeoutError`
+object as the third argument.</p>
+
+<p>@!macro copy_options</p>
+
+<p>@example Basic usage</p>
+
+<pre class="ruby"><span class="ruby-identifier">task</span> = <span class="ruby-constant">Concurrent</span><span class="ruby-operator">::</span><span class="ruby-constant">TimerTask</span>.<span class="ruby-identifier">new</span>{ <span class="ruby-identifier">puts</span> <span class="ruby-string">&#39;Boom!&#39;</span> }
+<span class="ruby-identifier">task</span>.<span class="ruby-identifier">execute</span>
+
+<span class="ruby-identifier">task</span>.<span class="ruby-identifier">execution_interval</span> <span class="ruby-comment">#=&gt; 60 (default)</span>
+<span class="ruby-identifier">task</span>.<span class="ruby-identifier">timeout_interval</span>   <span class="ruby-comment">#=&gt; 30 (default)</span>
+
+<span class="ruby-comment"># wait 60 seconds...</span>
+<span class="ruby-comment">#=&gt; &#39;Boom!&#39;</span>
+
+<span class="ruby-identifier">task</span>.<span class="ruby-identifier">shutdown</span> <span class="ruby-comment">#=&gt; true</span>
+</pre>
+
+<p>@example Configuring `:execution_interval` and `:timeout_interval`</p>
+
+<pre class="ruby"><span class="ruby-identifier">task</span> = <span class="ruby-constant">Concurrent</span><span class="ruby-operator">::</span><span class="ruby-constant">TimerTask</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">execution_interval</span><span class="ruby-operator">:</span> <span class="ruby-value">5</span>, <span class="ruby-identifier">timeout_interval</span><span class="ruby-operator">:</span> <span class="ruby-value">5</span>) <span class="ruby-keyword">do</span>
+       <span class="ruby-identifier">puts</span> <span class="ruby-string">&#39;Boom!&#39;</span>
+     <span class="ruby-keyword">end</span>
+
+<span class="ruby-identifier">task</span>.<span class="ruby-identifier">execution_interval</span> <span class="ruby-comment">#=&gt; 5</span>
+<span class="ruby-identifier">task</span>.<span class="ruby-identifier">timeout_interval</span>   <span class="ruby-comment">#=&gt; 5</span>
+</pre>
+
+<p>@example Immediate execution with `:run_now`</p>
+
+<pre class="ruby"><span class="ruby-identifier">task</span> = <span class="ruby-constant">Concurrent</span><span class="ruby-operator">::</span><span class="ruby-constant">TimerTask</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">run_now</span><span class="ruby-operator">:</span> <span class="ruby-keyword">true</span>){ <span class="ruby-identifier">puts</span> <span class="ruby-string">&#39;Boom!&#39;</span> }
+<span class="ruby-identifier">task</span>.<span class="ruby-identifier">execute</span>
+
+<span class="ruby-comment">#=&gt; &#39;Boom!&#39;</span>
+</pre>
+
+<p>@example Last `#value` and `Dereferenceable` mixin</p>
+
+<pre class="ruby"><span class="ruby-identifier">task</span> = <span class="ruby-constant">Concurrent</span><span class="ruby-operator">::</span><span class="ruby-constant">TimerTask</span>.<span class="ruby-identifier">new</span>(
+  <span class="ruby-identifier">dup_on_deref</span><span class="ruby-operator">:</span> <span class="ruby-keyword">true</span>,
+  <span class="ruby-identifier">execution_interval</span><span class="ruby-operator">:</span> <span class="ruby-value">5</span>
+){ <span class="ruby-constant">Time</span>.<span class="ruby-identifier">now</span> }
+
+<span class="ruby-identifier">task</span>.<span class="ruby-identifier">execute</span>
+<span class="ruby-constant">Time</span>.<span class="ruby-identifier">now</span>   <span class="ruby-comment">#=&gt; 2013-11-07 18:06:50 -0500</span>
+<span class="ruby-identifier">sleep</span>(<span class="ruby-value">10</span>)
+<span class="ruby-identifier">task</span>.<span class="ruby-identifier">value</span> <span class="ruby-comment">#=&gt; 2013-11-07 18:06:55 -0500</span>
+</pre>
+
+<p>@example Controlling execution from within the block</p>
+
+<pre class="ruby"><span class="ruby-identifier">timer_task</span> = <span class="ruby-constant">Concurrent</span><span class="ruby-operator">::</span><span class="ruby-constant">TimerTask</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">execution_interval</span><span class="ruby-operator">:</span> <span class="ruby-value">1</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">task</span><span class="ruby-operator">|</span>
+  <span class="ruby-identifier">task</span>.<span class="ruby-identifier">execution_interval</span>.<span class="ruby-identifier">times</span>{ <span class="ruby-identifier">print</span> <span class="ruby-string">&#39;Boom! &#39;</span> }
+  <span class="ruby-identifier">print</span> <span class="ruby-string">&quot;\n&quot;</span>
+  <span class="ruby-identifier">task</span>.<span class="ruby-identifier">execution_interval</span> <span class="ruby-operator">+=</span> <span class="ruby-value">1</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">task</span>.<span class="ruby-identifier">execution_interval</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">5</span>
+    <span class="ruby-identifier">puts</span> <span class="ruby-string">&#39;Stopping...&#39;</span>
+    <span class="ruby-identifier">task</span>.<span class="ruby-identifier">shutdown</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span>
+
+<span class="ruby-identifier">timer_task</span>.<span class="ruby-identifier">execute</span> <span class="ruby-comment"># blocking call - this task will stop itself</span>
+<span class="ruby-comment">#=&gt; Boom!</span>
+<span class="ruby-comment">#=&gt; Boom! Boom!</span>
+<span class="ruby-comment">#=&gt; Boom! Boom! Boom!</span>
+<span class="ruby-comment">#=&gt; Boom! Boom! Boom! Boom!</span>
+<span class="ruby-comment">#=&gt; Boom! Boom! Boom! Boom! Boom!</span>
+<span class="ruby-comment">#=&gt; Stopping...</span>
+</pre>
+
+<p>@example Observation</p>
+
+<pre class="ruby"><span class="ruby-keyword">class</span> <span class="ruby-constant">TaskObserver</span>
+  <span class="ruby-keyword">def</span> <span class="ruby-identifier">update</span>(<span class="ruby-identifier">time</span>, <span class="ruby-identifier">result</span>, <span class="ruby-identifier">ex</span>)
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">result</span>
+      <span class="ruby-identifier">print</span> <span class="ruby-node">&quot;(#{time}) Execution successfully returned #{result}\n&quot;</span>
+    <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">ex</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">Concurrent</span><span class="ruby-operator">::</span><span class="ruby-constant">TimeoutError</span>)
+      <span class="ruby-identifier">print</span> <span class="ruby-node">&quot;(#{time}) Execution timed out\n&quot;</span>
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-identifier">print</span> <span class="ruby-node">&quot;(#{time}) Execution failed with error #{ex}\n&quot;</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span>
+
+<span class="ruby-identifier">task</span> = <span class="ruby-constant">Concurrent</span><span class="ruby-operator">::</span><span class="ruby-constant">TimerTask</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">execution_interval</span><span class="ruby-operator">:</span> <span class="ruby-value">1</span>, <span class="ruby-identifier">timeout_interval</span><span class="ruby-operator">:</span> <span class="ruby-value">1</span>){ <span class="ruby-value">42</span> }
+<span class="ruby-identifier">task</span>.<span class="ruby-identifier">add_observer</span>(<span class="ruby-constant">TaskObserver</span>.<span class="ruby-identifier">new</span>)
+<span class="ruby-identifier">task</span>.<span class="ruby-identifier">execute</span>
+
+<span class="ruby-comment">#=&gt; (2013-10-13 19:08:58 -0400) Execution successfully returned 42</span>
+<span class="ruby-comment">#=&gt; (2013-10-13 19:08:59 -0400) Execution successfully returned 42</span>
+<span class="ruby-comment">#=&gt; (2013-10-13 19:09:00 -0400) Execution successfully returned 42</span>
+<span class="ruby-identifier">task</span>.<span class="ruby-identifier">shutdown</span>
+
+<span class="ruby-identifier">task</span> = <span class="ruby-constant">Concurrent</span><span class="ruby-operator">::</span><span class="ruby-constant">TimerTask</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">execution_interval</span><span class="ruby-operator">:</span> <span class="ruby-value">1</span>, <span class="ruby-identifier">timeout_interval</span><span class="ruby-operator">:</span> <span class="ruby-value">1</span>){ <span class="ruby-identifier">sleep</span> }
+<span class="ruby-identifier">task</span>.<span class="ruby-identifier">add_observer</span>(<span class="ruby-constant">TaskObserver</span>.<span class="ruby-identifier">new</span>)
+<span class="ruby-identifier">task</span>.<span class="ruby-identifier">execute</span>
+
+<span class="ruby-comment">#=&gt; (2013-10-13 19:07:25 -0400) Execution timed out</span>
+<span class="ruby-comment">#=&gt; (2013-10-13 19:07:27 -0400) Execution timed out</span>
+<span class="ruby-comment">#=&gt; (2013-10-13 19:07:29 -0400) Execution timed out</span>
+<span class="ruby-identifier">task</span>.<span class="ruby-identifier">shutdown</span>
+
+<span class="ruby-identifier">task</span> = <span class="ruby-constant">Concurrent</span><span class="ruby-operator">::</span><span class="ruby-constant">TimerTask</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">execution_interval</span><span class="ruby-operator">:</span> <span class="ruby-value">1</span>){ <span class="ruby-identifier">raise</span> <span class="ruby-constant">StandardError</span> }
+<span class="ruby-identifier">task</span>.<span class="ruby-identifier">add_observer</span>(<span class="ruby-constant">TaskObserver</span>.<span class="ruby-identifier">new</span>)
+<span class="ruby-identifier">task</span>.<span class="ruby-identifier">execute</span>
+
+<span class="ruby-comment">#=&gt; (2013-10-13 19:09:37 -0400) Execution failed with error StandardError</span>
+<span class="ruby-comment">#=&gt; (2013-10-13 19:09:38 -0400) Execution failed with error StandardError</span>
+<span class="ruby-comment">#=&gt; (2013-10-13 19:09:39 -0400) Execution failed with error StandardError</span>
+<span class="ruby-identifier">task</span>.<span class="ruby-identifier">shutdown</span>
+</pre>
+
+<p>@see <a
+href="http://ruby-doc.org/stdlib-2.0/libdoc/observer/rdoc/Observable.html">ruby-doc.org/stdlib-2.0/libdoc/observer/rdoc/Observable.html</a>
+@see <a
+href="http://docs.oracle.com/javase/7/docs/api/java/util/TimerTask.html">docs.oracle.com/javase/7/docs/api/java/util/TimerTask.html</a></p>
+
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+    <section class="constants-list">
+      <header>
+        <h3>Constants</h3>
+      </header>
+      <dl>
+      
+        <dt id="EXECUTION_INTERVAL">EXECUTION_INTERVAL
+        
+        <dd><p>Default `:execution_interval` in seconds.</p>
+        
+      
+        <dt id="TIMEOUT_INTERVAL">TIMEOUT_INTERVAL
+        
+        <dd><p>Default `:timeout_interval` in seconds.</p>
+        
+      
+      </dl>
+    </section>
+    
+
+    
+
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Class Methods</h3>
+       </header>
+
+    
+      <div id="method-c-execute" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">execute</span><span
+            class="method-args">(opts = {}, &task)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Create and execute a new `TimerTask`.</p>
+
+<p>@!macro timer_task_initialize</p>
+
+<p>@example</p>
+
+<pre class="ruby"><span class="ruby-identifier">task</span> = <span class="ruby-constant">Concurrent</span><span class="ruby-operator">::</span><span class="ruby-constant">TimerTask</span>.<span class="ruby-identifier">execute</span>(<span class="ruby-identifier">execution_interval</span><span class="ruby-operator">:</span> <span class="ruby-value">10</span>){ <span class="ruby-identifier">print</span> <span class="ruby-string">&quot;Hello World\n&quot;</span> }
+<span class="ruby-identifier">task</span>.<span class="ruby-identifier">running?</span> <span class="ruby-comment">#=&gt; true</span>
+</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="execute-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/concurrent-ruby-1.0.5/lib/concurrent/timer_task.rb, line 231</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">execute</span>(<span class="ruby-identifier">opts</span> = {}, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">task</span>)
+  <span class="ruby-constant">TimerTask</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">opts</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">task</span>).<span class="ruby-identifier">execute</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-new" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">new</span><span
+            class="method-args">(opts = {}, &task)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Create a new <a href="TimerTask.html">TimerTask</a> with the given task and
+configuration.</p>
+
+<p>@!macro [attach] timer_task_initialize</p>
+
+<pre>@param [Hash] opts the options defining task execution.
+@option opts [Integer] :execution_interval number of seconds between
+  task executions (default: EXECUTION_INTERVAL)
+@option opts [Integer] :timeout_interval number of seconds a task can
+  run before it is considered to have failed (default: TIMEOUT_INTERVAL)
+@option opts [Boolean] :run_now Whether to run the task immediately
+  upon instantiation or to wait until the first #  execution_interval
+  has passed (default: false)
+
+@!macro deref_options
+
+@raise ArgumentError when no block is given.
+
+@yield to the block after :execution_interval seconds have passed since
+  the last yield
+@yieldparam task a reference to the `TimerTask` instance so that the
+  block can control its own lifecycle. Necessary since `self` will
+  refer to the execution context of the block rather than the running
+  `TimerTask`.
+
+@return [TimerTask] the new `TimerTask`</pre>
+          
+          
+            <div class="method-calls-super">
+              Calls superclass method
+              <a href="RubyExecutorService.html#method-c-new">Concurrent::RubyExecutorService.new</a>
+            </div>
+          
+
+          
+          <div class="method-source-code" id="new-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/concurrent-ruby-1.0.5/lib/concurrent/timer_task.rb, line 189</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">opts</span> = {}, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">task</span>)
+  <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&#39;no block given&#39;</span>) <span class="ruby-keyword">unless</span> <span class="ruby-identifier">block_given?</span>
+  <span class="ruby-keyword">super</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-execute" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">execute</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Execute a previously created `TimerTask`.</p>
+
+<p>@return [TimerTask] a reference to `self`</p>
+
+<p>@example Instance and execute in separate steps</p>
+
+<pre class="ruby"><span class="ruby-identifier">task</span> = <span class="ruby-constant">Concurrent</span><span class="ruby-operator">::</span><span class="ruby-constant">TimerTask</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">execution_interval</span><span class="ruby-operator">:</span> <span class="ruby-value">10</span>){ <span class="ruby-identifier">print</span> <span class="ruby-string">&quot;Hello World\n&quot;</span> }
+<span class="ruby-identifier">task</span>.<span class="ruby-identifier">running?</span> <span class="ruby-comment">#=&gt; false</span>
+<span class="ruby-identifier">task</span>.<span class="ruby-identifier">execute</span>
+<span class="ruby-identifier">task</span>.<span class="ruby-identifier">running?</span> <span class="ruby-comment">#=&gt; true</span>
+</pre>
+
+<p>@example Instance and execute in one line</p>
+
+<pre class="ruby"><span class="ruby-identifier">task</span> = <span class="ruby-constant">Concurrent</span><span class="ruby-operator">::</span><span class="ruby-constant">TimerTask</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">execution_interval</span><span class="ruby-operator">:</span> <span class="ruby-value">10</span>){ <span class="ruby-identifier">print</span> <span class="ruby-string">&quot;Hello World\n&quot;</span> }.<span class="ruby-identifier">execute</span>
+<span class="ruby-identifier">task</span>.<span class="ruby-identifier">running?</span> <span class="ruby-comment">#=&gt; true</span>
+</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="execute-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/concurrent-ruby-1.0.5/lib/concurrent/timer_task.rb, line 214</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">execute</span>
+  <span class="ruby-identifier">synchronize</span> <span class="ruby-keyword">do</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-ivar">@running</span>.<span class="ruby-identifier">false?</span>
+      <span class="ruby-ivar">@running</span>.<span class="ruby-identifier">make_true</span>
+      <span class="ruby-identifier">schedule_next_task</span>(<span class="ruby-ivar">@run_now</span> <span class="ruby-operator">?</span> <span class="ruby-value">0</span> <span class="ruby-operator">:</span> <span class="ruby-ivar">@execution_interval</span>)
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">self</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-execution_interval" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">execution_interval</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>@!attribute [rw] <a
+href="TimerTask.html#method-i-execution_interval">#execution_interval</a>
+@return [Fixnum] Number of seconds after the task completes before the</p>
+
+<pre>task is performed again.</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="execution_interval-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/concurrent-ruby-1.0.5/lib/concurrent/timer_task.rb, line 238</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">execution_interval</span>
+  <span class="ruby-identifier">synchronize</span> { <span class="ruby-ivar">@execution_interval</span> }
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-execution_interval-3D" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">execution_interval=</span><span
+            class="method-args">(value)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>@!attribute [rw] <a
+href="TimerTask.html#method-i-execution_interval">#execution_interval</a>
+@return [Fixnum] Number of seconds after the task completes before the</p>
+
+<pre>task is performed again.</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="execution_interval-3D-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/concurrent-ruby-1.0.5/lib/concurrent/timer_task.rb, line 245</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">execution_interval=</span>(<span class="ruby-identifier">value</span>)
+  <span class="ruby-keyword">if</span> (<span class="ruby-identifier">value</span> = <span class="ruby-identifier">value</span>.<span class="ruby-identifier">to_f</span>) <span class="ruby-operator">&lt;=</span> <span class="ruby-value">0.0</span>
+    <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&#39;must be greater than zero&#39;</span>)
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">synchronize</span> { <span class="ruby-ivar">@execution_interval</span> = <span class="ruby-identifier">value</span> }
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-running-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">running?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Is the executor running?</p>
+
+<p>@return [Boolean] `true` when running, `false` when shutting down or
+shutdown</p>
+          
+          
+
+          
+          <div class="method-source-code" id="running-3F-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/concurrent-ruby-1.0.5/lib/concurrent/timer_task.rb, line 197</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">running?</span>
+  <span class="ruby-ivar">@running</span>.<span class="ruby-identifier">true?</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-timeout_interval" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">timeout_interval</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>@!attribute [rw] <a
+href="TimerTask.html#method-i-timeout_interval">#timeout_interval</a>
+@return [Fixnum] Number of seconds the task can run before it is</p>
+
+<pre>considered to have failed.</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="timeout_interval-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/concurrent-ruby-1.0.5/lib/concurrent/timer_task.rb, line 256</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">timeout_interval</span>
+  <span class="ruby-identifier">synchronize</span> { <span class="ruby-ivar">@timeout_interval</span> }
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-timeout_interval-3D" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">timeout_interval=</span><span
+            class="method-args">(value)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>@!attribute [rw] <a
+href="TimerTask.html#method-i-timeout_interval">#timeout_interval</a>
+@return [Fixnum] Number of seconds the task can run before it is</p>
+
+<pre>considered to have failed.</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="timeout_interval-3D-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/concurrent-ruby-1.0.5/lib/concurrent/timer_task.rb, line 263</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">timeout_interval=</span>(<span class="ruby-identifier">value</span>)
+  <span class="ruby-keyword">if</span> (<span class="ruby-identifier">value</span> = <span class="ruby-identifier">value</span>.<span class="ruby-identifier">to_f</span>) <span class="ruby-operator">&lt;=</span> <span class="ruby-value">0.0</span>
+    <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&#39;must be greater than zero&#39;</span>)
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">synchronize</span> { <span class="ruby-ivar">@timeout_interval</span> = <span class="ruby-identifier">value</span> }
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="https://rdoc.github.io/rdoc">RDoc</a> 5.0.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

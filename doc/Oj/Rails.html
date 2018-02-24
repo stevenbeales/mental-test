@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>module Oj::Rails - RDoc Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../";
+  var index_rel_prefix = "../";
+</script>
+
+<script src="../js/jquery.js"></script>
+<script src="../js/darkfish.js"></script>
+
+<link href="../css/fonts.css" rel="stylesheet">
+<link href="../css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="module">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../table_of_contents.html#pages">Pages</a>
+    <a href="../table_of_contents.html#classes">Classes</a>
+    <a href="../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-c-deoptimize">::deoptimize</a>
+    
+    <li ><a href="#method-c-encode">::encode</a>
+    
+    <li ><a href="#method-c-mimic_JSON">::mimic_JSON</a>
+    
+    <li ><a href="#method-c-optimize">::optimize</a>
+    
+    <li ><a href="#method-c-optimized-3F">::optimized?</a>
+    
+    <li ><a href="#method-c-set_decoder">::set_decoder</a>
+    
+    <li ><a href="#method-c-set_encoder">::set_encoder</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="module-Oj::Rails">
+  <h1 id="module-Oj::Rails" class="module">
+    module Oj::Rails
+  </h1>
+
+  <section class="description">
+    
+<p><a href="../Module.html">Module</a> that provides rails and active support
+compatibility.</p>
+
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Class Methods</h3>
+       </header>
+
+    
+      <div id="method-c-deoptimize" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            deoptimize(*classes)
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Turn off <a href="../Oj.html">Oj</a> rails optimization on the specified
+classes.</p>
+<ul><li>
+<p><strong>classes</strong> [<em>Class</em>] a list of classes to deoptimize</p>
+</li></ul>
+          
+          
+
+          
+          <div class="method-source-code" id="deoptimize-source">
+            <pre>static VALUE
+rails_deoptimize(int argc, VALUE *argv, VALUE self) {
+    optimize(argc, argv, &amp;ropts, false);
+
+    return Qnil;
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-encode" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            encode(obj)
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <ul><li>
+<p><strong>obj</strong> [<em>Object</em>] object to encode</p>
+</li></ul>
+
+<p>Returns encoded object as a <a href="../JSON.html">JSON</a> string.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="encode-source">
+            <pre>static VALUE
+rails_encode(int argc, VALUE *argv, VALUE self) {
+    if (1 &gt; argc) {
+        rb_raise(rb_eArgError, &quot;wrong number of arguments (0 for 1).&quot;);
+    }
+    if (1 == argc) {
+        return encode(*argv, NULL, &amp;oj_default_options, 0, NULL);
+    } else {
+        return encode(*argv, NULL, &amp;oj_default_options, argc - 1, argv + 1);
+    }
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-mimic_JSON" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            mimic_JSON()
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Document-module: <a href="Rails.html#method-c-mimic_JSON">::mimic_JSON</a></p>
+
+<p>Sets the <a href="../JSON.html">JSON</a> method to use <a
+href="../Oj.html">Oj</a> similar to <a
+href="../Oj.html#method-c-mimic_JSON">Oj.mimic_JSON</a> except with the <a
+href="../ActiveSupport.html">ActiveSupport</a> monkey patches instead of
+the json gem monkey patches.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="mimic_JSON-source">
+            <pre>VALUE
+rails_mimic_json(VALUE self) {
+    VALUE       json;
+    
+    if (rb_const_defined_at(rb_cObject, rb_intern(&quot;JSON&quot;))) {
+        json = rb_const_get_at(rb_cObject, rb_intern(&quot;JSON&quot;));
+    } else {
+        json = rb_define_module(&quot;JSON&quot;);
+    }
+    oj_mimic_json_methods(json);
+    // TBD
+
+    return Qnil;
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-optimize" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            optimize(*classes)
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Use <a href="../Oj.html">Oj</a> rails optimized routines to encode the
+specified classes. This ignores the as_json() method on the class and uses
+an internal encoding instead. Passing in no classes indicates all should
+use the optimized version of encoding for all previously optimized classes.
+Passing in the <a href="../Object.html">Object</a> class set a global
+switch that will then use the optimized behavior for all classes.</p>
+<ul><li>
+<p><strong>classes</strong> [<em>Class</em>] a list of classes to optimize</p>
+</li></ul>
+          
+          
+
+          
+          <div class="method-source-code" id="optimize-source">
+            <pre>static VALUE
+rails_optimize(int argc, VALUE *argv, VALUE self) {
+    optimize(argc, argv, &amp;ropts, true);
+
+    return Qnil;
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-optimized-3F" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            optimized?(clas)
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Returns true if the specified <a href="../Class.html">Class</a> is being
+optimized.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="optimized-3F-source">
+            <pre>static VALUE
+rails_optimized(VALUE self, VALUE clas) {
+    ROpt        ro = oj_rails_get_opt(&amp;ropts, clas);
+
+    if (NULL == ro) {
+        return Qfalse;
+    }
+    return (ro-&gt;on) ? Qtrue : Qfalse;
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-set_decoder" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            set_decoder()
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Sets the <a href="../JSON.html#method-c-parse">JSON.parse</a> function to
+be the Oj::parse function which is json gem compatible.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="set_decoder-source">
+            <pre>static VALUE
+rails_set_decoder(VALUE self) {
+    VALUE       json;
+    VALUE       json_error;
+    VALUE       verbose;
+    
+    if (rb_const_defined_at(rb_cObject, rb_intern(&quot;JSON&quot;))) {
+        json = rb_const_get_at(rb_cObject, rb_intern(&quot;JSON&quot;));
+    } else {
+        json = rb_define_module(&quot;JSON&quot;);
+    }
+    if (rb_const_defined_at(json, rb_intern(&quot;JSONError&quot;))) {
+        json_error = rb_const_get(json, rb_intern(&quot;JSONError&quot;));
+    } else {
+        json_error = rb_define_class_under(json, &quot;JSONError&quot;, rb_eStandardError);
+    }
+    if (rb_const_defined_at(json, rb_intern(&quot;ParserError&quot;))) {
+        oj_json_parser_error_class = rb_const_get(json, rb_intern(&quot;ParserError&quot;));
+    } else {
+        oj_json_parser_error_class = rb_define_class_under(json, &quot;ParserError&quot;, json_error);
+    }
+    // rb_undef_method doesn&#39;t work for modules or maybe sometimes
+    // doesn&#39;t. Anyway setting verbose should hide the warning.
+    verbose = rb_gv_get(&quot;$VERBOSE&quot;);
+    rb_gv_set(&quot;$VERBOSE&quot;, Qfalse);
+    rb_undef_method(json, &quot;parse&quot;);
+    rb_define_module_function(json, &quot;parse&quot;, oj_mimic_parse, -1);
+    rb_gv_set(&quot;$VERBOSE&quot;, verbose);
+    
+    return Qnil;
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-set_encoder" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            set_encoder()
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Sets the ActiveSupport.encoder to <a
+href="Rails/Encoder.html">Oj::Rails::Encoder</a> and wraps some of the
+formatting globals used by <a
+href="../ActiveSupport.html">ActiveSupport</a> to allow the use of those
+globals in the <a href="Rails.html">Oj::Rails</a> optimizations.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="set_encoder-source">
+            <pre>static VALUE
+rails_set_encoder(VALUE self) {
+    VALUE       active;
+    VALUE       json;
+    VALUE       encoding;
+    VALUE       pv;
+    VALUE       verbose;
+    
+    if (rb_const_defined_at(rb_cObject, rb_intern(&quot;ActiveSupport&quot;))) {
+        active = rb_const_get_at(rb_cObject, rb_intern(&quot;ActiveSupport&quot;));
+    } else {
+        rb_raise(rb_eStandardError, &quot;ActiveSupport not loaded.&quot;);
+    }
+    rb_funcall(active, rb_intern(&quot;json_encoder=&quot;), 1, encoder_class);
+
+    json = rb_const_get_at(active, rb_intern(&quot;JSON&quot;));
+    encoding = rb_const_get_at(json, rb_intern(&quot;Encoding&quot;));
+
+    // rb_undef_method doesn&#39;t work for modules or maybe sometimes
+    // doesn&#39;t. Anyway setting verbose should hide the warning.
+    verbose = rb_gv_get(&quot;$VERBOSE&quot;);
+    rb_gv_set(&quot;$VERBOSE&quot;, Qfalse);
+    rb_undef_method(encoding, &quot;use_standard_json_time_format=&quot;);
+    rb_define_module_function(encoding, &quot;use_standard_json_time_format=&quot;, rails_use_standard_json_time_format, 1);
+
+    rb_undef_method(encoding, &quot;escape_html_entities_in_json=&quot;);
+    rb_define_module_function(encoding, &quot;escape_html_entities_in_json=&quot;, rails_escape_html_entities_in_json, 1);
+
+    pv = rb_iv_get(encoding, &quot;@time_precision&quot;);
+    oj_default_options.sec_prec = NUM2INT(pv);
+    rb_undef_method(encoding, &quot;time_precision=&quot;);
+    rb_define_module_function(encoding, &quot;time_precision=&quot;, rails_time_precision, 1);
+    rb_gv_set(&quot;$VERBOSE&quot;, verbose);
+
+    return Qnil;
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="https://rdoc.github.io/rdoc">RDoc</a> 5.0.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

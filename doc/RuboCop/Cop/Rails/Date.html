@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class RuboCop::Cop::Rails::Date - RDoc Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../../../";
+  var index_rel_prefix = "../../../";
+</script>
+
+<script src="../../../js/jquery.js"></script>
+<script src="../../../js/darkfish.js"></script>
+
+<link href="../../../css/fonts.css" rel="stylesheet">
+<link href="../../../css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../../../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../../../table_of_contents.html#pages">Pages</a>
+    <a href="../../../table_of_contents.html#classes">Classes</a>
+    <a href="../../../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link"><a href="../Cop.html">RuboCop::Cop::Cop</a>
+  
+</div>
+
+    <div id="includes-section" class="nav-section">
+  <h3>Included Modules</h3>
+
+  <ul class="link-list">
+  
+  
+    <li><a class="include" href="../ConfigurableEnforcedStyle.html">RuboCop::Cop::ConfigurableEnforcedStyle</a>
+  
+  
+  </ul>
+</div>
+
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-i-on_const">#on_const</a>
+    
+    <li ><a href="#method-i-on_send">#on_send</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-RuboCop::Cop::Rails::Date">
+  <h1 id="class-RuboCop::Cop::Rails::Date" class="class">
+    class RuboCop::Cop::Rails::Date
+  </h1>
+
+  <section class="description">
+    
+<p>This cop checks for the correct use of <a href="Date.html">Date</a>
+methods, such as Date.today, Date.current etc.</p>
+
+<p>Using Date.today is dangerous, because it doesn&#39;t know anything about
+<a href="../Rails.html">Rails</a> time zone. You must use <a
+href="../../../Time.html#method-c-zone">Time.zone</a>.today instead.</p>
+
+<p>The cop also reports warnings when you are using &#39;to_time&#39; method,
+because it doesn&#39;t know about <a href="../Rails.html">Rails</a> time
+zone either.</p>
+
+<p>Two styles are supported for this cop. When EnforcedStyle is
+&#39;strict&#39; then the <a href="Date.html">Date</a> methods (today,
+current, yesterday, tomorrow) are prohibited and the usage of both
+&#39;to_time&#39; and &#39;to_time_in_current_zone&#39; is reported as
+warning.</p>
+
+<p>When EnforcedStyle is &#39;flexible&#39; then only &#39;Date.today&#39; is
+prohibited and only &#39;to_time&#39; is reported as warning.</p>
+
+<p>@example EnforcedStyle: strict</p>
+
+<pre class="ruby"><span class="ruby-comment"># bad</span>
+<span class="ruby-constant">Date</span>.<span class="ruby-identifier">current</span>
+<span class="ruby-constant">Date</span>.<span class="ruby-identifier">yesterday</span>
+<span class="ruby-constant">Date</span>.<span class="ruby-identifier">today</span>
+<span class="ruby-identifier">date</span>.<span class="ruby-identifier">to_time</span>
+<span class="ruby-identifier">date</span>.<span class="ruby-identifier">to_time_in_current_zone</span>
+
+<span class="ruby-comment"># good</span>
+<span class="ruby-constant">Time</span>.<span class="ruby-identifier">zone</span>.<span class="ruby-identifier">today</span>
+<span class="ruby-constant">Time</span>.<span class="ruby-identifier">zone</span>.<span class="ruby-identifier">today</span> <span class="ruby-operator">-</span> <span class="ruby-value">1</span>.<span class="ruby-identifier">day</span>
+</pre>
+
+<p>@example EnforcedStyle: flexible (default)</p>
+
+<pre class="ruby"><span class="ruby-comment"># bad</span>
+<span class="ruby-constant">Date</span>.<span class="ruby-identifier">today</span>
+<span class="ruby-identifier">date</span>.<span class="ruby-identifier">to_time</span>
+
+<span class="ruby-comment"># good</span>
+<span class="ruby-constant">Time</span>.<span class="ruby-identifier">zone</span>.<span class="ruby-identifier">today</span>
+<span class="ruby-constant">Time</span>.<span class="ruby-identifier">zone</span>.<span class="ruby-identifier">today</span> <span class="ruby-operator">-</span> <span class="ruby-value">1</span>.<span class="ruby-identifier">day</span>
+<span class="ruby-constant">Date</span>.<span class="ruby-identifier">current</span>
+<span class="ruby-constant">Date</span>.<span class="ruby-identifier">yesterday</span>
+<span class="ruby-identifier">date</span>.<span class="ruby-identifier">to_time_in_current_zone</span>
+</pre>
+
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+    <section class="constants-list">
+      <header>
+        <h3>Constants</h3>
+      </header>
+      <dl>
+      
+        <dt id="BAD_DAYS">BAD_DAYS
+        
+        <dd>
+        
+      
+        <dt id="MSG">MSG
+        
+        <dd>
+        
+      
+        <dt id="MSG_SEND">MSG_SEND
+        
+        <dd>
+        
+      
+      </dl>
+    </section>
+    
+
+    
+
+    
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-on_const" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">on_const</span><span
+            class="method-args">(node)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="on_const-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/rubocop-0.52.1/lib/rubocop/cop/rails/date.rb, line 57</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">on_const</span>(<span class="ruby-identifier">node</span>)
+  <span class="ruby-identifier">mod</span>, <span class="ruby-identifier">klass</span> = <span class="ruby-operator">*</span><span class="ruby-identifier">node</span>.<span class="ruby-identifier">children</span>
+  <span class="ruby-comment"># we should only check core Date class (`Date` or `::Date`)</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">unless</span> (<span class="ruby-identifier">mod</span>.<span class="ruby-identifier">nil?</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">mod</span>.<span class="ruby-identifier">cbase_type?</span>) <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">method_send?</span>(<span class="ruby-identifier">node</span>)
+
+  <span class="ruby-identifier">check_date_node</span>(<span class="ruby-identifier">node</span>.<span class="ruby-identifier">parent</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">klass</span> <span class="ruby-operator">==</span> <span class="ruby-value">:Date</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-on_send" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">on_send</span><span
+            class="method-args">(node)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="on_send-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/rubocop-0.52.1/lib/rubocop/cop/rails/date.rb, line 65</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">on_send</span>(<span class="ruby-identifier">node</span>)
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">node</span>.<span class="ruby-identifier">receiver</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">bad_methods</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">node</span>.<span class="ruby-identifier">method_name</span>)
+
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">safe_chain?</span>(<span class="ruby-identifier">node</span>) <span class="ruby-operator">||</span> <span class="ruby-identifier">safe_to_time?</span>(<span class="ruby-identifier">node</span>)
+
+  <span class="ruby-identifier">add_offense</span>(<span class="ruby-identifier">node</span>, <span class="ruby-identifier">location</span><span class="ruby-operator">:</span> <span class="ruby-value">:selector</span>,
+                    <span class="ruby-identifier">message</span><span class="ruby-operator">:</span> <span class="ruby-identifier">format</span>(<span class="ruby-constant">MSG_SEND</span>, <span class="ruby-identifier">method</span><span class="ruby-operator">:</span> <span class="ruby-identifier">node</span>.<span class="ruby-identifier">method_name</span>))
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="https://rdoc.github.io/rdoc">RDoc</a> 5.0.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

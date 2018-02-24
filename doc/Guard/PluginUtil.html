@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class Guard::PluginUtil - RDoc Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../";
+  var index_rel_prefix = "../";
+</script>
+
+<script src="../js/jquery.js"></script>
+<script src="../js/darkfish.js"></script>
+
+<link href="../css/fonts.css" rel="stylesheet">
+<link href="../css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../table_of_contents.html#pages">Pages</a>
+    <a href="../table_of_contents.html#classes">Classes</a>
+    <a href="../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link"><a href="../Object.html">Object</a>
+  
+</div>
+
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-c-new">::new</a>
+    
+    <li ><a href="#method-c-plugin_names">::plugin_names</a>
+    
+    <li ><a href="#method-i-add_to_guardfile">#add_to_guardfile</a>
+    
+    <li ><a href="#method-i-initialize_plugin">#initialize_plugin</a>
+    
+    <li ><a href="#method-i-plugin_class">#plugin_class</a>
+    
+    <li ><a href="#method-i-plugin_location">#plugin_location</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-Guard::PluginUtil">
+  <h1 id="class-Guard::PluginUtil" class="class">
+    class Guard::PluginUtil
+  </h1>
+
+  <section class="description">
+    
+<p>This class contains useful methods to:</p>
+<ul><li>
+<p>Fetch all the <a href="../Guard.html">Guard</a> plugins names;</p>
+</li><li>
+<p>Initialize a plugin, get its location;</p>
+</li><li>
+<p>Return its class name;</p>
+</li><li>
+<p>Add its template to the <a href="Guardfile.html">Guardfile</a>.</p>
+</li></ul>
+
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+    <section class="constants-list">
+      <header>
+        <h3>Constants</h3>
+      </header>
+      <dl>
+      
+        <dt id="ERROR_NO_GUARD_OR_CLASS">ERROR_NO_GUARD_OR_CLASS
+        
+        <dd>
+        
+      
+        <dt id="INFO_ADDED_GUARD_TO_GUARDFILE">INFO_ADDED_GUARD_TO_GUARDFILE
+        
+        <dd>
+        
+      
+      </dl>
+    </section>
+    
+
+    
+    <section class="attribute-method-details" class="method-section">
+      <header>
+        <h3>Attributes</h3>
+      </header>
+
+      
+      <div id="attribute-i-name" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">name</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+    </section>
+    
+
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Class Methods</h3>
+       </header>
+
+    
+      <div id="method-c-new" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">new</span><span
+            class="method-args">(name)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Initializes a new `Guard::PluginUtil` object.</p>
+
+<p>@param [String] name the name of the <a href="../Guard.html">Guard</a>
+plugin</p>
+          
+          
+
+          
+          <div class="method-source-code" id="new-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/guard-2.14.2/lib/guard/plugin_util.rb, line 36</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">name</span>)
+  <span class="ruby-ivar">@name</span> = <span class="ruby-identifier">name</span>.<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">sub</span>(<span class="ruby-regexp">/^guard-/</span>, <span class="ruby-string">&quot;&quot;</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-plugin_names" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">plugin_names</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Returns a list of <a href="../Guard.html">Guard</a> plugin <a
+href="../Gem.html">Gem</a> names installed locally.</p>
+
+<p>@return [Array&lt;String&gt;] a list of <a href="../Guard.html">Guard</a>
+plugin gem names</p>
+          
+          
+
+          
+          <div class="method-source-code" id="plugin_names-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/guard-2.14.2/lib/guard/plugin_util.rb, line 24</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">plugin_names</span>
+  <span class="ruby-identifier">valid</span> = <span class="ruby-constant">Gem</span><span class="ruby-operator">::</span><span class="ruby-constant">Specification</span>.<span class="ruby-identifier">find_all</span>.<span class="ruby-identifier">select</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">gem</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">_gem_valid?</span>(<span class="ruby-identifier">gem</span>)
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">valid</span>.<span class="ruby-identifier">map</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">x</span><span class="ruby-operator">|</span> <span class="ruby-identifier">x</span>.<span class="ruby-identifier">name</span>.<span class="ruby-identifier">sub</span>(<span class="ruby-regexp">/^guard-/</span>, <span class="ruby-string">&quot;&quot;</span>) }.<span class="ruby-identifier">uniq</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-add_to_guardfile" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">add_to_guardfile</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Adds a plugin&#39;s template to the <a href="Guardfile.html">Guardfile</a>.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="add_to_guardfile-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/guard-2.14.2/lib/guard/plugin_util.rb, line 126</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">add_to_guardfile</span>
+  <span class="ruby-identifier">klass</span> = <span class="ruby-identifier">plugin_class</span> <span class="ruby-comment"># call here to avoid failing later</span>
+
+  <span class="ruby-identifier">require_relative</span> <span class="ruby-string">&quot;guardfile/evaluator&quot;</span>
+  <span class="ruby-comment"># TODO: move this to Generator?</span>
+  <span class="ruby-identifier">options</span> = <span class="ruby-constant">Guard</span>.<span class="ruby-identifier">state</span>.<span class="ruby-identifier">session</span>.<span class="ruby-identifier">evaluator_options</span>
+  <span class="ruby-identifier">evaluator</span> = <span class="ruby-constant">Guardfile</span><span class="ruby-operator">::</span><span class="ruby-constant">Evaluator</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">options</span>)
+  <span class="ruby-keyword">begin</span>
+    <span class="ruby-identifier">evaluator</span>.<span class="ruby-identifier">evaluate</span>
+  <span class="ruby-keyword">rescue</span> <span class="ruby-constant">Guard</span><span class="ruby-operator">::</span><span class="ruby-constant">Guardfile</span><span class="ruby-operator">::</span><span class="ruby-constant">Evaluator</span><span class="ruby-operator">::</span><span class="ruby-constant">NoPluginsError</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">evaluator</span>.<span class="ruby-identifier">guardfile_include?</span>(<span class="ruby-identifier">name</span>)
+    <span class="ruby-constant">UI</span>.<span class="ruby-identifier">info</span> <span class="ruby-node">&quot;Guardfile already includes #{ name } guard&quot;</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">content</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">read</span>(<span class="ruby-string">&quot;Guardfile&quot;</span>)
+    <span class="ruby-constant">File</span>.<span class="ruby-identifier">open</span>(<span class="ruby-string">&quot;Guardfile&quot;</span>, <span class="ruby-string">&quot;wb&quot;</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">f</span><span class="ruby-operator">|</span>
+      <span class="ruby-identifier">f</span>.<span class="ruby-identifier">puts</span>(<span class="ruby-identifier">content</span>)
+      <span class="ruby-identifier">f</span>.<span class="ruby-identifier">puts</span>(<span class="ruby-string">&quot;&quot;</span>)
+      <span class="ruby-identifier">f</span>.<span class="ruby-identifier">puts</span>(<span class="ruby-identifier">klass</span>.<span class="ruby-identifier">template</span>(<span class="ruby-identifier">plugin_location</span>))
+    <span class="ruby-keyword">end</span>
+
+    <span class="ruby-constant">UI</span>.<span class="ruby-identifier">info</span> <span class="ruby-constant">INFO_ADDED_GUARD_TO_GUARDFILE</span> <span class="ruby-operator">%</span> <span class="ruby-identifier">name</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-initialize_plugin" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">initialize_plugin</span><span
+            class="method-args">(options)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Initializes a new `Guard::Plugin` with the given `options` hash. This
+methods handles plugins that inherit from the deprecated `Guard::Guard`
+class as well as plugins that inherit from `Guard::Plugin`.</p>
+
+<p>@see <a href="Plugin.html">Guard::Plugin</a> @see <a
+href="https://github.com/guard/guard/wiki/Upgrading-to-Guard-2.0">github.com/guard/guard/wiki/Upgrading-to-Guard-2.0</a>
+How to upgrade for <a href="../Guard.html">Guard</a> 2.0</p>
+
+<p>@return [Guard::Plugin] the initialized plugin @return [Guard::Guard] the
+initialized plugin. This return type is</p>
+
+<pre>deprecated and the plugin&#39;s maintainer should update it to be
+compatible with Guard 2.0. For more information on how to upgrade for
+Guard 2.0, please head over to:
+https://github.com/guard/guard/wiki/Upgrading-to-Guard-2.0</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="initialize_plugin-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/guard-2.14.2/lib/guard/plugin_util.rb, line 55</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize_plugin</span>(<span class="ruby-identifier">options</span>)
+  <span class="ruby-identifier">klass</span> = <span class="ruby-identifier">plugin_class</span>
+  <span class="ruby-identifier">fail</span> <span class="ruby-node">&quot;Could not load class: #{_constant_name.inspect}&quot;</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">klass</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">klass</span>.<span class="ruby-identifier">superclass</span>.<span class="ruby-identifier">to_s</span> <span class="ruby-operator">==</span> <span class="ruby-string">&quot;Guard::Guard&quot;</span>
+    <span class="ruby-identifier">klass</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">options</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-value">:watchers</span>), <span class="ruby-identifier">options</span>)
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-keyword">begin</span>
+      <span class="ruby-identifier">klass</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">options</span>)
+    <span class="ruby-keyword">rescue</span> <span class="ruby-constant">ArgumentError</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">e</span>
+      <span class="ruby-identifier">fail</span> <span class="ruby-node">&quot;Failed to call #{klass}.new(options): #{e}&quot;</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-plugin_class" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">plugin_class</span><span
+            class="method-args">(options = {})</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Tries to load the <a href="../Guard.html">Guard</a> plugin main class. This
+transforms the supplied plugin name into a class name:</p>
+<ul><li>
+<p>`guardname` will become `Guard::Guardname`</p>
+</li><li>
+<p>`dashed-guard-name` will become `Guard::DashedGuardName`</p>
+</li><li>
+<p>`underscore_guard_name` will become `Guard::UnderscoreGuardName`</p>
+</li></ul>
+
+<p>When no class is found with the strict case sensitive rules, another try is
+made to locate the class without matching case:</p>
+<ul><li>
+<p>`rspec` will find a class `Guard::RSpec`</p>
+</li></ul>
+
+<p>@option options [Boolean] fail_gracefully whether error messages should not
+be printed</p>
+
+<p>@return [Class, nil] the loaded class</p>
+          
+          
+
+          
+          <div class="method-source-code" id="plugin_class-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/guard-2.14.2/lib/guard/plugin_util.rb, line 96</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">plugin_class</span>(<span class="ruby-identifier">options</span> = {})
+  <span class="ruby-identifier">options</span> = { <span class="ruby-identifier">fail_gracefully</span><span class="ruby-operator">:</span> <span class="ruby-keyword">false</span> }.<span class="ruby-identifier">merge</span>(<span class="ruby-identifier">options</span>)
+
+  <span class="ruby-identifier">const</span> = <span class="ruby-identifier">_plugin_constant</span>
+  <span class="ruby-identifier">fail</span> <span class="ruby-constant">TypeError</span>, <span class="ruby-node">&quot;no constant: #{_constant_name}&quot;</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">const</span>
+  <span class="ruby-ivar">@plugin_class</span> <span class="ruby-operator">||=</span> <span class="ruby-constant">Guard</span>.<span class="ruby-identifier">const_get</span>(<span class="ruby-identifier">const</span>)
+
+<span class="ruby-keyword">rescue</span> <span class="ruby-constant">TypeError</span>
+  <span class="ruby-keyword">begin</span>
+    <span class="ruby-identifier">require</span> <span class="ruby-node">&quot;guard/#{ name.downcase }&quot;</span>
+    <span class="ruby-identifier">const</span> = <span class="ruby-identifier">_plugin_constant</span>
+    <span class="ruby-ivar">@plugin_class</span> <span class="ruby-operator">||=</span> <span class="ruby-constant">Guard</span>.<span class="ruby-identifier">const_get</span>(<span class="ruby-identifier">const</span>)
+
+  <span class="ruby-keyword">rescue</span> <span class="ruby-constant">TypeError</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">error</span>
+    <span class="ruby-constant">UI</span>.<span class="ruby-identifier">error</span> <span class="ruby-node">&quot;Could not find class Guard::#{ _constant_name }&quot;</span>
+    <span class="ruby-constant">UI</span>.<span class="ruby-identifier">error</span> <span class="ruby-identifier">error</span>.<span class="ruby-identifier">backtrace</span>.<span class="ruby-identifier">join</span>(<span class="ruby-string">&quot;\n&quot;</span>)
+    <span class="ruby-comment"># TODO: return value or move exception higher</span>
+  <span class="ruby-keyword">rescue</span> <span class="ruby-constant">LoadError</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">error</span>
+    <span class="ruby-keyword">unless</span> <span class="ruby-identifier">options</span>[<span class="ruby-value">:fail_gracefully</span>]
+      <span class="ruby-identifier">msg</span> = <span class="ruby-identifier">format</span>(<span class="ruby-constant">ERROR_NO_GUARD_OR_CLASS</span>, <span class="ruby-identifier">name</span>.<span class="ruby-identifier">downcase</span>, <span class="ruby-identifier">_constant_name</span>)
+      <span class="ruby-constant">UI</span>.<span class="ruby-identifier">error</span>(<span class="ruby-identifier">msg</span>)
+      <span class="ruby-constant">UI</span>.<span class="ruby-identifier">error</span>(<span class="ruby-node">&quot;Error is: #{error}&quot;</span>)
+      <span class="ruby-constant">UI</span>.<span class="ruby-identifier">error</span>(<span class="ruby-identifier">error</span>.<span class="ruby-identifier">backtrace</span>.<span class="ruby-identifier">join</span>(<span class="ruby-string">&quot;\n&quot;</span>))
+      <span class="ruby-comment"># TODO: return value or move exception higher</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-plugin_location" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">plugin_location</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Locates a path to a <a href="../Guard.html">Guard</a> plugin gem.</p>
+
+<p>@return [String] the full path to the plugin gem</p>
+          
+          
+
+          
+          <div class="method-source-code" id="plugin_location-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/guard-2.14.2/lib/guard/plugin_util.rb, line 73</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">plugin_location</span>
+  <span class="ruby-ivar">@plugin_location</span> <span class="ruby-operator">||=</span> <span class="ruby-identifier">_full_gem_path</span>(<span class="ruby-node">&quot;guard-#{name}&quot;</span>)
+<span class="ruby-keyword">rescue</span> <span class="ruby-constant">Gem</span><span class="ruby-operator">::</span><span class="ruby-constant">LoadError</span>
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">error</span> <span class="ruby-node">&quot;Could not find &#39;guard-#{ name }&#39; gem path.&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="https://rdoc.github.io/rdoc">RDoc</a> 5.0.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

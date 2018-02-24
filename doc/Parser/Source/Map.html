@@ -1,0 +1,869 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class Parser::Source::Map - RDoc Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../../";
+  var index_rel_prefix = "../../";
+</script>
+
+<script src="../../js/jquery.js"></script>
+<script src="../../js/darkfish.js"></script>
+
+<link href="../../css/fonts.css" rel="stylesheet">
+<link href="../../css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../../table_of_contents.html#pages">Pages</a>
+    <a href="../../table_of_contents.html#classes">Classes</a>
+    <a href="../../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link"><a href="../../Object.html">Object</a>
+  
+</div>
+
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-c-new">::new</a>
+    
+    <li ><a href="#method-i-3D-3D">#==</a>
+    
+    <li ><a href="#method-i-column">#column</a>
+    
+    <li ><a href="#method-i-first_line">#first_line</a>
+    
+    <li class="calls-super" ><a href="#method-i-initialize_copy">#initialize_copy</a>
+    
+    <li ><a href="#method-i-last_column">#last_column</a>
+    
+    <li ><a href="#method-i-last_line">#last_line</a>
+    
+    <li ><a href="#method-i-line">#line</a>
+    
+    <li ><a href="#method-i-node-3D">#node=</a>
+    
+    <li ><a href="#method-i-to_hash">#to_hash</a>
+    
+    <li ><a href="#method-i-update_expression">#update_expression</a>
+    
+    <li ><a href="#method-i-with">#with</a>
+    
+    <li ><a href="#method-i-with_expression">#with_expression</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-Parser::Source::Map">
+  <h1 id="class-Parser::Source::Map" class="class">
+    class Parser::Source::Map
+  </h1>
+
+  <section class="description">
+    
+<p>{Map} relates <a href="../AST.html">AST</a> nodes to the source code they
+were parsed from. More specifically, a {Map} or its subclass contains a set
+of ranges:</p>
+
+<pre>* `expression`: smallest range which includes all source corresponding
+  to the node and all `expression` ranges of its children.
+* other ranges (`begin`, `end`, `operator`, ...): node-specific ranges
+  pointing to various interesting tokens corresponding to the node.</pre>
+
+<p>Note that the {Map::Heredoc} map is the only one whose `expression` does
+not include other ranges. It only covers the heredoc marker
+(`&lt;&lt;HERE`), not the here document itself.</p>
+
+<p>All ranges except `expression` are defined by {Map} subclasses.</p>
+
+<p>Ranges (except `expression`) can be `nil` if the corresponding token is not
+present in source. <a href="Map/For.html">For</a> example, a hash may not
+have opening/closing braces, and so would its source map.</p>
+
+<pre class="ruby"><span class="ruby-identifier">p</span> <span class="ruby-constant">Parser</span><span class="ruby-operator">::</span><span class="ruby-constant">CurrentRuby</span>.<span class="ruby-identifier">parse</span>(<span class="ruby-string">&#39;[1 =&gt; 2]&#39;</span>).<span class="ruby-identifier">children</span>[<span class="ruby-value">0</span>].<span class="ruby-identifier">loc</span>
+<span class="ruby-comment"># =&gt; &lt;Parser::Source::Map::Collection:0x007f5492b547d8</span>
+<span class="ruby-comment">#  @end=nil, @begin=nil,</span>
+<span class="ruby-comment">#  @expression=#&lt;Source::Range (string) 1...7&gt;&gt;</span>
+</pre>
+
+<p>The {file:doc/AST_FORMAT.md} document describes how ranges associated to
+source code tokens. <a href="Map/For.html">For</a> example, the entry</p>
+
+<pre>(array (int 1) (int 2))
+
+&quot;[1, 2]&quot;
+ ^ begin
+      ^ end
+ ~~~~~~ expression</pre>
+
+<p>means that if `node` is an {Parser::AST::Node} `(array (int 1) (int 2))`,
+then `node.loc` responds to `begin`, `end` and `expression`, and
+`node.loc.begin` returns a range pointing at the opening bracket, and so
+on.</p>
+
+<p>If you want to write code polymorphic by the source map (i.e. accepting
+several subclasses of {Map}), use `respond_to?` instead of `is_a?` to check
+whether the map features the range you need. Concrete {Map} subclasses may
+not be preserved between versions, but their interfaces will be kept
+compatible.</p>
+
+<p>You can visualize the source maps with `ruby-parse -E` command-line tool.</p>
+
+<p>@example</p>
+
+<pre class="ruby"><span class="ruby-identifier">require</span> <span class="ruby-string">&#39;parser/current&#39;</span>
+
+<span class="ruby-identifier">p</span> <span class="ruby-constant">Parser</span><span class="ruby-operator">::</span><span class="ruby-constant">CurrentRuby</span>.<span class="ruby-identifier">parse</span>(<span class="ruby-string">&#39;[1, 2]&#39;</span>).<span class="ruby-identifier">loc</span>
+<span class="ruby-comment"># =&gt; #&lt;Parser::Source::Map::Collection:0x007f14b80eccd8</span>
+<span class="ruby-comment">#  @end=#&lt;Source::Range (string) 5...6&gt;,</span>
+<span class="ruby-comment">#  @begin=#&lt;Source::Range (string) 0...1&gt;,</span>
+<span class="ruby-comment">#  @expression=#&lt;Source::Range (string) 0...6&gt;&gt;</span>
+</pre>
+
+<p>@!attribute [r] node</p>
+
+<pre>The node that is described by this map. Nodes and maps have 1:1 correspondence.
+@return [Parser::AST::Node]</pre>
+
+<p>@!attribute [r] expression</p>
+
+<pre class="ruby"><span class="ruby-ivar">@return</span> [<span class="ruby-constant">Range</span>]
+</pre>
+
+<p>@api public</p>
+
+<p>{Map} relates <a href="../AST.html">AST</a> nodes to the source code they
+were parsed from. More specifically, a {Map} or its subclass contains a set
+of ranges:</p>
+
+<pre>* `expression`: smallest range which includes all source corresponding
+  to the node and all `expression` ranges of its children.
+* other ranges (`begin`, `end`, `operator`, ...): node-specific ranges
+  pointing to various interesting tokens corresponding to the node.</pre>
+
+<p>Note that the {Map::Heredoc} map is the only one whose `expression` does
+not include other ranges. It only covers the heredoc marker
+(`&lt;&lt;HERE`), not the here document itself.</p>
+
+<p>All ranges except `expression` are defined by {Map} subclasses.</p>
+
+<p>Ranges (except `expression`) can be `nil` if the corresponding token is not
+present in source. <a href="Map/For.html">For</a> example, a hash may not
+have opening/closing braces, and so would its source map.</p>
+
+<pre class="ruby"><span class="ruby-identifier">p</span> <span class="ruby-constant">Parser</span><span class="ruby-operator">::</span><span class="ruby-constant">CurrentRuby</span>.<span class="ruby-identifier">parse</span>(<span class="ruby-string">&#39;[1 =&gt; 2]&#39;</span>).<span class="ruby-identifier">children</span>[<span class="ruby-value">0</span>].<span class="ruby-identifier">loc</span>
+<span class="ruby-comment"># =&gt; &lt;Parser::Source::Map::Collection:0x007f5492b547d8</span>
+<span class="ruby-comment">#  @end=nil, @begin=nil,</span>
+<span class="ruby-comment">#  @expression=#&lt;Source::Range (string) 1...7&gt;&gt;</span>
+</pre>
+
+<p>The {file:doc/AST_FORMAT.md} document describes how ranges associated to
+source code tokens. <a href="Map/For.html">For</a> example, the entry</p>
+
+<pre>(array (int 1) (int 2))
+
+&quot;[1, 2]&quot;
+ ^ begin
+      ^ end
+ ~~~~~~ expression</pre>
+
+<p>means that if `node` is an {Parser::AST::Node} `(array (int 1) (int 2))`,
+then `node.loc` responds to `begin`, `end` and `expression`, and
+`node.loc.begin` returns a range pointing at the opening bracket, and so
+on.</p>
+
+<p>If you want to write code polymorphic by the source map (i.e. accepting
+several subclasses of {Map}), use `respond_to?` instead of `is_a?` to check
+whether the map features the range you need. Concrete {Map} subclasses may
+not be preserved between versions, but their interfaces will be kept
+compatible.</p>
+
+<p>You can visualize the source maps with `ruby-parse -E` command-line tool.</p>
+
+<p>@example</p>
+
+<pre class="ruby"><span class="ruby-identifier">require</span> <span class="ruby-string">&#39;parser/current&#39;</span>
+
+<span class="ruby-identifier">p</span> <span class="ruby-constant">Parser</span><span class="ruby-operator">::</span><span class="ruby-constant">CurrentRuby</span>.<span class="ruby-identifier">parse</span>(<span class="ruby-string">&#39;[1, 2]&#39;</span>).<span class="ruby-identifier">loc</span>
+<span class="ruby-comment"># =&gt; #&lt;Parser::Source::Map::Collection:0x007f14b80eccd8</span>
+<span class="ruby-comment">#  @end=#&lt;Source::Range (string) 5...6&gt;,</span>
+<span class="ruby-comment">#  @begin=#&lt;Source::Range (string) 0...1&gt;,</span>
+<span class="ruby-comment">#  @expression=#&lt;Source::Range (string) 0...6&gt;&gt;</span>
+</pre>
+
+<p>@!attribute [r] node</p>
+
+<pre>The node that is described by this map. Nodes and maps have 1:1 correspondence.
+@return [Parser::AST::Node]</pre>
+
+<p>@!attribute [r] expression</p>
+
+<pre class="ruby"><span class="ruby-ivar">@return</span> [<span class="ruby-constant">Range</span>]
+</pre>
+
+<p>@api public</p>
+
+<p>{Map} relates <a href="../AST.html">AST</a> nodes to the source code they
+were parsed from. More specifically, a {Map} or its subclass contains a set
+of ranges:</p>
+
+<pre>* `expression`: smallest range which includes all source corresponding
+  to the node and all `expression` ranges of its children.
+* other ranges (`begin`, `end`, `operator`, ...): node-specific ranges
+  pointing to various interesting tokens corresponding to the node.</pre>
+
+<p>Note that the {Map::Heredoc} map is the only one whose `expression` does
+not include other ranges. It only covers the heredoc marker
+(`&lt;&lt;HERE`), not the here document itself.</p>
+
+<p>All ranges except `expression` are defined by {Map} subclasses.</p>
+
+<p>Ranges (except `expression`) can be `nil` if the corresponding token is not
+present in source. <a href="Map/For.html">For</a> example, a hash may not
+have opening/closing braces, and so would its source map.</p>
+
+<pre class="ruby"><span class="ruby-identifier">p</span> <span class="ruby-constant">Parser</span><span class="ruby-operator">::</span><span class="ruby-constant">CurrentRuby</span>.<span class="ruby-identifier">parse</span>(<span class="ruby-string">&#39;[1 =&gt; 2]&#39;</span>).<span class="ruby-identifier">children</span>[<span class="ruby-value">0</span>].<span class="ruby-identifier">loc</span>
+<span class="ruby-comment"># =&gt; &lt;Parser::Source::Map::Collection:0x007f5492b547d8</span>
+<span class="ruby-comment">#  @end=nil, @begin=nil,</span>
+<span class="ruby-comment">#  @expression=#&lt;Source::Range (string) 1...7&gt;&gt;</span>
+</pre>
+
+<p>The {file:doc/AST_FORMAT.md} document describes how ranges associated to
+source code tokens. <a href="Map/For.html">For</a> example, the entry</p>
+
+<pre>(array (int 1) (int 2))
+
+&quot;[1, 2]&quot;
+ ^ begin
+      ^ end
+ ~~~~~~ expression</pre>
+
+<p>means that if `node` is an {Parser::AST::Node} `(array (int 1) (int 2))`,
+then `node.loc` responds to `begin`, `end` and `expression`, and
+`node.loc.begin` returns a range pointing at the opening bracket, and so
+on.</p>
+
+<p>If you want to write code polymorphic by the source map (i.e. accepting
+several subclasses of {Map}), use `respond_to?` instead of `is_a?` to check
+whether the map features the range you need. Concrete {Map} subclasses may
+not be preserved between versions, but their interfaces will be kept
+compatible.</p>
+
+<p>You can visualize the source maps with `ruby-parse -E` command-line tool.</p>
+
+<p>@example</p>
+
+<pre class="ruby"><span class="ruby-identifier">require</span> <span class="ruby-string">&#39;parser/current&#39;</span>
+
+<span class="ruby-identifier">p</span> <span class="ruby-constant">Parser</span><span class="ruby-operator">::</span><span class="ruby-constant">CurrentRuby</span>.<span class="ruby-identifier">parse</span>(<span class="ruby-string">&#39;[1, 2]&#39;</span>).<span class="ruby-identifier">loc</span>
+<span class="ruby-comment"># =&gt; #&lt;Parser::Source::Map::Collection:0x007f14b80eccd8</span>
+<span class="ruby-comment">#  @end=#&lt;Source::Range (string) 5...6&gt;,</span>
+<span class="ruby-comment">#  @begin=#&lt;Source::Range (string) 0...1&gt;,</span>
+<span class="ruby-comment">#  @expression=#&lt;Source::Range (string) 0...6&gt;&gt;</span>
+</pre>
+
+<p>@!attribute [r] node</p>
+
+<pre>The node that is described by this map. Nodes and maps have 1:1 correspondence.
+@return [Parser::AST::Node]</pre>
+
+<p>@!attribute [r] expression</p>
+
+<pre class="ruby"><span class="ruby-ivar">@return</span> [<span class="ruby-constant">Range</span>]
+</pre>
+
+<p>@api public</p>
+
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+    <section class="attribute-method-details" class="method-section">
+      <header>
+        <h3>Attributes</h3>
+      </header>
+
+      
+      <div id="attribute-i-expression" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">expression</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-node" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">node</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+    </section>
+    
+
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Class Methods</h3>
+       </header>
+
+    
+      <div id="method-c-new" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">new</span><span
+            class="method-args">(expression)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>@param [Range] expression</p>
+          
+          
+
+          
+          <div class="method-source-code" id="new-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/parser-2.5.0.0/lib/parser/source/map.rb, line 75</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">expression</span>)
+  <span class="ruby-ivar">@expression</span> = <span class="ruby-identifier">expression</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-3D-3D" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">==</span><span
+            class="method-args">(other)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Compares source maps. @return [Boolean]</p>
+          
+          
+
+          
+          <div class="method-source-code" id="3D-3D-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/parser-2.5.0.0/lib/parser/source/map.rb, line 139</span>
+<span class="ruby-keyword">def</span> <span class="ruby-operator">==</span>(<span class="ruby-identifier">other</span>)
+  <span class="ruby-identifier">other</span>.<span class="ruby-identifier">class</span> <span class="ruby-operator">==</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">class</span> <span class="ruby-operator">&amp;&amp;</span>
+    <span class="ruby-identifier">instance_variables</span>.<span class="ruby-identifier">map</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">ivar</span><span class="ruby-operator">|</span>
+      <span class="ruby-identifier">instance_variable_get</span>(<span class="ruby-identifier">ivar</span>) <span class="ruby-operator">==</span>
+        <span class="ruby-identifier">other</span>.<span class="ruby-identifier">send</span>(<span class="ruby-value">:instance_variable_get</span>, <span class="ruby-identifier">ivar</span>)
+    <span class="ruby-keyword">end</span>.<span class="ruby-identifier">reduce</span>(<span class="ruby-value">:&amp;</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-column" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">column</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>A shortcut for `self.expression.column`. @return [Integer]</p>
+          
+          
+
+          
+          <div class="method-source-code" id="column-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/parser-2.5.0.0/lib/parser/source/map.rb, line 108</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">column</span>
+  <span class="ruby-ivar">@expression</span>.<span class="ruby-identifier">column</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-first_line" class="method-detail method-alias">
+        
+        <div class="method-heading">
+          <span class="method-name">first_line</span><span
+            class="method-args">()</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+        </div>
+
+        
+
+        
+        <div class="aliases">
+          Alias for: <a href="Map.html#method-i-line">line</a>
+        </div>
+        
+      </div>
+
+    
+      <div id="method-i-initialize_copy" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">initialize_copy</span><span
+            class="method-args">(other)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>@api private</p>
+          
+          
+            <div class="method-calls-super">
+              Calls superclass method
+              
+            </div>
+          
+
+          
+          <div class="method-source-code" id="initialize_copy-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/parser-2.5.0.0/lib/parser/source/map.rb, line 81</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize_copy</span>(<span class="ruby-identifier">other</span>)
+  <span class="ruby-keyword">super</span>
+  <span class="ruby-ivar">@node</span> = <span class="ruby-keyword">nil</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-last_column" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">last_column</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>A shortcut for `self.expression.last_column`. @return [Integer]</p>
+          
+          
+
+          
+          <div class="method-source-code" id="last_column-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/parser-2.5.0.0/lib/parser/source/map.rb, line 124</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">last_column</span>
+  <span class="ruby-ivar">@expression</span>.<span class="ruby-identifier">last_column</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-last_line" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">last_line</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>A shortcut for `self.expression.last_line`. @return [Integer]</p>
+          
+          
+
+          
+          <div class="method-source-code" id="last_line-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/parser-2.5.0.0/lib/parser/source/map.rb, line 116</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">last_line</span>
+  <span class="ruby-ivar">@expression</span>.<span class="ruby-identifier">last_line</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-line" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">line</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>A shortcut for `self.expression.line`. @return [Integer]</p>
+          
+          
+
+          
+          <div class="method-source-code" id="line-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/parser-2.5.0.0/lib/parser/source/map.rb, line 98</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">line</span>
+  <span class="ruby-ivar">@expression</span>.<span class="ruby-identifier">line</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+        <div class="aliases">
+          Also aliased as: <a href="Map.html#method-i-first_line">first_line</a>, first_line, first_line
+        </div>
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-node-3D" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">node=</span><span
+            class="method-args">(node)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>@api private</p>
+          
+          
+
+          
+          <div class="method-source-code" id="node-3D-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/parser-2.5.0.0/lib/parser/source/map.rb, line 88</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">node=</span>(<span class="ruby-identifier">node</span>)
+  <span class="ruby-ivar">@node</span> = <span class="ruby-identifier">node</span>
+  <span class="ruby-identifier">freeze</span>
+  <span class="ruby-ivar">@node</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-to_hash" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">to_hash</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Converts this source map to a hash with keys corresponding to ranges. <a
+href="Map/For.html">For</a> example, if called on an instance of
+{Collection}, which adds the `begin` and `end` ranges, the resulting hash
+will contain keys `:expression`, `:begin` and `:end`.</p>
+
+<p>@example</p>
+
+<pre class="ruby"><span class="ruby-identifier">require</span> <span class="ruby-string">&#39;parser/current&#39;</span>
+
+<span class="ruby-identifier">p</span> <span class="ruby-constant">Parser</span><span class="ruby-operator">::</span><span class="ruby-constant">CurrentRuby</span>.<span class="ruby-identifier">parse</span>(<span class="ruby-string">&#39;[1, 2]&#39;</span>).<span class="ruby-identifier">loc</span>.<span class="ruby-identifier">to_hash</span>
+<span class="ruby-comment"># =&gt; {</span>
+<span class="ruby-comment">#   :begin =&gt; #&lt;Source::Range (string) 0...1&gt;,</span>
+<span class="ruby-comment">#   :end =&gt; #&lt;Source::Range (string) 5...6&gt;,</span>
+<span class="ruby-comment">#   :expression =&gt; #&lt;Source::Range (string) 0...6&gt;</span>
+<span class="ruby-comment"># }</span>
+</pre>
+
+<p>@return [Hash(Symbol, <a href="Range.html">Parser::Source::Range</a>)]</p>
+          
+          
+
+          
+          <div class="method-source-code" id="to_hash-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/parser-2.5.0.0/lib/parser/source/map.rb, line 165</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">to_hash</span>
+  <span class="ruby-identifier">instance_variables</span>.<span class="ruby-identifier">inject</span>({}) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">hash</span>, <span class="ruby-identifier">ivar</span><span class="ruby-operator">|</span>
+    <span class="ruby-keyword">next</span> <span class="ruby-identifier">hash</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">ivar</span>.<span class="ruby-identifier">to_sym</span> <span class="ruby-operator">==</span> <span class="ruby-value">:@node</span>
+    <span class="ruby-identifier">hash</span>[<span class="ruby-identifier">ivar</span>[<span class="ruby-value">1</span><span class="ruby-operator">..</span><span class="ruby-value">-1</span>].<span class="ruby-identifier">to_sym</span>] = <span class="ruby-identifier">instance_variable_get</span>(<span class="ruby-identifier">ivar</span>)
+    <span class="ruby-identifier">hash</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-with_expression" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">with_expression</span><span
+            class="method-args">(expression_l)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>@api private</p>
+          
+          
+
+          
+          <div class="method-source-code" id="with_expression-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/parser-2.5.0.0/lib/parser/source/map.rb, line 131</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">with_expression</span>(<span class="ruby-identifier">expression_l</span>)
+  <span class="ruby-identifier">with</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">map</span><span class="ruby-operator">|</span> <span class="ruby-identifier">map</span>.<span class="ruby-identifier">update_expression</span>(<span class="ruby-identifier">expression_l</span>) }
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="protected-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Protected Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-update_expression" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">update_expression</span><span
+            class="method-args">(expression_l)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="update_expression-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/parser-2.5.0.0/lib/parser/source/map.rb, line 179</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">update_expression</span>(<span class="ruby-identifier">expression_l</span>)
+  <span class="ruby-ivar">@expression</span> = <span class="ruby-identifier">expression_l</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-with" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">with</span><span
+            class="method-args">(&block)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="with-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/parser-2.5.0.0/lib/parser/source/map.rb, line 175</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">with</span>(<span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+  <span class="ruby-identifier">dup</span>.<span class="ruby-identifier">tap</span>(<span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="https://rdoc.github.io/rdoc">RDoc</a> 5.0.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

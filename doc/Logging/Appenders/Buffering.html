@@ -1,0 +1,833 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>module Logging::Appenders::Buffering - RDoc Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../../";
+  var index_rel_prefix = "../../";
+</script>
+
+<script src="../../js/jquery.js"></script>
+<script src="../../js/darkfish.js"></script>
+
+<link href="../../css/fonts.css" rel="stylesheet">
+<link href="../../css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="module">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../../table_of_contents.html#pages">Pages</a>
+    <a href="../../table_of_contents.html#classes">Classes</a>
+    <a href="../../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li class="calls-super" ><a href="#method-c-new">::new</a>
+    
+    <li ><a href="#method-i-async-3D">#async=</a>
+    
+    <li ><a href="#method-i-auto_flushing-3D">#auto_flushing=</a>
+    
+    <li ><a href="#method-i-clear-21">#clear!</a>
+    
+    <li class="calls-super" ><a href="#method-i-close">#close</a>
+    
+    <li ><a href="#method-i-configure_buffering">#configure_buffering</a>
+    
+    <li ><a href="#method-i-flush">#flush</a>
+    
+    <li ><a href="#method-i-flush_period-3D">#flush_period=</a>
+    
+    <li ><a href="#method-i-flush_period-3F">#flush_period?</a>
+    
+    <li ><a href="#method-i-immediate-3F">#immediate?</a>
+    
+    <li ><a href="#method-i-immediate_at-3D">#immediate_at=</a>
+    
+    <li class="calls-super" ><a href="#method-i-reopen">#reopen</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="module-Logging::Appenders::Buffering">
+  <h1 id="module-Logging::Appenders::Buffering" class="module">
+    module Logging::Appenders::Buffering
+  </h1>
+
+  <section class="description">
+    
+<p>The <a href="Buffering.html">Buffering</a> module is used to implement
+buffering of the log messages in a given appender. The size of the buffer
+can be specified, and the buffer can be configured to auto-flush at a given
+threshold. The threshold can be a single message or a very large number of
+messages.</p>
+
+<p>Log messages of a certain level can cause the buffer to be flushed
+immediately. If an error occurs, all previous messages and the error
+message will be written immediately to the logging destination if the
+buffer is configured to do so.</p>
+
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+    <section class="constants-list">
+      <header>
+        <h3>Constants</h3>
+      </header>
+      <dl>
+      
+        <dt id="DEFAULT_BUFFER_SIZE">DEFAULT_BUFFER_SIZE
+        
+        <dd><p>Default buffer size</p>
+        
+      
+      </dl>
+    </section>
+    
+
+    
+    <section class="attribute-method-details" class="method-section">
+      <header>
+        <h3>Attributes</h3>
+      </header>
+
+      
+      <div id="attribute-i-async" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">async</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        <p>When set, the buffer will be flushed using an asynchronous Thread. That is,
+the main program thread will not be blocked during writes.</p>
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-async-3F" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">async?</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        <p>When set, the buffer will be flushed using an asynchronous Thread. That is,
+the main program thread will not be blocked during writes.</p>
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-auto_flushing" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">auto_flushing</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        <p>The auto-flushing setting. When the buffer reaches this size, all messages
+will be be flushed automatically.</p>
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-buffer" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">buffer</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        <p>The buffer holding the log messages</p>
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-flush_period" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">flush_period</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        <p>When set, the buffer will be flushed at regular intervals defined by the
+flush_period.</p>
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-write_size" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">write_size</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        <p>Messages will be written in chunks. This controls the number of messages to
+pull from the buffer for each write operation. The default is to pull all
+messages from the buffer at once.</p>
+        
+        </div>
+      </div>
+      
+    </section>
+    
+
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Class Methods</h3>
+       </header>
+
+    
+      <div id="method-c-new" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">new</span><span
+            class="method-args">( *args, &block )</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Setup the message buffer and other variables for automatically and
+periodically flushing the buffer.</p>
+          
+          
+            <div class="method-calls-super">
+              Calls superclass method
+              
+            </div>
+          
+
+          
+          <div class="method-source-code" id="new-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/logging-2.2.2/lib/logging/appenders/buffering.rb, line 42</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span>( <span class="ruby-operator">*</span><span class="ruby-identifier">args</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span> )
+  <span class="ruby-ivar">@buffer</span> = []
+  <span class="ruby-ivar">@immediate</span> = []
+  <span class="ruby-ivar">@auto_flushing</span> = <span class="ruby-value">1</span>
+  <span class="ruby-ivar">@async</span> = <span class="ruby-keyword">false</span>
+  <span class="ruby-ivar">@flush_period</span> = <span class="ruby-ivar">@async_flusher</span> = <span class="ruby-keyword">nil</span>
+
+  <span class="ruby-keyword">super</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-async-3D" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">async=</span><span
+            class="method-args">( bool )</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Enable or disable asynchronous logging via a dedicated logging Thread. Pass
+in `true` to enable and `false` to disable.</p>
+
+<p>bool - A boolean value</p>
+          
+          
+
+          
+          <div class="method-source-code" id="async-3D-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/logging-2.2.2/lib/logging/appenders/buffering.rb, line 232</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">async=</span>( <span class="ruby-identifier">bool</span> )
+  <span class="ruby-ivar">@async</span> = <span class="ruby-identifier">bool</span> <span class="ruby-operator">?</span> <span class="ruby-keyword">true</span> <span class="ruby-operator">:</span> <span class="ruby-keyword">false</span>
+  <span class="ruby-identifier">_setup_async_flusher</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-auto_flushing-3D" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">auto_flushing=</span><span
+            class="method-args">( period )</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Configure the auto-flushing threshold. Auto-flushing is used to flush the
+contents of the logging buffer to the logging destination automatically
+when the buffer reaches a certain threshold.</p>
+
+<p>By default, the auto-flushing will be configured to flush after each log
+message.</p>
+
+<p>The allowed settings are as follows:</p>
+
+<pre>N      : flush after every N messages (N is an integer)
+true   : flush after each log message
+false  OR
+nil    OR
+0      : only flush when the buffer is full (500 messages)</pre>
+
+<p>If the default buffer size of 500 is too small, then you can manually
+configure it to be as large as you want. This will consume more memory.</p>
+
+<pre class="ruby"><span class="ruby-identifier">auto_flushing</span> = <span class="ruby-value">42_000</span>
+</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="auto_flushing-3D-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/logging-2.2.2/lib/logging/appenders/buffering.rb, line 160</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">auto_flushing=</span>( <span class="ruby-identifier">period</span> )
+  <span class="ruby-ivar">@auto_flushing</span> =
+    <span class="ruby-keyword">case</span> <span class="ruby-identifier">period</span>
+    <span class="ruby-keyword">when</span> <span class="ruby-keyword">true</span>;             <span class="ruby-value">1</span>
+    <span class="ruby-keyword">when</span> <span class="ruby-keyword">false</span>, <span class="ruby-keyword">nil</span>, <span class="ruby-value">0</span>;    <span class="ruby-constant">DEFAULT_BUFFER_SIZE</span>
+    <span class="ruby-keyword">when</span> <span class="ruby-constant">Integer</span>;          <span class="ruby-identifier">period</span>
+    <span class="ruby-keyword">when</span> <span class="ruby-constant">String</span>;           <span class="ruby-constant">Integer</span>(<span class="ruby-identifier">period</span>)
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>,
+            <span class="ruby-node">&quot;unrecognized auto_flushing period: #{period.inspect}&quot;</span>
+    <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">if</span> <span class="ruby-ivar">@auto_flushing</span> <span class="ruby-operator">&lt;=</span> <span class="ruby-value">0</span>
+    <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>,
+      <span class="ruby-node">&quot;auto_flushing period must be greater than zero: #{period.inspect}&quot;</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-ivar">@auto_flushing</span> = <span class="ruby-constant">DEFAULT_BUFFER_SIZE</span> <span class="ruby-keyword">if</span> <span class="ruby-ivar">@flush_period</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-ivar">@auto_flushing</span> <span class="ruby-operator">&lt;=</span> <span class="ruby-value">1</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-clear-21" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">clear!</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Clear the underlying buffer of all log events. These events will not be
+appended to the logging destination; they will be lost.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="clear-21-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/logging-2.2.2/lib/logging/appenders/buffering.rb, line 102</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">clear!</span>
+  <span class="ruby-identifier">sync</span> { <span class="ruby-ivar">@buffer</span>.<span class="ruby-identifier">clear</span> }
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-close" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">close</span><span
+            class="method-args">( *args )</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Close the message buffer by flushing all log events to the appender. If an
+async flusher thread is running, shut it down and allow it to exit.</p>
+          
+          
+            <div class="method-calls-super">
+              Calls superclass method
+              
+            </div>
+          
+
+          
+          <div class="method-source-code" id="close-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/logging-2.2.2/lib/logging/appenders/buffering.rb, line 55</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">close</span>( <span class="ruby-operator">*</span><span class="ruby-identifier">args</span> )
+  <span class="ruby-identifier">flush</span>
+
+  <span class="ruby-keyword">if</span> <span class="ruby-ivar">@async_flusher</span>
+    <span class="ruby-ivar">@async_flusher</span>.<span class="ruby-identifier">stop</span>
+    <span class="ruby-ivar">@async_flusher</span> = <span class="ruby-keyword">nil</span>
+    <span class="ruby-constant">Thread</span>.<span class="ruby-identifier">pass</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">super</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-flush" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">flush</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Call `flush` to force an appender to write out any buffered log events.
+Similar to `IO#flush`, so use in a similar fashion.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="flush-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/logging-2.2.2/lib/logging/appenders/buffering.rb, line 78</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">flush</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">self</span> <span class="ruby-keyword">if</span> <span class="ruby-ivar">@buffer</span>.<span class="ruby-identifier">empty?</span>
+
+  <span class="ruby-identifier">ary</span> = <span class="ruby-keyword">nil</span>
+  <span class="ruby-identifier">sync</span> {
+    <span class="ruby-identifier">ary</span> = <span class="ruby-ivar">@buffer</span>.<span class="ruby-identifier">dup</span>
+    <span class="ruby-ivar">@buffer</span>.<span class="ruby-identifier">clear</span>
+  }
+
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">ary</span>.<span class="ruby-identifier">length</span> <span class="ruby-operator">&lt;=</span> <span class="ruby-identifier">write_size</span>
+    <span class="ruby-identifier">str</span> = <span class="ruby-identifier">ary</span>.<span class="ruby-identifier">join</span>
+    <span class="ruby-identifier">canonical_write</span> <span class="ruby-identifier">str</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">str</span>.<span class="ruby-identifier">empty?</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">ary</span>.<span class="ruby-identifier">each_slice</span>(<span class="ruby-identifier">write_size</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">a</span><span class="ruby-operator">|</span>
+      <span class="ruby-identifier">str</span> = <span class="ruby-identifier">a</span>.<span class="ruby-identifier">join</span>
+      <span class="ruby-identifier">canonical_write</span> <span class="ruby-identifier">str</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">str</span>.<span class="ruby-identifier">empty?</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">self</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-flush_period-3D" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">flush_period=</span><span
+            class="method-args">( period )</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Configure periodic flushing of the message buffer. Periodic flushing is
+used to flush the contents of the logging buffer at some regular interval.
+Periodic flushing is disabled by default.</p>
+
+<p>When enabling periodic flushing the flush period should be set using one of
+the following formats: “HH:MM:SS” or seconds as an numeric or string.</p>
+
+<pre>&quot;01:00:00&quot;  : every hour
+&quot;00:05:00&quot;  : every 5 minutes
+&quot;00:00:30&quot;  : every 30 seconds
+60          : every 60 seconds (1 minute)
+&quot;120&quot;       : every 120 seconds (2 minutes)</pre>
+
+<p>For the periodic flusher to work properly, the auto-flushing threshold will
+be set to the default value of 500. The auto-flushing threshold can be
+changed, but it must be greater than 1.</p>
+
+<p>To disable the periodic flusher simply set the flush period to
+<code>nil</code>. The auto-flushing threshold will not be changed; it must
+be disabled manually if so desired.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="flush_period-3D-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/logging-2.2.2/lib/logging/appenders/buffering.rb, line 201</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">flush_period=</span>( <span class="ruby-identifier">period</span> )
+  <span class="ruby-ivar">@flush_period</span> =
+    <span class="ruby-keyword">case</span> <span class="ruby-identifier">period</span>
+    <span class="ruby-keyword">when</span> <span class="ruby-constant">Integer</span>, <span class="ruby-constant">Float</span>, <span class="ruby-keyword">nil</span>; <span class="ruby-identifier">period</span>
+    <span class="ruby-keyword">when</span> <span class="ruby-constant">String</span>
+      <span class="ruby-identifier">num</span> = <span class="ruby-identifier">_parse_hours_minutes_seconds</span>(<span class="ruby-identifier">period</span>) <span class="ruby-operator">||</span> <span class="ruby-identifier">_parse_numeric</span>(<span class="ruby-identifier">period</span>)
+      <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>.<span class="ruby-identifier">new</span>(<span class="ruby-node">&quot;unrecognized flush period: #{period.inspect}&quot;</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">num</span>.<span class="ruby-identifier">nil?</span>
+      <span class="ruby-identifier">num</span>
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>.<span class="ruby-identifier">new</span>(<span class="ruby-node">&quot;unrecognized flush period: #{period.inspect}&quot;</span>)
+    <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">if</span> <span class="ruby-operator">!</span><span class="ruby-ivar">@flush_period</span>.<span class="ruby-identifier">nil?</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-ivar">@flush_period</span> <span class="ruby-operator">&lt;=</span> <span class="ruby-value">0</span>
+    <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>,
+      <span class="ruby-node">&quot;flush_period must be greater than zero: #{period.inspect}&quot;</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">_setup_async_flusher</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-flush_period-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">flush_period?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Returns `true` if an asynchronous flush period has been defined for the
+appender.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="flush_period-3F-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/logging-2.2.2/lib/logging/appenders/buffering.rb, line 223</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">flush_period?</span>
+  <span class="ruby-operator">!</span><span class="ruby-ivar">@flush_period</span>.<span class="ruby-identifier">nil?</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-immediate_at-3D" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">immediate_at=</span><span
+            class="method-args">( level )</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Configure the levels that will trigger an immediate flush of the logging
+buffer. When a log event of the given level is seen, the buffer will be
+flushed immediately. Only the levels explicitly given in this assignment
+will flush the buffer; if an “error” message is configured to immediately
+flush the buffer, a “fatal” message will not even though it is a higher
+level. Both must be explicitly passed to this assignment.</p>
+
+<p>You can pass in a single level name or number, an array of level names or
+numbers, or a string containing a comma separated list of level names or
+numbers.</p>
+
+<pre class="ruby"><span class="ruby-identifier">immediate_at</span> = :<span class="ruby-identifier">error</span>
+<span class="ruby-identifier">immediate_at</span> = [:<span class="ruby-identifier">error</span>, :<span class="ruby-identifier">fatal</span>]
+<span class="ruby-identifier">immediate_at</span> = <span class="ruby-string">&quot;warn, error&quot;</span>
+</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="immediate_at-3D-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/logging-2.2.2/lib/logging/appenders/buffering.rb, line 122</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">immediate_at=</span>( <span class="ruby-identifier">level</span> )
+  <span class="ruby-ivar">@immediate</span>.<span class="ruby-identifier">clear</span>
+
+  <span class="ruby-comment"># get the immediate levels -- no buffering occurs at these levels, and</span>
+  <span class="ruby-comment"># a log message is written to the logging destination immediately</span>
+  <span class="ruby-identifier">immediate_at</span> =
+    <span class="ruby-keyword">case</span> <span class="ruby-identifier">level</span>
+    <span class="ruby-keyword">when</span> <span class="ruby-constant">String</span>; <span class="ruby-identifier">level</span>.<span class="ruby-identifier">split</span>(<span class="ruby-string">&#39;,&#39;</span>).<span class="ruby-identifier">map</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">x</span><span class="ruby-operator">|</span> <span class="ruby-identifier">x</span>.<span class="ruby-identifier">strip</span>}
+    <span class="ruby-keyword">when</span> <span class="ruby-constant">Array</span>; <span class="ruby-identifier">level</span>
+    <span class="ruby-keyword">else</span> <span class="ruby-constant">Array</span>(<span class="ruby-identifier">level</span>) <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">immediate_at</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">lvl</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">num</span> = <span class="ruby-operator">::</span><span class="ruby-constant">Logging</span>.<span class="ruby-identifier">level_num</span>(<span class="ruby-identifier">lvl</span>)
+    <span class="ruby-keyword">next</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">num</span>.<span class="ruby-identifier">nil?</span>
+    <span class="ruby-ivar">@immediate</span>[<span class="ruby-identifier">num</span>] = <span class="ruby-keyword">true</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-reopen" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">reopen</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Reopen the connection to the underlying logging destination. In addition if
+the appender is configured for asynchronous flushing, then the flushing
+thread will be stopped and restarted.</p>
+          
+          
+            <div class="method-calls-super">
+              Calls superclass method
+              
+            </div>
+          
+
+          
+          <div class="method-source-code" id="reopen-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/logging-2.2.2/lib/logging/appenders/buffering.rb, line 71</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">reopen</span>
+  <span class="ruby-identifier">_setup_async_flusher</span>
+  <span class="ruby-keyword">super</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="protected-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Protected Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-configure_buffering" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">configure_buffering</span><span
+            class="method-args">( opts )</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Configure the buffering using the arguments found in the give options hash.
+This method must be called in order to use the message buffer. The
+supported options are “immediate_at” and “auto_flushing”. Please refer to
+the documentation for those methods to see the allowed options.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="configure_buffering-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/logging-2.2.2/lib/logging/appenders/buffering.rb, line 247</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">configure_buffering</span>( <span class="ruby-identifier">opts</span> )
+  <span class="ruby-operator">::</span><span class="ruby-constant">Logging</span>.<span class="ruby-identifier">init</span> <span class="ruby-keyword">unless</span> <span class="ruby-operator">::</span><span class="ruby-constant">Logging</span>.<span class="ruby-identifier">initialized?</span>
+
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">immediate_at</span>  = <span class="ruby-identifier">opts</span>.<span class="ruby-identifier">fetch</span>(<span class="ruby-value">:immediate_at</span>, <span class="ruby-string">&#39;&#39;</span>)
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">auto_flushing</span> = <span class="ruby-identifier">opts</span>.<span class="ruby-identifier">fetch</span>(<span class="ruby-value">:auto_flushing</span>, <span class="ruby-keyword">true</span>)
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">flush_period</span>  = <span class="ruby-identifier">opts</span>.<span class="ruby-identifier">fetch</span>(<span class="ruby-value">:flush_period</span>, <span class="ruby-keyword">nil</span>)
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">async</span>         = <span class="ruby-identifier">opts</span>.<span class="ruby-identifier">fetch</span>(<span class="ruby-value">:async</span>, <span class="ruby-keyword">false</span>)
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">write_size</span>    = <span class="ruby-identifier">opts</span>.<span class="ruby-identifier">fetch</span>(<span class="ruby-value">:write_size</span>, <span class="ruby-constant">DEFAULT_BUFFER_SIZE</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-immediate-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">immediate?</span><span
+            class="method-args">( event )</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Returns `true` if the `event` level matches one of the configured immediate
+logging levels. Otherwise returns `false`.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="immediate-3F-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/logging-2.2.2/lib/logging/appenders/buffering.rb, line 259</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">immediate?</span>( <span class="ruby-identifier">event</span> )
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">false</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">event</span>.<span class="ruby-identifier">respond_to?</span> <span class="ruby-value">:level</span>
+  <span class="ruby-ivar">@immediate</span>[<span class="ruby-identifier">event</span>.<span class="ruby-identifier">level</span>]
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="https://rdoc.github.io/rdoc">RDoc</a> 5.0.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

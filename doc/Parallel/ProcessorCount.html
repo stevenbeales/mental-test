@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>module Parallel::ProcessorCount - RDoc Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../";
+  var index_rel_prefix = "../";
+</script>
+
+<script src="../js/jquery.js"></script>
+<script src="../js/darkfish.js"></script>
+
+<link href="../css/fonts.css" rel="stylesheet">
+<link href="../css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="module">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../table_of_contents.html#pages">Pages</a>
+    <a href="../table_of_contents.html#classes">Classes</a>
+    <a href="../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-i-physical_processor_count">#physical_processor_count</a>
+    
+    <li ><a href="#method-i-processor_count">#processor_count</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="module-Parallel::ProcessorCount">
+  <h1 id="module-Parallel::ProcessorCount" class="module">
+    module Parallel::ProcessorCount
+  </h1>
+
+  <section class="description">
+    
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+
+    
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-physical_processor_count" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">physical_processor_count</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Number of physical processor cores on the current system.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="physical_processor_count-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/parallel-1.12.1/lib/parallel/processor_count.rb, line 63</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">physical_processor_count</span>
+  <span class="ruby-ivar">@physical_processor_count</span> <span class="ruby-operator">||=</span> <span class="ruby-keyword">begin</span>
+    <span class="ruby-identifier">ppc</span> = <span class="ruby-keyword">case</span> <span class="ruby-constant">RbConfig</span><span class="ruby-operator">::</span><span class="ruby-constant">CONFIG</span>[<span class="ruby-string">&quot;target_os&quot;</span>]
+    <span class="ruby-keyword">when</span> <span class="ruby-regexp">/darwin1/</span>
+      <span class="ruby-constant">IO</span>.<span class="ruby-identifier">popen</span>(<span class="ruby-string">&quot;/usr/sbin/sysctl -n hw.physicalcpu&quot;</span>).<span class="ruby-identifier">read</span>.<span class="ruby-identifier">to_i</span>
+    <span class="ruby-keyword">when</span> <span class="ruby-regexp">/linux/</span>
+      <span class="ruby-identifier">cores</span> = {}  <span class="ruby-comment"># unique physical ID / core ID combinations</span>
+      <span class="ruby-identifier">phy</span> = <span class="ruby-value">0</span>
+      <span class="ruby-constant">IO</span>.<span class="ruby-identifier">read</span>(<span class="ruby-string">&quot;/proc/cpuinfo&quot;</span>).<span class="ruby-identifier">scan</span>(<span class="ruby-regexp">/^physical id.*|^core id.*/</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">ln</span><span class="ruby-operator">|</span>
+        <span class="ruby-keyword">if</span> <span class="ruby-identifier">ln</span>.<span class="ruby-identifier">start_with?</span>(<span class="ruby-string">&quot;physical&quot;</span>)
+          <span class="ruby-identifier">phy</span> = <span class="ruby-identifier">ln</span>[<span class="ruby-regexp">/\d+/</span>]
+        <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">ln</span>.<span class="ruby-identifier">start_with?</span>(<span class="ruby-string">&quot;core&quot;</span>)
+          <span class="ruby-identifier">cid</span> = <span class="ruby-identifier">phy</span> <span class="ruby-operator">+</span> <span class="ruby-string">&quot;:&quot;</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">ln</span>[<span class="ruby-regexp">/\d+/</span>]
+          <span class="ruby-identifier">cores</span>[<span class="ruby-identifier">cid</span>] = <span class="ruby-keyword">true</span> <span class="ruby-keyword">if</span> <span class="ruby-keyword">not</span> <span class="ruby-identifier">cores</span>[<span class="ruby-identifier">cid</span>]
+        <span class="ruby-keyword">end</span>
+      <span class="ruby-keyword">end</span>
+      <span class="ruby-identifier">cores</span>.<span class="ruby-identifier">count</span>
+    <span class="ruby-keyword">when</span> <span class="ruby-regexp">/mswin|mingw/</span>
+      <span class="ruby-identifier">require</span> <span class="ruby-string">&#39;win32ole&#39;</span>
+      <span class="ruby-identifier">result_set</span> = <span class="ruby-constant">WIN32OLE</span>.<span class="ruby-identifier">connect</span>(<span class="ruby-string">&quot;winmgmts://&quot;</span>).<span class="ruby-constant">ExecQuery</span>(
+        <span class="ruby-string">&quot;select NumberOfCores from Win32_Processor&quot;</span>)
+      <span class="ruby-identifier">result_set</span>.<span class="ruby-identifier">to_enum</span>.<span class="ruby-identifier">collect</span>(<span class="ruby-operator">&amp;</span><span class="ruby-value">:NumberOfCores</span>).<span class="ruby-identifier">reduce</span>(<span class="ruby-value">:+</span>)
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-identifier">processor_count</span>
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-comment"># fall back to logical count if physical info is invalid</span>
+    <span class="ruby-identifier">ppc</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">0</span> <span class="ruby-operator">?</span> <span class="ruby-identifier">ppc</span> <span class="ruby-operator">:</span> <span class="ruby-identifier">processor_count</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-processor_count" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">processor_count</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Number of processors seen by the OS and used for process scheduling.</p>
+<ul><li>
+<p>AIX: /usr/sbin/pmcycles (AIX 5+), /usr/sbin/lsdev</p>
+</li><li>
+<p>BSD: /sbin/sysctl</p>
+</li><li>
+<p>Cygwin: /proc/cpuinfo</p>
+</li><li>
+<p>Darwin: /usr/bin/hwprefs, /usr/sbin/sysctl</p>
+</li><li>
+<p>HP-UX: /usr/sbin/ioscan</p>
+</li><li>
+<p>IRIX: /usr/sbin/sysconf</p>
+</li><li>
+<p>Linux: /proc/cpuinfo</p>
+</li><li>
+<p>Minix 3+: /proc/cpuinfo</p>
+</li><li>
+<p>Solaris: /usr/sbin/psrinfo</p>
+</li><li>
+<p>Tru64 UNIX: /usr/sbin/psrinfo</p>
+</li><li>
+<p>UnixWare: /usr/sbin/psrinfo</p>
+</li></ul>
+          
+          
+
+          
+          <div class="method-source-code" id="processor_count-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/parallel-1.12.1/lib/parallel/processor_count.rb, line 21</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">processor_count</span>
+  <span class="ruby-ivar">@processor_count</span> <span class="ruby-operator">||=</span> <span class="ruby-keyword">begin</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-keyword">defined?</span>(<span class="ruby-constant">Etc</span>) <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-constant">Etc</span>.<span class="ruby-identifier">respond_to?</span>(<span class="ruby-value">:nprocessors</span>)
+      <span class="ruby-constant">Etc</span>.<span class="ruby-identifier">nprocessors</span>
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-identifier">os_name</span> = <span class="ruby-constant">RbConfig</span><span class="ruby-operator">::</span><span class="ruby-constant">CONFIG</span>[<span class="ruby-string">&quot;target_os&quot;</span>]
+      <span class="ruby-keyword">if</span> <span class="ruby-identifier">os_name</span> <span class="ruby-operator">=~</span> <span class="ruby-regexp">/mingw|mswin/</span>
+        <span class="ruby-identifier">require</span> <span class="ruby-string">&#39;win32ole&#39;</span>
+        <span class="ruby-identifier">result</span> = <span class="ruby-constant">WIN32OLE</span>.<span class="ruby-identifier">connect</span>(<span class="ruby-string">&quot;winmgmts://&quot;</span>).<span class="ruby-constant">ExecQuery</span>(
+          <span class="ruby-string">&quot;select NumberOfLogicalProcessors from Win32_Processor&quot;</span>)
+        <span class="ruby-identifier">result</span>.<span class="ruby-identifier">to_enum</span>.<span class="ruby-identifier">collect</span>(<span class="ruby-operator">&amp;</span><span class="ruby-value">:NumberOfLogicalProcessors</span>).<span class="ruby-identifier">reduce</span>(<span class="ruby-value">:+</span>)
+      <span class="ruby-keyword">elsif</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">readable?</span>(<span class="ruby-string">&quot;/proc/cpuinfo&quot;</span>)
+        <span class="ruby-constant">IO</span>.<span class="ruby-identifier">read</span>(<span class="ruby-string">&quot;/proc/cpuinfo&quot;</span>).<span class="ruby-identifier">scan</span>(<span class="ruby-regexp">/^processor/</span>).<span class="ruby-identifier">size</span>
+      <span class="ruby-keyword">elsif</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">executable?</span>(<span class="ruby-string">&quot;/usr/bin/hwprefs&quot;</span>)
+        <span class="ruby-constant">IO</span>.<span class="ruby-identifier">popen</span>(<span class="ruby-string">&quot;/usr/bin/hwprefs thread_count&quot;</span>).<span class="ruby-identifier">read</span>.<span class="ruby-identifier">to_i</span>
+      <span class="ruby-keyword">elsif</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">executable?</span>(<span class="ruby-string">&quot;/usr/sbin/psrinfo&quot;</span>)
+        <span class="ruby-constant">IO</span>.<span class="ruby-identifier">popen</span>(<span class="ruby-string">&quot;/usr/sbin/psrinfo&quot;</span>).<span class="ruby-identifier">read</span>.<span class="ruby-identifier">scan</span>(<span class="ruby-regexp">/^.*on-*line/</span>).<span class="ruby-identifier">size</span>
+      <span class="ruby-keyword">elsif</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">executable?</span>(<span class="ruby-string">&quot;/usr/sbin/ioscan&quot;</span>)
+        <span class="ruby-constant">IO</span>.<span class="ruby-identifier">popen</span>(<span class="ruby-string">&quot;/usr/sbin/ioscan -kC processor&quot;</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">out</span><span class="ruby-operator">|</span>
+          <span class="ruby-identifier">out</span>.<span class="ruby-identifier">read</span>.<span class="ruby-identifier">scan</span>(<span class="ruby-regexp">/^.*processor/</span>).<span class="ruby-identifier">size</span>
+        <span class="ruby-keyword">end</span>
+      <span class="ruby-keyword">elsif</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">executable?</span>(<span class="ruby-string">&quot;/usr/sbin/pmcycles&quot;</span>)
+        <span class="ruby-constant">IO</span>.<span class="ruby-identifier">popen</span>(<span class="ruby-string">&quot;/usr/sbin/pmcycles -m&quot;</span>).<span class="ruby-identifier">read</span>.<span class="ruby-identifier">count</span>(<span class="ruby-string">&quot;\n&quot;</span>)
+      <span class="ruby-keyword">elsif</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">executable?</span>(<span class="ruby-string">&quot;/usr/sbin/lsdev&quot;</span>)
+        <span class="ruby-constant">IO</span>.<span class="ruby-identifier">popen</span>(<span class="ruby-string">&quot;/usr/sbin/lsdev -Cc processor -S 1&quot;</span>).<span class="ruby-identifier">read</span>.<span class="ruby-identifier">count</span>(<span class="ruby-string">&quot;\n&quot;</span>)
+      <span class="ruby-keyword">elsif</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">executable?</span>(<span class="ruby-string">&quot;/usr/sbin/sysconf&quot;</span>) <span class="ruby-keyword">and</span> <span class="ruby-identifier">os_name</span> <span class="ruby-operator">=~</span> <span class="ruby-regexp">/irix/i</span>
+        <span class="ruby-constant">IO</span>.<span class="ruby-identifier">popen</span>(<span class="ruby-string">&quot;/usr/sbin/sysconf NPROC_ONLN&quot;</span>).<span class="ruby-identifier">read</span>.<span class="ruby-identifier">to_i</span>
+      <span class="ruby-keyword">elsif</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">executable?</span>(<span class="ruby-string">&quot;/usr/sbin/sysctl&quot;</span>)
+        <span class="ruby-constant">IO</span>.<span class="ruby-identifier">popen</span>(<span class="ruby-string">&quot;/usr/sbin/sysctl -n hw.ncpu&quot;</span>).<span class="ruby-identifier">read</span>.<span class="ruby-identifier">to_i</span>
+      <span class="ruby-keyword">elsif</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">executable?</span>(<span class="ruby-string">&quot;/sbin/sysctl&quot;</span>)
+        <span class="ruby-constant">IO</span>.<span class="ruby-identifier">popen</span>(<span class="ruby-string">&quot;/sbin/sysctl -n hw.ncpu&quot;</span>).<span class="ruby-identifier">read</span>.<span class="ruby-identifier">to_i</span>
+      <span class="ruby-keyword">else</span>
+        <span class="ruby-identifier">$stderr</span>.<span class="ruby-identifier">puts</span> <span class="ruby-string">&quot;Unknown platform: &quot;</span> <span class="ruby-operator">+</span> <span class="ruby-constant">RbConfig</span><span class="ruby-operator">::</span><span class="ruby-constant">CONFIG</span>[<span class="ruby-string">&quot;target_os&quot;</span>]
+        <span class="ruby-identifier">$stderr</span>.<span class="ruby-identifier">puts</span> <span class="ruby-string">&quot;Assuming 1 processor.&quot;</span>
+        <span class="ruby-value">1</span>
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="https://rdoc.github.io/rdoc">RDoc</a> 5.0.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

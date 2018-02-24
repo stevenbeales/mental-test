@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>module RSpec::Support::RubyFeatures - RDoc Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../../";
+  var index_rel_prefix = "../../";
+</script>
+
+<script src="../../js/jquery.js"></script>
+<script src="../../js/darkfish.js"></script>
+
+<link href="../../css/fonts.css" rel="stylesheet">
+<link href="../../css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="module">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../../table_of_contents.html#pages">Pages</a>
+    <a href="../../table_of_contents.html#classes">Classes</a>
+    <a href="../../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-i-caller_locations_supported-3F">#caller_locations_supported?</a>
+    
+    <li ><a href="#method-i-foo">#foo</a>
+    
+    <li ><a href="#method-i-kw_args_supported-3F">#kw_args_supported?</a>
+    
+    <li ><a href="#method-i-module_prepends_supported-3F">#module_prepends_supported?</a>
+    
+    <li ><a href="#method-i-module_refinement_supported-3F">#module_refinement_supported?</a>
+    
+    <li ><a href="#method-i-optional_and_splat_args_supported-3F">#optional_and_splat_args_supported?</a>
+    
+    <li ><a href="#method-i-required_kw_args_supported-3F">#required_kw_args_supported?</a>
+    
+    <li ><a href="#method-i-ripper_supported-3F">#ripper_supported?</a>
+    
+    <li ><a href="#method-i-supports_exception_cause-3F">#supports_exception_cause?</a>
+    
+    <li ><a href="#method-i-supports_rebinding_module_methods-3F">#supports_rebinding_module_methods?</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="module-RSpec::Support::RubyFeatures">
+  <h1 id="module-RSpec::Support::RubyFeatures" class="module">
+    module RSpec::Support::RubyFeatures
+  </h1>
+
+  <section class="description">
+    
+<p>@api private</p>
+
+<p>Provides query methods for ruby features that differ among implementations.</p>
+
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+
+    
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-caller_locations_supported-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">caller_locations_supported?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="caller_locations_supported-3F-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/rspec-support-3.7.1/lib/rspec/support/ruby_features.rb, line 63</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">caller_locations_supported?</span>
+  <span class="ruby-identifier">respond_to?</span>(<span class="ruby-value">:caller_locations</span>, <span class="ruby-keyword">true</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-foo" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">foo</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="foo-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/rspec-support-3.7.1/lib/rspec/support/ruby_features.rb, line 140</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">foo</span>; <span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-kw_args_supported-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">kw_args_supported?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="kw_args_supported-3F-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/rspec-support-3.7.1/lib/rspec/support/ruby_features.rb, line 99</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">kw_args_supported?</span>
+  <span class="ruby-constant">RUBY_VERSION</span> <span class="ruby-operator">&gt;=</span> <span class="ruby-string">&#39;2.0.0&#39;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-module_prepends_supported-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">module_prepends_supported?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="module_prepends_supported-3F-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/rspec-support-3.7.1/lib/rspec/support/ruby_features.rb, line 157</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">module_prepends_supported?</span>
+  <span class="ruby-constant">Module</span>.<span class="ruby-identifier">method_defined?</span>(<span class="ruby-value">:prepend</span>) <span class="ruby-operator">||</span> <span class="ruby-constant">Module</span>.<span class="ruby-identifier">private_method_defined?</span>(<span class="ruby-value">:prepend</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-module_refinement_supported-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">module_refinement_supported?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="module_refinement_supported-3F-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/rspec-support-3.7.1/lib/rspec/support/ruby_features.rb, line 153</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">module_refinement_supported?</span>
+  <span class="ruby-constant">Module</span>.<span class="ruby-identifier">method_defined?</span>(<span class="ruby-value">:refine</span>) <span class="ruby-operator">||</span> <span class="ruby-constant">Module</span>.<span class="ruby-identifier">private_method_defined?</span>(<span class="ruby-value">:refine</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-optional_and_splat_args_supported-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">optional_and_splat_args_supported?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="optional_and_splat_args_supported-3F-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/rspec-support-3.7.1/lib/rspec/support/ruby_features.rb, line 59</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">optional_and_splat_args_supported?</span>
+  <span class="ruby-constant">Method</span>.<span class="ruby-identifier">method_defined?</span>(<span class="ruby-value">:parameters</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-required_kw_args_supported-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">required_kw_args_supported?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="required_kw_args_supported-3F-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/rspec-support-3.7.1/lib/rspec/support/ruby_features.rb, line 103</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">required_kw_args_supported?</span>
+  <span class="ruby-constant">RUBY_VERSION</span> <span class="ruby-operator">&gt;=</span> <span class="ruby-string">&#39;2.1.0&#39;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-ripper_supported-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">ripper_supported?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="ripper_supported-3F-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/rspec-support-3.7.1/lib/rspec/support/ruby_features.rb, line 89</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">ripper_supported?</span>
+  <span class="ruby-keyword">true</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-supports_exception_cause-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">supports_exception_cause?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="supports_exception_cause-3F-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/rspec-support-3.7.1/lib/rspec/support/ruby_features.rb, line 68</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">supports_exception_cause?</span>
+  <span class="ruby-keyword">true</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-supports_rebinding_module_methods-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">supports_rebinding_module_methods?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="supports_rebinding_module_methods-3F-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/rspec-support-3.7.1/lib/rspec/support/ruby_features.rb, line 107</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">supports_rebinding_module_methods?</span>
+  <span class="ruby-constant">RUBY_VERSION</span>.<span class="ruby-identifier">to_i</span> <span class="ruby-operator">&gt;=</span> <span class="ruby-value">2</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="https://rdoc.github.io/rdoc">RDoc</a> 5.0.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

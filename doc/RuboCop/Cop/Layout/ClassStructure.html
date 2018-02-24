@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class RuboCop::Cop::Layout::ClassStructure - RDoc Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../../../";
+  var index_rel_prefix = "../../../";
+</script>
+
+<script src="../../../js/jquery.js"></script>
+<script src="../../../js/darkfish.js"></script>
+
+<link href="../../../css/fonts.css" rel="stylesheet">
+<link href="../../../css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../../../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../../../table_of_contents.html#pages">Pages</a>
+    <a href="../../../table_of_contents.html#classes">Classes</a>
+    <a href="../../../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link"><a href="../Cop.html">RuboCop::Cop::Cop</a>
+  
+</div>
+
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-i-autocorrect">#autocorrect</a>
+    
+    <li ><a href="#method-i-on_class">#on_class</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-RuboCop::Cop::Layout::ClassStructure">
+  <h1 id="class-RuboCop::Cop::Layout::ClassStructure" class="class">
+    class RuboCop::Cop::Layout::ClassStructure
+  </h1>
+
+  <section class="description">
+    
+<p>Checks if the code style follows the ExpectedOrder configuration:</p>
+
+<p>`Categories` allows us to map macro names into a category.</p>
+
+<p>Consider an example of code style that covers the following order:</p>
+<ul><li>
+<p>Constants</p>
+</li><li>
+<p>Associations (has_one, has_many)</p>
+</li><li>
+<p>Attributes (attr_accessor, attr_writer, attr_reader)</p>
+</li><li>
+<p>Initializer</p>
+</li><li>
+<p>Instance methods</p>
+</li><li>
+<p>Protected methods</p>
+</li><li>
+<p>Private methods</p>
+</li></ul>
+
+<p>You can configure the following order:</p>
+
+<p>“`yaml</p>
+
+<pre>Layout/ClassStructure:
+  Categories:
+    module_inclusion:
+      - include
+      - prepend
+      - extend
+  ExpectedOrder:
+      - module_inclusion
+      - constants
+      - public_class_methods
+      - initializer
+      - public_methods
+      - protected_methods
+      - private_methods</pre>
+
+<p>“` Instead of putting all literals in the expected order, is also possible
+to group categories of macros.</p>
+
+<p>“`yaml</p>
+
+<pre>Layout/ClassStructure:
+  Categories:
+    association:
+      - has_many
+      - has_one
+    attribute:
+      - attr_accessor
+      - attr_reader
+      - attr_writer</pre>
+
+<p>“`</p>
+
+<p>@example</p>
+
+<pre class="ruby"><span class="ruby-comment"># bad</span>
+<span class="ruby-comment"># Expect extend be before constant</span>
+<span class="ruby-keyword">class</span> <span class="ruby-constant">Person</span> <span class="ruby-operator">&lt;</span> <span class="ruby-constant">ApplicationRecord</span>
+  <span class="ruby-identifier">has_many</span> :<span class="ruby-identifier">orders</span>
+  <span class="ruby-constant">ANSWER</span> = <span class="ruby-value">42</span>
+
+  <span class="ruby-identifier">extend</span> <span class="ruby-constant">SomeModule</span>
+  <span class="ruby-identifier">include</span> <span class="ruby-constant">AnotherModule</span>
+<span class="ruby-keyword">end</span>
+
+<span class="ruby-comment"># good</span>
+<span class="ruby-keyword">class</span> <span class="ruby-constant">Person</span>
+  <span class="ruby-comment"># extend and include go first</span>
+  <span class="ruby-identifier">extend</span> <span class="ruby-constant">SomeModule</span>
+  <span class="ruby-identifier">include</span> <span class="ruby-constant">AnotherModule</span>
+
+  <span class="ruby-comment"># inner classes</span>
+  <span class="ruby-constant">CustomError</span> = <span class="ruby-constant">Class</span>.<span class="ruby-identifier">new</span>(<span class="ruby-constant">StandardError</span>)
+
+  <span class="ruby-comment"># constants are next</span>
+  <span class="ruby-constant">SOME_CONSTANT</span> = <span class="ruby-value">20</span>
+
+  <span class="ruby-comment"># afterwards we have attribute macros</span>
+  <span class="ruby-identifier">attr_reader</span> :<span class="ruby-identifier">name</span>
+
+  <span class="ruby-comment"># followed by other macros (if any)</span>
+  <span class="ruby-identifier">validates</span> :<span class="ruby-identifier">name</span>
+
+  <span class="ruby-comment"># public class methods are next in line</span>
+  <span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">some_method</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-comment"># initialization goes between class methods and instance methods</span>
+  <span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-comment"># followed by other public instance methods</span>
+  <span class="ruby-keyword">def</span> <span class="ruby-identifier">some_method</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-comment"># protected and private methods are grouped near the end</span>
+  <span class="ruby-identifier">protected</span>
+
+  <span class="ruby-keyword">def</span> <span class="ruby-identifier">some_protected_method</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">private</span>
+
+  <span class="ruby-keyword">def</span> <span class="ruby-identifier">some_private_method</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span>
+</pre>
+
+<p>@see <a
+href="https://github.com/bbatsov/ruby-style-guide#consistent-classes">github.com/bbatsov/ruby-style-guide#consistent-classes</a></p>
+
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+    <section class="constants-list">
+      <header>
+        <h3>Constants</h3>
+      </header>
+      <dl>
+      
+        <dt id="HUMANIZED_NODE_TYPE">HUMANIZED_NODE_TYPE
+        
+        <dd>
+        
+      
+        <dt id="MSG">MSG
+        
+        <dd>
+        
+      
+        <dt id="VISIBILITY_SCOPES">VISIBILITY_SCOPES
+        
+        <dd>
+        
+      
+      </dl>
+    </section>
+    
+
+    
+
+    
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-autocorrect" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">autocorrect</span><span
+            class="method-args">(node)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Autocorrect by swapping between two nodes autocorrecting them</p>
+          
+          
+
+          
+          <div class="method-source-code" id="autocorrect-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/rubocop-0.52.1/lib/rubocop/cop/layout/class_structure.rb, line 135</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">autocorrect</span>(<span class="ruby-identifier">node</span>)
+  <span class="ruby-identifier">node_classification</span> = <span class="ruby-identifier">classify</span>(<span class="ruby-identifier">node</span>)
+  <span class="ruby-identifier">previous</span> = <span class="ruby-identifier">left_siblings_of</span>(<span class="ruby-identifier">node</span>).<span class="ruby-identifier">find</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">sibling</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">classification</span> = <span class="ruby-identifier">classify</span>(<span class="ruby-identifier">sibling</span>)
+    <span class="ruby-operator">!</span><span class="ruby-identifier">ignore?</span>(<span class="ruby-identifier">classification</span>) <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">node_classification</span> <span class="ruby-operator">!=</span> <span class="ruby-identifier">classification</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">current_range</span> = <span class="ruby-identifier">source_range_with_comment</span>(<span class="ruby-identifier">node</span>)
+  <span class="ruby-identifier">previous_range</span> = <span class="ruby-identifier">source_range_with_comment</span>(<span class="ruby-identifier">previous</span>)
+
+  <span class="ruby-identifier">lambda</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">corrector</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">corrector</span>.<span class="ruby-identifier">insert_before</span>(<span class="ruby-identifier">previous_range</span>, <span class="ruby-identifier">current_range</span>.<span class="ruby-identifier">source</span>)
+    <span class="ruby-identifier">corrector</span>.<span class="ruby-identifier">remove</span>(<span class="ruby-identifier">current_range</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-on_class" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">on_class</span><span
+            class="method-args">(class_node)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Validates code style on class declaration. Add offense when find a node out
+of expected order.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="on_class-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/rubocop-0.52.1/lib/rubocop/cop/layout/class_structure.rb, line 122</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">on_class</span>(<span class="ruby-identifier">class_node</span>)
+  <span class="ruby-identifier">previous</span> = <span class="ruby-value">-1</span>
+  <span class="ruby-identifier">walk_over_nested_class_definition</span>(<span class="ruby-identifier">class_node</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">node</span>, <span class="ruby-identifier">category</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">index</span> = <span class="ruby-identifier">expected_order</span>.<span class="ruby-identifier">index</span>(<span class="ruby-identifier">category</span>)
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">index</span> <span class="ruby-operator">&lt;</span> <span class="ruby-identifier">previous</span>
+      <span class="ruby-identifier">message</span> = <span class="ruby-identifier">format</span>(<span class="ruby-constant">MSG</span>, <span class="ruby-identifier">category</span>, <span class="ruby-identifier">expected_order</span>[<span class="ruby-identifier">previous</span>])
+      <span class="ruby-identifier">add_offense</span>(<span class="ruby-identifier">node</span>, <span class="ruby-identifier">message</span><span class="ruby-operator">:</span> <span class="ruby-identifier">message</span>)
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-identifier">previous</span> = <span class="ruby-identifier">index</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="https://rdoc.github.io/rdoc">RDoc</a> 5.0.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

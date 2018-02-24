@@ -1,0 +1,983 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class CodeRay::Encoders::Encoder - RDoc Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../../";
+  var index_rel_prefix = "../../";
+</script>
+
+<script src="../../js/jquery.js"></script>
+<script src="../../js/darkfish.js"></script>
+
+<link href="../../css/fonts.css" rel="stylesheet">
+<link href="../../css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../../table_of_contents.html#pages">Pages</a>
+    <a href="../../table_of_contents.html#classes">Classes</a>
+    <a href="../../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link"><a href="../../Object.html">Object</a>
+  
+</div>
+
+    
+    <div id="extends-section" class="nav-section">
+  <h3>Extended With Modules</h3>
+
+  <ul class="link-list">
+    
+  
+    <li><a class="extend" href="../Plugin.html">CodeRay::Plugin</a>
+  
+  
+  </ul>
+</div>
+
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li class="calls-super" ><a href="#method-c-const_missing">::const_missing</a>
+    
+    <li ><a href="#method-c-file_extension">::file_extension</a>
+    
+    <li ><a href="#method-c-new">::new</a>
+    
+    <li ><a href="#method-i-3C-3C">#&lt;&lt;</a>
+    
+    <li ><a href="#method-i-begin_group">#begin_group</a>
+    
+    <li ><a href="#method-i-begin_line">#begin_line</a>
+    
+    <li ><a href="#method-i-compile">#compile</a>
+    
+    <li ><a href="#method-i-encode">#encode</a>
+    
+    <li ><a href="#method-i-encode_tokens">#encode_tokens</a>
+    
+    <li ><a href="#method-i-end_group">#end_group</a>
+    
+    <li ><a href="#method-i-end_line">#end_line</a>
+    
+    <li ><a href="#method-i-file_extension">#file_extension</a>
+    
+    <li ><a href="#method-i-finish">#finish</a>
+    
+    <li ><a href="#method-i-get_output">#get_output</a>
+    
+    <li ><a href="#method-i-highlight">#highlight</a>
+    
+    <li ><a href="#method-i-output">#output</a>
+    
+    <li ><a href="#method-i-setup">#setup</a>
+    
+    <li ><a href="#method-i-text_token">#text_token</a>
+    
+    <li ><a href="#method-i-token">#token</a>
+    
+    <li ><a href="#method-i-tokens">#tokens</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-CodeRay::Encoders::Encoder">
+  <h1 id="class-CodeRay::Encoders::Encoder" class="class">
+    class CodeRay::Encoders::Encoder
+  </h1>
+
+  <section class="description">
+    
+<h1 id="class-CodeRay::Encoders::Encoder-label-Encoder"><a href="Encoder.html">Encoder</a><span><a href="#class-CodeRay::Encoders::Encoder-label-Encoder">&para;</a> <a href="#top">&uarr;</a></span></h1>
+
+<p>The <a href="Encoder.html">Encoder</a> base class. Together with Scanner
+and <a href="../Tokens.html">Tokens</a>, it forms the highlighting triad.</p>
+
+<p><a href="Encoder.html">Encoder</a> instances take a <a
+href="../Tokens.html">Tokens</a> object and do something with it.</p>
+
+<p>The most common <a href="Encoder.html">Encoder</a> is surely the <a
+href="HTML.html">HTML</a> encoder (CodeRay::Encoders::HTML). It highlights
+the code in a colorful html page. If you want the highlighted code in a div
+or a span instead, use its subclasses <a href="Div.html">Div</a> and <a
+href="Span.html">Span</a>.</p>
+
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+    <section class="constants-list">
+      <header>
+        <h3>Constants</h3>
+      </header>
+      <dl>
+      
+        <dt id="DEFAULT_OPTIONS">DEFAULT_OPTIONS
+        
+        <dd><p>Subclasses are to store their default options in this constant.</p>
+        
+      
+      </dl>
+    </section>
+    
+
+    
+    <section class="attribute-method-details" class="method-section">
+      <header>
+        <h3>Attributes</h3>
+      </header>
+
+      
+      <div id="attribute-i-options" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">options</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        <p>The options you gave the <a href="Encoder.html">Encoder</a> at creating.</p>
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-scanner" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">scanner</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        <p>The options you gave the <a href="Encoder.html">Encoder</a> at creating.</p>
+        
+        </div>
+      </div>
+      
+    </section>
+    
+
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Class Methods</h3>
+       </header>
+
+    
+      <div id="method-c-const_missing" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">const_missing</span><span
+            class="method-args">(sym)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>If FILE_EXTENSION isn&#39;t defined, this method returns the downcase class
+name instead.</p>
+          
+          
+            <div class="method-calls-super">
+              Calls superclass method
+              
+            </div>
+          
+
+          
+          <div class="method-source-code" id="const_missing-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/coderay-1.1.2/lib/coderay/encoders/encoder.rb, line 24</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">const_missing</span> <span class="ruby-identifier">sym</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">sym</span> <span class="ruby-operator">==</span> <span class="ruby-value">:FILE_EXTENSION</span>
+    (<span class="ruby-keyword">defined?</span>(<span class="ruby-ivar">@plugin_id</span>) <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-ivar">@plugin_id</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">name</span>[<span class="ruby-regexp">/\w+$/</span>].<span class="ruby-identifier">downcase</span>).<span class="ruby-identifier">to_s</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-keyword">super</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-file_extension" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">file_extension</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>The default file extension for output file of this encoder class.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="file_extension-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/coderay-1.1.2/lib/coderay/encoders/encoder.rb, line 33</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">file_extension</span>
+  <span class="ruby-keyword">self</span><span class="ruby-operator">::</span><span class="ruby-constant">FILE_EXTENSION</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-new" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">new</span><span
+            class="method-args">(options = {})</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Creates a new <a href="Encoder.html">Encoder</a>. <code>options</code> is
+saved and used for all encode operations, as long as you don&#39;t
+overwrite it there by passing additional options.</p>
+
+<p><a href="Encoder.html">Encoder</a> objects provide three encode methods:</p>
+<ul><li>
+<p>encode simply takes a <code>code</code> string and a <code>lang</code></p>
+</li><li>
+<p><a href="Encoder.html#method-i-encode_tokens">#encode_tokens</a> expects a
+<code>tokens</code> object instead</p>
+</li></ul>
+
+<p>Each method has an optional <code>options</code> parameter. These are added
+to the options you passed at creation.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="new-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/coderay-1.1.2/lib/coderay/encoders/encoder.rb, line 55</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span> <span class="ruby-identifier">options</span> = {}
+  <span class="ruby-ivar">@options</span> = <span class="ruby-keyword">self</span>.<span class="ruby-identifier">class</span><span class="ruby-operator">::</span><span class="ruby-constant">DEFAULT_OPTIONS</span>.<span class="ruby-identifier">merge</span> <span class="ruby-identifier">options</span>
+  <span class="ruby-identifier">@@CODERAY_TOKEN_INTERFACE_DEPRECATION_WARNING_GIVEN</span> = <span class="ruby-keyword">false</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-3C-3C" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">&lt;&lt;</span><span
+            class="method-args">(token)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="3C-3C-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/coderay-1.1.2/lib/coderay/encoders/encoder.rb, line 87</span>
+<span class="ruby-keyword">def</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">token</span>
+  <span class="ruby-keyword">unless</span> <span class="ruby-identifier">@@CODERAY_TOKEN_INTERFACE_DEPRECATION_WARNING_GIVEN</span>
+    <span class="ruby-identifier">warn</span> <span class="ruby-string">&#39;Using old Tokens#&lt;&lt; interface.&#39;</span>
+    <span class="ruby-identifier">@@CODERAY_TOKEN_INTERFACE_DEPRECATION_WARNING_GIVEN</span> = <span class="ruby-keyword">true</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">token</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">token</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-begin_group" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">begin_group</span><span
+            class="method-args">(kind)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Starts a token group with the given <code>kind</code>.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="begin_group-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/coderay-1.1.2/lib/coderay/encoders/encoder.rb, line 123</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">begin_group</span> <span class="ruby-identifier">kind</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-begin_line" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">begin_line</span><span
+            class="method-args">(kind)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Starts a new line token group with the given <code>kind</code>.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="begin_line-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/coderay-1.1.2/lib/coderay/encoders/encoder.rb, line 131</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">begin_line</span> <span class="ruby-identifier">kind</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-encode" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">encode</span><span
+            class="method-args">(code, lang, options = {})</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Encode the given <code>code</code> using the Scanner for <code>lang</code>.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="encode-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/coderay-1.1.2/lib/coderay/encoders/encoder.rb, line 70</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">encode</span> <span class="ruby-identifier">code</span>, <span class="ruby-identifier">lang</span>, <span class="ruby-identifier">options</span> = {}
+  <span class="ruby-identifier">options</span> = <span class="ruby-ivar">@options</span>.<span class="ruby-identifier">merge</span> <span class="ruby-identifier">options</span>
+  <span class="ruby-ivar">@scanner</span> = <span class="ruby-constant">Scanners</span>[<span class="ruby-identifier">lang</span>].<span class="ruby-identifier">new</span> <span class="ruby-identifier">code</span>, <span class="ruby-constant">CodeRay</span>.<span class="ruby-identifier">get_scanner_options</span>(<span class="ruby-identifier">options</span>).<span class="ruby-identifier">update</span>(<span class="ruby-value">:tokens</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword">self</span>)
+  <span class="ruby-identifier">setup</span> <span class="ruby-identifier">options</span>
+  <span class="ruby-ivar">@scanner</span>.<span class="ruby-identifier">tokenize</span>
+  <span class="ruby-identifier">finish</span> <span class="ruby-identifier">options</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+        <div class="aliases">
+          Also aliased as: <a href="Encoder.html#method-i-highlight">highlight</a>
+        </div>
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-encode_tokens" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">encode_tokens</span><span
+            class="method-args">(tokens, options = {})</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Encode a <a href="../Tokens.html">Tokens</a> object.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="encode_tokens-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/coderay-1.1.2/lib/coderay/encoders/encoder.rb, line 61</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">encode_tokens</span> <span class="ruby-identifier">tokens</span>, <span class="ruby-identifier">options</span> = {}
+  <span class="ruby-identifier">options</span> = <span class="ruby-ivar">@options</span>.<span class="ruby-identifier">merge</span> <span class="ruby-identifier">options</span>
+  <span class="ruby-ivar">@scanner</span> = <span class="ruby-identifier">tokens</span>.<span class="ruby-identifier">scanner</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">tokens</span>.<span class="ruby-identifier">respond_to?</span> <span class="ruby-value">:scanner</span>
+  <span class="ruby-identifier">setup</span> <span class="ruby-identifier">options</span>
+  <span class="ruby-identifier">compile</span> <span class="ruby-identifier">tokens</span>, <span class="ruby-identifier">options</span>
+  <span class="ruby-identifier">finish</span> <span class="ruby-identifier">options</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-end_group" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">end_group</span><span
+            class="method-args">(kind)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Ends a token group with the given <code>kind</code>.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="end_group-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/coderay-1.1.2/lib/coderay/encoders/encoder.rb, line 127</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">end_group</span> <span class="ruby-identifier">kind</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-end_line" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">end_line</span><span
+            class="method-args">(kind)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Ends a new line token group with the given <code>kind</code>.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="end_line-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/coderay-1.1.2/lib/coderay/encoders/encoder.rb, line 135</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">end_line</span> <span class="ruby-identifier">kind</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-file_extension" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">file_extension</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>The default file extension for this encoder.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="file_extension-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/coderay-1.1.2/lib/coderay/encoders/encoder.rb, line 83</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">file_extension</span>
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">class</span>.<span class="ruby-identifier">file_extension</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-highlight" class="method-detail method-alias">
+        
+        <div class="method-heading">
+          <span class="method-name">highlight</span><span
+            class="method-args">(code, lang, options = {})</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>You can use highlight instead of encode, if that seems more clear to you.</p>
+          
+          
+
+          
+        </div>
+
+        
+
+        
+        <div class="aliases">
+          Alias for: <a href="Encoder.html#method-i-encode">encode</a>
+        </div>
+        
+      </div>
+
+    
+      <div id="method-i-text_token" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">text_token</span><span
+            class="method-args">(text, kind)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Called for each text token ([text, kind]), where text is a <a
+href="../../String.html">String</a>.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="text_token-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/coderay-1.1.2/lib/coderay/encoders/encoder.rb, line 118</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">text_token</span> <span class="ruby-identifier">text</span>, <span class="ruby-identifier">kind</span>
+  <span class="ruby-ivar">@out</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">text</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-token" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">token</span><span
+            class="method-args">(content, kind)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Called with <code>content</code> and <code>kind</code> of the currently
+scanned token. For simple scanners, it&#39;s enougth to implement this
+method.</p>
+
+<p>By default, it calls <a
+href="Encoder.html#method-i-text_token">#text_token</a>, <a
+href="Encoder.html#method-i-begin_group">#begin_group</a>, <a
+href="Encoder.html#method-i-end_group">#end_group</a>, <a
+href="Encoder.html#method-i-begin_line">#begin_line</a>, or <a
+href="Encoder.html#method-i-end_line">#end_line</a>, depending on the
+<code>content</code>.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="token-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/coderay-1.1.2/lib/coderay/encoders/encoder.rb, line 100</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">token</span> <span class="ruby-identifier">content</span>, <span class="ruby-identifier">kind</span>
+  <span class="ruby-keyword">case</span> <span class="ruby-identifier">content</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-constant">String</span>
+    <span class="ruby-identifier">text_token</span> <span class="ruby-identifier">content</span>, <span class="ruby-identifier">kind</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-value">:begin_group</span>
+    <span class="ruby-identifier">begin_group</span> <span class="ruby-identifier">kind</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-value">:end_group</span>
+    <span class="ruby-identifier">end_group</span> <span class="ruby-identifier">kind</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-value">:begin_line</span>
+    <span class="ruby-identifier">begin_line</span> <span class="ruby-identifier">kind</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-value">:end_line</span>
+    <span class="ruby-identifier">end_line</span> <span class="ruby-identifier">kind</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>, <span class="ruby-string">&#39;Unknown token content type: %p, kind = %p&#39;</span> <span class="ruby-operator">%</span> [<span class="ruby-identifier">content</span>, <span class="ruby-identifier">kind</span>]
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-tokens" class="method-detail method-alias">
+        
+        <div class="method-heading">
+          <span class="method-name">tokens</span><span
+            class="method-args">(tokens, options = {})</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+        </div>
+
+        
+
+        
+        <div class="aliases">
+          Alias for: <a href="Encoder.html#method-i-compile">compile</a>
+        </div>
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="protected-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Protected Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-compile" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">compile</span><span
+            class="method-args">(tokens, options = {})</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Do the encoding.</p>
+
+<p>The already created <code>tokens</code> object must be used; it must be a
+<a href="../Tokens.html">Tokens</a> object.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="compile-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/coderay-1.1.2/lib/coderay/encoders/encoder.rb, line 168</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">compile</span> <span class="ruby-identifier">tokens</span>, <span class="ruby-identifier">options</span> = {}
+  <span class="ruby-identifier">content</span> = <span class="ruby-keyword">nil</span>
+  <span class="ruby-keyword">for</span> <span class="ruby-identifier">item</span> <span class="ruby-keyword">in</span> <span class="ruby-identifier">tokens</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">item</span>.<span class="ruby-identifier">is_a?</span> <span class="ruby-constant">Array</span>
+      <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>, <span class="ruby-string">&#39;Two-element array tokens are no longer supported.&#39;</span>
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">content</span>
+      <span class="ruby-identifier">token</span> <span class="ruby-identifier">content</span>, <span class="ruby-identifier">item</span>
+      <span class="ruby-identifier">content</span> = <span class="ruby-keyword">nil</span>
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-identifier">content</span> = <span class="ruby-identifier">item</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">raise</span> <span class="ruby-string">&#39;odd number list for Tokens&#39;</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">content</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+        <div class="aliases">
+          Also aliased as: <a href="Encoder.html#method-i-tokens">tokens</a>
+        </div>
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-finish" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">finish</span><span
+            class="method-args">(options)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Called with merged options after encoding starts. The return value is the
+result of encoding, typically @out.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="finish-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/coderay-1.1.2/lib/coderay/encoders/encoder.rb, line 160</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">finish</span> <span class="ruby-identifier">options</span>
+  <span class="ruby-ivar">@out</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-get_output" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">get_output</span><span
+            class="method-args">(options)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="get_output-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/coderay-1.1.2/lib/coderay/encoders/encoder.rb, line 148</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">get_output</span> <span class="ruby-identifier">options</span>
+  <span class="ruby-identifier">options</span>[<span class="ruby-value">:out</span>] <span class="ruby-operator">||</span> <span class="ruby-string">&#39;&#39;</span>.<span class="ruby-identifier">dup</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-output" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">output</span><span
+            class="method-args">(data)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Append data.to_s to the output. Returns the argument.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="output-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/coderay-1.1.2/lib/coderay/encoders/encoder.rb, line 153</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">output</span> <span class="ruby-identifier">data</span>
+  <span class="ruby-ivar">@out</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">data</span>.<span class="ruby-identifier">to_s</span>
+  <span class="ruby-identifier">data</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-setup" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">setup</span><span
+            class="method-args">(options)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Called with merged options before encoding starts. Sets @out to an empty
+string.</p>
+
+<p>See the <a href="HTML.html">HTML</a> <a href="Encoder.html">Encoder</a> for
+an example of option caching.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="setup-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/coderay-1.1.2/lib/coderay/encoders/encoder.rb, line 144</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">setup</span> <span class="ruby-identifier">options</span>
+  <span class="ruby-ivar">@out</span> = <span class="ruby-identifier">get_output</span>(<span class="ruby-identifier">options</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="https://rdoc.github.io/rdoc">RDoc</a> 5.0.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class Rack::Sendfile - RDoc Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../";
+  var index_rel_prefix = "../";
+</script>
+
+<script src="../js/jquery.js"></script>
+<script src="../js/darkfish.js"></script>
+
+<link href="../css/fonts.css" rel="stylesheet">
+<link href="../css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../table_of_contents.html#pages">Pages</a>
+    <a href="../table_of_contents.html#classes">Classes</a>
+    <a href="../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+<div class="nav-section">
+  <h3>Table of Contents</h3>
+
+  <ul class="link-list" role="directory">
+    <li><a href="#class-Rack::Sendfile-label-Sendfile">Sendfile</a>
+    <li><a href="#class-Rack::Sendfile-label-Nginx">Nginx</a>
+    <li><a href="#class-Rack::Sendfile-label-lighttpd">lighttpd</a>
+    <li><a href="#class-Rack::Sendfile-label-Apache">Apache</a>
+    <li><a href="#class-Rack::Sendfile-label-Mapping+parameter">Mapping parameter</a>
+  </ul>
+</div>
+
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link"><a href="../Object.html">Object</a>
+  
+</div>
+
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-c-new">::new</a>
+    
+    <li ><a href="#method-i-call">#call</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-Rack::Sendfile">
+  <h1 id="class-Rack::Sendfile" class="class">
+    class Rack::Sendfile
+  </h1>
+
+  <section class="description">
+    
+<h1 id="class-Rack::Sendfile-label-Sendfile"><a href="Sendfile.html">Sendfile</a><span><a href="#class-Rack::Sendfile-label-Sendfile">&para;</a> <a href="#top">&uarr;</a></span></h1>
+
+<p>The <a href="Sendfile.html">Sendfile</a> middleware intercepts responses
+whose body is being served from a file and replaces it with a server
+specific X-Sendfile header. The web server is then responsible for writing
+the file contents to the client. This can dramatically reduce the amount of
+work required by the Ruby backend and takes advantage of the web
+server&#39;s optimized file delivery code.</p>
+
+<p>In order to take advantage of this middleware, the response body must
+respond to <code>to_path</code> and the request must include an
+X-Sendfile-Type header. <a href="File.html">Rack::File</a> and other
+components implement <code>to_path</code> so there&#39;s rarely anything
+you need to do in your application. The X-Sendfile-Type header is typically
+set in your web servers configuration. The following sections attempt to
+document</p>
+
+<h3 id="class-Rack::Sendfile-label-Nginx">Nginx<span><a href="#class-Rack::Sendfile-label-Nginx">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<p>Nginx supports the X-Accel-Redirect header. This is similar to X-Sendfile
+but requires parts of the filesystem to be mapped into a private URL
+hierarchy.</p>
+
+<p>The following example shows the Nginx configuration required to create a
+private “/files/” area, enable X-Accel-Redirect, and pass the special
+X-Sendfile-Type and X-Accel-Mapping headers to the backend:</p>
+
+<pre>location ~ /files/(.*) {
+  internal;
+  alias /var/www/$1;
+}
+
+location / {
+  proxy_redirect     off;
+
+  proxy_set_header   Host                $host;
+  proxy_set_header   X-Real-IP           $remote_addr;
+  proxy_set_header   X-Forwarded-For     $proxy_add_x_forwarded_for;
+
+  proxy_set_header   X-Sendfile-Type     X-Accel-Redirect;
+  proxy_set_header   X-Accel-Mapping     /var/www/=/files/;
+
+  proxy_pass         http://127.0.0.1:8080/;
+}</pre>
+
+<p>Note that the X-Sendfile-Type header must be set exactly as shown above.
+The X-Accel-Mapping header should specify the location on the file system,
+followed by an equals sign (=), followed name of the private URL pattern
+that it maps to. The middleware performs a simple substitution on the
+resulting path.</p>
+
+<p>See Also: <a
+href="http://wiki.codemongers.com/NginxXSendfile">wiki.codemongers.com/NginxXSendfile</a></p>
+
+<h3 id="class-Rack::Sendfile-label-lighttpd">lighttpd<span><a href="#class-Rack::Sendfile-label-lighttpd">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<p>Lighttpd has supported some variation of the X-Sendfile header for some
+time, although only recent version support X-Sendfile in a reverse proxy
+configuration.</p>
+
+<pre>$HTTP[&quot;host&quot;] == &quot;example.com&quot; {
+   proxy-core.protocol = &quot;http&quot;
+   proxy-core.balancer = &quot;round-robin&quot;
+   proxy-core.backends = (
+     &quot;127.0.0.1:8000&quot;,
+     &quot;127.0.0.1:8001&quot;,
+     ...
+   )
+
+   proxy-core.allow-x-sendfile = &quot;enable&quot;
+   proxy-core.rewrite-request = (
+     &quot;X-Sendfile-Type&quot; =&gt; (&quot;.*&quot; =&gt; &quot;X-Sendfile&quot;)
+   )
+ }</pre>
+
+<p>See Also: <a
+href="http://redmine.lighttpd.net/wiki/lighttpd/Docs:ModProxyCore">redmine.lighttpd.net/wiki/lighttpd/Docs:ModProxyCore</a></p>
+
+<h3 id="class-Rack::Sendfile-label-Apache">Apache<span><a href="#class-Rack::Sendfile-label-Apache">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<p>X-Sendfile is supported under Apache 2.x using a separate module:</p>
+
+<p><a href="https://tn123.org/mod_xsendfile">tn123.org/mod_xsendfile</a>/</p>
+
+<p>Once the module is compiled and installed, you can enable it using
+XSendFile config directive:</p>
+
+<pre>RequestHeader Set X-Sendfile-Type X-Sendfile
+ProxyPassReverse / http://localhost:8001/
+XSendFile on</pre>
+
+<h3 id="class-Rack::Sendfile-label-Mapping+parameter">Mapping parameter<span><a href="#class-Rack::Sendfile-label-Mapping+parameter">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<p>The third parameter allows for an overriding extension of the
+X-Accel-Mapping header. Mappings should be provided in tuples of internal
+to external. The internal values may contain regular expression syntax,
+they will be matched with case indifference.</p>
+
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Class Methods</h3>
+       </header>
+
+    
+      <div id="method-c-new" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">new</span><span
+            class="method-args">(app, variation=nil, mappings=[])</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="new-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/rack-2.0.4/lib/rack/sendfile.rb, line 102</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">app</span>, <span class="ruby-identifier">variation</span>=<span class="ruby-keyword">nil</span>, <span class="ruby-identifier">mappings</span>=[])
+  <span class="ruby-ivar">@app</span> = <span class="ruby-identifier">app</span>
+  <span class="ruby-ivar">@variation</span> = <span class="ruby-identifier">variation</span>
+  <span class="ruby-ivar">@mappings</span> = <span class="ruby-identifier">mappings</span>.<span class="ruby-identifier">map</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">internal</span>, <span class="ruby-identifier">external</span><span class="ruby-operator">|</span>
+    [<span class="ruby-node">/^#{internal}/i</span>, <span class="ruby-identifier">external</span>]
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-call" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">call</span><span
+            class="method-args">(env)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="call-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/rack-2.0.4/lib/rack/sendfile.rb, line 110</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">call</span>(<span class="ruby-identifier">env</span>)
+  <span class="ruby-identifier">status</span>, <span class="ruby-identifier">headers</span>, <span class="ruby-identifier">body</span> = <span class="ruby-ivar">@app</span>.<span class="ruby-identifier">call</span>(<span class="ruby-identifier">env</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">body</span>.<span class="ruby-identifier">respond_to?</span>(<span class="ruby-value">:to_path</span>)
+    <span class="ruby-keyword">case</span> <span class="ruby-identifier">type</span> = <span class="ruby-identifier">variation</span>(<span class="ruby-identifier">env</span>)
+    <span class="ruby-keyword">when</span> <span class="ruby-string">&#39;X-Accel-Redirect&#39;</span>
+      <span class="ruby-identifier">path</span> = <span class="ruby-operator">::</span><span class="ruby-constant">File</span>.<span class="ruby-identifier">expand_path</span>(<span class="ruby-identifier">body</span>.<span class="ruby-identifier">to_path</span>)
+      <span class="ruby-keyword">if</span> <span class="ruby-identifier">url</span> = <span class="ruby-identifier">map_accel_path</span>(<span class="ruby-identifier">env</span>, <span class="ruby-identifier">path</span>)
+        <span class="ruby-identifier">headers</span>[<span class="ruby-constant">CONTENT_LENGTH</span>] = <span class="ruby-string">&#39;0&#39;</span>
+        <span class="ruby-identifier">headers</span>[<span class="ruby-identifier">type</span>] = <span class="ruby-identifier">url</span>
+        <span class="ruby-identifier">obody</span> = <span class="ruby-identifier">body</span>
+        <span class="ruby-identifier">body</span> = <span class="ruby-constant">Rack</span><span class="ruby-operator">::</span><span class="ruby-constant">BodyProxy</span>.<span class="ruby-identifier">new</span>([]) <span class="ruby-keyword">do</span>
+          <span class="ruby-identifier">obody</span>.<span class="ruby-identifier">close</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">obody</span>.<span class="ruby-identifier">respond_to?</span>(<span class="ruby-value">:close</span>)
+        <span class="ruby-keyword">end</span>
+      <span class="ruby-keyword">else</span>
+        <span class="ruby-identifier">env</span>[<span class="ruby-constant">RACK_ERRORS</span>].<span class="ruby-identifier">puts</span> <span class="ruby-string">&quot;X-Accel-Mapping header missing&quot;</span>
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">when</span> <span class="ruby-string">&#39;X-Sendfile&#39;</span>, <span class="ruby-string">&#39;X-Lighttpd-Send-File&#39;</span>
+      <span class="ruby-identifier">path</span> = <span class="ruby-operator">::</span><span class="ruby-constant">File</span>.<span class="ruby-identifier">expand_path</span>(<span class="ruby-identifier">body</span>.<span class="ruby-identifier">to_path</span>)
+      <span class="ruby-identifier">headers</span>[<span class="ruby-constant">CONTENT_LENGTH</span>] = <span class="ruby-string">&#39;0&#39;</span>
+      <span class="ruby-identifier">headers</span>[<span class="ruby-identifier">type</span>] = <span class="ruby-identifier">path</span>
+      <span class="ruby-identifier">obody</span> = <span class="ruby-identifier">body</span>
+      <span class="ruby-identifier">body</span> = <span class="ruby-constant">Rack</span><span class="ruby-operator">::</span><span class="ruby-constant">BodyProxy</span>.<span class="ruby-identifier">new</span>([]) <span class="ruby-keyword">do</span>
+        <span class="ruby-identifier">obody</span>.<span class="ruby-identifier">close</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">obody</span>.<span class="ruby-identifier">respond_to?</span>(<span class="ruby-value">:close</span>)
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">when</span> <span class="ruby-string">&#39;&#39;</span>, <span class="ruby-keyword">nil</span>
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-identifier">env</span>[<span class="ruby-constant">RACK_ERRORS</span>].<span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;Unknown x-sendfile variation: &#39;#{type}&#39;.\n&quot;</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+  [<span class="ruby-identifier">status</span>, <span class="ruby-identifier">headers</span>, <span class="ruby-identifier">body</span>]
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="https://rdoc.github.io/rdoc">RDoc</a> 5.0.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

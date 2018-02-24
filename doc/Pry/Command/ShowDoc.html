@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class Pry::Command::ShowDoc - RDoc Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../../";
+  var index_rel_prefix = "../../";
+</script>
+
+<script src="../../js/jquery.js"></script>
+<script src="../../js/darkfish.js"></script>
+
+<link href="../../css/fonts.css" rel="stylesheet">
+<link href="../../css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../../table_of_contents.html#pages">Pages</a>
+    <a href="../../table_of_contents.html#classes">Classes</a>
+    <a href="../../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link"><a href="ShowInfo.html">Pry::Command::ShowInfo</a>
+  
+</div>
+
+    <div id="includes-section" class="nav-section">
+  <h3>Included Modules</h3>
+
+  <ul class="link-list">
+  
+  
+    <li><a class="include" href="../Helpers/DocumentationHelpers.html">Pry::Helpers::DocumentationHelpers</a>
+  
+  
+  </ul>
+</div>
+
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-i-content_for">#content_for</a>
+    
+    <li ><a href="#method-i-docs_for">#docs_for</a>
+    
+    <li class="calls-super" ><a href="#method-i-header_options">#header_options</a>
+    
+    <li ><a href="#method-i-render_doc_markup_for">#render_doc_markup_for</a>
+    
+    <li ><a href="#method-i-start_line_for">#start_line_for</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-Pry::Command::ShowDoc">
+  <h1 id="class-Pry::Command::ShowDoc" class="class">
+    class Pry::Command::ShowDoc
+  </h1>
+
+  <section class="description">
+    
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+
+    
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-content_for" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">content_for</span><span
+            class="method-args">(code_object)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>The docs for code_object prepared for display.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="content_for-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/pry-0.11.3/lib/pry/commands/show_doc.rb, line 24</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">content_for</span>(<span class="ruby-identifier">code_object</span>)
+  <span class="ruby-constant">Code</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">render_doc_markup_for</span>(<span class="ruby-identifier">code_object</span>),
+           <span class="ruby-identifier">start_line_for</span>(<span class="ruby-identifier">code_object</span>), <span class="ruby-value">:text</span>).
+    <span class="ruby-identifier">with_line_numbers</span>(<span class="ruby-identifier">use_line_numbers?</span>).<span class="ruby-identifier">to_s</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-docs_for" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">docs_for</span><span
+            class="method-args">(code_object)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Return docs for the code_object, adjusting for whether the code_object has
+yard docs available, in which case it returns those. (note we only have to
+check yard docs for modules since they can have multiple docs, but methods
+can only be doc&#39;d once so we dont need to check them)</p>
+          
+          
+
+          
+          <div class="method-source-code" id="docs_for-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/pry-0.11.3/lib/pry/commands/show_doc.rb, line 52</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">docs_for</span>(<span class="ruby-identifier">code_object</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">code_object</span>.<span class="ruby-identifier">module_with_yard_docs?</span>
+    <span class="ruby-comment"># yard docs</span>
+    <span class="ruby-identifier">code_object</span>.<span class="ruby-identifier">yard_doc</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-comment"># normal docs (i.e comments above method/module/command)</span>
+    <span class="ruby-identifier">code_object</span>.<span class="ruby-identifier">doc</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-header_options" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">header_options</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Which sections to include in the &#39;header&#39;, can toggle: :owner,
+:signature and visibility.</p>
+          
+          
+            <div class="method-calls-super">
+              Calls superclass method
+              <a href="ShowInfo.html#method-i-header_options">Pry::Command::ShowInfo#header_options</a>
+            </div>
+          
+
+          
+          <div class="method-source-code" id="header_options-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/pry-0.11.3/lib/pry/commands/show_doc.rb, line 64</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">header_options</span>
+  <span class="ruby-keyword">super</span>.<span class="ruby-identifier">merge</span> <span class="ruby-value">:signature</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword">true</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-render_doc_markup_for" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">render_doc_markup_for</span><span
+            class="method-args">(code_object)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>process the markup (if necessary) and apply colors</p>
+          
+          
+
+          
+          <div class="method-source-code" id="render_doc_markup_for-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/pry-0.11.3/lib/pry/commands/show_doc.rb, line 31</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">render_doc_markup_for</span>(<span class="ruby-identifier">code_object</span>)
+  <span class="ruby-identifier">docs</span> = <span class="ruby-identifier">docs_for</span>(<span class="ruby-identifier">code_object</span>)
+
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">code_object</span>.<span class="ruby-identifier">command?</span>
+    <span class="ruby-comment"># command &#39;--help&#39; shouldn&#39;t use markup highlighting</span>
+    <span class="ruby-identifier">docs</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">docs</span>.<span class="ruby-identifier">empty?</span>
+      <span class="ruby-identifier">raise</span> <span class="ruby-constant">CommandError</span>, <span class="ruby-node">&quot;No docs found for: #{
+        obj_name ? obj_name : &#39;current context&#39;
+      }&quot;</span>
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-identifier">process_comment_markup</span>(<span class="ruby-identifier">docs</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-start_line_for" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">start_line_for</span><span
+            class="method-args">(code_object)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>figure out start line of docs by back-calculating based on number of lines
+in the comment and the start line of the code_object @return [Fixnum] start
+line of docs</p>
+          
+          
+
+          
+          <div class="method-source-code" id="start_line_for-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/pry-0.11.3/lib/pry/commands/show_doc.rb, line 71</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">start_line_for</span>(<span class="ruby-identifier">code_object</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">code_object</span>.<span class="ruby-identifier">command?</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">opts</span>.<span class="ruby-identifier">present?</span>(<span class="ruby-value">:&#39;base-one&#39;</span>)
+     <span class="ruby-value">1</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">code_object</span>.<span class="ruby-identifier">source_line</span>.<span class="ruby-identifier">nil?</span> <span class="ruby-operator">?</span> <span class="ruby-value">1</span> <span class="ruby-operator">:</span>
+      (<span class="ruby-identifier">code_object</span>.<span class="ruby-identifier">source_line</span> <span class="ruby-operator">-</span> <span class="ruby-identifier">code_object</span>.<span class="ruby-identifier">doc</span>.<span class="ruby-identifier">lines</span>.<span class="ruby-identifier">count</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="https://rdoc.github.io/rdoc">RDoc</a> 5.0.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

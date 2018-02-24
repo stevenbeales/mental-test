@@ -1,0 +1,2355 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class TestSourceRewriter - RDoc Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "./";
+  var index_rel_prefix = "./";
+</script>
+
+<script src="./js/jquery.js"></script>
+<script src="./js/darkfish.js"></script>
+
+<link href="./css/fonts.css" rel="stylesheet">
+<link href="./css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="./index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="./table_of_contents.html#pages">Pages</a>
+    <a href="./table_of_contents.html#classes">Classes</a>
+    <a href="./table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link"><a href="Minitest/Test.html">Minitest::Test</a>
+  
+</div>
+
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-i-range">#range</a>
+    
+    <li ><a href="#method-i-setup">#setup</a>
+    
+    <li ><a href="#method-i-silence_diagnostics">#silence_diagnostics</a>
+    
+    <li ><a href="#method-i-test_clobber">#test_clobber</a>
+    
+    <li ><a href="#method-i-test_clobbering_error_backward_compatibility">#test_clobbering_error_backward_compatibility</a>
+    
+    <li ><a href="#method-i-test_composing_asc">#test_composing_asc</a>
+    
+    <li ><a href="#method-i-test_composing_desc">#test_composing_desc</a>
+    
+    <li ><a href="#method-i-test_equivalent_delete_insert_replace">#test_equivalent_delete_insert_replace</a>
+    
+    <li ><a href="#method-i-test_insert_after">#test_insert_after</a>
+    
+    <li ><a href="#method-i-test_insert_before">#test_insert_before</a>
+    
+    <li ><a href="#method-i-test_insertion_just_after_remove">#test_insertion_just_after_remove</a>
+    
+    <li ><a href="#method-i-test_insertion_just_after_remove_at_buffer_end">#test_insertion_just_after_remove_at_buffer_end</a>
+    
+    <li ><a href="#method-i-test_insertion_just_after_replace">#test_insertion_just_after_replace</a>
+    
+    <li ><a href="#method-i-test_insertion_just_after_replace_at_buffer_end">#test_insertion_just_after_replace_at_buffer_end</a>
+    
+    <li ><a href="#method-i-test_insertion_just_before_remove">#test_insertion_just_before_remove</a>
+    
+    <li ><a href="#method-i-test_insertion_just_before_remove_at_buffer_start">#test_insertion_just_before_remove_at_buffer_start</a>
+    
+    <li ><a href="#method-i-test_insertion_just_before_replace">#test_insertion_just_before_replace</a>
+    
+    <li ><a href="#method-i-test_insertion_just_before_replace_at_buffer_start">#test_insertion_just_before_replace_at_buffer_start</a>
+    
+    <li ><a href="#method-i-test_insertion_merge_with_overlapping_replace">#test_insertion_merge_with_overlapping_replace</a>
+    
+    <li ><a href="#method-i-test_insertion_on_merged_insertion_clobber">#test_insertion_on_merged_insertion_clobber</a>
+    
+    <li ><a href="#method-i-test_insertion_within_remove_clobber">#test_insertion_within_remove_clobber</a>
+    
+    <li ><a href="#method-i-test_insertion_within_replace_clobber">#test_insertion_within_replace_clobber</a>
+    
+    <li ><a href="#method-i-test_intentional_multiple_insertions_at_same_location">#test_intentional_multiple_insertions_at_same_location</a>
+    
+    <li ><a href="#method-i-test_multi_insertion_within_remove_clobber">#test_multi_insertion_within_remove_clobber</a>
+    
+    <li ><a href="#method-i-test_multi_insertion_within_replace_clobber">#test_multi_insertion_within_replace_clobber</a>
+    
+    <li ><a href="#method-i-test_multiple_insertions_at_same_location_clobber">#test_multiple_insertions_at_same_location_clobber</a>
+    
+    <li ><a href="#method-i-test_nested_transaction_raises_error">#test_nested_transaction_raises_error</a>
+    
+    <li ><a href="#method-i-test_overlapping_delete">#test_overlapping_delete</a>
+    
+    <li ><a href="#method-i-test_overlapping_replace">#test_overlapping_replace</a>
+    
+    <li ><a href="#method-i-test_overlapping_replace_left_larger_right_larger_matching">#test_overlapping_replace_left_larger_right_larger_matching</a>
+    
+    <li ><a href="#method-i-test_overlapping_replace_left_larger_right_larger_non_matching">#test_overlapping_replace_left_larger_right_larger_non_matching</a>
+    
+    <li ><a href="#method-i-test_overlapping_replace_left_larger_right_smaller_matching">#test_overlapping_replace_left_larger_right_smaller_matching</a>
+    
+    <li ><a href="#method-i-test_overlapping_replace_left_larger_right_smaller_non_matching">#test_overlapping_replace_left_larger_right_smaller_non_matching</a>
+    
+    <li ><a href="#method-i-test_overlapping_replace_left_smaller_than_replaced_matching">#test_overlapping_replace_left_smaller_than_replaced_matching</a>
+    
+    <li ><a href="#method-i-test_overlapping_replace_left_smaller_than_replaced_non_matching">#test_overlapping_replace_left_smaller_than_replaced_non_matching</a>
+    
+    <li ><a href="#method-i-test_process_in_transaction_raises_error">#test_process_in_transaction_raises_error</a>
+    
+    <li ><a href="#method-i-test_remove">#test_remove</a>
+    
+    <li ><a href="#method-i-test_remove_overlapping_insertion_clobber">#test_remove_overlapping_insertion_clobber</a>
+    
+    <li ><a href="#method-i-test_remove_overlapping_multi_insertion_clobber">#test_remove_overlapping_multi_insertion_clobber</a>
+    
+    <li ><a href="#method-i-test_replace">#test_replace</a>
+    
+    <li ><a href="#method-i-test_replace_merge_with_overlapped_insertion">#test_replace_merge_with_overlapped_insertion</a>
+    
+    <li ><a href="#method-i-test_replace_overlapping_insertion_clobber">#test_replace_overlapping_insertion_clobber</a>
+    
+    <li ><a href="#method-i-test_replace_overlapping_multi_insertion_clobber">#test_replace_overlapping_multi_insertion_clobber</a>
+    
+    <li ><a href="#method-i-test_replace_same_begin_larger_than_replaced_range_matching">#test_replace_same_begin_larger_than_replaced_range_matching</a>
+    
+    <li ><a href="#method-i-test_replace_same_begin_larger_than_replaced_range_non_matching">#test_replace_same_begin_larger_than_replaced_range_non_matching</a>
+    
+    <li ><a href="#method-i-test_replaced_ranges_merge_when_furthest_right_range_is_not_furthest_left">#test_replaced_ranges_merge_when_furthest_right_range_is_not_furthest_left</a>
+    
+    <li ><a href="#method-i-test_subsuming_delete">#test_subsuming_delete</a>
+    
+    <li ><a href="#method-i-test_subsuming_replace">#test_subsuming_replace</a>
+    
+    <li ><a href="#method-i-test_subsuming_replace_both_larger_matching">#test_subsuming_replace_both_larger_matching</a>
+    
+    <li ><a href="#method-i-test_subsuming_replace_both_larger_non_matching">#test_subsuming_replace_both_larger_non_matching</a>
+    
+    <li ><a href="#method-i-test_subsuming_replace_both_smaller_matching">#test_subsuming_replace_both_smaller_matching</a>
+    
+    <li ><a href="#method-i-test_subsuming_replace_both_smaller_non_matching">#test_subsuming_replace_both_smaller_non_matching</a>
+    
+    <li ><a href="#method-i-test_transaction_commit">#test_transaction_commit</a>
+    
+    <li ><a href="#method-i-test_transaction_returns_self">#test_transaction_returns_self</a>
+    
+    <li ><a href="#method-i-test_transaction_rollback">#test_transaction_rollback</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-TestSourceRewriter">
+  <h1 id="class-TestSourceRewriter" class="class">
+    class TestSourceRewriter
+  </h1>
+
+  <section class="description">
+    
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+
+    
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-range" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">range</span><span
+            class="method-args">(from, len)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="range-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/parser-2.5.0.0/test/test_source_rewriter.rb, line 12</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">range</span>(<span class="ruby-identifier">from</span>, <span class="ruby-identifier">len</span>)
+  <span class="ruby-constant">Parser</span><span class="ruby-operator">::</span><span class="ruby-constant">Source</span><span class="ruby-operator">::</span><span class="ruby-constant">Range</span>.<span class="ruby-identifier">new</span>(<span class="ruby-ivar">@buf</span>, <span class="ruby-identifier">from</span>, <span class="ruby-identifier">from</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">len</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-setup" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">setup</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="setup-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/parser-2.5.0.0/test/test_source_rewriter.rb, line 5</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">setup</span>
+  <span class="ruby-ivar">@buf</span> = <span class="ruby-constant">Parser</span><span class="ruby-operator">::</span><span class="ruby-constant">Source</span><span class="ruby-operator">::</span><span class="ruby-constant">Buffer</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&#39;(rewriter)&#39;</span>)
+  <span class="ruby-ivar">@buf</span>.<span class="ruby-identifier">source</span> = <span class="ruby-string">&#39;foo bar baz&#39;</span>
+  <span class="ruby-constant">Parser</span><span class="ruby-operator">::</span><span class="ruby-constant">Source</span><span class="ruby-operator">::</span><span class="ruby-constant">Rewriter</span>.<span class="ruby-identifier">warned_of_deprecation</span> = <span class="ruby-keyword">true</span>
+  <span class="ruby-ivar">@rewriter</span> = <span class="ruby-constant">Parser</span><span class="ruby-operator">::</span><span class="ruby-constant">Source</span><span class="ruby-operator">::</span><span class="ruby-constant">Rewriter</span>.<span class="ruby-identifier">new</span>(<span class="ruby-ivar">@buf</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-silence_diagnostics" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">silence_diagnostics</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="silence_diagnostics-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/parser-2.5.0.0/test/test_source_rewriter.rb, line 537</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">silence_diagnostics</span>
+  <span class="ruby-ivar">@rewriter</span>.<span class="ruby-identifier">diagnostics</span>.<span class="ruby-identifier">consumer</span> = <span class="ruby-identifier">proc</span> {}
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_clobber" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_clobber</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_clobber-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/parser-2.5.0.0/test/test_source_rewriter.rb, line 379</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">test_clobber</span>
+  <span class="ruby-identifier">diagnostics</span> = []
+  <span class="ruby-ivar">@rewriter</span>.<span class="ruby-identifier">diagnostics</span>.<span class="ruby-identifier">consumer</span> = <span class="ruby-identifier">lambda</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">diag</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">diagnostics</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">diag</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">assert_raises</span> <span class="ruby-constant">Parser</span><span class="ruby-operator">::</span><span class="ruby-constant">ClobberingError</span> <span class="ruby-keyword">do</span>
+    <span class="ruby-ivar">@rewriter</span>.
+      <span class="ruby-identifier">replace</span>(<span class="ruby-identifier">range</span>(<span class="ruby-value">3</span>, <span class="ruby-value">1</span>), <span class="ruby-string">&#39;---&#39;</span>).
+      <span class="ruby-identifier">remove</span>(<span class="ruby-identifier">range</span>(<span class="ruby-value">3</span>, <span class="ruby-value">1</span>))
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">assert_equal</span> <span class="ruby-value">2</span>, <span class="ruby-identifier">diagnostics</span>.<span class="ruby-identifier">count</span>
+
+  <span class="ruby-identifier">assert_equal</span> <span class="ruby-value">:error</span>, <span class="ruby-identifier">diagnostics</span>.<span class="ruby-identifier">first</span>.<span class="ruby-identifier">level</span>
+  <span class="ruby-identifier">assert_equal</span> <span class="ruby-string">&#39;cannot remove 1 character(s)&#39;</span>,
+               <span class="ruby-identifier">diagnostics</span>.<span class="ruby-identifier">first</span>.<span class="ruby-identifier">message</span>
+  <span class="ruby-identifier">assert_equal</span> <span class="ruby-identifier">range</span>(<span class="ruby-value">3</span>, <span class="ruby-value">1</span>), <span class="ruby-identifier">diagnostics</span>.<span class="ruby-identifier">first</span>.<span class="ruby-identifier">location</span>
+
+  <span class="ruby-identifier">assert_equal</span> <span class="ruby-value">:note</span>, <span class="ruby-identifier">diagnostics</span>.<span class="ruby-identifier">last</span>.<span class="ruby-identifier">level</span>
+  <span class="ruby-identifier">assert_equal</span> <span class="ruby-string">&quot;clobbered by: replace 1 character(s) with \&quot;---\&quot;&quot;</span>,
+               <span class="ruby-identifier">diagnostics</span>.<span class="ruby-identifier">last</span>.<span class="ruby-identifier">message</span>
+  <span class="ruby-identifier">assert_equal</span> <span class="ruby-identifier">range</span>(<span class="ruby-value">3</span>, <span class="ruby-value">1</span>), <span class="ruby-identifier">diagnostics</span>.<span class="ruby-identifier">last</span>.<span class="ruby-identifier">location</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_clobbering_error_backward_compatibility" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_clobbering_error_backward_compatibility</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_clobbering_error_backward_compatibility-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/parser-2.5.0.0/test/test_source_rewriter.rb, line 404</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">test_clobbering_error_backward_compatibility</span>
+  <span class="ruby-identifier">silence_diagnostics</span>
+
+  <span class="ruby-identifier">rescued</span> = <span class="ruby-keyword">false</span>
+
+  <span class="ruby-comment"># We use begin..rescue..end here rather than #assert_raises</span>
+  <span class="ruby-comment"># since #assert_raises expects exact error class.</span>
+  <span class="ruby-keyword">begin</span>
+    <span class="ruby-ivar">@rewriter</span>.
+      <span class="ruby-identifier">replace</span>(<span class="ruby-identifier">range</span>(<span class="ruby-value">3</span>, <span class="ruby-value">1</span>), <span class="ruby-string">&#39;---&#39;</span>).
+      <span class="ruby-identifier">remove</span>(<span class="ruby-identifier">range</span>(<span class="ruby-value">3</span>, <span class="ruby-value">1</span>))
+  <span class="ruby-keyword">rescue</span> <span class="ruby-constant">RuntimeError</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">error</span>
+    <span class="ruby-identifier">rescued</span> = <span class="ruby-keyword">true</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">error</span>.<span class="ruby-identifier">message</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-string">&#39;clobber&#39;</span>)
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">assert</span> <span class="ruby-identifier">rescued</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_composing_asc" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_composing_asc</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_composing_asc-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/parser-2.5.0.0/test/test_source_rewriter.rb, line 44</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">test_composing_asc</span>
+  <span class="ruby-identifier">assert_equal</span> <span class="ruby-string">&#39;foo---bar---baz&#39;</span>,
+               <span class="ruby-ivar">@rewriter</span>.
+                  <span class="ruby-identifier">replace</span>(<span class="ruby-identifier">range</span>(<span class="ruby-value">3</span>, <span class="ruby-value">1</span>), <span class="ruby-string">&#39;---&#39;</span>).
+                  <span class="ruby-identifier">replace</span>(<span class="ruby-identifier">range</span>(<span class="ruby-value">7</span>, <span class="ruby-value">1</span>), <span class="ruby-string">&#39;---&#39;</span>).
+                  <span class="ruby-identifier">process</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_composing_desc" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_composing_desc</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_composing_desc-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/parser-2.5.0.0/test/test_source_rewriter.rb, line 52</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">test_composing_desc</span>
+  <span class="ruby-identifier">assert_equal</span> <span class="ruby-string">&#39;foo---bar---baz&#39;</span>,
+               <span class="ruby-ivar">@rewriter</span>.
+                  <span class="ruby-identifier">replace</span>(<span class="ruby-identifier">range</span>(<span class="ruby-value">7</span>, <span class="ruby-value">1</span>), <span class="ruby-string">&#39;---&#39;</span>).
+                  <span class="ruby-identifier">replace</span>(<span class="ruby-identifier">range</span>(<span class="ruby-value">3</span>, <span class="ruby-value">1</span>), <span class="ruby-string">&#39;---&#39;</span>).
+                  <span class="ruby-identifier">process</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_equivalent_delete_insert_replace" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_equivalent_delete_insert_replace</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_equivalent_delete_insert_replace-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/parser-2.5.0.0/test/test_source_rewriter.rb, line 459</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">test_equivalent_delete_insert_replace</span>
+  <span class="ruby-comment"># A deletion + insertion just before or after the deleted range is</span>
+  <span class="ruby-comment"># identical in every way to a replacement! So logically, they shouldn&#39;t</span>
+  <span class="ruby-comment"># conflict.</span>
+  <span class="ruby-identifier">assert_equal</span> <span class="ruby-string">&#39;tin bar baz&#39;</span>,
+    <span class="ruby-ivar">@rewriter</span>.
+      <span class="ruby-identifier">remove</span>(<span class="ruby-identifier">range</span>(<span class="ruby-value">0</span>, <span class="ruby-value">3</span>)).  <span class="ruby-comment"># &#39; bar baz&#39;</span>
+      <span class="ruby-identifier">insert_before</span>(<span class="ruby-identifier">range</span>(<span class="ruby-value">0</span>, <span class="ruby-value">1</span>), <span class="ruby-string">&#39;tin&#39;</span>). <span class="ruby-comment"># &#39;tin bar baz&#39;</span>
+      <span class="ruby-identifier">replace</span>(<span class="ruby-identifier">range</span>(<span class="ruby-value">0</span>, <span class="ruby-value">3</span>), <span class="ruby-string">&#39;tin&#39;</span>).
+      <span class="ruby-identifier">process</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_insert_after" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_insert_after</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_insert_after-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/parser-2.5.0.0/test/test_source_rewriter.rb, line 30</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">test_insert_after</span>
+  <span class="ruby-identifier">assert_equal</span> <span class="ruby-string">&#39;foo bar quux baz&#39;</span>,
+               <span class="ruby-ivar">@rewriter</span>.
+                  <span class="ruby-identifier">insert_after</span>(<span class="ruby-identifier">range</span>(<span class="ruby-value">4</span>, <span class="ruby-value">3</span>), <span class="ruby-string">&#39; quux&#39;</span>).
+                  <span class="ruby-identifier">process</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_insert_before" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_insert_before</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_insert_before-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/parser-2.5.0.0/test/test_source_rewriter.rb, line 23</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">test_insert_before</span>
+  <span class="ruby-identifier">assert_equal</span> <span class="ruby-string">&#39;foo quux bar baz&#39;</span>,
+               <span class="ruby-ivar">@rewriter</span>.
+                  <span class="ruby-identifier">insert_before</span>(<span class="ruby-identifier">range</span>(<span class="ruby-value">4</span>, <span class="ruby-value">3</span>), <span class="ruby-string">&#39;quux &#39;</span>).
+                  <span class="ruby-identifier">process</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_insertion_just_after_remove" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_insertion_just_after_remove</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_insertion_just_after_remove-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/parser-2.5.0.0/test/test_source_rewriter.rb, line 88</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">test_insertion_just_after_remove</span>
+  <span class="ruby-identifier">assert_equal</span> <span class="ruby-string">&#39;foostrawberry jam baz&#39;</span>,
+    <span class="ruby-ivar">@rewriter</span>.
+      <span class="ruby-identifier">remove</span>(<span class="ruby-identifier">range</span>(<span class="ruby-value">3</span>, <span class="ruby-value">4</span>)).
+      <span class="ruby-identifier">insert_after</span>(<span class="ruby-identifier">range</span>(<span class="ruby-value">3</span>, <span class="ruby-value">4</span>), <span class="ruby-string">&#39;strawberry jam&#39;</span>).
+      <span class="ruby-identifier">process</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_insertion_just_after_remove_at_buffer_end" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_insertion_just_after_remove_at_buffer_end</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_insertion_just_after_remove_at_buffer_end-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/parser-2.5.0.0/test/test_source_rewriter.rb, line 120</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">test_insertion_just_after_remove_at_buffer_end</span>
+  <span class="ruby-identifier">assert_equal</span> <span class="ruby-string">&#39;foo bar strawberry&#39;</span>,
+    <span class="ruby-ivar">@rewriter</span>.
+      <span class="ruby-identifier">remove</span>(<span class="ruby-identifier">range</span>(<span class="ruby-value">8</span>, <span class="ruby-value">3</span>)).
+      <span class="ruby-identifier">insert_after</span>(<span class="ruby-identifier">range</span>(<span class="ruby-value">10</span>, <span class="ruby-value">1</span>), <span class="ruby-string">&#39;strawberry&#39;</span>).
+      <span class="ruby-identifier">process</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_insertion_just_after_replace" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_insertion_just_after_replace</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_insertion_just_after_replace-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/parser-2.5.0.0/test/test_source_rewriter.rb, line 72</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">test_insertion_just_after_replace</span>
+  <span class="ruby-identifier">assert_equal</span> <span class="ruby-string">&#39;foo---strawberry jam baz&#39;</span>,
+    <span class="ruby-ivar">@rewriter</span>.
+      <span class="ruby-identifier">replace</span>(<span class="ruby-identifier">range</span>(<span class="ruby-value">3</span>, <span class="ruby-value">4</span>), <span class="ruby-string">&#39;---&#39;</span>).
+      <span class="ruby-identifier">insert_after</span>(<span class="ruby-identifier">range</span>(<span class="ruby-value">3</span>, <span class="ruby-value">4</span>), <span class="ruby-string">&#39;strawberry jam&#39;</span>).
+      <span class="ruby-identifier">process</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_insertion_just_after_replace_at_buffer_end" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_insertion_just_after_replace_at_buffer_end</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_insertion_just_after_replace_at_buffer_end-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/parser-2.5.0.0/test/test_source_rewriter.rb, line 104</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">test_insertion_just_after_replace_at_buffer_end</span>
+  <span class="ruby-identifier">assert_equal</span> <span class="ruby-string">&#39;foo bar ---strawberry jam&#39;</span>,
+    <span class="ruby-ivar">@rewriter</span>.
+      <span class="ruby-identifier">replace</span>(<span class="ruby-identifier">range</span>(<span class="ruby-value">8</span>, <span class="ruby-value">3</span>), <span class="ruby-string">&#39;---&#39;</span>).
+      <span class="ruby-identifier">insert_after</span>(<span class="ruby-identifier">range</span>(<span class="ruby-value">9</span>, <span class="ruby-value">2</span>), <span class="ruby-string">&#39;strawberry jam&#39;</span>).
+      <span class="ruby-identifier">process</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_insertion_just_before_remove" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_insertion_just_before_remove</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_insertion_just_before_remove-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/parser-2.5.0.0/test/test_source_rewriter.rb, line 80</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">test_insertion_just_before_remove</span>
+  <span class="ruby-identifier">assert_equal</span> <span class="ruby-string">&#39;foostrawberry jambar baz&#39;</span>,
+    <span class="ruby-ivar">@rewriter</span>.
+      <span class="ruby-identifier">remove</span>(<span class="ruby-identifier">range</span>(<span class="ruby-value">3</span>, <span class="ruby-value">1</span>)).
+      <span class="ruby-identifier">insert_before</span>(<span class="ruby-identifier">range</span>(<span class="ruby-value">3</span>, <span class="ruby-value">1</span>), <span class="ruby-string">&#39;strawberry jam&#39;</span>).
+      <span class="ruby-identifier">process</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_insertion_just_before_remove_at_buffer_start" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_insertion_just_before_remove_at_buffer_start</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_insertion_just_before_remove_at_buffer_start-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/parser-2.5.0.0/test/test_source_rewriter.rb, line 112</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">test_insertion_just_before_remove_at_buffer_start</span>
+  <span class="ruby-identifier">assert_equal</span> <span class="ruby-string">&#39;strawberry bar baz&#39;</span>,
+    <span class="ruby-ivar">@rewriter</span>.
+      <span class="ruby-identifier">remove</span>(<span class="ruby-identifier">range</span>(<span class="ruby-value">0</span>, <span class="ruby-value">3</span>)).
+      <span class="ruby-identifier">insert_before</span>(<span class="ruby-identifier">range</span>(<span class="ruby-value">0</span>, <span class="ruby-value">1</span>), <span class="ruby-string">&#39;strawberry&#39;</span>).
+      <span class="ruby-identifier">process</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_insertion_just_before_replace" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_insertion_just_before_replace</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Merging/clobbering of overlapping edits</p>
+          
+          
+
+          
+          <div class="method-source-code" id="test_insertion_just_before_replace-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/parser-2.5.0.0/test/test_source_rewriter.rb, line 64</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">test_insertion_just_before_replace</span>
+  <span class="ruby-identifier">assert_equal</span> <span class="ruby-string">&#39;foostrawberry jam---bar baz&#39;</span>,
+    <span class="ruby-ivar">@rewriter</span>.
+      <span class="ruby-identifier">replace</span>(<span class="ruby-identifier">range</span>(<span class="ruby-value">3</span>, <span class="ruby-value">1</span>), <span class="ruby-string">&#39;---&#39;</span>).
+      <span class="ruby-identifier">insert_before</span>(<span class="ruby-identifier">range</span>(<span class="ruby-value">3</span>, <span class="ruby-value">1</span>), <span class="ruby-string">&#39;strawberry jam&#39;</span>).
+      <span class="ruby-identifier">process</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_insertion_just_before_replace_at_buffer_start" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_insertion_just_before_replace_at_buffer_start</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_insertion_just_before_replace_at_buffer_start-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/parser-2.5.0.0/test/test_source_rewriter.rb, line 96</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">test_insertion_just_before_replace_at_buffer_start</span>
+  <span class="ruby-identifier">assert_equal</span> <span class="ruby-string">&#39;strawberry jam--- bar baz&#39;</span>,
+    <span class="ruby-ivar">@rewriter</span>.
+      <span class="ruby-identifier">replace</span>(<span class="ruby-identifier">range</span>(<span class="ruby-value">0</span>, <span class="ruby-value">3</span>), <span class="ruby-string">&#39;---&#39;</span>).
+      <span class="ruby-identifier">insert_before</span>(<span class="ruby-identifier">range</span>(<span class="ruby-value">0</span>, <span class="ruby-value">1</span>), <span class="ruby-string">&#39;strawberry jam&#39;</span>).
+      <span class="ruby-identifier">process</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_insertion_merge_with_overlapping_replace" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_insertion_merge_with_overlapping_replace</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_insertion_merge_with_overlapping_replace-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/parser-2.5.0.0/test/test_source_rewriter.rb, line 244</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">test_insertion_merge_with_overlapping_replace</span>
+  <span class="ruby-identifier">assert_equal</span> <span class="ruby-string">&#39;fo abc bar baz&#39;</span>,
+    <span class="ruby-ivar">@rewriter</span>.
+      <span class="ruby-identifier">insert_before</span>(<span class="ruby-identifier">range</span>(<span class="ruby-value">3</span>, <span class="ruby-value">1</span>), <span class="ruby-string">&#39;abc&#39;</span>).
+      <span class="ruby-identifier">replace</span>(<span class="ruby-identifier">range</span>(<span class="ruby-value">2</span>, <span class="ruby-value">2</span>), <span class="ruby-string">&#39; abc &#39;</span>).
+      <span class="ruby-identifier">process</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_insertion_on_merged_insertion_clobber" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_insertion_on_merged_insertion_clobber</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_insertion_on_merged_insertion_clobber-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/parser-2.5.0.0/test/test_source_rewriter.rb, line 229</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">test_insertion_on_merged_insertion_clobber</span>
+  <span class="ruby-comment"># 2 insertions at the same point clobber each other, even if the 1st one</span>
+  <span class="ruby-comment"># was merged with an adjacent edit, and even if the same text is being</span>
+  <span class="ruby-comment"># inserted</span>
+
+  <span class="ruby-identifier">silence_diagnostics</span>
+
+  <span class="ruby-identifier">assert_raises</span> <span class="ruby-constant">Parser</span><span class="ruby-operator">::</span><span class="ruby-constant">ClobberingError</span> <span class="ruby-keyword">do</span>
+    <span class="ruby-ivar">@rewriter</span>.
+      <span class="ruby-identifier">insert_before</span>(<span class="ruby-identifier">range</span>(<span class="ruby-value">3</span>, <span class="ruby-value">1</span>), <span class="ruby-string">&#39;&gt;&#39;</span>).
+      <span class="ruby-identifier">remove</span>(<span class="ruby-identifier">range</span>(<span class="ruby-value">3</span>, <span class="ruby-value">2</span>)).
+      <span class="ruby-identifier">insert_after</span>(<span class="ruby-identifier">range</span>(<span class="ruby-value">2</span>, <span class="ruby-value">1</span>), <span class="ruby-string">&#39;&gt;&#39;</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_insertion_within_remove_clobber" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_insertion_within_remove_clobber</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_insertion_within_remove_clobber-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/parser-2.5.0.0/test/test_source_rewriter.rb, line 159</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">test_insertion_within_remove_clobber</span>
+  <span class="ruby-identifier">silence_diagnostics</span>
+
+  <span class="ruby-identifier">assert_raises</span> <span class="ruby-constant">Parser</span><span class="ruby-operator">::</span><span class="ruby-constant">ClobberingError</span> <span class="ruby-keyword">do</span>
+    <span class="ruby-ivar">@rewriter</span>.
+      <span class="ruby-identifier">remove</span>(<span class="ruby-identifier">range</span>(<span class="ruby-value">3</span>, <span class="ruby-value">2</span>)).
+      <span class="ruby-identifier">insert_after</span>(<span class="ruby-identifier">range</span>(<span class="ruby-value">3</span>, <span class="ruby-value">1</span>), <span class="ruby-string">&#39;&gt;&#39;</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_insertion_within_replace_clobber" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_insertion_within_replace_clobber</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_insertion_within_replace_clobber-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/parser-2.5.0.0/test/test_source_rewriter.rb, line 149</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">test_insertion_within_replace_clobber</span>
+  <span class="ruby-identifier">silence_diagnostics</span>
+
+  <span class="ruby-identifier">assert_raises</span> <span class="ruby-constant">Parser</span><span class="ruby-operator">::</span><span class="ruby-constant">ClobberingError</span> <span class="ruby-keyword">do</span>
+    <span class="ruby-ivar">@rewriter</span>.
+      <span class="ruby-identifier">replace</span>(<span class="ruby-identifier">range</span>(<span class="ruby-value">3</span>, <span class="ruby-value">2</span>), <span class="ruby-string">&#39;&lt;&#39;</span>).
+      <span class="ruby-identifier">insert_after</span>(<span class="ruby-identifier">range</span>(<span class="ruby-value">3</span>, <span class="ruby-value">1</span>), <span class="ruby-string">&#39;&gt;&#39;</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_intentional_multiple_insertions_at_same_location" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_intentional_multiple_insertions_at_same_location</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_intentional_multiple_insertions_at_same_location-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/parser-2.5.0.0/test/test_source_rewriter.rb, line 139</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">test_intentional_multiple_insertions_at_same_location</span>
+  <span class="ruby-identifier">assert_equal</span> <span class="ruby-string">&#39;foo [(bar)] baz&#39;</span>,
+    <span class="ruby-ivar">@rewriter</span>.
+      <span class="ruby-identifier">insert_before_multi</span>(<span class="ruby-identifier">range</span>(<span class="ruby-value">4</span>, <span class="ruby-value">0</span>), <span class="ruby-string">&#39;(&#39;</span>).
+      <span class="ruby-identifier">insert_after_multi</span>(<span class="ruby-identifier">range</span>(<span class="ruby-value">7</span>, <span class="ruby-value">0</span>), <span class="ruby-string">&#39;)&#39;</span>).
+      <span class="ruby-identifier">insert_before_multi</span>(<span class="ruby-identifier">range</span>(<span class="ruby-value">4</span>, <span class="ruby-value">0</span>), <span class="ruby-string">&#39;[&#39;</span>).
+      <span class="ruby-identifier">insert_after_multi</span>(<span class="ruby-identifier">range</span>(<span class="ruby-value">7</span>, <span class="ruby-value">0</span>), <span class="ruby-string">&#39;]&#39;</span>).
+      <span class="ruby-identifier">process</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_multi_insertion_within_remove_clobber" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_multi_insertion_within_remove_clobber</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_multi_insertion_within_remove_clobber-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/parser-2.5.0.0/test/test_source_rewriter.rb, line 199</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">test_multi_insertion_within_remove_clobber</span>
+  <span class="ruby-identifier">silence_diagnostics</span>
+
+  <span class="ruby-identifier">assert_raises</span> <span class="ruby-constant">Parser</span><span class="ruby-operator">::</span><span class="ruby-constant">ClobberingError</span> <span class="ruby-keyword">do</span>
+    <span class="ruby-ivar">@rewriter</span>.
+      <span class="ruby-identifier">remove</span>(<span class="ruby-identifier">range</span>(<span class="ruby-value">3</span>, <span class="ruby-value">2</span>)).
+      <span class="ruby-identifier">insert_after_multi</span>(<span class="ruby-identifier">range</span>(<span class="ruby-value">3</span>, <span class="ruby-value">1</span>), <span class="ruby-string">&#39;&gt;&#39;</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_multi_insertion_within_replace_clobber" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_multi_insertion_within_replace_clobber</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_multi_insertion_within_replace_clobber-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/parser-2.5.0.0/test/test_source_rewriter.rb, line 189</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">test_multi_insertion_within_replace_clobber</span>
+  <span class="ruby-identifier">silence_diagnostics</span>
+
+  <span class="ruby-identifier">assert_raises</span> <span class="ruby-constant">Parser</span><span class="ruby-operator">::</span><span class="ruby-constant">ClobberingError</span> <span class="ruby-keyword">do</span>
+    <span class="ruby-ivar">@rewriter</span>.
+      <span class="ruby-identifier">replace</span>(<span class="ruby-identifier">range</span>(<span class="ruby-value">3</span>, <span class="ruby-value">2</span>), <span class="ruby-string">&#39;&lt;&#39;</span>).
+      <span class="ruby-identifier">insert_after_multi</span>(<span class="ruby-identifier">range</span>(<span class="ruby-value">3</span>, <span class="ruby-value">1</span>), <span class="ruby-string">&#39;&gt;&#39;</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_multiple_insertions_at_same_location_clobber" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_multiple_insertions_at_same_location_clobber</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_multiple_insertions_at_same_location_clobber-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/parser-2.5.0.0/test/test_source_rewriter.rb, line 128</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">test_multiple_insertions_at_same_location_clobber</span>
+  <span class="ruby-identifier">silence_diagnostics</span>
+
+  <span class="ruby-identifier">assert_raises</span> <span class="ruby-constant">Parser</span><span class="ruby-operator">::</span><span class="ruby-constant">ClobberingError</span> <span class="ruby-keyword">do</span>
+    <span class="ruby-ivar">@rewriter</span>.
+      <span class="ruby-identifier">insert_before</span>(<span class="ruby-identifier">range</span>(<span class="ruby-value">0</span>, <span class="ruby-value">11</span>), <span class="ruby-string">&#39;&lt;&#39;</span>).
+      <span class="ruby-identifier">insert_after</span>( <span class="ruby-identifier">range</span>(<span class="ruby-value">0</span>, <span class="ruby-value">11</span>), <span class="ruby-string">&#39;&gt;&#39;</span>).
+      <span class="ruby-identifier">insert_before</span>(<span class="ruby-identifier">range</span>(<span class="ruby-value">0</span>, <span class="ruby-value">7</span>), <span class="ruby-string">&#39;(&#39;</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_nested_transaction_raises_error" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_nested_transaction_raises_error</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_nested_transaction_raises_error-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/parser-2.5.0.0/test/test_source_rewriter.rb, line 516</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">test_nested_transaction_raises_error</span>
+  <span class="ruby-identifier">error</span> = <span class="ruby-identifier">assert_raises</span> <span class="ruby-constant">RuntimeError</span> <span class="ruby-keyword">do</span>
+    <span class="ruby-ivar">@rewriter</span>.<span class="ruby-identifier">transaction</span> <span class="ruby-keyword">do</span>
+      <span class="ruby-ivar">@rewriter</span>.<span class="ruby-identifier">transaction</span> <span class="ruby-keyword">do</span>
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">assert_match</span> <span class="ruby-regexp">/nested/i</span>, <span class="ruby-identifier">error</span>.<span class="ruby-identifier">message</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_overlapping_delete" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_overlapping_delete</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_overlapping_delete-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/parser-2.5.0.0/test/test_source_rewriter.rb, line 423</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">test_overlapping_delete</span>
+  <span class="ruby-identifier">assert_equal</span> <span class="ruby-string">&#39;faz&#39;</span>,
+               <span class="ruby-ivar">@rewriter</span>.
+                 <span class="ruby-identifier">remove</span>(<span class="ruby-identifier">range</span>(<span class="ruby-value">1</span>, <span class="ruby-value">4</span>)).
+                 <span class="ruby-identifier">remove</span>(<span class="ruby-identifier">range</span>(<span class="ruby-value">6</span>, <span class="ruby-value">3</span>)).
+                 <span class="ruby-identifier">remove</span>(<span class="ruby-identifier">range</span>(<span class="ruby-value">4</span>, <span class="ruby-value">3</span>)).
+                 <span class="ruby-identifier">process</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_overlapping_replace" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_overlapping_replace</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_overlapping_replace-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/parser-2.5.0.0/test/test_source_rewriter.rb, line 432</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">test_overlapping_replace</span>
+  <span class="ruby-identifier">assert_equal</span> <span class="ruby-string">&#39;flippin flyin flapjackz&#39;</span>,
+               <span class="ruby-ivar">@rewriter</span>.
+                 <span class="ruby-identifier">replace</span>(<span class="ruby-identifier">range</span>(<span class="ruby-value">1</span>, <span class="ruby-value">4</span>), <span class="ruby-string">&#39;lippin f&#39;</span>).
+                 <span class="ruby-identifier">replace</span>(<span class="ruby-identifier">range</span>(<span class="ruby-value">4</span>, <span class="ruby-value">4</span>), <span class="ruby-string">&#39;pin flyin flap&#39;</span>).
+                 <span class="ruby-identifier">replace</span>(<span class="ruby-identifier">range</span>(<span class="ruby-value">7</span>, <span class="ruby-value">3</span>), <span class="ruby-string">&#39; flyin flapjack&#39;</span>).
+                 <span class="ruby-identifier">process</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_overlapping_replace_left_larger_right_larger_matching" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_overlapping_replace_left_larger_right_larger_matching</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_overlapping_replace_left_larger_right_larger_matching-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/parser-2.5.0.0/test/test_source_rewriter.rb, line 304</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">test_overlapping_replace_left_larger_right_larger_matching</span>
+  <span class="ruby-identifier">assert_equal</span> <span class="ruby-string">&#39;foods abcdefghijklm&#39;</span>,
+    <span class="ruby-ivar">@rewriter</span>.
+      <span class="ruby-identifier">replace</span>(<span class="ruby-identifier">range</span>(<span class="ruby-value">1</span>, <span class="ruby-value">3</span>), <span class="ruby-string">&#39;oods &#39;</span>).
+      <span class="ruby-identifier">replace</span>(<span class="ruby-identifier">range</span>(<span class="ruby-value">3</span>, <span class="ruby-value">8</span>), <span class="ruby-string">&#39;ds abcdefghijklm&#39;</span>).
+      <span class="ruby-identifier">process</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_overlapping_replace_left_larger_right_larger_non_matching" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_overlapping_replace_left_larger_right_larger_non_matching</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_overlapping_replace_left_larger_right_larger_non_matching-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/parser-2.5.0.0/test/test_source_rewriter.rb, line 322</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">test_overlapping_replace_left_larger_right_larger_non_matching</span>
+  <span class="ruby-identifier">silence_diagnostics</span>
+
+  <span class="ruby-identifier">assert_raises</span> <span class="ruby-constant">Parser</span><span class="ruby-operator">::</span><span class="ruby-constant">ClobberingError</span> <span class="ruby-keyword">do</span>
+    <span class="ruby-ivar">@rewriter</span>.
+      <span class="ruby-identifier">replace</span>(<span class="ruby-identifier">range</span>(<span class="ruby-value">1</span>, <span class="ruby-value">3</span>), <span class="ruby-string">&#39;oods b&#39;</span>).
+      <span class="ruby-identifier">replace</span>(<span class="ruby-identifier">range</span>(<span class="ruby-value">3</span>, <span class="ruby-value">8</span>), <span class="ruby-string">&#39;ds abcdefghijklm&#39;</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_overlapping_replace_left_larger_right_smaller_matching" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_overlapping_replace_left_larger_right_smaller_matching</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_overlapping_replace_left_larger_right_smaller_matching-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/parser-2.5.0.0/test/test_source_rewriter.rb, line 296</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">test_overlapping_replace_left_larger_right_smaller_matching</span>
+  <span class="ruby-identifier">assert_equal</span> <span class="ruby-string">&#39;foods baz&#39;</span>,
+    <span class="ruby-ivar">@rewriter</span>.
+      <span class="ruby-identifier">replace</span>(<span class="ruby-identifier">range</span>(<span class="ruby-value">1</span>, <span class="ruby-value">3</span>), <span class="ruby-string">&#39;oods &#39;</span>).
+      <span class="ruby-identifier">replace</span>(<span class="ruby-identifier">range</span>(<span class="ruby-value">3</span>, <span class="ruby-value">6</span>), <span class="ruby-string">&#39;ds b&#39;</span>).
+      <span class="ruby-identifier">process</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_overlapping_replace_left_larger_right_smaller_non_matching" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_overlapping_replace_left_larger_right_smaller_non_matching</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_overlapping_replace_left_larger_right_smaller_non_matching-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/parser-2.5.0.0/test/test_source_rewriter.rb, line 312</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">test_overlapping_replace_left_larger_right_smaller_non_matching</span>
+  <span class="ruby-identifier">silence_diagnostics</span>
+
+  <span class="ruby-identifier">assert_raises</span> <span class="ruby-constant">Parser</span><span class="ruby-operator">::</span><span class="ruby-constant">ClobberingError</span> <span class="ruby-keyword">do</span>
+    <span class="ruby-ivar">@rewriter</span>.
+      <span class="ruby-identifier">replace</span>(<span class="ruby-identifier">range</span>(<span class="ruby-value">1</span>, <span class="ruby-value">3</span>), <span class="ruby-string">&#39;oods &#39;</span>).
+      <span class="ruby-identifier">replace</span>(<span class="ruby-identifier">range</span>(<span class="ruby-value">3</span>, <span class="ruby-value">6</span>), <span class="ruby-string">&#39;ds&#39;</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_overlapping_replace_left_smaller_than_replaced_matching" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_overlapping_replace_left_smaller_than_replaced_matching</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_overlapping_replace_left_smaller_than_replaced_matching-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/parser-2.5.0.0/test/test_source_rewriter.rb, line 278</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">test_overlapping_replace_left_smaller_than_replaced_matching</span>
+  <span class="ruby-identifier">assert_equal</span> <span class="ruby-string">&#39;superbaz&#39;</span>,
+    <span class="ruby-ivar">@rewriter</span>.
+      <span class="ruby-identifier">replace</span>(<span class="ruby-identifier">range</span>(<span class="ruby-value">0</span>, <span class="ruby-value">7</span>), <span class="ruby-string">&#39;super&#39;</span>).
+      <span class="ruby-identifier">replace</span>(<span class="ruby-identifier">range</span>(<span class="ruby-value">2</span>, <span class="ruby-value">6</span>), <span class="ruby-string">&#39;per&#39;</span>).
+      <span class="ruby-identifier">process</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_overlapping_replace_left_smaller_than_replaced_non_matching" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_overlapping_replace_left_smaller_than_replaced_non_matching</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_overlapping_replace_left_smaller_than_replaced_non_matching-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/parser-2.5.0.0/test/test_source_rewriter.rb, line 286</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">test_overlapping_replace_left_smaller_than_replaced_non_matching</span>
+  <span class="ruby-identifier">silence_diagnostics</span>
+
+  <span class="ruby-identifier">assert_raises</span> <span class="ruby-constant">Parser</span><span class="ruby-operator">::</span><span class="ruby-constant">ClobberingError</span> <span class="ruby-keyword">do</span>
+    <span class="ruby-ivar">@rewriter</span>.
+      <span class="ruby-identifier">replace</span>(<span class="ruby-identifier">range</span>(<span class="ruby-value">0</span>, <span class="ruby-value">7</span>), <span class="ruby-string">&#39;super&#39;</span>).
+      <span class="ruby-identifier">replace</span>(<span class="ruby-identifier">range</span>(<span class="ruby-value">2</span>, <span class="ruby-value">8</span>), <span class="ruby-string">&#39;perk&#39;</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_process_in_transaction_raises_error" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_process_in_transaction_raises_error</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_process_in_transaction_raises_error-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/parser-2.5.0.0/test/test_source_rewriter.rb, line 527</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">test_process_in_transaction_raises_error</span>
+  <span class="ruby-identifier">error</span> = <span class="ruby-identifier">assert_raises</span> <span class="ruby-constant">RuntimeError</span> <span class="ruby-keyword">do</span>
+    <span class="ruby-ivar">@rewriter</span>.<span class="ruby-identifier">transaction</span> <span class="ruby-keyword">do</span>
+      <span class="ruby-ivar">@rewriter</span>.<span class="ruby-identifier">process</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">assert_match</span> <span class="ruby-regexp">/transaction/</span>, <span class="ruby-identifier">error</span>.<span class="ruby-identifier">message</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_remove" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_remove</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_remove-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/parser-2.5.0.0/test/test_source_rewriter.rb, line 16</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">test_remove</span>
+  <span class="ruby-identifier">assert_equal</span> <span class="ruby-string">&#39;foo  baz&#39;</span>,
+               <span class="ruby-ivar">@rewriter</span>.
+                  <span class="ruby-identifier">remove</span>(<span class="ruby-identifier">range</span>(<span class="ruby-value">4</span>, <span class="ruby-value">3</span>)).
+                  <span class="ruby-identifier">process</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_remove_overlapping_insertion_clobber" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_remove_overlapping_insertion_clobber</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_remove_overlapping_insertion_clobber-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/parser-2.5.0.0/test/test_source_rewriter.rb, line 179</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">test_remove_overlapping_insertion_clobber</span>
+  <span class="ruby-identifier">silence_diagnostics</span>
+
+  <span class="ruby-identifier">assert_raises</span> <span class="ruby-constant">Parser</span><span class="ruby-operator">::</span><span class="ruby-constant">ClobberingError</span> <span class="ruby-keyword">do</span>
+    <span class="ruby-ivar">@rewriter</span>.
+      <span class="ruby-identifier">insert_after</span>(<span class="ruby-identifier">range</span>(<span class="ruby-value">3</span>, <span class="ruby-value">1</span>), <span class="ruby-string">&#39;&gt;&#39;</span>).
+      <span class="ruby-identifier">remove</span>(<span class="ruby-identifier">range</span>(<span class="ruby-value">3</span>, <span class="ruby-value">2</span>))
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_remove_overlapping_multi_insertion_clobber" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_remove_overlapping_multi_insertion_clobber</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_remove_overlapping_multi_insertion_clobber-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/parser-2.5.0.0/test/test_source_rewriter.rb, line 219</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">test_remove_overlapping_multi_insertion_clobber</span>
+  <span class="ruby-identifier">silence_diagnostics</span>
+
+  <span class="ruby-identifier">assert_raises</span> <span class="ruby-constant">Parser</span><span class="ruby-operator">::</span><span class="ruby-constant">ClobberingError</span> <span class="ruby-keyword">do</span>
+    <span class="ruby-ivar">@rewriter</span>.
+      <span class="ruby-identifier">insert_after_multi</span>(<span class="ruby-identifier">range</span>(<span class="ruby-value">3</span>, <span class="ruby-value">1</span>), <span class="ruby-string">&#39;&gt;&#39;</span>).
+      <span class="ruby-identifier">remove</span>(<span class="ruby-identifier">range</span>(<span class="ruby-value">3</span>, <span class="ruby-value">2</span>))
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_replace" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_replace</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_replace-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/parser-2.5.0.0/test/test_source_rewriter.rb, line 37</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">test_replace</span>
+  <span class="ruby-identifier">assert_equal</span> <span class="ruby-string">&#39;foo quux baz&#39;</span>,
+               <span class="ruby-ivar">@rewriter</span>.
+                  <span class="ruby-identifier">replace</span>(<span class="ruby-identifier">range</span>(<span class="ruby-value">4</span>, <span class="ruby-value">3</span>), <span class="ruby-string">&#39;quux&#39;</span>).
+                  <span class="ruby-identifier">process</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_replace_merge_with_overlapped_insertion" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_replace_merge_with_overlapped_insertion</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_replace_merge_with_overlapped_insertion-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/parser-2.5.0.0/test/test_source_rewriter.rb, line 252</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">test_replace_merge_with_overlapped_insertion</span>
+  <span class="ruby-identifier">assert_equal</span> <span class="ruby-string">&#39;fo abc bar baz&#39;</span>,
+    <span class="ruby-ivar">@rewriter</span>.
+      <span class="ruby-identifier">replace</span>(<span class="ruby-identifier">range</span>(<span class="ruby-value">2</span>, <span class="ruby-value">2</span>), <span class="ruby-string">&#39; abc &#39;</span>).
+      <span class="ruby-identifier">insert_before</span>(<span class="ruby-identifier">range</span>(<span class="ruby-value">3</span>, <span class="ruby-value">1</span>), <span class="ruby-string">&#39;abc&#39;</span>).
+      <span class="ruby-identifier">process</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_replace_overlapping_insertion_clobber" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_replace_overlapping_insertion_clobber</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_replace_overlapping_insertion_clobber-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/parser-2.5.0.0/test/test_source_rewriter.rb, line 169</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">test_replace_overlapping_insertion_clobber</span>
+  <span class="ruby-identifier">silence_diagnostics</span>
+
+  <span class="ruby-identifier">assert_raises</span> <span class="ruby-constant">Parser</span><span class="ruby-operator">::</span><span class="ruby-constant">ClobberingError</span> <span class="ruby-keyword">do</span>
+    <span class="ruby-ivar">@rewriter</span>.
+      <span class="ruby-identifier">insert_after</span>(<span class="ruby-identifier">range</span>(<span class="ruby-value">3</span>, <span class="ruby-value">1</span>), <span class="ruby-string">&#39;&gt;&#39;</span>).
+      <span class="ruby-identifier">replace</span>(<span class="ruby-identifier">range</span>(<span class="ruby-value">3</span>, <span class="ruby-value">2</span>), <span class="ruby-string">&#39;&lt;&#39;</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_replace_overlapping_multi_insertion_clobber" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_replace_overlapping_multi_insertion_clobber</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_replace_overlapping_multi_insertion_clobber-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/parser-2.5.0.0/test/test_source_rewriter.rb, line 209</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">test_replace_overlapping_multi_insertion_clobber</span>
+  <span class="ruby-identifier">silence_diagnostics</span>
+
+  <span class="ruby-identifier">assert_raises</span> <span class="ruby-constant">Parser</span><span class="ruby-operator">::</span><span class="ruby-constant">ClobberingError</span> <span class="ruby-keyword">do</span>
+    <span class="ruby-ivar">@rewriter</span>.
+      <span class="ruby-identifier">insert_after_multi</span>(<span class="ruby-identifier">range</span>(<span class="ruby-value">3</span>, <span class="ruby-value">1</span>), <span class="ruby-string">&#39;&gt;&#39;</span>).
+      <span class="ruby-identifier">replace</span>(<span class="ruby-identifier">range</span>(<span class="ruby-value">3</span>, <span class="ruby-value">2</span>), <span class="ruby-string">&#39;&lt;&#39;</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_replace_same_begin_larger_than_replaced_range_matching" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_replace_same_begin_larger_than_replaced_range_matching</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_replace_same_begin_larger_than_replaced_range_matching-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/parser-2.5.0.0/test/test_source_rewriter.rb, line 260</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">test_replace_same_begin_larger_than_replaced_range_matching</span>
+  <span class="ruby-identifier">assert_equal</span> <span class="ruby-string">&#39;foo supercalifragilistic baz&#39;</span>,
+    <span class="ruby-ivar">@rewriter</span>.
+      <span class="ruby-identifier">replace</span>(<span class="ruby-identifier">range</span>(<span class="ruby-value">4</span>, <span class="ruby-value">3</span>), <span class="ruby-string">&#39;super&#39;</span>).
+      <span class="ruby-identifier">replace</span>(<span class="ruby-identifier">range</span>(<span class="ruby-value">4</span>, <span class="ruby-value">3</span>), <span class="ruby-string">&#39;supercalifragilistic&#39;</span>).
+      <span class="ruby-identifier">process</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_replace_same_begin_larger_than_replaced_range_non_matching" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_replace_same_begin_larger_than_replaced_range_non_matching</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_replace_same_begin_larger_than_replaced_range_non_matching-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/parser-2.5.0.0/test/test_source_rewriter.rb, line 268</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">test_replace_same_begin_larger_than_replaced_range_non_matching</span>
+  <span class="ruby-identifier">silence_diagnostics</span>
+
+  <span class="ruby-identifier">assert_raises</span> <span class="ruby-constant">Parser</span><span class="ruby-operator">::</span><span class="ruby-constant">ClobberingError</span> <span class="ruby-keyword">do</span>
+    <span class="ruby-ivar">@rewriter</span>.
+      <span class="ruby-identifier">replace</span>(<span class="ruby-identifier">range</span>(<span class="ruby-value">4</span>, <span class="ruby-value">3</span>), <span class="ruby-string">&#39;super!&#39;</span>).
+      <span class="ruby-identifier">replace</span>(<span class="ruby-identifier">range</span>(<span class="ruby-value">4</span>, <span class="ruby-value">3</span>), <span class="ruby-string">&#39;supercalifragilistic&#39;</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_replaced_ranges_merge_when_furthest_right_range_is_not_furthest_left" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_replaced_ranges_merge_when_furthest_right_range_is_not_furthest_left</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_replaced_ranges_merge_when_furthest_right_range_is_not_furthest_left-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/parser-2.5.0.0/test/test_source_rewriter.rb, line 368</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">test_replaced_ranges_merge_when_furthest_right_range_is_not_furthest_left</span>
+  <span class="ruby-comment"># regression test; previously, when actions were merged, the resulting</span>
+  <span class="ruby-comment"># replaced range could be too small sometimes</span>
+  <span class="ruby-identifier">assert_equal</span> <span class="ruby-string">&#39;foo_***_***&#39;</span>,
+    <span class="ruby-ivar">@rewriter</span>.
+      <span class="ruby-identifier">replace</span>(<span class="ruby-identifier">range</span>(<span class="ruby-value">3</span>, <span class="ruby-value">1</span>), <span class="ruby-string">&#39;_&#39;</span>).
+      <span class="ruby-identifier">replace</span>(<span class="ruby-identifier">range</span>(<span class="ruby-value">7</span>, <span class="ruby-value">1</span>), <span class="ruby-string">&#39;_&#39;</span>).
+      <span class="ruby-identifier">replace</span>(<span class="ruby-identifier">range</span>(<span class="ruby-value">4</span>, <span class="ruby-value">7</span>), <span class="ruby-string">&#39;***_***&#39;</span>).
+      <span class="ruby-identifier">process</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_subsuming_delete" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_subsuming_delete</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_subsuming_delete-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/parser-2.5.0.0/test/test_source_rewriter.rb, line 441</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">test_subsuming_delete</span>
+  <span class="ruby-identifier">assert_equal</span> <span class="ruby-string">&#39;foo&#39;</span>,
+               <span class="ruby-ivar">@rewriter</span>.
+                 <span class="ruby-identifier">remove</span>(<span class="ruby-identifier">range</span>(<span class="ruby-value">6</span>, <span class="ruby-value">3</span>)).
+                 <span class="ruby-identifier">remove</span>(<span class="ruby-identifier">range</span>(<span class="ruby-value">7</span>, <span class="ruby-value">2</span>)).
+                 <span class="ruby-identifier">remove</span>(<span class="ruby-identifier">range</span>(<span class="ruby-value">3</span>, <span class="ruby-value">8</span>)).
+                 <span class="ruby-identifier">process</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_subsuming_replace" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_subsuming_replace</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_subsuming_replace-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/parser-2.5.0.0/test/test_source_rewriter.rb, line 450</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">test_subsuming_replace</span>
+  <span class="ruby-identifier">assert_equal</span> <span class="ruby-string">&#39;freebie&#39;</span>,
+               <span class="ruby-ivar">@rewriter</span>.
+                 <span class="ruby-identifier">replace</span>(<span class="ruby-identifier">range</span>(<span class="ruby-value">3</span>, <span class="ruby-value">3</span>), <span class="ruby-string">&#39;ebi&#39;</span>).
+                 <span class="ruby-identifier">replace</span>(<span class="ruby-identifier">range</span>(<span class="ruby-value">1</span>, <span class="ruby-value">10</span>), <span class="ruby-string">&#39;reebie&#39;</span>).
+                 <span class="ruby-identifier">replace</span>(<span class="ruby-identifier">range</span>(<span class="ruby-value">5</span>, <span class="ruby-value">2</span>), <span class="ruby-string">&#39;ie&#39;</span>).
+                 <span class="ruby-identifier">process</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_subsuming_replace_both_larger_matching" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_subsuming_replace_both_larger_matching</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_subsuming_replace_both_larger_matching-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/parser-2.5.0.0/test/test_source_rewriter.rb, line 350</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">test_subsuming_replace_both_larger_matching</span>
+  <span class="ruby-identifier">assert_equal</span> <span class="ruby-string">&#39;foo barr baz&#39;</span>,
+    <span class="ruby-ivar">@rewriter</span>.
+      <span class="ruby-identifier">replace</span>(<span class="ruby-identifier">range</span>(<span class="ruby-value">0</span>, <span class="ruby-value">7</span>), <span class="ruby-string">&#39;foo barr&#39;</span>).
+      <span class="ruby-identifier">replace</span>(<span class="ruby-identifier">range</span>(<span class="ruby-value">3</span>, <span class="ruby-value">3</span>), <span class="ruby-string">&#39; bar&#39;</span>).
+      <span class="ruby-identifier">process</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_subsuming_replace_both_larger_non_matching" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_subsuming_replace_both_larger_non_matching</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_subsuming_replace_both_larger_non_matching-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/parser-2.5.0.0/test/test_source_rewriter.rb, line 358</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">test_subsuming_replace_both_larger_non_matching</span>
+  <span class="ruby-identifier">silence_diagnostics</span>
+
+  <span class="ruby-identifier">assert_raises</span> <span class="ruby-constant">Parser</span><span class="ruby-operator">::</span><span class="ruby-constant">ClobberingError</span> <span class="ruby-keyword">do</span>
+    <span class="ruby-ivar">@rewriter</span>.
+      <span class="ruby-identifier">replace</span>(<span class="ruby-identifier">range</span>(<span class="ruby-value">0</span>, <span class="ruby-value">7</span>), <span class="ruby-string">&#39;foo barr&#39;</span>).
+      <span class="ruby-identifier">replace</span>(<span class="ruby-identifier">range</span>(<span class="ruby-value">3</span>, <span class="ruby-value">3</span>), <span class="ruby-string">&#39; bar &#39;</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_subsuming_replace_both_smaller_matching" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_subsuming_replace_both_smaller_matching</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_subsuming_replace_both_smaller_matching-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/parser-2.5.0.0/test/test_source_rewriter.rb, line 332</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">test_subsuming_replace_both_smaller_matching</span>
+  <span class="ruby-identifier">assert_equal</span> <span class="ruby-string">&#39;food baz&#39;</span>,
+    <span class="ruby-ivar">@rewriter</span>.
+      <span class="ruby-identifier">replace</span>(<span class="ruby-identifier">range</span>(<span class="ruby-value">0</span>, <span class="ruby-value">7</span>), <span class="ruby-string">&#39;food&#39;</span>).
+      <span class="ruby-identifier">replace</span>(<span class="ruby-identifier">range</span>(<span class="ruby-value">3</span>, <span class="ruby-value">3</span>), <span class="ruby-string">&#39;d&#39;</span>).
+      <span class="ruby-identifier">process</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_subsuming_replace_both_smaller_non_matching" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_subsuming_replace_both_smaller_non_matching</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_subsuming_replace_both_smaller_non_matching-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/parser-2.5.0.0/test/test_source_rewriter.rb, line 340</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">test_subsuming_replace_both_smaller_non_matching</span>
+  <span class="ruby-identifier">silence_diagnostics</span>
+
+  <span class="ruby-identifier">assert_raises</span> <span class="ruby-constant">Parser</span><span class="ruby-operator">::</span><span class="ruby-constant">ClobberingError</span> <span class="ruby-keyword">do</span>
+    <span class="ruby-ivar">@rewriter</span>.
+      <span class="ruby-identifier">replace</span>(<span class="ruby-identifier">range</span>(<span class="ruby-value">0</span>, <span class="ruby-value">7</span>), <span class="ruby-string">&#39;foo&#39;</span>).
+      <span class="ruby-identifier">replace</span>(<span class="ruby-identifier">range</span>(<span class="ruby-value">3</span>, <span class="ruby-value">3</span>), <span class="ruby-string">&#39;d&#39;</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_transaction_commit" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_transaction_commit</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_transaction_commit-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/parser-2.5.0.0/test/test_source_rewriter.rb, line 475</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">test_transaction_commit</span>
+  <span class="ruby-identifier">silence_diagnostics</span>
+
+  <span class="ruby-comment"># Original: &#39;foo bar baz&#39;</span>
+
+  <span class="ruby-comment"># Rewrite as &#39;foo BAR baz&#39;</span>
+  <span class="ruby-ivar">@rewriter</span>.<span class="ruby-identifier">replace</span>(<span class="ruby-identifier">range</span>(<span class="ruby-value">4</span>, <span class="ruby-value">3</span>), <span class="ruby-string">&#39;BAR&#39;</span>)
+
+  <span class="ruby-comment"># Rewrite as &#39;( bar )&#39;</span>
+  <span class="ruby-ivar">@rewriter</span>.<span class="ruby-identifier">transaction</span> <span class="ruby-keyword">do</span>
+    <span class="ruby-ivar">@rewriter</span>.<span class="ruby-identifier">replace</span>(<span class="ruby-identifier">range</span>(<span class="ruby-value">0</span>, <span class="ruby-value">3</span>), <span class="ruby-string">&#39;(&#39;</span>)
+    <span class="ruby-ivar">@rewriter</span>.<span class="ruby-identifier">replace</span>(<span class="ruby-identifier">range</span>(<span class="ruby-value">8</span>, <span class="ruby-value">3</span>), <span class="ruby-string">&#39;)&#39;</span>)
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-ivar">@rewriter</span>.<span class="ruby-identifier">replace</span>(<span class="ruby-identifier">range</span>(<span class="ruby-value">3</span>, <span class="ruby-value">1</span>), <span class="ruby-string">&#39;_&#39;</span>)
+  <span class="ruby-ivar">@rewriter</span>.<span class="ruby-identifier">replace</span>(<span class="ruby-identifier">range</span>(<span class="ruby-value">7</span>, <span class="ruby-value">1</span>), <span class="ruby-string">&#39;_&#39;</span>)
+
+  <span class="ruby-identifier">assert_equal</span> <span class="ruby-string">&#39;(_BAR_)&#39;</span>, <span class="ruby-ivar">@rewriter</span>.<span class="ruby-identifier">process</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_transaction_returns_self" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_transaction_returns_self</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_transaction_returns_self-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/parser-2.5.0.0/test/test_source_rewriter.rb, line 471</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">test_transaction_returns_self</span>
+  <span class="ruby-identifier">assert_equal</span> <span class="ruby-ivar">@rewriter</span>, <span class="ruby-ivar">@rewriter</span>.<span class="ruby-identifier">transaction</span> {}
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_transaction_rollback" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_transaction_rollback</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_transaction_rollback-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/parser-2.5.0.0/test/test_source_rewriter.rb, line 495</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">test_transaction_rollback</span>
+  <span class="ruby-identifier">silence_diagnostics</span>
+
+  <span class="ruby-comment"># Original: &#39;foo bar baz&#39;</span>
+
+  <span class="ruby-comment"># Rewrite as &#39;foo bar BAZ&#39;</span>
+  <span class="ruby-ivar">@rewriter</span>.<span class="ruby-identifier">replace</span>(<span class="ruby-identifier">range</span>(<span class="ruby-value">8</span>, <span class="ruby-value">3</span>), <span class="ruby-string">&#39;BAZ&#39;</span>)
+
+  <span class="ruby-identifier">assert_raises</span> <span class="ruby-constant">Parser</span><span class="ruby-operator">::</span><span class="ruby-constant">ClobberingError</span> <span class="ruby-keyword">do</span>
+    <span class="ruby-comment"># Trying to rewrite as &#39;( bar )&#39;, but it fails</span>
+    <span class="ruby-ivar">@rewriter</span>.<span class="ruby-identifier">transaction</span> <span class="ruby-keyword">do</span>
+      <span class="ruby-ivar">@rewriter</span>.<span class="ruby-identifier">replace</span>(<span class="ruby-identifier">range</span>(<span class="ruby-value">0</span>, <span class="ruby-value">3</span>), <span class="ruby-string">&#39;(&#39;</span>)
+      <span class="ruby-ivar">@rewriter</span>.<span class="ruby-identifier">replace</span>(<span class="ruby-identifier">range</span>(<span class="ruby-value">8</span>, <span class="ruby-value">3</span>), <span class="ruby-string">&#39;)&#39;</span>)
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-ivar">@rewriter</span>.<span class="ruby-identifier">replace</span>(<span class="ruby-identifier">range</span>(<span class="ruby-value">0</span>, <span class="ruby-value">3</span>), <span class="ruby-string">&#39;FOO&#39;</span>)
+
+  <span class="ruby-identifier">assert_equal</span> <span class="ruby-string">&#39;FOO bar BAZ&#39;</span>, <span class="ruby-ivar">@rewriter</span>.<span class="ruby-identifier">process</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="https://rdoc.github.io/rdoc">RDoc</a> 5.0.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

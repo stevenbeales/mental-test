@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class Concurrent::Synchronization::AbstractLockableObject - RDoc Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../../";
+  var index_rel_prefix = "../../";
+</script>
+
+<script src="../../js/jquery.js"></script>
+<script src="../../js/darkfish.js"></script>
+
+<link href="../../css/fonts.css" rel="stylesheet">
+<link href="../../css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../../table_of_contents.html#pages">Pages</a>
+    <a href="../../table_of_contents.html#classes">Classes</a>
+    <a href="../../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link"><a href="Object.html">Concurrent::Synchronization::Object</a>
+  
+</div>
+
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-i-ns_broadcast">#ns_broadcast</a>
+    
+    <li ><a href="#method-i-ns_signal">#ns_signal</a>
+    
+    <li ><a href="#method-i-ns_wait">#ns_wait</a>
+    
+    <li ><a href="#method-i-ns_wait_until">#ns_wait_until</a>
+    
+    <li ><a href="#method-i-synchronize">#synchronize</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-Concurrent::Synchronization::AbstractLockableObject">
+  <h1 id="class-Concurrent::Synchronization::AbstractLockableObject" class="class">
+    class Concurrent::Synchronization::AbstractLockableObject
+  </h1>
+
+  <section class="description">
+    
+<p>@!visibility private</p>
+
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+
+    
+     <section id="protected-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Protected Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-ns_broadcast" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">ns_broadcast</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>@!macro [attach] synchronization_object_method_ns_broadcast</p>
+
+<pre>Broadcast to all waiting threads.
+@return [self]
+@note only to be used inside synchronized block
+@note to provide direct access to this method in a descendant add method
+  ```
+  def broadcast
+    synchronize { ns_broadcast }
+  end
+  ```</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="ns_broadcast-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/concurrent-ruby-1.0.5/lib/concurrent/synchronization/abstract_lockable_object.rb, line 92</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">ns_broadcast</span>
+  <span class="ruby-identifier">raise</span> <span class="ruby-constant">NotImplementedError</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-ns_signal" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">ns_signal</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>@!macro [attach] synchronization_object_method_ns_signal</p>
+
+<pre>Signal one waiting thread.
+@return [self]
+@note only to be used inside synchronized block
+@note to provide direct access to this method in a descendant add method
+  ```
+  def signal
+    synchronize { ns_signal }
+  end
+  ```</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="ns_signal-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/concurrent-ruby-1.0.5/lib/concurrent/synchronization/abstract_lockable_object.rb, line 77</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">ns_signal</span>
+  <span class="ruby-identifier">raise</span> <span class="ruby-constant">NotImplementedError</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-ns_wait" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">ns_wait</span><span
+            class="method-args">(timeout = nil)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>@!macro [attach] synchronization_object_method_ns_wait</p>
+
+<pre>Wait until another thread calls #signal or #broadcast,
+spurious wake-ups can happen.
+
+@param [Numeric, nil] timeout in seconds, `nil` means no timeout
+@return [self]
+@note only to be used inside synchronized block
+@note to provide direct access to this method in a descendant add method
+  ```
+  def wait(timeout = nil)
+    synchronize { ns_wait(timeout) }
+  end
+  ```</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="ns_wait-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/concurrent-ruby-1.0.5/lib/concurrent/synchronization/abstract_lockable_object.rb, line 62</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">ns_wait</span>(<span class="ruby-identifier">timeout</span> = <span class="ruby-keyword">nil</span>)
+  <span class="ruby-identifier">raise</span> <span class="ruby-constant">NotImplementedError</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-ns_wait_until" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">ns_wait_until</span><span
+            class="method-args">(timeout = nil, &condition)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>@!macro [attach] synchronization_object_method_ns_wait_until</p>
+
+<pre>Wait until condition is met or timeout passes,
+protects against spurious wake-ups.
+@param [Numeric, nil] timeout in seconds, `nil` means no timeout
+@yield condition to be met
+@yieldreturn [true, false]
+@return [true, false] if condition met
+@note only to be used inside synchronized block
+@note to provide direct access to this method in a descendant add method
+  ```
+  def wait_until(timeout = nil, &amp;condition)
+    synchronize { ns_wait_until(timeout, &amp;condition) }
+  end
+  ```</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="ns_wait_until-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/concurrent-ruby-1.0.5/lib/concurrent/synchronization/abstract_lockable_object.rb, line 33</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">ns_wait_until</span>(<span class="ruby-identifier">timeout</span> = <span class="ruby-keyword">nil</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">condition</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">timeout</span>
+    <span class="ruby-identifier">wait_until</span> = <span class="ruby-constant">Concurrent</span>.<span class="ruby-identifier">monotonic_time</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">timeout</span>
+    <span class="ruby-identifier">loop</span> <span class="ruby-keyword">do</span>
+      <span class="ruby-identifier">now</span>              = <span class="ruby-constant">Concurrent</span>.<span class="ruby-identifier">monotonic_time</span>
+      <span class="ruby-identifier">condition_result</span> = <span class="ruby-identifier">condition</span>.<span class="ruby-identifier">call</span>
+      <span class="ruby-keyword">return</span> <span class="ruby-identifier">condition_result</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">now</span> <span class="ruby-operator">&gt;=</span> <span class="ruby-identifier">wait_until</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">condition_result</span>
+      <span class="ruby-identifier">ns_wait</span> <span class="ruby-identifier">wait_until</span> <span class="ruby-operator">-</span> <span class="ruby-identifier">now</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">ns_wait</span> <span class="ruby-identifier">timeout</span> <span class="ruby-keyword">until</span> <span class="ruby-identifier">condition</span>.<span class="ruby-identifier">call</span>
+    <span class="ruby-keyword">true</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-synchronize" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">synchronize</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>@!macro [attach] synchronization_object_method_synchronize</p>
+
+<pre>@yield runs the block synchronized against this object,
+  equivalent of java&#39;s `synchronize(this) {}`
+@note can by made public in descendants if required by `public :synchronize`</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="synchronize-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/concurrent-ruby-1.0.5/lib/concurrent/synchronization/abstract_lockable_object.rb, line 14</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">synchronize</span>
+  <span class="ruby-identifier">raise</span> <span class="ruby-constant">NotImplementedError</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="https://rdoc.github.io/rdoc">RDoc</a> 5.0.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

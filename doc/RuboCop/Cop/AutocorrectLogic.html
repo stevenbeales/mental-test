@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>module RuboCop::Cop::AutocorrectLogic - RDoc Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../../";
+  var index_rel_prefix = "../../";
+</script>
+
+<script src="../../js/jquery.js"></script>
+<script src="../../js/darkfish.js"></script>
+
+<link href="../../css/fonts.css" rel="stylesheet">
+<link href="../../css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="module">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../../table_of_contents.html#pages">Pages</a>
+    <a href="../../table_of_contents.html#classes">Classes</a>
+    <a href="../../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-i-autocorrect-3F">#autocorrect?</a>
+    
+    <li ><a href="#method-i-autocorrect_enabled-3F">#autocorrect_enabled?</a>
+    
+    <li ><a href="#method-i-autocorrect_requested-3F">#autocorrect_requested?</a>
+    
+    <li ><a href="#method-i-support_autocorrect-3F">#support_autocorrect?</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="module-RuboCop::Cop::AutocorrectLogic">
+  <h1 id="module-RuboCop::Cop::AutocorrectLogic" class="module">
+    module RuboCop::Cop::AutocorrectLogic
+  </h1>
+
+  <section class="description">
+    
+<p>This module encapsulates the logic for autocorrect behavior for a cop.</p>
+
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+
+    
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-autocorrect-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">autocorrect?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="autocorrect-3F-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/rubocop-0.52.1/lib/rubocop/cop/autocorrect_logic.rb, line 6</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">autocorrect?</span>
+  <span class="ruby-identifier">autocorrect_requested?</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">support_autocorrect?</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">autocorrect_enabled?</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-autocorrect_enabled-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">autocorrect_enabled?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="autocorrect_enabled-3F-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/rubocop-0.52.1/lib/rubocop/cop/autocorrect_logic.rb, line 18</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">autocorrect_enabled?</span>
+  <span class="ruby-comment"># allow turning off autocorrect on a cop by cop basis</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">true</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">cop_config</span>
+  <span class="ruby-identifier">cop_config</span>[<span class="ruby-string">&#39;AutoCorrect&#39;</span>] <span class="ruby-operator">!=</span> <span class="ruby-keyword">false</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-autocorrect_requested-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">autocorrect_requested?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="autocorrect_requested-3F-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/rubocop-0.52.1/lib/rubocop/cop/autocorrect_logic.rb, line 10</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">autocorrect_requested?</span>
+  <span class="ruby-ivar">@options</span>.<span class="ruby-identifier">fetch</span>(<span class="ruby-value">:auto_correct</span>, <span class="ruby-keyword">false</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-support_autocorrect-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">support_autocorrect?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="support_autocorrect-3F-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/rubocop-0.52.1/lib/rubocop/cop/autocorrect_logic.rb, line 14</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">support_autocorrect?</span>
+  <span class="ruby-identifier">respond_to?</span>(<span class="ruby-value">:autocorrect</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="https://rdoc.github.io/rdoc">RDoc</a> 5.0.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

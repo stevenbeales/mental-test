@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class Lumberjack::Device::Writer - RDoc Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../../";
+  var index_rel_prefix = "../../";
+</script>
+
+<script src="../../js/jquery.js"></script>
+<script src="../../js/darkfish.js"></script>
+
+<link href="../../css/fonts.css" rel="stylesheet">
+<link href="../../css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../../table_of_contents.html#pages">Pages</a>
+    <a href="../../table_of_contents.html#classes">Classes</a>
+    <a href="../../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link"><a href="../Device.html">Lumberjack::Device</a>
+  
+</div>
+
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-c-new">::new</a>
+    
+    <li ><a href="#method-i-before_flush">#before_flush</a>
+    
+    <li ><a href="#method-i-buffer_size-3D">#buffer_size=</a>
+    
+    <li ><a href="#method-i-close">#close</a>
+    
+    <li ><a href="#method-i-flush">#flush</a>
+    
+    <li ><a href="#method-i-stream">#stream</a>
+    
+    <li ><a href="#method-i-stream-3D">#stream=</a>
+    
+    <li ><a href="#method-i-write">#write</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-Lumberjack::Device::Writer">
+  <h1 id="class-Lumberjack::Device::Writer" class="class">
+    class Lumberjack::Device::Writer
+  </h1>
+
+  <section class="description">
+    
+<p>This logging device writes log entries as strings to an IO stream. By
+default, messages will be buffered and written to the stream in a batch
+when the buffer is full or when <code>flush</code> is called.</p>
+
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+    <section class="constants-list">
+      <header>
+        <h3>Constants</h3>
+      </header>
+      <dl>
+      
+        <dt id="DEFAULT_ADDITIONAL_LINES_TEMPLATE">DEFAULT_ADDITIONAL_LINES_TEMPLATE
+        
+        <dd>
+        
+      
+        <dt id="DEFAULT_FIRST_LINE_TEMPLATE">DEFAULT_FIRST_LINE_TEMPLATE
+        
+        <dd>
+        
+      
+      </dl>
+    </section>
+    
+
+    
+    <section class="attribute-method-details" class="method-section">
+      <header>
+        <h3>Attributes</h3>
+      </header>
+
+      
+      <div id="attribute-i-buffer_size" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">buffer_size</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        <p>The size of the internal buffer. Defaults to 32K.</p>
+        
+        </div>
+      </div>
+      
+    </section>
+    
+
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Class Methods</h3>
+       </header>
+
+    
+      <div id="method-c-new" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">new</span><span
+            class="method-args">(stream, options = {})</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Create a new device to write log entries to a stream. Entries are converted
+to strings using a <a href="../Template.html">Template</a>. The template
+can be specified using the <code>:template</code> option. This can either
+be a <a href="../../Proc.html">Proc</a> or a string that will compile into
+a <a href="../Template.html">Template</a> object.</p>
+
+<p>If the template is a <a href="../../Proc.html">Proc</a>, it should accept
+an <a href="../LogEntry.html">LogEntry</a> as its only argument and output
+a string.</p>
+
+<p>If the template is a template string, it will be used to create a <a
+href="../Template.html">Template</a>. The <code>:additional_lines</code>
+and <code>:time_format</code> options will be passed through to the <a
+href="../Template.html">Template</a> constuctor.</p>
+
+<p>The default template is <code>&quot;[:time :severity :progname(:pid)
+#:unit_of_work_id] :message&quot;</code> with additional lines formatted as
+<code>&quot;\n [#:unit_of_work_id] :message&quot;</code>. The unit of work
+id will only appear if it is present.</p>
+
+<p>The size of the internal buffer in bytes can be set by providing
+<code>:buffer_size</code> (defaults to 32K).</p>
+          
+          
+
+          
+          <div class="method-source-code" id="new-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/lumberjack-1.0.12/lib/lumberjack/device/writer.rb, line 55</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">stream</span>, <span class="ruby-identifier">options</span> = {})
+  <span class="ruby-ivar">@lock</span> = <span class="ruby-constant">Mutex</span>.<span class="ruby-identifier">new</span>
+  <span class="ruby-ivar">@stream</span> = <span class="ruby-identifier">stream</span>
+  <span class="ruby-ivar">@stream</span>.<span class="ruby-identifier">sync</span> = <span class="ruby-keyword">true</span> <span class="ruby-keyword">if</span> <span class="ruby-ivar">@stream</span>.<span class="ruby-identifier">respond_to?</span>(<span class="ruby-value">:sync=</span>)
+  <span class="ruby-ivar">@buffer</span> = <span class="ruby-constant">Buffer</span>.<span class="ruby-identifier">new</span>
+  <span class="ruby-ivar">@buffer_size</span> = (<span class="ruby-identifier">options</span>[<span class="ruby-value">:buffer_size</span>] <span class="ruby-operator">||</span> <span class="ruby-value">0</span>)
+  <span class="ruby-identifier">template</span> = (<span class="ruby-identifier">options</span>[<span class="ruby-value">:template</span>] <span class="ruby-operator">||</span> <span class="ruby-constant">DEFAULT_FIRST_LINE_TEMPLATE</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">template</span>.<span class="ruby-identifier">respond_to?</span>(<span class="ruby-value">:call</span>)
+    <span class="ruby-ivar">@template</span> = <span class="ruby-identifier">template</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">additional_lines</span> = (<span class="ruby-identifier">options</span>[<span class="ruby-value">:additional_lines</span>] <span class="ruby-operator">||</span> <span class="ruby-constant">DEFAULT_ADDITIONAL_LINES_TEMPLATE</span>)
+    <span class="ruby-ivar">@template</span> = <span class="ruby-constant">Template</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">template</span>, <span class="ruby-value">:additional_lines</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">additional_lines</span>, <span class="ruby-value">:time_format</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">options</span>[<span class="ruby-value">:time_format</span>])
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-buffer_size-3D" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">buffer_size=</span><span
+            class="method-args">(value)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Set the buffer size in bytes. The device will only be physically written to
+when the buffer size is exceeded.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="buffer_size-3D-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/lumberjack-1.0.12/lib/lumberjack/device/writer.rb, line 72</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">buffer_size=</span>(<span class="ruby-identifier">value</span>)
+  <span class="ruby-ivar">@buffer_size</span> = <span class="ruby-identifier">value</span>
+  <span class="ruby-identifier">flush</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-close" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">close</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Close the underlying stream.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="close-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/lumberjack-1.0.12/lib/lumberjack/device/writer.rb, line 87</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">close</span>
+  <span class="ruby-identifier">flush</span>
+  <span class="ruby-identifier">stream</span>.<span class="ruby-identifier">close</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-flush" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">flush</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Flush the underlying stream.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="flush-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/lumberjack-1.0.12/lib/lumberjack/device/writer.rb, line 93</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">flush</span>
+  <span class="ruby-ivar">@lock</span>.<span class="ruby-identifier">synchronize</span> <span class="ruby-keyword">do</span>
+    <span class="ruby-identifier">before_flush</span>
+    <span class="ruby-keyword">unless</span> <span class="ruby-ivar">@buffer</span>.<span class="ruby-identifier">empty?</span>
+      <span class="ruby-identifier">out</span> = <span class="ruby-ivar">@buffer</span>.<span class="ruby-identifier">join</span>(<span class="ruby-constant">Lumberjack</span><span class="ruby-operator">::</span><span class="ruby-constant">LINE_SEPARATOR</span>) <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-constant">Lumberjack</span><span class="ruby-operator">::</span><span class="ruby-constant">LINE_SEPARATOR</span>
+      <span class="ruby-keyword">begin</span>
+        <span class="ruby-identifier">stream</span>.<span class="ruby-identifier">write</span>(<span class="ruby-identifier">out</span>)
+        <span class="ruby-identifier">stream</span>.<span class="ruby-identifier">flush</span>
+      <span class="ruby-keyword">rescue</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">e</span>
+        <span class="ruby-identifier">$stderr</span>.<span class="ruby-identifier">write</span>(<span class="ruby-node">&quot;#{e.class.name}: #{e.message}#{&#39; at &#39; + e.backtrace.first if e.backtrace}&quot;</span>)
+        <span class="ruby-identifier">$stderr</span>.<span class="ruby-identifier">write</span>(<span class="ruby-identifier">out</span>)
+        <span class="ruby-identifier">$stderr</span>.<span class="ruby-identifier">flush</span>
+      <span class="ruby-keyword">end</span>
+      <span class="ruby-ivar">@buffer</span>.<span class="ruby-identifier">clear</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-write" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">write</span><span
+            class="method-args">(entry)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Write an entry to the stream. The entry will be converted into a string
+using the defined template.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="write-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/lumberjack-1.0.12/lib/lumberjack/device/writer.rb, line 78</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">write</span>(<span class="ruby-identifier">entry</span>)
+  <span class="ruby-identifier">string</span> = <span class="ruby-ivar">@template</span>.<span class="ruby-identifier">call</span>(<span class="ruby-identifier">entry</span>)
+  <span class="ruby-ivar">@lock</span>.<span class="ruby-identifier">synchronize</span> <span class="ruby-keyword">do</span>
+    <span class="ruby-ivar">@buffer</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">string</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">flush</span> <span class="ruby-keyword">if</span> <span class="ruby-ivar">@buffer</span>.<span class="ruby-identifier">size</span> <span class="ruby-operator">&gt;=</span> <span class="ruby-identifier">buffer_size</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="protected-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Protected Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-before_flush" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">before_flush</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Callback method that will be executed before data is written to the stream.
+Subclasses can override this method if needed.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="before_flush-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/lumberjack-1.0.12/lib/lumberjack/device/writer.rb, line 115</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">before_flush</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-stream" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">stream</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Get the underlying stream.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="stream-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/lumberjack-1.0.12/lib/lumberjack/device/writer.rb, line 124</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">stream</span>
+  <span class="ruby-ivar">@stream</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-stream-3D" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">stream=</span><span
+            class="method-args">(stream)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Set the underlying stream.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="stream-3D-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/lumberjack-1.0.12/lib/lumberjack/device/writer.rb, line 119</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">stream=</span>(<span class="ruby-identifier">stream</span>)
+  <span class="ruby-ivar">@stream</span> = <span class="ruby-identifier">stream</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="https://rdoc.github.io/rdoc">RDoc</a> 5.0.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

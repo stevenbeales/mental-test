@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>module ActiveRecord::Batches - RDoc Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../";
+  var index_rel_prefix = "../";
+</script>
+
+<script src="../js/jquery.js"></script>
+<script src="../js/darkfish.js"></script>
+
+<link href="../css/fonts.css" rel="stylesheet">
+<link href="../css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="module">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../table_of_contents.html#pages">Pages</a>
+    <a href="../table_of_contents.html#classes">Classes</a>
+    <a href="../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-i-find_each">#find_each</a>
+    
+    <li ><a href="#method-i-find_in_batches">#find_in_batches</a>
+    
+    <li ><a href="#method-i-in_batches">#in_batches</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="module-ActiveRecord::Batches">
+  <h1 id="module-ActiveRecord::Batches" class="module">
+    module ActiveRecord::Batches
+  </h1>
+
+  <section class="description">
+    
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+    <section class="constants-list">
+      <header>
+        <h3>Constants</h3>
+      </header>
+      <dl>
+      
+        <dt id="ORDER_IGNORE_MESSAGE">ORDER_IGNORE_MESSAGE
+        
+        <dd>
+        
+      
+      </dl>
+    </section>
+    
+
+    
+
+    
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-find_each" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">find_each</span><span
+            class="method-args">(start: nil, finish: nil, batch_size: 1000, error_on_ignore: nil) { |record| ... }</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Looping through a collection of records from the database (using the <a
+href="Scoping/Named/ClassMethods.html#method-i-all">ActiveRecord::Scoping::Named::ClassMethods#all</a>
+method, for example) is very inefficient since it will try to instantiate
+all the objects at once.</p>
+
+<p>In that case, batch processing methods allow you to work with the records
+in batches, thereby greatly reducing memory consumption.</p>
+
+<p>The <a href="Batches.html#method-i-find_each">find_each</a> method uses <a
+href="Batches.html#method-i-find_in_batches">find_in_batches</a> with a
+batch size of 1000 (or as specified by the <code>:batch_size</code>
+option).</p>
+
+<pre class="ruby"><span class="ruby-constant">Person</span>.<span class="ruby-identifier">find_each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">person</span><span class="ruby-operator">|</span>
+  <span class="ruby-identifier">person</span>.<span class="ruby-identifier">do_awesome_stuff</span>
+<span class="ruby-keyword">end</span>
+
+<span class="ruby-constant">Person</span>.<span class="ruby-identifier">where</span>(<span class="ruby-string">&quot;age &gt; 21&quot;</span>).<span class="ruby-identifier">find_each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">person</span><span class="ruby-operator">|</span>
+  <span class="ruby-identifier">person</span>.<span class="ruby-identifier">party_all_night!</span>
+<span class="ruby-keyword">end</span>
+</pre>
+
+<p>If you do not provide a block to <a
+href="Batches.html#method-i-find_each">find_each</a>, it will return an
+Enumerator for chaining with other methods:</p>
+
+<pre class="ruby"><span class="ruby-constant">Person</span>.<span class="ruby-identifier">find_each</span>.<span class="ruby-identifier">with_index</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">person</span>, <span class="ruby-identifier">index</span><span class="ruby-operator">|</span>
+  <span class="ruby-identifier">person</span>.<span class="ruby-identifier">award_trophy</span>(<span class="ruby-identifier">index</span> <span class="ruby-operator">+</span> <span class="ruby-value">1</span>)
+<span class="ruby-keyword">end</span>
+</pre>
+
+<h4 id="method-i-find_each-label-Options"><a href="../vendor/bundle/ruby/2_4_0/gems/oj-3_4_0/pages/Options_md.html">Options</a><span><a href="#method-i-find_each-label-Options">&para;</a> <a href="#top">&uarr;</a></span></h4>
+<ul><li>
+<p><code>:batch_size</code> - Specifies the size of the batch. Defaults to
+1000.</p>
+</li><li>
+<p><code>:start</code> - Specifies the primary key value to start from,
+inclusive of the value.</p>
+</li><li>
+<p><code>:finish</code> - Specifies the primary key value to end at, inclusive
+of the value.</p>
+</li><li>
+<p><code>:error_on_ignore</code> - Overrides the application config to specify
+if an error should be raised when an order is present in the relation.</p>
+</li></ul>
+
+<p>Limits are honored, and if present there is no requirement for the batch
+size: it can be less than, equal to, or greater than the limit.</p>
+
+<p>The options <code>start</code> and <code>finish</code> are especially
+useful if you want multiple workers dealing with the same processing queue.
+You can make worker 1 handle all the records between id 1 and 9999 and
+worker 2 handle from 10000 and beyond by setting the <code>:start</code>
+and <code>:finish</code> option on each worker.</p>
+
+<pre class="ruby"><span class="ruby-comment"># Let&#39;s process from record 10_000 on.</span>
+<span class="ruby-constant">Person</span>.<span class="ruby-identifier">find_each</span>(<span class="ruby-identifier">start</span><span class="ruby-operator">:</span> <span class="ruby-value">10_000</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">person</span><span class="ruby-operator">|</span>
+  <span class="ruby-identifier">person</span>.<span class="ruby-identifier">party_all_night!</span>
+<span class="ruby-keyword">end</span>
+</pre>
+
+<p>NOTE: It&#39;s not possible to set the order. That is automatically set to
+ascending on the primary key (“id ASC”) to make the batch ordering work.
+This also means that this method only works when the primary key is
+orderable (e.g. an integer or string).</p>
+
+<p>NOTE: By its nature, batch processing is subject to race conditions if
+other processes are modifying the database.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="find_each-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/activerecord-5.1.5/lib/active_record/relation/batches.rb, line 60</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">find_each</span>(<span class="ruby-identifier">start</span><span class="ruby-operator">:</span> <span class="ruby-keyword">nil</span>, <span class="ruby-identifier">finish</span><span class="ruby-operator">:</span> <span class="ruby-keyword">nil</span>, <span class="ruby-identifier">batch_size</span><span class="ruby-operator">:</span> <span class="ruby-value">1000</span>, <span class="ruby-identifier">error_on_ignore</span><span class="ruby-operator">:</span> <span class="ruby-keyword">nil</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">block_given?</span>
+    <span class="ruby-identifier">find_in_batches</span>(<span class="ruby-identifier">start</span><span class="ruby-operator">:</span> <span class="ruby-identifier">start</span>, <span class="ruby-identifier">finish</span><span class="ruby-operator">:</span> <span class="ruby-identifier">finish</span>, <span class="ruby-identifier">batch_size</span><span class="ruby-operator">:</span> <span class="ruby-identifier">batch_size</span>, <span class="ruby-identifier">error_on_ignore</span><span class="ruby-operator">:</span> <span class="ruby-identifier">error_on_ignore</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">records</span><span class="ruby-operator">|</span>
+      <span class="ruby-identifier">records</span>.<span class="ruby-identifier">each</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">record</span><span class="ruby-operator">|</span> <span class="ruby-keyword">yield</span> <span class="ruby-identifier">record</span> }
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">enum_for</span>(<span class="ruby-value">:find_each</span>, <span class="ruby-identifier">start</span><span class="ruby-operator">:</span> <span class="ruby-identifier">start</span>, <span class="ruby-identifier">finish</span><span class="ruby-operator">:</span> <span class="ruby-identifier">finish</span>, <span class="ruby-identifier">batch_size</span><span class="ruby-operator">:</span> <span class="ruby-identifier">batch_size</span>, <span class="ruby-identifier">error_on_ignore</span><span class="ruby-operator">:</span> <span class="ruby-identifier">error_on_ignore</span>) <span class="ruby-keyword">do</span>
+      <span class="ruby-identifier">relation</span> = <span class="ruby-keyword">self</span>
+      <span class="ruby-identifier">apply_limits</span>(<span class="ruby-identifier">relation</span>, <span class="ruby-identifier">start</span>, <span class="ruby-identifier">finish</span>).<span class="ruby-identifier">size</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-find_in_batches" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">find_in_batches</span><span
+            class="method-args">(start: nil, finish: nil, batch_size: 1000, error_on_ignore: nil) { |to_a| ... }</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Yields each batch of records that was found by the find options as an
+array.</p>
+
+<pre class="ruby"><span class="ruby-constant">Person</span>.<span class="ruby-identifier">where</span>(<span class="ruby-string">&quot;age &gt; 21&quot;</span>).<span class="ruby-identifier">find_in_batches</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">group</span><span class="ruby-operator">|</span>
+  <span class="ruby-identifier">sleep</span>(<span class="ruby-value">50</span>) <span class="ruby-comment"># Make sure it doesn&#39;t get too crowded in there!</span>
+  <span class="ruby-identifier">group</span>.<span class="ruby-identifier">each</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">person</span><span class="ruby-operator">|</span> <span class="ruby-identifier">person</span>.<span class="ruby-identifier">party_all_night!</span> }
+<span class="ruby-keyword">end</span>
+</pre>
+
+<p>If you do not provide a block to <a
+href="Batches.html#method-i-find_in_batches">find_in_batches</a>, it will
+return an Enumerator for chaining with other methods:</p>
+
+<pre class="ruby"><span class="ruby-constant">Person</span>.<span class="ruby-identifier">find_in_batches</span>.<span class="ruby-identifier">with_index</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">group</span>, <span class="ruby-identifier">batch</span><span class="ruby-operator">|</span>
+  <span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;Processing group ##{batch}&quot;</span>
+  <span class="ruby-identifier">group</span>.<span class="ruby-identifier">each</span>(<span class="ruby-operator">&amp;</span>:<span class="ruby-identifier">recover_from_last_night!</span>)
+<span class="ruby-keyword">end</span>
+</pre>
+
+<p>To be yielded each record one by one, use <a
+href="Batches.html#method-i-find_each">find_each</a> instead.</p>
+
+<h4 id="method-i-find_in_batches-label-Options"><a href="../vendor/bundle/ruby/2_4_0/gems/oj-3_4_0/pages/Options_md.html">Options</a><span><a href="#method-i-find_in_batches-label-Options">&para;</a> <a href="#top">&uarr;</a></span></h4>
+<ul><li>
+<p><code>:batch_size</code> - Specifies the size of the batch. Defaults to
+1000.</p>
+</li><li>
+<p><code>:start</code> - Specifies the primary key value to start from,
+inclusive of the value.</p>
+</li><li>
+<p><code>:finish</code> - Specifies the primary key value to end at, inclusive
+of the value.</p>
+</li><li>
+<p><code>:error_on_ignore</code> - Overrides the application config to specify
+if an error should be raised when an order is present in the relation.</p>
+</li></ul>
+
+<p>Limits are honored, and if present there is no requirement for the batch
+size: it can be less than, equal to, or greater than the limit.</p>
+
+<p>The options <code>start</code> and <code>finish</code> are especially
+useful if you want multiple workers dealing with the same processing queue.
+You can make worker 1 handle all the records between id 1 and 9999 and
+worker 2 handle from 10000 and beyond by setting the <code>:start</code>
+and <code>:finish</code> option on each worker.</p>
+
+<pre class="ruby"><span class="ruby-comment"># Let&#39;s process from record 10_000 on.</span>
+<span class="ruby-constant">Person</span>.<span class="ruby-identifier">find_in_batches</span>(<span class="ruby-identifier">start</span><span class="ruby-operator">:</span> <span class="ruby-value">10_000</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">group</span><span class="ruby-operator">|</span>
+  <span class="ruby-identifier">group</span>.<span class="ruby-identifier">each</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">person</span><span class="ruby-operator">|</span> <span class="ruby-identifier">person</span>.<span class="ruby-identifier">party_all_night!</span> }
+<span class="ruby-keyword">end</span>
+</pre>
+
+<p>NOTE: It&#39;s not possible to set the order. That is automatically set to
+ascending on the primary key (“id ASC”) to make the batch ordering work.
+This also means that this method only works when the primary key is
+orderable (e.g. an integer or string).</p>
+
+<p>NOTE: By its nature, batch processing is subject to race conditions if
+other processes are modifying the database.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="find_in_batches-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/activerecord-5.1.5/lib/active_record/relation/batches.rb, line 119</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">find_in_batches</span>(<span class="ruby-identifier">start</span><span class="ruby-operator">:</span> <span class="ruby-keyword">nil</span>, <span class="ruby-identifier">finish</span><span class="ruby-operator">:</span> <span class="ruby-keyword">nil</span>, <span class="ruby-identifier">batch_size</span><span class="ruby-operator">:</span> <span class="ruby-value">1000</span>, <span class="ruby-identifier">error_on_ignore</span><span class="ruby-operator">:</span> <span class="ruby-keyword">nil</span>)
+  <span class="ruby-identifier">relation</span> = <span class="ruby-keyword">self</span>
+  <span class="ruby-keyword">unless</span> <span class="ruby-identifier">block_given?</span>
+    <span class="ruby-keyword">return</span> <span class="ruby-identifier">to_enum</span>(<span class="ruby-value">:find_in_batches</span>, <span class="ruby-identifier">start</span><span class="ruby-operator">:</span> <span class="ruby-identifier">start</span>, <span class="ruby-identifier">finish</span><span class="ruby-operator">:</span> <span class="ruby-identifier">finish</span>, <span class="ruby-identifier">batch_size</span><span class="ruby-operator">:</span> <span class="ruby-identifier">batch_size</span>, <span class="ruby-identifier">error_on_ignore</span><span class="ruby-operator">:</span> <span class="ruby-identifier">error_on_ignore</span>) <span class="ruby-keyword">do</span>
+      <span class="ruby-identifier">total</span> = <span class="ruby-identifier">apply_limits</span>(<span class="ruby-identifier">relation</span>, <span class="ruby-identifier">start</span>, <span class="ruby-identifier">finish</span>).<span class="ruby-identifier">size</span>
+      (<span class="ruby-identifier">total</span> <span class="ruby-operator">-</span> <span class="ruby-value">1</span>).<span class="ruby-identifier">div</span>(<span class="ruby-identifier">batch_size</span>) <span class="ruby-operator">+</span> <span class="ruby-value">1</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">in_batches</span>(<span class="ruby-identifier">of</span><span class="ruby-operator">:</span> <span class="ruby-identifier">batch_size</span>, <span class="ruby-identifier">start</span><span class="ruby-operator">:</span> <span class="ruby-identifier">start</span>, <span class="ruby-identifier">finish</span><span class="ruby-operator">:</span> <span class="ruby-identifier">finish</span>, <span class="ruby-identifier">load</span><span class="ruby-operator">:</span> <span class="ruby-keyword">true</span>, <span class="ruby-identifier">error_on_ignore</span><span class="ruby-operator">:</span> <span class="ruby-identifier">error_on_ignore</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">batch</span><span class="ruby-operator">|</span>
+    <span class="ruby-keyword">yield</span> <span class="ruby-identifier">batch</span>.<span class="ruby-identifier">to_a</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-in_batches" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">in_batches</span><span
+            class="method-args">(of: 1000, start: nil, finish: nil, load: false, error_on_ignore: nil) { |yielded_relation| ... }</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Yields <a href="Relation.html">ActiveRecord::Relation</a> objects to work
+with a batch of records.</p>
+
+<pre class="ruby"><span class="ruby-constant">Person</span>.<span class="ruby-identifier">where</span>(<span class="ruby-string">&quot;age &gt; 21&quot;</span>).<span class="ruby-identifier">in_batches</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">relation</span><span class="ruby-operator">|</span>
+  <span class="ruby-identifier">relation</span>.<span class="ruby-identifier">delete_all</span>
+  <span class="ruby-identifier">sleep</span>(<span class="ruby-value">10</span>) <span class="ruby-comment"># Throttle the delete queries</span>
+<span class="ruby-keyword">end</span>
+</pre>
+
+<p>If you do not provide a block to <a
+href="Batches.html#method-i-in_batches">in_batches</a>, it will return a <a
+href="Batches/BatchEnumerator.html">BatchEnumerator</a> which is
+enumerable.</p>
+
+<pre class="ruby"><span class="ruby-constant">Person</span>.<span class="ruby-identifier">in_batches</span>.<span class="ruby-identifier">each_with_index</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">relation</span>, <span class="ruby-identifier">batch_index</span><span class="ruby-operator">|</span>
+  <span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;Processing relation ##{batch_index}&quot;</span>
+  <span class="ruby-identifier">relation</span>.<span class="ruby-identifier">delete_all</span>
+<span class="ruby-keyword">end</span>
+</pre>
+
+<p>Examples of calling methods on the returned <a
+href="Batches/BatchEnumerator.html">BatchEnumerator</a> object:</p>
+
+<pre class="ruby"><span class="ruby-constant">Person</span>.<span class="ruby-identifier">in_batches</span>.<span class="ruby-identifier">delete_all</span>
+<span class="ruby-constant">Person</span>.<span class="ruby-identifier">in_batches</span>.<span class="ruby-identifier">update_all</span>(<span class="ruby-identifier">awesome</span><span class="ruby-operator">:</span> <span class="ruby-keyword">true</span>)
+<span class="ruby-constant">Person</span>.<span class="ruby-identifier">in_batches</span>.<span class="ruby-identifier">each_record</span>(<span class="ruby-operator">&amp;</span>:<span class="ruby-identifier">party_all_night!</span>)
+</pre>
+
+<h4 id="method-i-in_batches-label-Options"><a href="../vendor/bundle/ruby/2_4_0/gems/oj-3_4_0/pages/Options_md.html">Options</a><span><a href="#method-i-in_batches-label-Options">&para;</a> <a href="#top">&uarr;</a></span></h4>
+<ul><li>
+<p><code>:of</code> - Specifies the size of the batch. Defaults to 1000.</p>
+</li><li>
+<p><code>:load</code> - Specifies if the relation should be loaded. Defaults
+to false.</p>
+</li><li>
+<p><code>:start</code> - Specifies the primary key value to start from,
+inclusive of the value.</p>
+</li><li>
+<p><code>:finish</code> - Specifies the primary key value to end at, inclusive
+of the value.</p>
+</li><li>
+<p><code>:error_on_ignore</code> - Overrides the application config to specify
+if an error should be raised when an order is present in the relation.</p>
+</li></ul>
+
+<p>Limits are honored, and if present there is no requirement for the batch
+size, it can be less than, equal, or greater than the limit.</p>
+
+<p>The options <code>start</code> and <code>finish</code> are especially
+useful if you want multiple workers dealing with the same processing queue.
+You can make worker 1 handle all the records between id 1 and 9999 and
+worker 2 handle from 10000 and beyond by setting the <code>:start</code>
+and <code>:finish</code> option on each worker.</p>
+
+<pre class="ruby"><span class="ruby-comment"># Let&#39;s process from record 10_000 on.</span>
+<span class="ruby-constant">Person</span>.<span class="ruby-identifier">in_batches</span>(<span class="ruby-identifier">start</span><span class="ruby-operator">:</span> <span class="ruby-value">10_000</span>).<span class="ruby-identifier">update_all</span>(<span class="ruby-identifier">awesome</span><span class="ruby-operator">:</span> <span class="ruby-keyword">true</span>)
+</pre>
+
+<p>An example of calling where query method on the relation:</p>
+
+<pre class="ruby"><span class="ruby-constant">Person</span>.<span class="ruby-identifier">in_batches</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">relation</span><span class="ruby-operator">|</span>
+  <span class="ruby-identifier">relation</span>.<span class="ruby-identifier">update_all</span>(<span class="ruby-string">&#39;age = age + 1&#39;</span>)
+  <span class="ruby-identifier">relation</span>.<span class="ruby-identifier">where</span>(<span class="ruby-string">&#39;age &gt; 21&#39;</span>).<span class="ruby-identifier">update_all</span>(<span class="ruby-identifier">should_party</span><span class="ruby-operator">:</span> <span class="ruby-keyword">true</span>)
+  <span class="ruby-identifier">relation</span>.<span class="ruby-identifier">where</span>(<span class="ruby-string">&#39;age &lt;= 21&#39;</span>).<span class="ruby-identifier">delete_all</span>
+<span class="ruby-keyword">end</span>
+</pre>
+
+<p>NOTE: If you are going to iterate through each record, you should call
+each_record on the yielded BatchEnumerator:</p>
+
+<pre class="ruby"><span class="ruby-constant">Person</span>.<span class="ruby-identifier">in_batches</span>.<span class="ruby-identifier">each_record</span>(<span class="ruby-operator">&amp;</span>:<span class="ruby-identifier">party_all_night!</span>)
+</pre>
+
+<p>NOTE: It&#39;s not possible to set the order. That is automatically set to
+ascending on the primary key (“id ASC”) to make the batch ordering
+consistent. Therefore the primary key must be orderable, e.g. an integer or
+a string.</p>
+
+<p>NOTE: By its nature, batch processing is subject to race conditions if
+other processes are modifying the database.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="in_batches-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/activerecord-5.1.5/lib/active_record/relation/batches.rb, line 194</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">in_batches</span>(<span class="ruby-identifier">of</span><span class="ruby-operator">:</span> <span class="ruby-value">1000</span>, <span class="ruby-identifier">start</span><span class="ruby-operator">:</span> <span class="ruby-keyword">nil</span>, <span class="ruby-identifier">finish</span><span class="ruby-operator">:</span> <span class="ruby-keyword">nil</span>, <span class="ruby-identifier">load</span><span class="ruby-operator">:</span> <span class="ruby-keyword">false</span>, <span class="ruby-identifier">error_on_ignore</span><span class="ruby-operator">:</span> <span class="ruby-keyword">nil</span>)
+  <span class="ruby-identifier">relation</span> = <span class="ruby-keyword">self</span>
+  <span class="ruby-keyword">unless</span> <span class="ruby-identifier">block_given?</span>
+    <span class="ruby-keyword">return</span> <span class="ruby-constant">BatchEnumerator</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">of</span><span class="ruby-operator">:</span> <span class="ruby-identifier">of</span>, <span class="ruby-identifier">start</span><span class="ruby-operator">:</span> <span class="ruby-identifier">start</span>, <span class="ruby-identifier">finish</span><span class="ruby-operator">:</span> <span class="ruby-identifier">finish</span>, <span class="ruby-identifier">relation</span><span class="ruby-operator">:</span> <span class="ruby-keyword">self</span>)
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">arel</span>.<span class="ruby-identifier">orders</span>.<span class="ruby-identifier">present?</span>
+    <span class="ruby-identifier">act_on_ignored_order</span>(<span class="ruby-identifier">error_on_ignore</span>)
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">batch_limit</span> = <span class="ruby-identifier">of</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">limit_value</span>
+    <span class="ruby-identifier">remaining</span>   = <span class="ruby-identifier">limit_value</span>
+    <span class="ruby-identifier">batch_limit</span> = <span class="ruby-identifier">remaining</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">remaining</span> <span class="ruby-operator">&lt;</span> <span class="ruby-identifier">batch_limit</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">relation</span> = <span class="ruby-identifier">relation</span>.<span class="ruby-identifier">reorder</span>(<span class="ruby-identifier">batch_order</span>).<span class="ruby-identifier">limit</span>(<span class="ruby-identifier">batch_limit</span>)
+  <span class="ruby-identifier">relation</span> = <span class="ruby-identifier">apply_limits</span>(<span class="ruby-identifier">relation</span>, <span class="ruby-identifier">start</span>, <span class="ruby-identifier">finish</span>)
+  <span class="ruby-identifier">batch_relation</span> = <span class="ruby-identifier">relation</span>
+
+  <span class="ruby-identifier">loop</span> <span class="ruby-keyword">do</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">load</span>
+      <span class="ruby-identifier">records</span> = <span class="ruby-identifier">batch_relation</span>.<span class="ruby-identifier">records</span>
+      <span class="ruby-identifier">ids</span> = <span class="ruby-identifier">records</span>.<span class="ruby-identifier">map</span>(<span class="ruby-operator">&amp;</span><span class="ruby-value">:id</span>)
+      <span class="ruby-identifier">yielded_relation</span> = <span class="ruby-identifier">where</span>(<span class="ruby-identifier">primary_key</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">ids</span>)
+      <span class="ruby-identifier">yielded_relation</span>.<span class="ruby-identifier">load_records</span>(<span class="ruby-identifier">records</span>)
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-identifier">ids</span> = <span class="ruby-identifier">batch_relation</span>.<span class="ruby-identifier">pluck</span>(<span class="ruby-identifier">primary_key</span>)
+      <span class="ruby-identifier">yielded_relation</span> = <span class="ruby-identifier">where</span>(<span class="ruby-identifier">primary_key</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">ids</span>)
+    <span class="ruby-keyword">end</span>
+
+    <span class="ruby-keyword">break</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">ids</span>.<span class="ruby-identifier">empty?</span>
+
+    <span class="ruby-identifier">primary_key_offset</span> = <span class="ruby-identifier">ids</span>.<span class="ruby-identifier">last</span>
+    <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&quot;Primary key not included in the custom select clause&quot;</span>) <span class="ruby-keyword">unless</span> <span class="ruby-identifier">primary_key_offset</span>
+
+    <span class="ruby-keyword">yield</span> <span class="ruby-identifier">yielded_relation</span>
+
+    <span class="ruby-keyword">break</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">ids</span>.<span class="ruby-identifier">length</span> <span class="ruby-operator">&lt;</span> <span class="ruby-identifier">batch_limit</span>
+
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">limit_value</span>
+      <span class="ruby-identifier">remaining</span> <span class="ruby-operator">-=</span> <span class="ruby-identifier">ids</span>.<span class="ruby-identifier">length</span>
+
+      <span class="ruby-keyword">if</span> <span class="ruby-identifier">remaining</span> <span class="ruby-operator">==</span> <span class="ruby-value">0</span>
+        <span class="ruby-comment"># Saves a useless iteration when the limit is a multiple of the</span>
+        <span class="ruby-comment"># batch size.</span>
+        <span class="ruby-keyword">break</span>
+      <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">remaining</span> <span class="ruby-operator">&lt;</span> <span class="ruby-identifier">batch_limit</span>
+        <span class="ruby-identifier">relation</span> = <span class="ruby-identifier">relation</span>.<span class="ruby-identifier">limit</span>(<span class="ruby-identifier">remaining</span>)
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">end</span>
+
+    <span class="ruby-identifier">batch_relation</span> = <span class="ruby-identifier">relation</span>.<span class="ruby-identifier">where</span>(<span class="ruby-identifier">arel_attribute</span>(<span class="ruby-identifier">primary_key</span>).<span class="ruby-identifier">gt</span>(<span class="ruby-identifier">primary_key_offset</span>))
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="https://rdoc.github.io/rdoc">RDoc</a> 5.0.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

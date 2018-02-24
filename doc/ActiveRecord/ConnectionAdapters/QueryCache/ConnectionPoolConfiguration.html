@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>module ActiveRecord::ConnectionAdapters::QueryCache::ConnectionPoolConfiguration - RDoc Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../../../";
+  var index_rel_prefix = "../../../";
+</script>
+
+<script src="../../../js/jquery.js"></script>
+<script src="../../../js/darkfish.js"></script>
+
+<link href="../../../css/fonts.css" rel="stylesheet">
+<link href="../../../css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="module">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../../../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../../../table_of_contents.html#pages">Pages</a>
+    <a href="../../../table_of_contents.html#classes">Classes</a>
+    <a href="../../../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li class="calls-super" ><a href="#method-c-new">::new</a>
+    
+    <li ><a href="#method-i-disable_query_cache-21">#disable_query_cache!</a>
+    
+    <li ><a href="#method-i-enable_query_cache-21">#enable_query_cache!</a>
+    
+    <li ><a href="#method-i-query_cache_enabled">#query_cache_enabled</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="module-ActiveRecord::ConnectionAdapters::QueryCache::ConnectionPoolConfiguration">
+  <h1 id="module-ActiveRecord::ConnectionAdapters::QueryCache::ConnectionPoolConfiguration" class="module">
+    module ActiveRecord::ConnectionAdapters::QueryCache::ConnectionPoolConfiguration
+  </h1>
+
+  <section class="description">
+    
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Class Methods</h3>
+       </header>
+
+    
+      <div id="method-c-new" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">new</span><span
+            class="method-args">(*)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+            <div class="method-calls-super">
+              Calls superclass method
+              
+            </div>
+          
+
+          
+          <div class="method-source-code" id="new-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/activerecord-5.1.5/lib/active_record/connection_adapters/abstract/query_cache.rb, line 25</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-operator">*</span>)
+  <span class="ruby-keyword">super</span>
+  <span class="ruby-ivar">@query_cache_enabled</span> = <span class="ruby-constant">Concurrent</span><span class="ruby-operator">::</span><span class="ruby-constant">Map</span>.<span class="ruby-identifier">new</span> { <span class="ruby-keyword">false</span> }
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-disable_query_cache-21" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">disable_query_cache!</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="disable_query_cache-21-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/activerecord-5.1.5/lib/active_record/connection_adapters/abstract/query_cache.rb, line 35</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">disable_query_cache!</span>
+  <span class="ruby-ivar">@query_cache_enabled</span>.<span class="ruby-identifier">delete</span> <span class="ruby-identifier">connection_cache_key</span>(<span class="ruby-constant">Thread</span>.<span class="ruby-identifier">current</span>)
+  <span class="ruby-identifier">connection</span>.<span class="ruby-identifier">disable_query_cache!</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">active_connection?</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-enable_query_cache-21" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">enable_query_cache!</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="enable_query_cache-21-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/activerecord-5.1.5/lib/active_record/connection_adapters/abstract/query_cache.rb, line 30</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">enable_query_cache!</span>
+  <span class="ruby-ivar">@query_cache_enabled</span>[<span class="ruby-identifier">connection_cache_key</span>(<span class="ruby-constant">Thread</span>.<span class="ruby-identifier">current</span>)] = <span class="ruby-keyword">true</span>
+  <span class="ruby-identifier">connection</span>.<span class="ruby-identifier">enable_query_cache!</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">active_connection?</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-query_cache_enabled" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">query_cache_enabled</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="query_cache_enabled-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/activerecord-5.1.5/lib/active_record/connection_adapters/abstract/query_cache.rb, line 40</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">query_cache_enabled</span>
+  <span class="ruby-ivar">@query_cache_enabled</span>[<span class="ruby-identifier">connection_cache_key</span>(<span class="ruby-constant">Thread</span>.<span class="ruby-identifier">current</span>)]
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="https://rdoc.github.io/rdoc">RDoc</a> 5.0.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

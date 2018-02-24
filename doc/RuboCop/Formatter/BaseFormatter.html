@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class RuboCop::Formatter::BaseFormatter - RDoc Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../../";
+  var index_rel_prefix = "../../";
+</script>
+
+<script src="../../js/jquery.js"></script>
+<script src="../../js/darkfish.js"></script>
+
+<link href="../../css/fonts.css" rel="stylesheet">
+<link href="../../css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../../table_of_contents.html#pages">Pages</a>
+    <a href="../../table_of_contents.html#classes">Classes</a>
+    <a href="../../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link"><a href="../../Object.html">Object</a>
+  
+</div>
+
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-c-new">::new</a>
+    
+    <li ><a href="#method-i-file_finished">#file_finished</a>
+    
+    <li ><a href="#method-i-file_started">#file_started</a>
+    
+    <li ><a href="#method-i-finished">#finished</a>
+    
+    <li ><a href="#method-i-started">#started</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-RuboCop::Formatter::BaseFormatter">
+  <h1 id="class-RuboCop::Formatter::BaseFormatter" class="class">
+    class RuboCop::Formatter::BaseFormatter
+  </h1>
+
+  <section class="description">
+    
+<p>Abstract base class for formatter, implements all public API methods.</p>
+
+<p>## Creating <a
+href="../../vendor/bundle/ruby/2_4_0/gems/oj-3_4_0/pages/Custom_md.html">Custom</a>
+<a href="../Formatter.html">Formatter</a></p>
+
+<p>You can create a custom formatter by subclassing
+`RuboCop::Formatter::BaseFormatter` and overriding some methods, or by
+implementing all the methods by duck typing.</p>
+
+<p>## Using <a
+href="../../vendor/bundle/ruby/2_4_0/gems/oj-3_4_0/pages/Custom_md.html">Custom</a>
+<a href="../Formatter.html">Formatter</a> in Command Line</p>
+
+<p>You can tell <a href="../../RuboCop.html">RuboCop</a> to use your custom
+formatter with a combination of `–format` and `–require` option. For
+example, when you have defined `MyCustomFormatter` in
+`./path/to/my_custom_formatter.rb`, you would type this command:</p>
+
+<pre>rubocop --require ./path/to/my_custom_formatter --format MyCustomFormatter</pre>
+
+<p>Note: The path passed to `–require` is directly passed to `Kernel.require`.
+If your custom formatter file is not in `$LOAD_PATH`, you need to specify
+the path as relative path prefixed with `./` explicitly, or absolute path.</p>
+
+<p>## <a href="../../Method.html">Method</a> Invocation Order</p>
+
+<p>For example, when <a href="../../RuboCop.html">RuboCop</a> inspects 2
+files, the invocation order should be like this:</p>
+<ul><li>
+<p>`#initialize`</p>
+</li><li>
+<p>`#started`</p>
+</li><li>
+<p>`#file_started`</p>
+</li><li>
+<p>`#file_finished`</p>
+</li><li>
+<p>`#file_started`</p>
+</li><li>
+<p>`#file_finished`</p>
+</li><li>
+<p>`#finished`</p>
+</li></ul>
+
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+    <section class="attribute-method-details" class="method-section">
+      <header>
+        <h3>Attributes</h3>
+      </header>
+
+      
+      <div id="attribute-i-options" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">options</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        <p>@api public</p>
+
+<p>@!attribute [r] options</p>
+
+<p>@return [Hash]</p>
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-output" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">output</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        <p>@api public</p>
+
+<p>@!attribute [r] output</p>
+
+<p>@return [IO]</p>
+
+<pre class="ruby"><span class="ruby-identifier">the</span> <span class="ruby-constant">IO</span> <span class="ruby-identifier">object</span> <span class="ruby-identifier">passed</span> <span class="ruby-identifier">to</span> <span class="ruby-node">%x`#initialize`</span>
+</pre>
+
+<p>@see initialize</p>
+        
+        </div>
+      </div>
+      
+    </section>
+    
+
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Class Methods</h3>
+       </header>
+
+    
+      <div id="method-c-new" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">new</span><span
+            class="method-args">(output, options = {})</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>@api public</p>
+
+<p>@param output [IO]</p>
+
+<pre class="ruby"><span class="ruby-value">%x`$stdout`</span> <span class="ruby-keyword">or</span> <span class="ruby-identifier">opened</span> <span class="ruby-identifier">file</span>
+</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="new-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/rubocop-0.52.1/lib/rubocop/formatter/base_formatter.rb, line 66</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">output</span>, <span class="ruby-identifier">options</span> = {})
+  <span class="ruby-ivar">@output</span> = <span class="ruby-identifier">output</span>
+  <span class="ruby-ivar">@options</span> = <span class="ruby-identifier">options</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-file_finished" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">file_finished</span><span
+            class="method-args">(file, offenses)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>@api public</p>
+
+<p>Invoked at the end of inspecting each files.</p>
+
+<p>@param file [String]</p>
+
+<pre class="ruby"><span class="ruby-identifier">the</span> <span class="ruby-identifier">file</span> <span class="ruby-identifier">path</span>
+</pre>
+
+<p>@param offenses [Array(RuboCop::Cop::Offense)]</p>
+
+<pre>all detected offenses for the file</pre>
+
+<p>@return [void]</p>
+
+<p>@see <a href="../Cop/Offense.html">RuboCop::Cop::Offense</a></p>
+          
+          
+
+          
+          <div class="method-source-code" id="file_finished-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/rubocop-0.52.1/lib/rubocop/formatter/base_formatter.rb, line 107</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">file_finished</span>(<span class="ruby-identifier">file</span>, <span class="ruby-identifier">offenses</span>); <span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-file_started" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">file_started</span><span
+            class="method-args">(file, options)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>@api public</p>
+
+<p>Invoked at the beginning of inspecting each files.</p>
+
+<p>@param file [String]</p>
+
+<pre class="ruby"><span class="ruby-identifier">the</span> <span class="ruby-identifier">file</span> <span class="ruby-identifier">path</span>
+</pre>
+
+<p>@param options [Hash]</p>
+
+<pre>file specific information, currently this is always empty.</pre>
+
+<p>@return [void]</p>
+          
+          
+
+          
+          <div class="method-source-code" id="file_started-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/rubocop-0.52.1/lib/rubocop/formatter/base_formatter.rb, line 92</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">file_started</span>(<span class="ruby-identifier">file</span>, <span class="ruby-identifier">options</span>); <span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-finished" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">finished</span><span
+            class="method-args">(inspected_files)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>@api public</p>
+
+<p>Invoked after all files are inspected, or interrupted by user.</p>
+
+<p>@param inspected_files [Array(String)]</p>
+
+<pre>the inspected file paths.
+This would be same as `target_files` passed to `#started`
+unless RuboCop is interrupted by user.</pre>
+
+<p>@return [void]</p>
+          
+          
+
+          
+          <div class="method-source-code" id="finished-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/rubocop-0.52.1/lib/rubocop/formatter/base_formatter.rb, line 119</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">finished</span>(<span class="ruby-identifier">inspected_files</span>); <span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-started" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">started</span><span
+            class="method-args">(target_files)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>@api public</p>
+
+<p>Invoked once before any files are inspected.</p>
+
+<p>@param target_files [Array(String)]</p>
+
+<pre class="ruby"><span class="ruby-identifier">all</span> <span class="ruby-identifier">target</span> <span class="ruby-identifier">file</span> <span class="ruby-identifier">paths</span> <span class="ruby-identifier">to</span> <span class="ruby-identifier">be</span> <span class="ruby-identifier">inspected</span>
+</pre>
+
+<p>@return [void]</p>
+          
+          
+
+          
+          <div class="method-source-code" id="started-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/rubocop-0.52.1/lib/rubocop/formatter/base_formatter.rb, line 79</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">started</span>(<span class="ruby-identifier">target_files</span>); <span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="https://rdoc.github.io/rdoc">RDoc</a> 5.0.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

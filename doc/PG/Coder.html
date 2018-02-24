@@ -1,0 +1,742 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class PG::Coder - RDoc Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../";
+  var index_rel_prefix = "../";
+</script>
+
+<script src="../js/jquery.js"></script>
+<script src="../js/darkfish.js"></script>
+
+<link href="../css/fonts.css" rel="stylesheet">
+<link href="../css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../table_of_contents.html#pages">Pages</a>
+    <a href="../table_of_contents.html#classes">Classes</a>
+    <a href="../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link"><a href="../Object.html">Object</a>
+  
+</div>
+
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-c-new">::new</a>
+    
+    <li ><a href="#method-i-3D-3D">#==</a>
+    
+    <li ><a href="#method-i-decode">#decode</a>
+    
+    <li ><a href="#method-i-dup">#dup</a>
+    
+    <li ><a href="#method-i-encode">#encode</a>
+    
+    <li ><a href="#method-i-format">#format</a>
+    
+    <li ><a href="#method-i-format-3D">#format=</a>
+    
+    <li ><a href="#method-i-inspect">#inspect</a>
+    
+    <li ><a href="#method-i-marshal_dump">#marshal_dump</a>
+    
+    <li ><a href="#method-i-marshal_load">#marshal_load</a>
+    
+    <li ><a href="#method-i-oid">#oid</a>
+    
+    <li ><a href="#method-i-oid-3D">#oid=</a>
+    
+    <li ><a href="#method-i-to_h">#to_h</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-PG::Coder">
+  <h1 id="class-PG::Coder" class="class">
+    class PG::Coder
+  </h1>
+
+  <section class="description">
+    
+<p>This is the base class for all type cast encoder and decoder classes.</p>
+
+<p>It can be used for implicit type casts by a <a
+href="TypeMap.html">PG::TypeMap</a> or to convert single values to/from
+their string representation by <a
+href="Coder.html#method-i-encode">encode</a> and <a
+href="Coder.html#method-i-decode">decode</a>.</p>
+
+<p>Ruby <code>nil</code> values are not handled by encoders, but are always
+transmitted as SQL <code>NULL</code> value. Vice versa SQL
+<code>NULL</code> values are not handled by decoders, but are always
+returned as a <code>nil</code> value.</p>
+
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+    <section class="attribute-method-details" class="method-section">
+      <header>
+        <h3>Attributes</h3>
+      </header>
+
+      
+      <div id="attribute-i-name" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">name</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        <p>Name of the coder or the corresponding data type.</p>
+
+<p>This accessor is only used in <a
+href="Coder.html#method-i-inspect">#inspect</a> .</p>
+        
+        </div>
+      </div>
+      
+    </section>
+    
+
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Class Methods</h3>
+       </header>
+
+    
+      <div id="method-c-new" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">new</span><span
+            class="method-args">(params={})</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Create a new coder object based on the attribute <a
+href="../Hash.html">Hash</a>.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="new-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/pg-1.0.0-x64-mingw32/lib/pg/coder.rb, line 16</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">params</span>={})
+        <span class="ruby-identifier">params</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">key</span>, <span class="ruby-identifier">val</span><span class="ruby-operator">|</span>
+                <span class="ruby-identifier">send</span>(<span class="ruby-node">&quot;#{key}=&quot;</span>, <span class="ruby-identifier">val</span>)
+        <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-3D-3D" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">==</span><span
+            class="method-args">(v)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="3D-3D-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/pg-1.0.0-x64-mingw32/lib/pg/coder.rb, line 35</span>
+<span class="ruby-keyword">def</span> <span class="ruby-operator">==</span>(<span class="ruby-identifier">v</span>)
+        <span class="ruby-keyword">self</span>.<span class="ruby-identifier">class</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">v</span>.<span class="ruby-identifier">class</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">to_h</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">v</span>.<span class="ruby-identifier">to_h</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-decode" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            decode( string, tuple=nil, field=nil )
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Decodes the given string representation into a Ruby object, without sending
+data to/from the database server.</p>
+
+<p>A nil value is passed through and non <a href="../String.html">String</a>
+values are expected to have to_str defined.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="decode-source">
+            <pre>static VALUE
+pg_coder_decode(int argc, VALUE *argv, VALUE self)
+{
+        char *val;
+        int tuple = -1;
+        int field = -1;
+        VALUE res;
+        t_pg_coder *this = DATA_PTR(self);
+
+        if(argc &lt; 1 || argc &gt; 3){
+                rb_raise(rb_eArgError, &quot;wrong number of arguments (%i for 1..3)&quot;, argc);
+        }else if(argc &gt;= 3){
+                tuple = NUM2INT(argv[1]);
+                field = NUM2INT(argv[2]);
+        }
+
+        if( NIL_P(argv[0]) )
+                return Qnil;
+
+        val = StringValuePtr(argv[0]);
+        if( !this-&gt;dec_func ){
+                rb_raise(rb_eRuntimeError, &quot;no decoder function defined&quot;);
+        }
+
+        res = this-&gt;dec_func(this, val, RSTRING_LEN(argv[0]), tuple, field, ENCODING_GET(argv[0]));
+        OBJ_INFECT(res, argv[0]);
+
+        return res;
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-dup" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">dup</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="dup-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/pg-1.0.0-x64-mingw32/lib/pg/coder.rb, line 22</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">dup</span>
+        <span class="ruby-keyword">self</span>.<span class="ruby-identifier">class</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">to_h</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-encode" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            encode( value [, encoding] )
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Encodes the given Ruby object into string representation, without sending
+data to/from the database server.</p>
+
+<p>A nil value is passed through.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="encode-source">
+            <pre>static VALUE
+pg_coder_encode(int argc, VALUE *argv, VALUE self)
+{
+        VALUE res;
+        VALUE intermediate;
+        VALUE value;
+        int len, len2;
+        int enc_idx;
+        t_pg_coder *this = DATA_PTR(self);
+
+        if(argc &lt; 1 || argc &gt; 2){
+                rb_raise(rb_eArgError, &quot;wrong number of arguments (%i for 1..2)&quot;, argc);
+        }else if(argc == 1){
+                enc_idx = rb_ascii8bit_encindex();
+        }else{
+                enc_idx = rb_to_encoding_index(argv[1]);
+        }
+        value = argv[0];
+
+        if( NIL_P(value) )
+                return Qnil;
+
+        if( !this-&gt;enc_func ){
+                rb_raise(rb_eRuntimeError, &quot;no encoder function defined&quot;);
+        }
+
+        len = this-&gt;enc_func( this, value, NULL, &amp;intermediate, enc_idx );
+
+        if( len == -1 ){
+                /* The intermediate value is a String that can be used directly. */
+                OBJ_INFECT(intermediate, value);
+                return intermediate;
+        }
+
+        res = rb_str_new(NULL, len);
+        PG_ENCODING_SET_NOCHECK(res, enc_idx);
+        len2 = this-&gt;enc_func( this, value, RSTRING_PTR(res), &amp;intermediate, enc_idx );
+        if( len &lt; len2 ){
+                rb_bug(&quot;%s: result length of first encoder run (%i) is less than second run (%i)&quot;,
+                        rb_obj_classname( self ), len, len2 );
+        }
+        rb_str_set_len( res, len2 );
+        OBJ_INFECT(res, value);
+
+        RB_GC_GUARD(intermediate);
+
+        return res;
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-format" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            format &rarr; Integer
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>The format code that is sent alongside with an encoded query parameter
+value.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="format-source">
+            <pre>static VALUE
+pg_coder_format_get(VALUE self)
+{
+        t_pg_coder *this = DATA_PTR(self);
+        return INT2NUM(this-&gt;format);
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-format-3D" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            format = Integer
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Specifies the format code that is sent alongside with an encoded query
+parameter value.</p>
+
+<p>The default is <code>0</code>.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="format-3D-source">
+            <pre>static VALUE
+pg_coder_format_set(VALUE self, VALUE format)
+{
+        t_pg_coder *this = DATA_PTR(self);
+        this-&gt;format = NUM2INT(format);
+        return format;
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-inspect" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">inspect</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="inspect-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/pg-1.0.0-x64-mingw32/lib/pg/coder.rb, line 47</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">inspect</span>
+        <span class="ruby-identifier">str</span> = <span class="ruby-keyword">self</span>.<span class="ruby-identifier">to_s</span>
+        <span class="ruby-identifier">oid_str</span> = <span class="ruby-node">&quot; oid=#{oid}&quot;</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">oid</span><span class="ruby-operator">==</span><span class="ruby-value">0</span>
+        <span class="ruby-identifier">format_str</span> = <span class="ruby-node">&quot; format=#{format}&quot;</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">format</span><span class="ruby-operator">==</span><span class="ruby-value">0</span>
+        <span class="ruby-identifier">name_str</span> = <span class="ruby-node">&quot; #{name.inspect}&quot;</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">name</span>
+        <span class="ruby-identifier">str</span>[<span class="ruby-value">-1</span>,<span class="ruby-value">0</span>] = <span class="ruby-node">&quot;#{name_str} #{oid_str}#{format_str}&quot;</span>
+        <span class="ruby-identifier">str</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-marshal_dump" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">marshal_dump</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="marshal_dump-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/pg-1.0.0-x64-mingw32/lib/pg/coder.rb, line 39</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">marshal_dump</span>
+        <span class="ruby-constant">Marshal</span>.<span class="ruby-identifier">dump</span>(<span class="ruby-identifier">to_h</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-marshal_load" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">marshal_load</span><span
+            class="method-args">(str)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="marshal_load-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/pg-1.0.0-x64-mingw32/lib/pg/coder.rb, line 43</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">marshal_load</span>(<span class="ruby-identifier">str</span>)
+        <span class="ruby-identifier">initialize</span> <span class="ruby-constant">Marshal</span>.<span class="ruby-identifier">load</span>(<span class="ruby-identifier">str</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-oid" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            oid &rarr; Integer
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>The type OID that is sent alongside with an encoded query parameter value.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="oid-source">
+            <pre>static VALUE
+pg_coder_oid_get(VALUE self)
+{
+        t_pg_coder *this = DATA_PTR(self);
+        return UINT2NUM(this-&gt;oid);
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-oid-3D" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            oid = Integer
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Specifies the type OID that is sent alongside with an encoded query
+parameter value.</p>
+
+<p>The default is <code>0</code>.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="oid-3D-source">
+            <pre>static VALUE
+pg_coder_oid_set(VALUE self, VALUE oid)
+{
+        t_pg_coder *this = DATA_PTR(self);
+        this-&gt;oid = NUM2UINT(oid);
+        return oid;
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-to_h" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">to_h</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Returns coder attributes as <a href="../Hash.html">Hash</a>.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="to_h-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/pg-1.0.0-x64-mingw32/lib/pg/coder.rb, line 27</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">to_h</span>
+        {
+                <span class="ruby-identifier">oid</span><span class="ruby-operator">:</span> <span class="ruby-identifier">oid</span>,
+                <span class="ruby-identifier">format</span><span class="ruby-operator">:</span> <span class="ruby-identifier">format</span>,
+                <span class="ruby-identifier">name</span><span class="ruby-operator">:</span> <span class="ruby-identifier">name</span>,
+        }
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="https://rdoc.github.io/rdoc">RDoc</a> 5.0.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class RSpec::Core::Metadata::ExampleGroupHash - RDoc Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../../../";
+  var index_rel_prefix = "../../../";
+</script>
+
+<script src="../../../js/jquery.js"></script>
+<script src="../../../js/darkfish.js"></script>
+
+<link href="../../../css/fonts.css" rel="stylesheet">
+<link href="../../../css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../../../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../../../table_of_contents.html#pages">Pages</a>
+    <a href="../../../table_of_contents.html#classes">Classes</a>
+    <a href="../../../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link"><a href="HashPopulator.html">RSpec::Core::Metadata::HashPopulator</a>
+  
+</div>
+
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-c-backwards_compatibility_default_proc">::backwards_compatibility_default_proc</a>
+    
+    <li ><a href="#method-c-create">::create</a>
+    
+    <li ><a href="#method-c-hash_with_backwards_compatibility_default_proc">::hash_with_backwards_compatibility_default_proc</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-RSpec::Core::Metadata::ExampleGroupHash">
+  <h1 id="class-RSpec::Core::Metadata::ExampleGroupHash" class="class">
+    class RSpec::Core::Metadata::ExampleGroupHash
+  </h1>
+
+  <section class="description">
+    
+<p>@private</p>
+
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Class Methods</h3>
+       </header>
+
+    
+      <div id="method-c-backwards_compatibility_default_proc" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">backwards_compatibility_default_proc</span><span
+            class="method-args">(&example_group_selector)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="backwards_compatibility_default_proc-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/rspec-core-3.7.1/lib/rspec/core/metadata.rb, line 266</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">backwards_compatibility_default_proc</span>(<span class="ruby-operator">&amp;</span><span class="ruby-identifier">example_group_selector</span>)
+  <span class="ruby-constant">Proc</span>.<span class="ruby-identifier">new</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">hash</span>, <span class="ruby-identifier">key</span><span class="ruby-operator">|</span>
+    <span class="ruby-keyword">case</span> <span class="ruby-identifier">key</span>
+    <span class="ruby-keyword">when</span> <span class="ruby-value">:example_group</span>
+      <span class="ruby-comment"># We commonly get here when rspec-core is applying a previously</span>
+      <span class="ruby-comment"># configured filter rule, such as when a gem configures:</span>
+      <span class="ruby-comment">#</span>
+      <span class="ruby-comment">#   RSpec.configure do |c|</span>
+      <span class="ruby-comment">#     c.include MyGemHelpers, :example_group =&gt; { :file_path =&gt; /spec\/my_gem_specs/ }</span>
+      <span class="ruby-comment">#   end</span>
+      <span class="ruby-comment">#</span>
+      <span class="ruby-comment"># It&#39;s confusing for a user to get a deprecation at this point in</span>
+      <span class="ruby-comment"># the code, so instead we issue a deprecation from the config APIs</span>
+      <span class="ruby-comment"># that take a metadata hash, and MetadataFilter sets this thread</span>
+      <span class="ruby-comment"># local to silence the warning here since it would be so</span>
+      <span class="ruby-comment"># confusing.</span>
+      <span class="ruby-keyword">unless</span> <span class="ruby-constant">RSpec</span><span class="ruby-operator">::</span><span class="ruby-constant">Support</span>.<span class="ruby-identifier">thread_local_data</span>[<span class="ruby-value">:silence_metadata_example_group_deprecations</span>]
+        <span class="ruby-constant">RSpec</span>.<span class="ruby-identifier">deprecate</span>(<span class="ruby-string">&quot;The `:example_group` key in an example group&#39;s metadata hash&quot;</span>,
+                        <span class="ruby-value">:replacement</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;the example group&#39;s hash directly for the &quot;</span>                                  <span class="ruby-string">&quot;computed keys and `:parent_example_group` to access the parent &quot;</span>                                  <span class="ruby-string">&quot;example group metadata&quot;</span>)
+      <span class="ruby-keyword">end</span>
+
+      <span class="ruby-identifier">group_hash</span> = <span class="ruby-identifier">example_group_selector</span>.<span class="ruby-identifier">call</span>(<span class="ruby-identifier">hash</span>)
+      <span class="ruby-constant">LegacyExampleGroupHash</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">group_hash</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">group_hash</span>
+    <span class="ruby-keyword">when</span> <span class="ruby-value">:example_group_block</span>
+      <span class="ruby-constant">RSpec</span>.<span class="ruby-identifier">deprecate</span>(<span class="ruby-string">&quot;`metadata[:example_group_block]`&quot;</span>,
+                      <span class="ruby-value">:replacement</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;`metadata[:block]`&quot;</span>)
+      <span class="ruby-identifier">hash</span>[<span class="ruby-value">:block</span>]
+    <span class="ruby-keyword">when</span> <span class="ruby-value">:describes</span>
+      <span class="ruby-constant">RSpec</span>.<span class="ruby-identifier">deprecate</span>(<span class="ruby-string">&quot;`metadata[:describes]`&quot;</span>,
+                      <span class="ruby-value">:replacement</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;`metadata[:described_class]`&quot;</span>)
+      <span class="ruby-identifier">hash</span>[<span class="ruby-value">:described_class</span>]
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-create" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">create</span><span
+            class="method-args">(parent_group_metadata, user_metadata, example_group_index, *args, &block)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="create-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/rspec-core-3.7.1/lib/rspec/core/metadata.rb, line 249</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">create</span>(<span class="ruby-identifier">parent_group_metadata</span>, <span class="ruby-identifier">user_metadata</span>, <span class="ruby-identifier">example_group_index</span>, <span class="ruby-operator">*</span><span class="ruby-identifier">args</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+  <span class="ruby-identifier">group_metadata</span> = <span class="ruby-identifier">hash_with_backwards_compatibility_default_proc</span>
+
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">parent_group_metadata</span>
+    <span class="ruby-identifier">group_metadata</span>.<span class="ruby-identifier">update</span>(<span class="ruby-identifier">parent_group_metadata</span>)
+    <span class="ruby-identifier">group_metadata</span>[<span class="ruby-value">:parent_example_group</span>] = <span class="ruby-identifier">parent_group_metadata</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">hash</span> = <span class="ruby-identifier">new</span>(<span class="ruby-identifier">group_metadata</span>, <span class="ruby-identifier">user_metadata</span>, <span class="ruby-identifier">example_group_index</span>, <span class="ruby-identifier">args</span>, <span class="ruby-identifier">block</span>)
+  <span class="ruby-identifier">hash</span>.<span class="ruby-identifier">populate</span>
+  <span class="ruby-identifier">hash</span>.<span class="ruby-identifier">metadata</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-hash_with_backwards_compatibility_default_proc" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">hash_with_backwards_compatibility_default_proc</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="hash_with_backwards_compatibility_default_proc-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/rspec-core-3.7.1/lib/rspec/core/metadata.rb, line 262</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">hash_with_backwards_compatibility_default_proc</span>
+  <span class="ruby-constant">Hash</span>.<span class="ruby-identifier">new</span>(<span class="ruby-operator">&amp;</span><span class="ruby-identifier">backwards_compatibility_default_proc</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">hash</span><span class="ruby-operator">|</span> <span class="ruby-identifier">hash</span> })
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="https://rdoc.github.io/rdoc">RDoc</a> 5.0.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class ActiveSupport::KeyGenerator - RDoc Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../";
+  var index_rel_prefix = "../";
+</script>
+
+<script src="../js/jquery.js"></script>
+<script src="../js/darkfish.js"></script>
+
+<link href="../css/fonts.css" rel="stylesheet">
+<link href="../css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../table_of_contents.html#pages">Pages</a>
+    <a href="../table_of_contents.html#classes">Classes</a>
+    <a href="../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link"><a href="../Object.html">Object</a>
+  
+</div>
+
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-c-new">::new</a>
+    
+    <li ><a href="#method-i-generate_key">#generate_key</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-ActiveSupport::KeyGenerator">
+  <h1 id="class-ActiveSupport::KeyGenerator" class="class">
+    class ActiveSupport::KeyGenerator
+  </h1>
+
+  <section class="description">
+    
+<p><a href="KeyGenerator.html">KeyGenerator</a> is a simple wrapper around
+OpenSSL&#39;s implementation of PBKDF2. It can be used to derive a number
+of keys for various purposes from a given secret. This lets <a
+href="../Rails.html">Rails</a> applications have a single secure secret,
+but avoid reusing that key in multiple incompatible contexts.</p>
+
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Class Methods</h3>
+       </header>
+
+    
+      <div id="method-c-new" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">new</span><span
+            class="method-args">(secret, options = {})</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="new-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/activesupport-5.1.5/lib/active_support/key_generator.rb, line 10</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">secret</span>, <span class="ruby-identifier">options</span> = {})
+  <span class="ruby-ivar">@secret</span> = <span class="ruby-identifier">secret</span>
+  <span class="ruby-comment"># The default iterations are higher than required for our key derivation uses</span>
+  <span class="ruby-comment"># on the off chance someone uses this for password storage</span>
+  <span class="ruby-ivar">@iterations</span> = <span class="ruby-identifier">options</span>[<span class="ruby-value">:iterations</span>] <span class="ruby-operator">||</span> <span class="ruby-value">2</span><span class="ruby-operator">**</span><span class="ruby-value">16</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-generate_key" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">generate_key</span><span
+            class="method-args">(salt, key_size = 64)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Returns a derived key suitable for use.  The default key_size is chosen to
+be compatible with the default settings of <a
+href="MessageVerifier.html">ActiveSupport::MessageVerifier</a>. i.e.
+OpenSSL::Digest::SHA1#block_length</p>
+          
+          
+
+          
+          <div class="method-source-code" id="generate_key-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/activesupport-5.1.5/lib/active_support/key_generator.rb, line 20</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">generate_key</span>(<span class="ruby-identifier">salt</span>, <span class="ruby-identifier">key_size</span> = <span class="ruby-value">64</span>)
+  <span class="ruby-constant">OpenSSL</span><span class="ruby-operator">::</span><span class="ruby-constant">PKCS5</span>.<span class="ruby-identifier">pbkdf2_hmac_sha1</span>(<span class="ruby-ivar">@secret</span>, <span class="ruby-identifier">salt</span>, <span class="ruby-ivar">@iterations</span>, <span class="ruby-identifier">key_size</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="https://rdoc.github.io/rdoc">RDoc</a> 5.0.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

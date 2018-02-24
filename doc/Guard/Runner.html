@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class Guard::Runner - RDoc Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../";
+  var index_rel_prefix = "../";
+</script>
+
+<script src="../js/jquery.js"></script>
+<script src="../js/darkfish.js"></script>
+
+<link href="../css/fonts.css" rel="stylesheet">
+<link href="../css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../table_of_contents.html#pages">Pages</a>
+    <a href="../table_of_contents.html#classes">Classes</a>
+    <a href="../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link"><a href="../Object.html">Object</a>
+  
+</div>
+
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-c-stopping_symbol_for">::stopping_symbol_for</a>
+    
+    <li ><a href="#method-i-_supervise">#_supervise</a>
+    
+    <li ><a href="#method-i-run">#run</a>
+    
+    <li ><a href="#method-i-run_on_changes">#run_on_changes</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-Guard::Runner">
+  <h1 id="class-Guard::Runner" class="class">
+    class Guard::Runner
+  </h1>
+
+  <section class="description">
+    
+<p>The runner is responsible for running all methods defined on each plugin.</p>
+
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+    <section class="constants-list">
+      <header>
+        <h3>Constants</h3>
+      </header>
+      <dl>
+      
+        <dt id="ADDITION_TASKS">ADDITION_TASKS
+        
+        <dd>
+        
+      
+        <dt id="MODIFICATION_TASKS">MODIFICATION_TASKS
+        
+        <dd>
+        
+      
+        <dt id="PLUGIN_FAILED">PLUGIN_FAILED
+        
+        <dd>
+        
+      
+        <dt id="REMOVAL_TASKS">REMOVAL_TASKS
+        
+        <dd>
+        
+      
+      </dl>
+    </section>
+    
+
+    
+
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Class Methods</h3>
+       </header>
+
+    
+      <div id="method-c-stopping_symbol_for" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">stopping_symbol_for</span><span
+            class="method-args">(guard)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Returns the symbol that has to be caught when running a supervised task.</p>
+
+<p>@note If a <a href="../Guard.html">Guard</a> group is being run and it has
+the `:halt_on_fail`</p>
+
+<pre>option set, this method returns :no_catch as it will be caught at the
+group level.</pre>
+
+<p>@param [Guard::Plugin] guard the <a href="../Guard.html">Guard</a> plugin
+to execute @return [Symbol] the symbol to catch</p>
+          
+          
+
+          
+          <div class="method-source-code" id="stopping_symbol_for-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/guard-2.14.2/lib/guard/runner.rb, line 110</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">stopping_symbol_for</span>(<span class="ruby-identifier">guard</span>)
+  <span class="ruby-identifier">guard</span>.<span class="ruby-identifier">group</span>.<span class="ruby-identifier">options</span>[<span class="ruby-value">:halt_on_fail</span>] <span class="ruby-operator">?</span> <span class="ruby-value">:no_catch</span> <span class="ruby-operator">:</span> <span class="ruby-value">:task_has_failed</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-_supervise" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">_supervise</span><span
+            class="method-args">(plugin, task, *args)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Run a <a href="../Guard.html">Guard</a> plugin task, but remove the <a
+href="../Guard.html">Guard</a> plugin when his work leads to a system
+failure.</p>
+
+<p>When the <a href="Group.html">Group</a> has `:halt_on_fail` disabled,
+we&#39;ve to catch `:task_has_failed` here in order to avoid an uncaught
+throw error.</p>
+
+<p>@param [Guard::Plugin] guard the <a href="../Guard.html">Guard</a> to
+execute @param [Symbol] task the task to run @param [Array] args the
+arguments for the task @raise [:task_has_failed] when task has failed</p>
+          
+          
+
+          
+          <div class="method-source-code" id="_supervise-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/guard-2.14.2/lib/guard/runner.rb, line 78</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">_supervise</span>(<span class="ruby-identifier">plugin</span>, <span class="ruby-identifier">task</span>, <span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
+  <span class="ruby-identifier">catch</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">class</span>.<span class="ruby-identifier">stopping_symbol_for</span>(<span class="ruby-identifier">plugin</span>) <span class="ruby-keyword">do</span>
+    <span class="ruby-identifier">plugin</span>.<span class="ruby-identifier">hook</span>(<span class="ruby-node">&quot;#{ task }_begin&quot;</span>, <span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
+    <span class="ruby-identifier">result</span> = <span class="ruby-constant">UI</span>.<span class="ruby-identifier">options</span>.<span class="ruby-identifier">with_progname</span>(<span class="ruby-identifier">plugin</span>.<span class="ruby-identifier">class</span>.<span class="ruby-identifier">name</span>) <span class="ruby-keyword">do</span>
+      <span class="ruby-keyword">begin</span>
+        <span class="ruby-identifier">plugin</span>.<span class="ruby-identifier">send</span>(<span class="ruby-identifier">task</span>, <span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
+      <span class="ruby-keyword">rescue</span> <span class="ruby-constant">Interrupt</span>
+        <span class="ruby-identifier">throw</span>(<span class="ruby-value">:task_has_failed</span>)
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-identifier">plugin</span>.<span class="ruby-identifier">hook</span>(<span class="ruby-node">&quot;#{ task }_end&quot;</span>, <span class="ruby-identifier">result</span>)
+    <span class="ruby-identifier">result</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">rescue</span> <span class="ruby-constant">ScriptError</span>, <span class="ruby-constant">StandardError</span>, <span class="ruby-constant">RuntimeError</span>
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">error</span>(<span class="ruby-node">&quot;#{ plugin.class.name } failed to achieve its&quot;</span>                         <span class="ruby-node">&quot; &lt;#{ task }&gt;, exception was:&quot;</span>                          <span class="ruby-node">&quot;\n#{ $!.class }: #{ $!.message }&quot;</span>                          <span class="ruby-node">&quot;\n#{ $!.backtrace.join(&quot;\n&quot;) }&quot;</span>)
+  <span class="ruby-constant">Guard</span>.<span class="ruby-identifier">state</span>.<span class="ruby-identifier">session</span>.<span class="ruby-identifier">plugins</span>.<span class="ruby-identifier">remove</span>(<span class="ruby-identifier">plugin</span>)
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">info</span>(<span class="ruby-node">&quot;\n#{ plugin.class.name } has just been fired&quot;</span>)
+  <span class="ruby-identifier">$!</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-run" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">run</span><span
+            class="method-args">(task, scope_hash = {})</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Runs a Guard-task on all registered plugins.</p>
+
+<p>@param [Symbol] task the task to run</p>
+
+<p>@param [Hash] scopes either the <a href="../Guard.html">Guard</a> plugin or
+the group to run the task on</p>
+          
+          
+
+          
+          <div class="method-source-code" id="run-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/guard-2.14.2/lib/guard/runner.rb, line 17</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">run</span>(<span class="ruby-identifier">task</span>, <span class="ruby-identifier">scope_hash</span> = {})
+  <span class="ruby-constant">Lumberjack</span>.<span class="ruby-identifier">unit_of_work</span> <span class="ruby-keyword">do</span>
+    <span class="ruby-identifier">items</span> = <span class="ruby-constant">Guard</span>.<span class="ruby-identifier">state</span>.<span class="ruby-identifier">scope</span>.<span class="ruby-identifier">grouped_plugins</span>(<span class="ruby-identifier">scope_hash</span> <span class="ruby-operator">||</span> {})
+    <span class="ruby-identifier">items</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">_group</span>, <span class="ruby-identifier">plugins</span><span class="ruby-operator">|</span>
+      <span class="ruby-identifier">_run_group_plugins</span>(<span class="ruby-identifier">plugins</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">plugin</span><span class="ruby-operator">|</span>
+        <span class="ruby-identifier">_supervise</span>(<span class="ruby-identifier">plugin</span>, <span class="ruby-identifier">task</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">plugin</span>.<span class="ruby-identifier">respond_to?</span>(<span class="ruby-identifier">task</span>)
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-run_on_changes" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">run_on_changes</span><span
+            class="method-args">(modified, added, removed)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Runs the appropriate tasks on all registered plugins based on the passed
+changes.</p>
+
+<p>@param [Array&lt;String&gt;] modified the modified paths. @param
+[Array&lt;String&gt;] added the added paths. @param [Array&lt;String&gt;]
+removed the removed paths.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="run_on_changes-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/guard-2.14.2/lib/guard/runner.rb, line 44</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">run_on_changes</span>(<span class="ruby-identifier">modified</span>, <span class="ruby-identifier">added</span>, <span class="ruby-identifier">removed</span>)
+  <span class="ruby-identifier">types</span> = {
+    <span class="ruby-constant">MODIFICATION_TASKS</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">modified</span>,
+    <span class="ruby-constant">ADDITION_TASKS</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">added</span>,
+    <span class="ruby-constant">REMOVAL_TASKS</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">removed</span>
+  }
+
+  <span class="ruby-constant">UI</span>.<span class="ruby-identifier">clearable</span>
+
+  <span class="ruby-constant">Guard</span>.<span class="ruby-identifier">state</span>.<span class="ruby-identifier">scope</span>.<span class="ruby-identifier">grouped_plugins</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">_group</span>, <span class="ruby-identifier">plugins</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">_run_group_plugins</span>(<span class="ruby-identifier">plugins</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">plugin</span><span class="ruby-operator">|</span>
+      <span class="ruby-constant">UI</span>.<span class="ruby-identifier">clear</span>
+      <span class="ruby-identifier">types</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">tasks</span>, <span class="ruby-identifier">unmatched_paths</span><span class="ruby-operator">|</span>
+        <span class="ruby-keyword">next</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">unmatched_paths</span>.<span class="ruby-identifier">empty?</span>
+        <span class="ruby-identifier">match_result</span> = <span class="ruby-constant">Watcher</span>.<span class="ruby-identifier">match_files</span>(<span class="ruby-identifier">plugin</span>, <span class="ruby-identifier">unmatched_paths</span>)
+        <span class="ruby-keyword">next</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">match_result</span>.<span class="ruby-identifier">empty?</span>
+        <span class="ruby-identifier">task</span> = <span class="ruby-identifier">tasks</span>.<span class="ruby-identifier">detect</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">meth</span><span class="ruby-operator">|</span> <span class="ruby-identifier">plugin</span>.<span class="ruby-identifier">respond_to?</span>(<span class="ruby-identifier">meth</span>) }
+        <span class="ruby-identifier">_supervise</span>(<span class="ruby-identifier">plugin</span>, <span class="ruby-identifier">task</span>, <span class="ruby-identifier">match_result</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">task</span>
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="https://rdoc.github.io/rdoc">RDoc</a> 5.0.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

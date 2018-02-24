@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>module ActiveRecord::ConnectionAdapters::DatabaseLimits - RDoc Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../../";
+  var index_rel_prefix = "../../";
+</script>
+
+<script src="../../js/jquery.js"></script>
+<script src="../../js/darkfish.js"></script>
+
+<link href="../../css/fonts.css" rel="stylesheet">
+<link href="../../css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="module">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../../table_of_contents.html#pages">Pages</a>
+    <a href="../../table_of_contents.html#classes">Classes</a>
+    <a href="../../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-i-allowed_index_name_length">#allowed_index_name_length</a>
+    
+    <li ><a href="#method-i-column_name_length">#column_name_length</a>
+    
+    <li ><a href="#method-i-columns_per_multicolumn_index">#columns_per_multicolumn_index</a>
+    
+    <li ><a href="#method-i-columns_per_table">#columns_per_table</a>
+    
+    <li ><a href="#method-i-in_clause_length">#in_clause_length</a>
+    
+    <li ><a href="#method-i-index_name_length">#index_name_length</a>
+    
+    <li ><a href="#method-i-indexes_per_table">#indexes_per_table</a>
+    
+    <li ><a href="#method-i-joins_per_query">#joins_per_query</a>
+    
+    <li ><a href="#method-i-sql_query_length">#sql_query_length</a>
+    
+    <li ><a href="#method-i-table_alias_length">#table_alias_length</a>
+    
+    <li ><a href="#method-i-table_name_length">#table_name_length</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="module-ActiveRecord::ConnectionAdapters::DatabaseLimits">
+  <h1 id="module-ActiveRecord::ConnectionAdapters::DatabaseLimits" class="module">
+    module ActiveRecord::ConnectionAdapters::DatabaseLimits
+  </h1>
+
+  <section class="description">
+    
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+
+    
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-allowed_index_name_length" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">allowed_index_name_length</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Returns the maximum allowed length for an index name. This limit is
+enforced by Rails and is less than or equal to <a
+href="DatabaseLimits.html#method-i-index_name_length">index_name_length</a>.
+The gap between <a
+href="DatabaseLimits.html#method-i-index_name_length">index_name_length</a>
+is to allow internal Rails operations to use prefixes in temporary
+operations.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="allowed_index_name_length-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/activerecord-5.1.5/lib/active_record/connection_adapters/abstract/database_limits.rb, line 24</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">allowed_index_name_length</span>
+  <span class="ruby-identifier">index_name_length</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-column_name_length" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">column_name_length</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Returns the maximum length of a column name.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="column_name_length-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/activerecord-5.1.5/lib/active_record/connection_adapters/abstract/database_limits.rb, line 10</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">column_name_length</span>
+  <span class="ruby-value">64</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-columns_per_multicolumn_index" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">columns_per_multicolumn_index</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Returns the maximum number of columns in a multicolumn index.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="columns_per_multicolumn_index-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/activerecord-5.1.5/lib/active_record/connection_adapters/abstract/database_limits.rb, line 44</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">columns_per_multicolumn_index</span>
+  <span class="ruby-value">16</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-columns_per_table" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">columns_per_table</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Returns the maximum number of columns per table.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="columns_per_table-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/activerecord-5.1.5/lib/active_record/connection_adapters/abstract/database_limits.rb, line 34</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">columns_per_table</span>
+  <span class="ruby-value">1024</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-in_clause_length" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">in_clause_length</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Returns the maximum number of elements in an IN (x,y,z) clause.
+<code>nil</code> means no limit.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="in_clause_length-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/activerecord-5.1.5/lib/active_record/connection_adapters/abstract/database_limits.rb, line 50</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">in_clause_length</span>
+  <span class="ruby-keyword">nil</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-index_name_length" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">index_name_length</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Returns the maximum length of an index name.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="index_name_length-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/activerecord-5.1.5/lib/active_record/connection_adapters/abstract/database_limits.rb, line 29</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">index_name_length</span>
+  <span class="ruby-value">64</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-indexes_per_table" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">indexes_per_table</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Returns the maximum number of indexes per table.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="indexes_per_table-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/activerecord-5.1.5/lib/active_record/connection_adapters/abstract/database_limits.rb, line 39</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">indexes_per_table</span>
+  <span class="ruby-value">16</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-joins_per_query" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">joins_per_query</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Returns maximum number of joins in a single query.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="joins_per_query-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/activerecord-5.1.5/lib/active_record/connection_adapters/abstract/database_limits.rb, line 60</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">joins_per_query</span>
+  <span class="ruby-value">256</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-sql_query_length" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">sql_query_length</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Returns the maximum length of an SQL query.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="sql_query_length-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/activerecord-5.1.5/lib/active_record/connection_adapters/abstract/database_limits.rb, line 55</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">sql_query_length</span>
+  <span class="ruby-value">1048575</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-table_alias_length" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">table_alias_length</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Returns the maximum length of a table alias.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="table_alias_length-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/activerecord-5.1.5/lib/active_record/connection_adapters/abstract/database_limits.rb, line 5</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">table_alias_length</span>
+  <span class="ruby-value">255</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-table_name_length" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">table_name_length</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Returns the maximum length of a table name.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="table_name_length-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/activerecord-5.1.5/lib/active_record/connection_adapters/abstract/database_limits.rb, line 15</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">table_name_length</span>
+  <span class="ruby-value">64</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="https://rdoc.github.io/rdoc">RDoc</a> 5.0.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

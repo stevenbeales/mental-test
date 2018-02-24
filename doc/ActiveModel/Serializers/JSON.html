@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>module ActiveModel::Serializers::JSON - RDoc Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../../";
+  var index_rel_prefix = "../../";
+</script>
+
+<script src="../../js/jquery.js"></script>
+<script src="../../js/darkfish.js"></script>
+
+<link href="../../css/fonts.css" rel="stylesheet">
+<link href="../../css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="module">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../../table_of_contents.html#pages">Pages</a>
+    <a href="../../table_of_contents.html#classes">Classes</a>
+    <a href="../../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    
+    <div id="includes-section" class="nav-section">
+  <h3>Included Modules</h3>
+
+  <ul class="link-list">
+  
+  
+    <li><a class="include" href="../Serialization.html">ActiveModel::Serialization</a>
+  
+  
+  </ul>
+</div>
+
+    <div id="extends-section" class="nav-section">
+  <h3>Extended With Modules</h3>
+
+  <ul class="link-list">
+    
+  
+    <li><a class="extend" href="../../ActiveSupport/Concern.html">ActiveSupport::Concern</a>
+  
+  
+  
+    <li><a class="extend" href="../Naming.html">ActiveModel::Naming</a>
+  
+  
+  </ul>
+</div>
+
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-i-as_json">#as_json</a>
+    
+    <li ><a href="#method-i-from_json">#from_json</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="module-ActiveModel::Serializers::JSON">
+  <h1 id="module-ActiveModel::Serializers::JSON" class="module">
+    module ActiveModel::Serializers::JSON
+  </h1>
+
+  <section class="description">
+    
+<h2 id="module-ActiveModel::Serializers::JSON-label-Active+Model+JSON+Serializer">Active Model JSON Serializer<span><a href="#module-ActiveModel::Serializers::JSON-label-Active+Model+JSON+Serializer">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+
+    
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-as_json" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">as_json</span><span
+            class="method-args">(options = nil)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Returns a hash representing the model. Some configuration can be passed
+through <code>options</code>.</p>
+
+<p>The option <code>include_root_in_json</code> controls the top-level
+behavior of <code>as_json</code>. If <code>true</code>,
+<code>as_json</code> will emit a single root node named after the
+object&#39;s type. The default value for <code>include_root_in_json</code>
+option is <code>false</code>.</p>
+
+<pre class="ruby"><span class="ruby-identifier">user</span> = <span class="ruby-constant">User</span>.<span class="ruby-identifier">find</span>(<span class="ruby-value">1</span>)
+<span class="ruby-identifier">user</span>.<span class="ruby-identifier">as_json</span>
+<span class="ruby-comment"># =&gt; { &quot;id&quot; =&gt; 1, &quot;name&quot; =&gt; &quot;Konata Izumi&quot;, &quot;age&quot; =&gt; 16,</span>
+<span class="ruby-comment">#     &quot;created_at&quot; =&gt; &quot;2006/08/01&quot;, &quot;awesome&quot; =&gt; true}</span>
+
+<span class="ruby-constant">ActiveRecord</span><span class="ruby-operator">::</span><span class="ruby-constant">Base</span>.<span class="ruby-identifier">include_root_in_json</span> = <span class="ruby-keyword">true</span>
+
+<span class="ruby-identifier">user</span>.<span class="ruby-identifier">as_json</span>
+<span class="ruby-comment"># =&gt; { &quot;user&quot; =&gt; { &quot;id&quot; =&gt; 1, &quot;name&quot; =&gt; &quot;Konata Izumi&quot;, &quot;age&quot; =&gt; 16,</span>
+<span class="ruby-comment">#                  &quot;created_at&quot; =&gt; &quot;2006/08/01&quot;, &quot;awesome&quot; =&gt; true } }</span>
+</pre>
+
+<p>This behavior can also be achieved by setting the <code>:root</code> option
+to <code>true</code> as in:</p>
+
+<pre class="ruby"><span class="ruby-identifier">user</span> = <span class="ruby-constant">User</span>.<span class="ruby-identifier">find</span>(<span class="ruby-value">1</span>)
+<span class="ruby-identifier">user</span>.<span class="ruby-identifier">as_json</span>(<span class="ruby-identifier">root</span><span class="ruby-operator">:</span> <span class="ruby-keyword">true</span>)
+<span class="ruby-comment"># =&gt; { &quot;user&quot; =&gt; { &quot;id&quot; =&gt; 1, &quot;name&quot; =&gt; &quot;Konata Izumi&quot;, &quot;age&quot; =&gt; 16,</span>
+<span class="ruby-comment">#                  &quot;created_at&quot; =&gt; &quot;2006/08/01&quot;, &quot;awesome&quot; =&gt; true } }</span>
+</pre>
+
+<p>Without any <code>options</code>, the returned <a
+href="../../Hash.html">Hash</a> will include all the model&#39;s
+attributes.</p>
+
+<pre class="ruby"><span class="ruby-identifier">user</span> = <span class="ruby-constant">User</span>.<span class="ruby-identifier">find</span>(<span class="ruby-value">1</span>)
+<span class="ruby-identifier">user</span>.<span class="ruby-identifier">as_json</span>
+<span class="ruby-comment"># =&gt; { &quot;id&quot; =&gt; 1, &quot;name&quot; =&gt; &quot;Konata Izumi&quot;, &quot;age&quot; =&gt; 16,</span>
+<span class="ruby-comment">#      &quot;created_at&quot; =&gt; &quot;2006/08/01&quot;, &quot;awesome&quot; =&gt; true}</span>
+</pre>
+
+<p>The <code>:only</code> and <code>:except</code> options can be used to
+limit the attributes included, and work similar to the
+<code>attributes</code> method.</p>
+
+<pre class="ruby"><span class="ruby-identifier">user</span>.<span class="ruby-identifier">as_json</span>(<span class="ruby-identifier">only</span><span class="ruby-operator">:</span> [:<span class="ruby-identifier">id</span>, :<span class="ruby-identifier">name</span>])
+<span class="ruby-comment"># =&gt; { &quot;id&quot; =&gt; 1, &quot;name&quot; =&gt; &quot;Konata Izumi&quot; }</span>
+
+<span class="ruby-identifier">user</span>.<span class="ruby-identifier">as_json</span>(<span class="ruby-identifier">except</span><span class="ruby-operator">:</span> [:<span class="ruby-identifier">id</span>, :<span class="ruby-identifier">created_at</span>, :<span class="ruby-identifier">age</span>])
+<span class="ruby-comment"># =&gt; { &quot;name&quot; =&gt; &quot;Konata Izumi&quot;, &quot;awesome&quot; =&gt; true }</span>
+</pre>
+
+<p>To include the result of some method calls on the model use
+<code>:methods</code>:</p>
+
+<pre class="ruby"><span class="ruby-identifier">user</span>.<span class="ruby-identifier">as_json</span>(<span class="ruby-identifier">methods</span><span class="ruby-operator">:</span> :<span class="ruby-identifier">permalink</span>)
+<span class="ruby-comment"># =&gt; { &quot;id&quot; =&gt; 1, &quot;name&quot; =&gt; &quot;Konata Izumi&quot;, &quot;age&quot; =&gt; 16,</span>
+<span class="ruby-comment">#      &quot;created_at&quot; =&gt; &quot;2006/08/01&quot;, &quot;awesome&quot; =&gt; true,</span>
+<span class="ruby-comment">#      &quot;permalink&quot; =&gt; &quot;1-konata-izumi&quot; }</span>
+</pre>
+
+<p>To include associations use <code>:include</code>:</p>
+
+<pre class="ruby"><span class="ruby-identifier">user</span>.<span class="ruby-identifier">as_json</span>(<span class="ruby-identifier">include</span><span class="ruby-operator">:</span> :<span class="ruby-identifier">posts</span>)
+<span class="ruby-comment"># =&gt; { &quot;id&quot; =&gt; 1, &quot;name&quot; =&gt; &quot;Konata Izumi&quot;, &quot;age&quot; =&gt; 16,</span>
+<span class="ruby-comment">#      &quot;created_at&quot; =&gt; &quot;2006/08/01&quot;, &quot;awesome&quot; =&gt; true,</span>
+<span class="ruby-comment">#      &quot;posts&quot; =&gt; [ { &quot;id&quot; =&gt; 1, &quot;author_id&quot; =&gt; 1, &quot;title&quot; =&gt; &quot;Welcome to the weblog&quot; },</span>
+<span class="ruby-comment">#                   { &quot;id&quot; =&gt; 2, &quot;author_id&quot; =&gt; 1, &quot;title&quot; =&gt; &quot;So I was thinking&quot; } ] }</span>
+</pre>
+
+<p>Second level and higher order associations work as well:</p>
+
+<pre class="ruby"><span class="ruby-identifier">user</span>.<span class="ruby-identifier">as_json</span>(<span class="ruby-identifier">include</span><span class="ruby-operator">:</span> { <span class="ruby-identifier">posts</span><span class="ruby-operator">:</span> {
+                           <span class="ruby-identifier">include</span><span class="ruby-operator">:</span> { <span class="ruby-identifier">comments</span><span class="ruby-operator">:</span> {
+                                          <span class="ruby-identifier">only</span><span class="ruby-operator">:</span> :<span class="ruby-identifier">body</span> } },
+                           <span class="ruby-identifier">only</span><span class="ruby-operator">:</span> :<span class="ruby-identifier">title</span> } })
+<span class="ruby-comment"># =&gt; { &quot;id&quot; =&gt; 1, &quot;name&quot; =&gt; &quot;Konata Izumi&quot;, &quot;age&quot; =&gt; 16,</span>
+<span class="ruby-comment">#      &quot;created_at&quot; =&gt; &quot;2006/08/01&quot;, &quot;awesome&quot; =&gt; true,</span>
+<span class="ruby-comment">#      &quot;posts&quot; =&gt; [ { &quot;comments&quot; =&gt; [ { &quot;body&quot; =&gt; &quot;1st post!&quot; }, { &quot;body&quot; =&gt; &quot;Second!&quot; } ],</span>
+<span class="ruby-comment">#                     &quot;title&quot; =&gt; &quot;Welcome to the weblog&quot; },</span>
+<span class="ruby-comment">#                   { &quot;comments&quot; =&gt; [ { &quot;body&quot; =&gt; &quot;Don&#39;t think too hard&quot; } ],</span>
+<span class="ruby-comment">#                     &quot;title&quot; =&gt; &quot;So I was thinking&quot; } ] }</span>
+</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="as_json-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/activemodel-5.1.5/lib/active_model/serializers/json.rb, line 88</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">as_json</span>(<span class="ruby-identifier">options</span> = <span class="ruby-keyword">nil</span>)
+  <span class="ruby-identifier">root</span> = <span class="ruby-keyword">if</span> <span class="ruby-identifier">options</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">options</span>.<span class="ruby-identifier">key?</span>(<span class="ruby-value">:root</span>)
+    <span class="ruby-identifier">options</span>[<span class="ruby-value">:root</span>]
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">include_root_in_json</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">root</span>
+    <span class="ruby-identifier">root</span> = <span class="ruby-identifier">model_name</span>.<span class="ruby-identifier">element</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">root</span> <span class="ruby-operator">==</span> <span class="ruby-keyword">true</span>
+    { <span class="ruby-identifier">root</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">serializable_hash</span>(<span class="ruby-identifier">options</span>) }
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">serializable_hash</span>(<span class="ruby-identifier">options</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-from_json" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">from_json</span><span
+            class="method-args">(json, include_root = include_root_in_json)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Sets the model <code>attributes</code> from a <a href="JSON.html">JSON</a>
+string. Returns <code>self</code>.</p>
+
+<pre class="ruby"><span class="ruby-keyword">class</span> <span class="ruby-constant">Person</span>
+  <span class="ruby-identifier">include</span> <span class="ruby-constant">ActiveModel</span><span class="ruby-operator">::</span><span class="ruby-constant">Serializers</span><span class="ruby-operator">::</span><span class="ruby-constant">JSON</span>
+
+  <span class="ruby-identifier">attr_accessor</span> :<span class="ruby-identifier">name</span>, :<span class="ruby-identifier">age</span>, :<span class="ruby-identifier">awesome</span>
+
+  <span class="ruby-keyword">def</span> <span class="ruby-identifier">attributes=</span>(<span class="ruby-identifier">hash</span>)
+    <span class="ruby-identifier">hash</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">key</span>, <span class="ruby-identifier">value</span><span class="ruby-operator">|</span>
+      <span class="ruby-identifier">send</span>(<span class="ruby-node">&quot;#{key}=&quot;</span>, <span class="ruby-identifier">value</span>)
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">def</span> <span class="ruby-identifier">attributes</span>
+    <span class="ruby-identifier">instance_values</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span>
+
+<span class="ruby-identifier">json</span> = { <span class="ruby-identifier">name</span><span class="ruby-operator">:</span> <span class="ruby-string">&#39;bob&#39;</span>, <span class="ruby-identifier">age</span><span class="ruby-operator">:</span> <span class="ruby-value">22</span>, <span class="ruby-identifier">awesome</span>:<span class="ruby-keyword">true</span> }.<span class="ruby-identifier">to_json</span>
+<span class="ruby-identifier">person</span> = <span class="ruby-constant">Person</span>.<span class="ruby-identifier">new</span>
+<span class="ruby-identifier">person</span>.<span class="ruby-identifier">from_json</span>(<span class="ruby-identifier">json</span>) <span class="ruby-comment"># =&gt; #&lt;Person:0x007fec5e7a0088 @age=22, @awesome=true, @name=&quot;bob&quot;&gt;</span>
+<span class="ruby-identifier">person</span>.<span class="ruby-identifier">name</span>            <span class="ruby-comment"># =&gt; &quot;bob&quot;</span>
+<span class="ruby-identifier">person</span>.<span class="ruby-identifier">age</span>             <span class="ruby-comment"># =&gt; 22</span>
+<span class="ruby-identifier">person</span>.<span class="ruby-identifier">awesome</span>         <span class="ruby-comment"># =&gt; true</span>
+</pre>
+
+<p>The default value for <code>include_root</code> is <code>false</code>. You
+can change it to <code>true</code> if the given <a
+href="JSON.html">JSON</a> string includes a single root node.</p>
+
+<pre class="ruby"><span class="ruby-identifier">json</span> = { <span class="ruby-identifier">person</span><span class="ruby-operator">:</span> { <span class="ruby-identifier">name</span><span class="ruby-operator">:</span> <span class="ruby-string">&#39;bob&#39;</span>, <span class="ruby-identifier">age</span><span class="ruby-operator">:</span> <span class="ruby-value">22</span>, <span class="ruby-identifier">awesome</span>:<span class="ruby-keyword">true</span> } }.<span class="ruby-identifier">to_json</span>
+<span class="ruby-identifier">person</span> = <span class="ruby-constant">Person</span>.<span class="ruby-identifier">new</span>
+<span class="ruby-identifier">person</span>.<span class="ruby-identifier">from_json</span>(<span class="ruby-identifier">json</span>, <span class="ruby-keyword">true</span>) <span class="ruby-comment"># =&gt; #&lt;Person:0x007fec5e7a0088 @age=22, @awesome=true, @name=&quot;bob&quot;&gt;</span>
+<span class="ruby-identifier">person</span>.<span class="ruby-identifier">name</span>                  <span class="ruby-comment"># =&gt; &quot;bob&quot;</span>
+<span class="ruby-identifier">person</span>.<span class="ruby-identifier">age</span>                   <span class="ruby-comment"># =&gt; 22</span>
+<span class="ruby-identifier">person</span>.<span class="ruby-identifier">awesome</span>               <span class="ruby-comment"># =&gt; true</span>
+</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="from_json-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/activemodel-5.1.5/lib/active_model/serializers/json.rb, line 137</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">from_json</span>(<span class="ruby-identifier">json</span>, <span class="ruby-identifier">include_root</span> = <span class="ruby-identifier">include_root_in_json</span>)
+  <span class="ruby-identifier">hash</span> = <span class="ruby-constant">ActiveSupport</span><span class="ruby-operator">::</span><span class="ruby-constant">JSON</span>.<span class="ruby-identifier">decode</span>(<span class="ruby-identifier">json</span>)
+  <span class="ruby-identifier">hash</span> = <span class="ruby-identifier">hash</span>.<span class="ruby-identifier">values</span>.<span class="ruby-identifier">first</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">include_root</span>
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">attributes</span> = <span class="ruby-identifier">hash</span>
+  <span class="ruby-keyword">self</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="https://rdoc.github.io/rdoc">RDoc</a> 5.0.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

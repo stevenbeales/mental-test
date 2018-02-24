@@ -1,0 +1,626 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class Concurrent::ReadWriteLock - RDoc Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../";
+  var index_rel_prefix = "../";
+</script>
+
+<script src="../js/jquery.js"></script>
+<script src="../js/darkfish.js"></script>
+
+<link href="../css/fonts.css" rel="stylesheet">
+<link href="../css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../table_of_contents.html#pages">Pages</a>
+    <a href="../table_of_contents.html#classes">Classes</a>
+    <a href="../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link">Synchronization::Object
+  
+</div>
+
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li class="calls-super" ><a href="#method-c-new">::new</a>
+    
+    <li ><a href="#method-i-acquire_read_lock">#acquire_read_lock</a>
+    
+    <li ><a href="#method-i-acquire_write_lock">#acquire_write_lock</a>
+    
+    <li ><a href="#method-i-has_waiters-3F">#has_waiters?</a>
+    
+    <li ><a href="#method-i-release_read_lock">#release_read_lock</a>
+    
+    <li ><a href="#method-i-release_write_lock">#release_write_lock</a>
+    
+    <li ><a href="#method-i-with_read_lock">#with_read_lock</a>
+    
+    <li ><a href="#method-i-with_write_lock">#with_write_lock</a>
+    
+    <li ><a href="#method-i-write_locked-3F">#write_locked?</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-Concurrent::ReadWriteLock">
+  <h1 id="class-Concurrent::ReadWriteLock" class="class">
+    class Concurrent::ReadWriteLock
+  </h1>
+
+  <section class="description">
+    
+<p>Ruby read-write lock implementation</p>
+
+<p>Allows any number of concurrent readers, but only one concurrent writer
+(And if the “write” lock is taken, any readers who come along will have to
+wait)</p>
+
+<p>If readers are already active when a writer comes along, the writer will
+wait for all the readers to finish before going ahead. Any additional
+readers that come when the writer is already waiting, will also wait (so
+writers are not starved).</p>
+
+<p>This implementation is based on
+`java.util.concurrent.ReentrantReadWriteLock`.</p>
+
+<p>@example</p>
+
+<pre class="ruby"><span class="ruby-identifier">lock</span> = <span class="ruby-constant">Concurrent</span><span class="ruby-operator">::</span><span class="ruby-constant">ReadWriteLock</span>.<span class="ruby-identifier">new</span>
+<span class="ruby-identifier">lock</span>.<span class="ruby-identifier">with_read_lock</span>  { <span class="ruby-identifier">data</span>.<span class="ruby-identifier">retrieve</span> }
+<span class="ruby-identifier">lock</span>.<span class="ruby-identifier">with_write_lock</span> { <span class="ruby-identifier">data</span>.<span class="ruby-identifier">modify!</span> }
+</pre>
+
+<p>@note Do *<strong>not</strong>* try to acquire the write lock while already
+holding a read lock</p>
+
+<pre>**or** try to acquire the write lock while you already have it.
+This will lead to deadlock</pre>
+
+<p>@see <a
+href="http://docs.oracle.com/javase/7/docs/api/java/util/concurrent/locks/ReentrantReadWriteLock.html">docs.oracle.com/javase/7/docs/api/java/util/concurrent/locks/ReentrantReadWriteLock.html</a>
+java.util.concurrent.ReentrantReadWriteLock</p>
+
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+    <section class="constants-list">
+      <header>
+        <h3>Constants</h3>
+      </header>
+      <dl>
+      
+        <dt id="MAX_READERS">MAX_READERS
+        
+        <dd><p>@!visibility private</p>
+        
+      
+        <dt id="MAX_WRITERS">MAX_WRITERS
+        
+        <dd><p>@!visibility private</p>
+        
+      
+        <dt id="RUNNING_WRITER">RUNNING_WRITER
+        
+        <dd><p>@!visibility private</p>
+        
+      
+        <dt id="WAITING_WRITER">WAITING_WRITER
+        
+        <dd><p>@!visibility private</p>
+        
+      
+      </dl>
+    </section>
+    
+
+    
+
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Class Methods</h3>
+       </header>
+
+    
+      <div id="method-c-new" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">new</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Create a new `ReadWriteLock` in the unlocked state.</p>
+          
+          
+            <div class="method-calls-super">
+              Calls superclass method
+              
+            </div>
+          
+
+          
+          <div class="method-source-code" id="new-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/concurrent-ruby-1.0.5/lib/concurrent/atomic/read_write_lock.rb, line 58</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span>
+  <span class="ruby-keyword">super</span>()
+  <span class="ruby-ivar">@Counter</span>   = <span class="ruby-constant">AtomicFixnum</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">0</span>) <span class="ruby-comment"># single integer which represents lock state</span>
+  <span class="ruby-ivar">@ReadLock</span>  = <span class="ruby-constant">Synchronization</span><span class="ruby-operator">::</span><span class="ruby-constant">Lock</span>.<span class="ruby-identifier">new</span>
+  <span class="ruby-ivar">@WriteLock</span> = <span class="ruby-constant">Synchronization</span><span class="ruby-operator">::</span><span class="ruby-constant">Lock</span>.<span class="ruby-identifier">new</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-acquire_read_lock" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">acquire_read_lock</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Acquire a read lock. If a write lock has been acquired will block until it
+is released. Will not block if other read locks have been acquired.</p>
+
+<p>@return [Boolean] true if the lock is successfully acquired</p>
+
+<p>@raise [Concurrent::ResourceLimitError] if the maximum number of readers</p>
+
+<pre>is exceeded.</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="acquire_read_lock-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/concurrent-ruby-1.0.5/lib/concurrent/atomic/read_write_lock.rb, line 110</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">acquire_read_lock</span>
+  <span class="ruby-keyword">while</span> <span class="ruby-keyword">true</span>
+    <span class="ruby-identifier">c</span> = <span class="ruby-ivar">@Counter</span>.<span class="ruby-identifier">value</span>
+    <span class="ruby-identifier">raise</span> <span class="ruby-constant">ResourceLimitError</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&#39;Too many reader threads&#39;</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">max_readers?</span>(<span class="ruby-identifier">c</span>)
+
+    <span class="ruby-comment"># If a writer is waiting when we first queue up, we need to wait</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">waiting_writer?</span>(<span class="ruby-identifier">c</span>)
+      <span class="ruby-ivar">@ReadLock</span>.<span class="ruby-identifier">wait_until</span> { <span class="ruby-operator">!</span><span class="ruby-identifier">waiting_writer?</span> }
+
+      <span class="ruby-comment"># after a reader has waited once, they are allowed to &quot;barge&quot; ahead of waiting writers</span>
+      <span class="ruby-comment"># but if a writer is *running*, the reader still needs to wait (naturally)</span>
+      <span class="ruby-keyword">while</span> <span class="ruby-keyword">true</span>
+        <span class="ruby-identifier">c</span> = <span class="ruby-ivar">@Counter</span>.<span class="ruby-identifier">value</span>
+        <span class="ruby-keyword">if</span> <span class="ruby-identifier">running_writer?</span>(<span class="ruby-identifier">c</span>)
+          <span class="ruby-ivar">@ReadLock</span>.<span class="ruby-identifier">wait_until</span> { <span class="ruby-operator">!</span><span class="ruby-identifier">running_writer?</span> }
+        <span class="ruby-keyword">else</span>
+          <span class="ruby-keyword">return</span> <span class="ruby-keyword">if</span> <span class="ruby-ivar">@Counter</span>.<span class="ruby-identifier">compare_and_set</span>(<span class="ruby-identifier">c</span>, <span class="ruby-identifier">c</span><span class="ruby-operator">+</span><span class="ruby-value">1</span>)
+        <span class="ruby-keyword">end</span>
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-keyword">break</span> <span class="ruby-keyword">if</span> <span class="ruby-ivar">@Counter</span>.<span class="ruby-identifier">compare_and_set</span>(<span class="ruby-identifier">c</span>, <span class="ruby-identifier">c</span><span class="ruby-operator">+</span><span class="ruby-value">1</span>)
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">true</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-acquire_write_lock" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">acquire_write_lock</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Acquire a write lock. Will block and wait for all active readers and
+writers.</p>
+
+<p>@return [Boolean] true if the lock is successfully acquired</p>
+
+<p>@raise [Concurrent::ResourceLimitError] if the maximum number of writers</p>
+
+<pre>is exceeded.</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="acquire_write_lock-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/concurrent-ruby-1.0.5/lib/concurrent/atomic/read_write_lock.rb, line 159</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">acquire_write_lock</span>
+  <span class="ruby-keyword">while</span> <span class="ruby-keyword">true</span>
+    <span class="ruby-identifier">c</span> = <span class="ruby-ivar">@Counter</span>.<span class="ruby-identifier">value</span>
+    <span class="ruby-identifier">raise</span> <span class="ruby-constant">ResourceLimitError</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&#39;Too many writer threads&#39;</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">max_writers?</span>(<span class="ruby-identifier">c</span>)
+
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">c</span> <span class="ruby-operator">==</span> <span class="ruby-value">0</span> <span class="ruby-comment"># no readers OR writers running</span>
+      <span class="ruby-comment"># if we successfully swap the RUNNING_WRITER bit on, then we can go ahead</span>
+      <span class="ruby-keyword">break</span> <span class="ruby-keyword">if</span> <span class="ruby-ivar">@Counter</span>.<span class="ruby-identifier">compare_and_set</span>(<span class="ruby-value">0</span>, <span class="ruby-constant">RUNNING_WRITER</span>)
+    <span class="ruby-keyword">elsif</span> <span class="ruby-ivar">@Counter</span>.<span class="ruby-identifier">compare_and_set</span>(<span class="ruby-identifier">c</span>, <span class="ruby-identifier">c</span><span class="ruby-operator">+</span><span class="ruby-constant">WAITING_WRITER</span>)
+      <span class="ruby-keyword">while</span> <span class="ruby-keyword">true</span>
+        <span class="ruby-comment"># Now we have successfully incremented, so no more readers will be able to increment</span>
+        <span class="ruby-comment">#   (they will wait instead)</span>
+        <span class="ruby-comment"># However, readers OR writers could decrement right here, OR another writer could increment</span>
+        <span class="ruby-ivar">@WriteLock</span>.<span class="ruby-identifier">wait_until</span> <span class="ruby-keyword">do</span>
+          <span class="ruby-comment"># So we have to do another check inside the synchronized section</span>
+          <span class="ruby-comment"># If a writer OR reader is running, then go to sleep</span>
+          <span class="ruby-identifier">c</span> = <span class="ruby-ivar">@Counter</span>.<span class="ruby-identifier">value</span>
+          <span class="ruby-operator">!</span><span class="ruby-identifier">running_writer?</span>(<span class="ruby-identifier">c</span>) <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-operator">!</span><span class="ruby-identifier">running_readers?</span>(<span class="ruby-identifier">c</span>)
+        <span class="ruby-keyword">end</span>
+
+        <span class="ruby-comment"># We just came out of a wait</span>
+        <span class="ruby-comment"># If we successfully turn the RUNNING_WRITER bit on with an atomic swap,</span>
+        <span class="ruby-comment"># Then we are OK to stop waiting and go ahead</span>
+        <span class="ruby-comment"># Otherwise go back and wait again</span>
+        <span class="ruby-identifier">c</span> = <span class="ruby-ivar">@Counter</span>.<span class="ruby-identifier">value</span>
+        <span class="ruby-keyword">break</span> <span class="ruby-keyword">if</span> <span class="ruby-operator">!</span><span class="ruby-identifier">running_writer?</span>(<span class="ruby-identifier">c</span>) <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-operator">!</span><span class="ruby-identifier">running_readers?</span>(<span class="ruby-identifier">c</span>) <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-ivar">@Counter</span>.<span class="ruby-identifier">compare_and_set</span>(<span class="ruby-identifier">c</span>, <span class="ruby-identifier">c</span><span class="ruby-operator">+</span><span class="ruby-constant">RUNNING_WRITER</span><span class="ruby-operator">-</span><span class="ruby-constant">WAITING_WRITER</span>)
+      <span class="ruby-keyword">end</span>
+      <span class="ruby-keyword">break</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">true</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-has_waiters-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">has_waiters?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Queries whether any threads are waiting to acquire the read or write lock.</p>
+
+<p>@return [Boolean] true if any threads are waiting for a lock else false</p>
+          
+          
+
+          
+          <div class="method-source-code" id="has_waiters-3F-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/concurrent-ruby-1.0.5/lib/concurrent/atomic/read_write_lock.rb, line 212</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">has_waiters?</span>
+  <span class="ruby-identifier">waiting_writer?</span>(<span class="ruby-ivar">@Counter</span>.<span class="ruby-identifier">value</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-release_read_lock" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">release_read_lock</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Release a previously acquired read lock.</p>
+
+<p>@return [Boolean] true if the lock is successfully released</p>
+          
+          
+
+          
+          <div class="method-source-code" id="release_read_lock-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/concurrent-ruby-1.0.5/lib/concurrent/atomic/read_write_lock.rb, line 139</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">release_read_lock</span>
+  <span class="ruby-keyword">while</span> <span class="ruby-keyword">true</span>
+    <span class="ruby-identifier">c</span> = <span class="ruby-ivar">@Counter</span>.<span class="ruby-identifier">value</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-ivar">@Counter</span>.<span class="ruby-identifier">compare_and_set</span>(<span class="ruby-identifier">c</span>, <span class="ruby-identifier">c</span><span class="ruby-operator">-</span><span class="ruby-value">1</span>)
+      <span class="ruby-comment"># If one or more writers were waiting, and we were the last reader, wake a writer up</span>
+      <span class="ruby-keyword">if</span> <span class="ruby-identifier">waiting_writer?</span>(<span class="ruby-identifier">c</span>) <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">running_readers</span>(<span class="ruby-identifier">c</span>) <span class="ruby-operator">==</span> <span class="ruby-value">1</span>
+        <span class="ruby-ivar">@WriteLock</span>.<span class="ruby-identifier">signal</span>
+      <span class="ruby-keyword">end</span>
+      <span class="ruby-keyword">break</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">true</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-release_write_lock" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">release_write_lock</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Release a previously acquired write lock.</p>
+
+<p>@return [Boolean] true if the lock is successfully released</p>
+          
+          
+
+          
+          <div class="method-source-code" id="release_write_lock-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/concurrent-ruby-1.0.5/lib/concurrent/atomic/read_write_lock.rb, line 195</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">release_write_lock</span>
+  <span class="ruby-identifier">c</span> = <span class="ruby-ivar">@Counter</span>.<span class="ruby-identifier">update</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">counter</span><span class="ruby-operator">|</span> <span class="ruby-identifier">counter</span><span class="ruby-operator">-</span><span class="ruby-constant">RUNNING_WRITER</span> }
+  <span class="ruby-ivar">@ReadLock</span>.<span class="ruby-identifier">broadcast</span>
+  <span class="ruby-ivar">@WriteLock</span>.<span class="ruby-identifier">signal</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">waiting_writers</span>(<span class="ruby-identifier">c</span>) <span class="ruby-operator">&gt;</span> <span class="ruby-value">0</span>
+  <span class="ruby-keyword">true</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-with_read_lock" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">with_read_lock</span><span
+            class="method-args">() { || ... }</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Execute a block operation within a read lock.</p>
+
+<p>@yield the task to be performed within the lock.</p>
+
+<p>@return [Object] the result of the block operation.</p>
+
+<p>@raise [ArgumentError] when no block is given. @raise
+[Concurrent::ResourceLimitError] if the maximum number of readers</p>
+
+<pre>is exceeded.</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="with_read_lock-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/concurrent-ruby-1.0.5/lib/concurrent/atomic/read_write_lock.rb, line 74</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">with_read_lock</span>
+  <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&#39;no block given&#39;</span>) <span class="ruby-keyword">unless</span> <span class="ruby-identifier">block_given?</span>
+  <span class="ruby-identifier">acquire_read_lock</span>
+  <span class="ruby-keyword">begin</span>
+    <span class="ruby-keyword">yield</span>
+  <span class="ruby-keyword">ensure</span>
+    <span class="ruby-identifier">release_read_lock</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-with_write_lock" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">with_write_lock</span><span
+            class="method-args">() { || ... }</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Execute a block operation within a write lock.</p>
+
+<p>@yield the task to be performed within the lock.</p>
+
+<p>@return [Object] the result of the block operation.</p>
+
+<p>@raise [ArgumentError] when no block is given. @raise
+[Concurrent::ResourceLimitError] if the maximum number of readers</p>
+
+<pre>is exceeded.</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="with_write_lock-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/concurrent-ruby-1.0.5/lib/concurrent/atomic/read_write_lock.rb, line 93</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">with_write_lock</span>
+  <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&#39;no block given&#39;</span>) <span class="ruby-keyword">unless</span> <span class="ruby-identifier">block_given?</span>
+  <span class="ruby-identifier">acquire_write_lock</span>
+  <span class="ruby-keyword">begin</span>
+    <span class="ruby-keyword">yield</span>
+  <span class="ruby-keyword">ensure</span>
+    <span class="ruby-identifier">release_write_lock</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-write_locked-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">write_locked?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Queries if the write lock is held by any thread.</p>
+
+<p>@return [Boolean] true if the write lock is held else false`</p>
+          
+          
+
+          
+          <div class="method-source-code" id="write_locked-3F-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/concurrent-ruby-1.0.5/lib/concurrent/atomic/read_write_lock.rb, line 205</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">write_locked?</span>
+  <span class="ruby-ivar">@Counter</span>.<span class="ruby-identifier">value</span> <span class="ruby-operator">&gt;=</span> <span class="ruby-constant">RUNNING_WRITER</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="https://rdoc.github.io/rdoc">RDoc</a> 5.0.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

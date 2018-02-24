@@ -1,0 +1,774 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>module Logging::MappedDiagnosticContext - RDoc Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../";
+  var index_rel_prefix = "../";
+</script>
+
+<script src="../js/jquery.js"></script>
+<script src="../js/darkfish.js"></script>
+
+<link href="../css/fonts.css" rel="stylesheet">
+<link href="../css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="module">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../table_of_contents.html#pages">Pages</a>
+    <a href="../table_of_contents.html#classes">Classes</a>
+    <a href="../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-i-5B-5D">#[]</a>
+    
+    <li ><a href="#method-i-5B-5D-3D">#[]=</a>
+    
+    <li ><a href="#method-i-clear">#clear</a>
+    
+    <li ><a href="#method-i-clear_context">#clear_context</a>
+    
+    <li ><a href="#method-i-context">#context</a>
+    
+    <li ><a href="#method-i-delete">#delete</a>
+    
+    <li ><a href="#method-i-flatten">#flatten</a>
+    
+    <li ><a href="#method-i-inherit">#inherit</a>
+    
+    <li ><a href="#method-i-peek">#peek</a>
+    
+    <li ><a href="#method-i-pop">#pop</a>
+    
+    <li ><a href="#method-i-push">#push</a>
+    
+    <li ><a href="#method-i-sanitize">#sanitize</a>
+    
+    <li ><a href="#method-i-stack">#stack</a>
+    
+    <li ><a href="#method-i-update">#update</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="module-Logging::MappedDiagnosticContext">
+  <h1 id="module-Logging::MappedDiagnosticContext" class="module">
+    module Logging::MappedDiagnosticContext
+  </h1>
+
+  <section class="description">
+    
+<p>A Mapped Diagnostic Context, or MDC in short, is an instrument used to
+distinguish interleaved log output from different sources. Log output is
+typically interleaved when a server handles multiple clients
+near-simultaneously.</p>
+
+<p>Interleaved log output can still be meaningful if each log entry from
+different contexts had a distinctive stamp. This is where MDCs come into
+play.</p>
+
+<p>The MDC provides a hash of contextual messages that are identified by
+unique keys. These unique keys are set by the application and appended to
+log messages to identify groups of log events. <a
+href="../One.html">One</a> use of the Mapped Diagnostic Context is to store
+HTTP request headers associated with a <a href="../Rack.html">Rack</a>
+request. These headers can be included with all log messages emitted while
+generating the HTTP response.</p>
+
+<p>When configured to do so, PatternLayout instances will automatically
+retrieve the mapped diagnostic context for the current thread with out any
+user intervention. This context information can be used to track user
+sessions in a <a href="../Rails.html">Rails</a> application, for example.</p>
+
+<p>Note that MDCs are managed on a per thread basis. MDC operations such as
+`[]`, `[]=`, and `clear` affect the MDC of the current thread only. MDCs of
+other threads remain unaffected.</p>
+
+<p>By default, when a new thread is created it will inherit the context of its
+parent thread. However, the `inherit` method may be used to inherit context
+for any other thread in the application.</p>
+
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+    <section class="constants-list">
+      <header>
+        <h3>Constants</h3>
+      </header>
+      <dl>
+      
+        <dt id="NAME">NAME
+        
+        <dd><p>The name used to retrieve the MDC from thread-local storage.</p>
+        
+      
+        <dt id="STACK_NAME">STACK_NAME
+        
+        <dd><p>The name used to retrieve the MDC stack from thread-local storage.</p>
+        
+      
+      </dl>
+    </section>
+    
+
+    
+
+    
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-5B-5D" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">[]</span><span
+            class="method-args">( key )</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Public: Get the context value identified with the key parameter.</p>
+
+<p>key - The <a href="../String.html">String</a> identifier for the context.</p>
+
+<p>Returns the value associated with the key or nil if there is no value
+present.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="5B-5D-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/logging-2.2.2/lib/logging/diagnostic_context.rb, line 62</span>
+<span class="ruby-keyword">def</span> <span class="ruby-operator">[]</span>( <span class="ruby-identifier">key</span> )
+  <span class="ruby-identifier">context</span>.<span class="ruby-identifier">fetch</span>(<span class="ruby-identifier">key</span>.<span class="ruby-identifier">to_s</span>, <span class="ruby-keyword">nil</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-5B-5D-3D" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">[]=</span><span
+            class="method-args">( key, value )</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Public: Put a context value as identified with the key parameter into the
+current thread&#39;s context map.</p>
+
+<p>key   - The <a href="../String.html">String</a> identifier for the context.
+value - The <a href="../String.html">String</a> value to store.</p>
+
+<p>Returns the value.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="5B-5D-3D-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/logging-2.2.2/lib/logging/diagnostic_context.rb, line 50</span>
+<span class="ruby-keyword">def</span> <span class="ruby-operator">[]=</span>( <span class="ruby-identifier">key</span>, <span class="ruby-identifier">value</span> )
+  <span class="ruby-identifier">clear_context</span>
+  <span class="ruby-identifier">peek</span>.<span class="ruby-identifier">store</span>(<span class="ruby-identifier">key</span>.<span class="ruby-identifier">to_s</span>, <span class="ruby-identifier">value</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-clear" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">clear</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Public: Clear all mapped diagnostic information if any. This method is
+useful in cases where the same thread can be potentially used over and over
+in different unrelated contexts.</p>
+
+<p>Returns the <a
+href="MappedDiagnosticContext.html">MappedDiagnosticContext</a>.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="clear-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/logging-2.2.2/lib/logging/diagnostic_context.rb, line 126</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">clear</span>
+  <span class="ruby-identifier">clear_context</span>
+  <span class="ruby-constant">Thread</span>.<span class="ruby-identifier">current</span>.<span class="ruby-identifier">thread_variable_set</span>(<span class="ruby-constant">STACK_NAME</span>, <span class="ruby-keyword">nil</span>)
+  <span class="ruby-keyword">self</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-clear_context" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">clear_context</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Remove the flattened context.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="clear_context-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/logging-2.2.2/lib/logging/diagnostic_context.rb, line 196</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">clear_context</span>
+  <span class="ruby-constant">Thread</span>.<span class="ruby-identifier">current</span>.<span class="ruby-identifier">thread_variable_set</span>(<span class="ruby-constant">NAME</span>, <span class="ruby-keyword">nil</span>)
+  <span class="ruby-keyword">self</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-context" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">context</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Returns the <a href="../Hash.html">Hash</a> acting as the storage for this
+<a href="MappedDiagnosticContext.html">MappedDiagnosticContext</a>. A new
+storage <a href="../Hash.html">Hash</a> is created for each Thread running
+in the application.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="context-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/logging-2.2.2/lib/logging/diagnostic_context.rb, line 160</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">context</span>
+  <span class="ruby-identifier">c</span> = <span class="ruby-constant">Thread</span>.<span class="ruby-identifier">current</span>.<span class="ruby-identifier">thread_variable_get</span>(<span class="ruby-constant">NAME</span>)
+
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">c</span>.<span class="ruby-identifier">nil?</span>
+    <span class="ruby-identifier">c</span> = <span class="ruby-keyword">if</span> <span class="ruby-constant">Thread</span>.<span class="ruby-identifier">current</span>.<span class="ruby-identifier">thread_variable_get</span>(<span class="ruby-constant">STACK_NAME</span>)
+      <span class="ruby-identifier">flatten</span>(<span class="ruby-identifier">stack</span>)
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-constant">Hash</span>.<span class="ruby-identifier">new</span>
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-constant">Thread</span>.<span class="ruby-identifier">current</span>.<span class="ruby-identifier">thread_variable_set</span>(<span class="ruby-constant">NAME</span>, <span class="ruby-identifier">c</span>)
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">c</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-delete" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">delete</span><span
+            class="method-args">( key )</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Public: Remove the context value identified with the key parameter.</p>
+
+<p>key - The <a href="../String.html">String</a> identifier for the context.</p>
+
+<p>Returns the value associated with the key or nil if there is no value
+present.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="delete-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/logging-2.2.2/lib/logging/diagnostic_context.rb, line 73</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">delete</span>( <span class="ruby-identifier">key</span> )
+  <span class="ruby-identifier">clear_context</span>
+  <span class="ruby-identifier">peek</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-identifier">key</span>.<span class="ruby-identifier">to_s</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-flatten" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">flatten</span><span
+            class="method-args">( ary )</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Given an <a href="../Array.html">Array</a> of <a
+href="../Hash.html">Hash</a> objects, flatten all the key/value pairs from
+the <a href="../Hash.html">Hash</a> objects in the ary into a single <a
+href="../Hash.html">Hash</a>. The flattening occurs left to right. So that
+the key/value in the very last <a href="../Hash.html">Hash</a> overrides
+any other key from the previous <a href="../Hash.html">Hash</a> objcts.</p>
+
+<p>ary - An <a href="../Array.html">Array</a> of <a
+href="../Hash.html">Hash</a> objects.</p>
+
+<p>Returns a <a href="../Hash.html">Hash</a>.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="flatten-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/logging-2.2.2/lib/logging/diagnostic_context.rb, line 229</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">flatten</span>( <span class="ruby-identifier">ary</span> )
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">ary</span>.<span class="ruby-identifier">first</span>.<span class="ruby-identifier">dup</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">ary</span>.<span class="ruby-identifier">length</span> <span class="ruby-operator">==</span> <span class="ruby-value">1</span>
+
+  <span class="ruby-identifier">hash</span> = {}
+  <span class="ruby-identifier">ary</span>.<span class="ruby-identifier">each</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">h</span><span class="ruby-operator">|</span> <span class="ruby-identifier">hash</span>.<span class="ruby-identifier">update</span> <span class="ruby-identifier">h</span> }
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">hash</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-inherit" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">inherit</span><span
+            class="method-args">( obj )</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Public: Inherit the diagnostic context of another thread. In the vast
+majority of cases the other thread will the parent that spawned the current
+thread. The diagnostic context from the parent thread is cloned before
+being inherited; the two diagnostic contexts can be changed independently.</p>
+
+<p>Returns the <a
+href="MappedDiagnosticContext.html">MappedDiagnosticContext</a>.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="inherit-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/logging-2.2.2/lib/logging/diagnostic_context.rb, line 140</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">inherit</span>( <span class="ruby-identifier">obj</span> )
+  <span class="ruby-keyword">case</span> <span class="ruby-identifier">obj</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-constant">Hash</span>
+    <span class="ruby-constant">Thread</span>.<span class="ruby-identifier">current</span>.<span class="ruby-identifier">thread_variable_set</span>(<span class="ruby-constant">STACK_NAME</span>, [<span class="ruby-identifier">obj</span>.<span class="ruby-identifier">dup</span>])
+  <span class="ruby-keyword">when</span> <span class="ruby-constant">Thread</span>
+    <span class="ruby-keyword">return</span> <span class="ruby-keyword">if</span> <span class="ruby-constant">Thread</span>.<span class="ruby-identifier">current</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">obj</span>
+    <span class="ruby-constant">DIAGNOSTIC_MUTEX</span>.<span class="ruby-identifier">synchronize</span> <span class="ruby-keyword">do</span>
+      <span class="ruby-keyword">if</span> <span class="ruby-identifier">hash</span> = <span class="ruby-identifier">obj</span>.<span class="ruby-identifier">thread_variable_get</span>(<span class="ruby-constant">STACK_NAME</span>)
+        <span class="ruby-constant">Thread</span>.<span class="ruby-identifier">current</span>.<span class="ruby-identifier">thread_variable_set</span>(<span class="ruby-constant">STACK_NAME</span>, [<span class="ruby-identifier">flatten</span>(<span class="ruby-identifier">hash</span>)])
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">self</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-peek" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">peek</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Returns the most current <a href="../Hash.html">Hash</a> from the stack of
+contexts.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="peek-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/logging-2.2.2/lib/logging/diagnostic_context.rb, line 190</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">peek</span>
+  <span class="ruby-identifier">stack</span>.<span class="ruby-identifier">last</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-pop" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">pop</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Public: Remove the most recently pushed <a href="../Hash.html">Hash</a>
+from the stack of contexts. If no contexts have been pushed then no action
+will be taken. The default context cannot be popped off the stack; please
+use the `clear` method if you want to remove all key/value pairs from the
+context.</p>
+
+<p>Returns nil or the <a href="../Hash.html">Hash</a> removed from the stack.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="pop-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/logging-2.2.2/lib/logging/diagnostic_context.rb, line 112</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">pop</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">unless</span> <span class="ruby-constant">Thread</span>.<span class="ruby-identifier">current</span>.<span class="ruby-identifier">thread_variable_get</span>(<span class="ruby-constant">STACK_NAME</span>)
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">stack</span>.<span class="ruby-identifier">length</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">1</span>
+  <span class="ruby-identifier">clear_context</span>
+  <span class="ruby-identifier">stack</span>.<span class="ruby-identifier">pop</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-push" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">push</span><span
+            class="method-args">( hash )</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Public: Push a new <a href="../Hash.html">Hash</a> of key/value pairs onto
+the stack of contexts.</p>
+
+<p>hash - The <a href="../Hash.html">Hash</a> of values to push onto the
+context stack.</p>
+
+<p>Returns this context. Raises an ArgumentError if hash is not a <a
+href="../Hash.html">Hash</a>.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="push-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/logging-2.2.2/lib/logging/diagnostic_context.rb, line 99</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">push</span>( <span class="ruby-identifier">hash</span> )
+  <span class="ruby-identifier">clear_context</span>
+  <span class="ruby-identifier">stack</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">sanitize</span>(<span class="ruby-identifier">hash</span>)
+  <span class="ruby-keyword">self</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-sanitize" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">sanitize</span><span
+            class="method-args">( hash, target = {} )</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Given a <a href="../Hash.html">Hash</a> convert all keys into Strings. The
+values are not altered in any way. The converted keys and their values are
+stored in the target <a href="../Hash.html">Hash</a> if provided. Otherwise
+a new <a href="../Hash.html">Hash</a> is created and returned.</p>
+
+<p>hash   - The <a href="../Hash.html">Hash</a> of values to push onto the
+context stack. target - The target <a href="../Hash.html">Hash</a> to store
+the key value pairs.</p>
+
+<p>Returns a new <a href="../Hash.html">Hash</a> with all keys converted to
+Strings. Raises an ArgumentError if hash is not a <a
+href="../Hash.html">Hash</a>.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="sanitize-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/logging-2.2.2/lib/logging/diagnostic_context.rb, line 211</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">sanitize</span>( <span class="ruby-identifier">hash</span>, <span class="ruby-identifier">target</span> = {} )
+  <span class="ruby-keyword">unless</span> <span class="ruby-identifier">hash</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">Hash</span>)
+    <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>, <span class="ruby-node">&quot;Expecting a Hash but received a #{hash.class.name}&quot;</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">hash</span>.<span class="ruby-identifier">each</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">k</span>,<span class="ruby-identifier">v</span><span class="ruby-operator">|</span> <span class="ruby-identifier">target</span>[<span class="ruby-identifier">k</span>.<span class="ruby-identifier">to_s</span>] = <span class="ruby-identifier">v</span> }
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">target</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-stack" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">stack</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Returns the stack of <a href="../Hash.html">Hash</a> objects that are
+storing the diagnostic context information. This stack is guarnteed to
+always contain at least one <a href="../Hash.html">Hash</a>.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="stack-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/logging-2.2.2/lib/logging/diagnostic_context.rb, line 179</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">stack</span>
+  <span class="ruby-identifier">s</span> = <span class="ruby-constant">Thread</span>.<span class="ruby-identifier">current</span>.<span class="ruby-identifier">thread_variable_get</span>(<span class="ruby-constant">STACK_NAME</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">s</span>.<span class="ruby-identifier">nil?</span>
+    <span class="ruby-identifier">s</span> = [{}]
+    <span class="ruby-constant">Thread</span>.<span class="ruby-identifier">current</span>.<span class="ruby-identifier">thread_variable_set</span>(<span class="ruby-constant">STACK_NAME</span>, <span class="ruby-identifier">s</span>)
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">s</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-update" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">update</span><span
+            class="method-args">( hash )</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Public: Add all the key/value pairs from the given hash to the current
+mapped diagnostic context. The keys will be converted to strings. Existing
+keys of the same name will be overwritten.</p>
+
+<p>hash - The <a href="../Hash.html">Hash</a> of values to add to the current
+context.</p>
+
+<p>Returns this context.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="update-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/logging-2.2.2/lib/logging/diagnostic_context.rb, line 86</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">update</span>( <span class="ruby-identifier">hash</span> )
+  <span class="ruby-identifier">clear_context</span>
+  <span class="ruby-identifier">sanitize</span>(<span class="ruby-identifier">hash</span>, <span class="ruby-identifier">peek</span>)
+  <span class="ruby-keyword">self</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="https://rdoc.github.io/rdoc">RDoc</a> 5.0.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

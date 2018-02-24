@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>module ActiveSupport::Benchmarkable - RDoc Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../";
+  var index_rel_prefix = "../";
+</script>
+
+<script src="../js/jquery.js"></script>
+<script src="../js/darkfish.js"></script>
+
+<link href="../css/fonts.css" rel="stylesheet">
+<link href="../css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="module">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../table_of_contents.html#pages">Pages</a>
+    <a href="../table_of_contents.html#classes">Classes</a>
+    <a href="../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-i-benchmark">#benchmark</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="module-ActiveSupport::Benchmarkable">
+  <h1 id="module-ActiveSupport::Benchmarkable" class="module">
+    module ActiveSupport::Benchmarkable
+  </h1>
+
+  <section class="description">
+    
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+
+    
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-benchmark" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">benchmark</span><span
+            class="method-args">(message = "Benchmarking", options = {}) { || ... }</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Allows you to measure the execution time of a block in a template and
+records the result to the log. Wrap this block around expensive operations
+or possible bottlenecks to get a time reading for the operation. For
+example, let&#39;s say you thought your file processing method was taking
+too long; you could wrap it in a benchmark block.</p>
+
+<pre>&lt;% benchmark &#39;Process data files&#39; do %&gt;
+  &lt;%= expensive_files_operation %&gt;
+&lt;% end %&gt;</pre>
+
+<p>That would add something like “Process data files (345.2ms)” to the log,
+which you can then use to compare timings when optimizing your code.</p>
+
+<p>You may give an optional logger level (<code>:debug</code>,
+<code>:info</code>, <code>:warn</code>, <code>:error</code>) as the
+<code>:level</code> option. The default logger level value is
+<code>:info</code>.</p>
+
+<pre>&lt;% benchmark &#39;Low-level files&#39;, level: :debug do %&gt;
+  &lt;%= lowlevel_files_operation %&gt;
+&lt;% end %&gt;</pre>
+
+<p>Finally, you can pass true as the third argument to silence all log
+activity (other than the timing information) from inside the block. This is
+great for boiling down a noisy block to just a single statement that
+produces one log line:</p>
+
+<pre>&lt;% benchmark &#39;Process data files&#39;, level: :info, silence: true do %&gt;
+  &lt;%= expensive_and_chatty_files_operation %&gt;
+&lt;% end %&gt;</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="benchmark-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/activesupport-5.1.5/lib/active_support/benchmarkable.rb, line 35</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">benchmark</span>(<span class="ruby-identifier">message</span> = <span class="ruby-string">&quot;Benchmarking&quot;</span>, <span class="ruby-identifier">options</span> = {})
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">logger</span>
+    <span class="ruby-identifier">options</span>.<span class="ruby-identifier">assert_valid_keys</span>(<span class="ruby-value">:level</span>, <span class="ruby-value">:silence</span>)
+    <span class="ruby-identifier">options</span>[<span class="ruby-value">:level</span>] <span class="ruby-operator">||=</span> <span class="ruby-value">:info</span>
+
+    <span class="ruby-identifier">result</span> = <span class="ruby-keyword">nil</span>
+    <span class="ruby-identifier">ms</span> = <span class="ruby-constant">Benchmark</span>.<span class="ruby-identifier">ms</span> { <span class="ruby-identifier">result</span> = <span class="ruby-identifier">options</span>[<span class="ruby-value">:silence</span>] <span class="ruby-operator">?</span> <span class="ruby-identifier">logger</span>.<span class="ruby-identifier">silence</span> { <span class="ruby-keyword">yield</span> } <span class="ruby-operator">:</span> <span class="ruby-keyword">yield</span> }
+    <span class="ruby-identifier">logger</span>.<span class="ruby-identifier">send</span>(<span class="ruby-identifier">options</span>[<span class="ruby-value">:level</span>], <span class="ruby-string">&quot;%s (%.1fms)&quot;</span> <span class="ruby-operator">%</span> [ <span class="ruby-identifier">message</span>, <span class="ruby-identifier">ms</span> ])
+    <span class="ruby-identifier">result</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-keyword">yield</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="https://rdoc.github.io/rdoc">RDoc</a> 5.0.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

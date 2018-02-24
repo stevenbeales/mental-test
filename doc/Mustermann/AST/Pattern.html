@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class Mustermann::AST::Pattern - RDoc Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../../";
+  var index_rel_prefix = "../../";
+</script>
+
+<script src="../../js/jquery.js"></script>
+<script src="../../js/darkfish.js"></script>
+
+<link href="../../css/fonts.css" rel="stylesheet">
+<link href="../../css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../../table_of_contents.html#pages">Pages</a>
+    <a href="../../table_of_contents.html#classes">Classes</a>
+    <a href="../../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link"><a href="../RegexpBased.html">Mustermann::RegexpBased</a>
+  
+</div>
+
+    
+    <div id="extends-section" class="nav-section">
+  <h3>Extended With Modules</h3>
+
+  <ul class="link-list">
+    
+  
+    <li><span class="extend">Forwardable</span>
+  
+  
+  
+    <li><span class="extend">SingleForwardable</span>
+  
+  
+  </ul>
+</div>
+
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-c-boundaries">::boundaries</a>
+    
+    <li ><a href="#method-c-compiler">::compiler</a>
+    
+    <li ><a href="#method-c-param_scanner">::param_scanner</a>
+    
+    <li ><a href="#method-c-parser">::parser</a>
+    
+    <li ><a href="#method-c-template_generator">::template_generator</a>
+    
+    <li ><a href="#method-c-transformer">::transformer</a>
+    
+    <li ><a href="#method-c-validation">::validation</a>
+    
+    <li ><a href="#method-i-expand">#expand</a>
+    
+    <li class="calls-super" ><a href="#method-i-map_param">#map_param</a>
+    
+    <li ><a href="#method-i-to_ast">#to_ast</a>
+    
+    <li ><a href="#method-i-to_templates">#to_templates</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-Mustermann::AST::Pattern">
+  <h1 id="class-Mustermann::AST::Pattern" class="class">
+    class Mustermann::AST::Pattern
+  </h1>
+
+  <section class="description">
+    
+<p>Superclass for pattern styles that parse an <a href="../AST.html">AST</a>
+from the string pattern. @abstract</p>
+
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Class Methods</h3>
+       </header>
+
+    
+      <div id="method-c-boundaries" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">boundaries</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>@api private @return [#set_boundaries] translator making sure start and
+stop is set on all nodes @!visibility private</p>
+          
+          
+
+          
+          <div class="method-source-code" id="boundaries-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/mustermann-1.0.2/lib/mustermann/ast/pattern.rb, line 45</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">boundaries</span>
+  <span class="ruby-constant">Boundaries</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-compiler" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">compiler</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>@api private @return [#compile] compiler object for pattern @!visibility
+private</p>
+          
+          
+
+          
+          <div class="method-source-code" id="compiler-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/mustermann-1.0.2/lib/mustermann/ast/pattern.rb, line 38</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">compiler</span>
+  <span class="ruby-constant">Compiler</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-param_scanner" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">param_scanner</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>@api private @return [#scan_params] param scanner for pattern @!visibility
+private</p>
+          
+          
+
+          
+          <div class="method-source-code" id="param_scanner-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/mustermann-1.0.2/lib/mustermann/ast/pattern.rb, line 73</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">param_scanner</span>
+  <span class="ruby-constant">ParamScanner</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-parser" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">parser</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>@api private @return [#parse] parser object for pattern @!visibility
+private</p>
+          
+          
+
+          
+          <div class="method-source-code" id="parser-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/mustermann-1.0.2/lib/mustermann/ast/pattern.rb, line 29</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">parser</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-constant">Parser</span> <span class="ruby-keyword">if</span> <span class="ruby-keyword">self</span> <span class="ruby-operator">==</span> <span class="ruby-constant">AST</span><span class="ruby-operator">::</span><span class="ruby-constant">Pattern</span>
+  <span class="ruby-identifier">const_set</span> <span class="ruby-value">:Parser</span>, <span class="ruby-constant">Class</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">superclass</span>.<span class="ruby-identifier">parser</span>) <span class="ruby-keyword">unless</span> <span class="ruby-identifier">const_defined?</span> <span class="ruby-value">:Parser</span>, <span class="ruby-keyword">false</span>
+  <span class="ruby-identifier">const_get</span> <span class="ruby-value">:Parser</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-template_generator" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">template_generator</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>@api private @return [#generate_templates] generates URI templates for
+pattern @!visibility private</p>
+          
+          
+
+          
+          <div class="method-source-code" id="template_generator-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/mustermann-1.0.2/lib/mustermann/ast/pattern.rb, line 66</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">template_generator</span>
+  <span class="ruby-constant">TemplateGenerator</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-transformer" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">transformer</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>@api private @return [#transform] transformer object for pattern
+@!visibility private</p>
+          
+          
+
+          
+          <div class="method-source-code" id="transformer-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/mustermann-1.0.2/lib/mustermann/ast/pattern.rb, line 52</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">transformer</span>
+  <span class="ruby-constant">Transformer</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-validation" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">validation</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>@api private @return [#validate] validation object for pattern @!visibility
+private</p>
+          
+          
+
+          
+          <div class="method-source-code" id="validation-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/mustermann-1.0.2/lib/mustermann/ast/pattern.rb, line 59</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">validation</span>
+  <span class="ruby-constant">Validation</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-expand" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">expand</span><span
+            class="method-args">(behavior = nil, values = {})</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>All AST-based pattern implementations support expanding.</p>
+
+<p>@example (see <a
+href="../Pattern.html#method-i-expand">Mustermann::Pattern#expand</a>)
+@param (see <a
+href="../Pattern.html#method-i-expand">Mustermann::Pattern#expand</a>)
+@return (see <a
+href="../Pattern.html#method-i-expand">Mustermann::Pattern#expand</a>)
+@raise (see <a
+href="../Pattern.html#method-i-expand">Mustermann::Pattern#expand</a>) @see
+<a href="../Pattern.html#method-i-expand">Mustermann::Pattern#expand</a>
+@see <a href="../Expander.html">Mustermann::Expander</a></p>
+          
+          
+
+          
+          <div class="method-source-code" id="expand-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/mustermann-1.0.2/lib/mustermann/ast/pattern.rb, line 105</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">expand</span>(<span class="ruby-identifier">behavior</span> = <span class="ruby-keyword">nil</span>, <span class="ruby-identifier">values</span> = {})
+  <span class="ruby-ivar">@expander</span> <span class="ruby-operator">||=</span> <span class="ruby-constant">Mustermann</span><span class="ruby-operator">::</span><span class="ruby-constant">Expander</span>.<span class="ruby-identifier">new</span>(<span class="ruby-keyword">self</span>)
+  <span class="ruby-ivar">@expander</span>.<span class="ruby-identifier">expand</span>(<span class="ruby-identifier">behavior</span>, <span class="ruby-identifier">values</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-map_param" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">map_param</span><span
+            class="method-args">(key, value)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>@!visibility private @see Mustermann::Pattern#map_param</p>
+          
+          
+            <div class="method-calls-super">
+              Calls superclass method
+              
+            </div>
+          
+
+          
+          <div class="method-source-code" id="map_param-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/mustermann-1.0.2/lib/mustermann/ast/pattern.rb, line 122</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">map_param</span>(<span class="ruby-identifier">key</span>, <span class="ruby-identifier">value</span>)
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">super</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">param_converters</span>.<span class="ruby-identifier">include?</span> <span class="ruby-identifier">key</span>
+  <span class="ruby-identifier">param_converters</span>[<span class="ruby-identifier">key</span>][<span class="ruby-keyword">super</span>]
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-to_ast" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">to_ast</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Internal <a href="../AST.html">AST</a> representation of pattern.
+@!visibility private</p>
+          
+          
+
+          
+          <div class="method-source-code" id="to_ast-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/mustermann-1.0.2/lib/mustermann/ast/pattern.rb, line 87</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">to_ast</span>
+  <span class="ruby-ivar">@ast_cache</span> <span class="ruby-operator">||=</span> <span class="ruby-constant">EqualityMap</span>.<span class="ruby-identifier">new</span>
+  <span class="ruby-ivar">@ast_cache</span>.<span class="ruby-identifier">fetch</span>(<span class="ruby-ivar">@string</span>) <span class="ruby-keyword">do</span>
+    <span class="ruby-identifier">ast</span>   = <span class="ruby-identifier">parse</span>(<span class="ruby-ivar">@string</span>, <span class="ruby-identifier">pattern</span><span class="ruby-operator">:</span> <span class="ruby-keyword">self</span>)
+    <span class="ruby-identifier">ast</span> <span class="ruby-operator">&amp;&amp;=</span> <span class="ruby-identifier">transform</span>(<span class="ruby-identifier">ast</span>)
+    <span class="ruby-identifier">ast</span> <span class="ruby-operator">&amp;&amp;=</span> <span class="ruby-identifier">set_boundaries</span>(<span class="ruby-identifier">ast</span>, <span class="ruby-identifier">string</span><span class="ruby-operator">:</span> <span class="ruby-ivar">@string</span>)
+    <span class="ruby-identifier">validate</span>(<span class="ruby-identifier">ast</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-to_templates" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">to_templates</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>All AST-based pattern implementations support generating templates.</p>
+
+<p>@example (see <a
+href="../Pattern.html#method-i-to_templates">Mustermann::Pattern#to_templates</a>)
+@param (see <a
+href="../Pattern.html#method-i-to_templates">Mustermann::Pattern#to_templates</a>)
+@return (see <a
+href="../Pattern.html#method-i-to_templates">Mustermann::Pattern#to_templates</a>)
+@see <a
+href="../Pattern.html#method-i-to_templates">Mustermann::Pattern#to_templates</a></p>
+          
+          
+
+          
+          <div class="method-source-code" id="to_templates-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/mustermann-1.0.2/lib/mustermann/ast/pattern.rb, line 116</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">to_templates</span>
+  <span class="ruby-ivar">@to_templates</span> <span class="ruby-operator">||=</span> <span class="ruby-identifier">generate_templates</span>(<span class="ruby-identifier">to_ast</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="https://rdoc.github.io/rdoc">RDoc</a> 5.0.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>module ActiveSupport::Notifications - RDoc Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../";
+  var index_rel_prefix = "../";
+</script>
+
+<script src="../js/jquery.js"></script>
+<script src="../js/darkfish.js"></script>
+
+<link href="../css/fonts.css" rel="stylesheet">
+<link href="../css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="module">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../table_of_contents.html#pages">Pages</a>
+    <a href="../table_of_contents.html#classes">Classes</a>
+    <a href="../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+<div class="nav-section">
+  <h3>Table of Contents</h3>
+
+  <ul class="link-list" role="directory">
+    <li><a href="#module-ActiveSupport::Notifications-label-Notifications">Notifications</a>
+    <li><a href="#module-ActiveSupport::Notifications-label-Instrumenters">Instrumenters</a>
+    <li><a href="#module-ActiveSupport::Notifications-label-Subscribers">Subscribers</a>
+    <li><a href="#module-ActiveSupport::Notifications-label-Temporary+Subscriptions">Temporary Subscriptions</a>
+    <li><a href="#module-ActiveSupport::Notifications-label-Subscribe+While+a+Block+Runs">Subscribe While a Block Runs</a>
+    <li><a href="#module-ActiveSupport::Notifications-label-Manual+Unsubscription">Manual Unsubscription</a>
+    <li><a href="#module-ActiveSupport::Notifications-label-Default+Queue">Default Queue</a>
+  </ul>
+</div>
+
+
+  <div id="class-metadata">
+    
+    
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-c-instrument">::instrument</a>
+    
+    <li ><a href="#method-c-instrumenter">::instrumenter</a>
+    
+    <li ><a href="#method-c-publish">::publish</a>
+    
+    <li ><a href="#method-c-subscribe">::subscribe</a>
+    
+    <li ><a href="#method-c-subscribed">::subscribed</a>
+    
+    <li ><a href="#method-c-unsubscribe">::unsubscribe</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="module-ActiveSupport::Notifications">
+  <h1 id="module-ActiveSupport::Notifications" class="module">
+    module ActiveSupport::Notifications
+  </h1>
+
+  <section class="description">
+    
+<h1 id="module-ActiveSupport::Notifications-label-Notifications"><a href="Notifications.html">Notifications</a><span><a href="#module-ActiveSupport::Notifications-label-Notifications">&para;</a> <a href="#top">&uarr;</a></span></h1>
+
+<p><code>ActiveSupport::Notifications</code> provides an instrumentation API
+for Ruby.</p>
+
+<h2 id="module-ActiveSupport::Notifications-label-Instrumenters">Instrumenters<span><a href="#module-ActiveSupport::Notifications-label-Instrumenters">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<p>To instrument an event you just need to do:</p>
+
+<pre class="ruby"><span class="ruby-constant">ActiveSupport</span><span class="ruby-operator">::</span><span class="ruby-constant">Notifications</span>.<span class="ruby-identifier">instrument</span>(<span class="ruby-string">&#39;render&#39;</span>, <span class="ruby-identifier">extra</span><span class="ruby-operator">:</span> :<span class="ruby-identifier">information</span>) <span class="ruby-keyword">do</span>
+  <span class="ruby-identifier">render</span> <span class="ruby-identifier">plain</span><span class="ruby-operator">:</span> <span class="ruby-string">&#39;Foo&#39;</span>
+<span class="ruby-keyword">end</span>
+</pre>
+
+<p>That first executes the block and then notifies all subscribers once done.</p>
+
+<p>In the example above <code>render</code> is the name of the event, and the
+rest is called the <em>payload</em>. The payload is a mechanism that allows
+instrumenters to pass extra information to subscribers. Payloads consist of
+a hash whose contents are arbitrary and generally depend on the event.</p>
+
+<h2 id="module-ActiveSupport::Notifications-label-Subscribers">Subscribers<span><a href="#module-ActiveSupport::Notifications-label-Subscribers">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<p>You can consume those events and the information they provide by
+registering a subscriber.</p>
+
+<pre class="ruby"><span class="ruby-constant">ActiveSupport</span><span class="ruby-operator">::</span><span class="ruby-constant">Notifications</span>.<span class="ruby-identifier">subscribe</span>(<span class="ruby-string">&#39;render&#39;</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">name</span>, <span class="ruby-identifier">start</span>, <span class="ruby-identifier">finish</span>, <span class="ruby-identifier">id</span>, <span class="ruby-identifier">payload</span><span class="ruby-operator">|</span>
+  <span class="ruby-identifier">name</span>    <span class="ruby-comment"># =&gt; String, name of the event (such as &#39;render&#39; from above)</span>
+  <span class="ruby-identifier">start</span>   <span class="ruby-comment"># =&gt; Time, when the instrumented block started execution</span>
+  <span class="ruby-identifier">finish</span>  <span class="ruby-comment"># =&gt; Time, when the instrumented block ended execution</span>
+  <span class="ruby-identifier">id</span>      <span class="ruby-comment"># =&gt; String, unique ID for this notification</span>
+  <span class="ruby-identifier">payload</span> <span class="ruby-comment"># =&gt; Hash, the payload</span>
+<span class="ruby-keyword">end</span>
+</pre>
+
+<p>For instance, let&#39;s store all “render” events in an array:</p>
+
+<pre class="ruby"><span class="ruby-identifier">events</span> = []
+
+<span class="ruby-constant">ActiveSupport</span><span class="ruby-operator">::</span><span class="ruby-constant">Notifications</span>.<span class="ruby-identifier">subscribe</span>(<span class="ruby-string">&#39;render&#39;</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-operator">*</span><span class="ruby-identifier">args</span><span class="ruby-operator">|</span>
+  <span class="ruby-identifier">events</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-constant">ActiveSupport</span><span class="ruby-operator">::</span><span class="ruby-constant">Notifications</span><span class="ruby-operator">::</span><span class="ruby-constant">Event</span>.<span class="ruby-identifier">new</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
+<span class="ruby-keyword">end</span>
+</pre>
+
+<p>That code returns right away, you are just subscribing to “render” events.
+The block is saved and will be called whenever someone instruments
+“render”:</p>
+
+<pre class="ruby"><span class="ruby-constant">ActiveSupport</span><span class="ruby-operator">::</span><span class="ruby-constant">Notifications</span>.<span class="ruby-identifier">instrument</span>(<span class="ruby-string">&#39;render&#39;</span>, <span class="ruby-identifier">extra</span><span class="ruby-operator">:</span> :<span class="ruby-identifier">information</span>) <span class="ruby-keyword">do</span>
+  <span class="ruby-identifier">render</span> <span class="ruby-identifier">plain</span><span class="ruby-operator">:</span> <span class="ruby-string">&#39;Foo&#39;</span>
+<span class="ruby-keyword">end</span>
+
+<span class="ruby-identifier">event</span> = <span class="ruby-identifier">events</span>.<span class="ruby-identifier">first</span>
+<span class="ruby-identifier">event</span>.<span class="ruby-identifier">name</span>      <span class="ruby-comment"># =&gt; &quot;render&quot;</span>
+<span class="ruby-identifier">event</span>.<span class="ruby-identifier">duration</span>  <span class="ruby-comment"># =&gt; 10 (in milliseconds)</span>
+<span class="ruby-identifier">event</span>.<span class="ruby-identifier">payload</span>   <span class="ruby-comment"># =&gt; { extra: :information }</span>
+</pre>
+
+<p>The block in the <code>subscribe</code> call gets the name of the event,
+start timestamp, end timestamp, a string with a unique identifier for that
+event (something like “535801666f04d0298cd6”), and a hash with the payload,
+in that order.</p>
+
+<p>If an exception happens during that particular instrumentation the payload
+will have a key <code>:exception</code> with an array of two elements as
+value: a string with the name of the exception class, and the exception
+message. The <code>:exception_object</code> key of the payload will have
+the exception itself as the value.</p>
+
+<p>As the previous example depicts, the class
+<code>ActiveSupport::Notifications::Event</code> is able to take the
+arguments as they come and provide an object-oriented interface to that
+data.</p>
+
+<p>It is also possible to pass an object which responds to <code>call</code>
+method as the second parameter to the <code>subscribe</code> method instead
+of a block:</p>
+
+<pre class="ruby"><span class="ruby-keyword">module</span> <span class="ruby-constant">ActionController</span>
+  <span class="ruby-keyword">class</span> <span class="ruby-constant">PageRequest</span>
+    <span class="ruby-keyword">def</span> <span class="ruby-identifier">call</span>(<span class="ruby-identifier">name</span>, <span class="ruby-identifier">started</span>, <span class="ruby-identifier">finished</span>, <span class="ruby-identifier">unique_id</span>, <span class="ruby-identifier">payload</span>)
+      <span class="ruby-constant">Rails</span>.<span class="ruby-identifier">logger</span>.<span class="ruby-identifier">debug</span> [<span class="ruby-string">&#39;notification:&#39;</span>, <span class="ruby-identifier">name</span>, <span class="ruby-identifier">started</span>, <span class="ruby-identifier">finished</span>, <span class="ruby-identifier">unique_id</span>, <span class="ruby-identifier">payload</span>].<span class="ruby-identifier">join</span>(<span class="ruby-string">&#39; &#39;</span>)
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span>
+
+<span class="ruby-constant">ActiveSupport</span><span class="ruby-operator">::</span><span class="ruby-constant">Notifications</span>.<span class="ruby-identifier">subscribe</span>(<span class="ruby-string">&#39;process_action.action_controller&#39;</span>, <span class="ruby-constant">ActionController</span><span class="ruby-operator">::</span><span class="ruby-constant">PageRequest</span>.<span class="ruby-identifier">new</span>)
+</pre>
+
+<p>resulting in the following output within the logs including a hash with the
+payload:</p>
+
+<pre>notification: process_action.action_controller 2012-04-13 01:08:35 +0300 2012-04-13 01:08:35 +0300 af358ed7fab884532ec7 {
+   controller: &quot;Devise::SessionsController&quot;,
+   action: &quot;new&quot;,
+   params: {&quot;action&quot;=&gt;&quot;new&quot;, &quot;controller&quot;=&gt;&quot;devise/sessions&quot;},
+   format: :html,
+   method: &quot;GET&quot;,
+   path: &quot;/login/sign_in&quot;,
+   status: 200,
+   view_runtime: 279.3080806732178,
+   db_runtime: 40.053
+ }</pre>
+
+<p>You can also subscribe to all events whose name matches a certain regexp:</p>
+
+<pre>ActiveSupport::Notifications.subscribe(/render/) do |*args|
+  ...
+end</pre>
+
+<p>and even pass no argument to <code>subscribe</code>, in which case you are
+subscribing to all events.</p>
+
+<h2 id="module-ActiveSupport::Notifications-label-Temporary+Subscriptions">Temporary Subscriptions<span><a href="#module-ActiveSupport::Notifications-label-Temporary+Subscriptions">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<p>Sometimes you do not want to subscribe to an event for the entire life of
+the application. There are two ways to unsubscribe.</p>
+
+<p>WARNING: The instrumentation framework is designed for long-running
+subscribers, use this feature sparingly because it wipes some internal
+caches and that has a negative impact on performance.</p>
+
+<h3 id="module-ActiveSupport::Notifications-label-Subscribe+While+a+Block+Runs">Subscribe While a Block Runs<span><a href="#module-ActiveSupport::Notifications-label-Subscribe+While+a+Block+Runs">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<p>You can subscribe to some event temporarily while some block runs. For
+example, in</p>
+
+<pre>callback = lambda {|*args| ... }
+ActiveSupport::Notifications.subscribed(callback, &quot;sql.active_record&quot;) do
+  ...
+end</pre>
+
+<p>the callback will be called for all “sql.active_record” events instrumented
+during the execution of the block. The callback is unsubscribed
+automatically after that.</p>
+
+<h3 id="module-ActiveSupport::Notifications-label-Manual+Unsubscription">Manual Unsubscription<span><a href="#module-ActiveSupport::Notifications-label-Manual+Unsubscription">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<p>The <code>subscribe</code> method returns a subscriber object:</p>
+
+<pre>subscriber = ActiveSupport::Notifications.subscribe(&quot;render&quot;) do |*args|
+  ...
+end</pre>
+
+<p>To prevent that block from being called anymore, just unsubscribe passing
+that reference:</p>
+
+<pre class="ruby"><span class="ruby-constant">ActiveSupport</span><span class="ruby-operator">::</span><span class="ruby-constant">Notifications</span>.<span class="ruby-identifier">unsubscribe</span>(<span class="ruby-identifier">subscriber</span>)
+</pre>
+
+<p>You can also unsubscribe by passing the name of the subscriber object. Note
+that this will unsubscribe all subscriptions with the given name:</p>
+
+<pre class="ruby"><span class="ruby-constant">ActiveSupport</span><span class="ruby-operator">::</span><span class="ruby-constant">Notifications</span>.<span class="ruby-identifier">unsubscribe</span>(<span class="ruby-string">&quot;render&quot;</span>)
+</pre>
+
+<h2 id="module-ActiveSupport::Notifications-label-Default+Queue">Default Queue<span><a href="#module-ActiveSupport::Notifications-label-Default+Queue">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<p><a href="Notifications.html">Notifications</a> ships with a queue
+implementation that consumes and publishes events to all log subscribers.
+You can use any queue implementation you want.</p>
+
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+    <section class="attribute-method-details" class="method-section">
+      <header>
+        <h3>Attributes</h3>
+      </header>
+
+      
+      <div id="attribute-c-notifier" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">notifier</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+    </section>
+    
+
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Class Methods</h3>
+       </header>
+
+    
+      <div id="method-c-instrument" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">instrument</span><span
+            class="method-args">(name, payload = {}) { |payload| ... }</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="instrument-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/activesupport-5.1.5/lib/active_support/notifications.rb, line 164</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">instrument</span>(<span class="ruby-identifier">name</span>, <span class="ruby-identifier">payload</span> = {})
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">notifier</span>.<span class="ruby-identifier">listening?</span>(<span class="ruby-identifier">name</span>)
+    <span class="ruby-identifier">instrumenter</span>.<span class="ruby-identifier">instrument</span>(<span class="ruby-identifier">name</span>, <span class="ruby-identifier">payload</span>) { <span class="ruby-keyword">yield</span> <span class="ruby-identifier">payload</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">block_given?</span> }
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-keyword">yield</span> <span class="ruby-identifier">payload</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">block_given?</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-instrumenter" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">instrumenter</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="instrumenter-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/activesupport-5.1.5/lib/active_support/notifications.rb, line 187</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">instrumenter</span>
+  <span class="ruby-constant">InstrumentationRegistry</span>.<span class="ruby-identifier">instance</span>.<span class="ruby-identifier">instrumenter_for</span>(<span class="ruby-identifier">notifier</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-publish" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">publish</span><span
+            class="method-args">(name, *args)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="publish-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/activesupport-5.1.5/lib/active_support/notifications.rb, line 160</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">publish</span>(<span class="ruby-identifier">name</span>, <span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
+  <span class="ruby-identifier">notifier</span>.<span class="ruby-identifier">publish</span>(<span class="ruby-identifier">name</span>, <span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-subscribe" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">subscribe</span><span
+            class="method-args">(*args, &block)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="subscribe-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/activesupport-5.1.5/lib/active_support/notifications.rb, line 172</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">subscribe</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+  <span class="ruby-identifier">notifier</span>.<span class="ruby-identifier">subscribe</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-subscribed" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">subscribed</span><span
+            class="method-args">(callback, *args) { || ... }</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="subscribed-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/activesupport-5.1.5/lib/active_support/notifications.rb, line 176</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">subscribed</span>(<span class="ruby-identifier">callback</span>, <span class="ruby-operator">*</span><span class="ruby-identifier">args</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+  <span class="ruby-identifier">subscriber</span> = <span class="ruby-identifier">subscribe</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">callback</span>)
+  <span class="ruby-keyword">yield</span>
+<span class="ruby-keyword">ensure</span>
+  <span class="ruby-identifier">unsubscribe</span>(<span class="ruby-identifier">subscriber</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-unsubscribe" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">unsubscribe</span><span
+            class="method-args">(subscriber_or_name)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="unsubscribe-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/activesupport-5.1.5/lib/active_support/notifications.rb, line 183</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">unsubscribe</span>(<span class="ruby-identifier">subscriber_or_name</span>)
+  <span class="ruby-identifier">notifier</span>.<span class="ruby-identifier">unsubscribe</span>(<span class="ruby-identifier">subscriber_or_name</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="https://rdoc.github.io/rdoc">RDoc</a> 5.0.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>module DateAndTime::Zones - RDoc Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../";
+  var index_rel_prefix = "../";
+</script>
+
+<script src="../js/jquery.js"></script>
+<script src="../js/darkfish.js"></script>
+
+<link href="../css/fonts.css" rel="stylesheet">
+<link href="../css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="module">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../table_of_contents.html#pages">Pages</a>
+    <a href="../table_of_contents.html#classes">Classes</a>
+    <a href="../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-i-in_time_zone">#in_time_zone</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="module-DateAndTime::Zones">
+  <h1 id="module-DateAndTime::Zones" class="module">
+    module DateAndTime::Zones
+  </h1>
+
+  <section class="description">
+    
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+
+    
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-in_time_zone" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">in_time_zone</span><span
+            class="method-args">(zone = ::Time.zone)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Returns the simultaneous time in <code>Time.zone</code> if a zone is given
+or if <a href="../Time.html#attribute-c-zone_default">Time.zone_default</a>
+is set. Otherwise, it returns the current time.</p>
+
+<pre class="ruby"><span class="ruby-constant">Time</span>.<span class="ruby-identifier">zone</span> = <span class="ruby-string">&#39;Hawaii&#39;</span>        <span class="ruby-comment"># =&gt; &#39;Hawaii&#39;</span>
+<span class="ruby-constant">Time</span>.<span class="ruby-identifier">utc</span>(<span class="ruby-value">2000</span>).<span class="ruby-identifier">in_time_zone</span> <span class="ruby-comment"># =&gt; Fri, 31 Dec 1999 14:00:00 HST -10:00</span>
+<span class="ruby-constant">Date</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">2000</span>).<span class="ruby-identifier">in_time_zone</span> <span class="ruby-comment"># =&gt; Sat, 01 Jan 2000 00:00:00 HST -10:00</span>
+</pre>
+
+<p>This method is similar to Time#localtime, except that it uses
+<code>Time.zone</code> as the local zone instead of the operating
+system&#39;s time zone.</p>
+
+<p>You can also pass in a TimeZone instance or string that identifies a
+TimeZone as an argument, and the conversion will be based on that zone
+instead of <code>Time.zone</code>.</p>
+
+<pre class="ruby"><span class="ruby-constant">Time</span>.<span class="ruby-identifier">utc</span>(<span class="ruby-value">2000</span>).<span class="ruby-identifier">in_time_zone</span>(<span class="ruby-string">&#39;Alaska&#39;</span>) <span class="ruby-comment"># =&gt; Fri, 31 Dec 1999 15:00:00 AKST -09:00</span>
+<span class="ruby-constant">Date</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">2000</span>).<span class="ruby-identifier">in_time_zone</span>(<span class="ruby-string">&#39;Alaska&#39;</span>) <span class="ruby-comment"># =&gt; Sat, 01 Jan 2000 00:00:00 AKST -09:00</span>
+</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="in_time_zone-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/activesupport-5.1.5/lib/active_support/core_ext/date_and_time/zones.rb, line 18</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">in_time_zone</span>(<span class="ruby-identifier">zone</span> = <span class="ruby-operator">::</span><span class="ruby-constant">Time</span>.<span class="ruby-identifier">zone</span>)
+  <span class="ruby-identifier">time_zone</span> = <span class="ruby-operator">::</span><span class="ruby-constant">Time</span>.<span class="ruby-identifier">find_zone!</span> <span class="ruby-identifier">zone</span>
+  <span class="ruby-identifier">time</span> = <span class="ruby-identifier">acts_like?</span>(<span class="ruby-value">:time</span>) <span class="ruby-operator">?</span> <span class="ruby-keyword">self</span> <span class="ruby-operator">:</span> <span class="ruby-keyword">nil</span>
+
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">time_zone</span>
+    <span class="ruby-identifier">time_with_zone</span>(<span class="ruby-identifier">time</span>, <span class="ruby-identifier">time_zone</span>)
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">time</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">to_time</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="https://rdoc.github.io/rdoc">RDoc</a> 5.0.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

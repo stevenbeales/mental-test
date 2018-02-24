@@ -1,0 +1,2039 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class Pry::Method - RDoc Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../";
+  var index_rel_prefix = "../";
+</script>
+
+<script src="../js/jquery.js"></script>
+<script src="../js/darkfish.js"></script>
+
+<link href="../css/fonts.css" rel="stylesheet">
+<link href="../css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../table_of_contents.html#pages">Pages</a>
+    <a href="../table_of_contents.html#classes">Classes</a>
+    <a href="../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link"><a href="../Object.html">Object</a>
+  
+</div>
+
+    <div id="includes-section" class="nav-section">
+  <h3>Included Modules</h3>
+
+  <ul class="link-list">
+  
+  
+    <li><a class="include" href="Helpers/BaseHelpers.html">Pry::Helpers::BaseHelpers</a>
+  
+  
+  
+    <li><a class="include" href="Helpers/DocumentationHelpers.html">Pry::Helpers::DocumentationHelpers</a>
+  
+  
+  
+    <li><a class="include" href="CodeObject/Helpers.html">Pry::CodeObject::Helpers</a>
+  
+  
+  </ul>
+</div>
+
+    <div id="extends-section" class="nav-section">
+  <h3>Extended With Modules</h3>
+
+  <ul class="link-list">
+    
+  
+    <li><a class="extend" href="Helpers/BaseHelpers.html">Pry::Helpers::BaseHelpers</a>
+  
+  
+  </ul>
+</div>
+
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-c-all_from_class">::all_from_class</a>
+    
+    <li ><a href="#method-c-all_from_common">::all_from_common</a>
+    
+    <li ><a href="#method-c-all_from_obj">::all_from_obj</a>
+    
+    <li ><a href="#method-c-from_binding">::from_binding</a>
+    
+    <li ><a href="#method-c-from_class">::from_class</a>
+    
+    <li ><a href="#method-c-from_module">::from_module</a>
+    
+    <li ><a href="#method-c-from_obj">::from_obj</a>
+    
+    <li ><a href="#method-c-from_str">::from_str</a>
+    
+    <li ><a href="#method-c-instance_method_definition-3F">::instance_method_definition?</a>
+    
+    <li ><a href="#method-c-instance_resolution_order">::instance_resolution_order</a>
+    
+    <li ><a href="#method-c-lookup_method_via_binding">::lookup_method_via_binding</a>
+    
+    <li ><a href="#method-c-method_definition-3F">::method_definition?</a>
+    
+    <li ><a href="#method-c-new">::new</a>
+    
+    <li ><a href="#method-c-resolution_order">::resolution_order</a>
+    
+    <li ><a href="#method-c-singleton_class_of">::singleton_class_of</a>
+    
+    <li ><a href="#method-c-singleton_class_resolution_order">::singleton_class_resolution_order</a>
+    
+    <li ><a href="#method-c-singleton_method_definition-3F">::singleton_method_definition?</a>
+    
+    <li ><a href="#method-i-3D-3D">#==</a>
+    
+    <li ><a href="#method-i-alias-3F">#alias?</a>
+    
+    <li ><a href="#method-i-aliases">#aliases</a>
+    
+    <li ><a href="#method-i-bound_method-3F">#bound_method?</a>
+    
+    <li ><a href="#method-i-comment">#comment</a>
+    
+    <li ><a href="#method-i-doc">#doc</a>
+    
+    <li ><a href="#method-i-dynamically_defined-3F">#dynamically_defined?</a>
+    
+    <li ><a href="#method-i-is_a-3F">#is_a?</a>
+    
+    <li ><a href="#method-i-kind_of-3F">#kind_of?</a>
+    
+    <li ><a href="#method-i-method_missing">#method_missing</a>
+    
+    <li ><a href="#method-i-name">#name</a>
+    
+    <li ><a href="#method-i-name_with_owner">#name_with_owner</a>
+    
+    <li ><a href="#method-i-original_name">#original_name</a>
+    
+    <li ><a href="#method-i-pry_method-3F">#pry_method?</a>
+    
+    <li ><a href="#method-i-redefine">#redefine</a>
+    
+    <li class="calls-super" ><a href="#method-i-respond_to-3F">#respond_to?</a>
+    
+    <li ><a href="#method-i-signature">#signature</a>
+    
+    <li ><a href="#method-i-singleton_method-3F">#singleton_method?</a>
+    
+    <li ><a href="#method-i-source">#source</a>
+    
+    <li ><a href="#method-i-source-3F">#source?</a>
+    
+    <li ><a href="#method-i-source_file">#source_file</a>
+    
+    <li ><a href="#method-i-source_line">#source_line</a>
+    
+    <li ><a href="#method-i-source_range">#source_range</a>
+    
+    <li ><a href="#method-i-source_type">#source_type</a>
+    
+    <li ><a href="#method-i-super">#super</a>
+    
+    <li ><a href="#method-i-unbound_method-3F">#unbound_method?</a>
+    
+    <li ><a href="#method-i-undefined-3F">#undefined?</a>
+    
+    <li ><a href="#method-i-visibility">#visibility</a>
+    
+    <li ><a href="#method-i-wrapped">#wrapped</a>
+    
+    <li ><a href="#method-i-wrapped_owner">#wrapped_owner</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-Pry::Method">
+  <h1 id="class-Pry::Method" class="class">
+    class Pry::Method
+  </h1>
+
+  <section class="description">
+    
+<p>This class wraps the normal `Method` and `UnboundMethod` classes to provide
+extra functionality useful to <a href="../Pry.html">Pry</a>.</p>
+
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Class Methods</h3>
+       </header>
+
+    
+      <div id="method-c-all_from_class" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">all_from_class</span><span
+            class="method-args">(klass, include_super=true)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Get all of the instance methods of a `Class` or `Module` @param
+[Class,Module] klass @param [Boolean] include_super Whether to include
+methods from ancestors. @return [<a href="Pry::Method">Array</a>]</p>
+          
+          
+
+          
+          <div class="method-source-code" id="all_from_class-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/pry-0.11.3/lib/pry/method.rb, line 142</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">all_from_class</span>(<span class="ruby-identifier">klass</span>, <span class="ruby-identifier">include_super</span>=<span class="ruby-keyword">true</span>)
+  <span class="ruby-node">%w(public protected private)</span>.<span class="ruby-identifier">flat_map</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">visibility</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">safe_send</span>(<span class="ruby-identifier">klass</span>, <span class="ruby-value">:&quot;#{visibility}_instance_methods&quot;</span>, <span class="ruby-identifier">include_super</span>).<span class="ruby-identifier">map</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">method_name</span><span class="ruby-operator">|</span>
+      <span class="ruby-identifier">new</span>(<span class="ruby-identifier">safe_send</span>(<span class="ruby-identifier">klass</span>, <span class="ruby-value">:instance_method</span>, <span class="ruby-identifier">method_name</span>), <span class="ruby-value">:visibility</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">visibility</span>.<span class="ruby-identifier">to_sym</span>)
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-all_from_common" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">all_from_common</span><span
+            class="method-args">(obj, method_type = nil, include_super=true)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>@deprecated</p>
+
+<pre>please use {all_from_obj} instead.
+the `method_type` argument is ignored.</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="all_from_common-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/pry-0.11.3/lib/pry/method.rb, line 169</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">all_from_common</span>(<span class="ruby-identifier">obj</span>, <span class="ruby-identifier">method_type</span> = <span class="ruby-keyword">nil</span>, <span class="ruby-identifier">include_super</span>=<span class="ruby-keyword">true</span>)
+  <span class="ruby-identifier">all_from_obj</span>(<span class="ruby-identifier">obj</span>, <span class="ruby-identifier">include_super</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-all_from_obj" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">all_from_obj</span><span
+            class="method-args">(obj, include_super=true)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Get all of the methods on an `Object`</p>
+
+<p>@param [Object] obj</p>
+
+<p>@param [Boolean] include_super</p>
+
+<pre>indicates whether or not to include methods from ancestors.</pre>
+
+<p>@return [<a href="Pry::Method">Array</a>]</p>
+          
+          
+
+          
+          <div class="method-source-code" id="all_from_obj-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/pry-0.11.3/lib/pry/method.rb, line 160</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">all_from_obj</span>(<span class="ruby-identifier">obj</span>, <span class="ruby-identifier">include_super</span>=<span class="ruby-keyword">true</span>)
+  <span class="ruby-identifier">all_from_class</span>(<span class="ruby-identifier">singleton_class_of</span>(<span class="ruby-identifier">obj</span>), <span class="ruby-identifier">include_super</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-from_binding" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">from_binding</span><span
+            class="method-args">(b)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Given a `Binding`, try to extract the `::Method` it originated from and use
+it to instantiate a `Pry::Method`. Return `nil` if this isn&#39;t possible.</p>
+
+<p>@param [Binding] b @return [Pry::Method, nil]</p>
+          
+          
+
+          
+          <div class="method-source-code" id="from_binding-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/pry-0.11.3/lib/pry/method.rb, line 74</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">from_binding</span>(<span class="ruby-identifier">b</span>)
+  <span class="ruby-identifier">meth_name</span> = <span class="ruby-identifier">b</span>.<span class="ruby-identifier">eval</span>(<span class="ruby-string">&#39;::Kernel.__method__&#39;</span>)
+  <span class="ruby-keyword">if</span> [<span class="ruby-value">:__script__</span>, <span class="ruby-keyword">nil</span>].<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">meth_name</span>)
+    <span class="ruby-keyword">nil</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">method</span> = <span class="ruby-keyword">begin</span>
+               <span class="ruby-keyword">if</span> <span class="ruby-constant">Object</span> <span class="ruby-operator">===</span> <span class="ruby-identifier">b</span>.<span class="ruby-identifier">eval</span>(<span class="ruby-string">&#39;self&#39;</span>)
+                 <span class="ruby-identifier">new</span>(<span class="ruby-constant">Kernel</span>.<span class="ruby-identifier">instance_method</span>(<span class="ruby-value">:method</span>).<span class="ruby-identifier">bind</span>(<span class="ruby-identifier">b</span>.<span class="ruby-identifier">eval</span>(<span class="ruby-string">&quot;self&quot;</span>)).<span class="ruby-identifier">call</span>(<span class="ruby-identifier">meth_name</span>))
+               <span class="ruby-keyword">else</span>
+                 <span class="ruby-identifier">new</span>(<span class="ruby-identifier">b</span>.<span class="ruby-identifier">eval</span>(<span class="ruby-string">&#39;class &lt;&lt; self; self; end.instance_method(::Kernel.__method__).bind(self)&#39;</span>))
+               <span class="ruby-keyword">end</span>
+             <span class="ruby-keyword">rescue</span> <span class="ruby-constant">NameError</span>, <span class="ruby-constant">NoMethodError</span>
+               <span class="ruby-constant">Disowned</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">b</span>.<span class="ruby-identifier">eval</span>(<span class="ruby-string">&#39;self&#39;</span>), <span class="ruby-identifier">meth_name</span>.<span class="ruby-identifier">to_s</span>)
+             <span class="ruby-keyword">end</span>
+
+    <span class="ruby-keyword">if</span> <span class="ruby-constant">WeirdMethodLocator</span>.<span class="ruby-identifier">weird_method?</span>(<span class="ruby-identifier">method</span>, <span class="ruby-identifier">b</span>)
+      <span class="ruby-constant">WeirdMethodLocator</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">method</span>, <span class="ruby-identifier">b</span>).<span class="ruby-identifier">get_method</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">method</span>
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-identifier">method</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-from_class" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">from_class</span><span
+            class="method-args">(klass, name, target=TOPLEVEL_BINDING)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Given a `Class` or `Module` and the name of a method, try to instantiate a
+`Pry::Method` containing the instance method of that name. Return `nil` if
+no such method exists.</p>
+
+<p>@param [Class, Module] klass @param [String] name @param [Binding] target
+The binding where the method is looked up. @return [Pry::Method, nil]</p>
+          
+          
+
+          
+          <div class="method-source-code" id="from_class-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/pry-0.11.3/lib/pry/method.rb, line 121</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">from_class</span>(<span class="ruby-identifier">klass</span>, <span class="ruby-identifier">name</span>, <span class="ruby-identifier">target</span>=<span class="ruby-constant">TOPLEVEL_BINDING</span>)
+  <span class="ruby-identifier">new</span>(<span class="ruby-identifier">lookup_method_via_binding</span>(<span class="ruby-identifier">klass</span>, <span class="ruby-identifier">name</span>, <span class="ruby-value">:instance_method</span>, <span class="ruby-identifier">target</span>)) <span class="ruby-keyword">rescue</span> <span class="ruby-keyword">nil</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+        <div class="aliases">
+          Also aliased as: <a href="Method.html#method-c-from_module">from_module</a>
+        </div>
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-from_module" class="method-detail method-alias">
+        
+        <div class="method-heading">
+          <span class="method-name">from_module</span><span
+            class="method-args">(klass, name, target=TOPLEVEL_BINDING)</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+        </div>
+
+        
+
+        
+        <div class="aliases">
+          Alias for: <a href="Method.html#method-c-from_class">from_class</a>
+        </div>
+        
+      </div>
+
+    
+      <div id="method-c-from_obj" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">from_obj</span><span
+            class="method-args">(obj, name, target=TOPLEVEL_BINDING)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Given an object and the name of a method, try to instantiate a
+`Pry::Method` containing the method of that name bound to that object.
+Return `nil` if no such method exists.</p>
+
+<p>@param [Object] obj @param [String] name @param [Binding] target The
+binding where the method is looked up. @return [Pry::Method, nil]</p>
+          
+          
+
+          
+          <div class="method-source-code" id="from_obj-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/pry-0.11.3/lib/pry/method.rb, line 134</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">from_obj</span>(<span class="ruby-identifier">obj</span>, <span class="ruby-identifier">name</span>, <span class="ruby-identifier">target</span>=<span class="ruby-constant">TOPLEVEL_BINDING</span>)
+  <span class="ruby-identifier">new</span>(<span class="ruby-identifier">lookup_method_via_binding</span>(<span class="ruby-identifier">obj</span>, <span class="ruby-identifier">name</span>, <span class="ruby-value">:method</span>, <span class="ruby-identifier">target</span>)) <span class="ruby-keyword">rescue</span> <span class="ruby-keyword">nil</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-from_str" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">from_str</span><span
+            class="method-args">(name, target=TOPLEVEL_BINDING, options={})</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Given a string representing a method name and optionally a binding to
+search in, find and return the requested method wrapped in a `Pry::Method`
+instance.</p>
+
+<p>@param [String] name The name of the method to retrieve. @param [Binding]
+target The context in which to search for the method. @param [Hash] options
+@option options [Boolean] :instance Look for an instance method if `name`
+doesn&#39;t</p>
+
+<pre>contain any context.</pre>
+
+<p>@option options [Boolean] :methods Look for a bound/singleton method if
+`name` doesn&#39;t</p>
+
+<pre>contain any context.</pre>
+
+<p>@return [Pry::Method, nil] A `Pry::Method` instance containing the
+requested</p>
+
+<pre>method, or `nil` if name is `nil` or no method could be located matching the parameters.</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="from_str-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/pry-0.11.3/lib/pry/method.rb, line 42</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">from_str</span>(<span class="ruby-identifier">name</span>, <span class="ruby-identifier">target</span>=<span class="ruby-constant">TOPLEVEL_BINDING</span>, <span class="ruby-identifier">options</span>={})
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">name</span>.<span class="ruby-identifier">nil?</span>
+    <span class="ruby-keyword">nil</span>
+  <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">name</span>.<span class="ruby-identifier">to_s</span> <span class="ruby-operator">=~</span> <span class="ruby-node">/(.+)\#(\S+)\Z/</span>
+    <span class="ruby-identifier">context</span>, <span class="ruby-identifier">meth_name</span> = <span class="ruby-node">$1</span>, <span class="ruby-node">$2</span>
+    <span class="ruby-identifier">from_module</span>(<span class="ruby-identifier">target</span>.<span class="ruby-identifier">eval</span>(<span class="ruby-identifier">context</span>), <span class="ruby-identifier">meth_name</span>, <span class="ruby-identifier">target</span>)
+  <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">name</span>.<span class="ruby-identifier">to_s</span> <span class="ruby-operator">=~</span> <span class="ruby-regexp">/(.+)(\[\])\Z/</span>
+    <span class="ruby-identifier">context</span>, <span class="ruby-identifier">meth_name</span> = <span class="ruby-node">$1</span>, <span class="ruby-node">$2</span>
+    <span class="ruby-identifier">from_obj</span>(<span class="ruby-identifier">target</span>.<span class="ruby-identifier">eval</span>(<span class="ruby-identifier">context</span>), <span class="ruby-identifier">meth_name</span>, <span class="ruby-identifier">target</span>)
+  <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">name</span>.<span class="ruby-identifier">to_s</span> <span class="ruby-operator">=~</span> <span class="ruby-regexp">/(.+)(\.|::)(\S+)\Z/</span>
+    <span class="ruby-identifier">context</span>, <span class="ruby-identifier">meth_name</span> = <span class="ruby-node">$1</span>, <span class="ruby-node">$3</span>
+    <span class="ruby-identifier">from_obj</span>(<span class="ruby-identifier">target</span>.<span class="ruby-identifier">eval</span>(<span class="ruby-identifier">context</span>), <span class="ruby-identifier">meth_name</span>, <span class="ruby-identifier">target</span>)
+  <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">options</span>[<span class="ruby-value">:instance</span>]
+    <span class="ruby-identifier">from_module</span>(<span class="ruby-identifier">target</span>.<span class="ruby-identifier">eval</span>(<span class="ruby-string">&quot;self&quot;</span>), <span class="ruby-identifier">name</span>, <span class="ruby-identifier">target</span>)
+  <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">options</span>[<span class="ruby-value">:methods</span>]
+    <span class="ruby-identifier">from_obj</span>(<span class="ruby-identifier">target</span>.<span class="ruby-identifier">eval</span>(<span class="ruby-string">&quot;self&quot;</span>), <span class="ruby-identifier">name</span>, <span class="ruby-identifier">target</span>)
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">from_str</span>(<span class="ruby-identifier">name</span>, <span class="ruby-identifier">target</span>, <span class="ruby-value">:instance</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword">true</span>) <span class="ruby-keyword">or</span>
+      <span class="ruby-identifier">from_str</span>(<span class="ruby-identifier">name</span>, <span class="ruby-identifier">target</span>, <span class="ruby-value">:methods</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword">true</span>)
+  <span class="ruby-keyword">end</span>
+
+<span class="ruby-keyword">rescue</span> <span class="ruby-constant">Pry</span><span class="ruby-operator">::</span><span class="ruby-constant">RescuableException</span>
+  <span class="ruby-keyword">nil</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-instance_method_definition-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">instance_method_definition?</span><span
+            class="method-args">(name, definition_line)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="instance_method_definition-3F-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/pry-0.11.3/lib/pry/method.rb, line 205</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">instance_method_definition?</span>(<span class="ruby-identifier">name</span>, <span class="ruby-identifier">definition_line</span>)
+  <span class="ruby-node">/^define_method\(?\s*[:\&quot;\]#{Regexp.escape(name)}|^def\s*#{Regexp.escape(name)}/</span> <span class="ruby-operator">=~</span> <span class="ruby-identifier">definition_line</span>.<span class="ruby-identifier">strip</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-instance_resolution_order" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">instance_resolution_order</span><span
+            class="method-args">(klass)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Get every `Class` and `Module`, in order, that will be checked when looking
+for methods on instances of the given `Class` or `Module`. This does not
+treat singleton classes of classes specially. @param [Class, Module] klass
+@return [Array[Class, Module]]</p>
+          
+          
+
+          
+          <div class="method-source-code" id="instance_resolution_order-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/pry-0.11.3/lib/pry/method.rb, line 191</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">instance_resolution_order</span>(<span class="ruby-identifier">klass</span>)
+  <span class="ruby-comment"># include klass in case it is a singleton class,</span>
+  ([<span class="ruby-identifier">klass</span>] <span class="ruby-operator">+</span> <span class="ruby-constant">Pry</span><span class="ruby-operator">::</span><span class="ruby-constant">Method</span>.<span class="ruby-identifier">safe_send</span>(<span class="ruby-identifier">klass</span>, <span class="ruby-value">:ancestors</span>)).<span class="ruby-identifier">uniq</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-lookup_method_via_binding" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">lookup_method_via_binding</span><span
+            class="method-args">(obj, method_name, method_type, target=TOPLEVEL_BINDING)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>In order to support 2.0 Refinements we need to look up methods inside the
+relevant Binding. @param [Object] obj The owner/receiver of the method.
+@param [Symbol] method_name The name of the method. @param [Symbol]
+method_type The type of method: :method or :instance_method @param
+[Binding] target The binding where the method is looked up. @return
+[Method, UnboundMethod] The &#39;refined&#39; method object.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="lookup_method_via_binding-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/pry-0.11.3/lib/pry/method.rb, line 104</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">lookup_method_via_binding</span>(<span class="ruby-identifier">obj</span>, <span class="ruby-identifier">method_name</span>, <span class="ruby-identifier">method_type</span>, <span class="ruby-identifier">target</span>=<span class="ruby-constant">TOPLEVEL_BINDING</span>)
+  <span class="ruby-constant">Pry</span>.<span class="ruby-identifier">current</span>[<span class="ruby-value">:obj</span>] = <span class="ruby-identifier">obj</span>
+  <span class="ruby-constant">Pry</span>.<span class="ruby-identifier">current</span>[<span class="ruby-value">:name</span>] = <span class="ruby-identifier">method_name</span>
+  <span class="ruby-identifier">receiver</span> = <span class="ruby-identifier">obj</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">Module</span>) <span class="ruby-operator">?</span> <span class="ruby-string">&quot;Module&quot;</span> <span class="ruby-operator">:</span> <span class="ruby-string">&quot;Kernel&quot;</span>
+  <span class="ruby-identifier">target</span>.<span class="ruby-identifier">eval</span>(<span class="ruby-node">&quot;::#{receiver}.instance_method(:#{method_type}).bind(Pry.current[:obj]).call(Pry.current[:name])&quot;</span>)
+<span class="ruby-keyword">ensure</span>
+  <span class="ruby-constant">Pry</span>.<span class="ruby-identifier">current</span>[<span class="ruby-value">:obj</span>] = <span class="ruby-constant">Pry</span>.<span class="ruby-identifier">current</span>[<span class="ruby-value">:name</span>] = <span class="ruby-keyword">nil</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-method_definition-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">method_definition?</span><span
+            class="method-args">(name, definition_line)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="method_definition-3F-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/pry-0.11.3/lib/pry/method.rb, line 196</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">method_definition?</span>(<span class="ruby-identifier">name</span>, <span class="ruby-identifier">definition_line</span>)
+  <span class="ruby-identifier">singleton_method_definition?</span>(<span class="ruby-identifier">name</span>, <span class="ruby-identifier">definition_line</span>) <span class="ruby-operator">||</span>
+    <span class="ruby-identifier">instance_method_definition?</span>(<span class="ruby-identifier">name</span>, <span class="ruby-identifier">definition_line</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-new" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">new</span><span
+            class="method-args">(method, known_info={})</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>A new instance of `Pry::Method` wrapping the given `::Method`,
+`UnboundMethod`, or `Proc`.</p>
+
+<p>@param [::Method, <a href="../UnboundMethod.html">UnboundMethod</a>, Proc]
+method @param [Hash] known_info Can be used to pre-cache expensive to
+compute stuff. @return [Pry::Method]</p>
+          
+          
+
+          
+          <div class="method-source-code" id="new-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/pry-0.11.3/lib/pry/method.rb, line 236</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">method</span>, <span class="ruby-identifier">known_info</span>={})
+  <span class="ruby-ivar">@method</span> = <span class="ruby-identifier">method</span>
+  <span class="ruby-ivar">@visibility</span> = <span class="ruby-identifier">known_info</span>[<span class="ruby-value">:visibility</span>]
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-resolution_order" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">resolution_order</span><span
+            class="method-args">(obj)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Get every `Class` and `Module`, in order, that will be checked when looking
+for an instance method to call on this object. @param [Object] obj @return
+[Array[Class, Module]]</p>
+          
+          
+
+          
+          <div class="method-source-code" id="resolution_order-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/pry-0.11.3/lib/pry/method.rb, line 177</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">resolution_order</span>(<span class="ruby-identifier">obj</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-constant">Class</span> <span class="ruby-operator">===</span> <span class="ruby-identifier">obj</span>
+    <span class="ruby-identifier">singleton_class_resolution_order</span>(<span class="ruby-identifier">obj</span>) <span class="ruby-operator">+</span> <span class="ruby-identifier">instance_resolution_order</span>(<span class="ruby-constant">Class</span>)
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">klass</span> = <span class="ruby-identifier">singleton_class_of</span>(<span class="ruby-identifier">obj</span>) <span class="ruby-keyword">rescue</span> <span class="ruby-identifier">obj</span>.<span class="ruby-identifier">class</span>
+    <span class="ruby-identifier">instance_resolution_order</span>(<span class="ruby-identifier">klass</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-singleton_class_of" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">singleton_class_of</span><span
+            class="method-args">(obj)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="singleton_class_of-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/pry-0.11.3/lib/pry/method.rb, line 222</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">singleton_class_of</span>(<span class="ruby-identifier">obj</span>)
+  <span class="ruby-keyword">begin</span>
+    <span class="ruby-keyword">class</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">obj</span>; <span class="ruby-keyword">self</span>; <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">rescue</span> <span class="ruby-constant">TypeError</span> <span class="ruby-comment"># can&#39;t define singleton. Fixnum, Symbol, Float, ...</span>
+    <span class="ruby-identifier">obj</span>.<span class="ruby-identifier">class</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-singleton_class_resolution_order" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">singleton_class_resolution_order</span><span
+            class="method-args">(klass)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Get the singleton classes of superclasses that could define methods on the
+given class object, and any modules they include. If a module is included
+at multiple points in the ancestry, only the lowest copy will be returned.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="singleton_class_resolution_order-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/pry-0.11.3/lib/pry/method.rb, line 213</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">singleton_class_resolution_order</span>(<span class="ruby-identifier">klass</span>)
+  <span class="ruby-identifier">ancestors</span> = <span class="ruby-constant">Pry</span><span class="ruby-operator">::</span><span class="ruby-constant">Method</span>.<span class="ruby-identifier">safe_send</span>(<span class="ruby-identifier">klass</span>, <span class="ruby-value">:ancestors</span>)
+  <span class="ruby-identifier">resolution_order</span> = <span class="ruby-identifier">ancestors</span>.<span class="ruby-identifier">grep</span>(<span class="ruby-constant">Class</span>).<span class="ruby-identifier">flat_map</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">anc</span><span class="ruby-operator">|</span>
+    [<span class="ruby-identifier">singleton_class_of</span>(<span class="ruby-identifier">anc</span>), <span class="ruby-operator">*</span><span class="ruby-identifier">singleton_class_of</span>(<span class="ruby-identifier">anc</span>).<span class="ruby-identifier">included_modules</span>]
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">resolution_order</span>.<span class="ruby-identifier">reverse</span>.<span class="ruby-identifier">uniq</span>.<span class="ruby-identifier">reverse</span> <span class="ruby-operator">-</span> <span class="ruby-constant">Class</span>.<span class="ruby-identifier">included_modules</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-singleton_method_definition-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">singleton_method_definition?</span><span
+            class="method-args">(name, definition_line)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="singleton_method_definition-3F-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/pry-0.11.3/lib/pry/method.rb, line 201</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">singleton_method_definition?</span>(<span class="ruby-identifier">name</span>, <span class="ruby-identifier">definition_line</span>)
+  <span class="ruby-node">/^define_singleton_method\(?\s*[:\&quot;\]#{Regexp.escape(name)}|^def\s*self\.#{Regexp.escape(name)}/</span> <span class="ruby-operator">=~</span> <span class="ruby-identifier">definition_line</span>.<span class="ruby-identifier">strip</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-3D-3D" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">==</span><span
+            class="method-args">(obj)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>@return [Boolean]</p>
+          
+          
+
+          
+          <div class="method-source-code" id="3D-3D-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/pry-0.11.3/lib/pry/method.rb, line 447</span>
+<span class="ruby-keyword">def</span> <span class="ruby-operator">==</span>(<span class="ruby-identifier">obj</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">obj</span>.<span class="ruby-identifier">is_a?</span> <span class="ruby-constant">Pry</span><span class="ruby-operator">::</span><span class="ruby-constant">Method</span>
+    <span class="ruby-identifier">obj</span> <span class="ruby-operator">==</span> <span class="ruby-ivar">@method</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-ivar">@method</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">obj</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-alias-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">alias?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>@return [Boolean] Is the method definitely an alias?</p>
+          
+          
+
+          
+          <div class="method-source-code" id="alias-3F-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/pry-0.11.3/lib/pry/method.rb, line 442</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">alias?</span>
+  <span class="ruby-identifier">name</span> <span class="ruby-operator">!=</span> <span class="ruby-identifier">original_name</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-aliases" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">aliases</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>@return [Array&lt;String&gt;] All known aliases for the method.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="aliases-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/pry-0.11.3/lib/pry/method.rb, line 425</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">aliases</span>
+  <span class="ruby-identifier">owner</span> = <span class="ruby-ivar">@method</span>.<span class="ruby-identifier">owner</span>
+  <span class="ruby-comment"># Avoid using `to_sym` on {Method#name}, which returns a `String`, because</span>
+  <span class="ruby-comment"># it won&#39;t be garbage collected.</span>
+  <span class="ruby-identifier">name</span> = <span class="ruby-ivar">@method</span>.<span class="ruby-identifier">name</span>
+
+  <span class="ruby-identifier">all_methods_to_compare</span> = <span class="ruby-identifier">owner</span>.<span class="ruby-identifier">instance_methods</span> <span class="ruby-operator">|</span> <span class="ruby-identifier">owner</span>.<span class="ruby-identifier">private_instance_methods</span>
+  <span class="ruby-identifier">alias_list</span> = <span class="ruby-identifier">all_methods_to_compare</span>.<span class="ruby-identifier">combination</span>(<span class="ruby-value">2</span>).<span class="ruby-identifier">select</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">pair</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">pair</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">name</span>) <span class="ruby-operator">&amp;&amp;</span>
+      <span class="ruby-identifier">owner</span>.<span class="ruby-identifier">instance_method</span>(<span class="ruby-identifier">pair</span>.<span class="ruby-identifier">first</span>) <span class="ruby-operator">==</span> <span class="ruby-identifier">owner</span>.<span class="ruby-identifier">instance_method</span>(<span class="ruby-identifier">pair</span>.<span class="ruby-identifier">last</span>)
+  <span class="ruby-keyword">end</span>.<span class="ruby-identifier">flatten</span>
+  <span class="ruby-identifier">alias_list</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-identifier">name</span>)
+
+  <span class="ruby-identifier">alias_list</span>.<span class="ruby-identifier">map</span>(<span class="ruby-operator">&amp;</span><span class="ruby-value">:to_s</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-bound_method-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">bound_method?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>@return [Boolean] Whether the method is bound.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="bound_method-3F-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/pry-0.11.3/lib/pry/method.rb, line 410</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">bound_method?</span>
+  <span class="ruby-identifier">is_a?</span>(<span class="ruby-operator">::</span><span class="ruby-constant">Method</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-comment" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">comment</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="comment-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/pry-0.11.3/lib/pry/method.rb, line 473</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">comment</span>
+  <span class="ruby-constant">Pry</span><span class="ruby-operator">::</span><span class="ruby-constant">Code</span>.<span class="ruby-identifier">from_file</span>(<span class="ruby-identifier">source_file</span>).<span class="ruby-identifier">comment_describing</span>(<span class="ruby-identifier">source_line</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-doc" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">doc</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>@return [String, nil] The documentation for the method, or `nil` if
+it&#39;s</p>
+
+<pre>unavailable.</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="doc-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/pry-0.11.3/lib/pry/method.rb, line 300</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">doc</span>
+  <span class="ruby-ivar">@doc</span> <span class="ruby-operator">||=</span> <span class="ruby-keyword">case</span> <span class="ruby-identifier">source_type</span>
+    <span class="ruby-keyword">when</span> <span class="ruby-value">:c</span>
+      <span class="ruby-identifier">info</span> = <span class="ruby-identifier">pry_doc_info</span>
+      <span class="ruby-identifier">info</span>.<span class="ruby-identifier">docstring</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">info</span>
+    <span class="ruby-keyword">when</span> <span class="ruby-value">:ruby</span>
+      <span class="ruby-identifier">get_comment_content</span>(<span class="ruby-identifier">comment</span>)
+    <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-dynamically_defined-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">dynamically_defined?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>@return [Boolean] Was the method defined outside a source file?</p>
+          
+          
+
+          
+          <div class="method-source-code" id="dynamically_defined-3F-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/pry-0.11.3/lib/pry/method.rb, line 400</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">dynamically_defined?</span>
+  <span class="ruby-operator">!</span><span class="ruby-operator">!</span>(<span class="ruby-identifier">source_file</span> <span class="ruby-keyword">and</span> <span class="ruby-identifier">source_file</span> <span class="ruby-operator">=~</span> <span class="ruby-regexp">/(\(.*\))|&lt;.*&gt;/</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-is_a-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">is_a?</span><span
+            class="method-args">(klass)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>@param [Class] klass @return [Boolean]</p>
+          
+          
+
+          
+          <div class="method-source-code" id="is_a-3F-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/pry-0.11.3/lib/pry/method.rb, line 457</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">is_a?</span>(<span class="ruby-identifier">klass</span>)
+  <span class="ruby-identifier">klass</span> <span class="ruby-operator">==</span> <span class="ruby-constant">Pry</span><span class="ruby-operator">::</span><span class="ruby-constant">Method</span> <span class="ruby-keyword">or</span> <span class="ruby-ivar">@method</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-identifier">klass</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+        <div class="aliases">
+          Also aliased as: <a href="Method.html#method-i-kind_of-3F">kind_of?</a>
+        </div>
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-kind_of-3F" class="method-detail method-alias">
+        
+        <div class="method-heading">
+          <span class="method-name">kind_of?</span><span
+            class="method-args">(klass)</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+        </div>
+
+        
+
+        
+        <div class="aliases">
+          Alias for: <a href="Method.html#method-i-is_a-3F">is_a?</a>
+        </div>
+        
+      </div>
+
+    
+      <div id="method-i-method_missing" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">method_missing</span><span
+            class="method-args">(method_name, *args, &block)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Delegate any unknown calls to the wrapped method.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="method_missing-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/pry-0.11.3/lib/pry/method.rb, line 469</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">method_missing</span>(<span class="ruby-identifier">method_name</span>, <span class="ruby-operator">*</span><span class="ruby-identifier">args</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+  <span class="ruby-ivar">@method</span>.<span class="ruby-identifier">send</span>(<span class="ruby-identifier">method_name</span>, <span class="ruby-operator">*</span><span class="ruby-identifier">args</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-name" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">name</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Get the name of the method as a <a href="../String.html">String</a>,
+regardless of the underlying <a href="Method.html#method-i-name">#name</a>
+type. @return [String]</p>
+          
+          
+
+          
+          <div class="method-source-code" id="name-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/pry-0.11.3/lib/pry/method.rb, line 243</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">name</span>
+  <span class="ruby-ivar">@method</span>.<span class="ruby-identifier">name</span>.<span class="ruby-identifier">to_s</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-name_with_owner" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">name_with_owner</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Get the name of the method including the class on which it was defined.
+@example</p>
+
+<pre>method(:puts).method_name
+=&gt; &quot;Kernel.puts&quot;</pre>
+
+<p>@return [String]</p>
+          
+          
+
+          
+          <div class="method-source-code" id="name_with_owner-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/pry-0.11.3/lib/pry/method.rb, line 270</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">name_with_owner</span>
+  <span class="ruby-node">&quot;#{wrapped_owner.method_prefix}#{name}&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-original_name" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">original_name</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>@return [String, nil] The original name the method was defined under,</p>
+
+<pre>before any aliasing, or `nil` if it can&#39;t be determined.</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="original_name-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/pry-0.11.3/lib/pry/method.rb, line 394</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">original_name</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">nil</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">source_type</span> <span class="ruby-operator">!=</span> <span class="ruby-value">:ruby</span>
+  <span class="ruby-identifier">method_name_from_first_line</span>(<span class="ruby-identifier">source</span>.<span class="ruby-identifier">lines</span>.<span class="ruby-identifier">first</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-pry_method-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">pry_method?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>@return [Boolean] Was the method defined within the <a
+href="../Pry.html">Pry</a> <a href="REPL.html">REPL</a>?</p>
+          
+          
+
+          
+          <div class="method-source-code" id="pry_method-3F-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/pry-0.11.3/lib/pry/method.rb, line 420</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">pry_method?</span>
+  <span class="ruby-identifier">source_file</span> <span class="ruby-operator">==</span> <span class="ruby-constant">Pry</span>.<span class="ruby-identifier">eval_path</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-redefine" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">redefine</span><span
+            class="method-args">(source)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Update the live copy of the method&#39;s source.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="redefine-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/pry-0.11.3/lib/pry/method.rb, line 285</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">redefine</span>(<span class="ruby-identifier">source</span>)
+  <span class="ruby-constant">Patcher</span>.<span class="ruby-identifier">new</span>(<span class="ruby-keyword">self</span>).<span class="ruby-identifier">patch_in_ram</span> <span class="ruby-identifier">source</span>
+  <span class="ruby-constant">Pry</span><span class="ruby-operator">::</span><span class="ruby-constant">Method</span>(<span class="ruby-identifier">owner</span>.<span class="ruby-identifier">instance_method</span>(<span class="ruby-identifier">name</span>))
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-respond_to-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">respond_to?</span><span
+            class="method-args">(method_name, include_all=false)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>@param [String, Symbol] method_name @return [Boolean]</p>
+          
+          
+            <div class="method-calls-super">
+              Calls superclass method
+              
+            </div>
+          
+
+          
+          <div class="method-source-code" id="respond_to-3F-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/pry-0.11.3/lib/pry/method.rb, line 464</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">respond_to?</span>(<span class="ruby-identifier">method_name</span>, <span class="ruby-identifier">include_all</span>=<span class="ruby-keyword">false</span>)
+  <span class="ruby-keyword">super</span> <span class="ruby-keyword">or</span> <span class="ruby-ivar">@method</span>.<span class="ruby-identifier">respond_to?</span>(<span class="ruby-identifier">method_name</span>, <span class="ruby-identifier">include_all</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-signature" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">signature</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>@return [String] A representation of the method&#39;s signature, including
+its</p>
+
+<pre>name and parameters. Optional and &quot;rest&quot; parameters are marked with `*`
+and block parameters with `&amp;`. If the parameter names are unavailable,
+they&#39;re given numbered names instead.
+Paraphrased from `awesome_print` gem.</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="signature-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/pry-0.11.3/lib/pry/method.rb, line 360</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">signature</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">respond_to?</span>(<span class="ruby-value">:parameters</span>)
+    <span class="ruby-identifier">args</span> = <span class="ruby-identifier">parameters</span>.<span class="ruby-identifier">inject</span>([]) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">arr</span>, (<span class="ruby-identifier">typ</span>, <span class="ruby-identifier">nam</span>)<span class="ruby-operator">|</span>
+      <span class="ruby-identifier">nam</span> <span class="ruby-operator">||=</span> (<span class="ruby-identifier">typ</span> <span class="ruby-operator">==</span> <span class="ruby-value">:block</span> <span class="ruby-operator">?</span> <span class="ruby-string">&#39;block&#39;</span> <span class="ruby-operator">:</span> <span class="ruby-node">&quot;arg#{arr.size + 1}&quot;</span>)
+      <span class="ruby-identifier">arr</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-keyword">case</span> <span class="ruby-identifier">typ</span>
+             <span class="ruby-keyword">when</span> <span class="ruby-value">:req</span>   <span class="ruby-keyword">then</span> <span class="ruby-identifier">nam</span>.<span class="ruby-identifier">to_s</span>
+             <span class="ruby-keyword">when</span> <span class="ruby-value">:opt</span>   <span class="ruby-keyword">then</span> <span class="ruby-node">&quot;#{nam}=?&quot;</span>
+             <span class="ruby-keyword">when</span> <span class="ruby-value">:rest</span>  <span class="ruby-keyword">then</span> <span class="ruby-node">&quot;*#{nam}&quot;</span>
+             <span class="ruby-keyword">when</span> <span class="ruby-value">:block</span> <span class="ruby-keyword">then</span> <span class="ruby-node">&quot;&amp;#{nam}&quot;</span>
+             <span class="ruby-keyword">else</span> <span class="ruby-string">&#39;?&#39;</span>
+             <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">args</span> = (<span class="ruby-value">1</span><span class="ruby-operator">..</span><span class="ruby-identifier">arity</span>.<span class="ruby-identifier">abs</span>).<span class="ruby-identifier">map</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">i</span><span class="ruby-operator">|</span> <span class="ruby-node">&quot;arg#{i}&quot;</span> }
+    <span class="ruby-identifier">args</span>[<span class="ruby-value">-1</span>] = <span class="ruby-node">&quot;*#{args[-1]}&quot;</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">arity</span> <span class="ruby-operator">&lt;</span> <span class="ruby-value">0</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-node">&quot;#{name}(#{args.join(&#39;, &#39;)})&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-singleton_method-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">singleton_method?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>@return [Boolean] Whether the method is a singleton method.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="singleton_method-3F-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/pry-0.11.3/lib/pry/method.rb, line 415</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">singleton_method?</span>
+  <span class="ruby-identifier">wrapped_owner</span>.<span class="ruby-identifier">singleton_class?</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-source" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">source</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>@return [String, nil] The source code of the method, or `nil` if it&#39;s
+unavailable.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="source-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/pry-0.11.3/lib/pry/method.rb, line 275</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">source</span>
+  <span class="ruby-ivar">@source</span> <span class="ruby-operator">||=</span> <span class="ruby-keyword">case</span> <span class="ruby-identifier">source_type</span>
+              <span class="ruby-keyword">when</span> <span class="ruby-value">:c</span>
+                <span class="ruby-identifier">c_source</span>
+              <span class="ruby-keyword">when</span> <span class="ruby-value">:ruby</span>
+                <span class="ruby-identifier">ruby_source</span>
+              <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-source-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">source?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Can we get the source code for this method? @return [Boolean]</p>
+          
+          
+
+          
+          <div class="method-source-code" id="source-3F-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/pry-0.11.3/lib/pry/method.rb, line 292</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">source?</span>
+  <span class="ruby-operator">!</span><span class="ruby-operator">!</span><span class="ruby-identifier">source</span>
+<span class="ruby-keyword">rescue</span> <span class="ruby-constant">MethodSource</span><span class="ruby-operator">::</span><span class="ruby-constant">SourceNotFoundError</span>
+  <span class="ruby-keyword">false</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-source_file" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">source_file</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>@return [String, nil] The name of the file the method is defined in, or</p>
+
+<pre>`nil` if the filename is unavailable.</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="source_file-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/pry-0.11.3/lib/pry/method.rb, line 318</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">source_file</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">source_location</span>.<span class="ruby-identifier">nil?</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-operator">!</span><span class="ruby-identifier">rbx?</span> <span class="ruby-keyword">and</span> <span class="ruby-identifier">source_type</span> <span class="ruby-operator">==</span> <span class="ruby-value">:c</span>
+      <span class="ruby-identifier">info</span> = <span class="ruby-identifier">pry_doc_info</span>
+      <span class="ruby-identifier">info</span>.<span class="ruby-identifier">file</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">info</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">source_location</span>.<span class="ruby-identifier">first</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-source_line" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">source_line</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>@return [Fixnum, nil] The line of code in `source_file` which begins</p>
+
+<pre>the method&#39;s definition, or `nil` if that information is unavailable.</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="source_line-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/pry-0.11.3/lib/pry/method.rb, line 331</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">source_line</span>
+  <span class="ruby-identifier">source_location</span>.<span class="ruby-identifier">nil?</span> <span class="ruby-operator">?</span> <span class="ruby-keyword">nil</span> <span class="ruby-operator">:</span> <span class="ruby-identifier">source_location</span>.<span class="ruby-identifier">last</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-source_range" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">source_range</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>@return [Range, nil] The range of lines in `source_file` which contain</p>
+
+<pre>the method&#39;s definition, or `nil` if that information is unavailable.</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="source_range-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/pry-0.11.3/lib/pry/method.rb, line 337</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">source_range</span>
+  <span class="ruby-identifier">source_location</span>.<span class="ruby-identifier">nil?</span> <span class="ruby-operator">?</span> <span class="ruby-keyword">nil</span> <span class="ruby-operator">:</span> (<span class="ruby-identifier">source_line</span>)<span class="ruby-operator">..</span>(<span class="ruby-identifier">source_line</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">source</span>.<span class="ruby-identifier">lines</span>.<span class="ruby-identifier">count</span> <span class="ruby-operator">-</span> <span class="ruby-value">1</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-source_type" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">source_type</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>@return [Symbol] The source type of the method. The options are</p>
+
+<pre>`:ruby` for Ruby methods or `:c` for methods written in C.</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="source_type-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/pry-0.11.3/lib/pry/method.rb, line 312</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">source_type</span>
+  <span class="ruby-identifier">source_location</span>.<span class="ruby-identifier">nil?</span> <span class="ruby-operator">?</span> <span class="ruby-value">:c</span> <span class="ruby-operator">:</span> <span class="ruby-value">:ruby</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-super" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">super</span><span
+            class="method-args">(times=1)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>@return [Pry::Method, nil] The wrapped method that is called when you</p>
+
+<pre>use &quot;super&quot; in the body of this method.</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="super-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/pry-0.11.3/lib/pry/method.rb, line 382</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">super</span>(<span class="ruby-identifier">times</span>=<span class="ruby-value">1</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-constant">UnboundMethod</span> <span class="ruby-operator">===</span> <span class="ruby-ivar">@method</span>
+    <span class="ruby-identifier">sup</span> = <span class="ruby-identifier">super_using_ancestors</span>(<span class="ruby-constant">Pry</span><span class="ruby-operator">::</span><span class="ruby-constant">Method</span>.<span class="ruby-identifier">instance_resolution_order</span>(<span class="ruby-identifier">owner</span>), <span class="ruby-identifier">times</span>)
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">sup</span> = <span class="ruby-identifier">super_using_ancestors</span>(<span class="ruby-constant">Pry</span><span class="ruby-operator">::</span><span class="ruby-constant">Method</span>.<span class="ruby-identifier">resolution_order</span>(<span class="ruby-identifier">receiver</span>), <span class="ruby-identifier">times</span>)
+    <span class="ruby-identifier">sup</span> <span class="ruby-operator">&amp;&amp;=</span> <span class="ruby-identifier">sup</span>.<span class="ruby-identifier">bind</span>(<span class="ruby-identifier">receiver</span>)
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-constant">Pry</span><span class="ruby-operator">::</span><span class="ruby-constant">Method</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">sup</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">sup</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-unbound_method-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">unbound_method?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>@return [Boolean] Whether the method is unbound.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="unbound_method-3F-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/pry-0.11.3/lib/pry/method.rb, line 405</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">unbound_method?</span>
+  <span class="ruby-identifier">is_a?</span>(<span class="ruby-operator">::</span><span class="ruby-constant">UnboundMethod</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-undefined-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">undefined?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Is the method undefined? (aka `Disowned`) @return [Boolean] false</p>
+          
+          
+
+          
+          <div class="method-source-code" id="undefined-3F-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/pry-0.11.3/lib/pry/method.rb, line 261</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">undefined?</span>
+  <span class="ruby-keyword">false</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-visibility" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">visibility</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>@return [Symbol] The visibility of the method. May be `:public`,</p>
+
+<pre>`:protected`, or `:private`.</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="visibility-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/pry-0.11.3/lib/pry/method.rb, line 343</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">visibility</span>
+ <span class="ruby-ivar">@visibility</span> <span class="ruby-operator">||=</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">owner</span>.<span class="ruby-identifier">public_instance_methods</span>.<span class="ruby-identifier">any?</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">m</span><span class="ruby-operator">|</span> <span class="ruby-identifier">m</span>.<span class="ruby-identifier">to_s</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">name</span> }
+                   <span class="ruby-value">:public</span>
+                 <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">owner</span>.<span class="ruby-identifier">protected_instance_methods</span>.<span class="ruby-identifier">any?</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">m</span><span class="ruby-operator">|</span> <span class="ruby-identifier">m</span>.<span class="ruby-identifier">to_s</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">name</span> }
+                   <span class="ruby-value">:protected</span>
+                 <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">owner</span>.<span class="ruby-identifier">private_instance_methods</span>.<span class="ruby-identifier">any?</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">m</span><span class="ruby-operator">|</span> <span class="ruby-identifier">m</span>.<span class="ruby-identifier">to_s</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">name</span> }
+                   <span class="ruby-value">:private</span>
+                 <span class="ruby-keyword">else</span>
+                   <span class="ruby-value">:none</span>
+                 <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-wrapped" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">wrapped</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Get underlying object wrapped by this <a href="Method.html">Pry::Method</a>
+instance @return [Method, <a
+href="../UnboundMethod.html">UnboundMethod</a>, Proc]</p>
+          
+          
+
+          
+          <div class="method-source-code" id="wrapped-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/pry-0.11.3/lib/pry/method.rb, line 255</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">wrapped</span>
+  <span class="ruby-ivar">@method</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-wrapped_owner" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">wrapped_owner</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Get the owner of the method as a Pry::Module @return [Pry::Module]</p>
+          
+          
+
+          
+          <div class="method-source-code" id="wrapped_owner-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/pry-0.11.3/lib/pry/method.rb, line 249</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">wrapped_owner</span>
+  <span class="ruby-ivar">@wrapped_owner</span> <span class="ruby-operator">||=</span> <span class="ruby-constant">Pry</span><span class="ruby-operator">::</span><span class="ruby-constant">WrappedModule</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">owner</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="https://rdoc.github.io/rdoc">RDoc</a> 5.0.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

@@ -1,0 +1,1402 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>module JSON - RDoc Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "./";
+  var index_rel_prefix = "./";
+</script>
+
+<script src="./js/jquery.js"></script>
+<script src="./js/darkfish.js"></script>
+
+<link href="./css/fonts.css" rel="stylesheet">
+<link href="./css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="module">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="./index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="./table_of_contents.html#pages">Pages</a>
+    <a href="./table_of_contents.html#classes">Classes</a>
+    <a href="./table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-c-5B-5D">::[]</a>
+    
+    <li ><a href="#method-c-create_id">::create_id</a>
+    
+    <li ><a href="#method-c-create_id-3D">::create_id=</a>
+    
+    <li ><a href="#method-c-dump">::dump</a>
+    
+    <li ><a href="#method-c-dump_default_options">::dump_default_options</a>
+    
+    <li ><a href="#method-c-dump_default_options-3D">::dump_default_options=</a>
+    
+    <li ><a href="#method-c-fast_generate">::fast_generate</a>
+    
+    <li ><a href="#method-c-fast_unparse">::fast_unparse</a>
+    
+    <li ><a href="#method-c-generate">::generate</a>
+    
+    <li ><a href="#method-c-generator">::generator</a>
+    
+    <li ><a href="#method-c-generator-3D">::generator=</a>
+    
+    <li ><a href="#method-c-load">::load</a>
+    
+    <li ><a href="#method-c-parse">::parse</a>
+    
+    <li ><a href="#method-c-parse-21">::parse!</a>
+    
+    <li ><a href="#method-c-parser">::parser</a>
+    
+    <li ><a href="#method-c-parser-3D">::parser=</a>
+    
+    <li ><a href="#method-c-pretty_generate">::pretty_generate</a>
+    
+    <li ><a href="#method-c-pretty_unparse">::pretty_unparse</a>
+    
+    <li ><a href="#method-c-recurse_proc">::recurse_proc</a>
+    
+    <li ><a href="#method-c-restore">::restore</a>
+    
+    <li ><a href="#method-c-state">::state</a>
+    
+    <li ><a href="#method-c-unparse">::unparse</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="module-JSON">
+  <h1 id="module-JSON" class="module">
+    module JSON
+  </h1>
+
+  <section class="description">
+    
+<p>A mimic of the json gem module.</p>
+
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+    <section class="constants-list">
+      <header>
+        <h3>Constants</h3>
+      </header>
+      <dl>
+      
+        <dt id="FAST_STATE_PROTOTYPE">FAST_STATE_PROTOTYPE
+        
+        <dd>
+        
+      
+        <dt id="Infinity">Infinity
+        
+        <dd>
+        
+      
+        <dt id="MinusInfinity">MinusInfinity
+        
+        <dd>
+        
+      
+        <dt id="NaN">NaN
+        
+        <dd>
+        
+      
+        <dt id="PRETTY_STATE_PROTOTYPE">PRETTY_STATE_PROTOTYPE
+        
+        <dd><p>Taken from the unit test. Note that items like check_circular? are not
+present.</p>
+        
+      
+        <dt id="Parser">Parser
+        
+        <dd>
+        
+      
+        <dt id="SAFE_STATE_PROTOTYPE">SAFE_STATE_PROTOTYPE
+        
+        <dd>
+        
+      
+        <dt id="State">State
+        
+        <dd>
+        
+      
+      </dl>
+    </section>
+    
+
+    
+
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Class Methods</h3>
+       </header>
+
+    
+      <div id="method-c-5B-5D" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            [](obj, opts={})
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>If the obj argument is a <a href="String.html">String</a> then it is
+assumed to be a <a href="JSON.html">JSON</a> <a
+href="String.html">String</a> and parsed otherwise the obj is encoded as a
+<a href="JSON.html">JSON</a> <a href="String.html">String</a>.</p>
+<ul><li>
+<p><strong>obj</strong> [<em>String</em>|Hash|Array] object to convert</p>
+</li><li>
+<p><strong>opts</strong> [<em>Hash</em>] same options as either generate or
+parse</p>
+</li></ul>
+
+<p>Returns [<em>Object</em>]</p>
+          
+          
+
+          
+          <div class="method-source-code" id="5B-5D-source">
+            <pre>static VALUE
+mimic_dump_load(int argc, VALUE *argv, VALUE self) {
+    if (1 &gt; argc) {
+        rb_raise(rb_eArgError, &quot;wrong number of arguments (0 for 1)&quot;);
+    } else if (T_STRING == rb_type(*argv)) {
+        return mimic_load(argc, argv, self);
+    } else {
+        return mimic_dump(argc, argv, self);
+    }
+    return Qnil;
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-create_id" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            create_id()
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Returns [<em>String</em>] the create_id.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="create_id-source">
+            <pre>static VALUE
+mimic_create_id(VALUE self) {
+    if (NULL != oj_default_options.create_id) {
+        return oj_encode(rb_str_new_cstr(oj_default_options.create_id));
+    }
+    return rb_str_new_cstr(oj_json_class);
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-create_id-3D" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            create_id=(id)
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Sets the <a href="JSON.html#method-c-create_id">::create_id</a> tag to look
+for in <a href="JSON.html">JSON</a> document. That key triggers the
+creation of a class with the same name.</p>
+<ul><li>
+<p><strong>id</strong> [<em>nil</em>|String] new <a
+href="JSON.html#method-c-create_id">::create_id</a></p>
+</li></ul>
+
+<p>Returns [<em>String</em>] the id.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="create_id-3D-source">
+            <pre>static VALUE
+mimic_set_create_id(VALUE self, VALUE id) {
+    Check_Type(id, T_STRING);
+
+    if (NULL != oj_default_options.create_id) {
+        if (oj_json_class != oj_default_options.create_id &amp;&amp; NULL != oj_default_options.create_id) {
+            xfree((char*)oj_default_options.create_id);
+        }
+        oj_default_options.create_id = NULL;
+        oj_default_options.create_id_len = 0;
+    }
+    if (Qnil != id) {
+        size_t len = RSTRING_LEN(id) + 1;
+
+        oj_default_options.create_id = ALLOC_N(char, len);
+        strcpy((char*)oj_default_options.create_id, StringValuePtr(id));
+        oj_default_options.create_id_len = len - 1;
+    }
+    return id;
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-dump" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            dump(obj, anIO=nil, limit=nil)
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Encodes an object as a <a href="JSON.html">JSON</a> <a
+href="String.html">String</a>.</p>
+<ul><li>
+<p><strong>obj</strong> [<em>Object</em>] object to convert to encode as <a
+href="JSON.html">JSON</a></p>
+</li><li>
+<p><strong>anIO</strong> [<em>IO</em>] an IO that allows writing</p>
+</li><li>
+<p><strong>limit</strong> [<em>Fixnum</em>] ignored</p>
+</li></ul>
+
+<p>Returns [<em>String</em>] a <a href="JSON.html">JSON</a> string.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="dump-source">
+            <pre>static VALUE
+mimic_dump(int argc, VALUE *argv, VALUE self) {
+    char                buf[4096];
+    struct _Out         out;
+    struct _Options     copts = oj_default_options;
+    VALUE               rstr;
+
+    copts.str_rx.head = NULL;
+    copts.str_rx.tail = NULL;
+    out.buf = buf;
+    out.end = buf + sizeof(buf) - 10;
+    out.allocated = false;
+    out.caller = CALLER_DUMP;
+    copts.escape_mode = JXEsc;
+    copts.mode = CompatMode;
+
+    /* seems like this is not correct
+    if (No == copts.nilnil &amp;&amp; Qnil == *argv) {
+        rb_raise(rb_eTypeError, &quot;nil not allowed.&quot;);
+    }
+    */
+    copts.dump_opts.max_depth = MAX_DEPTH; // when using dump there is no limit
+    out.omit_nil = copts.dump_opts.omit_nil;
+    if (2 &lt;= argc) {
+        int    limit;
+        
+        // The json gem take a more liberal approach to optional
+        // arguments. Expected are (obj, anIO=nil, limit=nil) yet the io
+        // argument can be left off completely and the 2nd argument is then
+        // the limit.
+        if (0 &lt;= (limit = mimic_limit_arg(argv[1]))) {
+            copts.dump_opts.max_depth = limit;
+        }
+        if (3 &lt;= argc &amp;&amp; 0 &lt;= (limit = mimic_limit_arg(argv[2]))) {
+            copts.dump_opts.max_depth = limit;
+        }
+    }
+    oj_dump_obj_to_json(*argv, &amp;copts, &amp;out);
+    if (0 == out.buf) {
+        rb_raise(rb_eNoMemError, &quot;Not enough memory.&quot;);
+    }
+    rstr = rb_str_new2(out.buf);
+    rstr = oj_encode(rstr);
+    if (2 &lt;= argc &amp;&amp; Qnil != argv[1] &amp;&amp; rb_respond_to(argv[1], oj_write_id)) {
+        VALUE  io = argv[1];
+        VALUE  args[1];
+
+        *args = rstr;
+        rb_funcall2(io, oj_write_id, 1, args);
+        rstr = io;
+    }
+    if (out.allocated) {
+        xfree(out.buf);
+    }
+    return rstr;
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-dump_default_options" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">dump_default_options</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="dump_default_options-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/oj-3.4.0/lib/oj/json.rb, line 48</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">dump_default_options</span>
+  <span class="ruby-constant">Oj</span><span class="ruby-operator">::</span><span class="ruby-constant">MimicDumpOption</span>.<span class="ruby-identifier">new</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-dump_default_options-3D" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">dump_default_options=</span><span
+            class="method-args">(h)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="dump_default_options-3D-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/oj-3.4.0/lib/oj/json.rb, line 52</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">dump_default_options=</span>(<span class="ruby-identifier">h</span>)
+  <span class="ruby-identifier">m</span> = <span class="ruby-constant">Oj</span><span class="ruby-operator">::</span><span class="ruby-constant">MimicDumpOption</span>.<span class="ruby-identifier">new</span>
+  <span class="ruby-identifier">h</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">k</span>,<span class="ruby-identifier">v</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">m</span>[<span class="ruby-identifier">k</span>] = <span class="ruby-identifier">v</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-fast_generate" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            fast_generate(obj, opts=nil)
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="fast_generate-source">
+            <pre>VALUE
+oj_mimic_generate(int argc, VALUE *argv, VALUE self) {
+    struct _Options     copts = oj_default_options;
+
+    copts.str_rx.head = NULL;
+    copts.str_rx.tail = NULL;
+
+    return mimic_generate_core(argc, argv, &amp;copts);
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-fast_unparse" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            generate(obj, opts=nil)
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Encode obj as a <a href="JSON.html">JSON</a> <a
+href="String.html">String</a>. The obj argument must be a <a
+href="Hash.html">Hash</a>, <a href="Array.html">Array</a>, or respond to
+to_h or to_json. <a
+href="vendor/bundle/ruby/2_4_0/gems/oj-3_4_0/pages/Options_md.html">Options</a>
+other than those listed such as <code>:allow_nan</code> or
+<code>:max_nesting</code> are ignored.</p>
+<ul><li>
+<p><strong>obj</strong> [<em>Object</em>|Hash|Array] object to convert to a <a
+href="JSON.html">JSON</a> <a href="String.html">String</a></p>
+</li><li>
+<p><strong>opts</strong> [<em>Hash</em>] options</p>
+</li><li><ul><li>
+<p><strong>:indent</strong> [<em>String</em>] <a href="String.html">String</a>
+to use for indentation.</p>
+</li><li>
+<p><strong>:space</strong> [<em>String</em>] <a href="String.html">String</a>
+placed after a , or : delimiter</p>
+</li><li>
+<p><strong>:space_before</strong>  [<em>String</em>] <a
+href="String.html">String</a> placed before a : delimiter</p>
+</li><li>
+<p><strong>:object_nl</strong> [<em>String</em>] <a
+href="String.html">String</a> placed after a <a href="JSON.html">JSON</a>
+object</p>
+</li><li>
+<p><strong>:array_nl</strong> [<em>String</em>] <a
+href="String.html">String</a> placed after a <a href="JSON.html">JSON</a>
+array</p>
+</li><li>
+<p><strong>:ascii_only</strong> [<em>Boolean</em>] if not nil or false then
+use only ascii characters in the output. Note <a
+href="JSON.html#method-c-generate">::generate</a> does support this even if
+it is not documented.</p>
+</li></ul>
+</li></ul>
+
+<p>Returns [<em>String</em>] generated <a href="JSON.html">JSON</a>.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="fast_unparse-source">
+            <pre>VALUE
+oj_mimic_generate(int argc, VALUE *argv, VALUE self) {
+    struct _Options     copts = oj_default_options;
+
+    copts.str_rx.head = NULL;
+    copts.str_rx.tail = NULL;
+
+    return mimic_generate_core(argc, argv, &amp;copts);
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-generate" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            generate(obj, opts=nil)
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Encode obj as a <a href="JSON.html">JSON</a> <a
+href="String.html">String</a>. The obj argument must be a <a
+href="Hash.html">Hash</a>, <a href="Array.html">Array</a>, or respond to
+to_h or to_json. <a
+href="vendor/bundle/ruby/2_4_0/gems/oj-3_4_0/pages/Options_md.html">Options</a>
+other than those listed such as <code>:allow_nan</code> or
+<code>:max_nesting</code> are ignored.</p>
+<ul><li>
+<p><strong>obj</strong> [<em>Object</em>|Hash|Array] object to convert to a <a
+href="JSON.html">JSON</a> <a href="String.html">String</a></p>
+</li><li>
+<p><strong>opts</strong> [<em>Hash</em>] options</p>
+</li><li><ul><li>
+<p><strong>:indent</strong> [<em>String</em>] <a href="String.html">String</a>
+to use for indentation.</p>
+</li><li>
+<p><strong>:space</strong> [<em>String</em>] <a href="String.html">String</a>
+placed after a , or : delimiter</p>
+</li><li>
+<p><strong>:space_before</strong>  [<em>String</em>] <a
+href="String.html">String</a> placed before a : delimiter</p>
+</li><li>
+<p><strong>:object_nl</strong> [<em>String</em>] <a
+href="String.html">String</a> placed after a <a href="JSON.html">JSON</a>
+object</p>
+</li><li>
+<p><strong>:array_nl</strong> [<em>String</em>] <a
+href="String.html">String</a> placed after a <a href="JSON.html">JSON</a>
+array</p>
+</li><li>
+<p><strong>:ascii_only</strong> [<em>Boolean</em>] if not nil or false then
+use only ascii characters in the output. Note <a
+href="JSON.html#method-c-generate">::generate</a> does support this even if
+it is not documented.</p>
+</li></ul>
+</li></ul>
+
+<p>Returns [<em>String</em>] generated <a href="JSON.html">JSON</a>.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="generate-source">
+            <pre>VALUE
+oj_mimic_generate(int argc, VALUE *argv, VALUE self) {
+    struct _Options     copts = oj_default_options;
+
+    copts.str_rx.head = NULL;
+    copts.str_rx.tail = NULL;
+
+    return mimic_generate_core(argc, argv, &amp;copts);
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-generator" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">generator</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="generator-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/oj-3.4.0/lib/oj/json.rb, line 71</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">generator</span>()
+  <span class="ruby-identifier">@@generator</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-generator-3D" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">generator=</span><span
+            class="method-args">(g)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="generator-3D-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/oj-3.4.0/lib/oj/json.rb, line 67</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">generator=</span>(<span class="ruby-identifier">g</span>)
+  <span class="ruby-identifier">@@generator</span> = <span class="ruby-identifier">g</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-load" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            load(source, proc=nil)
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Loads a Ruby <a href="Object.html">Object</a> from a <a
+href="JSON.html">JSON</a> source that can be either a <a
+href="String.html">String</a> or an IO. If <a href="Proc.html">Proc</a> is
+given or a block is providedit is called with each nested element of the
+loaded <a href="Object.html">Object</a>.</p>
+<ul><li>
+<p><strong>source</strong> [<em>String</em>|IO] <a href="JSON.html">JSON</a>
+source</p>
+</li><li>
+<p><strong>proc</strong> [<em>Proc</em>] to yield to on each element or nil</p>
+</li></ul>
+
+<p>Returns [<em>Object</em>] the decode <a href="Object.html">Object</a>.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="load-source">
+            <pre>static VALUE
+mimic_load(int argc, VALUE *argv, VALUE self) {
+    VALUE       obj;
+    VALUE       p = Qnil;
+
+    obj = oj_compat_load(argc, argv, self);
+    if (2 &lt;= argc) {
+        if (rb_cProc == rb_obj_class(argv[1])) {
+            p = argv[1];
+        } else if (3 &lt;= argc) {
+            if (rb_cProc == rb_obj_class(argv[2])) {
+                p = argv[2];
+            }
+        }
+    }
+    mimic_walk(Qnil, obj, p);
+
+    return obj;
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-parse" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            parse(source, opts=nil)
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Parses a <a href="JSON.html">JSON</a> <a href="String.html">String</a> or
+IO into a Ruby <a href="Object.html">Object</a>.  <a
+href="vendor/bundle/ruby/2_4_0/gems/oj-3_4_0/pages/Options_md.html">Options</a>
+other than those listed such as <code>:allow_nan</code> or
+<code>:max_nesting</code> are ignored. <code>:object_class</code> and
+<code>:array_object</code> are not supported.</p>
+<ul><li>
+<p><strong>source</strong> [<em>String</em>|IO] source to parse</p>
+</li><li>
+<p><strong>opts</strong> [<em>Hash</em>] options</p>
+<ul><li>
+<p><strong>:symbolize</strong> [Boolean] _names flag indicating <a
+href="JSON.html">JSON</a> object keys should be Symbols instead of Strings</p>
+</li><li>
+<p><strong>:create_additions</strong> [Boolean] flag indicating a key matching
+<code>create_id</code> in a <a href="JSON.html">JSON</a> object should
+trigger the creation of Ruby <a href="Object.html">Object</a></p>
+</li></ul>
+</li></ul>
+
+<p>Returns [Object] @see <a
+href="JSON.html#method-c-create_id">::create_id</a>=</p>
+          
+          
+
+          
+          <div class="method-source-code" id="parse-source">
+            <pre>VALUE
+oj_mimic_parse(int argc, VALUE *argv, VALUE self) {
+    return mimic_parse_core(argc, argv, self, false);
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-parse-21" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            parse!(source, opts=nil)
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Same as parse(). @see parse</p>
+          
+          
+
+          
+          <div class="method-source-code" id="parse-21-source">
+            <pre>static VALUE
+mimic_parse_bang(int argc, VALUE *argv, VALUE self) {
+    return mimic_parse_core(argc, argv, self, true);
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-parser" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">parser</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="parser-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/oj-3.4.0/lib/oj/json.rb, line 63</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">parser</span>()
+  <span class="ruby-identifier">@@parser</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-parser-3D" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">parser=</span><span
+            class="method-args">(p)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="parser-3D-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/oj-3.4.0/lib/oj/json.rb, line 59</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">parser=</span>(<span class="ruby-identifier">p</span>)
+  <span class="ruby-identifier">@@parser</span> = <span class="ruby-identifier">p</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-pretty_generate" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            pretty_generate(obj, opts=nil)
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Same as generate() but with different defaults for the spacing options.
+@see generate</p>
+
+<p>Return [<em>String</em>] the generated <a href="JSON.html">JSON</a>.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="pretty_generate-source">
+            <pre>VALUE
+oj_mimic_pretty_generate(int argc, VALUE *argv, VALUE self) {
+    struct _Options     copts = oj_default_options;
+    VALUE               rargs[2];
+    volatile VALUE      h;
+
+    // Some (all?) json gem to_json methods need a State instance and not just
+    // a Hash. I haven&#39;t dug deep enough to find out why but using a State
+    // instance and not a Hash gives the desired behavior.
+    *rargs = *argv;
+    if (1 == argc) {
+        h = rb_hash_new();
+    } else {
+        h = argv[1];
+    }
+    if (Qfalse == rb_funcall(h, oj_has_key_id, 1, oj_indent_sym)) {
+        rb_hash_aset(h, oj_indent_sym, rb_str_new2(&quot;  &quot;));
+    }
+    if (Qfalse == rb_funcall(h, oj_has_key_id, 1, oj_space_before_sym)) {
+        rb_hash_aset(h, oj_space_before_sym, rb_str_new2(&quot;&quot;));
+    }
+    if (Qfalse == rb_funcall(h, oj_has_key_id, 1, oj_space_sym)) {
+        rb_hash_aset(h, oj_space_sym, rb_str_new2(&quot; &quot;));
+    }
+    if (Qfalse == rb_funcall(h, oj_has_key_id, 1, oj_object_nl_sym)) {
+        rb_hash_aset(h, oj_object_nl_sym, rb_str_new2(&quot;\n&quot;));
+    }
+    if (Qfalse == rb_funcall(h, oj_has_key_id, 1, oj_array_nl_sym)) {
+        rb_hash_aset(h, oj_array_nl_sym, rb_str_new2(&quot;\n&quot;));
+    }
+    rargs[1] = rb_funcall(state_class, oj_new_id, 1, h);
+    
+    copts.str_rx.head = NULL;
+    copts.str_rx.tail = NULL;
+    strcpy(copts.dump_opts.indent_str, &quot;  &quot;);
+    copts.dump_opts.indent_size = (uint8_t)strlen(copts.dump_opts.indent_str);
+    strcpy(copts.dump_opts.before_sep, &quot;&quot;);
+    copts.dump_opts.before_size = (uint8_t)strlen(copts.dump_opts.before_sep);
+    strcpy(copts.dump_opts.after_sep, &quot; &quot;);
+    copts.dump_opts.after_size = (uint8_t)strlen(copts.dump_opts.after_sep);
+    strcpy(copts.dump_opts.hash_nl, &quot;\n&quot;);
+    copts.dump_opts.hash_size = (uint8_t)strlen(copts.dump_opts.hash_nl);
+    strcpy(copts.dump_opts.array_nl, &quot;\n&quot;);
+    copts.dump_opts.array_size = (uint8_t)strlen(copts.dump_opts.array_nl);
+    copts.dump_opts.use = true;
+
+    return mimic_generate_core(2, rargs, &amp;copts);
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-pretty_unparse" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            pretty_generate(obj, opts=nil)
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Same as generate() but with different defaults for the spacing options.
+@see generate</p>
+
+<p>Return [<em>String</em>] the generated <a href="JSON.html">JSON</a>.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="pretty_unparse-source">
+            <pre>VALUE
+oj_mimic_pretty_generate(int argc, VALUE *argv, VALUE self) {
+    struct _Options     copts = oj_default_options;
+    VALUE               rargs[2];
+    volatile VALUE      h;
+
+    // Some (all?) json gem to_json methods need a State instance and not just
+    // a Hash. I haven&#39;t dug deep enough to find out why but using a State
+    // instance and not a Hash gives the desired behavior.
+    *rargs = *argv;
+    if (1 == argc) {
+        h = rb_hash_new();
+    } else {
+        h = argv[1];
+    }
+    if (Qfalse == rb_funcall(h, oj_has_key_id, 1, oj_indent_sym)) {
+        rb_hash_aset(h, oj_indent_sym, rb_str_new2(&quot;  &quot;));
+    }
+    if (Qfalse == rb_funcall(h, oj_has_key_id, 1, oj_space_before_sym)) {
+        rb_hash_aset(h, oj_space_before_sym, rb_str_new2(&quot;&quot;));
+    }
+    if (Qfalse == rb_funcall(h, oj_has_key_id, 1, oj_space_sym)) {
+        rb_hash_aset(h, oj_space_sym, rb_str_new2(&quot; &quot;));
+    }
+    if (Qfalse == rb_funcall(h, oj_has_key_id, 1, oj_object_nl_sym)) {
+        rb_hash_aset(h, oj_object_nl_sym, rb_str_new2(&quot;\n&quot;));
+    }
+    if (Qfalse == rb_funcall(h, oj_has_key_id, 1, oj_array_nl_sym)) {
+        rb_hash_aset(h, oj_array_nl_sym, rb_str_new2(&quot;\n&quot;));
+    }
+    rargs[1] = rb_funcall(state_class, oj_new_id, 1, h);
+    
+    copts.str_rx.head = NULL;
+    copts.str_rx.tail = NULL;
+    strcpy(copts.dump_opts.indent_str, &quot;  &quot;);
+    copts.dump_opts.indent_size = (uint8_t)strlen(copts.dump_opts.indent_str);
+    strcpy(copts.dump_opts.before_sep, &quot;&quot;);
+    copts.dump_opts.before_size = (uint8_t)strlen(copts.dump_opts.before_sep);
+    strcpy(copts.dump_opts.after_sep, &quot; &quot;);
+    copts.dump_opts.after_size = (uint8_t)strlen(copts.dump_opts.after_sep);
+    strcpy(copts.dump_opts.hash_nl, &quot;\n&quot;);
+    copts.dump_opts.hash_size = (uint8_t)strlen(copts.dump_opts.hash_nl);
+    strcpy(copts.dump_opts.array_nl, &quot;\n&quot;);
+    copts.dump_opts.array_size = (uint8_t)strlen(copts.dump_opts.array_nl);
+    copts.dump_opts.use = true;
+
+    return mimic_generate_core(2, rargs, &amp;copts);
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-recurse_proc" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            recurse_proc(obj, &amp;proc)
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Yields to the proc for every element in the obj recursivly.</p>
+<ul><li>
+<p><strong>obj</strong> [<em>Hash</em>|Array] object to walk</p>
+</li><li>
+<p><strong>proc</strong> [<em>Proc</em>] to yield to on each element</p>
+</li></ul>
+          
+          
+
+          
+          <div class="method-source-code" id="recurse_proc-source">
+            <pre>static VALUE
+mimic_recurse_proc(VALUE self, VALUE obj) {
+    rb_need_block();
+    mimic_walk(Qnil, obj, Qnil);
+
+    return Qnil;
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-restore" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            restore(source, proc=nil)
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Loads a Ruby <a href="Object.html">Object</a> from a <a
+href="JSON.html">JSON</a> source that can be either a <a
+href="String.html">String</a> or an IO. If <a href="Proc.html">Proc</a> is
+given or a block is providedit is called with each nested element of the
+loaded <a href="Object.html">Object</a>.</p>
+<ul><li>
+<p><strong>source</strong> [<em>String</em>|IO] <a href="JSON.html">JSON</a>
+source</p>
+</li><li>
+<p><strong>proc</strong> [<em>Proc</em>] to yield to on each element or nil</p>
+</li></ul>
+
+<p>Returns [<em>Object</em>] the decoded <a href="Object.html">Object</a>.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="restore-source">
+            <pre>static VALUE
+mimic_load(int argc, VALUE *argv, VALUE self) {
+    VALUE       obj;
+    VALUE       p = Qnil;
+
+    obj = oj_compat_load(argc, argv, self);
+    if (2 &lt;= argc) {
+        if (rb_cProc == rb_obj_class(argv[1])) {
+            p = argv[1];
+        } else if (3 &lt;= argc) {
+            if (rb_cProc == rb_obj_class(argv[2])) {
+                p = argv[2];
+            }
+        }
+    }
+    mimic_walk(Qnil, obj, p);
+
+    return obj;
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-state" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            state()
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Returns [<em>JSON::State</em>] the <a
+href="JSON.html#State">JSON::State</a> class.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="state-source">
+            <pre>static VALUE
+mimic_state(VALUE self) {
+    return state_class;
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-unparse" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            generate(obj, opts=nil)
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Encode obj as a <a href="JSON.html">JSON</a> <a
+href="String.html">String</a>. The obj argument must be a <a
+href="Hash.html">Hash</a>, <a href="Array.html">Array</a>, or respond to
+to_h or to_json. <a
+href="vendor/bundle/ruby/2_4_0/gems/oj-3_4_0/pages/Options_md.html">Options</a>
+other than those listed such as <code>:allow_nan</code> or
+<code>:max_nesting</code> are ignored.</p>
+<ul><li>
+<p><strong>obj</strong> [<em>Object</em>|Hash|Array] object to convert to a <a
+href="JSON.html">JSON</a> <a href="String.html">String</a></p>
+</li><li>
+<p><strong>opts</strong> [<em>Hash</em>] options</p>
+</li><li><ul><li>
+<p><strong>:indent</strong> [<em>String</em>] <a href="String.html">String</a>
+to use for indentation.</p>
+</li><li>
+<p><strong>:space</strong> [<em>String</em>] <a href="String.html">String</a>
+placed after a , or : delimiter</p>
+</li><li>
+<p><strong>:space_before</strong>  [<em>String</em>] <a
+href="String.html">String</a> placed before a : delimiter</p>
+</li><li>
+<p><strong>:object_nl</strong> [<em>String</em>] <a
+href="String.html">String</a> placed after a <a href="JSON.html">JSON</a>
+object</p>
+</li><li>
+<p><strong>:array_nl</strong> [<em>String</em>] <a
+href="String.html">String</a> placed after a <a href="JSON.html">JSON</a>
+array</p>
+</li><li>
+<p><strong>:ascii_only</strong> [<em>Boolean</em>] if not nil or false then
+use only ascii characters in the output. Note <a
+href="JSON.html#method-c-generate">::generate</a> does support this even if
+it is not documented.</p>
+</li></ul>
+</li></ul>
+
+<p>Returns [<em>String</em>] generated <a href="JSON.html">JSON</a>.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="unparse-source">
+            <pre>VALUE
+oj_mimic_generate(int argc, VALUE *argv, VALUE self) {
+    struct _Options     copts = oj_default_options;
+
+    copts.str_rx.head = NULL;
+    copts.str_rx.tail = NULL;
+
+    return mimic_generate_core(argc, argv, &amp;copts);
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="https://rdoc.github.io/rdoc">RDoc</a> 5.0.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

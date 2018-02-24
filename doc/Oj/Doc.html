@@ -1,0 +1,1270 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class Oj::Doc - RDoc Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../";
+  var index_rel_prefix = "../";
+</script>
+
+<script src="../js/jquery.js"></script>
+<script src="../js/darkfish.js"></script>
+
+<link href="../css/fonts.css" rel="stylesheet">
+<link href="../css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../table_of_contents.html#pages">Pages</a>
+    <a href="../table_of_contents.html#classes">Classes</a>
+    <a href="../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link"><a href="../Object.html">Object</a>
+  
+</div>
+
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-c-open">::open</a>
+    
+    <li ><a href="#method-c-open_file">::open_file</a>
+    
+    <li ><a href="#method-c-parse">::parse</a>
+    
+    <li ><a href="#method-i-clone">#clone</a>
+    
+    <li ><a href="#method-i-close">#close</a>
+    
+    <li ><a href="#method-i-dump">#dump</a>
+    
+    <li ><a href="#method-i-dup">#dup</a>
+    
+    <li ><a href="#method-i-each_child">#each_child</a>
+    
+    <li ><a href="#method-i-each_leaf">#each_leaf</a>
+    
+    <li ><a href="#method-i-each_value">#each_value</a>
+    
+    <li ><a href="#method-i-fetch">#fetch</a>
+    
+    <li ><a href="#method-i-home">#home</a>
+    
+    <li ><a href="#method-i-local_key">#local_key</a>
+    
+    <li ><a href="#method-i-move">#move</a>
+    
+    <li ><a href="#method-i-size">#size</a>
+    
+    <li ><a href="#method-i-type">#type</a>
+    
+    <li ><a href="#method-i-where-3F">#where?</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-Oj::Doc">
+  <h1 id="class-Oj::Doc" class="class">
+    class Oj::Doc
+  </h1>
+
+  <section class="description">
+    
+<p>The <a href="Doc.html">Doc</a> class is used to parse and navigate a <a
+href="../JSON.html">JSON</a> document. The model it employs is that of a
+document that while open can be navigated and values extracted. Once the
+document is closed the document can not longer be accessed. This allows the
+parsing and data extraction to be extremely fast compared to other <a
+href="../JSON.html">JSON</a> parses.</p>
+
+<p>An <a href="Doc.html">Oj::Doc</a> class is not created directly but the
+_open()_ class method is used to open a document and the yield parameter to
+the block of the open() call is the <a href="Doc.html">Doc</a> instance.
+The <a href="Doc.html">Doc</a> instance can be moved across, up, and down
+the <a href="../JSON.html">JSON</a> document. At each element the data
+associated with the element can be extracted. It is also possible to just
+provide a path to the data to be extracted and retrieve the data in that
+manner.</p>
+
+<p>For many of the methods a path is used to describe the location of an
+element. Paths follow a subset of the XPath syntax. The slash (&#39;/&#39;)
+character is the separator. Each step in the path identifies the next
+branch to take through the document. A <a href="../JSON.html">JSON</a>
+object will expect a key string while an array will expect a positive
+index. A .. step indicates a move up the <a href="../JSON.html">JSON</a>
+document.</p>
+
+<p>@example</p>
+
+<pre class="ruby"><span class="ruby-identifier">json</span> = <span class="ruby-string">%Q{[
+  {
+    &quot;one&quot;   : 1,
+    &quot;two&quot;   : 2
+  },
+  {
+    &quot;three&quot; : 3,
+    &quot;four&quot;  : 4
+  }
+]}</span>
+<span class="ruby-comment"># move and get value</span>
+<span class="ruby-constant">Oj</span><span class="ruby-operator">::</span><span class="ruby-constant">Doc</span>.<span class="ruby-identifier">open</span>(<span class="ruby-identifier">json</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">doc</span><span class="ruby-operator">|</span>
+  <span class="ruby-identifier">doc</span>.<span class="ruby-identifier">move</span>(<span class="ruby-string">&#39;/1/two&#39;</span>)  
+  <span class="ruby-comment"># doc location is now at the &#39;two&#39; element of the hash that is the first element of the array.</span>
+  <span class="ruby-identifier">doc</span>.<span class="ruby-identifier">fetch</span>()
+<span class="ruby-keyword">end</span>
+<span class="ruby-comment">#=&gt; 2</span>
+
+<span class="ruby-comment"># Now try again using a path to Oj::Doc.fetch() directly and not using a block.</span>
+<span class="ruby-identifier">doc</span> = <span class="ruby-constant">Oj</span><span class="ruby-operator">::</span><span class="ruby-constant">Doc</span>.<span class="ruby-identifier">open</span>(<span class="ruby-identifier">json</span>)
+<span class="ruby-identifier">doc</span>.<span class="ruby-identifier">fetch</span>(<span class="ruby-string">&#39;/2/three&#39;</span>)  <span class="ruby-comment">#=&gt; 3</span>
+<span class="ruby-identifier">doc</span>.<span class="ruby-identifier">close</span>()
+</pre>
+
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Class Methods</h3>
+       </header>
+
+    
+      <div id="method-c-open" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">open</span><span
+            class="method-args">(p1)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>@overload open(json) { |doc| … } =&gt; <a href="../Object.html">Object</a></p>
+
+<p>Parses a <a href="../JSON.html">JSON</a> document <a
+href="../String.html">String</a> and then yields to the provided block if
+one is given with an instance of the <a href="Doc.html">Oj::Doc</a> as the
+single yield parameter. If a block is not given then an <a
+href="Doc.html">Oj::Doc</a> instance is returned and must be closed with a
+call to the <a href="Doc.html#method-i-close">close()</a> method when no
+longer needed.</p>
+
+<pre>@param [String] json JSON document string</pre>
+
+<p>@yieldparam [Oj::Doc] doc parsed <a href="../JSON.html">JSON</a> document
+@yieldreturn [Object] returns the result of the yield as the result of the
+method call @example</p>
+
+<pre class="ruby"><span class="ruby-constant">Oj</span><span class="ruby-operator">::</span><span class="ruby-constant">Doc</span>.<span class="ruby-identifier">open</span>(<span class="ruby-string">&#39;[1,2,3]&#39;</span>) { <span class="ruby-operator">|</span><span class="ruby-identifier">doc</span><span class="ruby-operator">|</span> <span class="ruby-identifier">doc</span>.<span class="ruby-identifier">size</span>() }  <span class="ruby-comment">#=&gt; 4</span>
+<span class="ruby-comment"># or as an alternative</span>
+<span class="ruby-identifier">doc</span> = <span class="ruby-constant">Oj</span><span class="ruby-operator">::</span><span class="ruby-constant">Doc</span>.<span class="ruby-identifier">open</span>(<span class="ruby-string">&#39;[1,2,3]&#39;</span>)
+<span class="ruby-identifier">doc</span>.<span class="ruby-identifier">size</span>()  <span class="ruby-comment">#=&gt; 4</span>
+<span class="ruby-identifier">doc</span>.<span class="ruby-identifier">close</span>()
+</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="open-source">
+            <pre>static VALUE
+doc_open(VALUE clas, VALUE str) {
+    char        *json;
+    size_t      len;
+    VALUE       obj;
+    int         given = rb_block_given_p();
+    int         allocate;
+
+    Check_Type(str, T_STRING);
+    len = RSTRING_LEN(str) + 1;
+    allocate = (SMALL_XML &lt; len || !given);
+    if (allocate) {
+        json = ALLOC_N(char, len);
+    } else {
+        json = ALLOCA_N(char, len);
+    }
+    memcpy(json, StringValuePtr(str), len);
+    obj = parse_json(clas, json, given, allocate);
+    if (given &amp;&amp; allocate) {
+        xfree(json);
+    }
+    return obj;
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-open_file" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">open_file</span><span
+            class="method-args">(p1)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>@overload <a href="Doc.html#method-c-open_file">::open_file</a>(filename) {
+|doc| … } =&gt; <a href="../Object.html">Object</a></p>
+
+<p>Parses a <a href="../JSON.html">JSON</a> document from a file and then
+yields to the provided block if one is given with an instance of the <a
+href="Doc.html">Oj::Doc</a> as the single yield parameter. If a block is
+not given then an <a href="Doc.html">Oj::Doc</a> instance is returned and
+must be closed with a call to the <a
+href="Doc.html#method-i-close">close()</a> method when no longer needed.</p>
+
+<pre>@param [String] filename name of file that contains a JSON document</pre>
+
+<p>@yieldparam [Oj::Doc] doc parsed <a href="../JSON.html">JSON</a> document
+@yieldreturn [Object] returns the result of the yield as the result of the
+method call @example</p>
+
+<pre class="ruby"><span class="ruby-constant">File</span>.<span class="ruby-identifier">open</span>(<span class="ruby-string">&#39;array.json&#39;</span>, <span class="ruby-string">&#39;w&#39;</span>) { <span class="ruby-operator">|</span><span class="ruby-identifier">f</span><span class="ruby-operator">|</span> <span class="ruby-identifier">f</span>.<span class="ruby-identifier">write</span>(<span class="ruby-string">&#39;[1,2,3]&#39;</span>) }
+<span class="ruby-constant">Oj</span><span class="ruby-operator">::</span><span class="ruby-constant">Doc</span>.<span class="ruby-identifier">open_file</span>(<span class="ruby-identifier">filename</span>) { <span class="ruby-operator">|</span><span class="ruby-identifier">doc</span><span class="ruby-operator">|</span> <span class="ruby-identifier">doc</span>.<span class="ruby-identifier">size</span>() }  <span class="ruby-comment">#=&gt; 4</span>
+<span class="ruby-comment"># or as an alternative</span>
+<span class="ruby-identifier">doc</span> = <span class="ruby-constant">Oj</span><span class="ruby-operator">::</span><span class="ruby-constant">Doc</span>.<span class="ruby-identifier">open_file</span>(<span class="ruby-identifier">filename</span>)
+<span class="ruby-identifier">doc</span>.<span class="ruby-identifier">size</span>()  <span class="ruby-comment">#=&gt; 4</span>
+<span class="ruby-identifier">doc</span>.<span class="ruby-identifier">close</span>()
+</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="open_file-source">
+            <pre>static VALUE
+doc_open_file(VALUE clas, VALUE filename) {
+    char        *path;
+    char        *json;
+    FILE        *f;
+    size_t      len;
+    VALUE       obj;
+    int         given = rb_block_given_p();
+    int         allocate;
+
+    Check_Type(filename, T_STRING);
+    path = StringValuePtr(filename);
+    if (0 == (f = fopen(path, &quot;r&quot;))) {
+        rb_raise(rb_eIOError, &quot;%s&quot;, strerror(errno));
+    }
+    fseek(f, 0, SEEK_END);
+    len = ftell(f);
+    allocate = (SMALL_XML &lt; len || !given);
+    if (allocate) {
+        json = ALLOC_N(char, len + 1);
+    } else {
+        json = ALLOCA_N(char, len + 1);
+    }
+    fseek(f, 0, SEEK_SET);
+    if (len != fread(json, 1, len, f)) {
+        fclose(f);
+        rb_raise(rb_const_get_at(Oj, rb_intern(&quot;LoadError&quot;)), 
+                 &quot;Failed to read %lu bytes from %s.&quot;, (unsigned long)len, path);
+    }
+    fclose(f);
+    json[len] = &#39;\0&#39;;
+    obj = parse_json(clas, json, given, allocate);
+    if (given &amp;&amp; allocate) {
+        xfree(json);
+    }
+    return obj;
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-parse" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">parse</span><span
+            class="method-args">(p1)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>@see <a href="Doc.html#method-c-open">::open</a></p>
+          
+          
+
+          
+          <div class="method-source-code" id="parse-source">
+            <pre>static VALUE
+doc_open(VALUE clas, VALUE str) {
+    char        *json;
+    size_t      len;
+    VALUE       obj;
+    int         given = rb_block_given_p();
+    int         allocate;
+
+    Check_Type(str, T_STRING);
+    len = RSTRING_LEN(str) + 1;
+    allocate = (SMALL_XML &lt; len || !given);
+    if (allocate) {
+        json = ALLOC_N(char, len);
+    } else {
+        json = ALLOCA_N(char, len);
+    }
+    memcpy(json, StringValuePtr(str), len);
+    obj = parse_json(clas, json, given, allocate);
+    if (given &amp;&amp; allocate) {
+        xfree(json);
+    }
+    return obj;
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-clone" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">clone</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="clone-source">
+            <pre>static VALUE
+doc_not_implemented(VALUE self) {
+    rb_raise(rb_eNotImpError, &quot;Not implemented.&quot;);
+    return Qnil;
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-close" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">close</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>@overload close() =&gt; nil</p>
+
+<p>Closes an open document. No further calls to the document will be valid
+after closing. @example</p>
+
+<pre class="ruby"><span class="ruby-identifier">doc</span> = <span class="ruby-constant">Oj</span><span class="ruby-operator">::</span><span class="ruby-constant">Doc</span>.<span class="ruby-identifier">open</span>(<span class="ruby-string">&#39;[1,2,3]&#39;</span>)
+<span class="ruby-identifier">doc</span>.<span class="ruby-identifier">size</span>()  <span class="ruby-comment">#=&gt; 4</span>
+<span class="ruby-identifier">doc</span>.<span class="ruby-identifier">close</span>()
+</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="close-source">
+            <pre>static VALUE
+doc_close(VALUE self) {
+    Doc         doc = self_doc(self);
+
+    rb_gc_unregister_address(&amp;doc-&gt;self);
+    DATA_PTR(doc-&gt;self) = 0;
+    if (0 != doc) {
+        xfree(doc-&gt;json);
+        doc_free(doc);
+        xfree(doc);
+    }
+    return Qnil;
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-dump" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">dump</span><span
+            class="method-args">(*args)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>@overload dump(path, filename)</p>
+
+<p>Dumps the document or nodes to a new <a href="../JSON.html">JSON</a>
+document. It uses the default options for generating the <a
+href="../JSON.html">JSON</a>.</p>
+
+<pre>@param path [String] if provided it identified the top of the branch to dump to JSON
+@param filename [String] if provided it is the filename to write the output to</pre>
+
+<p>@example</p>
+
+<pre class="ruby"><span class="ruby-constant">Oj</span><span class="ruby-operator">::</span><span class="ruby-constant">Doc</span>.<span class="ruby-identifier">open</span>(<span class="ruby-string">&#39;[3,[2,1]]&#39;</span>) { <span class="ruby-operator">|</span><span class="ruby-identifier">doc</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">doc</span>.<span class="ruby-identifier">dump</span>(<span class="ruby-string">&#39;/2&#39;</span>)
+}
+<span class="ruby-comment">#=&gt; &quot;[2,1]&quot;</span>
+</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="dump-source">
+            <pre>static VALUE
+doc_dump(int argc, VALUE *argv, VALUE self) {
+    Doc         doc = self_doc(self);
+    Leaf        leaf;
+    const char  *path = 0;
+    const char  *filename = 0;
+
+    if (1 &lt;= argc) {
+        if (Qnil != *argv) {
+            Check_Type(*argv, T_STRING);
+            path = StringValuePtr(*argv);
+        }
+        if (2 &lt;= argc) {
+            Check_Type(argv[1], T_STRING);
+            filename = StringValuePtr(argv[1]);
+        }
+    }
+    if (0 != (leaf = get_doc_leaf(doc, path))) {
+        VALUE  rjson;
+
+        if (0 == filename) {
+            char       buf[4096];
+            struct _Out out;
+
+            out.buf = buf;
+            out.end = buf + sizeof(buf) - 10;
+            out.allocated = false;
+            out.omit_nil = oj_default_options.dump_opts.omit_nil;
+            oj_dump_leaf_to_json(leaf, &amp;oj_default_options, &amp;out);
+            rjson = rb_str_new2(out.buf);
+            if (out.allocated) {
+                xfree(out.buf);
+            }
+        } else {
+            oj_write_leaf_to_file(leaf, filename, &amp;oj_default_options);
+            rjson = Qnil;
+        }
+        return rjson;
+    }
+    return Qnil;
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-dup" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">dup</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="dup-source">
+            <pre>static VALUE
+doc_not_implemented(VALUE self) {
+    rb_raise(rb_eNotImpError, &quot;Not implemented.&quot;);
+    return Qnil;
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-each_child" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">each_child</span><span
+            class="method-args">(*args)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>@overload <a href="Doc.html#method-i-each_child">#each_child</a>(path=nil)
+{ |doc| … } =&gt; nil</p>
+
+<p>Yields to the provided block for each immediate child node with the
+identified location of the <a href="../JSON.html">JSON</a> document as the
+root. The parameter passed to the block on yield is the <a
+href="Doc.html">Doc</a> instance after moving to the child location.</p>
+
+<pre>@param [String] path if provided it identified the top of the branch to process the chilren of</pre>
+
+<p>@yieldparam [Doc] <a href="Doc.html">Doc</a> at the child location @example</p>
+
+<pre class="ruby"><span class="ruby-constant">Oj</span><span class="ruby-operator">::</span><span class="ruby-constant">Doc</span>.<span class="ruby-identifier">open</span>(<span class="ruby-string">&#39;[3,[2,1]]&#39;</span>) { <span class="ruby-operator">|</span><span class="ruby-identifier">doc</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">result</span> = []
+    <span class="ruby-identifier">doc</span>.<span class="ruby-identifier">each_value</span>(<span class="ruby-string">&#39;/2&#39;</span>) { <span class="ruby-operator">|</span><span class="ruby-identifier">doc</span><span class="ruby-operator">|</span> <span class="ruby-identifier">result</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">doc</span>.<span class="ruby-identifier">where?</span> }
+    <span class="ruby-identifier">result</span>
+}
+<span class="ruby-comment">#=&gt; [&quot;/2/1&quot;, &quot;/2/2&quot;]</span>
+</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="each_child-source">
+            <pre>static VALUE
+doc_each_child(int argc, VALUE *argv, VALUE self) {
+    if (rb_block_given_p()) {
+        Leaf           save_path[MAX_STACK];
+        Doc            doc = self_doc(self);
+        const char     *path = 0;
+        size_t         wlen;
+
+        wlen = doc-&gt;where - doc-&gt;where_path;
+        if (0 &lt; wlen) {
+            memcpy(save_path, doc-&gt;where_path, sizeof(Leaf) * (wlen + 1));
+        }
+        if (1 &lt;= argc) {
+            Check_Type(*argv, T_STRING);
+            path = StringValuePtr(*argv);
+            if (&#39;/&#39; == *path) {
+                doc-&gt;where = doc-&gt;where_path;
+                path++;
+            }
+            if (0 != move_step(doc, path, 1)) {
+                if (0 &lt; wlen) {
+                    memcpy(doc-&gt;where_path, save_path, sizeof(Leaf) * (wlen + 1));
+                }
+                return Qnil;
+            }
+        }
+        if (COL_VAL == (*doc-&gt;where)-&gt;value_type &amp;&amp; 0 != (*doc-&gt;where)-&gt;elements) {
+            Leaf       first = (*doc-&gt;where)-&gt;elements-&gt;next;
+            Leaf       e = first;
+
+            doc-&gt;where++;
+            do {
+                *doc-&gt;where = e;
+                rb_yield(self);
+                e = e-&gt;next;
+            } while (e != first);
+        }
+        if (0 &lt; wlen) {
+            memcpy(doc-&gt;where_path, save_path, sizeof(Leaf) * (wlen + 1));
+        }
+    }
+    return Qnil;
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-each_leaf" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">each_leaf</span><span
+            class="method-args">(*args)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>@overload <a href="Doc.html#method-i-each_leaf">#each_leaf</a>(path=nil)
+=&gt; nil</p>
+
+<p>Yields to the provided block for each leaf node with the identified
+location of the <a href="../JSON.html">JSON</a> document as the root. The
+parameter passed to the block on yield is the <a href="Doc.html">Doc</a>
+instance after moving to the child location.</p>
+
+<pre>@param [String] path if provided it identified the top of the branch to process the leaves of</pre>
+
+<p>@yieldparam [Doc] <a href="Doc.html">Doc</a> at the child location @example</p>
+
+<pre class="ruby"><span class="ruby-constant">Oj</span><span class="ruby-operator">::</span><span class="ruby-constant">Doc</span>.<span class="ruby-identifier">open</span>(<span class="ruby-string">&#39;[3,[2,1]]&#39;</span>) { <span class="ruby-operator">|</span><span class="ruby-identifier">doc</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">result</span> = {}
+    <span class="ruby-identifier">doc</span>.<span class="ruby-identifier">each_leaf</span>() { <span class="ruby-operator">|</span><span class="ruby-identifier">d</span><span class="ruby-operator">|</span> <span class="ruby-identifier">result</span>[<span class="ruby-identifier">d</span>.<span class="ruby-identifier">where?</span>] = <span class="ruby-identifier">d</span>.<span class="ruby-identifier">fetch</span>() }
+    <span class="ruby-identifier">result</span>
+}
+<span class="ruby-comment">#=&gt; [&quot;/1&quot; =&gt; 3, &quot;/2/1&quot; =&gt; 2, &quot;/2/2&quot; =&gt; 1]</span>
+</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="each_leaf-source">
+            <pre>static VALUE
+doc_each_leaf(int argc, VALUE *argv, VALUE self) {
+    if (rb_block_given_p()) {
+        Leaf           save_path[MAX_STACK];
+        Doc            doc = self_doc(self);
+        const char     *path = 0;
+        size_t         wlen;
+
+        wlen = doc-&gt;where - doc-&gt;where_path;
+        if (0 &lt; wlen) {
+            memcpy(save_path, doc-&gt;where_path, sizeof(Leaf) * (wlen + 1));
+        }
+        if (1 &lt;= argc) {
+            Check_Type(*argv, T_STRING);
+            path = StringValuePtr(*argv);
+            if (&#39;/&#39; == *path) {
+                doc-&gt;where = doc-&gt;where_path;
+                path++;
+            }
+            if (0 != move_step(doc, path, 1)) {
+                if (0 &lt; wlen) {
+                    memcpy(doc-&gt;where_path, save_path, sizeof(Leaf) * (wlen + 1));
+                }
+                return Qnil;
+            }
+        }
+        each_leaf(doc, self);
+        if (0 &lt; wlen) {
+            memcpy(doc-&gt;where_path, save_path, sizeof(Leaf) * (wlen + 1));
+        }
+    }
+    return Qnil;
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-each_value" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">each_value</span><span
+            class="method-args">(*args)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>@overload <a href="Doc.html#method-i-each_value">#each_value</a>(path=nil)
+{ |val| … } =&gt; nil</p>
+
+<p>Yields to the provided block for each leaf value in the identified location
+of the <a href="../JSON.html">JSON</a> document. The parameter passed to
+the block on yield is the value of the leaf. Only those leaves below the
+element specified by the path parameter are processed.</p>
+
+<pre>@param [String] path if provided it identified the top of the branch to process the leaf values of</pre>
+
+<p>@yieldparam [Object] val each leaf value @example</p>
+
+<pre class="ruby"><span class="ruby-constant">Oj</span><span class="ruby-operator">::</span><span class="ruby-constant">Doc</span>.<span class="ruby-identifier">open</span>(<span class="ruby-string">&#39;[3,[2,1]]&#39;</span>) { <span class="ruby-operator">|</span><span class="ruby-identifier">doc</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">result</span> = []
+    <span class="ruby-identifier">doc</span>.<span class="ruby-identifier">each_value</span>() { <span class="ruby-operator">|</span><span class="ruby-identifier">v</span><span class="ruby-operator">|</span> <span class="ruby-identifier">result</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">v</span> }
+    <span class="ruby-identifier">result</span>
+}
+<span class="ruby-comment">#=&gt; [3, 2, 1]</span>
+
+<span class="ruby-constant">Oj</span><span class="ruby-operator">::</span><span class="ruby-constant">Doc</span>.<span class="ruby-identifier">open</span>(<span class="ruby-string">&#39;[3,[2,1]]&#39;</span>) { <span class="ruby-operator">|</span><span class="ruby-identifier">doc</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">result</span> = []
+    <span class="ruby-identifier">doc</span>.<span class="ruby-identifier">each_value</span>(<span class="ruby-string">&#39;/2&#39;</span>) { <span class="ruby-operator">|</span><span class="ruby-identifier">v</span><span class="ruby-operator">|</span> <span class="ruby-identifier">result</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">v</span> }
+    <span class="ruby-identifier">result</span>
+}
+<span class="ruby-comment">#=&gt; [2, 1]</span>
+</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="each_value-source">
+            <pre>static VALUE
+doc_each_value(int argc, VALUE *argv, VALUE self) {
+    if (rb_block_given_p()) {
+        Doc            doc = self_doc(self);
+        const char     *path = 0;
+        Leaf           leaf;
+
+        if (1 &lt;= argc) {
+            Check_Type(*argv, T_STRING);
+            path = StringValuePtr(*argv);
+        }
+        if (0 != (leaf = get_doc_leaf(doc, path))) {
+            each_value(doc, leaf);
+        }
+    }
+    return Qnil;
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-fetch" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">fetch</span><span
+            class="method-args">(*args)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>@overload fetch(path=nil) =&gt; nil, true, false, Fixnum, <a
+href="../Float.html">Float</a>, <a href="../String.html">String</a>, <a
+href="../Array.html">Array</a>, <a href="../Hash.html">Hash</a></p>
+
+<p>Returns the value at the location identified by the path or the current
+location if the path is nil or not provided. This method will create and
+return an <a href="../Array.html">Array</a> or <a
+href="../Hash.html">Hash</a> if that is the type of <a
+href="../Object.html">Object</a> at the location specified. This is more
+expensive than navigating to the leaves of the <a
+href="../JSON.html">JSON</a> document.</p>
+
+<pre>@param [String] path path to the location to get the type of if provided</pre>
+
+<p>@example</p>
+
+<pre class="ruby"><span class="ruby-constant">Oj</span><span class="ruby-operator">::</span><span class="ruby-constant">Doc</span>.<span class="ruby-identifier">open</span>(<span class="ruby-string">&#39;[1,2]&#39;</span>) { <span class="ruby-operator">|</span><span class="ruby-identifier">doc</span><span class="ruby-operator">|</span> <span class="ruby-identifier">doc</span>.<span class="ruby-identifier">fetch</span>() }      <span class="ruby-comment">#=&gt; [1, 2]</span>
+<span class="ruby-constant">Oj</span><span class="ruby-operator">::</span><span class="ruby-constant">Doc</span>.<span class="ruby-identifier">open</span>(<span class="ruby-string">&#39;[1,2]&#39;</span>) { <span class="ruby-operator">|</span><span class="ruby-identifier">doc</span><span class="ruby-operator">|</span> <span class="ruby-identifier">doc</span>.<span class="ruby-identifier">fetch</span>(<span class="ruby-string">&#39;/1&#39;</span>) }  <span class="ruby-comment">#=&gt; 1</span>
+</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="fetch-source">
+            <pre>static VALUE
+doc_fetch(int argc, VALUE *argv, VALUE self) {
+    Doc         doc;
+    Leaf        leaf;
+    VALUE       val = Qnil;
+    const char  *path = 0;
+
+    doc = self_doc(self);
+    if (1 &lt;= argc) {
+        Check_Type(*argv, T_STRING);
+        path = StringValuePtr(*argv);
+        if (2 == argc) {
+            val = argv[1];
+        }
+    }
+    if (0 != (leaf = get_doc_leaf(doc, path))) {
+        val = leaf_value(doc, leaf);
+    }
+    return val;
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-home" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">home</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>@overload home() =&gt; nil</p>
+
+<p>Moves the document marker or location to the hoot or home position. The
+same operation can be performed with a <a
+href="Doc.html#method-i-move">#move</a>(&#39;/&#39;). @example</p>
+
+<pre class="ruby"><span class="ruby-constant">Oj</span><span class="ruby-operator">::</span><span class="ruby-constant">Doc</span>.<span class="ruby-identifier">open</span>(<span class="ruby-string">&#39;[1,2,3]&#39;</span>) { <span class="ruby-operator">|</span><span class="ruby-identifier">doc</span><span class="ruby-operator">|</span> <span class="ruby-identifier">doc</span>.<span class="ruby-identifier">move</span>(<span class="ruby-string">&#39;/2&#39;</span>); <span class="ruby-identifier">doc</span>.<span class="ruby-identifier">home</span>(); <span class="ruby-identifier">doc</span>.<span class="ruby-identifier">where?</span> }  <span class="ruby-comment">#=&gt; &#39;/&#39;</span>
+</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="home-source">
+            <pre>static VALUE
+doc_home(VALUE self) {
+    Doc doc = self_doc(self);
+
+    *doc-&gt;where_path = doc-&gt;data;
+    doc-&gt;where = doc-&gt;where_path;
+
+    return oj_slash_string;
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-local_key" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">local_key</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>@overload <a href="Doc.html#method-i-local_key">#local_key</a>() =&gt; <a
+href="../String.html">String</a>, Fixnum, nil</p>
+
+<p>Returns the final key to the current location. @example</p>
+
+<pre class="ruby"><span class="ruby-constant">Oj</span><span class="ruby-operator">::</span><span class="ruby-constant">Doc</span>.<span class="ruby-identifier">open</span>(<span class="ruby-string">&#39;[1,2,3]&#39;</span>) { <span class="ruby-operator">|</span><span class="ruby-identifier">doc</span><span class="ruby-operator">|</span> <span class="ruby-identifier">doc</span>.<span class="ruby-identifier">move</span>(<span class="ruby-string">&#39;/2&#39;</span>); <span class="ruby-identifier">doc</span>.<span class="ruby-identifier">local_key</span>() }      <span class="ruby-comment">#=&gt; 2</span>
+<span class="ruby-constant">Oj</span><span class="ruby-operator">::</span><span class="ruby-constant">Doc</span>.<span class="ruby-identifier">open</span>(<span class="ruby-string">&#39;{&quot;one&quot;:3}&#39;</span>) { <span class="ruby-operator">|</span><span class="ruby-identifier">doc</span><span class="ruby-operator">|</span> <span class="ruby-identifier">doc</span>.<span class="ruby-identifier">move</span>(<span class="ruby-string">&#39;/one&#39;</span>); <span class="ruby-identifier">doc</span>.<span class="ruby-identifier">local_key</span>() }  <span class="ruby-comment">#=&gt; &quot;one&quot;</span>
+<span class="ruby-constant">Oj</span><span class="ruby-operator">::</span><span class="ruby-constant">Doc</span>.<span class="ruby-identifier">open</span>(<span class="ruby-string">&#39;[1,2,3]&#39;</span>) { <span class="ruby-operator">|</span><span class="ruby-identifier">doc</span><span class="ruby-operator">|</span> <span class="ruby-identifier">doc</span>.<span class="ruby-identifier">local_key</span>() }                      <span class="ruby-comment">#=&gt; nil</span>
+</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="local_key-source">
+            <pre>static VALUE
+doc_local_key(VALUE self) {
+    Doc         doc = self_doc(self);
+    Leaf        leaf = *doc-&gt;where;
+    VALUE       key = Qnil;
+
+    if (T_HASH == leaf-&gt;parent_type) {
+        key = rb_str_new2(leaf-&gt;key);
+        key = oj_encode(key);
+    } else if (T_ARRAY == leaf-&gt;parent_type) {
+        key = LONG2NUM(leaf-&gt;index);
+    }
+    return key;
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-move" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">move</span><span
+            class="method-args">(p1)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>@overload move(path) =&gt; nil</p>
+
+<p>Moves the document marker to the path specified. The path can an absolute
+path or a relative path.</p>
+
+<pre>@param [String] path path to the location to move to</pre>
+
+<p>@example</p>
+
+<pre class="ruby"><span class="ruby-constant">Oj</span><span class="ruby-operator">::</span><span class="ruby-constant">Doc</span>.<span class="ruby-identifier">open</span>(<span class="ruby-string">&#39;{&quot;one&quot;:[1,2]&#39;</span>) { <span class="ruby-operator">|</span><span class="ruby-identifier">doc</span><span class="ruby-operator">|</span> <span class="ruby-identifier">doc</span>.<span class="ruby-identifier">move</span>(<span class="ruby-string">&#39;/one/2&#39;</span>); <span class="ruby-identifier">doc</span>.<span class="ruby-identifier">where?</span> }  <span class="ruby-comment">#=&gt; &quot;/one/2&quot;</span>
+</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="move-source">
+            <pre>static VALUE
+doc_move(VALUE self, VALUE str) {
+    Doc         doc = self_doc(self);
+    const char  *path;
+    int         loc;
+
+    Check_Type(str, T_STRING);
+    path = StringValuePtr(str);
+    if (&#39;/&#39; == *path) {
+        doc-&gt;where = doc-&gt;where_path;
+        path++;
+    }
+    if (0 != (loc = move_step(doc, path, 1))) {
+        rb_raise(rb_eArgError, &quot;Failed to locate element %d of the path %s.&quot;, loc, path);
+    }
+    return Qnil;
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-size" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">size</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>@overload size() =&gt; Fixnum</p>
+
+<p>Returns the number of nodes in the <a href="../JSON.html">JSON</a> document
+where a node is any one of the basic <a href="../JSON.html">JSON</a>
+components. @return Returns the size of the <a href="../JSON.html">JSON</a>
+document. @example</p>
+
+<pre class="ruby"><span class="ruby-constant">Oj</span><span class="ruby-operator">::</span><span class="ruby-constant">Doc</span>.<span class="ruby-identifier">open</span>(<span class="ruby-string">&#39;[1,2,3]&#39;</span>) { <span class="ruby-operator">|</span><span class="ruby-identifier">doc</span><span class="ruby-operator">|</span> <span class="ruby-identifier">doc</span>.<span class="ruby-identifier">size</span>() }  <span class="ruby-comment">#=&gt; 4</span>
+</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="size-source">
+            <pre>static VALUE
+doc_size(VALUE self) {
+    return ULONG2NUM(((Doc)DATA_PTR(self))-&gt;size);
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-type" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">type</span><span
+            class="method-args">(*args)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>@overload type(path=nil) =&gt; <a href="../Class.html">Class</a></p>
+
+<p>Returns the <a href="../Class.html">Class</a> of the data value at the
+location identified by the path or the current location if the path is nil
+or not provided. This method does not create the Ruby <a
+href="../Object.html">Object</a> at the location specified so the overhead
+is low.</p>
+
+<pre>@param [String] path path to the location to get the type of if provided</pre>
+
+<p>@example</p>
+
+<pre class="ruby"><span class="ruby-constant">Oj</span><span class="ruby-operator">::</span><span class="ruby-constant">Doc</span>.<span class="ruby-identifier">open</span>(<span class="ruby-string">&#39;[1,2]&#39;</span>) { <span class="ruby-operator">|</span><span class="ruby-identifier">doc</span><span class="ruby-operator">|</span> <span class="ruby-identifier">doc</span>.<span class="ruby-identifier">type</span>() }      <span class="ruby-comment">#=&gt; Array</span>
+<span class="ruby-constant">Oj</span><span class="ruby-operator">::</span><span class="ruby-constant">Doc</span>.<span class="ruby-identifier">open</span>(<span class="ruby-string">&#39;[1,2]&#39;</span>) { <span class="ruby-operator">|</span><span class="ruby-identifier">doc</span><span class="ruby-operator">|</span> <span class="ruby-identifier">doc</span>.<span class="ruby-identifier">type</span>(<span class="ruby-string">&#39;/1&#39;</span>) }  <span class="ruby-comment">#=&gt; Fixnum</span>
+</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="type-source">
+            <pre>static VALUE
+doc_type(int argc, VALUE *argv, VALUE self) {
+    Doc         doc = self_doc(self);
+    Leaf        leaf;
+    const char  *path = 0;
+    VALUE       type = Qnil;
+
+    if (1 &lt;= argc) {
+        Check_Type(*argv, T_STRING);
+        path = StringValuePtr(*argv);
+    }
+    if (0 != (leaf = get_doc_leaf(doc, path))) {
+        switch (leaf-&gt;rtype) {
+        case T_NIL:    type = rb_cNilClass;       break;
+        case T_TRUE:   type = rb_cTrueClass;     break;
+        case T_FALSE:  type = rb_cFalseClass;   break;
+        case T_STRING: type = rb_cString;      break;
+#ifdef RUBY_INTEGER_UNIFICATION
+        case T_FIXNUM: type = rb_cInteger;     break;
+#else
+        case T_FIXNUM: type = rb_cFixnum;      break;
+#endif
+        case T_FLOAT:  type = rb_cFloat;        break;
+        case T_ARRAY:  type = rb_cArray;        break;
+        case T_HASH:   type = rb_cHash;  break;
+        default:                               break;
+        }
+    }
+    return type;
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-where-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">where?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>@overload where?() =&gt; <a href="../String.html">String</a></p>
+
+<p>Returns a <a href="../String.html">String</a> that describes the absolute
+path to the current location in the <a href="../JSON.html">JSON</a>
+document.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="where-3F-source">
+            <pre>static VALUE
+doc_where(VALUE self) {
+    Doc doc = self_doc(self);
+
+    if (0 == *doc-&gt;where_path || doc-&gt;where == doc-&gt;where_path) {
+        return oj_slash_string;
+    } else {
+        Leaf   *lp;
+        Leaf   leaf;
+        size_t size = 3; // leading / and terminating \0
+        char   *path;
+        char   *p;
+
+        for (lp = doc-&gt;where_path; lp &lt;= doc-&gt;where; lp++) {
+            leaf = *lp;
+            if (T_HASH == leaf-&gt;parent_type) {
+                size += esc_strlen((*lp)-&gt;key) + 1;
+            } else if (T_ARRAY == leaf-&gt;parent_type) {
+                size += ((*lp)-&gt;index &lt; 100) ? 3 : 11;
+            }
+        }
+        path = ALLOCA_N(char, size);
+        p = path;
+        for (lp = doc-&gt;where_path; lp &lt;= doc-&gt;where; lp++) {
+            leaf = *lp;
+            if (T_HASH == leaf-&gt;parent_type) {
+                p = append_key(p, (*lp)-&gt;key);
+            } else if (T_ARRAY == leaf-&gt;parent_type) {
+                p = ulong_fill(p, (*lp)-&gt;index);
+            }
+            *p++ = &#39;/&#39;;
+        }
+        *--p = &#39;\0&#39;;
+        return rb_str_new(path, p - path);
+    }
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="https://rdoc.github.io/rdoc">RDoc</a> 5.0.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

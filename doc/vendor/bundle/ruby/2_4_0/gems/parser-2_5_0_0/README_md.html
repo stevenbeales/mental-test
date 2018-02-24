@@ -1,0 +1,1946 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>README - RDoc Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../../../../../../";
+  var index_rel_prefix = "../../../../../../";
+</script>
+
+<script src="../../../../../../js/jquery.js"></script>
+<script src="../../../../../../js/darkfish.js"></script>
+
+<link href="../../../../../../css/fonts.css" rel="stylesheet">
+<link href="../../../../../../css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="file">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../../../../../../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../../../../../../table_of_contents.html#pages">Pages</a>
+    <a href="../../../../../../table_of_contents.html#classes">Classes</a>
+    <a href="../../../../../../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+<div class="nav-section">
+  <h3>Table of Contents</h3>
+
+  <ul class="link-list" role="directory">
+    <li><a href="#label-Parser">Parser</a>
+    <li><a href="#label-Installation">Installation</a>
+    <li><a href="#label-Usage">Usage</a>
+    <li><a href="#label-Features">Features</a>
+    <li><a href="#label-Documentation">Documentation</a>
+    <li><a href="#label-Node+names">Node names</a>
+    <li><a href="#label-28block-29">(block)</a>
+    <li><a href="#label-28begin-29+and+-28kwbegin-29">(begin) and (kwbegin)</a>
+    <li><a href="#label-Backwards+compatibility">Backwards compatibility</a>
+    <li><a href="#label-Compatibility+with+Ruby+MRI">Compatibility with Ruby MRI</a>
+    <li><a href="#label-Compatibility+with+MacRuby+and+RubyMotion">Compatibility with MacRuby and RubyMotion</a>
+    <li><a href="#label-Known+issues">Known issues</a>
+    <li><a href="#label-Void+value+expressions">Void value expressions</a>
+    <li><a href="#label-Invalid+characters+inside+comments+and+literals">Invalid characters inside comments and literals</a>
+    <li><a href="#label-u+escape+in+1.8+mode">u escape in 1.8 mode</a>
+    <li><a href="#label-Dollar-dash">Dollar-dash</a>
+    <li><a href="#label-Contributors">Contributors</a>
+    <li><a href="#label-Acknowledgements">Acknowledgements</a>
+    <li><a href="#label-Contributing">Contributing</a>
+  </ul>
+</div>
+
+
+  <div id="project-metadata">
+    <div id="fileindex-section" class="nav-section">
+  <h3>Pages</h3>
+
+  <ul class="link-list">
+  
+    <li><a href="../../../../../../Gemfile.html">Gemfile</a>
+  
+    <li><a href="../../../../../../Gemfile_lock.html">Gemfile.lock</a>
+  
+    <li><a href="../../../../../../Guardfile.html">Guardfile</a>
+  
+    <li><a href="../../../../../../Rakefile.html">Rakefile</a>
+  
+    <li><a href="../../../../../../config_ru.html">config.ru</a>
+  
+    <li><a href="../../../../../../db/cesdr_json.html">cesdr.json</a>
+  
+    <li><a href="../../../../../../gitpush_bat.html">gitpush.bat</a>
+  
+    <li><a href="../../../../../../run_bat.html">run.bat</a>
+  
+    <li><a href="../../../../../../spec/examples_txt.html">examples</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/bin/_guard-core.html">_guard-core</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/bin/_guard-core_bat.html">_guard-core.bat</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/bin/coderay.html">coderay</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/bin/coderay_bat.html">coderay.bat</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/bin/guard.html">guard</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/bin/guard_bat.html">guard.bat</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/bin/htmldiff.html">htmldiff</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/bin/htmldiff_bat.html">htmldiff.bat</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/bin/ldiff.html">ldiff</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/bin/ldiff_bat.html">ldiff.bat</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/bin/listen.html">listen</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/bin/listen_bat.html">listen.bat</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/bin/pry.html">pry</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/bin/pry_bat.html">pry.bat</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/bin/rackup.html">rackup</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/bin/rackup_bat.html">rackup.bat</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/bin/rake.html">rake</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/bin/rake_bat.html">rake.bat</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/bin/rerun.html">rerun</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/bin/rerun_bat.html">rerun.bat</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/bin/rspec.html">rspec</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/bin/rspec_bat.html">rspec.bat</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/bin/rubocop.html">rubocop</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/bin/rubocop_bat.html">rubocop.bat</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/bin/ruby-parse.html">ruby-parse</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/bin/ruby-parse_bat.html">ruby-parse.bat</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/bin/ruby-rewrite.html">ruby-rewrite</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/bin/ruby-rewrite_bat.html">ruby-rewrite.bat</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/bin/thor.html">thor</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/bin/thor_bat.html">thor.bat</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/bin/tilt.html">tilt</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/bin/tilt_bat.html">tilt.bat</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/extensions/x64-mingw32/2_4_0/oj-3_4_0/gem_build_complete.html">gem.build_complete</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/extensions/x64-mingw32/2_4_0/oj-3_4_0/gem_make_out.html">gem_make.out</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/extensions/x64-mingw32/2_4_0/rainbow-2_2_2/gem_build_complete.html">gem.build_complete</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/extensions/x64-mingw32/2_4_0/rainbow-2_2_2/gem_make_out.html">gem_make.out</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/extensions/x64-mingw32/2_4_0/wdm-0_1_1/gem_build_complete.html">gem.build_complete</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/extensions/x64-mingw32/2_4_0/wdm-0_1_1/gem_make_out.html">gem_make.out</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/extensions/x64-mingw32/2_4_0/wdm-0_1_1/mkmf_log.html">mkmf.log</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/activemodel-5_1_5/CHANGELOG_md.html">CHANGELOG</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/activemodel-5_1_5/MIT-LICENSE.html">MIT-LICENSE</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/activemodel-5_1_5/README_rdoc.html">README</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/activerecord-5_1_5/CHANGELOG_md.html">CHANGELOG</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/activerecord-5_1_5/MIT-LICENSE.html">MIT-LICENSE</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/activerecord-5_1_5/README_rdoc.html">README</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/activerecord-5_1_5/lib/active_record/railties/databases_rake.html">databases.rake</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/activesupport-5_1_5/CHANGELOG_md.html">CHANGELOG</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/activesupport-5_1_5/MIT-LICENSE.html">MIT-LICENSE</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/activesupport-5_1_5/README_rdoc.html">README</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/alexa_verifier-1_0_0/CODE_OF_CONDUCT_md.html">CODE_OF_CONDUCT</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/alexa_verifier-1_0_0/Gemfile.html">Gemfile</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/alexa_verifier-1_0_0/LICENSE.html">LICENSE</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/alexa_verifier-1_0_0/README_md.html">README</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/alexa_verifier-1_0_0/Rakefile.html">Rakefile</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/alexa_verifier-1_0_0/alexa_verifier_gemspec.html">alexa_verifier.gemspec</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/alexa_verifier-1_0_0/bin/setup.html">setup</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/arel-8_0_0/History_txt.html">History</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/arel-8_0_0/MIT-LICENSE_txt.html">MIT-LICENSE</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/arel-8_0_0/README_md.html">README</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ast-2_4_0/CHANGELOG_md.html">CHANGELOG</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ast-2_4_0/Gemfile.html">Gemfile</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ast-2_4_0/LICENSE_MIT.html">LICENSE.MIT</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ast-2_4_0/README_YARD_md.html">README.YARD</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ast-2_4_0/README_md.html">README</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ast-2_4_0/Rakefile.html">Rakefile</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ast-2_4_0/ast_gemspec.html">ast.gemspec</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/coderay-1_1_2/MIT-LICENSE.html">MIT-LICENSE</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/coderay-1_1_2/README_INDEX_rdoc.html">README_INDEX</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/concurrent-ruby-1_0_5/CHANGELOG_md.html">CHANGELOG</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/concurrent-ruby-1_0_5/LICENSE_txt.html">LICENSE</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/concurrent-ruby-1_0_5/README_md.html">README</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/database_cleaner-1_6_1/CONTRIBUTE_markdown.html">CONTRIBUTE.markdown</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/database_cleaner-1_6_1/Gemfile_lock.html">Gemfile.lock</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/database_cleaner-1_6_1/History_rdoc.html">History</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/database_cleaner-1_6_1/LICENSE.html">LICENSE</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/database_cleaner-1_6_1/README_markdown.html">README.markdown</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/database_cleaner-1_6_1/Rakefile.html">Rakefile</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/database_cleaner-1_6_1/TODO.html">TODO</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/database_cleaner-1_6_1/examples/Gemfile.html">Gemfile</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/database_cleaner-1_6_1/examples/Gemfile_lock.html">Gemfile.lock</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/database_cleaner-1_6_1/examples/config/database_yml_example.html">database.yml.example</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/database_cleaner-1_6_1/examples/db/sqlite_databases_go_here.html">sqlite_databases_go_here</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/database_cleaner-1_6_1/examples/features/example_feature.html">example.feature</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/database_cleaner-1_6_1/examples/features/example_multiple_db_feature.html">example_multiple_db.feature</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/database_cleaner-1_6_1/examples/features/example_multiple_orm_feature.html">example_multiple_orm.feature</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/database_cleaner-1_6_1/features/cleaning_feature.html">cleaning.feature</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/database_cleaner-1_6_1/features/cleaning_default_strategy_feature.html">cleaning_default_strategy.feature</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/database_cleaner-1_6_1/features/cleaning_multiple_dbs_feature.html">cleaning_multiple_dbs.feature</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/database_cleaner-1_6_1/features/cleaning_multiple_orms_feature.html">cleaning_multiple_orms.feature</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/database_cleaner-1_6_1/spec/rcov_opts.html">rcov.opts</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/database_cleaner-1_6_2/CONTRIBUTE_markdown.html">CONTRIBUTE.markdown</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/database_cleaner-1_6_2/Gemfile_lock.html">Gemfile.lock</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/database_cleaner-1_6_2/History_rdoc.html">History</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/database_cleaner-1_6_2/LICENSE.html">LICENSE</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/database_cleaner-1_6_2/README_markdown.html">README.markdown</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/database_cleaner-1_6_2/Rakefile.html">Rakefile</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/database_cleaner-1_6_2/TODO.html">TODO</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/diff-lcs-1_3/Code-of-Conduct_md.html">Code-of-Conduct</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/diff-lcs-1_3/Contributing_md.html">Contributing</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/diff-lcs-1_3/History_md.html">History</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/diff-lcs-1_3/License_md.html">License</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/diff-lcs-1_3/Manifest_txt.html">Manifest</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/diff-lcs-1_3/README_rdoc.html">README</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/diff-lcs-1_3/Rakefile.html">Rakefile</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/diff-lcs-1_3/bin/htmldiff.html">htmldiff</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/diff-lcs-1_3/bin/ldiff.html">ldiff</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/diff-lcs-1_3/docs/COPYING_txt.html">COPYING</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/diff-lcs-1_3/docs/artistic_txt.html">artistic</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/diff-lcs-1_3/spec/fixtures/ds1_csv.html">ds1.csv</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/diff-lcs-1_3/spec/fixtures/ds2_csv.html">ds2.csv</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/COPYING.html">COPYING</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/LICENSE.html">LICENSE</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/README_md.html">README</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/Rakefile.html">Rakefile</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/ext/ffi_c/libffi/ChangeLog_libffi.html">ChangeLog.libffi</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/ext/ffi_c/libffi/ChangeLog_libffi-3_1.html">ChangeLog.libffi-3.1</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/ext/ffi_c/libffi/ChangeLog_libgcj.html">ChangeLog.libgcj</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/ext/ffi_c/libffi/ChangeLog_v1.html">ChangeLog.v1</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/ext/ffi_c/libffi/LICENSE.html">LICENSE</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/ext/ffi_c/libffi/Makefile_am.html">Makefile.am</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/ext/ffi_c/libffi/Makefile_in.html">Makefile.in</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/ext/ffi_c/libffi/README.html">README</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/ext/ffi_c/libffi/acinclude_m4.html">acinclude.m4</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/ext/ffi_c/libffi/autogen_sh.html">autogen.sh</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/ext/ffi_c/libffi/autom4te_cache/output_0.html">output.0</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/ext/ffi_c/libffi/autom4te_cache/output_1.html">output.1</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/ext/ffi_c/libffi/autom4te_cache/output_2.html">output.2</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/ext/ffi_c/libffi/autom4te_cache/output_3.html">output.3</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/ext/ffi_c/libffi/autom4te_cache/requests.html">requests</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/ext/ffi_c/libffi/autom4te_cache/traces_0.html">traces.0</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/ext/ffi_c/libffi/autom4te_cache/traces_1.html">traces.1</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/ext/ffi_c/libffi/autom4te_cache/traces_2.html">traces.2</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/ext/ffi_c/libffi/autom4te_cache/traces_3.html">traces.3</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/ext/ffi_c/libffi/compile.html">compile</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/ext/ffi_c/libffi/config_guess.html">config.guess</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/ext/ffi_c/libffi/config_sub.html">config.sub</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/ext/ffi_c/libffi/configure.html">configure</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/ext/ffi_c/libffi/configure_ac.html">configure.ac</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/ext/ffi_c/libffi/configure_host.html">configure.host</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/ext/ffi_c/libffi/depcomp.html">depcomp</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/ext/ffi_c/libffi/doc/Makefile_am.html">Makefile.am</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/ext/ffi_c/libffi/doc/Makefile_in.html">Makefile.in</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/ext/ffi_c/libffi/doc/mdate-sh.html">mdate-sh</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/ext/ffi_c/libffi/doc/texinfo_tex.html">texinfo.tex</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/ext/ffi_c/libffi/doc/version_texi.html">version.texi</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/ext/ffi_c/libffi/fficonfig_h_in.html">fficonfig.h.in</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/ext/ffi_c/libffi/fficonfig_h_in~.html">fficonfig.h.in~</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/ext/ffi_c/libffi/generate-darwin-source-and-headers_py.html">generate-darwin-source-and-headers.py</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/ext/ffi_c/libffi/include/Makefile_am.html">Makefile.am</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/ext/ffi_c/libffi/include/Makefile_in.html">Makefile.in</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/ext/ffi_c/libffi/install-sh.html">install-sh</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/ext/ffi_c/libffi/libffi_map_in.html">libffi.map.in</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/ext/ffi_c/libffi/libffi_pc_in.html">libffi.pc.in</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/ext/ffi_c/libffi/libffi_xcodeproj/project_pbxproj.html">project.pbxproj</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/ext/ffi_c/libffi/libtool-ldflags.html">libtool-ldflags</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/ext/ffi_c/libffi/libtool-version.html">libtool-version</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/ext/ffi_c/libffi/ltmain_sh.html">ltmain.sh</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/ext/ffi_c/libffi/m4/asmcfi_m4.html">asmcfi.m4</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/ext/ffi_c/libffi/m4/ax_append_flag_m4.html">ax_append_flag.m4</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/ext/ffi_c/libffi/m4/ax_cc_maxopt_m4.html">ax_cc_maxopt.m4</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/ext/ffi_c/libffi/m4/ax_cflags_warn_all_m4.html">ax_cflags_warn_all.m4</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/ext/ffi_c/libffi/m4/ax_check_compile_flag_m4.html">ax_check_compile_flag.m4</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/ext/ffi_c/libffi/m4/ax_compiler_vendor_m4.html">ax_compiler_vendor.m4</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/ext/ffi_c/libffi/m4/ax_configure_args_m4.html">ax_configure_args.m4</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/ext/ffi_c/libffi/m4/ax_enable_builddir_m4.html">ax_enable_builddir.m4</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/ext/ffi_c/libffi/m4/ax_gcc_archflag_m4.html">ax_gcc_archflag.m4</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/ext/ffi_c/libffi/m4/ax_gcc_x86_cpuid_m4.html">ax_gcc_x86_cpuid.m4</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/ext/ffi_c/libffi/man/Makefile_am.html">Makefile.am</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/ext/ffi_c/libffi/man/Makefile_in.html">Makefile.in</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/ext/ffi_c/libffi/man/ffi_3.html">ffi.3</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/ext/ffi_c/libffi/man/ffi_call_3.html">ffi_call.3</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/ext/ffi_c/libffi/man/ffi_prep_cif_3.html">ffi_prep_cif.3</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/ext/ffi_c/libffi/man/ffi_prep_cif_var_3.html">ffi_prep_cif_var.3</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/ext/ffi_c/libffi/missing.html">missing</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/ext/ffi_c/libffi/msvcc_sh.html">msvcc.sh</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/ext/ffi_c/libffi/src/aarch64/sysv_S.html">sysv.S</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/ext/ffi_c/libffi/src/alpha/osf_S.html">osf.S</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/ext/ffi_c/libffi/src/arc/arcompact_S.html">arcompact.S</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/ext/ffi_c/libffi/src/arm/sysv_S.html">sysv.S</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/ext/ffi_c/libffi/src/avr32/sysv_S.html">sysv.S</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/ext/ffi_c/libffi/src/bfin/sysv_S.html">sysv.S</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/ext/ffi_c/libffi/src/cris/sysv_S.html">sysv.S</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/ext/ffi_c/libffi/src/frv/eabi_S.html">eabi.S</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/ext/ffi_c/libffi/src/ia64/unix_S.html">unix.S</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/ext/ffi_c/libffi/src/m32r/sysv_S.html">sysv.S</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/ext/ffi_c/libffi/src/m68k/sysv_S.html">sysv.S</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/ext/ffi_c/libffi/src/m88k/obsd_S.html">obsd.S</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/ext/ffi_c/libffi/src/metag/sysv_S.html">sysv.S</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/ext/ffi_c/libffi/src/microblaze/sysv_S.html">sysv.S</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/ext/ffi_c/libffi/src/mips/n32_S.html">n32.S</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/ext/ffi_c/libffi/src/mips/o32_S.html">o32.S</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/ext/ffi_c/libffi/src/moxie/eabi_S.html">eabi.S</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/ext/ffi_c/libffi/src/nios2/sysv_S.html">sysv.S</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/ext/ffi_c/libffi/src/or1k/sysv_S.html">sysv.S</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/ext/ffi_c/libffi/src/pa/hpux32_S.html">hpux32.S</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/ext/ffi_c/libffi/src/pa/linux_S.html">linux.S</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/ext/ffi_c/libffi/src/powerpc/aix_S.html">aix.S</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/ext/ffi_c/libffi/src/powerpc/aix_closure_S.html">aix_closure.S</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/ext/ffi_c/libffi/src/powerpc/darwin_S.html">darwin.S</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/ext/ffi_c/libffi/src/powerpc/darwin_closure_S.html">darwin_closure.S</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/ext/ffi_c/libffi/src/powerpc/linux64_S.html">linux64.S</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/ext/ffi_c/libffi/src/powerpc/linux64_closure_S.html">linux64_closure.S</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/ext/ffi_c/libffi/src/powerpc/ppc_closure_S.html">ppc_closure.S</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/ext/ffi_c/libffi/src/powerpc/sysv_S.html">sysv.S</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/ext/ffi_c/libffi/src/s390/sysv_S.html">sysv.S</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/ext/ffi_c/libffi/src/sh/sysv_S.html">sysv.S</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/ext/ffi_c/libffi/src/sh64/sysv_S.html">sysv.S</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/ext/ffi_c/libffi/src/sparc/v8_S.html">v8.S</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/ext/ffi_c/libffi/src/sparc/v9_S.html">v9.S</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/ext/ffi_c/libffi/src/tile/tile_S.html">tile.S</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/ext/ffi_c/libffi/src/vax/elfbsd_S.html">elfbsd.S</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/ext/ffi_c/libffi/src/x86/sysv_S.html">sysv.S</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/ext/ffi_c/libffi/src/x86/unix64_S.html">unix64.S</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/ext/ffi_c/libffi/src/x86/win64_S.html">win64.S</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/ext/ffi_c/libffi/src/x86/win64_intel_S.html">win64_intel.S</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/ext/ffi_c/libffi/src/xtensa/sysv_S.html">sysv.S</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/ext/ffi_c/libffi/stamp-h_in.html">stamp-h.in</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/ext/ffi_c/libffi/testsuite/Makefile_am.html">Makefile.am</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/ext/ffi_c/libffi/testsuite/Makefile_in.html">Makefile.in</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/ext/ffi_c/libffi/testsuite/config/default_exp.html">default.exp</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/ext/ffi_c/libffi/testsuite/lib/libffi_exp.html">libffi.exp</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/ext/ffi_c/libffi/testsuite/lib/target-libpath_exp.html">target-libpath.exp</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/ext/ffi_c/libffi/testsuite/lib/wrapper_exp.html">wrapper.exp</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/ext/ffi_c/libffi/testsuite/libffi_call/call_exp.html">call.exp</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/ext/ffi_c/libffi/testsuite/libffi_complex/complex_exp.html">complex.exp</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/ext/ffi_c/libffi/testsuite/libffi_go/go_exp.html">go.exp</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/ffi_gemspec.html">ffi.gemspec</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/gen/Rakefile.html">Rakefile</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/lib/ffi/platform/aarch64-linux/types_conf.html">types.conf</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/lib/ffi/platform/arm-linux/types_conf.html">types.conf</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/lib/ffi/platform/i386-cygwin/types_conf.html">types.conf</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/lib/ffi/platform/i386-darwin/types_conf.html">types.conf</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/lib/ffi/platform/i386-freebsd/types_conf.html">types.conf</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/lib/ffi/platform/i386-gnu/types_conf.html">types.conf</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/lib/ffi/platform/i386-linux/types_conf.html">types.conf</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/lib/ffi/platform/i386-netbsd/types_conf.html">types.conf</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/lib/ffi/platform/i386-openbsd/types_conf.html">types.conf</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/lib/ffi/platform/i386-solaris/types_conf.html">types.conf</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/lib/ffi/platform/i386-windows/types_conf.html">types.conf</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/lib/ffi/platform/ia64-linux/types_conf.html">types.conf</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/lib/ffi/platform/mips-linux/types_conf.html">types.conf</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/lib/ffi/platform/mips64el-linux/types_conf.html">types.conf</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/lib/ffi/platform/mipsel-linux/types_conf.html">types.conf</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/lib/ffi/platform/powerpc-aix/types_conf.html">types.conf</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/lib/ffi/platform/powerpc-darwin/types_conf.html">types.conf</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/lib/ffi/platform/powerpc-linux/types_conf.html">types.conf</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/lib/ffi/platform/powerpc64-linux/types_conf.html">types.conf</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/lib/ffi/platform/s390-linux/types_conf.html">types.conf</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/lib/ffi/platform/s390x-linux/types_conf.html">types.conf</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/lib/ffi/platform/sparc-linux/types_conf.html">types.conf</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/lib/ffi/platform/sparc-solaris/types_conf.html">types.conf</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/lib/ffi/platform/sparc64-linux/types_conf.html">types.conf</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/lib/ffi/platform/sparcv9-solaris/types_conf.html">types.conf</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/lib/ffi/platform/x86_64-cygwin/types_conf.html">types.conf</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/lib/ffi/platform/x86_64-darwin/types_conf.html">types.conf</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/lib/ffi/platform/x86_64-freebsd/types_conf.html">types.conf</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/lib/ffi/platform/x86_64-linux/types_conf.html">types.conf</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/lib/ffi/platform/x86_64-netbsd/types_conf.html">types.conf</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/lib/ffi/platform/x86_64-openbsd/types_conf.html">types.conf</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/lib/ffi/platform/x86_64-solaris/types_conf.html">types.conf</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/lib/ffi/platform/x86_64-windows/types_conf.html">types.conf</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/libtest/GNUmakefile.html">GNUmakefile</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/spec/ffi/LICENSE_SPECS.html">LICENSE.SPECS</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/spec/ffi/embed-test/ext/Makefile.html">Makefile</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/spec/ffi/fixtures/GNUmakefile.html">GNUmakefile</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ffi-1_9_21-x64-mingw32/spec/spec_opts.html">spec.opts</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/formatador-0_2_5/CONTRIBUTING_md.html">CONTRIBUTING</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/formatador-0_2_5/CONTRIBUTORS_md.html">CONTRIBUTORS</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/formatador-0_2_5/Gemfile.html">Gemfile</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/formatador-0_2_5/LICENSE_md.html">LICENSE</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/formatador-0_2_5/README_rdoc.html">README</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/formatador-0_2_5/Rakefile.html">Rakefile</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/formatador-0_2_5/changelog_txt.html">changelog</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/formatador-0_2_5/formatador_gemspec.html">formatador.gemspec</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/guard-2_14_2/CHANGELOG_md.html">CHANGELOG</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/guard-2_14_2/LICENSE.html">LICENSE</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/guard-2_14_2/README_md.html">README</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/guard-2_14_2/lib/guard/templates/Guardfile.html">Guardfile</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/guard-2_14_2/man/guard_1.html">guard.1</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/guard-2_14_2/man/guard_1_html.html">guard.1.html</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/guard-compat-1_2_1/Gemfile.html">Gemfile</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/guard-compat-1_2_1/LICENSE_txt.html">LICENSE</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/guard-compat-1_2_1/README_md.html">README</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/guard-compat-1_2_1/Rakefile.html">Rakefile</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/guard-compat-1_2_1/guard-compat_gemspec.html">guard-compat.gemspec</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/guard-rspec-4_7_3/CONTRIBUTING_md.html">CONTRIBUTING</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/guard-rspec-4_7_3/Gemfile.html">Gemfile</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/guard-rspec-4_7_3/Guardfile.html">Guardfile</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/guard-rspec-4_7_3/LICENSE_txt.html">LICENSE</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/guard-rspec-4_7_3/README_md.html">README</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/guard-rspec-4_7_3/Rakefile.html">Rakefile</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/guard-rspec-4_7_3/gemfiles/Gemfile_rspec-2_99.html">Gemfile.rspec-2.99</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/guard-rspec-4_7_3/gemfiles/Gemfile_rspec-3_4.html">Gemfile.rspec-3.4</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/guard-rspec-4_7_3/gemfiles/common.html">common</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/guard-rspec-4_7_3/guard-rspec_gemspec.html">guard-rspec.gemspec</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/guard-rspec-4_7_3/lib/guard/rspec/templates/Guardfile.html">Guardfile</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/i18n-0_9_5/MIT-LICENSE.html">MIT-LICENSE</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/i18n-0_9_5/README_md.html">README</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/i18n-0_9_5/gemfiles/Gemfile_rails-3_2_x.html">Gemfile.rails-3.2.x</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/i18n-0_9_5/gemfiles/Gemfile_rails-4_0_x.html">Gemfile.rails-4.0.x</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/i18n-0_9_5/gemfiles/Gemfile_rails-4_1_x.html">Gemfile.rails-4.1.x</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/i18n-0_9_5/gemfiles/Gemfile_rails-4_2_x.html">Gemfile.rails-4.2.x</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/i18n-0_9_5/gemfiles/Gemfile_rails-5_0_x.html">Gemfile.rails-5.0.x</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/i18n-0_9_5/gemfiles/Gemfile_rails-5_1_x.html">Gemfile.rails-5.1.x</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/i18n-0_9_5/gemfiles/Gemfile_rails-master.html">Gemfile.rails-master</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/i18n-0_9_5/test/test_data/locales/de_po.html">de.po</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/jsonb_accessor-1_0_0/Appraisals.html">Appraisals</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/jsonb_accessor-1_0_0/CODE_OF_CONDUCT_md.html">CODE_OF_CONDUCT</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/jsonb_accessor-1_0_0/Gemfile.html">Gemfile</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/jsonb_accessor-1_0_0/LICENSE_txt.html">LICENSE</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/jsonb_accessor-1_0_0/README_md.html">README</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/jsonb_accessor-1_0_0/Rakefile.html">Rakefile</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/jsonb_accessor-1_0_0/UPGRADE_GUIDE_md.html">UPGRADE_GUIDE</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/jsonb_accessor-1_0_0/bin/setup.html">setup</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/jsonb_accessor-1_0_0/gemfiles/activerecord_5_0_0_gemfile.html">activerecord_5.0.0.gemfile</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/jsonb_accessor-1_0_0/gemfiles/activerecord_5_0_0_gemfile_lock.html">activerecord_5.0.0.gemfile.lock</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/jsonb_accessor-1_0_0/gemfiles/activerecord_5_1_0_gemfile.html">activerecord_5.1.0.gemfile</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/jsonb_accessor-1_0_0/gemfiles/activerecord_5_1_0_gemfile_lock.html">activerecord_5.1.0.gemfile.lock</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/jsonb_accessor-1_0_0/jsonb_accessor_gemspec.html">jsonb_accessor.gemspec</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/listen-3_1_5/CHANGELOG_md.html">CHANGELOG</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/listen-3_1_5/CONTRIBUTING_md.html">CONTRIBUTING</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/listen-3_1_5/LICENSE_txt.html">LICENSE</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/listen-3_1_5/README_md.html">README</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/little-plugger-1_1_4/History_txt.html">History</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/little-plugger-1_1_4/README_rdoc.html">README</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/little-plugger-1_1_4/Rakefile.html">Rakefile</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/logging-2_2_2/History_txt.html">History</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/logging-2_2_2/LICENSE.html">LICENSE</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/logging-2_2_2/README_md.html">README</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/logging-2_2_2/Rakefile.html">Rakefile</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/logging-2_2_2/logging_gemspec.html">logging.gemspec</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/logging-2_2_2/script/bootstrap.html">bootstrap</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/lumberjack-1_0_12/MIT_LICENSE.html">MIT_LICENSE</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/lumberjack-1_0_12/README_md.html">README</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/lumberjack-1_0_12/Rakefile.html">Rakefile</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/lumberjack-1_0_12/VERSION.html">VERSION</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/method_source-0_9_0/Gemfile.html">Gemfile</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/method_source-0_9_0/LICENSE.html">LICENSE</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/method_source-0_9_0/README_markdown.html">README.markdown</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/method_source-0_9_0/Rakefile.html">Rakefile</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/method_source-0_9_0/method_source_gemspec.html">method_source.gemspec</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/minitest-5_11_3/History_rdoc.html">History</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/minitest-5_11_3/Manifest_txt.html">Manifest</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/minitest-5_11_3/README_rdoc.html">README</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/minitest-5_11_3/Rakefile.html">Rakefile</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/multi_json-1_13_1/CHANGELOG_md.html">CHANGELOG</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/multi_json-1_13_1/CONTRIBUTING_md.html">CONTRIBUTING</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/multi_json-1_13_1/LICENSE_md.html">LICENSE</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/multi_json-1_13_1/README_md.html">README</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/mustermann-1_0_2/LICENSE.html">LICENSE</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/mustermann-1_0_2/README_md.html">README</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/mustermann-1_0_2/mustermann_gemspec.html">mustermann.gemspec</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/nenv-0_3_0/LICENSE_txt.html">LICENSE</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/nenv-0_3_0/README_md.html">README</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/nenv-0_3_0/nenv_gemspec.html">nenv.gemspec</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/notiffany-0_1_1/LICENSE_txt.html">LICENSE</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/notiffany-0_1_1/README_md.html">README</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/oj-3_4_0/LICENSE.html">LICENSE</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/oj-3_4_0/README_md.html">README</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/oj-3_4_0/ext/oj/Makefile.html">Makefile</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/oj-3_4_0/ext/oj/oj-x64-mingw32_def.html">oj-x64-mingw32.def</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/oj-3_4_0/pages/Advanced_md.html">Advanced</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/oj-3_4_0/pages/Compatibility_md.html">Compatibility</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/oj-3_4_0/pages/Custom_md.html">Custom</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/oj-3_4_0/pages/Encoding_md.html">Encoding</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/oj-3_4_0/pages/JsonGem_md.html">JsonGem</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/oj-3_4_0/pages/Modes_md.html">Modes</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/oj-3_4_0/pages/Options_md.html">Options</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/oj-3_4_0/pages/Rails_md.html">Rails</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/oj-3_4_0/pages/Security_md.html">Security</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/oj-3_4_0/pages/WAB_md.html">WAB</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/parallel-1_12_1/MIT-LICENSE_txt.html">MIT-LICENSE</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/parser-2_5_0_0/CHANGELOG_md.html">CHANGELOG</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/parser-2_5_0_0/CONTRIBUTING_md.html">CONTRIBUTING</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/parser-2_5_0_0/Gemfile.html">Gemfile</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/parser-2_5_0_0/LICENSE_txt.html">LICENSE</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/parser-2_5_0_0/README_md.html">README</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/parser-2_5_0_0/Rakefile.html">Rakefile</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/parser-2_5_0_0/doc/AST_FORMAT_md.html">AST_FORMAT</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/parser-2_5_0_0/doc/CUSTOMIZATION_md.html">CUSTOMIZATION</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/parser-2_5_0_0/doc/INTERNALS_md.html">INTERNALS</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/parser-2_5_0_0/doc/css/common_css.html">common.css</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/parser-2_5_0_0/lib/parser/lexer_rl.html">lexer.rl</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/parser-2_5_0_0/parser_gemspec.html">parser.gemspec</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/parser-2_5_0_1/CHANGELOG_md.html">CHANGELOG</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/parser-2_5_0_1/CONTRIBUTING_md.html">CONTRIBUTING</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/parser-2_5_0_1/Gemfile.html">Gemfile</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/parser-2_5_0_1/LICENSE_txt.html">LICENSE</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/parser-2_5_0_1/README_md.html">README</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/parser-2_5_0_1/Rakefile.html">Rakefile</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/parser-2_5_0_1/doc/AST_FORMAT_md.html">AST_FORMAT</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/parser-2_5_0_1/doc/CUSTOMIZATION_md.html">CUSTOMIZATION</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/parser-2_5_0_1/doc/INTERNALS_md.html">INTERNALS</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/parser-2_5_0_1/doc/css/common_css.html">common.css</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/parser-2_5_0_1/lib/parser/lexer_rl.html">lexer.rl</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/parser-2_5_0_1/parser_gemspec.html">parser.gemspec</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/parser-2_5_0_2/CHANGELOG_md.html">CHANGELOG</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/parser-2_5_0_2/CONTRIBUTING_md.html">CONTRIBUTING</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/parser-2_5_0_2/Gemfile.html">Gemfile</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/parser-2_5_0_2/LICENSE_txt.html">LICENSE</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/parser-2_5_0_2/README_md.html">README</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/parser-2_5_0_2/Rakefile.html">Rakefile</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/parser-2_5_0_2/doc/AST_FORMAT_md.html">AST_FORMAT</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/parser-2_5_0_2/doc/CUSTOMIZATION_md.html">CUSTOMIZATION</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/parser-2_5_0_2/doc/INTERNALS_md.html">INTERNALS</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/parser-2_5_0_2/doc/css/common_css.html">common.css</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/parser-2_5_0_2/lib/parser/lexer_rl.html">lexer.rl</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/parser-2_5_0_2/parser_gemspec.html">parser.gemspec</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/pg-1_0_0-x64-mingw32/BSDL.html">BSDL</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/pg-1_0_0-x64-mingw32/ChangeLog.html">ChangeLog</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/pg-1_0_0-x64-mingw32/Contributors_rdoc.html">Contributors</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/pg-1_0_0-x64-mingw32/History_rdoc.html">History</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/pg-1_0_0-x64-mingw32/LICENSE.html">LICENSE</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/pg-1_0_0-x64-mingw32/Manifest_txt.html">Manifest</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/pg-1_0_0-x64-mingw32/POSTGRES.html">POSTGRES</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/pg-1_0_0-x64-mingw32/README-OS_X_rdoc.html">README-OS_X</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/pg-1_0_0-x64-mingw32/README-Windows_rdoc.html">README-Windows</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/pg-1_0_0-x64-mingw32/README_ja_rdoc.html">README.ja</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/pg-1_0_0-x64-mingw32/README_rdoc.html">README</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/pg-1_0_0-x64-mingw32/Rakefile.html">Rakefile</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/pg-1_0_0-x64-mingw32/Rakefile_cross.html">Rakefile.cross</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/pg-1_0_0-x64-mingw32/ext/errorcodes_def.html">errorcodes.def</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/pg-1_0_0-x64-mingw32/ext/errorcodes_txt.html">errorcodes</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/pg-1_0_0-x64-mingw32/ext/vc/pg_sln.html">pg.sln</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/pg-1_0_0-x64-mingw32/ext/vc/pg_18/pg_vcproj.html">pg.vcproj</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/pg-1_0_0-x64-mingw32/ext/vc/pg_19/pg_19_vcproj.html">pg_19.vcproj</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/pg-1_0_0-x64-mingw32/spec/data/expected_trace_out.html">expected_trace.out</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/powerpack-0_1_1/CHANGELOG_md.html">CHANGELOG</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/powerpack-0_1_1/Gemfile.html">Gemfile</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/powerpack-0_1_1/LICENSE_txt.html">LICENSE</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/powerpack-0_1_1/README_md.html">README</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/powerpack-0_1_1/Rakefile.html">Rakefile</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/powerpack-0_1_1/powerpack_gemspec.html">powerpack.gemspec</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/pry-0_11_3/CHANGELOG_md.html">CHANGELOG</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/pry-0_11_3/LICENSE.html">LICENSE</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/pry-0_11_3/README_md.html">README</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/pry-0_11_3/lib/pry/slop/LICENSE.html">LICENSE</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/rack-2_0_4/COPYING.html">COPYING</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/rack-2_0_4/HISTORY_md.html">HISTORY</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/rack-2_0_4/README_rdoc.html">README</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/rack-2_0_4/Rakefile.html">Rakefile</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/rack-2_0_4/SPEC.html">SPEC</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/rack-2_0_4/contrib/rdoc_css.html">rdoc.css</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/rack-2_0_4/example/lobster_ru.html">lobster.ru</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/rack-2_0_4/example/protectedlobster_ru.html">protectedlobster.ru</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/rack-2_0_4/rack_gemspec.html">rack.gemspec</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/rack-2_0_4/test/builder/comment_ru.html">comment.ru</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/rack-2_0_4/test/builder/end_ru.html">end.ru</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/rack-2_0_4/test/builder/line_ru.html">line.ru</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/rack-2_0_4/test/builder/options_ru.html">options.ru</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/rack-2_0_4/test/cgi/assets/folder/test_js.html">test.js</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/rack-2_0_4/test/cgi/assets/fonts/font_eot.html">font.eot</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/rack-2_0_4/test/cgi/assets/images/image_png.html">image.png</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/rack-2_0_4/test/cgi/assets/index_html.html">index.html</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/rack-2_0_4/test/cgi/assets/javascripts/app_js.html">app.js</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/rack-2_0_4/test/cgi/assets/stylesheets/app_css.html">app.css</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/rack-2_0_4/test/cgi/lighttpd_conf.html">lighttpd.conf</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/rack-2_0_4/test/cgi/test+directory/test+file.html">test+file</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/rack-2_0_4/test/cgi/test_fcgi.html">test.fcgi</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/rack-2_0_4/test/cgi/test_ru.html">test.ru</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/rack-2_0_4/test/multipart/bad_robots.html">bad_robots</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/rack-2_0_4/test/multipart/content_type_and_no_filename.html">content_type_and_no_filename</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/rack-2_0_4/test/multipart/empty.html">empty</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/rack-2_0_4/test/multipart/fail_16384_nofile.html">fail_16384_nofile</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/rack-2_0_4/test/multipart/file1_txt.html">file1</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/rack-2_0_4/test/multipart/filename_and_modification_param.html">filename_and_modification_param</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/rack-2_0_4/test/multipart/filename_and_no_name.html">filename_and_no_name</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/rack-2_0_4/test/multipart/filename_with_encoded_words.html">filename_with_encoded_words</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/rack-2_0_4/test/multipart/filename_with_escaped_quotes.html">filename_with_escaped_quotes</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/rack-2_0_4/test/multipart/filename_with_escaped_quotes_and_modification_param.html">filename_with_escaped_quotes_and_modification_param</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/rack-2_0_4/test/multipart/filename_with_null_byte.html">filename_with_null_byte</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/rack-2_0_4/test/multipart/filename_with_percent_escaped_quotes.html">filename_with_percent_escaped_quotes</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/rack-2_0_4/test/multipart/filename_with_single_quote.html">filename_with_single_quote</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/rack-2_0_4/test/multipart/filename_with_unescaped_percentages.html">filename_with_unescaped_percentages</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/rack-2_0_4/test/multipart/filename_with_unescaped_percentages2.html">filename_with_unescaped_percentages2</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/rack-2_0_4/test/multipart/filename_with_unescaped_percentages3.html">filename_with_unescaped_percentages3</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/rack-2_0_4/test/multipart/filename_with_unescaped_quotes.html">filename_with_unescaped_quotes</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/rack-2_0_4/test/multipart/ie.html">ie</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/rack-2_0_4/test/multipart/mixed_files.html">mixed_files</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/rack-2_0_4/test/multipart/nested.html">nested</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/rack-2_0_4/test/multipart/none.html">none</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/rack-2_0_4/test/multipart/quoted.html">quoted</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/rack-2_0_4/test/multipart/semicolon.html">semicolon</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/rack-2_0_4/test/multipart/text.html">text</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/rack-2_0_4/test/multipart/three_files_three_fields.html">three_files_three_fields</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/rack-2_0_4/test/multipart/unity3d_wwwform.html">unity3d_wwwform</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/rack-2_0_4/test/multipart/webkit.html">webkit</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/rack-2_0_4/test/rackup/config_ru.html">config.ru</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/rack-2_0_4/test/static/another/index_html.html">index.html</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/rack-2_0_4/test/static/foo_html.html">foo.html</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/rack-2_0_4/test/static/index_html.html">index.html</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/rack-protection-2_0_1/Gemfile.html">Gemfile</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/rack-protection-2_0_1/License.html">License</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/rack-protection-2_0_1/README_md.html">README</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/rack-protection-2_0_1/Rakefile.html">Rakefile</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/rack-protection-2_0_1/rack-protection_gemspec.html">rack-protection.gemspec</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/rack-test-0_8_2/History_md.html">History</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/rack-test-0_8_2/MIT-LICENSE_txt.html">MIT-LICENSE</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/rack-test-0_8_2/README_md.html">README</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/rainbow-3_0_0/Changelog_md.html">Changelog</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/rainbow-3_0_0/Gemfile.html">Gemfile</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/rainbow-3_0_0/Guardfile.html">Guardfile</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/rainbow-3_0_0/LICENSE.html">LICENSE</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/rainbow-3_0_0/README_markdown.html">README.markdown</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/rainbow-3_0_0/Rakefile.html">Rakefile</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/rainbow-3_0_0/rainbow_gemspec.html">rainbow.gemspec</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/rake-12_3_0/CONTRIBUTING_rdoc.html">CONTRIBUTING</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/rake-12_3_0/Gemfile.html">Gemfile</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/rake-12_3_0/History_rdoc.html">History</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/rake-12_3_0/MIT-LICENSE.html">MIT-LICENSE</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/rake-12_3_0/README_rdoc.html">README</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/rake-12_3_0/Rakefile.html">Rakefile</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/rake-12_3_0/bin/setup.html">setup</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/rake-12_3_0/doc/command_line_usage_rdoc.html">command_line_usage</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/rake-12_3_0/doc/example/Rakefile1.html">Rakefile1</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/rake-12_3_0/doc/example/Rakefile2.html">Rakefile2</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/rake-12_3_0/doc/glossary_rdoc.html">glossary</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/rake-12_3_0/doc/proto_rake_rdoc.html">proto_rake</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/rake-12_3_0/doc/rake_1.html">rake.1</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/rake-12_3_0/doc/rakefile_rdoc.html">rakefile</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/rake-12_3_0/doc/rational_rdoc.html">rational</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/rake-12_3_0/rake_gemspec.html">rake.gemspec</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ralyxa-1_6_2/CODE_OF_CONDUCT_md.html">CODE_OF_CONDUCT</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ralyxa-1_6_2/Gemfile.html">Gemfile</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ralyxa-1_6_2/LICENSE_txt.html">LICENSE</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ralyxa-1_6_2/README_md.html">README</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ralyxa-1_6_2/Rakefile.html">Rakefile</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ralyxa-1_6_2/bin/setup.html">setup</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ralyxa-1_6_2/ralyxa_gemspec.html">ralyxa.gemspec</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/rb-fsevent-0_10_2/Gemfile.html">Gemfile</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/rb-fsevent-0_10_2/Guardfile.html">Guardfile</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/rb-fsevent-0_10_2/LICENSE_txt.html">LICENSE</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/rb-fsevent-0_10_2/README_md.html">README</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/rb-fsevent-0_10_2/Rakefile.html">Rakefile</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/rb-fsevent-0_10_2/ext/LICENSE.html">LICENSE</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/rb-fsevent-0_10_2/rb-fsevent_gemspec.html">rb-fsevent.gemspec</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/rb-inotify-0_9_10/Gemfile.html">Gemfile</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/rb-inotify-0_9_10/README_md.html">README</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/rb-inotify-0_9_10/Rakefile.html">Rakefile</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/rb-inotify-0_9_10/rb-inotify_gemspec.html">rb-inotify.gemspec</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/rerun-0_13_0/LICENSE.html">LICENSE</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/rerun-0_13_0/README_md.html">README</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/rerun-0_13_0/Rakefile.html">Rakefile</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/rerun-0_13_0/rerun_gemspec.html">rerun.gemspec</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/rspec-3_7_0/LICENSE_md.html">LICENSE</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/rspec-3_7_0/README_md.html">README</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/rspec-core-3_7_1/Changelog_md.html">Changelog</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/rspec-core-3_7_1/LICENSE_md.html">LICENSE</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/rspec-core-3_7_1/README_md.html">README</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/rspec-expectations-3_7_0/Changelog_md.html">Changelog</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/rspec-expectations-3_7_0/LICENSE_md.html">LICENSE</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/rspec-expectations-3_7_0/README_md.html">README</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/rspec-mocks-3_7_0/Changelog_md.html">Changelog</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/rspec-mocks-3_7_0/LICENSE_md.html">LICENSE</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/rspec-mocks-3_7_0/README_md.html">README</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/rspec-support-3_7_1/Changelog_md.html">Changelog</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/rspec-support-3_7_1/LICENSE_md.html">LICENSE</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/rspec-support-3_7_1/README_md.html">README</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/rubocop-0_52_1/LICENSE_txt.html">LICENSE</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/rubocop-0_52_1/README_md.html">README</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ruby-progressbar-1_9_0/LICENSE_txt.html">LICENSE</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ruby-progressbar-1_9_0/README_md.html">README</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ruby-progressbar-1_9_0/Rakefile.html">Rakefile</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ruby_dep-1_5_0/LICENSE_txt.html">LICENSE</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/ruby_dep-1_5_0/README_md.html">README</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/shellany-0_0_1/Gemfile.html">Gemfile</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/shellany-0_0_1/LICENSE_txt.html">LICENSE</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/shellany-0_0_1/README_md.html">README</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/shellany-0_0_1/Rakefile.html">Rakefile</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/shellany-0_0_1/shellany_gemspec.html">shellany.gemspec</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/sinatra-2_0_1/AUTHORS_md.html">AUTHORS</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/sinatra-2_0_1/CHANGELOG_md.html">CHANGELOG</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/sinatra-2_0_1/CONTRIBUTING_md.html">CONTRIBUTING</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/sinatra-2_0_1/Gemfile.html">Gemfile</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/sinatra-2_0_1/LICENSE.html">LICENSE</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/sinatra-2_0_1/MAINTENANCE_md.html">MAINTENANCE</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/sinatra-2_0_1/README_de_md.html">README.de</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/sinatra-2_0_1/README_es_md.html">README.es</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/sinatra-2_0_1/README_fr_md.html">README.fr</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/sinatra-2_0_1/README_hu_md.html">README.hu</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/sinatra-2_0_1/README_ja_md.html">README.ja</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/sinatra-2_0_1/README_ko_md.html">README.ko</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/sinatra-2_0_1/README_md.html">README</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/sinatra-2_0_1/README_pt-br_md.html">README.pt-br</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/sinatra-2_0_1/README_pt-pt_md.html">README.pt-pt</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/sinatra-2_0_1/README_ru_md.html">README.ru</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/sinatra-2_0_1/README_zh_md.html">README.zh</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/sinatra-2_0_1/Rakefile.html">Rakefile</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/sinatra-2_0_1/SECURITY_md.html">SECURITY</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/sinatra-2_0_1/VERSION.html">VERSION</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/sinatra-2_0_1/examples/stream_ru.html">stream.ru</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/sinatra-2_0_1/sinatra_gemspec.html">sinatra.gemspec</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/sinatra-activerecord-2_0_13/LICENSE.html">LICENSE</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/sinatra-activerecord-2_0_13/README_md.html">README</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/sinatra-activerecord-2_0_13/lib/sinatra/activerecord/tasks_rake.html">tasks.rake</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/thor-0_20_0/LICENSE_md.html">LICENSE</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/thread_safe-0_3_6/Gemfile.html">Gemfile</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/thread_safe-0_3_6/LICENSE.html">LICENSE</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/thread_safe-0_3_6/README_md.html">README</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/thread_safe-0_3_6/Rakefile.html">Rakefile</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/thread_safe-0_3_6/ext/org/jruby/ext/thread_safe/JRubyCacheBackendLibrary_java.html">JRubyCacheBackendLibrary.java</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/thread_safe-0_3_6/ext/org/jruby/ext/thread_safe/jsr166e/ConcurrentHashMap_java.html">ConcurrentHashMap.java</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/thread_safe-0_3_6/ext/org/jruby/ext/thread_safe/jsr166e/ConcurrentHashMapV8_java.html">ConcurrentHashMapV8.java</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/thread_safe-0_3_6/ext/org/jruby/ext/thread_safe/jsr166e/LongAdder_java.html">LongAdder.java</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/thread_safe-0_3_6/ext/org/jruby/ext/thread_safe/jsr166e/Striped64_java.html">Striped64.java</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/thread_safe-0_3_6/ext/org/jruby/ext/thread_safe/jsr166e/nounsafe/ConcurrentHashMapV8_java.html">ConcurrentHashMapV8.java</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/thread_safe-0_3_6/ext/org/jruby/ext/thread_safe/jsr166e/nounsafe/LongAdder_java.html">LongAdder.java</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/thread_safe-0_3_6/ext/org/jruby/ext/thread_safe/jsr166e/nounsafe/Striped64_java.html">Striped64.java</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/thread_safe-0_3_6/ext/org/jruby/ext/thread_safe/jsr166y/ThreadLocalRandom_java.html">ThreadLocalRandom.java</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/thread_safe-0_3_6/ext/thread_safe/JrubyCacheBackendService_java.html">JrubyCacheBackendService.java</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/thread_safe-0_3_6/spec/src/thread_safe/SecurityManager_java.html">SecurityManager.java</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/thread_safe-0_3_6/tasks/update_doc_rake.html">update_doc.rake</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/thread_safe-0_3_6/thread_safe_gemspec.html">thread_safe.gemspec</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/thread_safe-0_3_6/yard-template/default/fulldoc/html/css/common_css.html">common.css</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/tilt-2_0_8/CHANGELOG_md.html">CHANGELOG</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/tilt-2_0_8/COPYING.html">COPYING</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/tilt-2_0_8/Gemfile.html">Gemfile</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/tilt-2_0_8/HACKING.html">HACKING</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/tilt-2_0_8/README_md.html">README</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/tilt-2_0_8/Rakefile.html">Rakefile</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/tilt-2_0_8/docs/TEMPLATES_md.html">TEMPLATES</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/tilt-2_0_8/docs/common_css.html">common.css</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/tilt-2_0_8/man/index_txt.html">index</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/tilt-2_0_8/man/tilt_1_ronn.html">tilt.1.ronn</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/tilt-2_0_8/test/markaby/locals_mab.html">locals.mab</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/tilt-2_0_8/test/markaby/markaby_mab.html">markaby.mab</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/tilt-2_0_8/test/markaby/markaby_other_static_mab.html">markaby_other_static.mab</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/tilt-2_0_8/test/markaby/render_twice_mab.html">render_twice.mab</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/tilt-2_0_8/test/markaby/scope_mab.html">scope.mab</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/tilt-2_0_8/test/markaby/yielding_mab.html">yielding.mab</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/tilt-2_0_8/test/tilt_lesstemplate_test_less.html">tilt_lesstemplate_test.less</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/tilt-2_0_8/test/tilt_prawntemplate_prawn.html">tilt_prawntemplate.prawn</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/tilt-2_0_8/tilt_gemspec.html">tilt.gemspec</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/tzinfo-1_2_5/CHANGES_md.html">CHANGES</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/tzinfo-1_2_5/LICENSE.html">LICENSE</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/tzinfo-1_2_5/README_md.html">README</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/tzinfo-1_2_5/Rakefile.html">Rakefile</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/tzinfo-1_2_5/test/zoneinfo/iso3166_tab.html">iso3166.tab</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/tzinfo-1_2_5/test/zoneinfo/leapseconds.html">leapseconds</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/tzinfo-1_2_5/test/zoneinfo/zone_tab.html">zone.tab</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/tzinfo-1_2_5/test/zoneinfo/zone1970_tab.html">zone1970.tab</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/tzinfo-1_2_5/tzinfo_gemspec.html">tzinfo.gemspec</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/unicode-display_width-1_3_0/CHANGELOG_md.html">CHANGELOG</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/unicode-display_width-1_3_0/MIT-LICENSE_txt.html">MIT-LICENSE</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/unicode-display_width-1_3_0/README_md.html">README</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/unicode-display_width-1_3_0/Rakefile.html">Rakefile</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/unicode-display_width-1_3_0/unicode-display_width_gemspec.html">unicode-display_width.gemspec</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/wdm-0_1_1/LICENSE.html">LICENSE</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/wdm-0_1_1/README_md.html">README</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/wdm-0_1_1/ext/wdm/Makefile.html">Makefile</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/wdm-0_1_1/ext/wdm/wdm_sln.html">wdm.sln</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/wdm-0_1_1/ext/wdm/wdm_vcxproj.html">wdm.vcxproj</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/wdm-0_1_1/ext/wdm/wdm_vcxproj_filters.html">wdm.vcxproj.filters</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/gems/wdm-0_1_1/ext/wdm/wdm_ext-x64-mingw32_def.html">wdm_ext-x64-mingw32.def</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/specifications/activemodel-5_1_5_gemspec.html">activemodel-5.1.5.gemspec</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/specifications/activerecord-5_1_5_gemspec.html">activerecord-5.1.5.gemspec</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/specifications/activesupport-5_1_5_gemspec.html">activesupport-5.1.5.gemspec</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/specifications/alexa_verifier-1_0_0_gemspec.html">alexa_verifier-1.0.0.gemspec</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/specifications/arel-8_0_0_gemspec.html">arel-8.0.0.gemspec</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/specifications/ast-2_4_0_gemspec.html">ast-2.4.0.gemspec</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/specifications/coderay-1_1_2_gemspec.html">coderay-1.1.2.gemspec</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/specifications/concurrent-ruby-1_0_5_gemspec.html">concurrent-ruby-1.0.5.gemspec</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/specifications/database_cleaner-1_6_1_gemspec.html">database_cleaner-1.6.1.gemspec</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/specifications/diff-lcs-1_3_gemspec.html">diff-lcs-1.3.gemspec</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/specifications/ffi-1_9_21-x64-mingw32_gemspec.html">ffi-1.9.21-x64-mingw32.gemspec</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/specifications/formatador-0_2_5_gemspec.html">formatador-0.2.5.gemspec</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/specifications/guard-2_14_2_gemspec.html">guard-2.14.2.gemspec</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/specifications/guard-compat-1_2_1_gemspec.html">guard-compat-1.2.1.gemspec</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/specifications/guard-rspec-4_7_3_gemspec.html">guard-rspec-4.7.3.gemspec</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/specifications/i18n-0_9_5_gemspec.html">i18n-0.9.5.gemspec</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/specifications/jsonb_accessor-1_0_0_gemspec.html">jsonb_accessor-1.0.0.gemspec</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/specifications/listen-3_1_5_gemspec.html">listen-3.1.5.gemspec</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/specifications/little-plugger-1_1_4_gemspec.html">little-plugger-1.1.4.gemspec</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/specifications/logging-2_2_2_gemspec.html">logging-2.2.2.gemspec</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/specifications/lumberjack-1_0_12_gemspec.html">lumberjack-1.0.12.gemspec</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/specifications/method_source-0_9_0_gemspec.html">method_source-0.9.0.gemspec</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/specifications/minitest-5_11_3_gemspec.html">minitest-5.11.3.gemspec</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/specifications/multi_json-1_13_1_gemspec.html">multi_json-1.13.1.gemspec</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/specifications/mustermann-1_0_2_gemspec.html">mustermann-1.0.2.gemspec</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/specifications/nenv-0_3_0_gemspec.html">nenv-0.3.0.gemspec</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/specifications/notiffany-0_1_1_gemspec.html">notiffany-0.1.1.gemspec</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/specifications/oj-3_4_0_gemspec.html">oj-3.4.0.gemspec</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/specifications/parallel-1_12_1_gemspec.html">parallel-1.12.1.gemspec</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/specifications/parser-2_5_0_0_gemspec.html">parser-2.5.0.0.gemspec</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/specifications/parser-2_5_0_1_gemspec.html">parser-2.5.0.1.gemspec</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/specifications/parser-2_5_0_2_gemspec.html">parser-2.5.0.2.gemspec</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/specifications/pg-1_0_0-x64-mingw32_gemspec.html">pg-1.0.0-x64-mingw32.gemspec</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/specifications/powerpack-0_1_1_gemspec.html">powerpack-0.1.1.gemspec</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/specifications/pry-0_11_3_gemspec.html">pry-0.11.3.gemspec</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/specifications/rack-2_0_4_gemspec.html">rack-2.0.4.gemspec</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/specifications/rack-protection-2_0_1_gemspec.html">rack-protection-2.0.1.gemspec</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/specifications/rack-test-0_8_2_gemspec.html">rack-test-0.8.2.gemspec</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/specifications/rainbow-3_0_0_gemspec.html">rainbow-3.0.0.gemspec</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/specifications/rake-12_3_0_gemspec.html">rake-12.3.0.gemspec</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/specifications/ralyxa-1_6_2_gemspec.html">ralyxa-1.6.2.gemspec</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/specifications/rb-fsevent-0_10_2_gemspec.html">rb-fsevent-0.10.2.gemspec</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/specifications/rb-inotify-0_9_10_gemspec.html">rb-inotify-0.9.10.gemspec</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/specifications/rerun-0_13_0_gemspec.html">rerun-0.13.0.gemspec</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/specifications/rspec-3_7_0_gemspec.html">rspec-3.7.0.gemspec</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/specifications/rspec-core-3_7_1_gemspec.html">rspec-core-3.7.1.gemspec</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/specifications/rspec-expectations-3_7_0_gemspec.html">rspec-expectations-3.7.0.gemspec</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/specifications/rspec-mocks-3_7_0_gemspec.html">rspec-mocks-3.7.0.gemspec</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/specifications/rspec-support-3_7_1_gemspec.html">rspec-support-3.7.1.gemspec</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/specifications/rubocop-0_52_1_gemspec.html">rubocop-0.52.1.gemspec</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/specifications/ruby-progressbar-1_9_0_gemspec.html">ruby-progressbar-1.9.0.gemspec</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/specifications/ruby_dep-1_5_0_gemspec.html">ruby_dep-1.5.0.gemspec</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/specifications/shellany-0_0_1_gemspec.html">shellany-0.0.1.gemspec</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/specifications/sinatra-2_0_1_gemspec.html">sinatra-2.0.1.gemspec</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/specifications/sinatra-activerecord-2_0_13_gemspec.html">sinatra-activerecord-2.0.13.gemspec</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/specifications/thor-0_20_0_gemspec.html">thor-0.20.0.gemspec</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/specifications/thread_safe-0_3_6_gemspec.html">thread_safe-0.3.6.gemspec</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/specifications/tilt-2_0_8_gemspec.html">tilt-2.0.8.gemspec</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/specifications/tzinfo-1_2_5_gemspec.html">tzinfo-1.2.5.gemspec</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/specifications/unicode-display_width-1_3_0_gemspec.html">unicode-display_width-1.3.0.gemspec</a>
+  
+    <li><a href="../../../../../../vendor/bundle/ruby/2_4_0/specifications/wdm-0_1_1_gemspec.html">wdm-0.1.1.gemspec</a>
+  
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-label="Page vendor/bundle/ruby/2.4.0/gems/parser-2.5.0.0/README.md">
+
+<h1 id="label-Parser"><a href="../../../../../../Parser.html">Parser</a><span><a href="#label-Parser">&para;</a> <a href="#top">&uarr;</a></span></h1>
+
+<p><a href="https://badge.fury.io/rb/parser"><img
+src="https://badge.fury.io/rb/parser.svg"></a> <a
+href="https://travis-ci.org/whitequark/parser"><img
+src="https://travis-ci.org/whitequark/parser.svg?branch=master"></a></p>
+
+<p><em>Parser</em> is a production-ready Ruby parser written in pure Ruby. It
+recognizes as much or more code than Ripper, Melbourne, JRubyParser or
+ruby_parser, and is vastly more convenient to use.</p>
+
+<p>You can also use <a href="https://github.com/mbj/unparser">unparser</a> to
+produce equivalent source code from Parser&#39;s ASTs.</p>
+
+<p>Sponsored by <a href="http://evilmartians.com">Evil Martians</a>. MacRuby
+and RubyMotion support sponsored by <a
+href="http://codeclimate.com">CodeClimate</a>.</p>
+
+<h2 id="label-Installation">Installation<span><a href="#label-Installation">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<pre>$ gem install parser</pre>
+
+<h2 id="label-Usage">Usage<span><a href="#label-Usage">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<p>Load <a href="../../../../../../Parser.html">Parser</a> (see the <a
+href="#backwards-compatibility">backwards compatibility</a> section below
+for explanation of <code>emit_*</code> calls):</p>
+
+<pre class="ruby"><span class="ruby-identifier">require</span> <span class="ruby-string">&#39;parser/current&#39;</span>
+<span class="ruby-comment"># opt-in to most recent AST format:</span>
+<span class="ruby-constant">Parser</span><span class="ruby-operator">::</span><span class="ruby-constant">Builders</span><span class="ruby-operator">::</span><span class="ruby-constant">Default</span>.<span class="ruby-identifier">emit_lambda</span> = <span class="ruby-keyword">true</span>
+<span class="ruby-constant">Parser</span><span class="ruby-operator">::</span><span class="ruby-constant">Builders</span><span class="ruby-operator">::</span><span class="ruby-constant">Default</span>.<span class="ruby-identifier">emit_procarg0</span> = <span class="ruby-keyword">true</span>
+</pre>
+
+<p>Parse a chunk of code:</p>
+
+<pre class="ruby"><span class="ruby-identifier">p</span> <span class="ruby-constant">Parser</span><span class="ruby-operator">::</span><span class="ruby-constant">CurrentRuby</span>.<span class="ruby-identifier">parse</span>(<span class="ruby-string">&quot;2 + 2&quot;</span>)
+<span class="ruby-comment"># (send</span>
+<span class="ruby-comment">#   (int 2) :+</span>
+<span class="ruby-comment">#   (int 2))</span>
+</pre>
+
+<p>Access the AST&#39;s source map:</p>
+
+<pre class="ruby"><span class="ruby-identifier">p</span> <span class="ruby-constant">Parser</span><span class="ruby-operator">::</span><span class="ruby-constant">CurrentRuby</span>.<span class="ruby-identifier">parse</span>(<span class="ruby-string">&quot;2 + 2&quot;</span>).<span class="ruby-identifier">loc</span>
+<span class="ruby-comment"># #&lt;Parser::Source::Map::Send:0x007fe5a1ac2388</span>
+<span class="ruby-comment">#   @dot=nil,</span>
+<span class="ruby-comment">#   @begin=nil,</span>
+<span class="ruby-comment">#   @end=nil,</span>
+<span class="ruby-comment">#   @selector=#&lt;Source::Range (string) 2...3&gt;,</span>
+<span class="ruby-comment">#   @expression=#&lt;Source::Range (string) 0...5&gt;&gt;</span>
+
+<span class="ruby-identifier">p</span> <span class="ruby-constant">Parser</span><span class="ruby-operator">::</span><span class="ruby-constant">CurrentRuby</span>.<span class="ruby-identifier">parse</span>(<span class="ruby-string">&quot;2 + 2&quot;</span>).<span class="ruby-identifier">loc</span>.<span class="ruby-identifier">selector</span>.<span class="ruby-identifier">source</span>
+<span class="ruby-comment"># &quot;+&quot;</span>
+</pre>
+
+<p>Traverse the AST: see the documentation for <a
+href="https://whitequark.github.io/ast/">gem ast</a>.</p>
+
+<p>Parse a chunk of code and display all diagnostics:</p>
+
+<pre class="ruby"><span class="ruby-identifier">parser</span> = <span class="ruby-constant">Parser</span><span class="ruby-operator">::</span><span class="ruby-constant">CurrentRuby</span>.<span class="ruby-identifier">new</span>
+<span class="ruby-identifier">parser</span>.<span class="ruby-identifier">diagnostics</span>.<span class="ruby-identifier">consumer</span> = <span class="ruby-identifier">lambda</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">diag</span><span class="ruby-operator">|</span>
+  <span class="ruby-identifier">puts</span> <span class="ruby-identifier">diag</span>.<span class="ruby-identifier">render</span>
+<span class="ruby-keyword">end</span>
+
+<span class="ruby-identifier">buffer</span> = <span class="ruby-constant">Parser</span><span class="ruby-operator">::</span><span class="ruby-constant">Source</span><span class="ruby-operator">::</span><span class="ruby-constant">Buffer</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&#39;(string)&#39;</span>)
+<span class="ruby-identifier">buffer</span>.<span class="ruby-identifier">source</span> = <span class="ruby-string">&quot;foo *bar&quot;</span>
+
+<span class="ruby-identifier">p</span> <span class="ruby-identifier">parser</span>.<span class="ruby-identifier">parse</span>(<span class="ruby-identifier">buffer</span>)
+<span class="ruby-comment"># (string):1:5: warning: `*&#39; interpreted as argument prefix</span>
+<span class="ruby-comment"># foo *bar</span>
+<span class="ruby-comment">#     ^</span>
+<span class="ruby-comment"># (send nil :foo</span>
+<span class="ruby-comment">#   (splat</span>
+<span class="ruby-comment">#     (send nil :bar)))</span>
+</pre>
+
+<p>If you reuse the same parser object for multiple <code>#parse</code> runs,
+you need to <code>#reset</code> it.</p>
+
+<p>You can also use the <code>ruby-parse</code> utility (it&#39;s bundled with
+the gem) to play with Parser:</p>
+
+<pre>$ ruby-parse -L -e &quot;2+2&quot;
+(send
+  (int 2) :+
+  (int 2))
+2+2
+ ~ selector
+~~~ expression
+(int 2)
+2+2
+~ expression
+(int 2)
+2+2
+
+$ ruby-parse -E -e &quot;2+2&quot;
+2+2
+^ tINTEGER 2                                    expr_end     [0 &lt;= cond] [0 &lt;= cmdarg]
+2+2
+ ^ tPLUS &quot;+&quot;                                    expr_beg     [0 &lt;= cond] [0 &lt;= cmdarg]
+2+2
+  ^ tINTEGER 2                                  expr_end     [0 &lt;= cond] [0 &lt;= cmdarg]
+2+2
+  ^ false &quot;$eof&quot;                                expr_end     [0 &lt;= cond] [0 &lt;= cmdarg]
+(send
+  (int 2) :+
+  (int 2))</pre>
+
+<h2 id="label-Features">Features<span><a href="#label-Features">&para;</a> <a href="#top">&uarr;</a></span></h2>
+<ul><li>
+<p>Precise source location reporting.</p>
+</li><li>
+<p><a href="doc/AST_FORMAT.md">Documented</a> <a
+href="../../../../../../AST.html">AST</a> format which is convenient to
+work with.</p>
+</li><li>
+<p>A simple interface and a powerful, tweakable one.</p>
+</li><li>
+<p>Parses 1.8, 1.9, 2.0, 2.1, 2.2 and 2.3 syntax with backwards-compatible  <a
+href="../../../../../../AST.html">AST</a> formats.</p>
+</li><li>
+<p>Parses MacRuby and RubyMotion syntax extensions.</p>
+</li><li>
+<p><a
+href="http://whitequark.org/blog/2013/04/26/lets-play-with-ruby-code/">Rewriting</a>
+support.</p>
+</li><li>
+<p>Parsing error recovery.</p>
+</li><li>
+<p>Improved <a href="http://clang.llvm.org/diagnostics.html">clang-like</a>
+diagnostic messages with location information.</p>
+</li><li>
+<p>Written in pure Ruby, runs on MRI &gt;=2.0.0, JRuby and Rubinius (and
+historically, all versions of Ruby since 1.8)</p>
+</li><li>
+<p>Only one runtime dependency: the <a
+href="https://rubygems.org/gems/ast">ast</a> gem.</p>
+</li><li>
+<p><a
+href="http://whitequark.org/blog/2013/04/01/ruby-hacking-guide-ch-11-finite-state-lexer/">Insane</a>
+Ruby lexer rewritten from scratch in Ragel.</p>
+</li><li>
+<p>100% test coverage for Bison grammars (except error recovery).</p>
+</li><li>
+<p>Readable, commented source code.</p>
+</li></ul>
+
+<h2 id="label-Documentation">Documentation<span><a href="#label-Documentation">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<p>Documentation for <a href="../../../../../../Parser.html">Parser</a> is
+available <a href="https://whitequark.github.io/parser/">online</a>.</p>
+
+<h3 id="label-Node+names">Node names<span><a href="#label-Node+names">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<p>Several <a href="../../../../../../Parser.html">Parser</a> nodes seem to be
+confusing enough to warrant a dedicated <a
+href="../activemodel-5_1_5/README_rdoc.html">README</a> section.</p>
+
+<h4 id="label-28block-29">(block)<span><a href="#label-28block-29">&para;</a> <a href="#top">&uarr;</a></span></h4>
+
+<p>The <code>(block)</code> node passes a Ruby block, that is, a closure, to a
+method call represented by its first child, a <code>(send)</code>,
+<code>(super)</code> or <code>(zsuper)</code> node. To demonstrate:</p>
+
+<pre>$ ruby-parse -e &#39;foo { |x| x + 2 }&#39;
+(block
+  (send nil :foo)
+  (args
+    (arg :x))
+  (send
+    (lvar :x) :+
+    (int 2)))</pre>
+
+<h4 id="label-28begin-29+and+-28kwbegin-29">(begin) and (kwbegin)<span><a href="#label-28begin-29+and+-28kwbegin-29">&para;</a> <a href="#top">&uarr;</a></span></h4>
+
+<p><strong>TL;DR: Unless you perform rewriting, treat <code>(begin)</code> and
+<code>(kwbegin)</code> as the same node type.</strong></p>
+
+<p>Both <code>(begin)</code> and <code>(kwbegin)</code> nodes represent
+compound statements, that is, several expressions which are executed
+sequentally and the value of the last one is the value of entire compound
+statement. They may take several forms in the source code:</p>
+<ul><li>
+<p><code>foo; bar</code>: without delimiters</p>
+</li><li>
+<p><code>(foo; bar)</code>: parenthesized</p>
+</li><li>
+<p><code>begin foo; bar; end</code>: grouped with <code>begin</code> keyword</p>
+</li><li>
+<p><code>def x; foo; bar; end</code>: grouped inside a method definition</p>
+</li></ul>
+
+<p>and so on.</p>
+
+<pre>$ ruby-parse -e &#39;(foo; bar)&#39;
+(begin
+  (send nil :foo)
+  (send nil :bar))
+$ ruby-parse -e &#39;def x; foo; bar end&#39;
+(def :x
+  (args)
+  (begin
+    (send nil :foo)
+    (send nil :bar)))</pre>
+
+<p>Note that, despite its name, <code>kwbegin</code> node only has tangential
+relation to the <code>begin</code> keyword. Normally, <a
+href="../../../../../../Parser.html">Parser</a> <a
+href="../../../../../../AST.html">AST</a> is semantic, that is, if two
+constructs look differently but behave identically, they get parsed to the
+same node. However, there exists a peculiar construct called post-loop in
+Ruby:</p>
+
+<pre class="ruby"><span class="ruby-keyword">begin</span>
+  <span class="ruby-identifier">body</span>
+<span class="ruby-keyword">end</span> <span class="ruby-keyword">while</span> <span class="ruby-identifier">condition</span>
+</pre>
+
+<p>This specific syntactic construct, that is, keyword <code>begin..end</code>
+block followed by a postfix <code>while</code>, <a
+href="http://rosettacode.org/wiki/Loops/Do-while#Ruby">behaves</a> very
+unlike other similar constructs, e.g. <code>(body) while condition</code>.
+While the body itself is wrapped into a <code>while-post</code> node, <a
+href="../../../../../../Parser.html">Parser</a> also supports rewriting,
+and in that context it is important to not accidentally convert one kind of
+loop into another.</p>
+
+<pre>$ ruby-parse -e &#39;begin foo end while cond&#39;
+(while-post
+  (send nil :cond)
+  (kwbegin
+    (send nil :foo)))
+$ ruby-parse -e &#39;foo while cond&#39;
+(while
+  (send nil :cond)
+  (send nil :foo))
+$ ruby-parse -e &#39;(foo) while cond&#39;
+(while
+  (send nil :cond)
+  (begin
+    (send nil :foo)))</pre>
+
+<p>(Parser also needs the <code>(kwbegin)</code> node type internally, and it
+is highly problematic to map it back to <code>(begin)</code>.)</p>
+
+<h2 id="label-Backwards+compatibility">Backwards compatibility<span><a href="#label-Backwards+compatibility">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<p><a href="../../../../../../Parser.html">Parser</a> does <em>not</em> use
+semantic versioning. <a href="../../../../../../Parser.html">Parser</a>
+versions are structured as <code>x.y.z.t</code>, where <code>x.y.z</code>
+indicates the most recent supported Ruby release (support for every Ruby
+release that is chronologically earlier is implied), and <code>t</code> is
+a monotonically increasing number.</p>
+
+<p>The public API of <a href="../../../../../../Parser.html">Parser</a> as
+well as the <a href="../../../../../../AST.html">AST</a> format (as listed
+in the documentation) are considered stable forever, although support for
+old Ruby versions may be removed at some point.</p>
+
+<p>Sometimes it is necessary to modify the format of <a
+href="../../../../../../AST.html">AST</a> nodes that are already being
+emitted in a way that would break existing applications. To avoid such
+breakage, applications must opt-in to these modifications; without explicit
+opt-in, <a href="../../../../../../Parser.html">Parser</a> will continue to
+emit the old <a href="../../../../../../AST.html">AST</a> node format. The
+most recent set of opt-ins is speified in the <a href="#usage">usage
+section</a> of this <a
+href="../activemodel-5_1_5/README_rdoc.html">README</a>.</p>
+
+<h2 id="label-Compatibility+with+Ruby+MRI"><a href="../oj-3_4_0/pages/Compatibility_md.html">Compatibility</a> with Ruby MRI<span><a href="#label-Compatibility+with+Ruby+MRI">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<p>Unfortunately, Ruby MRI often changes syntax in patchlevel versions. This
+has happened, at least, for every release since 1.9; for example, commits
+<a
+href="https://github.com/ruby/ruby/commit/c501345218dc5fb0fae90d56a0c6fd19d38df5bb">c5013452</a>
+and <a
+href="https://github.com/ruby/ruby/commit/04bb9d6b75a55d4000700769eead5a5cb942c25b">04bb9d6b</a>
+were backported all the way from HEAD to 1.9. Moreover, there is no simple
+way to track these changes.</p>
+
+<p>This policy makes it all but impossible to make <a
+href="../../../../../../Parser.html">Parser</a> precisely compatible with
+the Ruby MRI parser. Indeed, at September 2014, it would be necessary to
+maintain and update ten different parsers together with their lexer quirks
+in order to be able to emulate any given released Ruby MRI version.</p>
+
+<p>As a result, <a href="../../../../../../Parser.html">Parser</a> chooses a
+different path: the <code>parser/rubyXY</code> parsers recognize the syntax
+of the latest minor version of Ruby MRI X.Y at the time of the gem release.</p>
+
+<h2 id="label-Compatibility+with+MacRuby+and+RubyMotion"><a href="../oj-3_4_0/pages/Compatibility_md.html">Compatibility</a> with MacRuby and RubyMotion<span><a href="#label-Compatibility+with+MacRuby+and+RubyMotion">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<p><a href="../../../../../../Parser.html">Parser</a> implements the MacRuby
+0.12 and RubyMotion mid-2015 parsers precisely. However, the lexers of
+these have been forked off Ruby MRI and independently maintained for some
+time, and because of that, <a
+href="../../../../../../Parser.html">Parser</a> may accept some code that
+these upstream implementations are unable to parse.</p>
+
+<h2 id="label-Known+issues">Known issues<span><a href="#label-Known+issues">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<p>Adding support for the following Ruby MRI features in <a
+href="../../../../../../Parser.html">Parser</a> would needlessly complicate
+it, and as they all are very specific and rarely occuring corner cases,
+this is not done.</p>
+
+<p><a href="../../../../../../Parser.html">Parser</a> has been extensively
+tested; in particular, it parses almost entire <a
+href="https://rubygems.org">Rubygems</a> corpus. For every issue, a
+breakdown of affected gems is offered.</p>
+
+<h3 id="label-Void+value+expressions">Void value expressions<span><a href="#label-Void+value+expressions">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<p>Ruby MRI prohibits so-called “void value expressions”. For a description of
+what a void value expression is, see <a
+href="https://gist.github.com/JoshCheek/5625007">this gist</a> and <a
+href="https://github.com/whitequark/parser/issues/72">this Parser
+issue</a>.</p>
+
+<p>It is unknown whether any gems are affected by this issue.</p>
+
+<h3 id="label-Invalid+characters+inside+comments+and+literals">Invalid characters inside comments and literals<span><a href="#label-Invalid+characters+inside+comments+and+literals">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<p>Ruby MRI permits arbitrary non-7-bit byte sequences to appear in comments,
+as well as in string or symbol literals in form of escape sequences,
+regardless of source encoding. <a
+href="../../../../../../Parser.html">Parser</a> requires all source code,
+including the expanded escape sequences, to consist of valid byte sequences
+in the source encoding that are convertible to UTF-8.</p>
+
+<p>As of 2013-07-25, there are about 180 affected gems.</p>
+
+<h3 id="label-u+escape+in+1.8+mode">u escape in 1.8 mode<span><a href="#label-u+escape+in+1.8+mode">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<p>Ruby MRI 1.8 permits to specify a bare <code>\u</code> escape sequence in a
+string; it treats it like <code>u</code>. Ruby MRI 1.9 and later treat
+<code>\u</code> as a prefix for <a
+href="../../../../../../Unicode.html">Unicode</a> escape sequence and do
+not allow it to appear bare. <a
+href="../../../../../../Parser.html">Parser</a> follows 1.9+ behavior.</p>
+
+<p>As of 2013-07-25, affected gems are: activerdf, activerdf_net7, fastreader,
+gkellog-reddy.</p>
+
+<h3 id="label-Dollar-dash">Dollar-dash<span><a href="#label-Dollar-dash">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<p>(This one is so obscure I couldn&#39;t even think of a saner name for this
+issue.) Pre-2.1 Ruby allows to specify a global variable named
+<code>$-</code>. Ruby 2.1 and later treat it as a syntax error. <a
+href="../../../../../../Parser.html">Parser</a> follows 2.1 behavior.</p>
+
+<p>No known code is affected by this issue.</p>
+
+<h2 id="label-Contributors"><a href="../pg-1_0_0-x64-mingw32/Contributors_rdoc.html">Contributors</a><span><a href="#label-Contributors">&para;</a> <a href="#top">&uarr;</a></span></h2>
+<ul><li>
+<p><a href="https://github.com/whitequark">whitequark</a></p>
+</li><li>
+<p>Markus Schirp (<a href="https://github.com/mbj">mbj</a>)</p>
+</li><li>
+<p>Yorick Peterse (<a
+href="https://github.com/yorickpeterse">yorickpeterse</a>)</p>
+</li><li>
+<p>Magnus Holm (<a href="https://github.com/judofyr">judofyr</a>)</p>
+</li><li>
+<p>Bozhidar Batsov (<a href="https://github.com/bbatsov">bbatsov</a>)</p>
+</li></ul>
+
+<h2 id="label-Acknowledgements">Acknowledgements<span><a href="#label-Acknowledgements">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<p>The lexer testsuite is derived from <a
+href="https://github.com/seattlerb/ruby_parser">ruby_parser</a>.</p>
+
+<p>The Bison parser rules are derived from <a
+href="https://github.com/ruby/ruby">Ruby MRI</a> parse.y.</p>
+
+<h2 id="label-Contributing"><a href="../diff-lcs-1_3/Contributing_md.html">Contributing</a><span><a href="#label-Contributing">&para;</a> <a href="#top">&uarr;</a></span></h2>
+<ol><li>
+<p>Make sure you have <a href="http://www.complang.org/ragel/">Ragel ~>
+6.7</a> installed</p>
+</li><li>
+<p>Fork it</p>
+</li><li>
+<p>Create your feature branch (<code>git checkout -b my-new-feature</code>)</p>
+</li><li>
+<p>Commit your changes (<code>git commit -am &#39;Add some
+feature&#39;</code>)</p>
+</li><li>
+<p>Push to the branch (<code>git push origin my-new-feature</code>)</p>
+</li><li>
+<p>Create new Pull Request</p>
+</li></ol>
+</main>
+
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="https://rdoc.github.io/rdoc">RDoc</a> 5.0.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

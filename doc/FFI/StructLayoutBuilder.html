@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class FFI::StructLayoutBuilder - RDoc Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../";
+  var index_rel_prefix = "../";
+</script>
+
+<script src="../js/jquery.js"></script>
+<script src="../js/darkfish.js"></script>
+
+<link href="../css/fonts.css" rel="stylesheet">
+<link href="../css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../table_of_contents.html#pages">Pages</a>
+    <a href="../table_of_contents.html#classes">Classes</a>
+    <a href="../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link"><a href="../Object.html">Object</a>
+  
+</div>
+
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-c-new">::new</a>
+    
+    <li ><a href="#method-i-add">#add</a>
+    
+    <li ><a href="#method-i-add_array">#add_array</a>
+    
+    <li ><a href="#method-i-add_field">#add_field</a>
+    
+    <li ><a href="#method-i-add_struct">#add_struct</a>
+    
+    <li ><a href="#method-i-alignment-3D">#alignment=</a>
+    
+    <li ><a href="#method-i-build">#build</a>
+    
+    <li ><a href="#method-i-packed-3D">#packed=</a>
+    
+    <li ><a href="#method-i-size-3D">#size=</a>
+    
+    <li ><a href="#method-i-union-3D">#union=</a>
+    
+    <li ><a href="#method-i-union-3F">#union?</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-FFI::StructLayoutBuilder">
+  <h1 id="class-FFI::StructLayoutBuilder" class="class">
+    class FFI::StructLayoutBuilder
+  </h1>
+
+  <section class="description">
+    
+<p>Build a {StructLayout struct layout}.</p>
+
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+    <section class="constants-list">
+      <header>
+        <h3>Constants</h3>
+      </header>
+      <dl>
+      
+        <dt id="NUMBER_TYPES">NUMBER_TYPES
+        
+        <dd><p>List of number types</p>
+        
+      
+      </dl>
+    </section>
+    
+
+    
+    <section class="attribute-method-details" class="method-section">
+      <header>
+        <h3>Attributes</h3>
+      </header>
+
+      
+      <div id="attribute-i-alignment" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">alignment</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-size" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">size</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+    </section>
+    
+
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Class Methods</h3>
+       </header>
+
+    
+      <div id="method-c-new" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">new</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="new-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/ffi-1.9.21-x64-mingw32/lib/ffi/struct_layout_builder.rb, line 39</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span>
+  <span class="ruby-ivar">@size</span> = <span class="ruby-value">0</span>
+  <span class="ruby-ivar">@alignment</span> = <span class="ruby-value">1</span>
+  <span class="ruby-ivar">@min_alignment</span> = <span class="ruby-value">1</span>
+  <span class="ruby-ivar">@packed</span> = <span class="ruby-keyword">false</span>
+  <span class="ruby-ivar">@union</span> = <span class="ruby-keyword">false</span>
+  <span class="ruby-ivar">@fields</span> = <span class="ruby-constant">Array</span>.<span class="ruby-identifier">new</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-add" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">add</span><span
+            class="method-args">(name, type, offset = nil)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>@param [String, Symbol] name name of the field @param [Array,
+DataConverter, <a href="Struct.html">Struct</a>, StructLayout::Field, <a
+href="../Symbol.html">Symbol</a>, Type] type type of the field @param
+[Numeric, nil] offset @return [self] Add a field to the builder. @note
+Setting <code>offset</code> to <code>nil</code> or <code>-1</code> is
+equivalent to <code>0</code>.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="add-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/ffi-1.9.21-x64-mingw32/lib/ffi/struct_layout_builder.rb, line 123</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">add</span>(<span class="ruby-identifier">name</span>, <span class="ruby-identifier">type</span>, <span class="ruby-identifier">offset</span> = <span class="ruby-keyword">nil</span>)
+
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">offset</span>.<span class="ruby-identifier">nil?</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">offset</span> <span class="ruby-operator">==</span> <span class="ruby-value">-1</span>
+    <span class="ruby-identifier">offset</span> = <span class="ruby-ivar">@union</span> <span class="ruby-operator">?</span> <span class="ruby-value">0</span> <span class="ruby-operator">:</span> <span class="ruby-identifier">align</span>(<span class="ruby-ivar">@size</span>, <span class="ruby-ivar">@packed</span> <span class="ruby-operator">?</span> [ <span class="ruby-ivar">@packed</span>, <span class="ruby-identifier">type</span>.<span class="ruby-identifier">alignment</span> ].<span class="ruby-identifier">min</span> <span class="ruby-operator">:</span> [ <span class="ruby-ivar">@min_alignment</span>, <span class="ruby-identifier">type</span>.<span class="ruby-identifier">alignment</span> ].<span class="ruby-identifier">max</span>)
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-comment">#</span>
+  <span class="ruby-comment"># If a FFI::Type type was passed in as the field arg, try and convert to a StructLayout::Field instance</span>
+  <span class="ruby-comment">#</span>
+  <span class="ruby-identifier">field</span> = <span class="ruby-identifier">type</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">StructLayout</span><span class="ruby-operator">::</span><span class="ruby-constant">Field</span>) <span class="ruby-operator">?</span> <span class="ruby-identifier">type</span> <span class="ruby-operator">:</span> <span class="ruby-identifier">field_for_type</span>(<span class="ruby-identifier">name</span>, <span class="ruby-identifier">offset</span>, <span class="ruby-identifier">type</span>)
+  <span class="ruby-ivar">@fields</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">field</span>
+  <span class="ruby-ivar">@alignment</span> = [ <span class="ruby-ivar">@alignment</span>, <span class="ruby-identifier">field</span>.<span class="ruby-identifier">alignment</span> ].<span class="ruby-identifier">max</span> <span class="ruby-keyword">unless</span> <span class="ruby-ivar">@packed</span>
+  <span class="ruby-ivar">@size</span> = [ <span class="ruby-ivar">@size</span>, <span class="ruby-identifier">field</span>.<span class="ruby-identifier">size</span> <span class="ruby-operator">+</span> (<span class="ruby-ivar">@union</span> <span class="ruby-operator">?</span> <span class="ruby-value">0</span> <span class="ruby-operator">:</span> <span class="ruby-identifier">field</span>.<span class="ruby-identifier">offset</span>) ].<span class="ruby-identifier">max</span>
+
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">self</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-add_array" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">add_array</span><span
+            class="method-args">(name, type, count, offset = nil)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>@param name (see <a href="StructLayoutBuilder.html#method-i-add">add</a>)
+@param type (see <a href="StructLayoutBuilder.html#method-i-add">add</a>)
+@param [Numeric] count array length @param offset (see <a
+href="StructLayoutBuilder.html#method-i-add">add</a>) @return (see <a
+href="StructLayoutBuilder.html#method-i-add">add</a>) Add an array as a
+field to the builder.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="add_array-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/ffi-1.9.21-x64-mingw32/lib/ffi/struct_layout_builder.rb, line 161</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">add_array</span>(<span class="ruby-identifier">name</span>, <span class="ruby-identifier">type</span>, <span class="ruby-identifier">count</span>, <span class="ruby-identifier">offset</span> = <span class="ruby-keyword">nil</span>)
+  <span class="ruby-identifier">add</span>(<span class="ruby-identifier">name</span>, <span class="ruby-constant">Type</span><span class="ruby-operator">::</span><span class="ruby-constant">Array</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">type</span>, <span class="ruby-identifier">count</span>), <span class="ruby-identifier">offset</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-add_field" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">add_field</span><span
+            class="method-args">(name, type, offset = nil)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>@param (see <a href="StructLayoutBuilder.html#method-i-add">add</a>)
+@return (see <a href="StructLayoutBuilder.html#method-i-add">add</a>) Same
+as {#add}. @see <a href="StructLayoutBuilder.html#method-i-add">add</a></p>
+          
+          
+
+          
+          <div class="method-source-code" id="add_field-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/ffi-1.9.21-x64-mingw32/lib/ffi/struct_layout_builder.rb, line 144</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">add_field</span>(<span class="ruby-identifier">name</span>, <span class="ruby-identifier">type</span>, <span class="ruby-identifier">offset</span> = <span class="ruby-keyword">nil</span>)
+  <span class="ruby-identifier">add</span>(<span class="ruby-identifier">name</span>, <span class="ruby-identifier">type</span>, <span class="ruby-identifier">offset</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-add_struct" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">add_struct</span><span
+            class="method-args">(name, type, offset = nil)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>@param (see <a href="StructLayoutBuilder.html#method-i-add">add</a>)
+@return (see <a href="StructLayoutBuilder.html#method-i-add">add</a>) Add a
+struct as a field to the builder.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="add_struct-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/ffi-1.9.21-x64-mingw32/lib/ffi/struct_layout_builder.rb, line 151</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">add_struct</span>(<span class="ruby-identifier">name</span>, <span class="ruby-identifier">type</span>, <span class="ruby-identifier">offset</span> = <span class="ruby-keyword">nil</span>)
+  <span class="ruby-identifier">add</span>(<span class="ruby-identifier">name</span>, <span class="ruby-constant">Type</span><span class="ruby-operator">::</span><span class="ruby-constant">Struct</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">type</span>), <span class="ruby-identifier">offset</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-alignment-3D" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">alignment=</span><span
+            class="method-args">(align)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Set alignment attribute with <code>align</code> only if it is greater than
+attribute value. @param [Numeric] align</p>
+          
+          
+
+          
+          <div class="method-source-code" id="alignment-3D-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/ffi-1.9.21-x64-mingw32/lib/ffi/struct_layout_builder.rb, line 56</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">alignment=</span>(<span class="ruby-identifier">align</span>)
+  <span class="ruby-ivar">@alignment</span> = <span class="ruby-identifier">align</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">align</span> <span class="ruby-operator">&gt;</span> <span class="ruby-ivar">@alignment</span>
+  <span class="ruby-ivar">@min_alignment</span> = <span class="ruby-identifier">align</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-build" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">build</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>@return [StructLayout] Build and return the struct layout.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="build-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/ffi-1.9.21-x64-mingw32/lib/ffi/struct_layout_builder.rb, line 167</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">build</span>
+  <span class="ruby-comment"># Add tail padding if the struct is not packed</span>
+  <span class="ruby-identifier">size</span> = <span class="ruby-ivar">@packed</span> <span class="ruby-operator">?</span> <span class="ruby-ivar">@size</span> <span class="ruby-operator">:</span> <span class="ruby-identifier">align</span>(<span class="ruby-ivar">@size</span>, <span class="ruby-ivar">@alignment</span>)
+
+  <span class="ruby-identifier">layout</span> = <span class="ruby-constant">StructLayout</span>.<span class="ruby-identifier">new</span>(<span class="ruby-ivar">@fields</span>, <span class="ruby-identifier">size</span>, <span class="ruby-ivar">@alignment</span>)
+  <span class="ruby-identifier">layout</span>.<span class="ruby-identifier">__union!</span> <span class="ruby-keyword">if</span> <span class="ruby-ivar">@union</span>
+  <span class="ruby-identifier">layout</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-packed-3D" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">packed=</span><span
+            class="method-args">(packed)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Set packed attribute @overload packed=(packed) Set alignment and packed
+attributes to</p>
+
+<pre>+packed+.
+
+@param [Fixnum] packed
+
+@return [packed]</pre>
+
+<p>@overload packed=(packed) Set packed attribute.</p>
+
+<pre>@param packed
+
+@return [0,1]</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="packed-3D-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/ffi-1.9.21-x64-mingw32/lib/ffi/struct_layout_builder.rb, line 89</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">packed=</span>(<span class="ruby-identifier">packed</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">packed</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-value">0</span>.<span class="ruby-identifier">class</span>)
+    <span class="ruby-ivar">@alignment</span> = <span class="ruby-identifier">packed</span>
+    <span class="ruby-ivar">@packed</span> = <span class="ruby-identifier">packed</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-ivar">@packed</span> = <span class="ruby-identifier">packed</span> <span class="ruby-operator">?</span> <span class="ruby-value">1</span> <span class="ruby-operator">:</span> <span class="ruby-value">0</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-size-3D" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">size=</span><span
+            class="method-args">(size)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Set size attribute with <code>size</code> only if <code>size</code> is
+greater than attribute value. @param [Numeric] size</p>
+          
+          
+
+          
+          <div class="method-source-code" id="size-3D-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/ffi-1.9.21-x64-mingw32/lib/ffi/struct_layout_builder.rb, line 50</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">size=</span>(<span class="ruby-identifier">size</span>)
+  <span class="ruby-ivar">@size</span> = <span class="ruby-identifier">size</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">size</span> <span class="ruby-operator">&gt;</span> <span class="ruby-ivar">@size</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-union-3D" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">union=</span><span
+            class="method-args">(is_union)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Set union attribute. Set to <code>true</code> to build a {Union} instead of
+a {Struct}. @param [Boolean] is_union @return [is_union]</p>
+          
+          
+
+          
+          <div class="method-source-code" id="union-3D-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/ffi-1.9.21-x64-mingw32/lib/ffi/struct_layout_builder.rb, line 65</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">union=</span>(<span class="ruby-identifier">is_union</span>)
+  <span class="ruby-ivar">@union</span> = <span class="ruby-identifier">is_union</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-union-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">union?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Building a {Union} or a {Struct} ?</p>
+
+<p>@return [Boolean]</p>
+          
+          
+
+          
+          <div class="method-source-code" id="union-3F-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/ffi-1.9.21-x64-mingw32/lib/ffi/struct_layout_builder.rb, line 73</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">union?</span>
+  <span class="ruby-ivar">@union</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="https://rdoc.github.io/rdoc">RDoc</a> 5.0.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

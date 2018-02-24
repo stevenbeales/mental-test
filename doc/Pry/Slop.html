@@ -1,0 +1,1530 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class Pry::Slop - RDoc Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../";
+  var index_rel_prefix = "../";
+</script>
+
+<script src="../js/jquery.js"></script>
+<script src="../js/darkfish.js"></script>
+
+<link href="../css/fonts.css" rel="stylesheet">
+<link href="../css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../table_of_contents.html#pages">Pages</a>
+    <a href="../table_of_contents.html#classes">Classes</a>
+    <a href="../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link"><a href="../Object.html">Object</a>
+  
+</div>
+
+    <div id="includes-section" class="nav-section">
+  <h3>Included Modules</h3>
+
+  <ul class="link-list">
+  
+  
+    <li><a class="include" href="../Enumerable.html">Enumerable</a>
+  
+  
+  </ul>
+</div>
+
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-c-new">::new</a>
+    
+    <li ><a href="#method-c-optspec">::optspec</a>
+    
+    <li ><a href="#method-c-parse">::parse</a>
+    
+    <li ><a href="#method-c-parse-21">::parse!</a>
+    
+    <li ><a href="#method-i-5B-5D">#[]</a>
+    
+    <li ><a href="#method-i-add_callback">#add_callback</a>
+    
+    <li ><a href="#method-i-banner">#banner</a>
+    
+    <li ><a href="#method-i-banner-3D">#banner=</a>
+    
+    <li ><a href="#method-i-command">#command</a>
+    
+    <li ><a href="#method-i-description">#description</a>
+    
+    <li ><a href="#method-i-description-3D">#description=</a>
+    
+    <li ><a href="#method-i-each">#each</a>
+    
+    <li ><a href="#method-i-fetch_command">#fetch_command</a>
+    
+    <li ><a href="#method-i-fetch_option">#fetch_option</a>
+    
+    <li ><a href="#method-i-get">#get</a>
+    
+    <li ><a href="#method-i-help">#help</a>
+    
+    <li ><a href="#method-i-missing">#missing</a>
+    
+    <li ><a href="#method-i-on">#on</a>
+    
+    <li ><a href="#method-i-opt">#opt</a>
+    
+    <li ><a href="#method-i-option">#option</a>
+    
+    <li ><a href="#method-i-parse">#parse</a>
+    
+    <li ><a href="#method-i-parse-21">#parse!</a>
+    
+    <li ><a href="#method-i-present-3F">#present?</a>
+    
+    <li class="calls-super" ><a href="#method-i-respond_to_missing-3F">#respond_to_missing?</a>
+    
+    <li ><a href="#method-i-run">#run</a>
+    
+    <li ><a href="#method-i-separator">#separator</a>
+    
+    <li ><a href="#method-i-strict-3F">#strict?</a>
+    
+    <li ><a href="#method-i-to_h">#to_h</a>
+    
+    <li ><a href="#method-i-to_hash">#to_hash</a>
+    
+    <li ><a href="#method-i-to_s">#to_s</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-Pry::Slop">
+  <h1 id="class-Pry::Slop" class="class">
+    class Pry::Slop
+  </h1>
+
+  <section class="description">
+    
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+    <section class="constants-list">
+      <header>
+        <h3>Constants</h3>
+      </header>
+      <dl>
+      
+        <dt id="DEFAULT_OPTIONS">DEFAULT_OPTIONS
+        
+        <dd><p>Returns a default <a href="../Hash.html">Hash</a> of configuration options
+this <a href="Slop.html">Slop</a> instance uses.</p>
+        
+      
+        <dt id="VERSION">VERSION
+        
+        <dd>
+        
+      
+      </dl>
+    </section>
+    
+
+    
+    <section class="attribute-method-details" class="method-section">
+      <header>
+        <h3>Attributes</h3>
+      </header>
+
+      
+      <div id="attribute-i-config" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">config</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        <p>The <a href="../Hash.html">Hash</a> of configuration options for this <a
+href="Slop.html">Slop</a> instance.</p>
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-options" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">options</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        <p>The <a href="../Array.html">Array</a> of <a
+href="Slop/Option.html">Slop::Option</a> objects tied to this <a
+href="Slop.html">Slop</a> instance.</p>
+        
+        </div>
+      </div>
+      
+    </section>
+    
+
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Class Methods</h3>
+       </header>
+
+    
+      <div id="method-c-new" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">new</span><span
+            class="method-args">(config = {}) { |self| ... }</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Create a new instance of <a href="Slop.html">Slop</a> and optionally build
+options via a block.</p>
+
+<p>config - A <a href="../Hash.html">Hash</a> of configuration options. block 
+- An optional block used to specify options.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="new-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/pry-0.11.3/lib/pry/slop.rb, line 122</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">config</span> = {}, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+  <span class="ruby-ivar">@config</span> = <span class="ruby-constant">DEFAULT_OPTIONS</span>.<span class="ruby-identifier">merge</span>(<span class="ruby-identifier">config</span>)
+  <span class="ruby-ivar">@options</span> = []
+  <span class="ruby-ivar">@commands</span> = {}
+  <span class="ruby-ivar">@trash</span> = []
+  <span class="ruby-ivar">@triggered_options</span> = []
+  <span class="ruby-ivar">@unknown_options</span> = []
+  <span class="ruby-ivar">@callbacks</span> = {}
+  <span class="ruby-ivar">@separators</span> = {}
+  <span class="ruby-ivar">@runner</span> = <span class="ruby-keyword">nil</span>
+
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">block_given?</span>
+    <span class="ruby-identifier">block</span>.<span class="ruby-identifier">arity</span> <span class="ruby-operator">==</span> <span class="ruby-value">1</span> <span class="ruby-operator">?</span> <span class="ruby-keyword">yield</span>(<span class="ruby-keyword">self</span>) <span class="ruby-operator">:</span> <span class="ruby-identifier">instance_eval</span>(<span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">config</span>[<span class="ruby-value">:help</span>]
+    <span class="ruby-identifier">on</span>(<span class="ruby-string">&#39;-h&#39;</span>, <span class="ruby-string">&#39;--help&#39;</span>, <span class="ruby-string">&#39;Display this help message.&#39;</span>, <span class="ruby-value">:tail</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword">true</span>) <span class="ruby-keyword">do</span>
+      <span class="ruby-identifier">$stderr</span>.<span class="ruby-identifier">puts</span> <span class="ruby-identifier">help</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-optspec" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">optspec</span><span
+            class="method-args">(string, config = {})</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Build a <a href="Slop.html">Slop</a> object from a option specification.</p>
+
+<p>This allows you to design your options via a simple <a
+href="../String.html">String</a> rather than programatically. Do note
+though that with this method, you&#39;re unable to pass any advanced
+options to the on() method when creating options.</p>
+
+<p>string - The optspec <a href="../String.html">String</a> config - A <a
+href="../Hash.html">Hash</a> of configuration options to pass to <a
+href="Slop.html#method-c-new">::new</a></p>
+
+<p>Examples:</p>
+
+<pre class="ruby"><span class="ruby-identifier">opts</span> = <span class="ruby-constant">Slop</span>.<span class="ruby-identifier">optspec</span>(<span class="ruby-string">&quot;ruby foo.rb [options]
+---
+n,name=     Your name
+a,age=      Your age
+A,auth      Sign in with auth
+p,passcode= Your secret pass code
+&quot;</span>)
+
+<span class="ruby-identifier">opts</span>.<span class="ruby-identifier">fetch_option</span>(:<span class="ruby-identifier">name</span>).<span class="ruby-identifier">description</span> <span class="ruby-comment">#=&gt; &quot;Your name&quot;</span>
+</pre>
+
+<p>Returns a new instance of <a href="Slop.html">Slop</a>.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="optspec-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/pry-0.11.3/lib/pry/slop.rb, line 91</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">optspec</span>(<span class="ruby-identifier">string</span>, <span class="ruby-identifier">config</span> = {})
+  <span class="ruby-identifier">config</span>[<span class="ruby-value">:banner</span>], <span class="ruby-identifier">optspec</span> = <span class="ruby-identifier">string</span>.<span class="ruby-identifier">split</span>(<span class="ruby-regexp">/^--+$/</span>, <span class="ruby-value">2</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">string</span>[<span class="ruby-regexp">/^--+$/</span>]
+  <span class="ruby-identifier">lines</span> = <span class="ruby-identifier">optspec</span>.<span class="ruby-identifier">split</span>(<span class="ruby-string">&quot;\n&quot;</span>).<span class="ruby-identifier">reject</span>(<span class="ruby-operator">&amp;</span><span class="ruby-value">:empty?</span>)
+  <span class="ruby-identifier">opts</span>  = <span class="ruby-constant">Slop</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">config</span>)
+
+  <span class="ruby-identifier">lines</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">line</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">opt</span>, <span class="ruby-identifier">description</span> = <span class="ruby-identifier">line</span>.<span class="ruby-identifier">split</span>(<span class="ruby-string">&#39; &#39;</span>, <span class="ruby-value">2</span>)
+    <span class="ruby-identifier">short</span>, <span class="ruby-identifier">long</span> = <span class="ruby-identifier">opt</span>.<span class="ruby-identifier">split</span>(<span class="ruby-string">&#39;,&#39;</span>).<span class="ruby-identifier">map</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">s</span><span class="ruby-operator">|</span> <span class="ruby-identifier">s</span>.<span class="ruby-identifier">sub</span>(<span class="ruby-regexp">/\A--?/</span>, <span class="ruby-string">&#39;&#39;</span>) }
+    <span class="ruby-identifier">opt</span> = <span class="ruby-identifier">opts</span>.<span class="ruby-identifier">on</span>(<span class="ruby-identifier">short</span>, <span class="ruby-identifier">long</span>, <span class="ruby-identifier">description</span>)
+
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">long</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">long</span>.<span class="ruby-identifier">end_with?</span>(<span class="ruby-string">&#39;=&#39;</span>)
+      <span class="ruby-identifier">long</span>.<span class="ruby-identifier">sub!</span>(<span class="ruby-regexp">/\=$/</span>, <span class="ruby-string">&#39;&#39;</span>)
+      <span class="ruby-identifier">opt</span>.<span class="ruby-identifier">config</span>[<span class="ruby-value">:argument</span>] = <span class="ruby-keyword">true</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">opts</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-parse" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">parse</span><span
+            class="method-args">(items = ARGV, config = {}, &block)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>items  - The <a href="../Array.html">Array</a> of items to extract options
+from (default: ARGV). config - The <a href="../Hash.html">Hash</a> of
+configuration options to send to <a
+href="Slop.html#method-c-new">::new</a>. block  - An optional block used to
+add options.</p>
+
+<p>Examples:</p>
+
+<pre class="ruby"><span class="ruby-constant">Slop</span>.<span class="ruby-identifier">parse</span>(<span class="ruby-constant">ARGV</span>, :<span class="ruby-identifier">help</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword">true</span>) <span class="ruby-keyword">do</span>
+  <span class="ruby-identifier">on</span> <span class="ruby-string">&#39;-n&#39;</span>, <span class="ruby-string">&#39;--name&#39;</span>, <span class="ruby-string">&#39;Your username&#39;</span>, :<span class="ruby-identifier">argument</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword">true</span>
+<span class="ruby-keyword">end</span>
+</pre>
+
+<p>Returns a new instance of <a href="Slop.html">Slop</a>.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="parse-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/pry-0.11.3/lib/pry/slop.rb, line 51</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">parse</span>(<span class="ruby-identifier">items</span> = <span class="ruby-constant">ARGV</span>, <span class="ruby-identifier">config</span> = {}, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+  <span class="ruby-identifier">parse!</span> <span class="ruby-identifier">items</span>.<span class="ruby-identifier">dup</span>, <span class="ruby-identifier">config</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-parse-21" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">parse!</span><span
+            class="method-args">(items = ARGV, config = {}, &block)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>items  - The <a href="../Array.html">Array</a> of items to extract options
+from (default: ARGV). config - The <a href="../Hash.html">Hash</a> of
+configuration options to send to <a
+href="Slop.html#method-c-new">::new</a>. block  - An optional block used to
+add options.</p>
+
+<p>Returns a new instance of <a href="Slop.html">Slop</a>.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="parse-21-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/pry-0.11.3/lib/pry/slop.rb, line 60</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">parse!</span>(<span class="ruby-identifier">items</span> = <span class="ruby-constant">ARGV</span>, <span class="ruby-identifier">config</span> = {}, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+  <span class="ruby-identifier">config</span>, <span class="ruby-identifier">items</span> = <span class="ruby-identifier">items</span>, <span class="ruby-constant">ARGV</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">items</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">Hash</span>) <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">config</span>.<span class="ruby-identifier">empty?</span>
+  <span class="ruby-identifier">slop</span> = <span class="ruby-constant">Pry</span><span class="ruby-operator">::</span><span class="ruby-constant">Slop</span>.<span class="ruby-identifier">new</span> <span class="ruby-identifier">config</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>
+  <span class="ruby-identifier">slop</span>.<span class="ruby-identifier">parse!</span> <span class="ruby-identifier">items</span>
+  <span class="ruby-identifier">slop</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-5B-5D" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">[]</span><span
+            class="method-args">(key)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Fetch an options argument value.</p>
+
+<p>key - The <a href="../Symbol.html">Symbol</a> or <a
+href="../String.html">String</a> option short or long flag.</p>
+
+<p>Returns the <a href="../Object.html">Object</a> value for this option, or
+nil.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="5B-5D-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/pry-0.11.3/lib/pry/slop.rb, line 273</span>
+<span class="ruby-keyword">def</span> <span class="ruby-operator">[]</span>(<span class="ruby-identifier">key</span>)
+  <span class="ruby-identifier">option</span> = <span class="ruby-identifier">fetch_option</span>(<span class="ruby-identifier">key</span>)
+  <span class="ruby-identifier">option</span>.<span class="ruby-identifier">value</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">option</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+        <div class="aliases">
+          Also aliased as: <a href="Slop.html#method-i-get">get</a>
+        </div>
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-add_callback" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">add_callback</span><span
+            class="method-args">(label, &block)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Add a callback.</p>
+
+<p>label - The <a href="../Symbol.html">Symbol</a> identifier to attach this
+callback.</p>
+
+<p>Returns nothing.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="add_callback-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/pry-0.11.3/lib/pry/slop.rb, line 393</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">add_callback</span>(<span class="ruby-identifier">label</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+  (<span class="ruby-ivar">@callbacks</span>[<span class="ruby-identifier">label</span>] <span class="ruby-operator">||=</span> []) <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">block</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-banner" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">banner</span><span
+            class="method-args">(banner = nil)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Get or set the banner.</p>
+
+<p>banner - The <a href="../String.html">String</a> to set the banner.</p>
+
+<p>Returns the banner <a href="../String.html">String</a>.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="banner-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/pry-0.11.3/lib/pry/slop.rb, line 163</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">banner</span>(<span class="ruby-identifier">banner</span> = <span class="ruby-keyword">nil</span>)
+  <span class="ruby-identifier">config</span>[<span class="ruby-value">:banner</span>] = <span class="ruby-identifier">banner</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">banner</span>
+  <span class="ruby-identifier">config</span>[<span class="ruby-value">:banner</span>]
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-banner-3D" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">banner=</span><span
+            class="method-args">(banner)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Set the banner.</p>
+
+<p>banner - The <a href="../String.html">String</a> to set the banner.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="banner-3D-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/pry-0.11.3/lib/pry/slop.rb, line 154</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">banner=</span>(<span class="ruby-identifier">banner</span>)
+  <span class="ruby-identifier">config</span>[<span class="ruby-value">:banner</span>] = <span class="ruby-identifier">banner</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-command" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">command</span><span
+            class="method-args">(command, options = {}, &block)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Add a new command.</p>
+
+<p>command - The <a href="../Symbol.html">Symbol</a> or <a
+href="../String.html">String</a> used to identify this command. options - A
+<a href="../Hash.html">Hash</a> of configuration options (see <a
+href="Slop.html#method-c-new">::new</a>)</p>
+
+<p>Returns a new instance of <a href="Slop.html">Slop</a> mapped to this
+command.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="command-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/pry-0.11.3/lib/pry/slop.rb, line 191</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">command</span>(<span class="ruby-identifier">command</span>, <span class="ruby-identifier">options</span> = {}, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+  <span class="ruby-ivar">@commands</span>[<span class="ruby-identifier">command</span>.<span class="ruby-identifier">to_s</span>] = <span class="ruby-constant">Pry</span><span class="ruby-operator">::</span><span class="ruby-constant">Slop</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">options</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-description" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">description</span><span
+            class="method-args">(desc = nil)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Get or set the description (used for commands).</p>
+
+<p>desc - The <a href="../String.html">String</a> to set the description.</p>
+
+<p>Returns the description <a href="../String.html">String</a>.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="description-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/pry-0.11.3/lib/pry/slop.rb, line 180</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">description</span>(<span class="ruby-identifier">desc</span> = <span class="ruby-keyword">nil</span>)
+  <span class="ruby-identifier">config</span>[<span class="ruby-value">:description</span>] = <span class="ruby-identifier">desc</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">desc</span>
+  <span class="ruby-identifier">config</span>[<span class="ruby-value">:description</span>]
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-description-3D" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">description=</span><span
+            class="method-args">(desc)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Set the description (used for commands).</p>
+
+<p>desc - The <a href="../String.html">String</a> to set the description.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="description-3D-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/pry-0.11.3/lib/pry/slop.rb, line 171</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">description=</span>(<span class="ruby-identifier">desc</span>)
+  <span class="ruby-identifier">config</span>[<span class="ruby-value">:description</span>] = <span class="ruby-identifier">desc</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-each" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">each</span><span
+            class="method-args">(&block)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p><a href="../Enumerable.html">Enumerable</a> interface. Yields each <a
+href="Slop/Option.html">Slop::Option</a>.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="each-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/pry-0.11.3/lib/pry/slop.rb, line 292</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">each</span>(<span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+  <span class="ruby-identifier">options</span>.<span class="ruby-identifier">each</span>(<span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-fetch_command" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">fetch_command</span><span
+            class="method-args">(command)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Fetch a <a href="Slop.html">Slop</a> object associated with this command.</p>
+
+<p>command - The <a href="../String.html">String</a> or <a
+href="../Symbol.html">Symbol</a> name of the command.</p>
+
+<p>Examples:</p>
+
+<pre class="ruby"><span class="ruby-identifier">opts</span>.<span class="ruby-identifier">command</span> :<span class="ruby-identifier">foo</span> <span class="ruby-keyword">do</span>
+  <span class="ruby-identifier">on</span> :<span class="ruby-identifier">v</span>, :<span class="ruby-identifier">verbose</span>, <span class="ruby-string">&#39;Enable verbose mode&#39;</span>
+<span class="ruby-keyword">end</span>
+
+<span class="ruby-comment"># ruby run.rb foo -v</span>
+<span class="ruby-identifier">opts</span>.<span class="ruby-identifier">fetch_command</span>(:<span class="ruby-identifier">foo</span>).<span class="ruby-identifier">verbose?</span> <span class="ruby-comment">#=&gt; true</span>
+</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="fetch_command-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/pry-0.11.3/lib/pry/slop.rb, line 384</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">fetch_command</span>(<span class="ruby-identifier">command</span>)
+  <span class="ruby-ivar">@commands</span>[<span class="ruby-identifier">command</span>.<span class="ruby-identifier">to_s</span>]
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-fetch_option" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">fetch_option</span><span
+            class="method-args">(key)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Fetch a <a href="Slop/Option.html">Slop::Option</a> object.</p>
+
+<p>key - The <a href="../Symbol.html">Symbol</a> or <a
+href="../String.html">String</a> option key.</p>
+
+<p>Examples:</p>
+
+<pre class="ruby"><span class="ruby-identifier">opts</span>.<span class="ruby-identifier">on</span>(:<span class="ruby-identifier">foo</span>, <span class="ruby-string">&#39;Something fooey&#39;</span>, :<span class="ruby-identifier">argument</span> =<span class="ruby-operator">&gt;</span> :<span class="ruby-identifier">optional</span>)
+<span class="ruby-identifier">opt</span> = <span class="ruby-identifier">opts</span>.<span class="ruby-identifier">fetch_option</span>(:<span class="ruby-identifier">foo</span>)
+<span class="ruby-identifier">opt</span>.<span class="ruby-identifier">class</span> <span class="ruby-comment">#=&gt; Slop::Option</span>
+<span class="ruby-identifier">opt</span>.<span class="ruby-identifier">accepts_optional_argument?</span> <span class="ruby-comment">#=&gt; true</span>
+</pre>
+
+<p>Returns an <a href="Slop/Option.html">Option</a> or nil if none were found.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="fetch_option-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/pry-0.11.3/lib/pry/slop.rb, line 368</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">fetch_option</span>(<span class="ruby-identifier">key</span>)
+  <span class="ruby-identifier">options</span>.<span class="ruby-identifier">find</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">option</span><span class="ruby-operator">|</span> [<span class="ruby-identifier">option</span>.<span class="ruby-identifier">long</span>, <span class="ruby-identifier">option</span>.<span class="ruby-identifier">short</span>].<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">clean</span>(<span class="ruby-identifier">key</span>)) }
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-get" class="method-detail method-alias">
+        
+        <div class="method-heading">
+          <span class="method-name">get</span><span
+            class="method-args">(key)</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+        </div>
+
+        
+
+        
+        <div class="aliases">
+          Alias for: <a href="Slop.html#method-i-5B-5D">[]</a>
+        </div>
+        
+      </div>
+
+    
+      <div id="method-i-help" class="method-detail method-alias">
+        
+        <div class="method-heading">
+          <span class="method-name">help</span><span
+            class="method-args">()</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+        </div>
+
+        
+
+        
+        <div class="aliases">
+          Alias for: <a href="Slop.html#method-i-to_s">to_s</a>
+        </div>
+        
+      </div>
+
+    
+      <div id="method-i-missing" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">missing</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Fetch a list of options which were missing from the parsed list.</p>
+
+<p>Examples:</p>
+
+<pre class="ruby"><span class="ruby-identifier">opts</span> = <span class="ruby-constant">Slop</span>.<span class="ruby-identifier">new</span> <span class="ruby-keyword">do</span>
+  <span class="ruby-identifier">on</span> :<span class="ruby-identifier">n</span>, :<span class="ruby-identifier">name=</span>
+  <span class="ruby-identifier">on</span> :<span class="ruby-identifier">p</span>, :<span class="ruby-identifier">password=</span>
+<span class="ruby-keyword">end</span>
+
+<span class="ruby-identifier">opts</span>.<span class="ruby-identifier">parse</span> <span class="ruby-node">%w[ --name Lee ]</span>
+<span class="ruby-identifier">opts</span>.<span class="ruby-identifier">missing</span> <span class="ruby-comment">#=&gt; [&#39;password&#39;]</span>
+</pre>
+
+<p>Returns an <a href="../Array.html">Array</a> of Strings representing
+missing options.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="missing-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/pry-0.11.3/lib/pry/slop.rb, line 352</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">missing</span>
+  (<span class="ruby-identifier">options</span> <span class="ruby-operator">-</span> <span class="ruby-ivar">@triggered_options</span>).<span class="ruby-identifier">map</span>(<span class="ruby-operator">&amp;</span><span class="ruby-value">:key</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-on" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">on</span><span
+            class="method-args">(*objects, &block)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Add an <a href="Slop/Option.html">Option</a>.</p>
+
+<p>objects - An <a href="../Array.html">Array</a> with an optional <a
+href="../Hash.html">Hash</a> as the last element.</p>
+
+<p>Examples:</p>
+
+<pre class="ruby"><span class="ruby-identifier">on</span> <span class="ruby-string">&#39;-u&#39;</span>, <span class="ruby-string">&#39;--username=&#39;</span>, <span class="ruby-string">&#39;Your username&#39;</span>
+<span class="ruby-identifier">on</span> :<span class="ruby-identifier">v</span>, :<span class="ruby-identifier">verbose</span>, <span class="ruby-string">&#39;Enable verbose mode&#39;</span>
+</pre>
+
+<p>Returns the created instance of <a
+href="Slop/Option.html">Slop::Option</a>.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="on-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/pry-0.11.3/lib/pry/slop.rb, line 260</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">on</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">objects</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+  <span class="ruby-identifier">option</span> = <span class="ruby-identifier">build_option</span>(<span class="ruby-identifier">objects</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+  <span class="ruby-identifier">options</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">option</span>
+  <span class="ruby-identifier">option</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+        <div class="aliases">
+          Also aliased as: <a href="Slop.html#method-i-option">option</a>, <a href="Slop.html#method-i-opt">opt</a>
+        </div>
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-opt" class="method-detail method-alias">
+        
+        <div class="method-heading">
+          <span class="method-name">opt</span><span
+            class="method-args">(*objects, &block)</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+        </div>
+
+        
+
+        
+        <div class="aliases">
+          Alias for: <a href="Slop.html#method-i-on">on</a>
+        </div>
+        
+      </div>
+
+    
+      <div id="method-i-option" class="method-detail method-alias">
+        
+        <div class="method-heading">
+          <span class="method-name">option</span><span
+            class="method-args">(*objects, &block)</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+        </div>
+
+        
+
+        
+        <div class="aliases">
+          Alias for: <a href="Slop.html#method-i-on">on</a>
+        </div>
+        
+      </div>
+
+    
+      <div id="method-i-parse" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">parse</span><span
+            class="method-args">(items = ARGV, &block)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Parse a list of items, executing and gathering options along the way.</p>
+
+<p>items - The <a href="../Array.html">Array</a> of items to extract options
+from (default: ARGV). block - An optional block which when used will yield
+non options.</p>
+
+<p>Returns an <a href="../Array.html">Array</a> of original items.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="parse-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/pry-0.11.3/lib/pry/slop.rb, line 201</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">parse</span>(<span class="ruby-identifier">items</span> = <span class="ruby-constant">ARGV</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+  <span class="ruby-identifier">parse!</span> <span class="ruby-identifier">items</span>.<span class="ruby-identifier">dup</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>
+  <span class="ruby-identifier">items</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-parse-21" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">parse!</span><span
+            class="method-args">(items = ARGV, &block)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Parse a list of items, executing and gathering options along the way.
+unlike parse() this method will remove any options and option arguments
+from the original <a href="../Array.html">Array</a>.</p>
+
+<p>items - The <a href="../Array.html">Array</a> of items to extract options
+from (default: ARGV). block - An optional block which when used will yield
+non options.</p>
+
+<p>Returns an <a href="../Array.html">Array</a> of original items with options
+removed.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="parse-21-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/pry-0.11.3/lib/pry/slop.rb, line 214</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">parse!</span>(<span class="ruby-identifier">items</span> = <span class="ruby-constant">ARGV</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">items</span>.<span class="ruby-identifier">empty?</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-ivar">@callbacks</span>[<span class="ruby-value">:empty</span>]
+    <span class="ruby-ivar">@callbacks</span>[<span class="ruby-value">:empty</span>].<span class="ruby-identifier">each</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">cb</span><span class="ruby-operator">|</span> <span class="ruby-identifier">cb</span>.<span class="ruby-identifier">call</span>(<span class="ruby-keyword">self</span>) }
+    <span class="ruby-keyword">return</span> <span class="ruby-identifier">items</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">cmd</span> = <span class="ruby-ivar">@commands</span>[<span class="ruby-identifier">items</span>[<span class="ruby-value">0</span>]]
+    <span class="ruby-keyword">return</span> <span class="ruby-identifier">cmd</span>.<span class="ruby-identifier">parse!</span> <span class="ruby-identifier">items</span>[<span class="ruby-value">1</span><span class="ruby-operator">..</span><span class="ruby-value">-1</span>]
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">items</span>.<span class="ruby-identifier">each_with_index</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">item</span>, <span class="ruby-identifier">index</span><span class="ruby-operator">|</span>
+    <span class="ruby-ivar">@trash</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">index</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-keyword">break</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">item</span> <span class="ruby-operator">==</span> <span class="ruby-string">&#39;--&#39;</span>
+    <span class="ruby-identifier">autocreate</span>(<span class="ruby-identifier">items</span>, <span class="ruby-identifier">index</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">config</span>[<span class="ruby-value">:autocreate</span>]
+    <span class="ruby-identifier">process_item</span>(<span class="ruby-identifier">items</span>, <span class="ruby-identifier">index</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>) <span class="ruby-keyword">unless</span> <span class="ruby-ivar">@trash</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">index</span>)
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">items</span>.<span class="ruby-identifier">reject!</span>.<span class="ruby-identifier">with_index</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">item</span>, <span class="ruby-identifier">index</span><span class="ruby-operator">|</span> <span class="ruby-ivar">@trash</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">index</span>) }
+
+  <span class="ruby-identifier">missing_options</span> = <span class="ruby-identifier">options</span>.<span class="ruby-identifier">select</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">opt</span><span class="ruby-operator">|</span> <span class="ruby-identifier">opt</span>.<span class="ruby-identifier">required?</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">opt</span>.<span class="ruby-identifier">count</span> <span class="ruby-operator">&lt;</span> <span class="ruby-value">1</span> }
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">missing_options</span>.<span class="ruby-identifier">any?</span>
+    <span class="ruby-identifier">raise</span> <span class="ruby-constant">MissingOptionError</span>,
+    <span class="ruby-node">&quot;Missing required option(s): #{missing_options.map(&amp;:key).join(&#39;, &#39;)}&quot;</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">if</span> <span class="ruby-ivar">@unknown_options</span>.<span class="ruby-identifier">any?</span>
+    <span class="ruby-identifier">raise</span> <span class="ruby-constant">InvalidOptionError</span>, <span class="ruby-node">&quot;Unknown options #{@unknown_options.join(&#39;, &#39;)}&quot;</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">if</span> <span class="ruby-ivar">@triggered_options</span>.<span class="ruby-identifier">empty?</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-ivar">@callbacks</span>[<span class="ruby-value">:no_options</span>]
+    <span class="ruby-ivar">@callbacks</span>[<span class="ruby-value">:no_options</span>].<span class="ruby-identifier">each</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">cb</span><span class="ruby-operator">|</span> <span class="ruby-identifier">cb</span>.<span class="ruby-identifier">call</span>(<span class="ruby-keyword">self</span>) }
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-ivar">@runner</span>.<span class="ruby-identifier">call</span>(<span class="ruby-keyword">self</span>, <span class="ruby-identifier">items</span>) <span class="ruby-keyword">if</span> <span class="ruby-ivar">@runner</span>.<span class="ruby-identifier">respond_to?</span>(<span class="ruby-value">:call</span>)
+
+  <span class="ruby-identifier">items</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-present-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">present?</span><span
+            class="method-args">(*keys)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Check for an options presence.</p>
+
+<p>Examples:</p>
+
+<pre class="ruby"><span class="ruby-identifier">opts</span>.<span class="ruby-identifier">parse</span> <span class="ruby-node">%w( --foo )</span>
+<span class="ruby-identifier">opts</span>.<span class="ruby-identifier">present?</span>(:<span class="ruby-identifier">foo</span>) <span class="ruby-comment">#=&gt; true</span>
+<span class="ruby-identifier">opts</span>.<span class="ruby-identifier">present?</span>(:<span class="ruby-identifier">bar</span>) <span class="ruby-comment">#=&gt; false</span>
+</pre>
+
+<p>Returns true if all of the keys are present in the parsed arguments.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="present-3F-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/pry-0.11.3/lib/pry/slop.rb, line 328</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">present?</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">keys</span>)
+  <span class="ruby-identifier">keys</span>.<span class="ruby-identifier">all?</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">key</span><span class="ruby-operator">|</span> (<span class="ruby-identifier">opt</span> = <span class="ruby-identifier">fetch_option</span>(<span class="ruby-identifier">key</span>)) <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">opt</span>.<span class="ruby-identifier">count</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">0</span> }
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-respond_to_missing-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">respond_to_missing?</span><span
+            class="method-args">(method_name, include_all=false)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Override this method so we can check if an option? method exists.</p>
+
+<p>Returns true if this option key exists in our list of options.</p>
+          
+          
+            <div class="method-calls-super">
+              Calls superclass method
+              
+            </div>
+          
+
+          
+          <div class="method-source-code" id="respond_to_missing-3F-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/pry-0.11.3/lib/pry/slop.rb, line 335</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">respond_to_missing?</span>(<span class="ruby-identifier">method_name</span>, <span class="ruby-identifier">include_all</span>=<span class="ruby-keyword">false</span>)
+  <span class="ruby-identifier">options</span>.<span class="ruby-identifier">any?</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">o</span><span class="ruby-operator">|</span> <span class="ruby-identifier">o</span>.<span class="ruby-identifier">key</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">method_name</span>.<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">chop</span> } <span class="ruby-operator">||</span> <span class="ruby-keyword">super</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-run" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">run</span><span
+            class="method-args">(callable = nil, &block)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Specify code to be executed when these options are parsed.</p>
+
+<p>callable - An object responding to a call method.</p>
+
+<p>yields - The instance of <a href="Slop.html">Slop</a> parsing these options</p>
+
+<pre class="ruby"><span class="ruby-constant">An</span> <span class="ruby-constant">Array</span> <span class="ruby-identifier">of</span> <span class="ruby-identifier">unparsed</span> <span class="ruby-identifier">arguments</span>
+</pre>
+
+<p>Example:</p>
+
+<pre class="ruby"><span class="ruby-constant">Slop</span>.<span class="ruby-identifier">parse</span> <span class="ruby-keyword">do</span>
+  <span class="ruby-identifier">on</span> :<span class="ruby-identifier">v</span>, :<span class="ruby-identifier">verbose</span>
+
+  <span class="ruby-identifier">run</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">opts</span>, <span class="ruby-identifier">args</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;Arguments: #{args.inspect}&quot;</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">opts</span>.<span class="ruby-identifier">verbose?</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span>
+</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="run-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/pry-0.11.3/lib/pry/slop.rb, line 312</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">run</span>(<span class="ruby-identifier">callable</span> = <span class="ruby-keyword">nil</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+  <span class="ruby-ivar">@runner</span> = <span class="ruby-identifier">callable</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">block</span>
+  <span class="ruby-keyword">unless</span> <span class="ruby-ivar">@runner</span>.<span class="ruby-identifier">respond_to?</span>(<span class="ruby-value">:call</span>)
+    <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>, <span class="ruby-node">&quot;You must specify a callable object or a block to #run&quot;</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-separator" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">separator</span><span
+            class="method-args">(text)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Add string separators between options.</p>
+
+<p>text - The <a href="../String.html">String</a> text to print.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="separator-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/pry-0.11.3/lib/pry/slop.rb, line 400</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">separator</span>(<span class="ruby-identifier">text</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-ivar">@separators</span>[<span class="ruby-identifier">options</span>.<span class="ruby-identifier">size</span>]
+    <span class="ruby-ivar">@separators</span>[<span class="ruby-identifier">options</span>.<span class="ruby-identifier">size</span>] <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-node">&quot;\n#{text}&quot;</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-ivar">@separators</span>[<span class="ruby-identifier">options</span>.<span class="ruby-identifier">size</span>] = <span class="ruby-identifier">text</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-strict-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">strict?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Is strict mode enabled?</p>
+
+<p>Returns true if strict mode is enabled, false otherwise.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="strict-3F-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/pry-0.11.3/lib/pry/slop.rb, line 147</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">strict?</span>
+  <span class="ruby-identifier">config</span>[<span class="ruby-value">:strict</span>]
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-to_h" class="method-detail method-alias">
+        
+        <div class="method-heading">
+          <span class="method-name">to_h</span><span
+            class="method-args">(include_commands = false)</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+        </div>
+
+        
+
+        
+        <div class="aliases">
+          Alias for: <a href="Slop.html#method-i-to_hash">to_hash</a>
+        </div>
+        
+      </div>
+
+    
+      <div id="method-i-to_hash" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">to_hash</span><span
+            class="method-args">(include_commands = false)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Returns a new <a href="../Hash.html">Hash</a> with option flags as keys and
+option values as values.</p>
+
+<p>include_commands - If true, merge options from all sub-commands.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="to_hash-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/pry-0.11.3/lib/pry/slop.rb, line 282</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">to_hash</span>(<span class="ruby-identifier">include_commands</span> = <span class="ruby-keyword">false</span>)
+  <span class="ruby-identifier">hash</span> = <span class="ruby-constant">Hash</span>[<span class="ruby-identifier">options</span>.<span class="ruby-identifier">map</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">opt</span><span class="ruby-operator">|</span> [<span class="ruby-identifier">opt</span>.<span class="ruby-identifier">key</span>.<span class="ruby-identifier">to_sym</span>, <span class="ruby-identifier">opt</span>.<span class="ruby-identifier">value</span>] }]
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">include_commands</span>
+    <span class="ruby-ivar">@commands</span>.<span class="ruby-identifier">each</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">cmd</span>, <span class="ruby-identifier">opts</span><span class="ruby-operator">|</span> <span class="ruby-identifier">hash</span>.<span class="ruby-identifier">merge!</span>(<span class="ruby-identifier">cmd</span>.<span class="ruby-identifier">to_sym</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">opts</span>.<span class="ruby-identifier">to_hash</span>) }
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">hash</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+        <div class="aliases">
+          Also aliased as: <a href="Slop.html#method-i-to_h">to_h</a>
+        </div>
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-to_s" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">to_s</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Print a handy <a href="Slop.html">Slop</a> help string.</p>
+
+<p>Returns the banner followed by available option help strings.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="to_s-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/pry-0.11.3/lib/pry/slop.rb, line 411</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">to_s</span>
+  <span class="ruby-identifier">heads</span>  = <span class="ruby-identifier">options</span>.<span class="ruby-identifier">reject</span>(<span class="ruby-operator">&amp;</span><span class="ruby-value">:tail?</span>)
+  <span class="ruby-identifier">tails</span>  = (<span class="ruby-identifier">options</span> <span class="ruby-operator">-</span> <span class="ruby-identifier">heads</span>)
+  <span class="ruby-identifier">opts</span> = (<span class="ruby-identifier">heads</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">tails</span>).<span class="ruby-identifier">select</span>(<span class="ruby-operator">&amp;</span><span class="ruby-value">:help</span>).<span class="ruby-identifier">map</span>(<span class="ruby-operator">&amp;</span><span class="ruby-value">:to_s</span>)
+  <span class="ruby-identifier">optstr</span> = <span class="ruby-identifier">opts</span>.<span class="ruby-identifier">each_with_index</span>.<span class="ruby-identifier">map</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">o</span>, <span class="ruby-identifier">i</span><span class="ruby-operator">|</span>
+    (<span class="ruby-identifier">str</span> = <span class="ruby-ivar">@separators</span>[<span class="ruby-identifier">i</span> <span class="ruby-operator">+</span> <span class="ruby-value">1</span>]) <span class="ruby-operator">?</span> [<span class="ruby-identifier">o</span>, <span class="ruby-identifier">str</span>].<span class="ruby-identifier">join</span>(<span class="ruby-string">&quot;\n&quot;</span>) <span class="ruby-operator">:</span> <span class="ruby-identifier">o</span>
+  }.<span class="ruby-identifier">join</span>(<span class="ruby-string">&quot;\n&quot;</span>)
+
+  <span class="ruby-keyword">if</span> <span class="ruby-ivar">@commands</span>.<span class="ruby-identifier">any?</span>
+    <span class="ruby-identifier">optstr</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-string">&quot;\n&quot;</span> <span class="ruby-keyword">if</span> <span class="ruby-operator">!</span><span class="ruby-identifier">optstr</span>.<span class="ruby-identifier">empty?</span>
+    <span class="ruby-identifier">optstr</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-string">&quot;\nAvailable commands:\n\n&quot;</span>
+    <span class="ruby-identifier">optstr</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">commands_to_help</span>
+    <span class="ruby-identifier">optstr</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-string">&quot;\n\nSee `&lt;command&gt; --help` for more information on a specific command.&quot;</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">banner</span> = <span class="ruby-identifier">config</span>[<span class="ruby-value">:banner</span>]
+  <span class="ruby-identifier">banner</span> = <span class="ruby-node">&quot;Usage: #{File.basename($0, &#39;.*&#39;)}#{&#39; [command]&#39; if @commands.any?} [options]&quot;</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">banner</span>.<span class="ruby-identifier">nil?</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">banner</span>
+    <span class="ruby-node">&quot;#{banner}\n#{@separators[0] ? &quot;#{@separators[0]}\n&quot; : &#39;&#39;}#{optstr}&quot;</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">optstr</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+        <div class="aliases">
+          Also aliased as: <a href="Slop.html#method-i-help">help</a>
+        </div>
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="https://rdoc.github.io/rdoc">RDoc</a> 5.0.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

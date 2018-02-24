@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class RSpec::Support::EncodedString - RDoc Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../../";
+  var index_rel_prefix = "../../";
+</script>
+
+<script src="../../js/jquery.js"></script>
+<script src="../../js/darkfish.js"></script>
+
+<link href="../../css/fonts.css" rel="stylesheet">
+<link href="../../css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../../table_of_contents.html#pages">Pages</a>
+    <a href="../../table_of_contents.html#classes">Classes</a>
+    <a href="../../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link"><a href="../../Object.html">Object</a>
+  
+</div>
+
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-c-new">::new</a>
+    
+    <li ><a href="#method-c-pick_encoding">::pick_encoding</a>
+    
+    <li ><a href="#method-i-3C-3C">#&lt;&lt;</a>
+    
+    <li ><a href="#method-i-detect_source_encoding">#detect_source_encoding</a>
+    
+    <li ><a href="#method-i-matching_encoding">#matching_encoding</a>
+    
+    <li ><a href="#method-i-remove_invalid_bytes">#remove_invalid_bytes</a>
+    
+    <li ><a href="#method-i-split">#split</a>
+    
+    <li ><a href="#method-i-to_s">#to_s</a>
+    
+    <li ><a href="#method-i-to_str">#to_str</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-RSpec::Support::EncodedString">
+  <h1 id="class-RSpec::Support::EncodedString" class="class">
+    class RSpec::Support::EncodedString
+  </h1>
+
+  <section class="description">
+    
+<p>@private</p>
+
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+    <section class="constants-list">
+      <header>
+        <h3>Constants</h3>
+      </header>
+      <dl>
+      
+        <dt id="ENCODE_NO_CONVERTER">ENCODE_NO_CONVERTER
+        
+        <dd>
+        
+      
+        <dt id="ENCODE_UNCONVERTABLE_BYTES">ENCODE_UNCONVERTABLE_BYTES
+        
+        <dd>
+        
+      
+        <dt id="REPLACE">REPLACE
+        
+        <dd><p>In MRI 2.1 &#39;invalid: :replace&#39; changed to also replace an invalid
+byte sequence see <a
+href="https://github.com/ruby/ruby/blob/v2_1_0/NEWS#L176">github.com/ruby/ruby/blob/v2_1_0/NEWS#L176</a>
+<a
+href="https://www.ruby-forum.com/topic/6861247">www.ruby-forum.com/topic/6861247</a>
+<a
+href="https://twitter.com/nalsh/status/553413844685438976">twitter.com/nalsh/status/553413844685438976</a></p>
+
+<p>For example, given:</p>
+
+<pre class="ruby"><span class="ruby-string">&quot;\x80&quot;</span>.<span class="ruby-identifier">force_encoding</span>(<span class="ruby-string">&quot;Emacs-Mule&quot;</span>).<span class="ruby-identifier">encode</span>(:<span class="ruby-identifier">invalid</span> =<span class="ruby-operator">&gt;</span> :<span class="ruby-identifier">replace</span>).<span class="ruby-identifier">bytes</span>.<span class="ruby-identifier">to_a</span>
+</pre>
+
+<p>On MRI 2.1 or above: 63  # &#39;?&#39; else               : 128 # “x80”</p>
+
+<p>Ruby&#39;s default replacement string is:</p>
+
+<pre>U+FFFD (&quot;\xEF\xBF\xBD&quot;), for Unicode encoding forms, else
+?      (&quot;\x3F&quot;)</pre>
+        
+      
+        <dt id="US_ASCII">US_ASCII
+        
+        <dd>
+        
+      
+        <dt id="UTF_8">UTF_8
+        
+        <dd><p>Reduce allocations by storing constants.</p>
+        
+      
+      </dl>
+    </section>
+    
+
+    
+    <section class="attribute-method-details" class="method-section">
+      <header>
+        <h3>Attributes</h3>
+      </header>
+
+      
+      <div id="attribute-i-source_encoding" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">source_encoding</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+    </section>
+    
+
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Class Methods</h3>
+       </header>
+
+    
+      <div id="method-c-new" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">new</span><span
+            class="method-args">(string, encoding=nil)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="new-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/rspec-support-3.7.1/lib/rspec/support/encoded_string.rb, line 34</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">string</span>, <span class="ruby-identifier">encoding</span>=<span class="ruby-keyword">nil</span>)
+  <span class="ruby-ivar">@encoding</span> = <span class="ruby-identifier">encoding</span>
+  <span class="ruby-ivar">@source_encoding</span> = <span class="ruby-identifier">detect_source_encoding</span>(<span class="ruby-identifier">string</span>)
+  <span class="ruby-ivar">@string</span> = <span class="ruby-identifier">matching_encoding</span>(<span class="ruby-identifier">string</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-pick_encoding" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">pick_encoding</span><span
+            class="method-args">(source_a, source_b)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="pick_encoding-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/rspec-support-3.7.1/lib/rspec/support/encoded_string.rb, line 145</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">pick_encoding</span>(<span class="ruby-identifier">source_a</span>, <span class="ruby-identifier">source_b</span>)
+  <span class="ruby-constant">Encoding</span>.<span class="ruby-identifier">compatible?</span>(<span class="ruby-identifier">source_a</span>, <span class="ruby-identifier">source_b</span>) <span class="ruby-operator">||</span> <span class="ruby-constant">Encoding</span>.<span class="ruby-identifier">default_external</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-3C-3C" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">&lt;&lt;</span><span
+            class="method-args">(string)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="3C-3C-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/rspec-support-3.7.1/lib/rspec/support/encoded_string.rb, line 46</span>
+<span class="ruby-keyword">def</span> <span class="ruby-operator">&lt;&lt;</span>(<span class="ruby-identifier">string</span>)
+  <span class="ruby-ivar">@string</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">matching_encoding</span>(<span class="ruby-identifier">string</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-detect_source_encoding" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">detect_source_encoding</span><span
+            class="method-args">(string)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="detect_source_encoding-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/rspec-support-3.7.1/lib/rspec/support/encoded_string.rb, line 141</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">detect_source_encoding</span>(<span class="ruby-identifier">string</span>)
+  <span class="ruby-identifier">string</span>.<span class="ruby-identifier">encoding</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-matching_encoding" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">matching_encoding</span><span
+            class="method-args">(string)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p><a href="../../Encoding.html">Encoding</a> Exceptions:</p>
+
+<p>Raised by <a href="../../Encoding.html">Encoding</a> and <a
+href="../../String.html">String</a> methods:</p>
+
+<pre>Encoding::UndefinedConversionError:
+  when a transcoding operation fails
+  if the String contains characters invalid for the target encoding
+  e.g. &quot;\x80&quot;.encode(&#39;UTF-8&#39;,&#39;ASCII-8BIT&#39;)
+  vs &quot;\x80&quot;.encode(&#39;UTF-8&#39;,&#39;ASCII-8BIT&#39;, undef: :replace, replace: &#39;&lt;undef&gt;&#39;)
+  # =&gt; &#39;&lt;undef&gt;&#39;
+Encoding::CompatibilityError
+  when Encoding.compatibile?(str1, str2) is nil
+  e.g. utf_16le_emoji_string.split(&quot;\n&quot;)
+  e.g. valid_unicode_string.encode(utf8_encoding) &lt;&lt; ascii_string
+Encoding::InvalidByteSequenceError:
+  when the string being transcoded contains a byte invalid for
+  either the source or target encoding
+  e.g. &quot;\x80&quot;.encode(&#39;UTF-8&#39;,&#39;US-ASCII&#39;)
+  vs &quot;\x80&quot;.encode(&#39;UTF-8&#39;,&#39;US-ASCII&#39;, invalid: :replace, replace: &#39;&lt;byte&gt;&#39;)
+  # =&gt; &#39;&lt;byte&gt;&#39;
+ArgumentError
+  when operating on a string with invalid bytes
+  e.g.&quot;\x80&quot;.split(&quot;\n&quot;)
+TypeError
+  when a symbol is passed as an encoding
+  Encoding.find(:&quot;UTF-8&quot;)
+  when calling force_encoding on an object
+  that doesn&#39;t respond to #to_str</pre>
+
+<p>Raised by transcoding methods:</p>
+
+<pre>Encoding::ConverterNotFoundError:
+  when a named encoding does not correspond with a known converter
+  e.g. &#39;abc&#39;.force_encoding(&#39;UTF-8&#39;).encode(&#39;foo&#39;)
+  or a converter path cannot be found
+  e.g. &quot;\x80&quot;.force_encoding(&#39;ASCII-8BIT&#39;).encode(&#39;Emacs-Mule&#39;)</pre>
+
+<p>Raised by byte &lt;-&gt; char conversions</p>
+
+<pre>RangeError: out of char range
+  e.g. the UTF-16LE emoji: 128169.chr</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="matching_encoding-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/rspec-support-3.7.1/lib/rspec/support/encoded_string.rb, line 111</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">matching_encoding</span>(<span class="ruby-identifier">string</span>)
+  <span class="ruby-identifier">string</span> = <span class="ruby-identifier">remove_invalid_bytes</span>(<span class="ruby-identifier">string</span>)
+  <span class="ruby-identifier">string</span>.<span class="ruby-identifier">encode</span>(<span class="ruby-ivar">@encoding</span>)
+<span class="ruby-keyword">rescue</span> <span class="ruby-constant">Encoding</span><span class="ruby-operator">::</span><span class="ruby-constant">UndefinedConversionError</span>, <span class="ruby-constant">Encoding</span><span class="ruby-operator">::</span><span class="ruby-constant">InvalidByteSequenceError</span>
+  <span class="ruby-identifier">string</span>.<span class="ruby-identifier">encode</span>(<span class="ruby-ivar">@encoding</span>, <span class="ruby-constant">ENCODE_UNCONVERTABLE_BYTES</span>)
+<span class="ruby-keyword">rescue</span> <span class="ruby-constant">Encoding</span><span class="ruby-operator">::</span><span class="ruby-constant">ConverterNotFoundError</span>
+  <span class="ruby-identifier">string</span>.<span class="ruby-identifier">dup</span>.<span class="ruby-identifier">force_encoding</span>(<span class="ruby-ivar">@encoding</span>).<span class="ruby-identifier">encode</span>(<span class="ruby-constant">ENCODE_NO_CONVERTER</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-remove_invalid_bytes" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">remove_invalid_bytes</span><span
+            class="method-args">(string)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p><a
+href="https://github.com/ruby/ruby/blob/eeb05e8c11/doc/NEWS-2.1.0#L120-L123">github.com/ruby/ruby/blob/eeb05e8c11/doc/NEWS-2.1.0#L120-L123</a>
+<a
+href="https://github.com/ruby/ruby/blob/v2_1_0/string.c#L8242">github.com/ruby/ruby/blob/v2_1_0/string.c#L8242</a>
+<a
+href="https://github.com/hsbt/string-scrub">github.com/hsbt/string-scrub</a>
+<a
+href="https://github.com/rubinius/rubinius/blob/v2.5.2/kernel/common/string.rb#L1913-L1972">github.com/rubinius/rubinius/blob/v2.5.2/kernel/common/string.rb#L1913-L1972</a></p>
+          
+          
+
+          
+          <div class="method-source-code" id="remove_invalid_bytes-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/rspec-support-3.7.1/lib/rspec/support/encoded_string.rb, line 126</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">remove_invalid_bytes</span>(<span class="ruby-identifier">string</span>)
+  <span class="ruby-identifier">string</span>.<span class="ruby-identifier">scrub</span>(<span class="ruby-constant">REPLACE</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-split" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">split</span><span
+            class="method-args">(regex_or_string)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="split-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/rspec-support-3.7.1/lib/rspec/support/encoded_string.rb, line 51</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">split</span>(<span class="ruby-identifier">regex_or_string</span>)
+  <span class="ruby-ivar">@string</span>.<span class="ruby-identifier">split</span>(<span class="ruby-identifier">matching_encoding</span>(<span class="ruby-identifier">regex_or_string</span>))
+<span class="ruby-keyword">rescue</span> <span class="ruby-constant">ArgumentError</span>
+  <span class="ruby-comment"># JRuby raises an ArgumentError when splitting a source string that</span>
+  <span class="ruby-comment"># contains invalid bytes.</span>
+  <span class="ruby-identifier">remove_invalid_bytes</span>(<span class="ruby-ivar">@string</span>).<span class="ruby-identifier">split</span> <span class="ruby-identifier">regex_or_string</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-to_s" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">to_s</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="to_s-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/rspec-support-3.7.1/lib/rspec/support/encoded_string.rb, line 64</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">to_s</span>
+  <span class="ruby-ivar">@string</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+        <div class="aliases">
+          Also aliased as: <a href="EncodedString.html#method-i-to_str">to_str</a>
+        </div>
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-to_str" class="method-detail method-alias">
+        
+        <div class="method-heading">
+          <span class="method-name">to_str</span><span
+            class="method-args">()</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+        </div>
+
+        
+
+        
+        <div class="aliases">
+          Alias for: <a href="EncodedString.html#method-i-to_s">to_s</a>
+        </div>
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="https://rdoc.github.io/rdoc">RDoc</a> 5.0.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

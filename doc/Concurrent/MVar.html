@@ -1,0 +1,733 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class Concurrent::MVar - RDoc Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../";
+  var index_rel_prefix = "../";
+</script>
+
+<script src="../js/jquery.js"></script>
+<script src="../js/darkfish.js"></script>
+
+<link href="../css/fonts.css" rel="stylesheet">
+<link href="../css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../table_of_contents.html#pages">Pages</a>
+    <a href="../table_of_contents.html#classes">Classes</a>
+    <a href="../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link">Synchronization::Object
+  
+</div>
+
+    <div id="includes-section" class="nav-section">
+  <h3>Included Modules</h3>
+
+  <ul class="link-list">
+  
+  
+    <li><a class="include" href="Concern/Dereferenceable.html">Concurrent::Concern::Dereferenceable</a>
+  
+  
+  </ul>
+</div>
+
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-c-new">::new</a>
+    
+    <li ><a href="#method-i-borrow">#borrow</a>
+    
+    <li ><a href="#method-i-empty-3F">#empty?</a>
+    
+    <li ><a href="#method-i-full-3F">#full?</a>
+    
+    <li ><a href="#method-i-modify">#modify</a>
+    
+    <li ><a href="#method-i-modify-21">#modify!</a>
+    
+    <li ><a href="#method-i-put">#put</a>
+    
+    <li ><a href="#method-i-set-21">#set!</a>
+    
+    <li ><a href="#method-i-synchronize">#synchronize</a>
+    
+    <li ><a href="#method-i-take">#take</a>
+    
+    <li ><a href="#method-i-try_put-21">#try_put!</a>
+    
+    <li ><a href="#method-i-try_take-21">#try_take!</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-Concurrent::MVar">
+  <h1 id="class-Concurrent::MVar" class="class">
+    class Concurrent::MVar
+  </h1>
+
+  <section class="description">
+    
+<p>An `MVar` is a synchronized single element container. They are empty or
+contain one item. Taking a value from an empty `MVar` blocks, as does
+putting a value into a full one. You can either think of them as blocking
+queue of length one, or a special kind of mutable variable.</p>
+
+<p>On top of the fundamental `#put` and `#take` operations, we also provide a
+`#mutate` that is atomic with respect to operations on the same instance.
+These operations all support timeouts.</p>
+
+<p>We also support non-blocking operations `#try_put!` and `#try_take!`, a
+`#set!` that ignores existing values, a `#value` that returns the value
+without removing it or returns `MVar::EMPTY`, and a `#modify!` that yields
+`MVar::EMPTY` if the `MVar` is empty and can be used to set `MVar::EMPTY`.
+You shouldn&#39;t use these operations in the first instance.</p>
+
+<p>`MVar` is a [Dereferenceable](Dereferenceable).</p>
+
+<p>`MVar` is related to M-structures in Id, `MVar` in Haskell and `SyncVar` in
+Scala.</p>
+
+<p>Note that unlike the original Haskell paper, our `#take` is blocking. This
+is how Haskell and Scala do it today.</p>
+
+<p>@!macro copy_options</p>
+
+<p>## See Also</p>
+<ol><li><ol style="list-style-type: upper-alpha"><li>
+<p>Barth, R. Nikhil, and Arvind. [M-Structures: Extending a parallel, non-
+strict, functional language with state](<a
+href="http://dl.acm.org/citation.cfm?id=652538">dl.acm.org/citation.cfm?id=652538</a>).
+In Proceedings of the 5th</p>
+</li></ol>
+
+<p>ACM Conference on Functional Programming Languages and Computer
+Architecture (FPCA), 1991.</p>
+</li><li><ol style="list-style-type: upper-alpha"><li>
+<p>Peyton Jones, A. Gordon, and <a href="../S.html">S</a>. Finne. [Concurrent
+Haskell](<a
+href="http://dl.acm.org/citation.cfm?id=237794">dl.acm.org/citation.cfm?id=237794</a>).</p>
+</li></ol>
+
+<p>In Proceedings of the 23rd Symposium on Principles of Programming Languages
+(PoPL), 1996.</p>
+</li></ol>
+
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+    <section class="constants-list">
+      <header>
+        <h3>Constants</h3>
+      </header>
+      <dl>
+      
+        <dt id="EMPTY">EMPTY
+        
+        <dd><p>Unique value that represents that an `MVar` was empty</p>
+        
+      
+        <dt id="TIMEOUT">TIMEOUT
+        
+        <dd><p>Unique value that represents that an `MVar` timed out before it was able to
+produce a value.</p>
+        
+      
+      </dl>
+    </section>
+    
+
+    
+
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Class Methods</h3>
+       </header>
+
+    
+      <div id="method-c-new" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">new</span><span
+            class="method-args">(value = EMPTY, opts = {})</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Create a new `MVar`, either empty or with an initial value.</p>
+
+<p>@param [Hash] opts the options controlling how the future will be processed</p>
+
+<p>@!macro deref_options</p>
+          
+          
+
+          
+          <div class="method-source-code" id="new-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/concurrent-ruby-1.0.5/lib/concurrent/mvar.rb, line 54</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">value</span> = <span class="ruby-constant">EMPTY</span>, <span class="ruby-identifier">opts</span> = {})
+  <span class="ruby-ivar">@value</span> = <span class="ruby-identifier">value</span>
+  <span class="ruby-ivar">@mutex</span> = <span class="ruby-constant">Mutex</span>.<span class="ruby-identifier">new</span>
+  <span class="ruby-ivar">@empty_condition</span> = <span class="ruby-constant">ConditionVariable</span>.<span class="ruby-identifier">new</span>
+  <span class="ruby-ivar">@full_condition</span> = <span class="ruby-constant">ConditionVariable</span>.<span class="ruby-identifier">new</span>
+  <span class="ruby-identifier">set_deref_options</span>(<span class="ruby-identifier">opts</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-borrow" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">borrow</span><span
+            class="method-args">(timeout = nil) { |value| ... }</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>acquires lock on the from an `MVAR`, yields the value to provided block,
+and release lock. A timeout can be set to limit the time spent blocked, in
+which case it returns `TIMEOUT` if the time is exceeded. @return [Object]
+the value returned by the block, or `TIMEOUT`</p>
+          
+          
+
+          
+          <div class="method-source-code" id="borrow-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/concurrent-ruby-1.0.5/lib/concurrent/mvar.rb, line 86</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">borrow</span>(<span class="ruby-identifier">timeout</span> = <span class="ruby-keyword">nil</span>)
+  <span class="ruby-ivar">@mutex</span>.<span class="ruby-identifier">synchronize</span> <span class="ruby-keyword">do</span>
+    <span class="ruby-identifier">wait_for_full</span>(<span class="ruby-identifier">timeout</span>)
+
+    <span class="ruby-comment"># if we timeoud out we&#39;ll still be empty</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">unlocked_full?</span>
+      <span class="ruby-keyword">yield</span> <span class="ruby-ivar">@value</span>
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-constant">TIMEOUT</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-empty-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">empty?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Returns if the `MVar` is currently empty.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="empty-3F-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/concurrent-ruby-1.0.5/lib/concurrent/mvar.rb, line 195</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">empty?</span>
+  <span class="ruby-ivar">@mutex</span>.<span class="ruby-identifier">synchronize</span> { <span class="ruby-ivar">@value</span> <span class="ruby-operator">==</span> <span class="ruby-constant">EMPTY</span> }
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-full-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">full?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Returns if the `MVar` currently contains a value.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="full-3F-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/concurrent-ruby-1.0.5/lib/concurrent/mvar.rb, line 200</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">full?</span>
+  <span class="ruby-operator">!</span><span class="ruby-identifier">empty?</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-modify" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">modify</span><span
+            class="method-args">(timeout = nil) { |value| ... }</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Atomically `take`, yield the value to a block for transformation, and then
+`put` the transformed value. Returns the transformed value. A timeout can
+be set to limit the time spent blocked, in which case it returns `TIMEOUT`
+if the time is exceeded. @return [Object] the transformed value, or
+`TIMEOUT`</p>
+          
+          
+
+          
+          <div class="method-source-code" id="modify-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/concurrent-ruby-1.0.5/lib/concurrent/mvar.rb, line 123</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">modify</span>(<span class="ruby-identifier">timeout</span> = <span class="ruby-keyword">nil</span>)
+  <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&#39;no block given&#39;</span>) <span class="ruby-keyword">unless</span> <span class="ruby-identifier">block_given?</span>
+
+  <span class="ruby-ivar">@mutex</span>.<span class="ruby-identifier">synchronize</span> <span class="ruby-keyword">do</span>
+    <span class="ruby-identifier">wait_for_full</span>(<span class="ruby-identifier">timeout</span>)
+
+    <span class="ruby-comment"># If we timed out we&#39;ll still be empty</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">unlocked_full?</span>
+      <span class="ruby-identifier">value</span> = <span class="ruby-ivar">@value</span>
+      <span class="ruby-ivar">@value</span> = <span class="ruby-keyword">yield</span> <span class="ruby-identifier">value</span>
+      <span class="ruby-ivar">@full_condition</span>.<span class="ruby-identifier">signal</span>
+      <span class="ruby-identifier">apply_deref_options</span>(<span class="ruby-identifier">value</span>)
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-constant">TIMEOUT</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-modify-21" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">modify!</span><span
+            class="method-args">() { |value| ... }</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Non-blocking version of `modify` that will yield with `EMPTY` if there is
+no value yet.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="modify-21-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/concurrent-ruby-1.0.5/lib/concurrent/mvar.rb, line 179</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">modify!</span>
+  <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&#39;no block given&#39;</span>) <span class="ruby-keyword">unless</span> <span class="ruby-identifier">block_given?</span>
+
+  <span class="ruby-ivar">@mutex</span>.<span class="ruby-identifier">synchronize</span> <span class="ruby-keyword">do</span>
+    <span class="ruby-identifier">value</span> = <span class="ruby-ivar">@value</span>
+    <span class="ruby-ivar">@value</span> = <span class="ruby-keyword">yield</span> <span class="ruby-identifier">value</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">unlocked_empty?</span>
+      <span class="ruby-ivar">@empty_condition</span>.<span class="ruby-identifier">signal</span>
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-ivar">@full_condition</span>.<span class="ruby-identifier">signal</span>
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-identifier">apply_deref_options</span>(<span class="ruby-identifier">value</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-put" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">put</span><span
+            class="method-args">(value, timeout = nil)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Put a value into an `MVar`, blocking if there is already a value until it
+is empty. A timeout can be set to limit the time spent blocked, in which
+case it returns `TIMEOUT` if the time is exceeded. @return [Object] the
+value that was put, or `TIMEOUT`</p>
+          
+          
+
+          
+          <div class="method-source-code" id="put-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/concurrent-ruby-1.0.5/lib/concurrent/mvar.rb, line 103</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">put</span>(<span class="ruby-identifier">value</span>, <span class="ruby-identifier">timeout</span> = <span class="ruby-keyword">nil</span>)
+  <span class="ruby-ivar">@mutex</span>.<span class="ruby-identifier">synchronize</span> <span class="ruby-keyword">do</span>
+    <span class="ruby-identifier">wait_for_empty</span>(<span class="ruby-identifier">timeout</span>)
+
+    <span class="ruby-comment"># If we timed out we won&#39;t be empty</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">unlocked_empty?</span>
+      <span class="ruby-ivar">@value</span> = <span class="ruby-identifier">value</span>
+      <span class="ruby-ivar">@full_condition</span>.<span class="ruby-identifier">signal</span>
+      <span class="ruby-identifier">apply_deref_options</span>(<span class="ruby-identifier">value</span>)
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-constant">TIMEOUT</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-set-21" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">set!</span><span
+            class="method-args">(value)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Non-blocking version of `put` that will overwrite an existing value.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="set-21-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/concurrent-ruby-1.0.5/lib/concurrent/mvar.rb, line 169</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">set!</span>(<span class="ruby-identifier">value</span>)
+  <span class="ruby-ivar">@mutex</span>.<span class="ruby-identifier">synchronize</span> <span class="ruby-keyword">do</span>
+    <span class="ruby-identifier">old_value</span> = <span class="ruby-ivar">@value</span>
+    <span class="ruby-ivar">@value</span> = <span class="ruby-identifier">value</span>
+    <span class="ruby-ivar">@full_condition</span>.<span class="ruby-identifier">signal</span>
+    <span class="ruby-identifier">apply_deref_options</span>(<span class="ruby-identifier">old_value</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-take" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">take</span><span
+            class="method-args">(timeout = nil)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Remove the value from an `MVar`, leaving it empty, and blocking if there
+isn&#39;t a value. A timeout can be set to limit the time spent blocked, in
+which case it returns `TIMEOUT` if the time is exceeded. @return [Object]
+the value that was taken, or `TIMEOUT`</p>
+          
+          
+
+          
+          <div class="method-source-code" id="take-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/concurrent-ruby-1.0.5/lib/concurrent/mvar.rb, line 66</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">take</span>(<span class="ruby-identifier">timeout</span> = <span class="ruby-keyword">nil</span>)
+  <span class="ruby-ivar">@mutex</span>.<span class="ruby-identifier">synchronize</span> <span class="ruby-keyword">do</span>
+    <span class="ruby-identifier">wait_for_full</span>(<span class="ruby-identifier">timeout</span>)
+
+    <span class="ruby-comment"># If we timed out we&#39;ll still be empty</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">unlocked_full?</span>
+      <span class="ruby-identifier">value</span> = <span class="ruby-ivar">@value</span>
+      <span class="ruby-ivar">@value</span> = <span class="ruby-constant">EMPTY</span>
+      <span class="ruby-ivar">@empty_condition</span>.<span class="ruby-identifier">signal</span>
+      <span class="ruby-identifier">apply_deref_options</span>(<span class="ruby-identifier">value</span>)
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-constant">TIMEOUT</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-try_put-21" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">try_put!</span><span
+            class="method-args">(value)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Non-blocking version of `put`, that returns whether or not it was
+successful.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="try_put-21-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/concurrent-ruby-1.0.5/lib/concurrent/mvar.rb, line 156</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">try_put!</span>(<span class="ruby-identifier">value</span>)
+  <span class="ruby-ivar">@mutex</span>.<span class="ruby-identifier">synchronize</span> <span class="ruby-keyword">do</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">unlocked_empty?</span>
+      <span class="ruby-ivar">@value</span> = <span class="ruby-identifier">value</span>
+      <span class="ruby-ivar">@full_condition</span>.<span class="ruby-identifier">signal</span>
+      <span class="ruby-keyword">true</span>
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-keyword">false</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-try_take-21" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">try_take!</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Non-blocking version of `take`, that returns `EMPTY` instead of blocking.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="try_take-21-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/concurrent-ruby-1.0.5/lib/concurrent/mvar.rb, line 142</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">try_take!</span>
+  <span class="ruby-ivar">@mutex</span>.<span class="ruby-identifier">synchronize</span> <span class="ruby-keyword">do</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">unlocked_full?</span>
+      <span class="ruby-identifier">value</span> = <span class="ruby-ivar">@value</span>
+      <span class="ruby-ivar">@value</span> = <span class="ruby-constant">EMPTY</span>
+      <span class="ruby-ivar">@empty_condition</span>.<span class="ruby-identifier">signal</span>
+      <span class="ruby-identifier">apply_deref_options</span>(<span class="ruby-identifier">value</span>)
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-constant">EMPTY</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="protected-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Protected Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-synchronize" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">synchronize</span><span
+            class="method-args">(&block)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="synchronize-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/concurrent-ruby-1.0.5/lib/concurrent/mvar.rb, line 206</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">synchronize</span>(<span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+  <span class="ruby-ivar">@mutex</span>.<span class="ruby-identifier">synchronize</span>(<span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="https://rdoc.github.io/rdoc">RDoc</a> 5.0.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

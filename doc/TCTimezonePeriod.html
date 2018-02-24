@@ -1,0 +1,1370 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class TCTimezonePeriod - RDoc Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "./";
+  var index_rel_prefix = "./";
+</script>
+
+<script src="./js/jquery.js"></script>
+<script src="./js/darkfish.js"></script>
+
+<link href="./css/fonts.css" rel="stylesheet">
+<link href="./css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="./index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="./table_of_contents.html#pages">Pages</a>
+    <a href="./table_of_contents.html#classes">Classes</a>
+    <a href="./table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link"><a href="Minitest/Test.html">Minitest::Test</a>
+  
+</div>
+
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-i-test_dst">#test_dst</a>
+    
+    <li ><a href="#method-i-test_eql">#test_eql</a>
+    
+    <li ><a href="#method-i-test_equality">#test_equality</a>
+    
+    <li ><a href="#method-i-test_hash">#test_hash</a>
+    
+    <li ><a href="#method-i-test_initialize">#test_initialize</a>
+    
+    <li ><a href="#method-i-test_initialize_end">#test_initialize_end</a>
+    
+    <li ><a href="#method-i-test_initialize_end_offset">#test_initialize_end_offset</a>
+    
+    <li ><a href="#method-i-test_initialize_offset">#test_initialize_offset</a>
+    
+    <li ><a href="#method-i-test_initialize_start">#test_initialize_start</a>
+    
+    <li ><a href="#method-i-test_initialize_start_end">#test_initialize_start_end</a>
+    
+    <li ><a href="#method-i-test_initialize_start_end_offset">#test_initialize_start_end_offset</a>
+    
+    <li ><a href="#method-i-test_initialize_start_offset">#test_initialize_start_offset</a>
+    
+    <li ><a href="#method-i-test_local_after_start">#test_local_after_start</a>
+    
+    <li ><a href="#method-i-test_local_before_end">#test_local_before_end</a>
+    
+    <li ><a href="#method-i-test_time_boundary_end">#test_time_boundary_end</a>
+    
+    <li ><a href="#method-i-test_time_boundary_start">#test_time_boundary_start</a>
+    
+    <li ><a href="#method-i-test_to_local">#test_to_local</a>
+    
+    <li ><a href="#method-i-test_to_utc">#test_to_utc</a>
+    
+    <li ><a href="#method-i-test_utc_after_start">#test_utc_after_start</a>
+    
+    <li ><a href="#method-i-test_utc_before_end">#test_utc_before_end</a>
+    
+    <li ><a href="#method-i-test_utc_total_offset_rational_after_freeze">#test_utc_total_offset_rational_after_freeze</a>
+    
+    <li ><a href="#method-i-test_valid_for_local">#test_valid_for_local</a>
+    
+    <li ><a href="#method-i-test_valid_for_utc">#test_valid_for_utc</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-TCTimezonePeriod">
+  <h1 id="class-TCTimezonePeriod" class="class">
+    class TCTimezonePeriod
+  </h1>
+
+  <section class="description">
+    
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+
+    
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-test_dst" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_dst</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_dst-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/tzinfo-1.2.5/test/tc_timezone_period.rb, line 160</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">test_dst</span>    
+  <span class="ruby-identifier">p1</span> = <span class="ruby-constant">TimezonePeriod</span>.<span class="ruby-identifier">new</span>(<span class="ruby-keyword">nil</span>, <span class="ruby-keyword">nil</span>, <span class="ruby-constant">TimezoneOffset</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">-14400</span>, <span class="ruby-value">3600</span>, <span class="ruby-value">:TEST</span>))
+  <span class="ruby-identifier">p2</span> = <span class="ruby-constant">TimezonePeriod</span>.<span class="ruby-identifier">new</span>(<span class="ruby-keyword">nil</span>, <span class="ruby-keyword">nil</span>, <span class="ruby-constant">TimezoneOffset</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">-14400</span>, <span class="ruby-value">0</span>, <span class="ruby-value">:TEST</span>))
+  <span class="ruby-identifier">p3</span> = <span class="ruby-constant">TimezonePeriod</span>.<span class="ruby-identifier">new</span>(<span class="ruby-keyword">nil</span>, <span class="ruby-keyword">nil</span>, <span class="ruby-constant">TimezoneOffset</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">-14400</span>, <span class="ruby-value">-3600</span>, <span class="ruby-value">:TEST</span>))
+  <span class="ruby-identifier">p4</span> = <span class="ruby-constant">TimezonePeriod</span>.<span class="ruby-identifier">new</span>(<span class="ruby-keyword">nil</span>, <span class="ruby-keyword">nil</span>, <span class="ruby-constant">TimezoneOffset</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">-14400</span>, <span class="ruby-value">7200</span>, <span class="ruby-value">:TEST</span>))
+  <span class="ruby-identifier">p5</span> = <span class="ruby-constant">TimezonePeriod</span>.<span class="ruby-identifier">new</span>(<span class="ruby-keyword">nil</span>, <span class="ruby-keyword">nil</span>, <span class="ruby-constant">TimezoneOffset</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">-14400</span>, <span class="ruby-value">-7200</span>, <span class="ruby-value">:TEST</span>))
+  
+  <span class="ruby-identifier">assert_equal</span>(<span class="ruby-keyword">true</span>, <span class="ruby-identifier">p1</span>.<span class="ruby-identifier">dst?</span>)
+  <span class="ruby-identifier">assert_equal</span>(<span class="ruby-keyword">false</span>, <span class="ruby-identifier">p2</span>.<span class="ruby-identifier">dst?</span>)
+  <span class="ruby-identifier">assert_equal</span>(<span class="ruby-keyword">true</span>, <span class="ruby-identifier">p3</span>.<span class="ruby-identifier">dst?</span>)
+  <span class="ruby-identifier">assert_equal</span>(<span class="ruby-keyword">true</span>, <span class="ruby-identifier">p4</span>.<span class="ruby-identifier">dst?</span>)
+  <span class="ruby-identifier">assert_equal</span>(<span class="ruby-keyword">true</span>, <span class="ruby-identifier">p5</span>.<span class="ruby-identifier">dst?</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_eql" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_eql</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_eql-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/tzinfo-1.2.5/test/tc_timezone_period.rb, line 486</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">test_eql</span>
+  <span class="ruby-identifier">o1</span> = <span class="ruby-constant">TimezoneOffset</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">0</span>, <span class="ruby-value">3600</span>, <span class="ruby-value">:TEST</span>)
+  <span class="ruby-identifier">o2</span> = <span class="ruby-constant">TimezoneOffset</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">0</span>, <span class="ruby-value">0</span>, <span class="ruby-value">:TEST</span>)
+  <span class="ruby-identifier">t1</span> = <span class="ruby-constant">TestTimezoneTransition</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">o1</span>, <span class="ruby-identifier">o2</span>, <span class="ruby-value">1149368400</span>)
+  <span class="ruby-identifier">t2</span> = <span class="ruby-constant">TestTimezoneTransition</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">o1</span>, <span class="ruby-identifier">o2</span>, <span class="ruby-constant">DateTime</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">2006</span>, <span class="ruby-value">6</span>, <span class="ruby-value">3</span>, <span class="ruby-value">21</span>, <span class="ruby-value">0</span>, <span class="ruby-value">0</span>))
+  <span class="ruby-identifier">t3</span> = <span class="ruby-constant">TestTimezoneTransition</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">o1</span>, <span class="ruby-identifier">o2</span>, <span class="ruby-value">1149454800</span>)
+  <span class="ruby-identifier">t4</span> = <span class="ruby-constant">TestTimezoneTransition</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">o1</span>, <span class="ruby-identifier">o2</span>, <span class="ruby-value">1149541200</span>)
+  
+  <span class="ruby-identifier">p1</span> = <span class="ruby-constant">TimezonePeriod</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">t1</span>, <span class="ruby-identifier">t3</span>)
+  <span class="ruby-identifier">p2</span> = <span class="ruby-constant">TimezonePeriod</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">t1</span>, <span class="ruby-identifier">t3</span>)
+  <span class="ruby-identifier">p3</span> = <span class="ruby-constant">TimezonePeriod</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">t2</span>, <span class="ruby-identifier">t3</span>)
+  <span class="ruby-identifier">p4</span> = <span class="ruby-constant">TimezonePeriod</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">t3</span>, <span class="ruby-keyword">nil</span>)
+  <span class="ruby-identifier">p5</span> = <span class="ruby-constant">TimezonePeriod</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">t3</span>, <span class="ruby-keyword">nil</span>)
+  <span class="ruby-identifier">p6</span> = <span class="ruby-constant">TimezonePeriod</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">t4</span>, <span class="ruby-keyword">nil</span>)
+  <span class="ruby-identifier">p7</span> = <span class="ruby-constant">TimezonePeriod</span>.<span class="ruby-identifier">new</span>(<span class="ruby-keyword">nil</span>, <span class="ruby-identifier">t3</span>)
+  <span class="ruby-identifier">p8</span> = <span class="ruby-constant">TimezonePeriod</span>.<span class="ruby-identifier">new</span>(<span class="ruby-keyword">nil</span>, <span class="ruby-identifier">t3</span>)
+  <span class="ruby-identifier">p9</span> = <span class="ruby-constant">TimezonePeriod</span>.<span class="ruby-identifier">new</span>(<span class="ruby-keyword">nil</span>, <span class="ruby-identifier">t4</span>)
+  <span class="ruby-identifier">p10</span> = <span class="ruby-constant">TimezonePeriod</span>.<span class="ruby-identifier">new</span>(<span class="ruby-keyword">nil</span>, <span class="ruby-keyword">nil</span>, <span class="ruby-identifier">o1</span>)
+  <span class="ruby-identifier">p11</span> = <span class="ruby-constant">TimezonePeriod</span>.<span class="ruby-identifier">new</span>(<span class="ruby-keyword">nil</span>, <span class="ruby-keyword">nil</span>, <span class="ruby-identifier">o1</span>)
+  <span class="ruby-identifier">p12</span> = <span class="ruby-constant">TimezonePeriod</span>.<span class="ruby-identifier">new</span>(<span class="ruby-keyword">nil</span>, <span class="ruby-keyword">nil</span>, <span class="ruby-identifier">o2</span>)
+  
+  <span class="ruby-identifier">assert_equal</span>(<span class="ruby-keyword">true</span>, <span class="ruby-identifier">p1</span>.<span class="ruby-identifier">eql?</span>(<span class="ruby-identifier">p1</span>))
+  <span class="ruby-identifier">assert_equal</span>(<span class="ruby-keyword">true</span>, <span class="ruby-identifier">p1</span>.<span class="ruby-identifier">eql?</span>(<span class="ruby-identifier">p2</span>))
+  <span class="ruby-identifier">assert_equal</span>(<span class="ruby-keyword">false</span>, <span class="ruby-identifier">p1</span>.<span class="ruby-identifier">eql?</span>(<span class="ruby-identifier">p3</span>))
+  <span class="ruby-identifier">assert_equal</span>(<span class="ruby-keyword">false</span>, <span class="ruby-identifier">p1</span>.<span class="ruby-identifier">eql?</span>(<span class="ruby-identifier">p4</span>))
+  <span class="ruby-identifier">assert_equal</span>(<span class="ruby-keyword">false</span>, <span class="ruby-identifier">p1</span>.<span class="ruby-identifier">eql?</span>(<span class="ruby-identifier">p5</span>))
+  <span class="ruby-identifier">assert_equal</span>(<span class="ruby-keyword">false</span>, <span class="ruby-identifier">p1</span>.<span class="ruby-identifier">eql?</span>(<span class="ruby-identifier">p6</span>))
+  <span class="ruby-identifier">assert_equal</span>(<span class="ruby-keyword">false</span>, <span class="ruby-identifier">p1</span>.<span class="ruby-identifier">eql?</span>(<span class="ruby-identifier">p7</span>))
+  <span class="ruby-identifier">assert_equal</span>(<span class="ruby-keyword">false</span>, <span class="ruby-identifier">p1</span>.<span class="ruby-identifier">eql?</span>(<span class="ruby-identifier">p8</span>))
+  <span class="ruby-identifier">assert_equal</span>(<span class="ruby-keyword">false</span>, <span class="ruby-identifier">p1</span>.<span class="ruby-identifier">eql?</span>(<span class="ruby-identifier">p9</span>))
+  <span class="ruby-identifier">assert_equal</span>(<span class="ruby-keyword">false</span>, <span class="ruby-identifier">p1</span>.<span class="ruby-identifier">eql?</span>(<span class="ruby-identifier">p10</span>))
+  <span class="ruby-identifier">assert_equal</span>(<span class="ruby-keyword">false</span>, <span class="ruby-identifier">p1</span>.<span class="ruby-identifier">eql?</span>(<span class="ruby-identifier">p11</span>))
+  <span class="ruby-identifier">assert_equal</span>(<span class="ruby-keyword">false</span>, <span class="ruby-identifier">p1</span>.<span class="ruby-identifier">eql?</span>(<span class="ruby-identifier">p12</span>))
+  <span class="ruby-identifier">assert_equal</span>(<span class="ruby-keyword">false</span>, <span class="ruby-identifier">p1</span>.<span class="ruby-identifier">eql?</span>(<span class="ruby-constant">Object</span>.<span class="ruby-identifier">new</span>))
+  
+  <span class="ruby-identifier">assert_equal</span>(<span class="ruby-keyword">true</span>, <span class="ruby-identifier">p4</span>.<span class="ruby-identifier">eql?</span>(<span class="ruby-identifier">p4</span>))
+  <span class="ruby-identifier">assert_equal</span>(<span class="ruby-keyword">true</span>, <span class="ruby-identifier">p4</span>.<span class="ruby-identifier">eql?</span>(<span class="ruby-identifier">p5</span>))
+  <span class="ruby-identifier">assert_equal</span>(<span class="ruby-keyword">false</span>, <span class="ruby-identifier">p4</span>.<span class="ruby-identifier">eql?</span>(<span class="ruby-identifier">p6</span>))
+  <span class="ruby-identifier">assert_equal</span>(<span class="ruby-keyword">false</span>, <span class="ruby-identifier">p4</span>.<span class="ruby-identifier">eql?</span>(<span class="ruby-constant">Object</span>.<span class="ruby-identifier">new</span>))
+  
+  <span class="ruby-identifier">assert_equal</span>(<span class="ruby-keyword">true</span>, <span class="ruby-identifier">p7</span>.<span class="ruby-identifier">eql?</span>(<span class="ruby-identifier">p7</span>))
+  <span class="ruby-identifier">assert_equal</span>(<span class="ruby-keyword">true</span>, <span class="ruby-identifier">p7</span>.<span class="ruby-identifier">eql?</span>(<span class="ruby-identifier">p8</span>))
+  <span class="ruby-identifier">assert_equal</span>(<span class="ruby-keyword">false</span>, <span class="ruby-identifier">p7</span>.<span class="ruby-identifier">eql?</span>(<span class="ruby-identifier">p9</span>))
+  <span class="ruby-identifier">assert_equal</span>(<span class="ruby-keyword">false</span>, <span class="ruby-identifier">p7</span>.<span class="ruby-identifier">eql?</span>(<span class="ruby-constant">Object</span>.<span class="ruby-identifier">new</span>))
+  
+  <span class="ruby-identifier">assert_equal</span>(<span class="ruby-keyword">true</span>, <span class="ruby-identifier">p10</span>.<span class="ruby-identifier">eql?</span>(<span class="ruby-identifier">p10</span>))
+  <span class="ruby-identifier">assert_equal</span>(<span class="ruby-keyword">true</span>, <span class="ruby-identifier">p10</span>.<span class="ruby-identifier">eql?</span>(<span class="ruby-identifier">p11</span>))
+  <span class="ruby-identifier">assert_equal</span>(<span class="ruby-keyword">false</span>, <span class="ruby-identifier">p10</span>.<span class="ruby-identifier">eql?</span>(<span class="ruby-identifier">p12</span>))
+  <span class="ruby-identifier">assert_equal</span>(<span class="ruby-keyword">false</span>, <span class="ruby-identifier">p10</span>.<span class="ruby-identifier">eql?</span>(<span class="ruby-constant">Object</span>.<span class="ruby-identifier">new</span>))
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_equality" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_equality</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_equality-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/tzinfo-1.2.5/test/tc_timezone_period.rb, line 435</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">test_equality</span>
+  <span class="ruby-identifier">o1</span> = <span class="ruby-constant">TimezoneOffset</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">0</span>, <span class="ruby-value">3600</span>, <span class="ruby-value">:TEST</span>)
+  <span class="ruby-identifier">o2</span> = <span class="ruby-constant">TimezoneOffset</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">0</span>, <span class="ruby-value">0</span>, <span class="ruby-value">:TEST</span>)
+  <span class="ruby-identifier">t1</span> = <span class="ruby-constant">TestTimezoneTransition</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">o1</span>, <span class="ruby-identifier">o2</span>, <span class="ruby-value">1149368400</span>)
+  <span class="ruby-identifier">t2</span> = <span class="ruby-constant">TestTimezoneTransition</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">o1</span>, <span class="ruby-identifier">o2</span>, <span class="ruby-constant">DateTime</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">2006</span>, <span class="ruby-value">6</span>, <span class="ruby-value">3</span>, <span class="ruby-value">21</span>, <span class="ruby-value">0</span>, <span class="ruby-value">0</span>))
+  <span class="ruby-identifier">t3</span> = <span class="ruby-constant">TestTimezoneTransition</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">o1</span>, <span class="ruby-identifier">o2</span>, <span class="ruby-value">1149454800</span>)
+  <span class="ruby-identifier">t4</span> = <span class="ruby-constant">TestTimezoneTransition</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">o1</span>, <span class="ruby-identifier">o2</span>, <span class="ruby-value">1149541200</span>)
+  
+  <span class="ruby-identifier">p1</span> = <span class="ruby-constant">TimezonePeriod</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">t1</span>, <span class="ruby-identifier">t3</span>)
+  <span class="ruby-identifier">p2</span> = <span class="ruby-constant">TimezonePeriod</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">t1</span>, <span class="ruby-identifier">t3</span>)
+  <span class="ruby-identifier">p3</span> = <span class="ruby-constant">TimezonePeriod</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">t2</span>, <span class="ruby-identifier">t3</span>)
+  <span class="ruby-identifier">p4</span> = <span class="ruby-constant">TimezonePeriod</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">t3</span>, <span class="ruby-keyword">nil</span>)
+  <span class="ruby-identifier">p5</span> = <span class="ruby-constant">TimezonePeriod</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">t3</span>, <span class="ruby-keyword">nil</span>)
+  <span class="ruby-identifier">p6</span> = <span class="ruby-constant">TimezonePeriod</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">t4</span>, <span class="ruby-keyword">nil</span>)
+  <span class="ruby-identifier">p7</span> = <span class="ruby-constant">TimezonePeriod</span>.<span class="ruby-identifier">new</span>(<span class="ruby-keyword">nil</span>, <span class="ruby-identifier">t3</span>)
+  <span class="ruby-identifier">p8</span> = <span class="ruby-constant">TimezonePeriod</span>.<span class="ruby-identifier">new</span>(<span class="ruby-keyword">nil</span>, <span class="ruby-identifier">t3</span>)
+  <span class="ruby-identifier">p9</span> = <span class="ruby-constant">TimezonePeriod</span>.<span class="ruby-identifier">new</span>(<span class="ruby-keyword">nil</span>, <span class="ruby-identifier">t4</span>)
+  <span class="ruby-identifier">p10</span> = <span class="ruby-constant">TimezonePeriod</span>.<span class="ruby-identifier">new</span>(<span class="ruby-keyword">nil</span>, <span class="ruby-keyword">nil</span>, <span class="ruby-identifier">o1</span>)
+  <span class="ruby-identifier">p11</span> = <span class="ruby-constant">TimezonePeriod</span>.<span class="ruby-identifier">new</span>(<span class="ruby-keyword">nil</span>, <span class="ruby-keyword">nil</span>, <span class="ruby-identifier">o1</span>)
+  <span class="ruby-identifier">p12</span> = <span class="ruby-constant">TimezonePeriod</span>.<span class="ruby-identifier">new</span>(<span class="ruby-keyword">nil</span>, <span class="ruby-keyword">nil</span>, <span class="ruby-identifier">o2</span>)
+  
+  <span class="ruby-identifier">assert_equal</span>(<span class="ruby-keyword">true</span>, <span class="ruby-identifier">p1</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">p1</span>)
+  <span class="ruby-identifier">assert_equal</span>(<span class="ruby-keyword">true</span>, <span class="ruby-identifier">p1</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">p2</span>)
+  <span class="ruby-identifier">assert_equal</span>(<span class="ruby-keyword">true</span>, <span class="ruby-identifier">p1</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">p3</span>)
+  <span class="ruby-identifier">assert_equal</span>(<span class="ruby-keyword">false</span>, <span class="ruby-identifier">p1</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">p4</span>)
+  <span class="ruby-identifier">assert_equal</span>(<span class="ruby-keyword">false</span>, <span class="ruby-identifier">p1</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">p5</span>)
+  <span class="ruby-identifier">assert_equal</span>(<span class="ruby-keyword">false</span>, <span class="ruby-identifier">p1</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">p6</span>)
+  <span class="ruby-identifier">assert_equal</span>(<span class="ruby-keyword">false</span>, <span class="ruby-identifier">p1</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">p7</span>)
+  <span class="ruby-identifier">assert_equal</span>(<span class="ruby-keyword">false</span>, <span class="ruby-identifier">p1</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">p8</span>)
+  <span class="ruby-identifier">assert_equal</span>(<span class="ruby-keyword">false</span>, <span class="ruby-identifier">p1</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">p9</span>)
+  <span class="ruby-identifier">assert_equal</span>(<span class="ruby-keyword">false</span>, <span class="ruby-identifier">p1</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">p10</span>)
+  <span class="ruby-identifier">assert_equal</span>(<span class="ruby-keyword">false</span>, <span class="ruby-identifier">p1</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">p11</span>)
+  <span class="ruby-identifier">assert_equal</span>(<span class="ruby-keyword">false</span>, <span class="ruby-identifier">p1</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">p12</span>)
+  <span class="ruby-identifier">assert_equal</span>(<span class="ruby-keyword">false</span>, <span class="ruby-identifier">p1</span> <span class="ruby-operator">==</span> <span class="ruby-constant">Object</span>.<span class="ruby-identifier">new</span>)
+  
+  <span class="ruby-identifier">assert_equal</span>(<span class="ruby-keyword">true</span>, <span class="ruby-identifier">p4</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">p4</span>)
+  <span class="ruby-identifier">assert_equal</span>(<span class="ruby-keyword">true</span>, <span class="ruby-identifier">p4</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">p5</span>)
+  <span class="ruby-identifier">assert_equal</span>(<span class="ruby-keyword">false</span>, <span class="ruby-identifier">p4</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">p6</span>)
+  <span class="ruby-identifier">assert_equal</span>(<span class="ruby-keyword">false</span>, <span class="ruby-identifier">p4</span> <span class="ruby-operator">==</span> <span class="ruby-constant">Object</span>.<span class="ruby-identifier">new</span>)
+  
+  <span class="ruby-identifier">assert_equal</span>(<span class="ruby-keyword">true</span>, <span class="ruby-identifier">p7</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">p7</span>)
+  <span class="ruby-identifier">assert_equal</span>(<span class="ruby-keyword">true</span>, <span class="ruby-identifier">p7</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">p8</span>)
+  <span class="ruby-identifier">assert_equal</span>(<span class="ruby-keyword">false</span>, <span class="ruby-identifier">p7</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">p9</span>)
+  <span class="ruby-identifier">assert_equal</span>(<span class="ruby-keyword">false</span>, <span class="ruby-identifier">p7</span> <span class="ruby-operator">==</span> <span class="ruby-constant">Object</span>.<span class="ruby-identifier">new</span>)
+  
+  <span class="ruby-identifier">assert_equal</span>(<span class="ruby-keyword">true</span>, <span class="ruby-identifier">p10</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">p10</span>)
+  <span class="ruby-identifier">assert_equal</span>(<span class="ruby-keyword">true</span>, <span class="ruby-identifier">p10</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">p11</span>)
+  <span class="ruby-identifier">assert_equal</span>(<span class="ruby-keyword">false</span>, <span class="ruby-identifier">p10</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">p12</span>)
+  <span class="ruby-identifier">assert_equal</span>(<span class="ruby-keyword">false</span>, <span class="ruby-identifier">p10</span> <span class="ruby-operator">==</span> <span class="ruby-constant">Object</span>.<span class="ruby-identifier">new</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_hash" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_hash</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_hash-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/tzinfo-1.2.5/test/tc_timezone_period.rb, line 537</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">test_hash</span>
+  <span class="ruby-identifier">o1</span> = <span class="ruby-constant">TimezoneOffset</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">0</span>, <span class="ruby-value">3600</span>, <span class="ruby-value">:TEST</span>)
+  <span class="ruby-identifier">o2</span> = <span class="ruby-constant">TimezoneOffset</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">0</span>, <span class="ruby-value">0</span>, <span class="ruby-value">:TEST</span>)
+  <span class="ruby-identifier">t1</span> = <span class="ruby-constant">TestTimezoneTransition</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">o1</span>, <span class="ruby-identifier">o2</span>, <span class="ruby-value">1149368400</span>)
+  <span class="ruby-identifier">t2</span> = <span class="ruby-constant">TestTimezoneTransition</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">o1</span>, <span class="ruby-identifier">o2</span>, <span class="ruby-constant">DateTime</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">2006</span>, <span class="ruby-value">6</span>, <span class="ruby-value">3</span>, <span class="ruby-value">21</span>, <span class="ruby-value">0</span>, <span class="ruby-value">0</span>))
+  <span class="ruby-identifier">t3</span> = <span class="ruby-constant">TestTimezoneTransition</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">o1</span>, <span class="ruby-identifier">o2</span>, <span class="ruby-value">1149454800</span>)
+  <span class="ruby-identifier">t4</span> = <span class="ruby-constant">TestTimezoneTransition</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">o1</span>, <span class="ruby-identifier">o2</span>, <span class="ruby-value">1149541200</span>)
+  
+  <span class="ruby-identifier">p1</span> = <span class="ruby-constant">TimezonePeriod</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">t1</span>, <span class="ruby-identifier">t3</span>)    
+  <span class="ruby-identifier">p2</span> = <span class="ruby-constant">TimezonePeriod</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">t2</span>, <span class="ruby-keyword">nil</span>)
+  <span class="ruby-identifier">p3</span> = <span class="ruby-constant">TimezonePeriod</span>.<span class="ruby-identifier">new</span>(<span class="ruby-keyword">nil</span>, <span class="ruby-identifier">t4</span>)
+  <span class="ruby-identifier">p4</span> = <span class="ruby-constant">TimezonePeriod</span>.<span class="ruby-identifier">new</span>(<span class="ruby-keyword">nil</span>, <span class="ruby-keyword">nil</span>, <span class="ruby-identifier">o1</span>)
+
+  <span class="ruby-identifier">assert_equal</span>(<span class="ruby-identifier">t1</span>.<span class="ruby-identifier">hash</span> <span class="ruby-operator">^</span> <span class="ruby-identifier">t3</span>.<span class="ruby-identifier">hash</span>, <span class="ruby-identifier">p1</span>.<span class="ruby-identifier">hash</span>)
+  <span class="ruby-identifier">assert_equal</span>(<span class="ruby-identifier">t2</span>.<span class="ruby-identifier">hash</span> <span class="ruby-operator">^</span> <span class="ruby-keyword">nil</span>.<span class="ruby-identifier">hash</span>, <span class="ruby-identifier">p2</span>.<span class="ruby-identifier">hash</span>)
+  <span class="ruby-identifier">assert_equal</span>(<span class="ruby-keyword">nil</span>.<span class="ruby-identifier">hash</span> <span class="ruby-operator">^</span> <span class="ruby-identifier">t4</span>.<span class="ruby-identifier">hash</span>, <span class="ruby-identifier">p3</span>.<span class="ruby-identifier">hash</span>)
+  <span class="ruby-identifier">assert_equal</span>(<span class="ruby-keyword">nil</span>.<span class="ruby-identifier">hash</span> <span class="ruby-operator">^</span> <span class="ruby-keyword">nil</span>.<span class="ruby-identifier">hash</span> <span class="ruby-operator">^</span> <span class="ruby-identifier">o1</span>.<span class="ruby-identifier">hash</span>, <span class="ruby-identifier">p4</span>.<span class="ruby-identifier">hash</span>)    
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_initialize" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_initialize</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_initialize-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/tzinfo-1.2.5/test/tc_timezone_period.rb, line 125</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">test_initialize</span>
+  <span class="ruby-identifier">assert_raises</span>(<span class="ruby-constant">ArgumentError</span>) { <span class="ruby-constant">TimezonePeriod</span>.<span class="ruby-identifier">new</span>(<span class="ruby-keyword">nil</span>, <span class="ruby-keyword">nil</span>) }
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_initialize_end" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_initialize_end</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_initialize_end-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/tzinfo-1.2.5/test/tc_timezone_period.rb, line 90</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">test_initialize_end</span>
+  <span class="ruby-identifier">std</span> = <span class="ruby-constant">TimezoneOffset</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">-7200</span>, <span class="ruby-value">0</span>, <span class="ruby-value">:TEST</span>)
+  <span class="ruby-identifier">dst</span> = <span class="ruby-constant">TimezoneOffset</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">-7200</span>, <span class="ruby-value">3600</span>, <span class="ruby-value">:TEST</span>)    
+  <span class="ruby-identifier">end_t</span> = <span class="ruby-constant">TestTimezoneTransition</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">std</span>, <span class="ruby-identifier">dst</span>, <span class="ruby-value">1136160000</span>)
+    
+  <span class="ruby-identifier">p</span> = <span class="ruby-constant">TimezonePeriod</span>.<span class="ruby-identifier">new</span>(<span class="ruby-keyword">nil</span>, <span class="ruby-identifier">end_t</span>)
+  
+  <span class="ruby-identifier">assert_nil</span>(<span class="ruby-identifier">p</span>.<span class="ruby-identifier">start_transition</span>)
+  <span class="ruby-identifier">assert_same</span>(<span class="ruby-identifier">end_t</span>, <span class="ruby-identifier">p</span>.<span class="ruby-identifier">end_transition</span>)
+  <span class="ruby-identifier">assert_same</span>(<span class="ruby-identifier">dst</span>, <span class="ruby-identifier">p</span>.<span class="ruby-identifier">offset</span>)
+  <span class="ruby-identifier">assert_nil</span>(<span class="ruby-identifier">p</span>.<span class="ruby-identifier">utc_start</span>)
+  <span class="ruby-identifier">assert_nil</span>(<span class="ruby-identifier">p</span>.<span class="ruby-identifier">utc_start_time</span>)
+  <span class="ruby-identifier">assert_equal</span>(<span class="ruby-constant">DateTime</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">2006</span>,<span class="ruby-value">1</span>,<span class="ruby-value">2</span>,<span class="ruby-value">0</span>,<span class="ruby-value">0</span>,<span class="ruby-value">0</span>), <span class="ruby-identifier">p</span>.<span class="ruby-identifier">utc_end</span>)
+  <span class="ruby-identifier">assert_equal</span>(<span class="ruby-constant">Time</span>.<span class="ruby-identifier">utc</span>(<span class="ruby-value">2006</span>,<span class="ruby-value">1</span>,<span class="ruby-value">2</span>,<span class="ruby-value">0</span>,<span class="ruby-value">0</span>,<span class="ruby-value">0</span>), <span class="ruby-identifier">p</span>.<span class="ruby-identifier">utc_end_time</span>)
+  <span class="ruby-identifier">assert_equal</span>(<span class="ruby-value">-7200</span>, <span class="ruby-identifier">p</span>.<span class="ruby-identifier">utc_offset</span>)
+  <span class="ruby-identifier">assert_equal</span>(<span class="ruby-value">3600</span>, <span class="ruby-identifier">p</span>.<span class="ruby-identifier">std_offset</span>)
+  <span class="ruby-identifier">assert_equal</span>(<span class="ruby-value">-3600</span>, <span class="ruby-identifier">p</span>.<span class="ruby-identifier">utc_total_offset</span>)
+  <span class="ruby-identifier">assert_equal</span>(<span class="ruby-constant">Rational</span>(<span class="ruby-value">-3600</span>, <span class="ruby-value">86400</span>), <span class="ruby-identifier">p</span>.<span class="ruby-identifier">utc_total_offset_rational</span>)
+  <span class="ruby-identifier">assert_equal</span>(<span class="ruby-value">:TEST</span>, <span class="ruby-identifier">p</span>.<span class="ruby-identifier">zone_identifier</span>)
+  <span class="ruby-identifier">assert_equal</span>(<span class="ruby-value">:TEST</span>, <span class="ruby-identifier">p</span>.<span class="ruby-identifier">abbreviation</span>)    
+  <span class="ruby-identifier">assert_nil</span>(<span class="ruby-identifier">p</span>.<span class="ruby-identifier">local_start</span>)
+  <span class="ruby-identifier">assert_nil</span>(<span class="ruby-identifier">p</span>.<span class="ruby-identifier">local_start_time</span>)
+  <span class="ruby-identifier">assert_equal</span>(<span class="ruby-constant">DateTime</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">2006</span>,<span class="ruby-value">1</span>,<span class="ruby-value">1</span>,<span class="ruby-value">23</span>,<span class="ruby-value">0</span>,<span class="ruby-value">0</span>), <span class="ruby-identifier">p</span>.<span class="ruby-identifier">local_end</span>)
+  <span class="ruby-identifier">assert_equal</span>(<span class="ruby-constant">Time</span>.<span class="ruby-identifier">utc</span>(<span class="ruby-value">2006</span>,<span class="ruby-value">1</span>,<span class="ruby-value">1</span>,<span class="ruby-value">23</span>,<span class="ruby-value">0</span>,<span class="ruby-value">0</span>), <span class="ruby-identifier">p</span>.<span class="ruby-identifier">local_end_time</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_initialize_end_offset" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_initialize_end_offset</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_initialize_end_offset-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/tzinfo-1.2.5/test/tc_timezone_period.rb, line 116</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">test_initialize_end_offset</span>
+  <span class="ruby-identifier">std</span> = <span class="ruby-constant">TimezoneOffset</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">-7200</span>, <span class="ruby-value">0</span>, <span class="ruby-value">:TEST</span>)
+  <span class="ruby-identifier">dst</span> = <span class="ruby-constant">TimezoneOffset</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">-7200</span>, <span class="ruby-value">3600</span>, <span class="ruby-value">:TEST</span>)    
+  <span class="ruby-identifier">special</span> = <span class="ruby-constant">TimezoneOffset</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">0</span>, <span class="ruby-value">0</span>, <span class="ruby-value">:SPECIAL</span>)
+  <span class="ruby-identifier">end_t</span> = <span class="ruby-constant">TestTimezoneTransition</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">std</span>, <span class="ruby-identifier">dst</span>, <span class="ruby-value">1136160000</span>)
+    
+  <span class="ruby-identifier">assert_raises</span>(<span class="ruby-constant">ArgumentError</span>) { <span class="ruby-constant">TimezonePeriod</span>.<span class="ruby-identifier">new</span>(<span class="ruby-keyword">nil</span>, <span class="ruby-identifier">end_t</span>, <span class="ruby-identifier">special</span>) }    
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_initialize_offset" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_initialize_offset</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_initialize_offset-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/tzinfo-1.2.5/test/tc_timezone_period.rb, line 129</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">test_initialize_offset</span>
+  <span class="ruby-identifier">special</span> = <span class="ruby-constant">TimezoneOffset</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">0</span>, <span class="ruby-value">0</span>, <span class="ruby-value">:SPECIAL</span>)
+    
+  <span class="ruby-identifier">p</span> = <span class="ruby-constant">TimezonePeriod</span>.<span class="ruby-identifier">new</span>(<span class="ruby-keyword">nil</span>, <span class="ruby-keyword">nil</span>, <span class="ruby-identifier">special</span>)
+  
+  <span class="ruby-identifier">assert_nil</span>(<span class="ruby-identifier">p</span>.<span class="ruby-identifier">start_transition</span>)
+  <span class="ruby-identifier">assert_nil</span>(<span class="ruby-identifier">p</span>.<span class="ruby-identifier">end_transition</span>)
+  <span class="ruby-identifier">assert_same</span>(<span class="ruby-identifier">special</span>, <span class="ruby-identifier">p</span>.<span class="ruby-identifier">offset</span>)
+  <span class="ruby-identifier">assert_nil</span>(<span class="ruby-identifier">p</span>.<span class="ruby-identifier">utc_start</span>)
+  <span class="ruby-identifier">assert_nil</span>(<span class="ruby-identifier">p</span>.<span class="ruby-identifier">utc_start_time</span>)
+  <span class="ruby-identifier">assert_nil</span>(<span class="ruby-identifier">p</span>.<span class="ruby-identifier">utc_end</span>)
+  <span class="ruby-identifier">assert_nil</span>(<span class="ruby-identifier">p</span>.<span class="ruby-identifier">utc_end_time</span>)
+  <span class="ruby-identifier">assert_equal</span>(<span class="ruby-value">0</span>, <span class="ruby-identifier">p</span>.<span class="ruby-identifier">utc_offset</span>)
+  <span class="ruby-identifier">assert_equal</span>(<span class="ruby-value">0</span>, <span class="ruby-identifier">p</span>.<span class="ruby-identifier">std_offset</span>)
+  <span class="ruby-identifier">assert_equal</span>(<span class="ruby-value">0</span>, <span class="ruby-identifier">p</span>.<span class="ruby-identifier">utc_total_offset</span>)
+  <span class="ruby-identifier">assert_equal</span>(<span class="ruby-constant">Rational</span>(<span class="ruby-value">0</span>, <span class="ruby-value">86400</span>), <span class="ruby-identifier">p</span>.<span class="ruby-identifier">utc_total_offset_rational</span>)
+  <span class="ruby-identifier">assert_equal</span>(<span class="ruby-value">:SPECIAL</span>, <span class="ruby-identifier">p</span>.<span class="ruby-identifier">zone_identifier</span>)
+  <span class="ruby-identifier">assert_equal</span>(<span class="ruby-value">:SPECIAL</span>, <span class="ruby-identifier">p</span>.<span class="ruby-identifier">abbreviation</span>)    
+  <span class="ruby-identifier">assert_nil</span>(<span class="ruby-identifier">p</span>.<span class="ruby-identifier">local_start</span>)
+  <span class="ruby-identifier">assert_nil</span>(<span class="ruby-identifier">p</span>.<span class="ruby-identifier">local_start_time</span>)
+  <span class="ruby-identifier">assert_nil</span>(<span class="ruby-identifier">p</span>.<span class="ruby-identifier">local_end</span>)
+  <span class="ruby-identifier">assert_nil</span>(<span class="ruby-identifier">p</span>.<span class="ruby-identifier">local_end_time</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_initialize_start" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_initialize_start</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_initialize_start-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/tzinfo-1.2.5/test/tc_timezone_period.rb, line 55</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">test_initialize_start</span>
+  <span class="ruby-identifier">std</span> = <span class="ruby-constant">TimezoneOffset</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">-7200</span>, <span class="ruby-value">0</span>, <span class="ruby-value">:TEST</span>)
+  <span class="ruby-identifier">dst</span> = <span class="ruby-constant">TimezoneOffset</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">-7200</span>, <span class="ruby-value">3600</span>, <span class="ruby-value">:TEST</span>)
+  <span class="ruby-identifier">start_t</span> = <span class="ruby-constant">TestTimezoneTransition</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">dst</span>, <span class="ruby-identifier">std</span>, <span class="ruby-value">1136073600</span>)
+    
+  <span class="ruby-identifier">p</span> = <span class="ruby-constant">TimezonePeriod</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">start_t</span>, <span class="ruby-keyword">nil</span>)
+  
+  <span class="ruby-identifier">assert_same</span>(<span class="ruby-identifier">start_t</span>, <span class="ruby-identifier">p</span>.<span class="ruby-identifier">start_transition</span>)
+  <span class="ruby-identifier">assert_nil</span>(<span class="ruby-identifier">p</span>.<span class="ruby-identifier">end_transition</span>)
+  <span class="ruby-identifier">assert_same</span>(<span class="ruby-identifier">dst</span>, <span class="ruby-identifier">p</span>.<span class="ruby-identifier">offset</span>)
+  <span class="ruby-identifier">assert_equal</span>(<span class="ruby-constant">DateTime</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">2006</span>,<span class="ruby-value">1</span>,<span class="ruby-value">1</span>,<span class="ruby-value">0</span>,<span class="ruby-value">0</span>,<span class="ruby-value">0</span>), <span class="ruby-identifier">p</span>.<span class="ruby-identifier">utc_start</span>)
+  <span class="ruby-identifier">assert_equal</span>(<span class="ruby-constant">Time</span>.<span class="ruby-identifier">utc</span>(<span class="ruby-value">2006</span>,<span class="ruby-value">1</span>,<span class="ruby-value">1</span>,<span class="ruby-value">0</span>,<span class="ruby-value">0</span>,<span class="ruby-value">0</span>), <span class="ruby-identifier">p</span>.<span class="ruby-identifier">utc_start_time</span>)
+  <span class="ruby-identifier">assert_nil</span>(<span class="ruby-identifier">p</span>.<span class="ruby-identifier">utc_end</span>)
+  <span class="ruby-identifier">assert_nil</span>(<span class="ruby-identifier">p</span>.<span class="ruby-identifier">utc_end_time</span>)
+  <span class="ruby-identifier">assert_equal</span>(<span class="ruby-value">-7200</span>, <span class="ruby-identifier">p</span>.<span class="ruby-identifier">utc_offset</span>)
+  <span class="ruby-identifier">assert_equal</span>(<span class="ruby-value">3600</span>, <span class="ruby-identifier">p</span>.<span class="ruby-identifier">std_offset</span>)
+  <span class="ruby-identifier">assert_equal</span>(<span class="ruby-value">-3600</span>, <span class="ruby-identifier">p</span>.<span class="ruby-identifier">utc_total_offset</span>)
+  <span class="ruby-identifier">assert_equal</span>(<span class="ruby-constant">Rational</span>(<span class="ruby-value">-3600</span>, <span class="ruby-value">86400</span>), <span class="ruby-identifier">p</span>.<span class="ruby-identifier">utc_total_offset_rational</span>)
+  <span class="ruby-identifier">assert_equal</span>(<span class="ruby-value">:TEST</span>, <span class="ruby-identifier">p</span>.<span class="ruby-identifier">zone_identifier</span>)
+  <span class="ruby-identifier">assert_equal</span>(<span class="ruby-value">:TEST</span>, <span class="ruby-identifier">p</span>.<span class="ruby-identifier">abbreviation</span>)    
+  <span class="ruby-identifier">assert_equal</span>(<span class="ruby-constant">DateTime</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">2005</span>,<span class="ruby-value">12</span>,<span class="ruby-value">31</span>,<span class="ruby-value">23</span>,<span class="ruby-value">0</span>,<span class="ruby-value">0</span>), <span class="ruby-identifier">p</span>.<span class="ruby-identifier">local_start</span>)
+  <span class="ruby-identifier">assert_equal</span>(<span class="ruby-constant">Time</span>.<span class="ruby-identifier">utc</span>(<span class="ruby-value">2005</span>,<span class="ruby-value">12</span>,<span class="ruby-value">31</span>,<span class="ruby-value">23</span>,<span class="ruby-value">0</span>,<span class="ruby-value">0</span>), <span class="ruby-identifier">p</span>.<span class="ruby-identifier">local_start_time</span>)
+  <span class="ruby-identifier">assert_nil</span>(<span class="ruby-identifier">p</span>.<span class="ruby-identifier">local_end</span>)
+  <span class="ruby-identifier">assert_nil</span>(<span class="ruby-identifier">p</span>.<span class="ruby-identifier">local_end_time</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_initialize_start_end" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_initialize_start_end</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_initialize_start_end-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/tzinfo-1.2.5/test/tc_timezone_period.rb, line 18</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">test_initialize_start_end</span>
+  <span class="ruby-identifier">std</span> = <span class="ruby-constant">TimezoneOffset</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">-7200</span>, <span class="ruby-value">0</span>, <span class="ruby-value">:TEST</span>)
+  <span class="ruby-identifier">dst</span> = <span class="ruby-constant">TimezoneOffset</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">-7200</span>, <span class="ruby-value">3600</span>, <span class="ruby-value">:TEST</span>)
+  <span class="ruby-identifier">start_t</span> = <span class="ruby-constant">TestTimezoneTransition</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">dst</span>, <span class="ruby-identifier">std</span>, <span class="ruby-value">1136073600</span>)
+  <span class="ruby-identifier">end_t</span> = <span class="ruby-constant">TestTimezoneTransition</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">std</span>, <span class="ruby-identifier">dst</span>, <span class="ruby-value">1136160000</span>)
+    
+  <span class="ruby-identifier">p</span> = <span class="ruby-constant">TimezonePeriod</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">start_t</span>, <span class="ruby-identifier">end_t</span>)
+  
+  <span class="ruby-identifier">assert_same</span>(<span class="ruby-identifier">start_t</span>, <span class="ruby-identifier">p</span>.<span class="ruby-identifier">start_transition</span>)
+  <span class="ruby-identifier">assert_same</span>(<span class="ruby-identifier">end_t</span>, <span class="ruby-identifier">p</span>.<span class="ruby-identifier">end_transition</span>)
+  <span class="ruby-identifier">assert_same</span>(<span class="ruby-identifier">dst</span>, <span class="ruby-identifier">p</span>.<span class="ruby-identifier">offset</span>)
+  <span class="ruby-identifier">assert_equal</span>(<span class="ruby-constant">DateTime</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">2006</span>,<span class="ruby-value">1</span>,<span class="ruby-value">1</span>,<span class="ruby-value">0</span>,<span class="ruby-value">0</span>,<span class="ruby-value">0</span>), <span class="ruby-identifier">p</span>.<span class="ruby-identifier">utc_start</span>)
+  <span class="ruby-identifier">assert_equal</span>(<span class="ruby-constant">Time</span>.<span class="ruby-identifier">utc</span>(<span class="ruby-value">2006</span>,<span class="ruby-value">1</span>,<span class="ruby-value">1</span>,<span class="ruby-value">0</span>,<span class="ruby-value">0</span>,<span class="ruby-value">0</span>), <span class="ruby-identifier">p</span>.<span class="ruby-identifier">utc_start_time</span>)
+  <span class="ruby-identifier">assert_equal</span>(<span class="ruby-constant">DateTime</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">2006</span>,<span class="ruby-value">1</span>,<span class="ruby-value">2</span>,<span class="ruby-value">0</span>,<span class="ruby-value">0</span>,<span class="ruby-value">0</span>), <span class="ruby-identifier">p</span>.<span class="ruby-identifier">utc_end</span>)
+  <span class="ruby-identifier">assert_equal</span>(<span class="ruby-constant">Time</span>.<span class="ruby-identifier">utc</span>(<span class="ruby-value">2006</span>,<span class="ruby-value">1</span>,<span class="ruby-value">2</span>,<span class="ruby-value">0</span>,<span class="ruby-value">0</span>,<span class="ruby-value">0</span>), <span class="ruby-identifier">p</span>.<span class="ruby-identifier">utc_end_time</span>)
+  <span class="ruby-identifier">assert_equal</span>(<span class="ruby-value">-7200</span>, <span class="ruby-identifier">p</span>.<span class="ruby-identifier">utc_offset</span>)
+  <span class="ruby-identifier">assert_equal</span>(<span class="ruby-value">3600</span>, <span class="ruby-identifier">p</span>.<span class="ruby-identifier">std_offset</span>)
+  <span class="ruby-identifier">assert_equal</span>(<span class="ruby-value">-3600</span>, <span class="ruby-identifier">p</span>.<span class="ruby-identifier">utc_total_offset</span>)
+  <span class="ruby-identifier">assert_equal</span>(<span class="ruby-constant">Rational</span>(<span class="ruby-value">-3600</span>, <span class="ruby-value">86400</span>), <span class="ruby-identifier">p</span>.<span class="ruby-identifier">utc_total_offset_rational</span>)
+  <span class="ruby-identifier">assert_equal</span>(<span class="ruby-value">:TEST</span>, <span class="ruby-identifier">p</span>.<span class="ruby-identifier">zone_identifier</span>)
+  <span class="ruby-identifier">assert_equal</span>(<span class="ruby-value">:TEST</span>, <span class="ruby-identifier">p</span>.<span class="ruby-identifier">abbreviation</span>)    
+  <span class="ruby-identifier">assert_equal</span>(<span class="ruby-constant">DateTime</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">2005</span>,<span class="ruby-value">12</span>,<span class="ruby-value">31</span>,<span class="ruby-value">23</span>,<span class="ruby-value">0</span>,<span class="ruby-value">0</span>), <span class="ruby-identifier">p</span>.<span class="ruby-identifier">local_start</span>)
+  <span class="ruby-identifier">assert_equal</span>(<span class="ruby-constant">Time</span>.<span class="ruby-identifier">utc</span>(<span class="ruby-value">2005</span>,<span class="ruby-value">12</span>,<span class="ruby-value">31</span>,<span class="ruby-value">23</span>,<span class="ruby-value">0</span>,<span class="ruby-value">0</span>), <span class="ruby-identifier">p</span>.<span class="ruby-identifier">local_start_time</span>)
+  <span class="ruby-identifier">assert_equal</span>(<span class="ruby-constant">DateTime</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">2006</span>,<span class="ruby-value">1</span>,<span class="ruby-value">1</span>,<span class="ruby-value">23</span>,<span class="ruby-value">0</span>,<span class="ruby-value">0</span>), <span class="ruby-identifier">p</span>.<span class="ruby-identifier">local_end</span>)
+  <span class="ruby-identifier">assert_equal</span>(<span class="ruby-constant">Time</span>.<span class="ruby-identifier">utc</span>(<span class="ruby-value">2006</span>,<span class="ruby-value">1</span>,<span class="ruby-value">1</span>,<span class="ruby-value">23</span>,<span class="ruby-value">0</span>,<span class="ruby-value">0</span>), <span class="ruby-identifier">p</span>.<span class="ruby-identifier">local_end_time</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_initialize_start_end_offset" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_initialize_start_end_offset</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_initialize_start_end_offset-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/tzinfo-1.2.5/test/tc_timezone_period.rb, line 45</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">test_initialize_start_end_offset</span>
+  <span class="ruby-identifier">std</span> = <span class="ruby-constant">TimezoneOffset</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">-7200</span>, <span class="ruby-value">0</span>, <span class="ruby-value">:TEST</span>)
+  <span class="ruby-identifier">dst</span> = <span class="ruby-constant">TimezoneOffset</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">-7200</span>, <span class="ruby-value">3600</span>, <span class="ruby-value">:TEST</span>)
+  <span class="ruby-identifier">special</span> = <span class="ruby-constant">TimezoneOffset</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">0</span>, <span class="ruby-value">0</span>, <span class="ruby-value">:SPECIAL</span>)
+  <span class="ruby-identifier">start_t</span> = <span class="ruby-constant">TestTimezoneTransition</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">dst</span>, <span class="ruby-identifier">std</span>, <span class="ruby-value">1136073600</span>)
+  <span class="ruby-identifier">end_t</span> = <span class="ruby-constant">TestTimezoneTransition</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">std</span>, <span class="ruby-identifier">dst</span>, <span class="ruby-value">1136160000</span>)
+    
+  <span class="ruby-identifier">assert_raises</span>(<span class="ruby-constant">ArgumentError</span>) { <span class="ruby-constant">TimezonePeriod</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">start_t</span>, <span class="ruby-identifier">end_t</span>, <span class="ruby-identifier">special</span>) }
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_initialize_start_offset" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_initialize_start_offset</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_initialize_start_offset-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/tzinfo-1.2.5/test/tc_timezone_period.rb, line 81</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">test_initialize_start_offset</span>
+  <span class="ruby-identifier">std</span> = <span class="ruby-constant">TimezoneOffset</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">-7200</span>, <span class="ruby-value">0</span>, <span class="ruby-value">:TEST</span>)
+  <span class="ruby-identifier">dst</span> = <span class="ruby-constant">TimezoneOffset</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">-7200</span>, <span class="ruby-value">3600</span>, <span class="ruby-value">:TEST</span>)
+  <span class="ruby-identifier">special</span> = <span class="ruby-constant">TimezoneOffset</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">0</span>, <span class="ruby-value">0</span>, <span class="ruby-value">:SPECIAL</span>)
+  <span class="ruby-identifier">start_t</span> = <span class="ruby-constant">TestTimezoneTransition</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">dst</span>, <span class="ruby-identifier">std</span>, <span class="ruby-value">1136073600</span>)
+    
+  <span class="ruby-identifier">assert_raises</span>(<span class="ruby-constant">ArgumentError</span>) { <span class="ruby-constant">TimezonePeriod</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">start_t</span>, <span class="ruby-keyword">nil</span>, <span class="ruby-identifier">special</span>) }
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_local_after_start" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_local_after_start</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_local_after_start-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/tzinfo-1.2.5/test/tc_timezone_period.rb, line 331</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">test_local_after_start</span>
+  <span class="ruby-identifier">offset</span> = <span class="ruby-constant">TimezoneOffset</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">-7200</span>, <span class="ruby-value">3600</span>, <span class="ruby-value">:TEST</span>)
+  <span class="ruby-identifier">t1</span> = <span class="ruby-constant">TestTimezoneTransition</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">offset</span>, <span class="ruby-identifier">offset</span>, <span class="ruby-value">1104544861</span>)
+  <span class="ruby-identifier">t2</span> = <span class="ruby-constant">TestTimezoneTransition</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">offset</span>, <span class="ruby-identifier">offset</span>, <span class="ruby-value">1107313322</span>)
+  <span class="ruby-identifier">t3</span> = <span class="ruby-constant">TestTimezoneTransition</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">offset</span>, <span class="ruby-identifier">offset</span>, <span class="ruby-constant">DateTime</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">1945</span>, <span class="ruby-value">1</span>, <span class="ruby-value">1</span>, <span class="ruby-value">1</span>, <span class="ruby-value">1</span>, <span class="ruby-value">1</span>))
+  <span class="ruby-identifier">t4</span> = <span class="ruby-constant">TestTimezoneTransition</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">offset</span>, <span class="ruby-identifier">offset</span>, <span class="ruby-constant">DateTime</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">1945</span>, <span class="ruby-value">2</span>, <span class="ruby-value">2</span>, <span class="ruby-value">2</span>, <span class="ruby-value">2</span>, <span class="ruby-value">2</span>))
+  
+  <span class="ruby-identifier">p1</span> = <span class="ruby-constant">TimezonePeriod</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">t1</span>, <span class="ruby-identifier">t2</span>)
+  <span class="ruby-identifier">p2</span> = <span class="ruby-constant">TimezonePeriod</span>.<span class="ruby-identifier">new</span>(<span class="ruby-keyword">nil</span>, <span class="ruby-identifier">t2</span>)
+  <span class="ruby-identifier">p3</span> = <span class="ruby-constant">TimezonePeriod</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">t3</span>, <span class="ruby-identifier">t4</span>)
+
+  <span class="ruby-identifier">assert_equal</span>(<span class="ruby-keyword">true</span>, <span class="ruby-identifier">p1</span>.<span class="ruby-identifier">local_after_start?</span>(<span class="ruby-constant">DateTime</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">2005</span>,<span class="ruby-value">1</span>,<span class="ruby-value">1</span>,<span class="ruby-value">1</span>,<span class="ruby-value">1</span>,<span class="ruby-value">1</span>)))    
+  <span class="ruby-identifier">assert_equal</span>(<span class="ruby-keyword">true</span>, <span class="ruby-identifier">p1</span>.<span class="ruby-identifier">local_after_start?</span>(<span class="ruby-constant">Time</span>.<span class="ruby-identifier">utc</span>(<span class="ruby-value">2005</span>,<span class="ruby-value">1</span>,<span class="ruby-value">1</span>,<span class="ruby-value">1</span>,<span class="ruby-value">1</span>,<span class="ruby-value">2</span>)))
+  <span class="ruby-identifier">assert_equal</span>(<span class="ruby-keyword">false</span>, <span class="ruby-identifier">p1</span>.<span class="ruby-identifier">local_after_start?</span>(<span class="ruby-value">1104541260</span>))
+  <span class="ruby-identifier">assert_equal</span>(<span class="ruby-keyword">true</span>, <span class="ruby-identifier">p1</span>.<span class="ruby-identifier">local_after_start?</span>(<span class="ruby-constant">DateTime</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">2045</span>,<span class="ruby-value">1</span>,<span class="ruby-value">1</span>,<span class="ruby-value">1</span>,<span class="ruby-value">1</span>,<span class="ruby-value">0</span>)))
+  <span class="ruby-identifier">assert_equal</span>(<span class="ruby-keyword">false</span>, <span class="ruby-identifier">p1</span>.<span class="ruby-identifier">local_after_start?</span>(<span class="ruby-constant">DateTime</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">1955</span>,<span class="ruby-value">1</span>,<span class="ruby-value">1</span>,<span class="ruby-value">1</span>,<span class="ruby-value">1</span>,<span class="ruby-value">0</span>)))
+
+  <span class="ruby-identifier">assert_equal</span>(<span class="ruby-keyword">true</span>, <span class="ruby-identifier">p2</span>.<span class="ruby-identifier">local_after_start?</span>(<span class="ruby-constant">DateTime</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">2005</span>,<span class="ruby-value">1</span>,<span class="ruby-value">1</span>,<span class="ruby-value">1</span>,<span class="ruby-value">1</span>,<span class="ruby-value">1</span>)))    
+  <span class="ruby-identifier">assert_equal</span>(<span class="ruby-keyword">true</span>, <span class="ruby-identifier">p2</span>.<span class="ruby-identifier">local_after_start?</span>(<span class="ruby-constant">Time</span>.<span class="ruby-identifier">utc</span>(<span class="ruby-value">2005</span>,<span class="ruby-value">1</span>,<span class="ruby-value">1</span>,<span class="ruby-value">1</span>,<span class="ruby-value">1</span>,<span class="ruby-value">2</span>)))
+  <span class="ruby-identifier">assert_equal</span>(<span class="ruby-keyword">true</span>, <span class="ruby-identifier">p2</span>.<span class="ruby-identifier">local_after_start?</span>(<span class="ruby-value">1104541260</span>))    
+  
+  <span class="ruby-identifier">assert_equal</span>(<span class="ruby-keyword">true</span>, <span class="ruby-identifier">p3</span>.<span class="ruby-identifier">local_after_start?</span>(<span class="ruby-constant">Time</span>.<span class="ruby-identifier">utc</span>(<span class="ruby-value">2005</span>,<span class="ruby-value">1</span>,<span class="ruby-value">2</span>,<span class="ruby-value">1</span>,<span class="ruby-value">1</span>,<span class="ruby-value">1</span>)))
+  <span class="ruby-identifier">assert_equal</span>(<span class="ruby-keyword">true</span>, <span class="ruby-identifier">p3</span>.<span class="ruby-identifier">local_after_start?</span>(<span class="ruby-value">1104627661</span>))
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_local_before_end" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_local_before_end</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_local_before_end-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/tzinfo-1.2.5/test/tc_timezone_period.rb, line 356</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">test_local_before_end</span>
+  <span class="ruby-identifier">offset</span> = <span class="ruby-constant">TimezoneOffset</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">-7200</span>, <span class="ruby-value">3600</span>, <span class="ruby-value">:TEST</span>)
+  <span class="ruby-identifier">t1</span> = <span class="ruby-constant">TestTimezoneTransition</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">offset</span>, <span class="ruby-identifier">offset</span>, <span class="ruby-value">1104544861</span>)
+  <span class="ruby-identifier">t2</span> = <span class="ruby-constant">TestTimezoneTransition</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">offset</span>, <span class="ruby-identifier">offset</span>, <span class="ruby-value">1107313322</span>)
+  <span class="ruby-identifier">t3</span> = <span class="ruby-constant">TestTimezoneTransition</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">offset</span>, <span class="ruby-identifier">offset</span>, <span class="ruby-constant">DateTime</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">1945</span>, <span class="ruby-value">1</span>, <span class="ruby-value">1</span>, <span class="ruby-value">1</span>, <span class="ruby-value">1</span>, <span class="ruby-value">1</span>))
+  <span class="ruby-identifier">t4</span> = <span class="ruby-constant">TestTimezoneTransition</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">offset</span>, <span class="ruby-identifier">offset</span>, <span class="ruby-constant">DateTime</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">1945</span>, <span class="ruby-value">2</span>, <span class="ruby-value">2</span>, <span class="ruby-value">2</span>, <span class="ruby-value">2</span>, <span class="ruby-value">2</span>))
+  
+  <span class="ruby-identifier">p1</span> = <span class="ruby-constant">TimezonePeriod</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">t1</span>, <span class="ruby-identifier">t2</span>)    
+  <span class="ruby-identifier">p2</span> = <span class="ruby-constant">TimezonePeriod</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">t1</span>, <span class="ruby-keyword">nil</span>)
+  <span class="ruby-identifier">p3</span> = <span class="ruby-constant">TimezonePeriod</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">t3</span>, <span class="ruby-identifier">t4</span>)    
+      
+  <span class="ruby-identifier">assert_equal</span>(<span class="ruby-keyword">true</span>, <span class="ruby-identifier">p1</span>.<span class="ruby-identifier">local_before_end?</span>(<span class="ruby-constant">DateTime</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">2005</span>,<span class="ruby-value">2</span>,<span class="ruby-value">2</span>,<span class="ruby-value">2</span>,<span class="ruby-value">2</span>,<span class="ruby-value">1</span>)))    
+  <span class="ruby-identifier">assert_equal</span>(<span class="ruby-keyword">true</span>, <span class="ruby-identifier">p1</span>.<span class="ruby-identifier">local_before_end?</span>(<span class="ruby-constant">Time</span>.<span class="ruby-identifier">utc</span>(<span class="ruby-value">2005</span>,<span class="ruby-value">2</span>,<span class="ruby-value">2</span>,<span class="ruby-value">2</span>,<span class="ruby-value">2</span>,<span class="ruby-value">0</span>)))   
+  <span class="ruby-identifier">assert_equal</span>(<span class="ruby-keyword">false</span>, <span class="ruby-identifier">p1</span>.<span class="ruby-identifier">local_before_end?</span>(<span class="ruby-value">1107309723</span>))
+  <span class="ruby-identifier">assert_equal</span>(<span class="ruby-keyword">false</span>, <span class="ruby-identifier">p1</span>.<span class="ruby-identifier">local_before_end?</span>(<span class="ruby-constant">DateTime</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">2045</span>,<span class="ruby-value">1</span>,<span class="ruby-value">1</span>,<span class="ruby-value">1</span>,<span class="ruby-value">1</span>,<span class="ruby-value">0</span>)))
+  <span class="ruby-identifier">assert_equal</span>(<span class="ruby-keyword">true</span>, <span class="ruby-identifier">p1</span>.<span class="ruby-identifier">local_before_end?</span>(<span class="ruby-constant">DateTime</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">1955</span>,<span class="ruby-value">1</span>,<span class="ruby-value">1</span>,<span class="ruby-value">1</span>,<span class="ruby-value">1</span>,<span class="ruby-value">0</span>)))
+  
+  <span class="ruby-identifier">assert_equal</span>(<span class="ruby-keyword">true</span>, <span class="ruby-identifier">p2</span>.<span class="ruby-identifier">local_before_end?</span>(<span class="ruby-constant">DateTime</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">2005</span>,<span class="ruby-value">2</span>,<span class="ruby-value">2</span>,<span class="ruby-value">2</span>,<span class="ruby-value">2</span>,<span class="ruby-value">1</span>)))    
+  <span class="ruby-identifier">assert_equal</span>(<span class="ruby-keyword">true</span>, <span class="ruby-identifier">p2</span>.<span class="ruby-identifier">local_before_end?</span>(<span class="ruby-constant">Time</span>.<span class="ruby-identifier">utc</span>(<span class="ruby-value">2005</span>,<span class="ruby-value">2</span>,<span class="ruby-value">2</span>,<span class="ruby-value">2</span>,<span class="ruby-value">2</span>,<span class="ruby-value">0</span>)))   
+  <span class="ruby-identifier">assert_equal</span>(<span class="ruby-keyword">true</span>, <span class="ruby-identifier">p2</span>.<span class="ruby-identifier">local_before_end?</span>(<span class="ruby-value">1107309723</span>))
+  
+  <span class="ruby-identifier">assert_equal</span>(<span class="ruby-keyword">false</span>, <span class="ruby-identifier">p3</span>.<span class="ruby-identifier">local_before_end?</span>(<span class="ruby-constant">Time</span>.<span class="ruby-identifier">utc</span>(<span class="ruby-value">2005</span>,<span class="ruby-value">1</span>,<span class="ruby-value">2</span>,<span class="ruby-value">1</span>,<span class="ruby-value">1</span>,<span class="ruby-value">1</span>)))
+  <span class="ruby-identifier">assert_equal</span>(<span class="ruby-keyword">false</span>, <span class="ruby-identifier">p3</span>.<span class="ruby-identifier">local_before_end?</span>(<span class="ruby-value">1104627661</span>))
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_time_boundary_end" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_time_boundary_end</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_time_boundary_end-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/tzinfo-1.2.5/test/tc_timezone_period.rb, line 420</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">test_time_boundary_end</span>
+  <span class="ruby-identifier">o1</span> = <span class="ruby-constant">TimezoneOffset</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">0</span>, <span class="ruby-value">3600</span>, <span class="ruby-value">:TEST</span>)
+  <span class="ruby-identifier">o2</span> = <span class="ruby-constant">TimezoneOffset</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">0</span>, <span class="ruby-value">0</span>, <span class="ruby-value">:TEST</span>)
+  <span class="ruby-identifier">t1</span> = <span class="ruby-constant">TestTimezoneTransition</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">o2</span>, <span class="ruby-identifier">o1</span>, <span class="ruby-value">2147482800</span>)
+  
+  <span class="ruby-identifier">p1</span> = <span class="ruby-constant">TimezonePeriod</span>.<span class="ruby-identifier">new</span>(<span class="ruby-keyword">nil</span>, <span class="ruby-identifier">t1</span>)
+  
+  <span class="ruby-identifier">assert_equal</span>(<span class="ruby-constant">DateTime</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">2038</span>,<span class="ruby-value">1</span>,<span class="ruby-value">19</span>,<span class="ruby-value">4</span>,<span class="ruby-value">0</span>,<span class="ruby-value">0</span>), <span class="ruby-identifier">p1</span>.<span class="ruby-identifier">local_end</span>)
+  
+  <span class="ruby-comment"># Conversion to Time will fail on systems that don&#39;t support 64-bit times</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-constant">RubyCoreSupport</span>.<span class="ruby-identifier">time_supports_64bit</span>
+    <span class="ruby-identifier">assert_equal</span>(<span class="ruby-constant">Time</span>.<span class="ruby-identifier">utc</span>(<span class="ruby-value">2038</span>,<span class="ruby-value">1</span>,<span class="ruby-value">19</span>,<span class="ruby-value">4</span>,<span class="ruby-value">0</span>,<span class="ruby-value">0</span>), <span class="ruby-identifier">p1</span>.<span class="ruby-identifier">local_end_time</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_time_boundary_start" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_time_boundary_start</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_time_boundary_start-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/tzinfo-1.2.5/test/tc_timezone_period.rb, line 405</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">test_time_boundary_start</span>
+  <span class="ruby-identifier">o1</span> = <span class="ruby-constant">TimezoneOffset</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">-3600</span>, <span class="ruby-value">0</span>, <span class="ruby-value">:TEST</span>)
+  <span class="ruby-identifier">o2</span> = <span class="ruby-constant">TimezoneOffset</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">-3600</span>, <span class="ruby-value">3600</span>, <span class="ruby-value">:TEST</span>)
+  <span class="ruby-identifier">t1</span> = <span class="ruby-constant">TestTimezoneTransition</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">o1</span>, <span class="ruby-identifier">o2</span>, <span class="ruby-value">0</span>)
+  
+  <span class="ruby-identifier">p1</span> = <span class="ruby-constant">TimezonePeriod</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">t1</span>, <span class="ruby-keyword">nil</span>)
+  
+  <span class="ruby-identifier">assert_equal</span>(<span class="ruby-constant">DateTime</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">1969</span>,<span class="ruby-value">12</span>,<span class="ruby-value">31</span>,<span class="ruby-value">23</span>,<span class="ruby-value">0</span>,<span class="ruby-value">0</span>), <span class="ruby-identifier">p1</span>.<span class="ruby-identifier">local_start</span>)
+  
+  <span class="ruby-comment"># Conversion to Time will fail on systems that don&#39;t support negative times.</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-constant">RubyCoreSupport</span>.<span class="ruby-identifier">time_supports_negative</span>
+    <span class="ruby-identifier">assert_equal</span>(<span class="ruby-constant">Time</span>.<span class="ruby-identifier">utc</span>(<span class="ruby-value">1969</span>,<span class="ruby-value">12</span>,<span class="ruby-value">31</span>,<span class="ruby-value">23</span>,<span class="ruby-value">0</span>,<span class="ruby-value">0</span>), <span class="ruby-identifier">p1</span>.<span class="ruby-identifier">local_start_time</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_to_local" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_to_local</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_to_local-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/tzinfo-1.2.5/test/tc_timezone_period.rb, line 381</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">test_to_local</span>
+  <span class="ruby-identifier">p1</span> = <span class="ruby-constant">TimezonePeriod</span>.<span class="ruby-identifier">new</span>(<span class="ruby-keyword">nil</span>, <span class="ruby-keyword">nil</span>, <span class="ruby-constant">TimezoneOffset</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">-14400</span>, <span class="ruby-value">3600</span>, <span class="ruby-value">:TEST</span>))
+  <span class="ruby-identifier">p2</span> = <span class="ruby-constant">TimezonePeriod</span>.<span class="ruby-identifier">new</span>(<span class="ruby-keyword">nil</span>, <span class="ruby-keyword">nil</span>, <span class="ruby-constant">TimezoneOffset</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">-14400</span>, <span class="ruby-value">0</span>, <span class="ruby-value">:TEST</span>))
+  <span class="ruby-identifier">p3</span> = <span class="ruby-constant">TimezonePeriod</span>.<span class="ruby-identifier">new</span>(<span class="ruby-keyword">nil</span>, <span class="ruby-keyword">nil</span>, <span class="ruby-constant">TimezoneOffset</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">7200</span>, <span class="ruby-value">3600</span>, <span class="ruby-value">:TEST</span>))
+      
+  <span class="ruby-identifier">assert_equal</span>(<span class="ruby-constant">DateTime</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">2005</span>,<span class="ruby-value">1</span>,<span class="ruby-value">19</span>,<span class="ruby-value">22</span>,<span class="ruby-value">0</span>,<span class="ruby-value">0</span>), <span class="ruby-identifier">p1</span>.<span class="ruby-identifier">to_local</span>(<span class="ruby-constant">DateTime</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">2005</span>,<span class="ruby-value">1</span>,<span class="ruby-value">20</span>,<span class="ruby-value">1</span>,<span class="ruby-value">0</span>,<span class="ruby-value">0</span>)))
+  <span class="ruby-identifier">assert_equal</span>(<span class="ruby-constant">DateTime</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">2005</span>,<span class="ruby-value">1</span>,<span class="ruby-value">19</span>,<span class="ruby-value">22</span>,<span class="ruby-value">0</span>,<span class="ruby-value">0</span> <span class="ruby-operator">+</span> <span class="ruby-constant">Rational</span>(<span class="ruby-value">512</span>,<span class="ruby-value">1000</span>)), <span class="ruby-identifier">p1</span>.<span class="ruby-identifier">to_local</span>(<span class="ruby-constant">DateTime</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">2005</span>,<span class="ruby-value">1</span>,<span class="ruby-value">20</span>,<span class="ruby-value">1</span>,<span class="ruby-value">0</span>,<span class="ruby-value">0</span> <span class="ruby-operator">+</span> <span class="ruby-constant">Rational</span>(<span class="ruby-value">512</span>,<span class="ruby-value">1000</span>))))
+  <span class="ruby-identifier">assert_equal</span>(<span class="ruby-constant">Time</span>.<span class="ruby-identifier">utc</span>(<span class="ruby-value">2005</span>,<span class="ruby-value">1</span>,<span class="ruby-value">19</span>,<span class="ruby-value">21</span>,<span class="ruby-value">0</span>,<span class="ruby-value">0</span>), <span class="ruby-identifier">p2</span>.<span class="ruby-identifier">to_local</span>(<span class="ruby-constant">Time</span>.<span class="ruby-identifier">utc</span>(<span class="ruby-value">2005</span>,<span class="ruby-value">1</span>,<span class="ruby-value">20</span>,<span class="ruby-value">1</span>,<span class="ruby-value">0</span>,<span class="ruby-value">0</span>)))
+  <span class="ruby-identifier">assert_equal</span>(<span class="ruby-constant">Time</span>.<span class="ruby-identifier">utc</span>(<span class="ruby-value">2005</span>,<span class="ruby-value">1</span>,<span class="ruby-value">19</span>,<span class="ruby-value">21</span>,<span class="ruby-value">0</span>,<span class="ruby-value">0</span>,<span class="ruby-value">512000</span>), <span class="ruby-identifier">p2</span>.<span class="ruby-identifier">to_local</span>(<span class="ruby-constant">Time</span>.<span class="ruby-identifier">utc</span>(<span class="ruby-value">2005</span>,<span class="ruby-value">1</span>,<span class="ruby-value">20</span>,<span class="ruby-value">1</span>,<span class="ruby-value">0</span>,<span class="ruby-value">0</span>,<span class="ruby-value">512000</span>)))
+  <span class="ruby-identifier">assert_equal</span>(<span class="ruby-value">1106193600</span>, <span class="ruby-identifier">p3</span>.<span class="ruby-identifier">to_local</span>(<span class="ruby-value">1106182800</span>))
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_to_utc" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_to_utc</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_to_utc-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/tzinfo-1.2.5/test/tc_timezone_period.rb, line 393</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">test_to_utc</span>
+  <span class="ruby-identifier">p1</span> = <span class="ruby-constant">TimezonePeriod</span>.<span class="ruby-identifier">new</span>(<span class="ruby-keyword">nil</span>, <span class="ruby-keyword">nil</span>, <span class="ruby-constant">TimezoneOffset</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">-14400</span>, <span class="ruby-value">3600</span>, <span class="ruby-value">:TEST</span>))
+  <span class="ruby-identifier">p2</span> = <span class="ruby-constant">TimezonePeriod</span>.<span class="ruby-identifier">new</span>(<span class="ruby-keyword">nil</span>, <span class="ruby-keyword">nil</span>, <span class="ruby-constant">TimezoneOffset</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">-14400</span>, <span class="ruby-value">0</span>, <span class="ruby-value">:TEST</span>))
+  <span class="ruby-identifier">p3</span> = <span class="ruby-constant">TimezonePeriod</span>.<span class="ruby-identifier">new</span>(<span class="ruby-keyword">nil</span>, <span class="ruby-keyword">nil</span>, <span class="ruby-constant">TimezoneOffset</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">7200</span>, <span class="ruby-value">3600</span>, <span class="ruby-value">:TEST</span>))
+      
+  <span class="ruby-identifier">assert_equal</span>(<span class="ruby-constant">DateTime</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">2005</span>,<span class="ruby-value">1</span>,<span class="ruby-value">20</span>,<span class="ruby-value">4</span>,<span class="ruby-value">0</span>,<span class="ruby-value">0</span>), <span class="ruby-identifier">p1</span>.<span class="ruby-identifier">to_utc</span>(<span class="ruby-constant">DateTime</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">2005</span>,<span class="ruby-value">1</span>,<span class="ruby-value">20</span>,<span class="ruby-value">1</span>,<span class="ruby-value">0</span>,<span class="ruby-value">0</span>)))
+  <span class="ruby-identifier">assert_equal</span>(<span class="ruby-constant">DateTime</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">2005</span>,<span class="ruby-value">1</span>,<span class="ruby-value">20</span>,<span class="ruby-value">4</span>,<span class="ruby-value">0</span>,<span class="ruby-value">0</span> <span class="ruby-operator">+</span> <span class="ruby-constant">Rational</span>(<span class="ruby-value">571</span>,<span class="ruby-value">1000</span>)), <span class="ruby-identifier">p1</span>.<span class="ruby-identifier">to_utc</span>(<span class="ruby-constant">DateTime</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">2005</span>,<span class="ruby-value">1</span>,<span class="ruby-value">20</span>,<span class="ruby-value">1</span>,<span class="ruby-value">0</span>,<span class="ruby-value">0</span> <span class="ruby-operator">+</span> <span class="ruby-constant">Rational</span>(<span class="ruby-value">571</span>,<span class="ruby-value">1000</span>))))
+  <span class="ruby-identifier">assert_equal</span>(<span class="ruby-constant">Time</span>.<span class="ruby-identifier">utc</span>(<span class="ruby-value">2005</span>,<span class="ruby-value">1</span>,<span class="ruby-value">20</span>,<span class="ruby-value">5</span>,<span class="ruby-value">0</span>,<span class="ruby-value">0</span>), <span class="ruby-identifier">p2</span>.<span class="ruby-identifier">to_utc</span>(<span class="ruby-constant">Time</span>.<span class="ruby-identifier">utc</span>(<span class="ruby-value">2005</span>,<span class="ruby-value">1</span>,<span class="ruby-value">20</span>,<span class="ruby-value">1</span>,<span class="ruby-value">0</span>,<span class="ruby-value">0</span>)))
+  <span class="ruby-identifier">assert_equal</span>(<span class="ruby-constant">Time</span>.<span class="ruby-identifier">utc</span>(<span class="ruby-value">2005</span>,<span class="ruby-value">1</span>,<span class="ruby-value">20</span>,<span class="ruby-value">5</span>,<span class="ruby-value">0</span>,<span class="ruby-value">0</span>,<span class="ruby-value">571000</span>), <span class="ruby-identifier">p2</span>.<span class="ruby-identifier">to_utc</span>(<span class="ruby-constant">Time</span>.<span class="ruby-identifier">utc</span>(<span class="ruby-value">2005</span>,<span class="ruby-value">1</span>,<span class="ruby-value">20</span>,<span class="ruby-value">1</span>,<span class="ruby-value">0</span>,<span class="ruby-value">0</span>,<span class="ruby-value">571000</span>)))
+  <span class="ruby-identifier">assert_equal</span>(<span class="ruby-value">1106172000</span>, <span class="ruby-identifier">p3</span>.<span class="ruby-identifier">to_utc</span>(<span class="ruby-value">1106182800</span>))
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_utc_after_start" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_utc_after_start</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_utc_after_start-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/tzinfo-1.2.5/test/tc_timezone_period.rb, line 227</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">test_utc_after_start</span>
+  <span class="ruby-identifier">offset</span> = <span class="ruby-constant">TimezoneOffset</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">-7200</span>, <span class="ruby-value">3600</span>, <span class="ruby-value">:TEST</span>)
+  <span class="ruby-identifier">t1</span> = <span class="ruby-constant">TestTimezoneTransition</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">offset</span>, <span class="ruby-identifier">offset</span>, <span class="ruby-value">1104541261</span>)
+  <span class="ruby-identifier">t2</span> = <span class="ruby-constant">TestTimezoneTransition</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">offset</span>, <span class="ruby-identifier">offset</span>, <span class="ruby-value">1107309722</span>)
+  <span class="ruby-identifier">t3</span> = <span class="ruby-constant">TestTimezoneTransition</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">offset</span>, <span class="ruby-identifier">offset</span>, <span class="ruby-constant">DateTime</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">1945</span>, <span class="ruby-value">1</span>, <span class="ruby-value">1</span>, <span class="ruby-value">1</span>, <span class="ruby-value">1</span>, <span class="ruby-value">1</span>))
+  <span class="ruby-identifier">t4</span> = <span class="ruby-constant">TestTimezoneTransition</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">offset</span>, <span class="ruby-identifier">offset</span>, <span class="ruby-constant">DateTime</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">1945</span>, <span class="ruby-value">2</span>, <span class="ruby-value">2</span>, <span class="ruby-value">2</span>, <span class="ruby-value">2</span>, <span class="ruby-value">2</span>))
+  
+  <span class="ruby-identifier">p1</span> = <span class="ruby-constant">TimezonePeriod</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">t1</span>, <span class="ruby-identifier">t2</span>)
+  <span class="ruby-identifier">p2</span> = <span class="ruby-constant">TimezonePeriod</span>.<span class="ruby-identifier">new</span>(<span class="ruby-keyword">nil</span>, <span class="ruby-identifier">t2</span>)
+  <span class="ruby-identifier">p3</span> = <span class="ruby-constant">TimezonePeriod</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">t3</span>, <span class="ruby-identifier">t4</span>)
+
+  <span class="ruby-identifier">assert_equal</span>(<span class="ruby-keyword">true</span>, <span class="ruby-identifier">p1</span>.<span class="ruby-identifier">utc_after_start?</span>(<span class="ruby-constant">DateTime</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">2005</span>,<span class="ruby-value">1</span>,<span class="ruby-value">1</span>,<span class="ruby-value">1</span>,<span class="ruby-value">1</span>,<span class="ruby-value">1</span>)))    
+  <span class="ruby-identifier">assert_equal</span>(<span class="ruby-keyword">true</span>, <span class="ruby-identifier">p1</span>.<span class="ruby-identifier">utc_after_start?</span>(<span class="ruby-constant">Time</span>.<span class="ruby-identifier">utc</span>(<span class="ruby-value">2005</span>,<span class="ruby-value">1</span>,<span class="ruby-value">1</span>,<span class="ruby-value">1</span>,<span class="ruby-value">1</span>,<span class="ruby-value">2</span>)))
+  <span class="ruby-identifier">assert_equal</span>(<span class="ruby-keyword">false</span>, <span class="ruby-identifier">p1</span>.<span class="ruby-identifier">utc_after_start?</span>(<span class="ruby-value">1104541260</span>))
+  <span class="ruby-identifier">assert_equal</span>(<span class="ruby-keyword">true</span>, <span class="ruby-identifier">p1</span>.<span class="ruby-identifier">utc_after_start?</span>(<span class="ruby-constant">DateTime</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">2045</span>,<span class="ruby-value">1</span>,<span class="ruby-value">1</span>,<span class="ruby-value">1</span>,<span class="ruby-value">1</span>,<span class="ruby-value">0</span>)))
+  <span class="ruby-identifier">assert_equal</span>(<span class="ruby-keyword">false</span>, <span class="ruby-identifier">p1</span>.<span class="ruby-identifier">utc_after_start?</span>(<span class="ruby-constant">DateTime</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">1955</span>,<span class="ruby-value">1</span>,<span class="ruby-value">1</span>,<span class="ruby-value">1</span>,<span class="ruby-value">1</span>,<span class="ruby-value">0</span>)))
+
+  <span class="ruby-identifier">assert_equal</span>(<span class="ruby-keyword">true</span>, <span class="ruby-identifier">p2</span>.<span class="ruby-identifier">utc_after_start?</span>(<span class="ruby-constant">DateTime</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">2005</span>,<span class="ruby-value">1</span>,<span class="ruby-value">1</span>,<span class="ruby-value">1</span>,<span class="ruby-value">1</span>,<span class="ruby-value">1</span>)))    
+  <span class="ruby-identifier">assert_equal</span>(<span class="ruby-keyword">true</span>, <span class="ruby-identifier">p2</span>.<span class="ruby-identifier">utc_after_start?</span>(<span class="ruby-constant">Time</span>.<span class="ruby-identifier">utc</span>(<span class="ruby-value">2005</span>,<span class="ruby-value">1</span>,<span class="ruby-value">1</span>,<span class="ruby-value">1</span>,<span class="ruby-value">1</span>,<span class="ruby-value">2</span>)))
+  <span class="ruby-identifier">assert_equal</span>(<span class="ruby-keyword">true</span>, <span class="ruby-identifier">p2</span>.<span class="ruby-identifier">utc_after_start?</span>(<span class="ruby-value">1104541260</span>)) 
+  
+  <span class="ruby-identifier">assert_equal</span>(<span class="ruby-keyword">true</span>, <span class="ruby-identifier">p3</span>.<span class="ruby-identifier">utc_after_start?</span>(<span class="ruby-constant">Time</span>.<span class="ruby-identifier">utc</span>(<span class="ruby-value">2005</span>,<span class="ruby-value">1</span>,<span class="ruby-value">2</span>,<span class="ruby-value">1</span>,<span class="ruby-value">1</span>,<span class="ruby-value">1</span>)))
+  <span class="ruby-identifier">assert_equal</span>(<span class="ruby-keyword">true</span>, <span class="ruby-identifier">p3</span>.<span class="ruby-identifier">utc_after_start?</span>(<span class="ruby-value">1104627661</span>))
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_utc_before_end" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_utc_before_end</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_utc_before_end-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/tzinfo-1.2.5/test/tc_timezone_period.rb, line 252</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">test_utc_before_end</span>
+  <span class="ruby-identifier">offset</span> = <span class="ruby-constant">TimezoneOffset</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">-7200</span>, <span class="ruby-value">3600</span>, <span class="ruby-value">:TEST</span>)
+  <span class="ruby-identifier">t1</span> = <span class="ruby-constant">TestTimezoneTransition</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">offset</span>, <span class="ruby-identifier">offset</span>, <span class="ruby-value">1104541261</span>)
+  <span class="ruby-identifier">t2</span> = <span class="ruby-constant">TestTimezoneTransition</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">offset</span>, <span class="ruby-identifier">offset</span>, <span class="ruby-value">1107309722</span>)
+  <span class="ruby-identifier">t3</span> = <span class="ruby-constant">TestTimezoneTransition</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">offset</span>, <span class="ruby-identifier">offset</span>, <span class="ruby-constant">DateTime</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">1945</span>, <span class="ruby-value">1</span>, <span class="ruby-value">1</span>, <span class="ruby-value">1</span>, <span class="ruby-value">1</span>, <span class="ruby-value">1</span>))
+  <span class="ruby-identifier">t4</span> = <span class="ruby-constant">TestTimezoneTransition</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">offset</span>, <span class="ruby-identifier">offset</span>, <span class="ruby-constant">DateTime</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">1945</span>, <span class="ruby-value">2</span>, <span class="ruby-value">2</span>, <span class="ruby-value">2</span>, <span class="ruby-value">2</span>, <span class="ruby-value">2</span>))
+  
+  <span class="ruby-identifier">p1</span> = <span class="ruby-constant">TimezonePeriod</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">t1</span>, <span class="ruby-identifier">t2</span>)
+  <span class="ruby-identifier">p2</span> = <span class="ruby-constant">TimezonePeriod</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">t1</span>, <span class="ruby-keyword">nil</span>)
+  <span class="ruby-identifier">p3</span> = <span class="ruby-constant">TimezonePeriod</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">t3</span>, <span class="ruby-identifier">t4</span>)
+  
+  <span class="ruby-identifier">assert_equal</span>(<span class="ruby-keyword">true</span>, <span class="ruby-identifier">p1</span>.<span class="ruby-identifier">utc_before_end?</span>(<span class="ruby-constant">DateTime</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">2005</span>,<span class="ruby-value">2</span>,<span class="ruby-value">2</span>,<span class="ruby-value">2</span>,<span class="ruby-value">2</span>,<span class="ruby-value">1</span>)))    
+  <span class="ruby-identifier">assert_equal</span>(<span class="ruby-keyword">true</span>, <span class="ruby-identifier">p1</span>.<span class="ruby-identifier">utc_before_end?</span>(<span class="ruby-constant">Time</span>.<span class="ruby-identifier">utc</span>(<span class="ruby-value">2005</span>,<span class="ruby-value">2</span>,<span class="ruby-value">2</span>,<span class="ruby-value">2</span>,<span class="ruby-value">2</span>,<span class="ruby-value">0</span>)))   
+  <span class="ruby-identifier">assert_equal</span>(<span class="ruby-keyword">false</span>, <span class="ruby-identifier">p1</span>.<span class="ruby-identifier">utc_before_end?</span>(<span class="ruby-value">1107309723</span>))
+  <span class="ruby-identifier">assert_equal</span>(<span class="ruby-keyword">false</span>, <span class="ruby-identifier">p1</span>.<span class="ruby-identifier">utc_before_end?</span>(<span class="ruby-constant">DateTime</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">2045</span>,<span class="ruby-value">1</span>,<span class="ruby-value">1</span>,<span class="ruby-value">1</span>,<span class="ruby-value">1</span>,<span class="ruby-value">0</span>)))
+  <span class="ruby-identifier">assert_equal</span>(<span class="ruby-keyword">true</span>, <span class="ruby-identifier">p1</span>.<span class="ruby-identifier">utc_before_end?</span>(<span class="ruby-constant">DateTime</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">1955</span>,<span class="ruby-value">1</span>,<span class="ruby-value">1</span>,<span class="ruby-value">1</span>,<span class="ruby-value">1</span>,<span class="ruby-value">0</span>)))
+  
+  <span class="ruby-identifier">assert_equal</span>(<span class="ruby-keyword">true</span>, <span class="ruby-identifier">p2</span>.<span class="ruby-identifier">utc_before_end?</span>(<span class="ruby-constant">DateTime</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">2005</span>,<span class="ruby-value">2</span>,<span class="ruby-value">2</span>,<span class="ruby-value">2</span>,<span class="ruby-value">2</span>,<span class="ruby-value">1</span>)))    
+  <span class="ruby-identifier">assert_equal</span>(<span class="ruby-keyword">true</span>, <span class="ruby-identifier">p2</span>.<span class="ruby-identifier">utc_before_end?</span>(<span class="ruby-constant">Time</span>.<span class="ruby-identifier">utc</span>(<span class="ruby-value">2005</span>,<span class="ruby-value">2</span>,<span class="ruby-value">2</span>,<span class="ruby-value">2</span>,<span class="ruby-value">2</span>,<span class="ruby-value">0</span>)))   
+  <span class="ruby-identifier">assert_equal</span>(<span class="ruby-keyword">true</span>, <span class="ruby-identifier">p2</span>.<span class="ruby-identifier">utc_before_end?</span>(<span class="ruby-value">1107309723</span>))
+  
+  <span class="ruby-identifier">assert_equal</span>(<span class="ruby-keyword">false</span>, <span class="ruby-identifier">p3</span>.<span class="ruby-identifier">utc_before_end?</span>(<span class="ruby-constant">Time</span>.<span class="ruby-identifier">utc</span>(<span class="ruby-value">2005</span>,<span class="ruby-value">1</span>,<span class="ruby-value">2</span>,<span class="ruby-value">1</span>,<span class="ruby-value">1</span>,<span class="ruby-value">1</span>)))
+  <span class="ruby-identifier">assert_equal</span>(<span class="ruby-keyword">false</span>, <span class="ruby-identifier">p3</span>.<span class="ruby-identifier">utc_before_end?</span>(<span class="ruby-value">1104627661</span>))
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_utc_total_offset_rational_after_freeze" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_utc_total_offset_rational_after_freeze</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_utc_total_offset_rational_after_freeze-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/tzinfo-1.2.5/test/tc_timezone_period.rb, line 153</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">test_utc_total_offset_rational_after_freeze</span>
+  <span class="ruby-identifier">o</span> = <span class="ruby-constant">TimezoneOffset</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">3600</span>, <span class="ruby-value">0</span>, <span class="ruby-value">:TEST</span>)
+  <span class="ruby-identifier">p</span> = <span class="ruby-constant">TimezonePeriod</span>.<span class="ruby-identifier">new</span>(<span class="ruby-keyword">nil</span>, <span class="ruby-keyword">nil</span>, <span class="ruby-identifier">o</span>)
+  <span class="ruby-identifier">p</span>.<span class="ruby-identifier">freeze</span>
+  <span class="ruby-identifier">assert_equal</span>(<span class="ruby-constant">Rational</span>(<span class="ruby-value">1</span>, <span class="ruby-value">24</span>), <span class="ruby-identifier">p</span>.<span class="ruby-identifier">utc_total_offset_rational</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_valid_for_local" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_valid_for_local</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_valid_for_local-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/tzinfo-1.2.5/test/tc_timezone_period.rb, line 277</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">test_valid_for_local</span>
+  <span class="ruby-identifier">offset</span> = <span class="ruby-constant">TimezoneOffset</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">-7200</span>, <span class="ruby-value">3600</span>, <span class="ruby-value">:TEST</span>)
+  <span class="ruby-identifier">t1</span> = <span class="ruby-constant">TestTimezoneTransition</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">offset</span>, <span class="ruby-identifier">offset</span>, <span class="ruby-value">1104544861</span>)
+  <span class="ruby-identifier">t2</span> = <span class="ruby-constant">TestTimezoneTransition</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">offset</span>, <span class="ruby-identifier">offset</span>, <span class="ruby-value">1107313322</span>)
+  <span class="ruby-identifier">t3</span> = <span class="ruby-constant">TestTimezoneTransition</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">offset</span>, <span class="ruby-identifier">offset</span>, <span class="ruby-value">1104544861</span>)
+  <span class="ruby-identifier">t4</span> = <span class="ruby-constant">TestTimezoneTransition</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">offset</span>, <span class="ruby-identifier">offset</span>, <span class="ruby-constant">DateTime</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">1960</span>, <span class="ruby-value">1</span>, <span class="ruby-value">1</span>, <span class="ruby-value">1</span>, <span class="ruby-value">1</span>, <span class="ruby-value">1</span>))
+  <span class="ruby-identifier">t5</span> = <span class="ruby-constant">TestTimezoneTransition</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">offset</span>, <span class="ruby-identifier">offset</span>, <span class="ruby-constant">DateTime</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">1960</span>, <span class="ruby-value">2</span>, <span class="ruby-value">2</span>, <span class="ruby-value">2</span>, <span class="ruby-value">2</span>, <span class="ruby-value">2</span>))
+  
+  <span class="ruby-identifier">p1</span> = <span class="ruby-constant">TimezonePeriod</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">t1</span>, <span class="ruby-identifier">t2</span>)
+  <span class="ruby-identifier">p2</span> = <span class="ruby-constant">TimezonePeriod</span>.<span class="ruby-identifier">new</span>(<span class="ruby-keyword">nil</span>, <span class="ruby-identifier">t2</span>)
+  <span class="ruby-identifier">p3</span> = <span class="ruby-constant">TimezonePeriod</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">t3</span>, <span class="ruby-keyword">nil</span>)
+  <span class="ruby-identifier">p4</span> = <span class="ruby-constant">TimezonePeriod</span>.<span class="ruby-identifier">new</span>(<span class="ruby-keyword">nil</span>, <span class="ruby-keyword">nil</span>, <span class="ruby-identifier">offset</span>)
+  <span class="ruby-identifier">p5</span> = <span class="ruby-constant">TimezonePeriod</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">t4</span>, <span class="ruby-identifier">t5</span>)
+  
+  <span class="ruby-identifier">assert_equal</span>(<span class="ruby-keyword">true</span>, <span class="ruby-identifier">p1</span>.<span class="ruby-identifier">valid_for_local?</span>(<span class="ruby-constant">DateTime</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">2005</span>,<span class="ruby-value">1</span>,<span class="ruby-value">1</span>,<span class="ruby-value">1</span>,<span class="ruby-value">1</span>,<span class="ruby-value">1</span>)))
+  <span class="ruby-identifier">assert_equal</span>(<span class="ruby-keyword">true</span>, <span class="ruby-identifier">p1</span>.<span class="ruby-identifier">valid_for_local?</span>(<span class="ruby-constant">Time</span>.<span class="ruby-identifier">utc</span>(<span class="ruby-value">2005</span>,<span class="ruby-value">2</span>,<span class="ruby-value">2</span>,<span class="ruby-value">2</span>,<span class="ruby-value">2</span>,<span class="ruby-value">1</span>)))
+  <span class="ruby-identifier">assert_equal</span>(<span class="ruby-keyword">true</span>, <span class="ruby-identifier">p1</span>.<span class="ruby-identifier">valid_for_local?</span>(<span class="ruby-value">1104541262</span>))
+  <span class="ruby-identifier">assert_equal</span>(<span class="ruby-keyword">true</span>, <span class="ruby-identifier">p1</span>.<span class="ruby-identifier">valid_for_local?</span>(<span class="ruby-constant">DateTime</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">2005</span>,<span class="ruby-value">2</span>,<span class="ruby-value">2</span>,<span class="ruby-value">2</span>,<span class="ruby-value">2</span>,<span class="ruby-value">0</span>)))
+  <span class="ruby-identifier">assert_equal</span>(<span class="ruby-keyword">false</span>, <span class="ruby-identifier">p1</span>.<span class="ruby-identifier">valid_for_local?</span>(<span class="ruby-constant">DateTime</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">2005</span>,<span class="ruby-value">1</span>,<span class="ruby-value">1</span>,<span class="ruby-value">1</span>,<span class="ruby-value">1</span>,<span class="ruby-value">0</span>)))
+  <span class="ruby-identifier">assert_equal</span>(<span class="ruby-keyword">false</span>, <span class="ruby-identifier">p1</span>.<span class="ruby-identifier">valid_for_local?</span>(<span class="ruby-constant">DateTime</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">2005</span>,<span class="ruby-value">2</span>,<span class="ruby-value">2</span>,<span class="ruby-value">2</span>,<span class="ruby-value">2</span>,<span class="ruby-value">3</span>)))
+  <span class="ruby-identifier">assert_equal</span>(<span class="ruby-keyword">false</span>, <span class="ruby-identifier">p1</span>.<span class="ruby-identifier">valid_for_local?</span>(<span class="ruby-constant">DateTime</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">1960</span>,<span class="ruby-value">1</span>,<span class="ruby-value">1</span>,<span class="ruby-value">1</span>,<span class="ruby-value">1</span>,<span class="ruby-value">0</span>)))
+  <span class="ruby-identifier">assert_equal</span>(<span class="ruby-keyword">false</span>, <span class="ruby-identifier">p1</span>.<span class="ruby-identifier">valid_for_local?</span>(<span class="ruby-constant">DateTime</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">2040</span>,<span class="ruby-value">1</span>,<span class="ruby-value">1</span>,<span class="ruby-value">1</span>,<span class="ruby-value">1</span>,<span class="ruby-value">0</span>)))
+  
+  <span class="ruby-identifier">assert_equal</span>(<span class="ruby-keyword">true</span>, <span class="ruby-identifier">p2</span>.<span class="ruby-identifier">valid_for_local?</span>(<span class="ruby-constant">DateTime</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">2005</span>,<span class="ruby-value">1</span>,<span class="ruby-value">1</span>,<span class="ruby-value">1</span>,<span class="ruby-value">1</span>,<span class="ruby-value">1</span>)))
+  <span class="ruby-identifier">assert_equal</span>(<span class="ruby-keyword">true</span>, <span class="ruby-identifier">p2</span>.<span class="ruby-identifier">valid_for_local?</span>(<span class="ruby-constant">DateTime</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">2005</span>,<span class="ruby-value">2</span>,<span class="ruby-value">2</span>,<span class="ruby-value">2</span>,<span class="ruby-value">2</span>,<span class="ruby-value">1</span>)))
+  <span class="ruby-identifier">assert_equal</span>(<span class="ruby-keyword">true</span>, <span class="ruby-identifier">p2</span>.<span class="ruby-identifier">valid_for_local?</span>(<span class="ruby-value">1104541262</span>))
+  <span class="ruby-identifier">assert_equal</span>(<span class="ruby-keyword">true</span>, <span class="ruby-identifier">p2</span>.<span class="ruby-identifier">valid_for_local?</span>(<span class="ruby-constant">DateTime</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">2005</span>,<span class="ruby-value">2</span>,<span class="ruby-value">2</span>,<span class="ruby-value">2</span>,<span class="ruby-value">2</span>,<span class="ruby-value">0</span>)))
+  <span class="ruby-identifier">assert_equal</span>(<span class="ruby-keyword">true</span>, <span class="ruby-identifier">p2</span>.<span class="ruby-identifier">valid_for_local?</span>(<span class="ruby-constant">DateTime</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">2005</span>,<span class="ruby-value">1</span>,<span class="ruby-value">1</span>,<span class="ruby-value">1</span>,<span class="ruby-value">1</span>,<span class="ruby-value">0</span>)))
+  <span class="ruby-identifier">assert_equal</span>(<span class="ruby-keyword">false</span>, <span class="ruby-identifier">p2</span>.<span class="ruby-identifier">valid_for_local?</span>(<span class="ruby-constant">DateTime</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">2005</span>,<span class="ruby-value">2</span>,<span class="ruby-value">2</span>,<span class="ruby-value">2</span>,<span class="ruby-value">2</span>,<span class="ruby-value">3</span>)))
+  <span class="ruby-identifier">assert_equal</span>(<span class="ruby-keyword">true</span>, <span class="ruby-identifier">p2</span>.<span class="ruby-identifier">valid_for_local?</span>(<span class="ruby-constant">DateTime</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">1960</span>,<span class="ruby-value">1</span>,<span class="ruby-value">1</span>,<span class="ruby-value">1</span>,<span class="ruby-value">1</span>,<span class="ruby-value">0</span>)))
+  <span class="ruby-identifier">assert_equal</span>(<span class="ruby-keyword">false</span>, <span class="ruby-identifier">p2</span>.<span class="ruby-identifier">valid_for_local?</span>(<span class="ruby-constant">DateTime</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">2040</span>,<span class="ruby-value">1</span>,<span class="ruby-value">1</span>,<span class="ruby-value">1</span>,<span class="ruby-value">1</span>,<span class="ruby-value">0</span>)))
+  
+  <span class="ruby-identifier">assert_equal</span>(<span class="ruby-keyword">true</span>, <span class="ruby-identifier">p3</span>.<span class="ruby-identifier">valid_for_local?</span>(<span class="ruby-constant">DateTime</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">2005</span>,<span class="ruby-value">1</span>,<span class="ruby-value">1</span>,<span class="ruby-value">1</span>,<span class="ruby-value">1</span>,<span class="ruby-value">1</span>)))
+  <span class="ruby-identifier">assert_equal</span>(<span class="ruby-keyword">true</span>, <span class="ruby-identifier">p3</span>.<span class="ruby-identifier">valid_for_local?</span>(<span class="ruby-constant">DateTime</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">2005</span>,<span class="ruby-value">2</span>,<span class="ruby-value">2</span>,<span class="ruby-value">2</span>,<span class="ruby-value">2</span>,<span class="ruby-value">1</span>)))
+  <span class="ruby-identifier">assert_equal</span>(<span class="ruby-keyword">true</span>, <span class="ruby-identifier">p3</span>.<span class="ruby-identifier">valid_for_local?</span>(<span class="ruby-value">1104541262</span>))
+  <span class="ruby-identifier">assert_equal</span>(<span class="ruby-keyword">true</span>, <span class="ruby-identifier">p3</span>.<span class="ruby-identifier">valid_for_local?</span>(<span class="ruby-constant">DateTime</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">2005</span>,<span class="ruby-value">2</span>,<span class="ruby-value">2</span>,<span class="ruby-value">2</span>,<span class="ruby-value">2</span>,<span class="ruby-value">0</span>)))
+  <span class="ruby-identifier">assert_equal</span>(<span class="ruby-keyword">false</span>, <span class="ruby-identifier">p3</span>.<span class="ruby-identifier">valid_for_local?</span>(<span class="ruby-constant">DateTime</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">2005</span>,<span class="ruby-value">1</span>,<span class="ruby-value">1</span>,<span class="ruby-value">1</span>,<span class="ruby-value">1</span>,<span class="ruby-value">0</span>)))
+  <span class="ruby-identifier">assert_equal</span>(<span class="ruby-keyword">true</span>, <span class="ruby-identifier">p3</span>.<span class="ruby-identifier">valid_for_local?</span>(<span class="ruby-constant">DateTime</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">2005</span>,<span class="ruby-value">2</span>,<span class="ruby-value">2</span>,<span class="ruby-value">2</span>,<span class="ruby-value">2</span>,<span class="ruby-value">3</span>)))
+  <span class="ruby-identifier">assert_equal</span>(<span class="ruby-keyword">false</span>, <span class="ruby-identifier">p3</span>.<span class="ruby-identifier">valid_for_local?</span>(<span class="ruby-constant">DateTime</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">1960</span>,<span class="ruby-value">1</span>,<span class="ruby-value">1</span>,<span class="ruby-value">1</span>,<span class="ruby-value">1</span>,<span class="ruby-value">0</span>)))
+  <span class="ruby-identifier">assert_equal</span>(<span class="ruby-keyword">true</span>, <span class="ruby-identifier">p3</span>.<span class="ruby-identifier">valid_for_local?</span>(<span class="ruby-constant">DateTime</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">2040</span>,<span class="ruby-value">1</span>,<span class="ruby-value">1</span>,<span class="ruby-value">1</span>,<span class="ruby-value">1</span>,<span class="ruby-value">0</span>)))
+  
+  <span class="ruby-identifier">assert_equal</span>(<span class="ruby-keyword">true</span>, <span class="ruby-identifier">p4</span>.<span class="ruby-identifier">valid_for_local?</span>(<span class="ruby-constant">DateTime</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">2005</span>,<span class="ruby-value">1</span>,<span class="ruby-value">1</span>,<span class="ruby-value">1</span>,<span class="ruby-value">1</span>,<span class="ruby-value">1</span>)))
+  <span class="ruby-identifier">assert_equal</span>(<span class="ruby-keyword">true</span>, <span class="ruby-identifier">p4</span>.<span class="ruby-identifier">valid_for_local?</span>(<span class="ruby-constant">DateTime</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">2005</span>,<span class="ruby-value">2</span>,<span class="ruby-value">2</span>,<span class="ruby-value">2</span>,<span class="ruby-value">2</span>,<span class="ruby-value">1</span>)))
+  <span class="ruby-identifier">assert_equal</span>(<span class="ruby-keyword">true</span>, <span class="ruby-identifier">p4</span>.<span class="ruby-identifier">valid_for_local?</span>(<span class="ruby-value">1104541262</span>))
+  <span class="ruby-identifier">assert_equal</span>(<span class="ruby-keyword">true</span>, <span class="ruby-identifier">p4</span>.<span class="ruby-identifier">valid_for_local?</span>(<span class="ruby-constant">DateTime</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">2005</span>,<span class="ruby-value">2</span>,<span class="ruby-value">2</span>,<span class="ruby-value">2</span>,<span class="ruby-value">2</span>,<span class="ruby-value">0</span>)))
+  <span class="ruby-identifier">assert_equal</span>(<span class="ruby-keyword">true</span>, <span class="ruby-identifier">p4</span>.<span class="ruby-identifier">valid_for_local?</span>(<span class="ruby-constant">DateTime</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">2005</span>,<span class="ruby-value">1</span>,<span class="ruby-value">1</span>,<span class="ruby-value">1</span>,<span class="ruby-value">1</span>,<span class="ruby-value">0</span>)))
+  <span class="ruby-identifier">assert_equal</span>(<span class="ruby-keyword">true</span>, <span class="ruby-identifier">p4</span>.<span class="ruby-identifier">valid_for_local?</span>(<span class="ruby-constant">DateTime</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">2005</span>,<span class="ruby-value">2</span>,<span class="ruby-value">2</span>,<span class="ruby-value">2</span>,<span class="ruby-value">2</span>,<span class="ruby-value">3</span>)))
+  <span class="ruby-identifier">assert_equal</span>(<span class="ruby-keyword">true</span>, <span class="ruby-identifier">p4</span>.<span class="ruby-identifier">valid_for_local?</span>(<span class="ruby-constant">DateTime</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">1960</span>,<span class="ruby-value">1</span>,<span class="ruby-value">1</span>,<span class="ruby-value">1</span>,<span class="ruby-value">1</span>,<span class="ruby-value">0</span>)))
+  <span class="ruby-identifier">assert_equal</span>(<span class="ruby-keyword">true</span>, <span class="ruby-identifier">p4</span>.<span class="ruby-identifier">valid_for_local?</span>(<span class="ruby-constant">DateTime</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">2040</span>,<span class="ruby-value">1</span>,<span class="ruby-value">1</span>,<span class="ruby-value">1</span>,<span class="ruby-value">1</span>,<span class="ruby-value">0</span>)))
+  
+  <span class="ruby-identifier">assert_equal</span>(<span class="ruby-keyword">false</span>, <span class="ruby-identifier">p5</span>.<span class="ruby-identifier">valid_for_utc?</span>(<span class="ruby-constant">Time</span>.<span class="ruby-identifier">utc</span>(<span class="ruby-value">2005</span>,<span class="ruby-value">1</span>,<span class="ruby-value">1</span>,<span class="ruby-value">1</span>,<span class="ruby-value">1</span>,<span class="ruby-value">1</span>)))
+  <span class="ruby-identifier">assert_equal</span>(<span class="ruby-keyword">false</span>, <span class="ruby-identifier">p5</span>.<span class="ruby-identifier">valid_for_utc?</span>(<span class="ruby-value">1104541262</span>))
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_valid_for_utc" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_valid_for_utc</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_valid_for_utc-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/tzinfo-1.2.5/test/tc_timezone_period.rb, line 174</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">test_valid_for_utc</span>
+  <span class="ruby-identifier">offset</span> = <span class="ruby-constant">TimezoneOffset</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">-7200</span>, <span class="ruby-value">3600</span>, <span class="ruby-value">:TEST</span>)
+  <span class="ruby-identifier">t1</span> = <span class="ruby-constant">TestTimezoneTransition</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">offset</span>, <span class="ruby-identifier">offset</span>, <span class="ruby-value">1104541261</span>)
+  <span class="ruby-identifier">t2</span> = <span class="ruby-constant">TestTimezoneTransition</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">offset</span>, <span class="ruby-identifier">offset</span>, <span class="ruby-value">1107309722</span>)
+  <span class="ruby-identifier">t3</span> = <span class="ruby-constant">TestTimezoneTransition</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">offset</span>, <span class="ruby-identifier">offset</span>, <span class="ruby-constant">DateTime</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">1960</span>, <span class="ruby-value">1</span>, <span class="ruby-value">1</span>, <span class="ruby-value">1</span>, <span class="ruby-value">1</span>, <span class="ruby-value">1</span>))
+  <span class="ruby-identifier">t4</span> = <span class="ruby-constant">TestTimezoneTransition</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">offset</span>, <span class="ruby-identifier">offset</span>, <span class="ruby-constant">DateTime</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">1960</span>, <span class="ruby-value">2</span>, <span class="ruby-value">2</span>, <span class="ruby-value">2</span>, <span class="ruby-value">2</span>, <span class="ruby-value">2</span>))
+  
+  <span class="ruby-identifier">p1</span> = <span class="ruby-constant">TimezonePeriod</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">t1</span>, <span class="ruby-identifier">t2</span>)
+  <span class="ruby-identifier">p2</span> = <span class="ruby-constant">TimezonePeriod</span>.<span class="ruby-identifier">new</span>(<span class="ruby-keyword">nil</span>, <span class="ruby-identifier">t2</span>)
+  <span class="ruby-identifier">p3</span> = <span class="ruby-constant">TimezonePeriod</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">t1</span>, <span class="ruby-keyword">nil</span>)
+  <span class="ruby-identifier">p4</span> = <span class="ruby-constant">TimezonePeriod</span>.<span class="ruby-identifier">new</span>(<span class="ruby-keyword">nil</span>, <span class="ruby-keyword">nil</span>, <span class="ruby-identifier">offset</span>)
+  <span class="ruby-identifier">p5</span> = <span class="ruby-constant">TimezonePeriod</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">t3</span>, <span class="ruby-identifier">t4</span>)
+  
+  <span class="ruby-identifier">assert_equal</span>(<span class="ruby-keyword">true</span>, <span class="ruby-identifier">p1</span>.<span class="ruby-identifier">valid_for_utc?</span>(<span class="ruby-constant">DateTime</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">2005</span>,<span class="ruby-value">1</span>,<span class="ruby-value">1</span>,<span class="ruby-value">1</span>,<span class="ruby-value">1</span>,<span class="ruby-value">1</span>)))
+  <span class="ruby-identifier">assert_equal</span>(<span class="ruby-keyword">true</span>, <span class="ruby-identifier">p1</span>.<span class="ruby-identifier">valid_for_utc?</span>(<span class="ruby-constant">Time</span>.<span class="ruby-identifier">utc</span>(<span class="ruby-value">2005</span>,<span class="ruby-value">2</span>,<span class="ruby-value">2</span>,<span class="ruby-value">2</span>,<span class="ruby-value">2</span>,<span class="ruby-value">1</span>)))
+  <span class="ruby-identifier">assert_equal</span>(<span class="ruby-keyword">true</span>, <span class="ruby-identifier">p1</span>.<span class="ruby-identifier">valid_for_utc?</span>(<span class="ruby-value">1104541262</span>))
+  <span class="ruby-identifier">assert_equal</span>(<span class="ruby-keyword">true</span>, <span class="ruby-identifier">p1</span>.<span class="ruby-identifier">valid_for_utc?</span>(<span class="ruby-constant">DateTime</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">2005</span>,<span class="ruby-value">2</span>,<span class="ruby-value">2</span>,<span class="ruby-value">2</span>,<span class="ruby-value">2</span>,<span class="ruby-value">0</span>)))
+  <span class="ruby-identifier">assert_equal</span>(<span class="ruby-keyword">false</span>, <span class="ruby-identifier">p1</span>.<span class="ruby-identifier">valid_for_utc?</span>(<span class="ruby-constant">DateTime</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">2005</span>,<span class="ruby-value">1</span>,<span class="ruby-value">1</span>,<span class="ruby-value">1</span>,<span class="ruby-value">1</span>,<span class="ruby-value">0</span>)))
+  <span class="ruby-identifier">assert_equal</span>(<span class="ruby-keyword">false</span>, <span class="ruby-identifier">p1</span>.<span class="ruby-identifier">valid_for_utc?</span>(<span class="ruby-constant">DateTime</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">2005</span>,<span class="ruby-value">2</span>,<span class="ruby-value">2</span>,<span class="ruby-value">2</span>,<span class="ruby-value">2</span>,<span class="ruby-value">3</span>)))
+  <span class="ruby-identifier">assert_equal</span>(<span class="ruby-keyword">false</span>, <span class="ruby-identifier">p1</span>.<span class="ruby-identifier">valid_for_utc?</span>(<span class="ruby-constant">DateTime</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">1960</span>,<span class="ruby-value">1</span>,<span class="ruby-value">1</span>,<span class="ruby-value">1</span>,<span class="ruby-value">1</span>,<span class="ruby-value">0</span>)))
+  <span class="ruby-identifier">assert_equal</span>(<span class="ruby-keyword">false</span>, <span class="ruby-identifier">p1</span>.<span class="ruby-identifier">valid_for_utc?</span>(<span class="ruby-constant">DateTime</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">2040</span>,<span class="ruby-value">1</span>,<span class="ruby-value">1</span>,<span class="ruby-value">1</span>,<span class="ruby-value">1</span>,<span class="ruby-value">0</span>)))
+  
+  <span class="ruby-identifier">assert_equal</span>(<span class="ruby-keyword">true</span>, <span class="ruby-identifier">p2</span>.<span class="ruby-identifier">valid_for_utc?</span>(<span class="ruby-constant">DateTime</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">2005</span>,<span class="ruby-value">1</span>,<span class="ruby-value">1</span>,<span class="ruby-value">1</span>,<span class="ruby-value">1</span>,<span class="ruby-value">1</span>)))
+  <span class="ruby-identifier">assert_equal</span>(<span class="ruby-keyword">true</span>, <span class="ruby-identifier">p2</span>.<span class="ruby-identifier">valid_for_utc?</span>(<span class="ruby-constant">Time</span>.<span class="ruby-identifier">utc</span>(<span class="ruby-value">2005</span>,<span class="ruby-value">2</span>,<span class="ruby-value">2</span>,<span class="ruby-value">2</span>,<span class="ruby-value">2</span>,<span class="ruby-value">1</span>)))
+  <span class="ruby-identifier">assert_equal</span>(<span class="ruby-keyword">true</span>, <span class="ruby-identifier">p2</span>.<span class="ruby-identifier">valid_for_utc?</span>(<span class="ruby-value">1104541262</span>))
+  <span class="ruby-identifier">assert_equal</span>(<span class="ruby-keyword">true</span>, <span class="ruby-identifier">p2</span>.<span class="ruby-identifier">valid_for_utc?</span>(<span class="ruby-constant">DateTime</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">2005</span>,<span class="ruby-value">2</span>,<span class="ruby-value">2</span>,<span class="ruby-value">2</span>,<span class="ruby-value">2</span>,<span class="ruby-value">0</span>)))
+  <span class="ruby-identifier">assert_equal</span>(<span class="ruby-keyword">true</span>, <span class="ruby-identifier">p2</span>.<span class="ruby-identifier">valid_for_utc?</span>(<span class="ruby-constant">DateTime</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">2005</span>,<span class="ruby-value">1</span>,<span class="ruby-value">1</span>,<span class="ruby-value">1</span>,<span class="ruby-value">1</span>,<span class="ruby-value">0</span>)))    
+  <span class="ruby-identifier">assert_equal</span>(<span class="ruby-keyword">false</span>, <span class="ruby-identifier">p2</span>.<span class="ruby-identifier">valid_for_utc?</span>(<span class="ruby-constant">DateTime</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">2005</span>,<span class="ruby-value">2</span>,<span class="ruby-value">2</span>,<span class="ruby-value">2</span>,<span class="ruby-value">2</span>,<span class="ruby-value">3</span>)))
+  <span class="ruby-identifier">assert_equal</span>(<span class="ruby-keyword">true</span>, <span class="ruby-identifier">p2</span>.<span class="ruby-identifier">valid_for_utc?</span>(<span class="ruby-constant">DateTime</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">1960</span>,<span class="ruby-value">1</span>,<span class="ruby-value">1</span>,<span class="ruby-value">1</span>,<span class="ruby-value">1</span>,<span class="ruby-value">0</span>)))
+  <span class="ruby-identifier">assert_equal</span>(<span class="ruby-keyword">false</span>, <span class="ruby-identifier">p2</span>.<span class="ruby-identifier">valid_for_utc?</span>(<span class="ruby-constant">DateTime</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">2040</span>,<span class="ruby-value">1</span>,<span class="ruby-value">1</span>,<span class="ruby-value">1</span>,<span class="ruby-value">1</span>,<span class="ruby-value">0</span>)))
+  
+  <span class="ruby-identifier">assert_equal</span>(<span class="ruby-keyword">true</span>, <span class="ruby-identifier">p3</span>.<span class="ruby-identifier">valid_for_utc?</span>(<span class="ruby-constant">DateTime</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">2005</span>,<span class="ruby-value">1</span>,<span class="ruby-value">1</span>,<span class="ruby-value">1</span>,<span class="ruby-value">1</span>,<span class="ruby-value">1</span>)))
+  <span class="ruby-identifier">assert_equal</span>(<span class="ruby-keyword">true</span>, <span class="ruby-identifier">p3</span>.<span class="ruby-identifier">valid_for_utc?</span>(<span class="ruby-constant">Time</span>.<span class="ruby-identifier">utc</span>(<span class="ruby-value">2005</span>,<span class="ruby-value">2</span>,<span class="ruby-value">2</span>,<span class="ruby-value">2</span>,<span class="ruby-value">2</span>,<span class="ruby-value">1</span>)))
+  <span class="ruby-identifier">assert_equal</span>(<span class="ruby-keyword">true</span>, <span class="ruby-identifier">p3</span>.<span class="ruby-identifier">valid_for_utc?</span>(<span class="ruby-value">1104541262</span>))
+  <span class="ruby-identifier">assert_equal</span>(<span class="ruby-keyword">true</span>, <span class="ruby-identifier">p3</span>.<span class="ruby-identifier">valid_for_utc?</span>(<span class="ruby-constant">DateTime</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">2005</span>,<span class="ruby-value">2</span>,<span class="ruby-value">2</span>,<span class="ruby-value">2</span>,<span class="ruby-value">2</span>,<span class="ruby-value">0</span>)))
+  <span class="ruby-identifier">assert_equal</span>(<span class="ruby-keyword">false</span>, <span class="ruby-identifier">p3</span>.<span class="ruby-identifier">valid_for_utc?</span>(<span class="ruby-constant">DateTime</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">2005</span>,<span class="ruby-value">1</span>,<span class="ruby-value">1</span>,<span class="ruby-value">1</span>,<span class="ruby-value">1</span>,<span class="ruby-value">0</span>)))
+  <span class="ruby-identifier">assert_equal</span>(<span class="ruby-keyword">true</span>, <span class="ruby-identifier">p3</span>.<span class="ruby-identifier">valid_for_utc?</span>(<span class="ruby-constant">DateTime</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">2005</span>,<span class="ruby-value">2</span>,<span class="ruby-value">2</span>,<span class="ruby-value">2</span>,<span class="ruby-value">2</span>,<span class="ruby-value">3</span>)))
+  <span class="ruby-identifier">assert_equal</span>(<span class="ruby-keyword">false</span>, <span class="ruby-identifier">p3</span>.<span class="ruby-identifier">valid_for_utc?</span>(<span class="ruby-constant">DateTime</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">1960</span>,<span class="ruby-value">1</span>,<span class="ruby-value">1</span>,<span class="ruby-value">1</span>,<span class="ruby-value">1</span>,<span class="ruby-value">0</span>)))
+  <span class="ruby-identifier">assert_equal</span>(<span class="ruby-keyword">true</span>, <span class="ruby-identifier">p3</span>.<span class="ruby-identifier">valid_for_utc?</span>(<span class="ruby-constant">DateTime</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">2040</span>,<span class="ruby-value">1</span>,<span class="ruby-value">1</span>,<span class="ruby-value">1</span>,<span class="ruby-value">1</span>,<span class="ruby-value">0</span>)))
+  
+  <span class="ruby-identifier">assert_equal</span>(<span class="ruby-keyword">true</span>, <span class="ruby-identifier">p4</span>.<span class="ruby-identifier">valid_for_utc?</span>(<span class="ruby-constant">DateTime</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">2005</span>,<span class="ruby-value">1</span>,<span class="ruby-value">1</span>,<span class="ruby-value">1</span>,<span class="ruby-value">1</span>,<span class="ruby-value">1</span>)))
+  <span class="ruby-identifier">assert_equal</span>(<span class="ruby-keyword">true</span>, <span class="ruby-identifier">p4</span>.<span class="ruby-identifier">valid_for_utc?</span>(<span class="ruby-constant">Time</span>.<span class="ruby-identifier">utc</span>(<span class="ruby-value">2005</span>,<span class="ruby-value">2</span>,<span class="ruby-value">2</span>,<span class="ruby-value">2</span>,<span class="ruby-value">2</span>,<span class="ruby-value">1</span>)))
+  <span class="ruby-identifier">assert_equal</span>(<span class="ruby-keyword">true</span>, <span class="ruby-identifier">p4</span>.<span class="ruby-identifier">valid_for_utc?</span>(<span class="ruby-value">1104541262</span>))
+  <span class="ruby-identifier">assert_equal</span>(<span class="ruby-keyword">true</span>, <span class="ruby-identifier">p4</span>.<span class="ruby-identifier">valid_for_utc?</span>(<span class="ruby-constant">DateTime</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">2005</span>,<span class="ruby-value">2</span>,<span class="ruby-value">2</span>,<span class="ruby-value">2</span>,<span class="ruby-value">2</span>,<span class="ruby-value">0</span>)))
+  <span class="ruby-identifier">assert_equal</span>(<span class="ruby-keyword">true</span>, <span class="ruby-identifier">p4</span>.<span class="ruby-identifier">valid_for_utc?</span>(<span class="ruby-constant">DateTime</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">2005</span>,<span class="ruby-value">1</span>,<span class="ruby-value">1</span>,<span class="ruby-value">1</span>,<span class="ruby-value">1</span>,<span class="ruby-value">0</span>)))
+  <span class="ruby-identifier">assert_equal</span>(<span class="ruby-keyword">true</span>, <span class="ruby-identifier">p4</span>.<span class="ruby-identifier">valid_for_utc?</span>(<span class="ruby-constant">DateTime</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">2005</span>,<span class="ruby-value">2</span>,<span class="ruby-value">2</span>,<span class="ruby-value">2</span>,<span class="ruby-value">2</span>,<span class="ruby-value">3</span>)))
+  <span class="ruby-identifier">assert_equal</span>(<span class="ruby-keyword">true</span>, <span class="ruby-identifier">p4</span>.<span class="ruby-identifier">valid_for_utc?</span>(<span class="ruby-constant">DateTime</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">1960</span>,<span class="ruby-value">1</span>,<span class="ruby-value">1</span>,<span class="ruby-value">1</span>,<span class="ruby-value">1</span>,<span class="ruby-value">0</span>)))
+  <span class="ruby-identifier">assert_equal</span>(<span class="ruby-keyword">true</span>, <span class="ruby-identifier">p4</span>.<span class="ruby-identifier">valid_for_utc?</span>(<span class="ruby-constant">DateTime</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">2040</span>,<span class="ruby-value">1</span>,<span class="ruby-value">1</span>,<span class="ruby-value">1</span>,<span class="ruby-value">1</span>,<span class="ruby-value">0</span>)))
+  
+  <span class="ruby-identifier">assert_equal</span>(<span class="ruby-keyword">false</span>, <span class="ruby-identifier">p5</span>.<span class="ruby-identifier">valid_for_utc?</span>(<span class="ruby-constant">Time</span>.<span class="ruby-identifier">utc</span>(<span class="ruby-value">2005</span>,<span class="ruby-value">1</span>,<span class="ruby-value">1</span>,<span class="ruby-value">1</span>,<span class="ruby-value">1</span>,<span class="ruby-value">1</span>)))
+  <span class="ruby-identifier">assert_equal</span>(<span class="ruby-keyword">false</span>, <span class="ruby-identifier">p5</span>.<span class="ruby-identifier">valid_for_utc?</span>(<span class="ruby-value">1104541262</span>))
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="https://rdoc.github.io/rdoc">RDoc</a> 5.0.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

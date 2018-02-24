@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class ActiveRecord::LogSubscriber - RDoc Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../";
+  var index_rel_prefix = "../";
+</script>
+
+<script src="../js/jquery.js"></script>
+<script src="../js/darkfish.js"></script>
+
+<link href="../css/fonts.css" rel="stylesheet">
+<link href="../css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../table_of_contents.html#pages">Pages</a>
+    <a href="../table_of_contents.html#classes">Classes</a>
+    <a href="../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link"><a href="../ActiveSupport/LogSubscriber.html">ActiveSupport::LogSubscriber</a>
+  
+</div>
+
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-c-reset_runtime">::reset_runtime</a>
+    
+    <li ><a href="#method-c-runtime">::runtime</a>
+    
+    <li ><a href="#method-c-runtime-3D">::runtime=</a>
+    
+    <li ><a href="#method-i-sql">#sql</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-ActiveRecord::LogSubscriber">
+  <h1 id="class-ActiveRecord::LogSubscriber" class="class">
+    class ActiveRecord::LogSubscriber
+  </h1>
+
+  <section class="description">
+    
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+    <section class="constants-list">
+      <header>
+        <h3>Constants</h3>
+      </header>
+      <dl>
+      
+        <dt id="IGNORE_PAYLOAD_NAMES">IGNORE_PAYLOAD_NAMES
+        
+        <dd>
+        
+      
+      </dl>
+    </section>
+    
+
+    
+
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Class Methods</h3>
+       </header>
+
+    
+      <div id="method-c-reset_runtime" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">reset_runtime</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="reset_runtime-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/activerecord-5.1.5/lib/active_record/log_subscriber.rb, line 13</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">reset_runtime</span>
+  <span class="ruby-identifier">rt</span>, <span class="ruby-keyword">self</span>.<span class="ruby-identifier">runtime</span> = <span class="ruby-identifier">runtime</span>, <span class="ruby-value">0</span>
+  <span class="ruby-identifier">rt</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-runtime" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">runtime</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="runtime-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/activerecord-5.1.5/lib/active_record/log_subscriber.rb, line 9</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">runtime</span>
+  <span class="ruby-constant">ActiveRecord</span><span class="ruby-operator">::</span><span class="ruby-constant">RuntimeRegistry</span>.<span class="ruby-identifier">sql_runtime</span> <span class="ruby-operator">||=</span> <span class="ruby-value">0</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-runtime-3D" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">runtime=</span><span
+            class="method-args">(value)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="runtime-3D-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/activerecord-5.1.5/lib/active_record/log_subscriber.rb, line 5</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">runtime=</span>(<span class="ruby-identifier">value</span>)
+  <span class="ruby-constant">ActiveRecord</span><span class="ruby-operator">::</span><span class="ruby-constant">RuntimeRegistry</span>.<span class="ruby-identifier">sql_runtime</span> = <span class="ruby-identifier">value</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-sql" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">sql</span><span
+            class="method-args">(event)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="sql-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/activerecord-5.1.5/lib/active_record/log_subscriber.rb, line 18</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">sql</span>(<span class="ruby-identifier">event</span>)
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">class</span>.<span class="ruby-identifier">runtime</span> <span class="ruby-operator">+=</span> <span class="ruby-identifier">event</span>.<span class="ruby-identifier">duration</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">logger</span>.<span class="ruby-identifier">debug?</span>
+
+  <span class="ruby-identifier">payload</span> = <span class="ruby-identifier">event</span>.<span class="ruby-identifier">payload</span>
+
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">if</span> <span class="ruby-constant">IGNORE_PAYLOAD_NAMES</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">payload</span>[<span class="ruby-value">:name</span>])
+
+  <span class="ruby-identifier">name</span>  = <span class="ruby-node">&quot;#{payload[:name]} (#{event.duration.round(1)}ms)&quot;</span>
+  <span class="ruby-identifier">name</span>  = <span class="ruby-node">&quot;CACHE #{name}&quot;</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">payload</span>[<span class="ruby-value">:cached</span>]
+  <span class="ruby-identifier">sql</span>   = <span class="ruby-identifier">payload</span>[<span class="ruby-value">:sql</span>]
+  <span class="ruby-identifier">binds</span> = <span class="ruby-keyword">nil</span>
+
+  <span class="ruby-keyword">unless</span> (<span class="ruby-identifier">payload</span>[<span class="ruby-value">:binds</span>] <span class="ruby-operator">||</span> []).<span class="ruby-identifier">empty?</span>
+    <span class="ruby-identifier">casted_params</span> = <span class="ruby-identifier">type_casted_binds</span>(<span class="ruby-identifier">payload</span>[<span class="ruby-value">:type_casted_binds</span>])
+    <span class="ruby-identifier">binds</span> = <span class="ruby-string">&quot;  &quot;</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">payload</span>[<span class="ruby-value">:binds</span>].<span class="ruby-identifier">zip</span>(<span class="ruby-identifier">casted_params</span>).<span class="ruby-identifier">map</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">attr</span>, <span class="ruby-identifier">value</span><span class="ruby-operator">|</span>
+      <span class="ruby-identifier">render_bind</span>(<span class="ruby-identifier">attr</span>, <span class="ruby-identifier">value</span>)
+    }.<span class="ruby-identifier">inspect</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">name</span> = <span class="ruby-identifier">colorize_payload_name</span>(<span class="ruby-identifier">name</span>, <span class="ruby-identifier">payload</span>[<span class="ruby-value">:name</span>])
+  <span class="ruby-identifier">sql</span>  = <span class="ruby-identifier">color</span>(<span class="ruby-identifier">sql</span>, <span class="ruby-identifier">sql_color</span>(<span class="ruby-identifier">sql</span>), <span class="ruby-keyword">true</span>)
+
+  <span class="ruby-identifier">debug</span> <span class="ruby-node">&quot;  #{name}  #{sql}#{binds}&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="https://rdoc.github.io/rdoc">RDoc</a> 5.0.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

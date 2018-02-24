@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class RSpec::Mocks::AnyInstance::Proxy - RDoc Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../../../";
+  var index_rel_prefix = "../../../";
+</script>
+
+<script src="../../../js/jquery.js"></script>
+<script src="../../../js/darkfish.js"></script>
+
+<link href="../../../css/fonts.css" rel="stylesheet">
+<link href="../../../css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../../../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../../../table_of_contents.html#pages">Pages</a>
+    <a href="../../../table_of_contents.html#classes">Classes</a>
+    <a href="../../../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link"><a href="../../../Object.html">Object</a>
+  
+</div>
+
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-c-new">::new</a>
+    
+    <li ><a href="#method-i-expect_chain">#expect_chain</a>
+    
+    <li ><a href="#method-i-klass">#klass</a>
+    
+    <li ><a href="#method-i-should_not_receive">#should_not_receive</a>
+    
+    <li ><a href="#method-i-should_receive">#should_receive</a>
+    
+    <li ><a href="#method-i-stub">#stub</a>
+    
+    <li ><a href="#method-i-stub_chain">#stub_chain</a>
+    
+    <li ><a href="#method-i-unstub">#unstub</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-RSpec::Mocks::AnyInstance::Proxy">
+  <h1 id="class-RSpec::Mocks::AnyInstance::Proxy" class="class">
+    class RSpec::Mocks::AnyInstance::Proxy
+  </h1>
+
+  <section class="description">
+    
+<p>@private The `AnyInstance::Recorder` is responsible for redefining the
+klass&#39;s instance method in order to add any stubs/expectations the
+first time the method is called. It&#39;s not capable of updating a stub on
+an instance that&#39;s already been previously stubbed (either directly, or
+via `any_instance`).</p>
+
+<p>This proxy sits in front of the recorder and delegates both to it and to
+the `RSpec::Mocks::Proxy` for each already mocked or stubbed instance of
+the class, in order to propogates changes to the instances.</p>
+
+<p>Note that unlike `RSpec::Mocks::Proxy`, this proxy class is stateless and
+is not persisted in `RSpec::Mocks.space`.</p>
+
+<p>Proxying for the message expectation fluent interface (typically chained
+off of the return value of one of these methods) is provided by the
+`FluentInterfaceProxy` class below.</p>
+
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Class Methods</h3>
+       </header>
+
+    
+      <div id="method-c-new" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">new</span><span
+            class="method-args">(recorder, target_proxies)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="new-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/rspec-mocks-3.7.0/lib/rspec/mocks/any_instance/proxy.rb, line 22</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">recorder</span>, <span class="ruby-identifier">target_proxies</span>)
+  <span class="ruby-ivar">@recorder</span>       = <span class="ruby-identifier">recorder</span>
+  <span class="ruby-ivar">@target_proxies</span> = <span class="ruby-identifier">target_proxies</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-expect_chain" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">expect_chain</span><span
+            class="method-args">(*chain, &block)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="expect_chain-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/rspec-mocks-3.7.0/lib/rspec/mocks/any_instance/proxy.rb, line 55</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">expect_chain</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">chain</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+  <span class="ruby-identifier">perform_proxying</span>(<span class="ruby-identifier">__method__</span>, <span class="ruby-identifier">chain</span>, <span class="ruby-identifier">block</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">proxy</span><span class="ruby-operator">|</span>
+    <span class="ruby-constant">Mocks</span><span class="ruby-operator">::</span><span class="ruby-constant">ExpectChain</span>.<span class="ruby-identifier">expect_chain_on</span>(<span class="ruby-identifier">proxy</span>.<span class="ruby-identifier">object</span>, <span class="ruby-operator">*</span><span class="ruby-identifier">chain</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-klass" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">klass</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="klass-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/rspec-mocks-3.7.0/lib/rspec/mocks/any_instance/proxy.rb, line 27</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">klass</span>
+  <span class="ruby-ivar">@recorder</span>.<span class="ruby-identifier">klass</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-should_not_receive" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">should_not_receive</span><span
+            class="method-args">(method_name, &block)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="should_not_receive-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/rspec-mocks-3.7.0/lib/rspec/mocks/any_instance/proxy.rb, line 71</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">should_not_receive</span>(<span class="ruby-identifier">method_name</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+  <span class="ruby-identifier">perform_proxying</span>(<span class="ruby-identifier">__method__</span>, [<span class="ruby-identifier">method_name</span>], <span class="ruby-identifier">block</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">proxy</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">proxy</span>.<span class="ruby-identifier">add_message_expectation</span>(<span class="ruby-identifier">method_name</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>).<span class="ruby-identifier">never</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-should_receive" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">should_receive</span><span
+            class="method-args">(method_name, &block)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="should_receive-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/rspec-mocks-3.7.0/lib/rspec/mocks/any_instance/proxy.rb, line 61</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">should_receive</span>(<span class="ruby-identifier">method_name</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+  <span class="ruby-identifier">perform_proxying</span>(<span class="ruby-identifier">__method__</span>, [<span class="ruby-identifier">method_name</span>], <span class="ruby-identifier">block</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">proxy</span><span class="ruby-operator">|</span>
+    <span class="ruby-comment"># Yeah, this is a bit odd...but if we used `add_message_expectation`</span>
+    <span class="ruby-comment"># then it would act like `expect_every_instance_of(klass).to receive`.</span>
+    <span class="ruby-comment"># The any_instance recorder takes care of validating that an instance</span>
+    <span class="ruby-comment"># received the message.</span>
+    <span class="ruby-identifier">proxy</span>.<span class="ruby-identifier">add_stub</span>(<span class="ruby-identifier">method_name</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-stub" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">stub</span><span
+            class="method-args">(method_name_or_method_map, &block)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="stub-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/rspec-mocks-3.7.0/lib/rspec/mocks/any_instance/proxy.rb, line 31</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">stub</span>(<span class="ruby-identifier">method_name_or_method_map</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-constant">Hash</span> <span class="ruby-operator">===</span> <span class="ruby-identifier">method_name_or_method_map</span>
+    <span class="ruby-identifier">method_name_or_method_map</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">method_name</span>, <span class="ruby-identifier">return_value</span><span class="ruby-operator">|</span>
+      <span class="ruby-identifier">stub</span>(<span class="ruby-identifier">method_name</span>).<span class="ruby-identifier">and_return</span>(<span class="ruby-identifier">return_value</span>)
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">perform_proxying</span>(<span class="ruby-identifier">__method__</span>, [<span class="ruby-identifier">method_name_or_method_map</span>], <span class="ruby-identifier">block</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">proxy</span><span class="ruby-operator">|</span>
+      <span class="ruby-identifier">proxy</span>.<span class="ruby-identifier">add_stub</span>(<span class="ruby-identifier">method_name_or_method_map</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-stub_chain" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">stub_chain</span><span
+            class="method-args">(*chain, &block)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="stub_chain-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/rspec-mocks-3.7.0/lib/rspec/mocks/any_instance/proxy.rb, line 49</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">stub_chain</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">chain</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+  <span class="ruby-identifier">perform_proxying</span>(<span class="ruby-identifier">__method__</span>, <span class="ruby-identifier">chain</span>, <span class="ruby-identifier">block</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">proxy</span><span class="ruby-operator">|</span>
+    <span class="ruby-constant">Mocks</span><span class="ruby-operator">::</span><span class="ruby-constant">StubChain</span>.<span class="ruby-identifier">stub_chain_on</span>(<span class="ruby-identifier">proxy</span>.<span class="ruby-identifier">object</span>, <span class="ruby-operator">*</span><span class="ruby-identifier">chain</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-unstub" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">unstub</span><span
+            class="method-args">(method_name)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="unstub-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/rspec-mocks-3.7.0/lib/rspec/mocks/any_instance/proxy.rb, line 43</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">unstub</span>(<span class="ruby-identifier">method_name</span>)
+  <span class="ruby-identifier">perform_proxying</span>(<span class="ruby-identifier">__method__</span>, [<span class="ruby-identifier">method_name</span>], <span class="ruby-keyword">nil</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">proxy</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">proxy</span>.<span class="ruby-identifier">remove_stub_if_present</span>(<span class="ruby-identifier">method_name</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="https://rdoc.github.io/rdoc">RDoc</a> 5.0.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

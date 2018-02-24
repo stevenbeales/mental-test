@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class MarkdownRedcarpetTest - RDoc Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "./";
+  var index_rel_prefix = "./";
+</script>
+
+<script src="./js/jquery.js"></script>
+<script src="./js/darkfish.js"></script>
+
+<link href="./css/fonts.css" rel="stylesheet">
+<link href="./css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="./index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="./table_of_contents.html#pages">Pages</a>
+    <a href="./table_of_contents.html#classes">Classes</a>
+    <a href="./table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link"><a href="Minitest/Test.html">Minitest::Test</a>
+  
+</div>
+
+    <div id="includes-section" class="nav-section">
+  <h3>Included Modules</h3>
+
+  <ul class="link-list">
+  
+  
+    <li><a class="include" href="MarkdownTests.html">MarkdownTests</a>
+  
+  
+  </ul>
+</div>
+
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-i-test_fenced_code_blocks_with_lang">#test_fenced_code_blocks_with_lang</a>
+    
+    <li ><a href="#method-i-test_renderer_options">#test_renderer_options</a>
+    
+    <li ><a href="#method-i-test_smarty_pants_true">#test_smarty_pants_true</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-MarkdownRedcarpetTest">
+  <h1 id="class-MarkdownRedcarpetTest" class="class">
+    class MarkdownRedcarpetTest
+  </h1>
+
+  <section class="description">
+    
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+
+    
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-test_fenced_code_blocks_with_lang" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_fenced_code_blocks_with_lang</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_fenced_code_blocks_with_lang-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/tilt-2.0.8/test/tilt_markdown_test.rb, line 105</span>
+    <span class="ruby-keyword">def</span> <span class="ruby-identifier">test_fenced_code_blocks_with_lang</span>
+      <span class="ruby-identifier">code</span> = <span class="ruby-string">&quot;      ```ruby
+      puts &quot;hello world&quot;
+      ```
+&quot;</span>.<span class="ruby-identifier">gsub</span>(<span class="ruby-regexp">/^\s+/</span>,<span class="ruby-string">&quot;&quot;</span>)
+
+      <span class="ruby-identifier">html</span> = <span class="ruby-identifier">nrender</span> <span class="ruby-identifier">code</span>, <span class="ruby-value">:fenced_code_blocks</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword">true</span>
+      <span class="ruby-identifier">assert_equal</span> <span class="ruby-string">%Q{&lt;pre&gt;&lt;code class=&quot;ruby&quot;&gt;puts &quot;hello world&quot;\n&lt;/code&gt;&lt;/pre&gt;}</span>, <span class="ruby-identifier">html</span>
+    <span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_renderer_options" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_renderer_options</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_renderer_options-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/tilt-2.0.8/test/tilt_markdown_test.rb, line 100</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">test_renderer_options</span>
+  <span class="ruby-identifier">html</span> = <span class="ruby-identifier">nrender</span> <span class="ruby-string">&quot;Hello [World](http://example.com)&quot;</span>, <span class="ruby-value">:smartypants</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword">true</span>, <span class="ruby-value">:no_links</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword">true</span>
+  <span class="ruby-identifier">assert_equal</span> <span class="ruby-string">&quot;&lt;p&gt;Hello [World](http://example.com)&lt;/p&gt;&quot;</span>, <span class="ruby-identifier">html</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_smarty_pants_true" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_smarty_pants_true</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_smarty_pants_true-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/tilt-2.0.8/test/tilt_markdown_test.rb, line 94</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">test_smarty_pants_true</span>
+  <span class="ruby-comment"># Various versions of Redcarpet support various versions of Smart pants.</span>
+  <span class="ruby-identifier">html</span> = <span class="ruby-identifier">nrender</span> <span class="ruby-string">&quot;Hello ``World&#39;&#39; -- This is --- a test ...&quot;</span>, <span class="ruby-value">:smartypants</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword">true</span>
+  <span class="ruby-identifier">assert_match</span> <span class="ruby-regexp">%r!&lt;p&gt;Hello “World(&#39;&#39;|”) – This is — a test …&lt;\/p&gt;!</span>, <span class="ruby-identifier">html</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="https://rdoc.github.io/rdoc">RDoc</a> 5.0.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

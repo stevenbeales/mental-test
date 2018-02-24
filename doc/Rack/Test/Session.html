@@ -1,0 +1,832 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class Rack::Test::Session - RDoc Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../../";
+  var index_rel_prefix = "../../";
+</script>
+
+<script src="../../js/jquery.js"></script>
+<script src="../../js/darkfish.js"></script>
+
+<link href="../../css/fonts.css" rel="stylesheet">
+<link href="../../css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../../table_of_contents.html#pages">Pages</a>
+    <a href="../../table_of_contents.html#classes">Classes</a>
+    <a href="../../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link"><a href="../../Object.html">Object</a>
+  
+</div>
+
+    
+    <div id="extends-section" class="nav-section">
+  <h3>Extended With Modules</h3>
+
+  <ul class="link-list">
+    
+  
+    <li><span class="extend">Forwardable</span>
+  
+  
+  </ul>
+</div>
+
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-c-new">::new</a>
+    
+    <li ><a href="#method-i-authorize">#authorize</a>
+    
+    <li ><a href="#method-i-basic_authorize">#basic_authorize</a>
+    
+    <li ><a href="#method-i-custom_request">#custom_request</a>
+    
+    <li ><a href="#method-i-delete">#delete</a>
+    
+    <li ><a href="#method-i-digest_authorize">#digest_authorize</a>
+    
+    <li ><a href="#method-i-env">#env</a>
+    
+    <li ><a href="#method-i-follow_redirect-21">#follow_redirect!</a>
+    
+    <li ><a href="#method-i-get">#get</a>
+    
+    <li ><a href="#method-i-head">#head</a>
+    
+    <li ><a href="#method-i-header">#header</a>
+    
+    <li ><a href="#method-i-options">#options</a>
+    
+    <li ><a href="#method-i-patch">#patch</a>
+    
+    <li ><a href="#method-i-post">#post</a>
+    
+    <li ><a href="#method-i-put">#put</a>
+    
+    <li ><a href="#method-i-request">#request</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-Rack::Test::Session">
+  <h1 id="class-Rack::Test::Session" class="class">
+    class Rack::Test::Session
+  </h1>
+
+  <section class="description">
+    
+<p>This class represents a series of requests issued to a <a
+href="../../Rack.html">Rack</a> app, sharing a single cookie jar</p>
+
+<p>Rack::Test::Session&#39;s methods are most often called through <a
+href="Methods.html">Rack::Test::Methods</a>, which will automatically build
+a session when it&#39;s first used.</p>
+
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Class Methods</h3>
+       </header>
+
+    
+      <div id="method-c-new" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">new</span><span
+            class="method-args">(mock_session)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Creates a <a href="Session.html">Rack::Test::Session</a> for a given <a
+href="../../Rack.html">Rack</a> app or Rack::MockSession.</p>
+
+<p>Note: Generally, you won&#39;t need to initialize a <a
+href="Session.html">Rack::Test::Session</a> directly. Instead, you should
+include <a href="Methods.html">Rack::Test::Methods</a> into your testing
+context. (See README.rdoc for an example)</p>
+          
+          
+
+          
+          <div class="method-source-code" id="new-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/rack-test-0.8.2/lib/rack/test.rb, line 35</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">mock_session</span>)
+  <span class="ruby-ivar">@headers</span> = {}
+  <span class="ruby-ivar">@env</span> = {}
+  <span class="ruby-ivar">@digest_username</span> = <span class="ruby-keyword">nil</span>
+  <span class="ruby-ivar">@digest_password</span> = <span class="ruby-keyword">nil</span>
+
+  <span class="ruby-ivar">@rack_mock_session</span> = <span class="ruby-keyword">if</span> <span class="ruby-identifier">mock_session</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">MockSession</span>)
+    <span class="ruby-identifier">mock_session</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-constant">MockSession</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">mock_session</span>)
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-ivar">@default_host</span> = <span class="ruby-ivar">@rack_mock_session</span>.<span class="ruby-identifier">default_host</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-authorize" class="method-detail method-alias">
+        
+        <div class="method-heading">
+          <span class="method-name">authorize</span><span
+            class="method-args">(username, password)</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+        </div>
+
+        
+
+        
+        <div class="aliases">
+          Alias for: <a href="Session.html#method-i-basic_authorize">basic_authorize</a>
+        </div>
+        
+      </div>
+
+    
+      <div id="method-i-basic_authorize" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">basic_authorize</span><span
+            class="method-args">(username, password)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Set the username and password for HTTP Basic authorization, to be included
+in subsequent requests in the HTTP_AUTHORIZATION header.</p>
+
+<p>Example:</p>
+
+<pre class="ruby"><span class="ruby-identifier">basic_authorize</span> <span class="ruby-string">&quot;bryan&quot;</span>, <span class="ruby-string">&quot;secret&quot;</span>
+</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="basic_authorize-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/rack-test-0.8.2/lib/rack/test.rb, line 166</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">basic_authorize</span>(<span class="ruby-identifier">username</span>, <span class="ruby-identifier">password</span>)
+  <span class="ruby-identifier">encoded_login</span> = [<span class="ruby-node">&quot;#{username}:#{password}&quot;</span>].<span class="ruby-identifier">pack</span>(<span class="ruby-string">&#39;m0&#39;</span>)
+  <span class="ruby-identifier">header</span>(<span class="ruby-string">&#39;Authorization&#39;</span>, <span class="ruby-node">&quot;Basic #{encoded_login}&quot;</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+        <div class="aliases">
+          Also aliased as: <a href="Session.html#method-i-authorize">authorize</a>
+        </div>
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-custom_request" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">custom_request</span><span
+            class="method-args">(verb, uri, params = {}, env = {}, &block)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Issue a request using the given verb for the given URI. See <a
+href="Session.html#method-i-get">get</a></p>
+
+<p>Example:</p>
+
+<pre class="ruby"><span class="ruby-identifier">custom_request</span> <span class="ruby-string">&quot;LINK&quot;</span>, <span class="ruby-string">&quot;/&quot;</span>
+</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="custom_request-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/rack-test-0.8.2/lib/rack/test.rb, line 126</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">custom_request</span>(<span class="ruby-identifier">verb</span>, <span class="ruby-identifier">uri</span>, <span class="ruby-identifier">params</span> = {}, <span class="ruby-identifier">env</span> = {}, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+  <span class="ruby-identifier">uri</span> = <span class="ruby-identifier">parse_uri</span>(<span class="ruby-identifier">uri</span>, <span class="ruby-identifier">env</span>)
+  <span class="ruby-identifier">env</span> = <span class="ruby-identifier">env_for</span>(<span class="ruby-identifier">uri</span>, <span class="ruby-identifier">env</span>.<span class="ruby-identifier">merge</span>(<span class="ruby-identifier">method</span><span class="ruby-operator">:</span> <span class="ruby-identifier">verb</span>.<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">upcase</span>, <span class="ruby-identifier">params</span><span class="ruby-operator">:</span> <span class="ruby-identifier">params</span>))
+  <span class="ruby-identifier">process_request</span>(<span class="ruby-identifier">uri</span>, <span class="ruby-identifier">env</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-delete" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">delete</span><span
+            class="method-args">(uri, params = {}, env = {}, &block)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Issue a DELETE request for the given URI. See <a
+href="Session.html#method-i-get">get</a></p>
+
+<p>Example:</p>
+
+<pre class="ruby"><span class="ruby-identifier">delete</span> <span class="ruby-string">&quot;/&quot;</span>
+</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="delete-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/rack-test-0.8.2/lib/rack/test.rb, line 89</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">delete</span>(<span class="ruby-identifier">uri</span>, <span class="ruby-identifier">params</span> = {}, <span class="ruby-identifier">env</span> = {}, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+  <span class="ruby-identifier">custom_request</span>(<span class="ruby-string">&#39;DELETE&#39;</span>, <span class="ruby-identifier">uri</span>, <span class="ruby-identifier">params</span>, <span class="ruby-identifier">env</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-digest_authorize" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">digest_authorize</span><span
+            class="method-args">(username, password)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Set the username and password for HTTP <a
+href="../../Digest.html">Digest</a> authorization, to be included in
+subsequent requests in the HTTP_AUTHORIZATION header.</p>
+
+<p>Example:</p>
+
+<pre class="ruby"><span class="ruby-identifier">digest_authorize</span> <span class="ruby-string">&quot;bryan&quot;</span>, <span class="ruby-string">&quot;secret&quot;</span>
+</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="digest_authorize-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/rack-test-0.8.2/lib/rack/test.rb, line 178</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">digest_authorize</span>(<span class="ruby-identifier">username</span>, <span class="ruby-identifier">password</span>)
+  <span class="ruby-ivar">@digest_username</span> = <span class="ruby-identifier">username</span>
+  <span class="ruby-ivar">@digest_password</span> = <span class="ruby-identifier">password</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-env" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">env</span><span
+            class="method-args">(name, value)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Set an env var to be included on all subsequent requests through the
+session. Use a value of nil to remove a previously configured env.</p>
+
+<p>Example:</p>
+
+<pre class="ruby"><span class="ruby-identifier">env</span> <span class="ruby-string">&quot;rack.session&quot;</span>, {:<span class="ruby-identifier">csrf</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&#39;token&#39;</span>}
+</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="env-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/rack-test-0.8.2/lib/rack/test.rb, line 153</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">env</span>(<span class="ruby-identifier">name</span>, <span class="ruby-identifier">value</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">value</span>.<span class="ruby-identifier">nil?</span>
+    <span class="ruby-ivar">@env</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-identifier">name</span>)
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-ivar">@env</span>[<span class="ruby-identifier">name</span>] = <span class="ruby-identifier">value</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-follow_redirect-21" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">follow_redirect!</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p><a href="../Test.html">Rack::Test</a> will not follow any redirects
+automatically. This method will follow the redirect returned (including
+setting the Referer header on the new request) in the last response. If the
+last response was not a redirect, an error will be raised.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="follow_redirect-21-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/rack-test-0.8.2/lib/rack/test.rb, line 187</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">follow_redirect!</span>
+  <span class="ruby-keyword">unless</span> <span class="ruby-identifier">last_response</span>.<span class="ruby-identifier">redirect?</span>
+    <span class="ruby-identifier">raise</span> <span class="ruby-constant">Error</span>, <span class="ruby-string">&#39;Last response was not a redirect. Cannot follow_redirect!&#39;</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">last_response</span>.<span class="ruby-identifier">status</span> <span class="ruby-operator">==</span> <span class="ruby-value">307</span>
+    <span class="ruby-identifier">send</span>(<span class="ruby-identifier">last_request</span>.<span class="ruby-identifier">request_method</span>.<span class="ruby-identifier">downcase</span>.<span class="ruby-identifier">to_sym</span>, <span class="ruby-identifier">last_response</span>[<span class="ruby-string">&#39;Location&#39;</span>], <span class="ruby-identifier">last_request</span>.<span class="ruby-identifier">params</span>, <span class="ruby-string">&#39;HTTP_REFERER&#39;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">last_request</span>.<span class="ruby-identifier">url</span>)
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">get</span>(<span class="ruby-identifier">last_response</span>[<span class="ruby-string">&#39;Location&#39;</span>], {}, <span class="ruby-string">&#39;HTTP_REFERER&#39;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">last_request</span>.<span class="ruby-identifier">url</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-get" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">get</span><span
+            class="method-args">(uri, params = {}, env = {}, &block)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Issue a GET request for the given URI with the given params and <a
+href="../../Rack.html">Rack</a> environment. Stores the issues request
+object in last_request and the app&#39;s response in last_response. Yield
+last_response to a block if given.</p>
+
+<p>Example:</p>
+
+<pre class="ruby"><span class="ruby-identifier">get</span> <span class="ruby-string">&quot;/&quot;</span>
+</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="get-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/rack-test-0.8.2/lib/rack/test.rb, line 57</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">get</span>(<span class="ruby-identifier">uri</span>, <span class="ruby-identifier">params</span> = {}, <span class="ruby-identifier">env</span> = {}, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+  <span class="ruby-identifier">custom_request</span>(<span class="ruby-string">&#39;GET&#39;</span>, <span class="ruby-identifier">uri</span>, <span class="ruby-identifier">params</span>, <span class="ruby-identifier">env</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-head" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">head</span><span
+            class="method-args">(uri, params = {}, env = {}, &block)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Issue a HEAD request for the given URI. See <a
+href="Session.html#method-i-get">get</a></p>
+
+<p>Example:</p>
+
+<pre class="ruby"><span class="ruby-identifier">head</span> <span class="ruby-string">&quot;/&quot;</span>
+</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="head-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/rack-test-0.8.2/lib/rack/test.rb, line 105</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">head</span>(<span class="ruby-identifier">uri</span>, <span class="ruby-identifier">params</span> = {}, <span class="ruby-identifier">env</span> = {}, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+  <span class="ruby-identifier">custom_request</span>(<span class="ruby-string">&#39;HEAD&#39;</span>, <span class="ruby-identifier">uri</span>, <span class="ruby-identifier">params</span>, <span class="ruby-identifier">env</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-header" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">header</span><span
+            class="method-args">(name, value)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Set a header to be included on all subsequent requests through the session.
+Use a value of nil to remove a previously configured header.</p>
+
+<p>In accordance with the <a href="../../Rack.html">Rack</a> spec, headers
+will be included in the <a href="../../Rack.html">Rack</a> environment hash
+in HTTP_USER_AGENT form.</p>
+
+<p>Example:</p>
+
+<pre class="ruby"><span class="ruby-identifier">header</span> <span class="ruby-string">&quot;User-Agent&quot;</span>, <span class="ruby-string">&quot;Firefox&quot;</span>
+</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="header-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/rack-test-0.8.2/lib/rack/test.rb, line 140</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">header</span>(<span class="ruby-identifier">name</span>, <span class="ruby-identifier">value</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">value</span>.<span class="ruby-identifier">nil?</span>
+    <span class="ruby-ivar">@headers</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-identifier">name</span>)
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-ivar">@headers</span>[<span class="ruby-identifier">name</span>] = <span class="ruby-identifier">value</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-options" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">options</span><span
+            class="method-args">(uri, params = {}, env = {}, &block)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Issue an OPTIONS request for the given URI. See <a
+href="Session.html#method-i-get">get</a></p>
+
+<p>Example:</p>
+
+<pre class="ruby"><span class="ruby-identifier">options</span> <span class="ruby-string">&quot;/&quot;</span>
+</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="options-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/rack-test-0.8.2/lib/rack/test.rb, line 97</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">options</span>(<span class="ruby-identifier">uri</span>, <span class="ruby-identifier">params</span> = {}, <span class="ruby-identifier">env</span> = {}, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+  <span class="ruby-identifier">custom_request</span>(<span class="ruby-string">&#39;OPTIONS&#39;</span>, <span class="ruby-identifier">uri</span>, <span class="ruby-identifier">params</span>, <span class="ruby-identifier">env</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-patch" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">patch</span><span
+            class="method-args">(uri, params = {}, env = {}, &block)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Issue a PATCH request for the given URI. See <a
+href="Session.html#method-i-get">get</a></p>
+
+<p>Example:</p>
+
+<pre class="ruby"><span class="ruby-identifier">patch</span> <span class="ruby-string">&quot;/&quot;</span>
+</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="patch-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/rack-test-0.8.2/lib/rack/test.rb, line 81</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">patch</span>(<span class="ruby-identifier">uri</span>, <span class="ruby-identifier">params</span> = {}, <span class="ruby-identifier">env</span> = {}, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+  <span class="ruby-identifier">custom_request</span>(<span class="ruby-string">&#39;PATCH&#39;</span>, <span class="ruby-identifier">uri</span>, <span class="ruby-identifier">params</span>, <span class="ruby-identifier">env</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-post" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">post</span><span
+            class="method-args">(uri, params = {}, env = {}, &block)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Issue a POST request for the given URI. See <a
+href="Session.html#method-i-get">get</a></p>
+
+<p>Example:</p>
+
+<pre class="ruby"><span class="ruby-identifier">post</span> <span class="ruby-string">&quot;/signup&quot;</span>, <span class="ruby-string">&quot;name&quot;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;Bryan&quot;</span>
+</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="post-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/rack-test-0.8.2/lib/rack/test.rb, line 65</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">post</span>(<span class="ruby-identifier">uri</span>, <span class="ruby-identifier">params</span> = {}, <span class="ruby-identifier">env</span> = {}, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+  <span class="ruby-identifier">custom_request</span>(<span class="ruby-string">&#39;POST&#39;</span>, <span class="ruby-identifier">uri</span>, <span class="ruby-identifier">params</span>, <span class="ruby-identifier">env</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-put" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">put</span><span
+            class="method-args">(uri, params = {}, env = {}, &block)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Issue a PUT request for the given URI. See <a
+href="Session.html#method-i-get">get</a></p>
+
+<p>Example:</p>
+
+<pre class="ruby"><span class="ruby-identifier">put</span> <span class="ruby-string">&quot;/&quot;</span>
+</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="put-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/rack-test-0.8.2/lib/rack/test.rb, line 73</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">put</span>(<span class="ruby-identifier">uri</span>, <span class="ruby-identifier">params</span> = {}, <span class="ruby-identifier">env</span> = {}, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+  <span class="ruby-identifier">custom_request</span>(<span class="ruby-string">&#39;PUT&#39;</span>, <span class="ruby-identifier">uri</span>, <span class="ruby-identifier">params</span>, <span class="ruby-identifier">env</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-request" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">request</span><span
+            class="method-args">(uri, env = {}, &block)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Issue a request to the <a href="../../Rack.html">Rack</a> app for the given
+URI and optional <a href="../../Rack.html">Rack</a> environment. Stores the
+issues request object in last_request and the app&#39;s response in
+last_response. Yield last_response to a block if given.</p>
+
+<p>Example:</p>
+
+<pre class="ruby"><span class="ruby-identifier">request</span> <span class="ruby-string">&quot;/&quot;</span>
+</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="request-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/rack-test-0.8.2/lib/rack/test.rb, line 116</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">request</span>(<span class="ruby-identifier">uri</span>, <span class="ruby-identifier">env</span> = {}, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+  <span class="ruby-identifier">uri</span> = <span class="ruby-identifier">parse_uri</span>(<span class="ruby-identifier">uri</span>, <span class="ruby-identifier">env</span>)
+  <span class="ruby-identifier">env</span> = <span class="ruby-identifier">env_for</span>(<span class="ruby-identifier">uri</span>, <span class="ruby-identifier">env</span>)
+  <span class="ruby-identifier">process_request</span>(<span class="ruby-identifier">uri</span>, <span class="ruby-identifier">env</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="https://rdoc.github.io/rdoc">RDoc</a> 5.0.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

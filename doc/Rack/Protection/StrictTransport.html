@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class Rack::Protection::StrictTransport - RDoc Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../../";
+  var index_rel_prefix = "../../";
+</script>
+
+<script src="../../js/jquery.js"></script>
+<script src="../../js/darkfish.js"></script>
+
+<link href="../../css/fonts.css" rel="stylesheet">
+<link href="../../css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../../table_of_contents.html#pages">Pages</a>
+    <a href="../../table_of_contents.html#classes">Classes</a>
+    <a href="../../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link"><a href="Base.html">Rack::Protection::Base</a>
+  
+</div>
+
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-i-call">#call</a>
+    
+    <li ><a href="#method-i-strict_transport">#strict_transport</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-Rack::Protection::StrictTransport">
+  <h1 id="class-Rack::Protection::StrictTransport" class="class">
+    class Rack::Protection::StrictTransport
+  </h1>
+
+  <section class="description">
+    <dl class="rdoc-list note-list"><dt>Prevented attack
+<dd>
+<p>Protects against against protocol downgrade attacks and cookie hijacking.</p>
+</dd><dt>Supported browsers
+<dd>
+<p>all</p>
+</dd><dt>More infos
+<dd>
+<p><a
+href="https://en.wikipedia.org/wiki/HTTP_Strict_Transport_Security">en.wikipedia.org/wiki/HTTP_Strict_Transport_Security</a></p>
+</dd></dl>
+
+<p>browser will prevent any communications from being sent over HTTP to the
+specified domain and will instead send all communications over HTTPS. It
+also prevents HTTPS click through prompts on browsers.</p>
+
+<p>Options:</p>
+<dl class="rdoc-list note-list"><dt>max_age
+<dd>
+<p>How long future requests to the domain should go over HTTPS; specified in
+seconds</p>
+</dd><dt>include_subdomains
+<dd>
+<p>If all present and future subdomains will be HTTPS</p>
+</dd><dt>preload
+<dd>
+<p>Allow this domain to be included in browsers HSTS preload list. See <a
+href="https://hstspreload.appspot.com">hstspreload.appspot.com</a>/</p>
+</dd></dl>
+
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+
+    
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-call" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">call</span><span
+            class="method-args">(env)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="call-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/rack-protection-2.0.1/lib/rack/protection/strict_transport.rb, line 32</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">call</span>(<span class="ruby-identifier">env</span>)
+  <span class="ruby-identifier">status</span>, <span class="ruby-identifier">headers</span>, <span class="ruby-identifier">body</span> = <span class="ruby-ivar">@app</span>.<span class="ruby-identifier">call</span>(<span class="ruby-identifier">env</span>)
+  <span class="ruby-identifier">headers</span>[<span class="ruby-string">&#39;Strict-Transport-Security&#39;</span>] <span class="ruby-operator">||=</span> <span class="ruby-identifier">strict_transport</span>
+  [<span class="ruby-identifier">status</span>, <span class="ruby-identifier">headers</span>, <span class="ruby-identifier">body</span>]
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-strict_transport" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">strict_transport</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="strict_transport-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/rack-protection-2.0.1/lib/rack/protection/strict_transport.rb, line 23</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">strict_transport</span>
+  <span class="ruby-ivar">@strict_transport</span> <span class="ruby-operator">||=</span> <span class="ruby-keyword">begin</span>
+    <span class="ruby-identifier">strict_transport</span> = <span class="ruby-string">&#39;max-age=&#39;</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">options</span>[<span class="ruby-value">:max_age</span>].<span class="ruby-identifier">to_s</span>
+    <span class="ruby-identifier">strict_transport</span> <span class="ruby-operator">+=</span> <span class="ruby-string">&#39;; includeSubDomains&#39;</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">options</span>[<span class="ruby-value">:include_subdomains</span>]
+    <span class="ruby-identifier">strict_transport</span> <span class="ruby-operator">+=</span> <span class="ruby-string">&#39;; preload&#39;</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">options</span>[<span class="ruby-value">:preload</span>]
+    <span class="ruby-identifier">strict_transport</span>.<span class="ruby-identifier">to_str</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="https://rdoc.github.io/rdoc">RDoc</a> 5.0.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

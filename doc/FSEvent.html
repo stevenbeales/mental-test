@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class FSEvent - RDoc Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "./";
+  var index_rel_prefix = "./";
+</script>
+
+<script src="./js/jquery.js"></script>
+<script src="./js/darkfish.js"></script>
+
+<link href="./css/fonts.css" rel="stylesheet">
+<link href="./css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="./index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="./table_of_contents.html#pages">Pages</a>
+    <a href="./table_of_contents.html#classes">Classes</a>
+    <a href="./table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link"><a href="Object.html">Object</a>
+  
+</div>
+
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-c-new">::new</a>
+    
+    <li ><a href="#method-i-open_pipe">#open_pipe</a>
+    
+    <li ><a href="#method-i-options_string">#options_string</a>
+    
+    <li ><a href="#method-i-process_running-3F">#process_running?</a>
+    
+    <li ><a href="#method-i-run">#run</a>
+    
+    <li ><a href="#method-i-shellescape">#shellescape</a>
+    
+    <li ><a href="#method-i-shellescaped_paths">#shellescaped_paths</a>
+    
+    <li ><a href="#method-i-stop">#stop</a>
+    
+    <li ><a href="#method-i-watch">#watch</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-FSEvent">
+  <h1 id="class-FSEvent" class="class">
+    class FSEvent
+  </h1>
+
+  <section class="description">
+    
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+    <section class="constants-list">
+      <header>
+        <h3>Constants</h3>
+      </header>
+      <dl>
+      
+        <dt id="VERSION">VERSION
+        
+        <dd>
+        
+      
+      </dl>
+    </section>
+    
+
+    
+    <section class="attribute-method-details" class="method-section">
+      <header>
+        <h3>Attributes</h3>
+      </header>
+
+      
+      <div id="attribute-i-callback" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">callback</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-paths" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">paths</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+    </section>
+    
+
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Class Methods</h3>
+       </header>
+
+    
+      <div id="method-c-new" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">new</span><span
+            class="method-args">(args = nil, &block)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="new-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/rb-fsevent-0.10.2/lib/rb-fsevent/fsevent.rb, line 20</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span> <span class="ruby-identifier">args</span> = <span class="ruby-keyword">nil</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>
+  <span class="ruby-identifier">watch</span>(<span class="ruby-identifier">args</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>) <span class="ruby-keyword">unless</span> <span class="ruby-identifier">args</span>.<span class="ruby-identifier">nil?</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-open_pipe" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">open_pipe</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="open_pipe-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/rb-fsevent-0.10.2/lib/rb-fsevent/fsevent.rb, line 106</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">open_pipe</span>
+  <span class="ruby-constant">IO</span>.<span class="ruby-identifier">popen</span>(<span class="ruby-node">&quot;&#39;#{self.class.watcher_path}&#39; #{options_string} #{shellescaped_paths}&quot;</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-options_string" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">options_string</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="options_string-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/rb-fsevent-0.10.2/lib/rb-fsevent/fsevent.rb, line 112</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">options_string</span>
+  <span class="ruby-ivar">@options</span>.<span class="ruby-identifier">join</span>(<span class="ruby-string">&#39; &#39;</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-process_running-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">process_running?</span><span
+            class="method-args">(pid)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="process_running-3F-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/rb-fsevent-0.10.2/lib/rb-fsevent/fsevent.rb, line 96</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">process_running?</span>(<span class="ruby-identifier">pid</span>)
+  <span class="ruby-keyword">begin</span>
+    <span class="ruby-constant">Process</span>.<span class="ruby-identifier">kill</span>(<span class="ruby-value">0</span>, <span class="ruby-identifier">pid</span>)
+    <span class="ruby-keyword">true</span>
+  <span class="ruby-keyword">rescue</span> <span class="ruby-constant">Errno</span><span class="ruby-operator">::</span><span class="ruby-constant">ESRCH</span>
+    <span class="ruby-keyword">false</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-run" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">run</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="run-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/rb-fsevent-0.10.2/lib/rb-fsevent/fsevent.rb, line 37</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">run</span>
+  <span class="ruby-ivar">@pipe</span>    = <span class="ruby-identifier">open_pipe</span>
+  <span class="ruby-ivar">@running</span> = <span class="ruby-keyword">true</span>
+
+  <span class="ruby-comment"># please note the use of IO::select() here, as it is used specifically to</span>
+  <span class="ruby-comment"># preserve correct signal handling behavior in ruby 1.8.</span>
+  <span class="ruby-keyword">while</span> <span class="ruby-ivar">@running</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-constant">IO</span><span class="ruby-operator">::</span><span class="ruby-identifier">select</span>([<span class="ruby-ivar">@pipe</span>], <span class="ruby-keyword">nil</span>, <span class="ruby-keyword">nil</span>, <span class="ruby-keyword">nil</span>)
+    <span class="ruby-comment"># managing the IO ourselves allows us to be careful and never pass an</span>
+    <span class="ruby-comment"># incomplete message to OTNetstring.parse()</span>
+    <span class="ruby-identifier">message</span> = <span class="ruby-string">&quot;&quot;</span>
+    <span class="ruby-identifier">length</span> = <span class="ruby-string">&quot;&quot;</span>
+    <span class="ruby-identifier">byte</span> = <span class="ruby-keyword">nil</span>
+
+    <span class="ruby-identifier">reading_length</span> = <span class="ruby-keyword">true</span>
+    <span class="ruby-identifier">found_length</span> = <span class="ruby-keyword">false</span>
+
+    <span class="ruby-keyword">while</span> <span class="ruby-identifier">reading_length</span>
+      <span class="ruby-identifier">byte</span> = <span class="ruby-ivar">@pipe</span>.<span class="ruby-identifier">read</span>(<span class="ruby-value">1</span>)
+      <span class="ruby-keyword">if</span> <span class="ruby-node">&quot;#{byte}&quot;</span> <span class="ruby-operator">=~</span> <span class="ruby-regexp">/\d/</span>
+        <span class="ruby-identifier">length</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">byte</span>
+        <span class="ruby-identifier">found_length</span> = <span class="ruby-keyword">true</span>
+      <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">found_length</span> <span class="ruby-operator">==</span> <span class="ruby-keyword">false</span>
+        <span class="ruby-keyword">next</span>
+      <span class="ruby-keyword">else</span>
+        <span class="ruby-identifier">reading_length</span> = <span class="ruby-keyword">false</span>
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-identifier">length</span> = <span class="ruby-constant">Integer</span>(<span class="ruby-identifier">length</span>, <span class="ruby-value">10</span>)
+    <span class="ruby-identifier">type</span> = <span class="ruby-identifier">byte</span>
+
+    <span class="ruby-identifier">message</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-node">&quot;#{length}#{type}&quot;</span>
+    <span class="ruby-identifier">message</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-ivar">@pipe</span>.<span class="ruby-identifier">read</span>(<span class="ruby-identifier">length</span>)
+
+    <span class="ruby-identifier">decoded</span> = <span class="ruby-constant">OTNetstring</span>.<span class="ruby-identifier">parse</span>(<span class="ruby-identifier">message</span>)
+    <span class="ruby-identifier">modified_paths</span> = <span class="ruby-identifier">decoded</span>[<span class="ruby-string">&quot;events&quot;</span>].<span class="ruby-identifier">map</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">event</span><span class="ruby-operator">|</span> <span class="ruby-identifier">event</span>[<span class="ruby-string">&quot;path&quot;</span>]}
+    <span class="ruby-comment"># passing the full info as a second block param feels icky, but such is</span>
+    <span class="ruby-comment"># the trap of backward compatibility.</span>
+    <span class="ruby-keyword">case</span> <span class="ruby-identifier">callback</span>.<span class="ruby-identifier">arity</span>
+      <span class="ruby-keyword">when</span> <span class="ruby-value">1</span>
+        <span class="ruby-identifier">callback</span>.<span class="ruby-identifier">call</span>(<span class="ruby-identifier">modified_paths</span>)
+      <span class="ruby-keyword">when</span> <span class="ruby-value">2</span>
+        <span class="ruby-identifier">callback</span>.<span class="ruby-identifier">call</span>(<span class="ruby-identifier">modified_paths</span>, <span class="ruby-identifier">decoded</span>)
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">rescue</span> <span class="ruby-constant">Interrupt</span>, <span class="ruby-constant">IOError</span>, <span class="ruby-constant">Errno</span><span class="ruby-operator">::</span><span class="ruby-constant">EBADF</span>
+<span class="ruby-keyword">ensure</span>
+  <span class="ruby-identifier">stop</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-shellescape" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">shellescape</span><span
+            class="method-args">(str)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>for Ruby 1.8.6  support</p>
+          
+          
+
+          
+          <div class="method-source-code" id="shellescape-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/rb-fsevent-0.10.2/lib/rb-fsevent/fsevent.rb, line 121</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">shellescape</span>(<span class="ruby-identifier">str</span>)
+  <span class="ruby-comment"># An empty argument will be skipped, so return empty quotes.</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-string">&quot;&#39;&#39;&quot;</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">str</span>.<span class="ruby-identifier">empty?</span>
+
+  <span class="ruby-identifier">str</span> = <span class="ruby-identifier">str</span>.<span class="ruby-identifier">dup</span>
+
+  <span class="ruby-comment"># Process as a single byte sequence because not all shell</span>
+  <span class="ruby-comment"># implementations are multibyte aware.</span>
+  <span class="ruby-identifier">str</span>.<span class="ruby-identifier">gsub!</span>(<span class="ruby-regexp">/([^A-Za-z0-9_\-.,:\/@\n])/n</span>, <span class="ruby-string">&quot;\\\\\\1&quot;</span>)
+
+  <span class="ruby-comment"># A LF cannot be escaped with a backslash because a backslash + LF</span>
+  <span class="ruby-comment"># combo is regarded as line continuation and simply ignored.</span>
+  <span class="ruby-identifier">str</span>.<span class="ruby-identifier">gsub!</span>(<span class="ruby-regexp">/\n/</span>, <span class="ruby-string">&quot;&#39;\n&#39;&quot;</span>)
+
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">str</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-shellescaped_paths" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">shellescaped_paths</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="shellescaped_paths-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/rb-fsevent-0.10.2/lib/rb-fsevent/fsevent.rb, line 116</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">shellescaped_paths</span>
+  <span class="ruby-ivar">@paths</span>.<span class="ruby-identifier">map</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">path</span><span class="ruby-operator">|</span> <span class="ruby-identifier">shellescape</span>(<span class="ruby-identifier">path</span>)}.<span class="ruby-identifier">join</span>(<span class="ruby-string">&#39; &#39;</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-stop" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">stop</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="stop-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/rb-fsevent-0.10.2/lib/rb-fsevent/fsevent.rb, line 86</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">stop</span>
+  <span class="ruby-keyword">unless</span> <span class="ruby-ivar">@pipe</span>.<span class="ruby-identifier">nil?</span>
+    <span class="ruby-constant">Process</span>.<span class="ruby-identifier">kill</span>(<span class="ruby-string">&#39;KILL&#39;</span>, <span class="ruby-ivar">@pipe</span>.<span class="ruby-identifier">pid</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">process_running?</span>(<span class="ruby-ivar">@pipe</span>.<span class="ruby-identifier">pid</span>)
+    <span class="ruby-ivar">@pipe</span>.<span class="ruby-identifier">close</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">rescue</span> <span class="ruby-constant">IOError</span>
+<span class="ruby-keyword">ensure</span>
+  <span class="ruby-ivar">@running</span> = <span class="ruby-keyword">false</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-watch" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">watch</span><span
+            class="method-args">(watch_paths, options=nil, &block)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="watch-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/rb-fsevent-0.10.2/lib/rb-fsevent/fsevent.rb, line 24</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">watch</span>(<span class="ruby-identifier">watch_paths</span>, <span class="ruby-identifier">options</span>=<span class="ruby-keyword">nil</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+  <span class="ruby-ivar">@paths</span>      = <span class="ruby-identifier">watch_paths</span>.<span class="ruby-identifier">kind_of?</span>(<span class="ruby-constant">Array</span>) <span class="ruby-operator">?</span> <span class="ruby-identifier">watch_paths</span> <span class="ruby-operator">:</span> [<span class="ruby-identifier">watch_paths</span>]
+  <span class="ruby-ivar">@callback</span>   = <span class="ruby-identifier">block</span>
+
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">options</span>.<span class="ruby-identifier">kind_of?</span>(<span class="ruby-constant">Hash</span>)
+    <span class="ruby-ivar">@options</span>  = <span class="ruby-identifier">parse_options</span>(<span class="ruby-identifier">options</span>)
+  <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">options</span>.<span class="ruby-identifier">kind_of?</span>(<span class="ruby-constant">Array</span>)
+    <span class="ruby-ivar">@options</span>  = <span class="ruby-identifier">options</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-ivar">@options</span>  = []
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="https://rdoc.github.io/rdoc">RDoc</a> 5.0.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

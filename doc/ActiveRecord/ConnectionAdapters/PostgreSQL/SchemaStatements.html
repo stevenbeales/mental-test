@@ -1,0 +1,980 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>module ActiveRecord::ConnectionAdapters::PostgreSQL::SchemaStatements - RDoc Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../../../";
+  var index_rel_prefix = "../../../";
+</script>
+
+<script src="../../../js/jquery.js"></script>
+<script src="../../../js/darkfish.js"></script>
+
+<link href="../../../css/fonts.css" rel="stylesheet">
+<link href="../../../css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="module">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../../../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../../../table_of_contents.html#pages">Pages</a>
+    <a href="../../../table_of_contents.html#classes">Classes</a>
+    <a href="../../../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-i-client_min_messages">#client_min_messages</a>
+    
+    <li ><a href="#method-i-client_min_messages-3D">#client_min_messages=</a>
+    
+    <li ><a href="#method-i-collation">#collation</a>
+    
+    <li ><a href="#method-i-create_database">#create_database</a>
+    
+    <li ><a href="#method-i-create_schema">#create_schema</a>
+    
+    <li ><a href="#method-i-ctype">#ctype</a>
+    
+    <li ><a href="#method-i-current_database">#current_database</a>
+    
+    <li ><a href="#method-i-current_schema">#current_schema</a>
+    
+    <li ><a href="#method-i-drop_schema">#drop_schema</a>
+    
+    <li ><a href="#method-i-encoding">#encoding</a>
+    
+    <li ><a href="#method-i-fetch_type_metadata">#fetch_type_metadata</a>
+    
+    <li ><a href="#method-i-foreign_keys">#foreign_keys</a>
+    
+    <li ><a href="#method-i-index_name_exists-3F">#index_name_exists?</a>
+    
+    <li ><a href="#method-i-new_column_from_field">#new_column_from_field</a>
+    
+    <li ><a href="#method-i-rename_index">#rename_index</a>
+    
+    <li ><a href="#method-i-rename_table">#rename_table</a>
+    
+    <li ><a href="#method-i-schema_exists-3F">#schema_exists?</a>
+    
+    <li ><a href="#method-i-schema_names">#schema_names</a>
+    
+    <li ><a href="#method-i-schema_search_path">#schema_search_path</a>
+    
+    <li ><a href="#method-i-schema_search_path-3D">#schema_search_path=</a>
+    
+    <li ><a href="#method-i-serial_sequence">#serial_sequence</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="module-ActiveRecord::ConnectionAdapters::PostgreSQL::SchemaStatements">
+  <h1 id="module-ActiveRecord::ConnectionAdapters::PostgreSQL::SchemaStatements" class="module">
+    module ActiveRecord::ConnectionAdapters::PostgreSQL::SchemaStatements
+  </h1>
+
+  <section class="description">
+    
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+
+    
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-client_min_messages" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">client_min_messages</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Returns the current client message level.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="client_min_messages-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/activerecord-5.1.5/lib/active_record/connection_adapters/postgresql/schema_statements.rb, line 252</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">client_min_messages</span>
+  <span class="ruby-identifier">query_value</span>(<span class="ruby-string">&quot;SHOW client_min_messages&quot;</span>, <span class="ruby-string">&quot;SCHEMA&quot;</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-client_min_messages-3D" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">client_min_messages=</span><span
+            class="method-args">(level)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Set the client message level.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="client_min_messages-3D-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/activerecord-5.1.5/lib/active_record/connection_adapters/postgresql/schema_statements.rb, line 257</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">client_min_messages=</span>(<span class="ruby-identifier">level</span>)
+  <span class="ruby-identifier">execute</span>(<span class="ruby-node">&quot;SET client_min_messages TO &#39;#{level}&#39;&quot;</span>, <span class="ruby-string">&quot;SCHEMA&quot;</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-collation" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">collation</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Returns the current database collation.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="collation-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/activerecord-5.1.5/lib/active_record/connection_adapters/postgresql/schema_statements.rb, line 204</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">collation</span>
+  <span class="ruby-identifier">query_value</span>(<span class="ruby-string">&quot;SELECT datcollate FROM pg_database WHERE datname = current_database()&quot;</span>, <span class="ruby-string">&quot;SCHEMA&quot;</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-create_database" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">create_database</span><span
+            class="method-args">(name, options = {})</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Create a new <a href="../PostgreSQL.html">PostgreSQL</a> database. <a
+href="../../../vendor/bundle/ruby/2_4_0/gems/oj-3_4_0/pages/Options_md.html">Options</a>
+include <code>:owner</code>, <code>:template</code>, <code>:encoding</code>
+(defaults to utf8), <code>:collation</code>, <code>:ctype</code>,
+<code>:tablespace</code>, and <code>:connection_limit</code> (note that <a
+href="../MySQL.html">MySQL</a> uses <code>:charset</code> while <a
+href="../PostgreSQL.html">PostgreSQL</a> uses <code>:encoding</code>).</p>
+
+<p>Example:</p>
+
+<pre class="ruby"><span class="ruby-identifier">create_database</span> <span class="ruby-identifier">config</span>[:<span class="ruby-identifier">database</span>], <span class="ruby-identifier">config</span>
+<span class="ruby-identifier">create_database</span> <span class="ruby-string">&#39;foo_development&#39;</span>, <span class="ruby-identifier">encoding</span><span class="ruby-operator">:</span> <span class="ruby-string">&#39;unicode&#39;</span>
+</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="create_database-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/activerecord-5.1.5/lib/active_record/connection_adapters/postgresql/schema_statements.rb, line 22</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">create_database</span>(<span class="ruby-identifier">name</span>, <span class="ruby-identifier">options</span> = {})
+  <span class="ruby-identifier">options</span> = { <span class="ruby-identifier">encoding</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;utf8&quot;</span> }.<span class="ruby-identifier">merge!</span>(<span class="ruby-identifier">options</span>.<span class="ruby-identifier">symbolize_keys</span>)
+
+  <span class="ruby-identifier">option_string</span> = <span class="ruby-identifier">options</span>.<span class="ruby-identifier">inject</span>(<span class="ruby-string">&quot;&quot;</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">memo</span>, (<span class="ruby-identifier">key</span>, <span class="ruby-identifier">value</span>)<span class="ruby-operator">|</span>
+    <span class="ruby-identifier">memo</span> <span class="ruby-operator">+=</span> <span class="ruby-keyword">case</span> <span class="ruby-identifier">key</span>
+            <span class="ruby-keyword">when</span> <span class="ruby-value">:owner</span>
+              <span class="ruby-node">&quot; OWNER = \&quot;#{value}\&quot;&quot;</span>
+            <span class="ruby-keyword">when</span> <span class="ruby-value">:template</span>
+              <span class="ruby-node">&quot; TEMPLATE = \&quot;#{value}\&quot;&quot;</span>
+            <span class="ruby-keyword">when</span> <span class="ruby-value">:encoding</span>
+              <span class="ruby-node">&quot; ENCODING = &#39;#{value}&#39;&quot;</span>
+            <span class="ruby-keyword">when</span> <span class="ruby-value">:collation</span>
+              <span class="ruby-node">&quot; LC_COLLATE = &#39;#{value}&#39;&quot;</span>
+            <span class="ruby-keyword">when</span> <span class="ruby-value">:ctype</span>
+              <span class="ruby-node">&quot; LC_CTYPE = &#39;#{value}&#39;&quot;</span>
+            <span class="ruby-keyword">when</span> <span class="ruby-value">:tablespace</span>
+              <span class="ruby-node">&quot; TABLESPACE = \&quot;#{value}\&quot;&quot;</span>
+            <span class="ruby-keyword">when</span> <span class="ruby-value">:connection_limit</span>
+              <span class="ruby-node">&quot; CONNECTION LIMIT = #{value}&quot;</span>
+    <span class="ruby-keyword">else</span>
+              <span class="ruby-string">&quot;&quot;</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">execute</span> <span class="ruby-node">&quot;CREATE DATABASE #{quote_table_name(name)}#{option_string}&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-create_schema" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">create_schema</span><span
+            class="method-args">(schema_name)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Creates a schema for the given schema name.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="create_schema-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/activerecord-5.1.5/lib/active_record/connection_adapters/postgresql/schema_statements.rb, line 225</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">create_schema</span>(<span class="ruby-identifier">schema_name</span>)
+  <span class="ruby-identifier">execute</span> <span class="ruby-node">&quot;CREATE SCHEMA #{quote_schema_name(schema_name)}&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-ctype" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">ctype</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Returns the current database ctype.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="ctype-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/activerecord-5.1.5/lib/active_record/connection_adapters/postgresql/schema_statements.rb, line 209</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">ctype</span>
+  <span class="ruby-identifier">query_value</span>(<span class="ruby-string">&quot;SELECT datctype FROM pg_database WHERE datname = current_database()&quot;</span>, <span class="ruby-string">&quot;SCHEMA&quot;</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-current_database" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">current_database</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Returns the current database name.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="current_database-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/activerecord-5.1.5/lib/active_record/connection_adapters/postgresql/schema_statements.rb, line 189</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">current_database</span>
+  <span class="ruby-identifier">query_value</span>(<span class="ruby-string">&quot;SELECT current_database()&quot;</span>, <span class="ruby-string">&quot;SCHEMA&quot;</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-current_schema" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">current_schema</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Returns the current schema name.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="current_schema-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/activerecord-5.1.5/lib/active_record/connection_adapters/postgresql/schema_statements.rb, line 194</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">current_schema</span>
+  <span class="ruby-identifier">query_value</span>(<span class="ruby-string">&quot;SELECT current_schema&quot;</span>, <span class="ruby-string">&quot;SCHEMA&quot;</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-drop_schema" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">drop_schema</span><span
+            class="method-args">(schema_name, options = {})</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Drops the schema for the given schema name.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="drop_schema-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/activerecord-5.1.5/lib/active_record/connection_adapters/postgresql/schema_statements.rb, line 230</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">drop_schema</span>(<span class="ruby-identifier">schema_name</span>, <span class="ruby-identifier">options</span> = {})
+  <span class="ruby-identifier">execute</span> <span class="ruby-node">&quot;DROP SCHEMA#{&#39; IF EXISTS&#39; if options[:if_exists]} #{quote_schema_name(schema_name)} CASCADE&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-encoding" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">encoding</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Returns the current database encoding format.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="encoding-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/activerecord-5.1.5/lib/active_record/connection_adapters/postgresql/schema_statements.rb, line 199</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">encoding</span>
+  <span class="ruby-identifier">query_value</span>(<span class="ruby-string">&quot;SELECT pg_encoding_to_char(encoding) FROM pg_database WHERE datname = current_database()&quot;</span>, <span class="ruby-string">&quot;SCHEMA&quot;</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-fetch_type_metadata" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">fetch_type_metadata</span><span
+            class="method-args">(column_name, sql_type, oid, fmod)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="fetch_type_metadata-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/activerecord-5.1.5/lib/active_record/connection_adapters/postgresql/schema_statements.rb, line 605</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">fetch_type_metadata</span>(<span class="ruby-identifier">column_name</span>, <span class="ruby-identifier">sql_type</span>, <span class="ruby-identifier">oid</span>, <span class="ruby-identifier">fmod</span>)
+  <span class="ruby-identifier">cast_type</span> = <span class="ruby-identifier">get_oid_type</span>(<span class="ruby-identifier">oid</span>, <span class="ruby-identifier">fmod</span>, <span class="ruby-identifier">column_name</span>, <span class="ruby-identifier">sql_type</span>)
+  <span class="ruby-identifier">simple_type</span> = <span class="ruby-constant">SqlTypeMetadata</span>.<span class="ruby-identifier">new</span>(
+    <span class="ruby-identifier">sql_type</span><span class="ruby-operator">:</span> <span class="ruby-identifier">sql_type</span>,
+    <span class="ruby-identifier">type</span><span class="ruby-operator">:</span> <span class="ruby-identifier">cast_type</span>.<span class="ruby-identifier">type</span>,
+    <span class="ruby-identifier">limit</span><span class="ruby-operator">:</span> <span class="ruby-identifier">cast_type</span>.<span class="ruby-identifier">limit</span>,
+    <span class="ruby-identifier">precision</span><span class="ruby-operator">:</span> <span class="ruby-identifier">cast_type</span>.<span class="ruby-identifier">precision</span>,
+    <span class="ruby-identifier">scale</span><span class="ruby-operator">:</span> <span class="ruby-identifier">cast_type</span>.<span class="ruby-identifier">scale</span>,
+  )
+  <span class="ruby-constant">PostgreSQLTypeMetadata</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">simple_type</span>, <span class="ruby-identifier">oid</span><span class="ruby-operator">:</span> <span class="ruby-identifier">oid</span>, <span class="ruby-identifier">fmod</span><span class="ruby-operator">:</span> <span class="ruby-identifier">fmod</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-foreign_keys" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">foreign_keys</span><span
+            class="method-args">(table_name)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="foreign_keys-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/activerecord-5.1.5/lib/active_record/connection_adapters/postgresql/schema_statements.rb, line 520</span>
+        <span class="ruby-keyword">def</span> <span class="ruby-identifier">foreign_keys</span>(<span class="ruby-identifier">table_name</span>)
+          <span class="ruby-identifier">scope</span> = <span class="ruby-identifier">quoted_scope</span>(<span class="ruby-identifier">table_name</span>)
+          <span class="ruby-identifier">fk_info</span> = <span class="ruby-identifier">exec_query</span>(<span class="ruby-string">&quot;            SELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+            FROM pg_constraint c
+            JOIN pg_class t1 ON c.conrelid = t1.oid
+            JOIN pg_class t2 ON c.confrelid = t2.oid
+            JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+            JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+            JOIN pg_namespace t3 ON c.connamespace = t3.oid
+            WHERE c.contype = &#39;f&#39;
+              AND t1.relname = #{scope[:name]}
+              AND t3.nspname = #{scope[:schema]}
+            ORDER BY c.conname
+&quot;</span>.<span class="ruby-identifier">strip_heredoc</span>, <span class="ruby-string">&quot;SCHEMA&quot;</span>)
+
+          <span class="ruby-identifier">fk_info</span>.<span class="ruby-identifier">map</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">row</span><span class="ruby-operator">|</span>
+            <span class="ruby-identifier">options</span> = {
+              <span class="ruby-identifier">column</span><span class="ruby-operator">:</span> <span class="ruby-identifier">row</span>[<span class="ruby-string">&quot;column&quot;</span>],
+              <span class="ruby-identifier">name</span><span class="ruby-operator">:</span> <span class="ruby-identifier">row</span>[<span class="ruby-string">&quot;name&quot;</span>],
+              <span class="ruby-identifier">primary_key</span><span class="ruby-operator">:</span> <span class="ruby-identifier">row</span>[<span class="ruby-string">&quot;primary_key&quot;</span>]
+            }
+
+            <span class="ruby-identifier">options</span>[<span class="ruby-value">:on_delete</span>] = <span class="ruby-identifier">extract_foreign_key_action</span>(<span class="ruby-identifier">row</span>[<span class="ruby-string">&quot;on_delete&quot;</span>])
+            <span class="ruby-identifier">options</span>[<span class="ruby-value">:on_update</span>] = <span class="ruby-identifier">extract_foreign_key_action</span>(<span class="ruby-identifier">row</span>[<span class="ruby-string">&quot;on_update&quot;</span>])
+
+            <span class="ruby-constant">ForeignKeyDefinition</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">table_name</span>, <span class="ruby-identifier">row</span>[<span class="ruby-string">&quot;to_table&quot;</span>], <span class="ruby-identifier">options</span>)
+          <span class="ruby-keyword">end</span>
+        <span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-index_name_exists-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">index_name_exists?</span><span
+            class="method-args">(table_name, index_name, default = nil)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Verifies existence of an index with a given name.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="index_name_exists-3F-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/activerecord-5.1.5/lib/active_record/connection_adapters/postgresql/schema_statements.rb, line 67</span>
+        <span class="ruby-keyword">def</span> <span class="ruby-identifier">index_name_exists?</span>(<span class="ruby-identifier">table_name</span>, <span class="ruby-identifier">index_name</span>, <span class="ruby-identifier">default</span> = <span class="ruby-keyword">nil</span>)
+          <span class="ruby-keyword">unless</span> <span class="ruby-identifier">default</span>.<span class="ruby-identifier">nil?</span>
+            <span class="ruby-constant">ActiveSupport</span><span class="ruby-operator">::</span><span class="ruby-constant">Deprecation</span>.<span class="ruby-identifier">warn</span>(<span class="ruby-string">&quot;              Passing default to #index_name_exists? is deprecated without replacement.
+&quot;</span>.<span class="ruby-identifier">squish</span>)
+          <span class="ruby-keyword">end</span>
+          <span class="ruby-identifier">table</span> = <span class="ruby-identifier">quoted_scope</span>(<span class="ruby-identifier">table_name</span>)
+          <span class="ruby-identifier">index</span> = <span class="ruby-identifier">quoted_scope</span>(<span class="ruby-identifier">index_name</span>)
+
+          <span class="ruby-identifier">query_value</span>(<span class="ruby-string">&quot;            SELECT COUNT(*)
+            FROM pg_class t
+            INNER JOIN pg_index d ON t.oid = d.indrelid
+            INNER JOIN pg_class i ON d.indexrelid = i.oid
+            LEFT JOIN pg_namespace n ON n.oid = i.relnamespace
+            WHERE i.relkind = &#39;i&#39;
+              AND i.relname = #{index[:name]}
+              AND t.relname = #{table[:name]}
+              AND n.nspname = #{index[:schema]}
+&quot;</span>, <span class="ruby-string">&quot;SCHEMA&quot;</span>).<span class="ruby-identifier">to_i</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">0</span>
+        <span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-new_column_from_field" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">new_column_from_field</span><span
+            class="method-args">(table_name, field)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="new_column_from_field-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/activerecord-5.1.5/lib/active_record/connection_adapters/postgresql/schema_statements.rb, line 147</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">new_column_from_field</span>(<span class="ruby-identifier">table_name</span>, <span class="ruby-identifier">field</span>) <span class="ruby-comment"># :nondoc:</span>
+  <span class="ruby-identifier">column_name</span>, <span class="ruby-identifier">type</span>, <span class="ruby-identifier">default</span>, <span class="ruby-identifier">notnull</span>, <span class="ruby-identifier">oid</span>, <span class="ruby-identifier">fmod</span>, <span class="ruby-identifier">collation</span>, <span class="ruby-identifier">comment</span> = <span class="ruby-identifier">field</span>
+  <span class="ruby-identifier">oid</span> = <span class="ruby-identifier">oid</span>.<span class="ruby-identifier">to_i</span>
+  <span class="ruby-identifier">fmod</span> = <span class="ruby-identifier">fmod</span>.<span class="ruby-identifier">to_i</span>
+  <span class="ruby-identifier">type_metadata</span> = <span class="ruby-identifier">fetch_type_metadata</span>(<span class="ruby-identifier">column_name</span>, <span class="ruby-identifier">type</span>, <span class="ruby-identifier">oid</span>, <span class="ruby-identifier">fmod</span>)
+  <span class="ruby-identifier">default_value</span> = <span class="ruby-identifier">extract_value_from_default</span>(<span class="ruby-identifier">default</span>)
+  <span class="ruby-identifier">default_function</span> = <span class="ruby-identifier">extract_default_function</span>(<span class="ruby-identifier">default_value</span>, <span class="ruby-identifier">default</span>)
+  <span class="ruby-constant">PostgreSQLColumn</span>.<span class="ruby-identifier">new</span>(
+    <span class="ruby-identifier">column_name</span>,
+    <span class="ruby-identifier">default_value</span>,
+    <span class="ruby-identifier">type_metadata</span>,
+    <span class="ruby-operator">!</span><span class="ruby-identifier">notnull</span>,
+    <span class="ruby-identifier">table_name</span>,
+    <span class="ruby-identifier">default_function</span>,
+    <span class="ruby-identifier">collation</span>,
+    <span class="ruby-identifier">comment</span><span class="ruby-operator">:</span> <span class="ruby-identifier">comment</span>.<span class="ruby-identifier">presence</span>,
+    <span class="ruby-identifier">max_identifier_length</span><span class="ruby-operator">:</span> <span class="ruby-identifier">max_identifier_length</span>
+  )
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-rename_index" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">rename_index</span><span
+            class="method-args">(table_name, old_name, new_name)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Renames an index of a table. Raises error if length of new index name is
+greater than allowed limit.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="rename_index-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/activerecord-5.1.5/lib/active_record/connection_adapters/postgresql/schema_statements.rb, line 514</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">rename_index</span>(<span class="ruby-identifier">table_name</span>, <span class="ruby-identifier">old_name</span>, <span class="ruby-identifier">new_name</span>)
+  <span class="ruby-identifier">validate_index_length!</span>(<span class="ruby-identifier">table_name</span>, <span class="ruby-identifier">new_name</span>)
+
+  <span class="ruby-identifier">execute</span> <span class="ruby-node">&quot;ALTER INDEX #{quote_column_name(old_name)} RENAME TO #{quote_table_name(new_name)}&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-rename_table" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">rename_table</span><span
+            class="method-args">(table_name, new_name)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Renames a table. Also renames a table&#39;s primary key sequence if the
+sequence name exists and matches the Active Record default.</p>
+
+<p>Example:</p>
+
+<pre class="ruby"><span class="ruby-identifier">rename_table</span>(<span class="ruby-string">&#39;octopuses&#39;</span>, <span class="ruby-string">&#39;octopi&#39;</span>)
+</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="rename_table-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/activerecord-5.1.5/lib/active_record/connection_adapters/postgresql/schema_statements.rb, line 393</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">rename_table</span>(<span class="ruby-identifier">table_name</span>, <span class="ruby-identifier">new_name</span>)
+  <span class="ruby-identifier">clear_cache!</span>
+  <span class="ruby-identifier">execute</span> <span class="ruby-node">&quot;ALTER TABLE #{quote_table_name(table_name)} RENAME TO #{quote_table_name(new_name)}&quot;</span>
+  <span class="ruby-identifier">pk</span>, <span class="ruby-identifier">seq</span> = <span class="ruby-identifier">pk_and_sequence_for</span>(<span class="ruby-identifier">new_name</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">seq</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">seq</span>.<span class="ruby-identifier">identifier</span> <span class="ruby-operator">==</span> <span class="ruby-node">&quot;#{table_name}_#{pk}_seq&quot;</span>
+    <span class="ruby-identifier">new_seq</span> = <span class="ruby-node">&quot;#{new_name}_#{pk}_seq&quot;</span>
+    <span class="ruby-identifier">idx</span> = <span class="ruby-node">&quot;#{table_name}_pkey&quot;</span>
+    <span class="ruby-identifier">new_idx</span> = <span class="ruby-node">&quot;#{new_name}_pkey&quot;</span>
+    <span class="ruby-identifier">execute</span> <span class="ruby-node">&quot;ALTER TABLE #{seq.quoted} RENAME TO #{quote_table_name(new_seq)}&quot;</span>
+    <span class="ruby-identifier">execute</span> <span class="ruby-node">&quot;ALTER INDEX #{quote_table_name(idx)} RENAME TO #{quote_table_name(new_idx)}&quot;</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">rename_table_indexes</span>(<span class="ruby-identifier">table_name</span>, <span class="ruby-identifier">new_name</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-schema_exists-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">schema_exists?</span><span
+            class="method-args">(name)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Returns true if schema exists.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="schema_exists-3F-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/activerecord-5.1.5/lib/active_record/connection_adapters/postgresql/schema_statements.rb, line 62</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">schema_exists?</span>(<span class="ruby-identifier">name</span>)
+  <span class="ruby-identifier">query_value</span>(<span class="ruby-node">&quot;SELECT COUNT(*) FROM pg_namespace WHERE nspname = #{quote(name)}&quot;</span>, <span class="ruby-string">&quot;SCHEMA&quot;</span>).<span class="ruby-identifier">to_i</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">0</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-schema_names" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">schema_names</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Returns an array of schema names.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="schema_names-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/activerecord-5.1.5/lib/active_record/connection_adapters/postgresql/schema_statements.rb, line 214</span>
+        <span class="ruby-keyword">def</span> <span class="ruby-identifier">schema_names</span>
+          <span class="ruby-identifier">query_values</span>(<span class="ruby-string">&quot;            SELECT nspname
+              FROM pg_namespace
+             WHERE nspname !~ &#39;^pg_.*&#39;
+               AND nspname NOT IN (&#39;information_schema&#39;)
+             ORDER by nspname;
+&quot;</span>, <span class="ruby-string">&quot;SCHEMA&quot;</span>)
+        <span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-schema_search_path" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">schema_search_path</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Returns the active schema search path.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="schema_search_path-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/activerecord-5.1.5/lib/active_record/connection_adapters/postgresql/schema_statements.rb, line 247</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">schema_search_path</span>
+  <span class="ruby-ivar">@schema_search_path</span> <span class="ruby-operator">||=</span> <span class="ruby-identifier">query_value</span>(<span class="ruby-string">&quot;SHOW search_path&quot;</span>, <span class="ruby-string">&quot;SCHEMA&quot;</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-schema_search_path-3D" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">schema_search_path=</span><span
+            class="method-args">(schema_csv)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Sets the schema search path to a string of comma-separated schema names.
+Names beginning with $ have to be quoted (e.g. $user =&gt;
+&#39;$user&#39;). See: <a
+href="http://www.postgresql.org/docs/current/static/ddl-schemas.html">www.postgresql.org/docs/current/static/ddl-schemas.html</a></p>
+
+<p>This should be not be called manually but set in database.yml.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="schema_search_path-3D-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/activerecord-5.1.5/lib/active_record/connection_adapters/postgresql/schema_statements.rb, line 239</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">schema_search_path=</span>(<span class="ruby-identifier">schema_csv</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">schema_csv</span>
+    <span class="ruby-identifier">execute</span>(<span class="ruby-node">&quot;SET search_path TO #{schema_csv}&quot;</span>, <span class="ruby-string">&quot;SCHEMA&quot;</span>)
+    <span class="ruby-ivar">@schema_search_path</span> = <span class="ruby-identifier">schema_csv</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-serial_sequence" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">serial_sequence</span><span
+            class="method-args">(table, column)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="serial_sequence-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/activerecord-5.1.5/lib/active_record/connection_adapters/postgresql/schema_statements.rb, line 270</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">serial_sequence</span>(<span class="ruby-identifier">table</span>, <span class="ruby-identifier">column</span>)
+  <span class="ruby-identifier">query_value</span>(<span class="ruby-node">&quot;SELECT pg_get_serial_sequence(#{quote(table)}, #{quote(column)})&quot;</span>, <span class="ruby-string">&quot;SCHEMA&quot;</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="https://rdoc.github.io/rdoc">RDoc</a> 5.0.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

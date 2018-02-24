@@ -1,0 +1,782 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class Parser::Source::Rewriter - RDoc Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../../";
+  var index_rel_prefix = "../../";
+</script>
+
+<script src="../../js/jquery.js"></script>
+<script src="../../js/darkfish.js"></script>
+
+<link href="../../css/fonts.css" rel="stylesheet">
+<link href="../../css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../../table_of_contents.html#pages">Pages</a>
+    <a href="../../table_of_contents.html#classes">Classes</a>
+    <a href="../../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link"><a href="../../Object.html">Object</a>
+  
+</div>
+
+    
+    <div id="extends-section" class="nav-section">
+  <h3>Extended With Modules</h3>
+
+  <ul class="link-list">
+    
+  
+    <li><a class="extend" href="../Deprecation.html">Parser::Deprecation</a>
+  
+  
+  
+    <li><a class="extend" href="../Deprecation.html">Parser::Deprecation</a>
+  
+  
+  
+    <li><a class="extend" href="../Deprecation.html">Parser::Deprecation</a>
+  
+  
+  </ul>
+</div>
+
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-c-new">::new</a>
+    
+    <li ><a href="#method-i-insert_after">#insert_after</a>
+    
+    <li ><a href="#method-i-insert_after_multi">#insert_after_multi</a>
+    
+    <li ><a href="#method-i-insert_before">#insert_before</a>
+    
+    <li ><a href="#method-i-insert_before_multi">#insert_before_multi</a>
+    
+    <li ><a href="#method-i-process">#process</a>
+    
+    <li ><a href="#method-i-remove">#remove</a>
+    
+    <li ><a href="#method-i-replace">#replace</a>
+    
+    <li ><a href="#method-i-transaction">#transaction</a>
+    
+    <li ><a href="#method-i-wrap">#wrap</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-Parser::Source::Rewriter">
+  <h1 id="class-Parser::Source::Rewriter" class="class">
+    class Parser::Source::Rewriter
+  </h1>
+
+  <section class="description">
+    
+<p>{Rewriter} is deprecated. Use {TreeRewriter} instead.</p>
+
+<p><a href="TreeRewriter.html">TreeRewriter</a> has simplified semantics, and
+customizable policies with regards to clobbering. Please read the
+documentation.</p>
+
+<p>Keep in mind:</p>
+<ul><li>
+<p><a href="Rewriter.html">Rewriter</a> was discarding the `end_pos` of the
+given range for `insert_before`, and the `begin_pos` for `insert_after`.
+These are meaningful in <a href="TreeRewriter.html">TreeRewriter</a>.</p>
+</li><li>
+<p>TreeRewriter&#39;s wrap/insert_before/insert_after are multiple by default,
+while <a href="Rewriter.html">Rewriter</a> would raise clobbering errors if
+the non &#39;_multi&#39; version was called.</p>
+</li><li>
+<p>The <a href="TreeRewriter.html">TreeRewriter</a> policy closest to
+Rewriter&#39;s behavior is:</p>
+
+<pre>different_replacements: :raise,
+swallowed_insertions: :raise,
+overlapping_deletions: :accept</pre>
+</li></ul>
+
+<p>@!attribute [r] <a
+href="Rewriter.html#attribute-i-source_buffer">#source_buffer</a></p>
+
+<pre class="ruby"><span class="ruby-ivar">@return</span> [<span class="ruby-constant">Source</span><span class="ruby-operator">::</span><span class="ruby-constant">Buffer</span>]
+</pre>
+
+<p>@!attribute [r] diagnostics</p>
+
+<pre class="ruby"><span class="ruby-ivar">@return</span> [<span class="ruby-constant">Diagnostic</span><span class="ruby-operator">::</span><span class="ruby-constant">Engine</span>]
+</pre>
+
+<p>@api public @deprecated Use {TreeRewriter}</p>
+
+<p>{Rewriter} is deprecated. Use {TreeRewriter} instead.</p>
+
+<p><a href="TreeRewriter.html">TreeRewriter</a> has simplified semantics, and
+customizable policies with regards to clobbering. Please read the
+documentation.</p>
+
+<p>Keep in mind:</p>
+<ul><li>
+<p><a href="Rewriter.html">Rewriter</a> was discarding the `end_pos` of the
+given range for `insert_before`, and the `begin_pos` for `insert_after`.
+These are meaningful in <a href="TreeRewriter.html">TreeRewriter</a>.</p>
+</li><li>
+<p>TreeRewriter&#39;s wrap/insert_before/insert_after are multiple by default,
+while <a href="Rewriter.html">Rewriter</a> would raise clobbering errors if
+the non &#39;_multi&#39; version was called.</p>
+</li><li>
+<p>The <a href="TreeRewriter.html">TreeRewriter</a> policy closest to
+Rewriter&#39;s behavior is:</p>
+
+<pre>different_replacements: :raise,
+swallowed_insertions: :raise,
+overlapping_deletions: :accept</pre>
+</li></ul>
+
+<p>@!attribute [r] <a
+href="Rewriter.html#attribute-i-source_buffer">#source_buffer</a></p>
+
+<pre class="ruby"><span class="ruby-ivar">@return</span> [<span class="ruby-constant">Source</span><span class="ruby-operator">::</span><span class="ruby-constant">Buffer</span>]
+</pre>
+
+<p>@!attribute [r] diagnostics</p>
+
+<pre class="ruby"><span class="ruby-ivar">@return</span> [<span class="ruby-constant">Diagnostic</span><span class="ruby-operator">::</span><span class="ruby-constant">Engine</span>]
+</pre>
+
+<p>@api public @deprecated Use {TreeRewriter}</p>
+
+<p>{Rewriter} is deprecated. Use {TreeRewriter} instead.</p>
+
+<p><a href="TreeRewriter.html">TreeRewriter</a> has simplified semantics, and
+customizable policies with regards to clobbering. Please read the
+documentation.</p>
+
+<p>Keep in mind:</p>
+<ul><li>
+<p><a href="Rewriter.html">Rewriter</a> was discarding the `end_pos` of the
+given range for `insert_before`, and the `begin_pos` for `insert_after`.
+These are meaningful in <a href="TreeRewriter.html">TreeRewriter</a>.</p>
+</li><li>
+<p>TreeRewriter&#39;s wrap/insert_before/insert_after are multiple by default,
+while <a href="Rewriter.html">Rewriter</a> would raise clobbering errors if
+the non &#39;_multi&#39; version was called.</p>
+</li><li>
+<p>The <a href="TreeRewriter.html">TreeRewriter</a> policy closest to
+Rewriter&#39;s behavior is:</p>
+
+<pre>different_replacements: :raise,
+swallowed_insertions: :raise,
+overlapping_deletions: :accept</pre>
+</li></ul>
+
+<p>@!attribute [r] <a
+href="Rewriter.html#attribute-i-source_buffer">#source_buffer</a></p>
+
+<pre class="ruby"><span class="ruby-ivar">@return</span> [<span class="ruby-constant">Source</span><span class="ruby-operator">::</span><span class="ruby-constant">Buffer</span>]
+</pre>
+
+<p>@!attribute [r] diagnostics</p>
+
+<pre class="ruby"><span class="ruby-ivar">@return</span> [<span class="ruby-constant">Diagnostic</span><span class="ruby-operator">::</span><span class="ruby-constant">Engine</span>]
+</pre>
+
+<p>@api public @deprecated Use {TreeRewriter}</p>
+
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+    <section class="constants-list">
+      <header>
+        <h3>Constants</h3>
+      </header>
+      <dl>
+      
+        <dt id="DEPRECATION_WARNING">DEPRECATION_WARNING
+        
+        <dd>
+        
+      
+      </dl>
+    </section>
+    
+
+    
+    <section class="attribute-method-details" class="method-section">
+      <header>
+        <h3>Attributes</h3>
+      </header>
+
+      
+      <div id="attribute-i-diagnostics" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">diagnostics</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-source_buffer" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">source_buffer</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+    </section>
+    
+
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Class Methods</h3>
+       </header>
+
+    
+      <div id="method-c-new" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">new</span><span
+            class="method-args">(source_buffer)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>@param [Source::Buffer] <a
+href="Rewriter.html#attribute-i-source_buffer">#source_buffer</a>
+@deprecated Use {TreeRewriter}</p>
+          
+          
+
+          
+          <div class="method-source-code" id="new-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/parser-2.5.0.0/lib/parser/source/rewriter.rb, line 38</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">source_buffer</span>)
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">class</span>.<span class="ruby-identifier">warn_of_deprecation</span>
+  <span class="ruby-ivar">@diagnostics</span> = <span class="ruby-constant">Diagnostic</span><span class="ruby-operator">::</span><span class="ruby-constant">Engine</span>.<span class="ruby-identifier">new</span>
+  <span class="ruby-ivar">@diagnostics</span>.<span class="ruby-identifier">consumer</span> = <span class="ruby-identifier">lambda</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">diag</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">$stderr</span>.<span class="ruby-identifier">puts</span> <span class="ruby-identifier">diag</span>.<span class="ruby-identifier">render</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-ivar">@source_buffer</span> = <span class="ruby-identifier">source_buffer</span>
+  <span class="ruby-ivar">@queue</span>         = []
+  <span class="ruby-ivar">@clobber</span>       = <span class="ruby-value">0</span>
+  <span class="ruby-ivar">@insertions</span>    = <span class="ruby-value">0</span> <span class="ruby-comment"># clobbered zero-length positions; index 0 is the far left</span>
+
+  <span class="ruby-ivar">@insert_before_multi_order</span> = <span class="ruby-value">0</span>
+  <span class="ruby-ivar">@insert_after_multi_order</span> = <span class="ruby-value">0</span>
+
+  <span class="ruby-ivar">@pending_queue</span> = <span class="ruby-keyword">nil</span>
+  <span class="ruby-ivar">@pending_clobber</span> = <span class="ruby-keyword">nil</span>
+  <span class="ruby-ivar">@pending_insertions</span> = <span class="ruby-keyword">nil</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-insert_after" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">insert_after</span><span
+            class="method-args">(range, content)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Inserts new code after the given source range.</p>
+
+<p>@param [Range] range @param [String] content @return [Rewriter] self @raise
+[ClobberingError] when clobbering is detected @deprecated Use
+{TreeRewriter#insert_after}</p>
+          
+          
+
+          
+          <div class="method-source-code" id="insert_after-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/parser-2.5.0.0/lib/parser/source/rewriter.rb, line 130</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">insert_after</span>(<span class="ruby-identifier">range</span>, <span class="ruby-identifier">content</span>)
+  <span class="ruby-identifier">append</span> <span class="ruby-constant">Rewriter</span><span class="ruby-operator">::</span><span class="ruby-constant">Action</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">range</span>.<span class="ruby-identifier">end</span>, <span class="ruby-identifier">content</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-insert_after_multi" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">insert_after_multi</span><span
+            class="method-args">(range, content)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Inserts new code after the given source range by allowing other insertions
+at the same position. Note that an insertion with latter invocation comes
+<em>after</em> earlier insertion at the same position in the rewritten
+source.</p>
+
+<p>@example Inserting &#39;)]&#39;</p>
+
+<pre class="ruby"><span class="ruby-identifier">rewriter</span>.
+  <span class="ruby-identifier">insert_after_multi</span>(<span class="ruby-identifier">range</span>, <span class="ruby-string">&#39;)&#39;</span>).
+  <span class="ruby-identifier">insert_after_multi</span>(<span class="ruby-identifier">range</span>, <span class="ruby-string">&#39;]&#39;</span>).
+  <span class="ruby-identifier">process</span>
+</pre>
+
+<p>@param [Range] range @param [String] content @return [Rewriter] self @raise
+[ClobberingError] when clobbering is detected @deprecated Use
+{TreeRewriter#insert_after}</p>
+          
+          
+
+          
+          <div class="method-source-code" id="insert_after_multi-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/parser-2.5.0.0/lib/parser/source/rewriter.rb, line 152</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">insert_after_multi</span>(<span class="ruby-identifier">range</span>, <span class="ruby-identifier">content</span>)
+  <span class="ruby-ivar">@insert_after_multi_order</span> <span class="ruby-operator">+=</span> <span class="ruby-value">1</span>
+  <span class="ruby-identifier">append</span> <span class="ruby-constant">Rewriter</span><span class="ruby-operator">::</span><span class="ruby-constant">Action</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">range</span>.<span class="ruby-identifier">end</span>, <span class="ruby-identifier">content</span>, <span class="ruby-keyword">true</span>, <span class="ruby-ivar">@insert_after_multi_order</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-insert_before" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">insert_before</span><span
+            class="method-args">(range, content)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Inserts new code before the given source range.</p>
+
+<p>@param [Range] range @param [String] content @return [Rewriter] self @raise
+[ClobberingError] when clobbering is detected @deprecated Use
+{TreeRewriter#insert_before}</p>
+          
+          
+
+          
+          <div class="method-source-code" id="insert_before-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/parser-2.5.0.0/lib/parser/source/rewriter.rb, line 79</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">insert_before</span>(<span class="ruby-identifier">range</span>, <span class="ruby-identifier">content</span>)
+  <span class="ruby-identifier">append</span> <span class="ruby-constant">Rewriter</span><span class="ruby-operator">::</span><span class="ruby-constant">Action</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">range</span>.<span class="ruby-identifier">begin</span>, <span class="ruby-identifier">content</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-insert_before_multi" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">insert_before_multi</span><span
+            class="method-args">(range, content)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Inserts new code before the given source range by allowing other insertions
+at the same position. Note that an insertion with latter invocation comes
+<em>before</em> earlier insertion at the same position in the rewritten
+source.</p>
+
+<p>@example Inserting &#39;[(&#39;</p>
+
+<pre class="ruby"><span class="ruby-identifier">rewriter</span>.
+  <span class="ruby-identifier">insert_before_multi</span>(<span class="ruby-identifier">range</span>, <span class="ruby-string">&#39;(&#39;</span>).
+  <span class="ruby-identifier">insert_before_multi</span>(<span class="ruby-identifier">range</span>, <span class="ruby-string">&#39;[&#39;</span>).
+  <span class="ruby-identifier">process</span>
+</pre>
+
+<p>@param [Range] range @param [String] content @return [Rewriter] self @raise
+[ClobberingError] when clobbering is detected @deprecated Use
+{TreeRewriter#insert_before}</p>
+          
+          
+
+          
+          <div class="method-source-code" id="insert_before_multi-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/parser-2.5.0.0/lib/parser/source/rewriter.rb, line 116</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">insert_before_multi</span>(<span class="ruby-identifier">range</span>, <span class="ruby-identifier">content</span>)
+  <span class="ruby-ivar">@insert_before_multi_order</span> <span class="ruby-operator">-=</span> <span class="ruby-value">1</span>
+  <span class="ruby-identifier">append</span> <span class="ruby-constant">Rewriter</span><span class="ruby-operator">::</span><span class="ruby-constant">Action</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">range</span>.<span class="ruby-identifier">begin</span>, <span class="ruby-identifier">content</span>, <span class="ruby-keyword">true</span>, <span class="ruby-ivar">@insert_before_multi_order</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-process" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">process</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Applies all scheduled changes to the `source_buffer` and returns modified
+source as a new string.</p>
+
+<p>@return [String] @deprecated Use {TreeRewriter#process}</p>
+          
+          
+
+          
+          <div class="method-source-code" id="process-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/parser-2.5.0.0/lib/parser/source/rewriter.rb, line 177</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">process</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">in_transaction?</span>
+    <span class="ruby-identifier">raise</span> <span class="ruby-node">&quot;Do not call #{self.class}##{__method__} inside a transaction&quot;</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">adjustment</span> = <span class="ruby-value">0</span>
+  <span class="ruby-identifier">source</span>     = <span class="ruby-ivar">@source_buffer</span>.<span class="ruby-identifier">source</span>.<span class="ruby-identifier">dup</span>
+
+  <span class="ruby-ivar">@queue</span>.<span class="ruby-identifier">sort</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">action</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">begin_pos</span> = <span class="ruby-identifier">action</span>.<span class="ruby-identifier">range</span>.<span class="ruby-identifier">begin_pos</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">adjustment</span>
+    <span class="ruby-identifier">end_pos</span>   = <span class="ruby-identifier">begin_pos</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">action</span>.<span class="ruby-identifier">range</span>.<span class="ruby-identifier">length</span>
+
+    <span class="ruby-identifier">source</span>[<span class="ruby-identifier">begin_pos</span><span class="ruby-operator">...</span><span class="ruby-identifier">end_pos</span>] = <span class="ruby-identifier">action</span>.<span class="ruby-identifier">replacement</span>
+
+    <span class="ruby-identifier">adjustment</span> <span class="ruby-operator">+=</span> (<span class="ruby-identifier">action</span>.<span class="ruby-identifier">replacement</span>.<span class="ruby-identifier">length</span> <span class="ruby-operator">-</span> <span class="ruby-identifier">action</span>.<span class="ruby-identifier">range</span>.<span class="ruby-identifier">length</span>)
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">source</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-remove" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">remove</span><span
+            class="method-args">(range)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Removes the source range.</p>
+
+<p>@param [Range] range @return [Rewriter] self @raise [ClobberingError] when
+clobbering is detected @deprecated Use {TreeRewriter#remove}</p>
+          
+          
+
+          
+          <div class="method-source-code" id="remove-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/parser-2.5.0.0/lib/parser/source/rewriter.rb, line 66</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">remove</span>(<span class="ruby-identifier">range</span>)
+  <span class="ruby-identifier">append</span> <span class="ruby-constant">Rewriter</span><span class="ruby-operator">::</span><span class="ruby-constant">Action</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">range</span>, <span class="ruby-string">&#39;&#39;</span>.<span class="ruby-identifier">freeze</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-replace" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">replace</span><span
+            class="method-args">(range, content)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Replaces the code of the source range `range` with `content`.</p>
+
+<p>@param [Range] range @param [String] content @return [Rewriter] self @raise
+[ClobberingError] when clobbering is detected @deprecated Use
+{TreeRewriter#replace}</p>
+          
+          
+
+          
+          <div class="method-source-code" id="replace-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/parser-2.5.0.0/lib/parser/source/rewriter.rb, line 166</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">replace</span>(<span class="ruby-identifier">range</span>, <span class="ruby-identifier">content</span>)
+  <span class="ruby-identifier">append</span> <span class="ruby-constant">Rewriter</span><span class="ruby-operator">::</span><span class="ruby-constant">Action</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">range</span>, <span class="ruby-identifier">content</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-transaction" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">transaction</span><span
+            class="method-args">() { || ... }</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Provides a protected block where a sequence of multiple rewrite actions are
+handled atomically. If any of the actions failed by clobbering, all the
+actions are rolled back.</p>
+
+<p>@example</p>
+
+<pre class="ruby"><span class="ruby-keyword">begin</span>
+  <span class="ruby-identifier">rewriter</span>.<span class="ruby-identifier">transaction</span> <span class="ruby-keyword">do</span>
+    <span class="ruby-identifier">rewriter</span>.<span class="ruby-identifier">insert_before</span>(<span class="ruby-identifier">range_of_something</span>, <span class="ruby-string">&#39;(&#39;</span>)
+    <span class="ruby-identifier">rewriter</span>.<span class="ruby-identifier">insert_after</span>(<span class="ruby-identifier">range_of_something</span>, <span class="ruby-string">&#39;)&#39;</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">rescue</span> <span class="ruby-constant">Parser</span><span class="ruby-operator">::</span><span class="ruby-constant">ClobberingError</span>
+<span class="ruby-keyword">end</span>
+</pre>
+
+<p>@raise [RuntimeError] when no block is passed @raise [RuntimeError] when
+already in a transaction @deprecated Use {TreeRewriter#transaction}</p>
+          
+          
+
+          
+          <div class="method-source-code" id="transaction-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/parser-2.5.0.0/lib/parser/source/rewriter.rb, line 215</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">transaction</span>
+  <span class="ruby-keyword">unless</span> <span class="ruby-identifier">block_given?</span>
+    <span class="ruby-identifier">raise</span> <span class="ruby-node">&quot;#{self.class}##{__method__} requires block&quot;</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">in_transaction?</span>
+    <span class="ruby-identifier">raise</span> <span class="ruby-string">&#39;Nested transaction is not supported&#39;</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-ivar">@pending_queue</span> = <span class="ruby-ivar">@queue</span>.<span class="ruby-identifier">dup</span>
+  <span class="ruby-ivar">@pending_clobber</span> = <span class="ruby-ivar">@clobber</span>
+  <span class="ruby-ivar">@pending_insertions</span> = <span class="ruby-ivar">@insertions</span>
+
+  <span class="ruby-keyword">yield</span>
+
+  <span class="ruby-ivar">@queue</span> = <span class="ruby-ivar">@pending_queue</span>
+  <span class="ruby-ivar">@clobber</span> = <span class="ruby-ivar">@pending_clobber</span>
+  <span class="ruby-ivar">@insertions</span> = <span class="ruby-ivar">@pending_insertions</span>
+
+  <span class="ruby-keyword">self</span>
+<span class="ruby-keyword">ensure</span>
+  <span class="ruby-ivar">@pending_queue</span> = <span class="ruby-keyword">nil</span>
+  <span class="ruby-ivar">@pending_clobber</span> = <span class="ruby-keyword">nil</span>
+  <span class="ruby-ivar">@pending_insertions</span> = <span class="ruby-keyword">nil</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-wrap" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">wrap</span><span
+            class="method-args">(range, before, after)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Inserts new code before and after the given source range.</p>
+
+<p>@param [Range] range @param [String] before @param [String] after @return
+[Rewriter] self @raise [ClobberingError] when clobbering is detected
+@deprecated Use {TreeRewriter#wrap}</p>
+          
+          
+
+          
+          <div class="method-source-code" id="wrap-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/parser-2.5.0.0/lib/parser/source/rewriter.rb, line 93</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">wrap</span>(<span class="ruby-identifier">range</span>, <span class="ruby-identifier">before</span>, <span class="ruby-identifier">after</span>)
+  <span class="ruby-identifier">append</span> <span class="ruby-constant">Rewriter</span><span class="ruby-operator">::</span><span class="ruby-constant">Action</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">range</span>.<span class="ruby-identifier">begin</span>, <span class="ruby-identifier">before</span>)
+  <span class="ruby-identifier">append</span> <span class="ruby-constant">Rewriter</span><span class="ruby-operator">::</span><span class="ruby-constant">Action</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">range</span>.<span class="ruby-identifier">end</span>, <span class="ruby-identifier">after</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="https://rdoc.github.io/rdoc">RDoc</a> 5.0.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

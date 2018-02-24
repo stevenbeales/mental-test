@@ -1,0 +1,704 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class Rack::Server - RDoc Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../";
+  var index_rel_prefix = "../";
+</script>
+
+<script src="../js/jquery.js"></script>
+<script src="../js/darkfish.js"></script>
+
+<link href="../css/fonts.css" rel="stylesheet">
+<link href="../css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../table_of_contents.html#pages">Pages</a>
+    <a href="../table_of_contents.html#classes">Classes</a>
+    <a href="../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link"><a href="../Object.html">Object</a>
+  
+</div>
+
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-c-default_middleware_by_environment">::default_middleware_by_environment</a>
+    
+    <li ><a href="#method-c-logging_middleware">::logging_middleware</a>
+    
+    <li ><a href="#method-c-middleware">::middleware</a>
+    
+    <li ><a href="#method-c-new">::new</a>
+    
+    <li ><a href="#method-c-start">::start</a>
+    
+    <li ><a href="#method-i-app">#app</a>
+    
+    <li ><a href="#method-i-default_options">#default_options</a>
+    
+    <li ><a href="#method-i-middleware">#middleware</a>
+    
+    <li ><a href="#method-i-options">#options</a>
+    
+    <li ><a href="#method-i-server">#server</a>
+    
+    <li ><a href="#method-i-start">#start</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-Rack::Server">
+  <h1 id="class-Rack::Server" class="class">
+    class Rack::Server
+  </h1>
+
+  <section class="description">
+    
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+    <section class="attribute-method-details" class="method-section">
+      <header>
+        <h3>Attributes</h3>
+      </header>
+
+      
+      <div id="attribute-i-options" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">options</span><span
+            class="attribute-access-type">[W]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+    </section>
+    
+
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Class Methods</h3>
+       </header>
+
+    
+      <div id="method-c-default_middleware_by_environment" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">default_middleware_by_environment</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="default_middleware_by_environment-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/rack-2.0.4/lib/rack/server.rb, line 229</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">default_middleware_by_environment</span>
+  <span class="ruby-identifier">m</span> = <span class="ruby-constant">Hash</span>.<span class="ruby-identifier">new</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">h</span>,<span class="ruby-identifier">k</span><span class="ruby-operator">|</span> <span class="ruby-identifier">h</span>[<span class="ruby-identifier">k</span>] = []}
+  <span class="ruby-identifier">m</span>[<span class="ruby-string">&quot;deployment&quot;</span>] = [
+    [<span class="ruby-constant">Rack</span><span class="ruby-operator">::</span><span class="ruby-constant">ContentLength</span>],
+    [<span class="ruby-constant">Rack</span><span class="ruby-operator">::</span><span class="ruby-constant">Chunked</span>],
+    <span class="ruby-identifier">logging_middleware</span>,
+    [<span class="ruby-constant">Rack</span><span class="ruby-operator">::</span><span class="ruby-constant">TempfileReaper</span>]
+  ]
+  <span class="ruby-identifier">m</span>[<span class="ruby-string">&quot;development&quot;</span>] = [
+    [<span class="ruby-constant">Rack</span><span class="ruby-operator">::</span><span class="ruby-constant">ContentLength</span>],
+    [<span class="ruby-constant">Rack</span><span class="ruby-operator">::</span><span class="ruby-constant">Chunked</span>],
+    <span class="ruby-identifier">logging_middleware</span>,
+    [<span class="ruby-constant">Rack</span><span class="ruby-operator">::</span><span class="ruby-constant">ShowExceptions</span>],
+    [<span class="ruby-constant">Rack</span><span class="ruby-operator">::</span><span class="ruby-constant">Lint</span>],
+    [<span class="ruby-constant">Rack</span><span class="ruby-operator">::</span><span class="ruby-constant">TempfileReaper</span>]
+  ]
+
+  <span class="ruby-identifier">m</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-logging_middleware" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">logging_middleware</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="logging_middleware-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/rack-2.0.4/lib/rack/server.rb, line 223</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">logging_middleware</span>
+  <span class="ruby-identifier">lambda</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">server</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">server</span>.<span class="ruby-identifier">server</span>.<span class="ruby-identifier">name</span> <span class="ruby-operator">=~</span> <span class="ruby-regexp">/CGI/</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">server</span>.<span class="ruby-identifier">options</span>[<span class="ruby-value">:quiet</span>] <span class="ruby-operator">?</span> <span class="ruby-keyword">nil</span> <span class="ruby-operator">:</span> [<span class="ruby-constant">Rack</span><span class="ruby-operator">::</span><span class="ruby-constant">CommonLogger</span>, <span class="ruby-identifier">$stderr</span>]
+  }
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-middleware" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">middleware</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="middleware-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/rack-2.0.4/lib/rack/server.rb, line 249</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">middleware</span>
+  <span class="ruby-identifier">default_middleware_by_environment</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-new" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">new</span><span
+            class="method-args">(options = nil)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p><a href="Server/Options.html">Options</a> may include:</p>
+<ul><li>
+<p>:app</p>
+
+<pre class="ruby"><span class="ruby-identifier">a</span> <span class="ruby-identifier">rack</span> <span class="ruby-identifier">application</span> <span class="ruby-identifier">to</span> <span class="ruby-identifier">run</span> (<span class="ruby-identifier">overrides</span> :<span class="ruby-identifier">config</span>)
+</pre>
+</li><li>
+<p>:config</p>
+
+<pre>a rackup configuration file path to load (.ru)</pre>
+</li><li>
+<p>:environment</p>
+
+<pre>this selects the middleware that will be wrapped around
+your application. Default options available are:
+  - development: CommonLogger, ShowExceptions, and Lint
+  - deployment: CommonLogger
+  - none: no extra middleware
+note: when the server is a cgi server, CommonLogger is not included.</pre>
+</li><li>
+<p>:server</p>
+
+<pre class="ruby"><span class="ruby-identifier">choose</span> <span class="ruby-identifier">a</span> <span class="ruby-identifier">specific</span> <span class="ruby-constant">Rack</span><span class="ruby-operator">::</span><span class="ruby-constant">Handler</span>, <span class="ruby-identifier">e</span>.<span class="ruby-identifier">g</span>. <span class="ruby-identifier">cgi</span>, <span class="ruby-identifier">fcgi</span>, <span class="ruby-identifier">webrick</span>
+</pre>
+</li><li>
+<p>:daemonize</p>
+
+<pre>if true, the server will daemonize itself (fork, detach, etc)</pre>
+</li><li>
+<p>:pid</p>
+
+<pre class="ruby"><span class="ruby-identifier">path</span> <span class="ruby-identifier">to</span> <span class="ruby-identifier">write</span> <span class="ruby-identifier">a</span> <span class="ruby-identifier">pid</span> <span class="ruby-identifier">file</span> <span class="ruby-identifier">after</span> <span class="ruby-identifier">daemonize</span>
+</pre>
+</li><li>
+<p>:Host</p>
+
+<pre class="ruby"><span class="ruby-identifier">the</span> <span class="ruby-identifier">host</span> <span class="ruby-identifier">address</span> <span class="ruby-identifier">to</span> <span class="ruby-identifier">bind</span> <span class="ruby-identifier">to</span> (<span class="ruby-identifier">used</span> <span class="ruby-identifier">by</span> <span class="ruby-identifier">supporting</span> <span class="ruby-constant">Rack</span><span class="ruby-operator">::</span><span class="ruby-constant">Handler</span>)
+</pre>
+</li><li>
+<p>:Port</p>
+
+<pre class="ruby"><span class="ruby-identifier">the</span> <span class="ruby-identifier">port</span> <span class="ruby-identifier">to</span> <span class="ruby-identifier">bind</span> <span class="ruby-identifier">to</span> (<span class="ruby-identifier">used</span> <span class="ruby-identifier">by</span> <span class="ruby-identifier">supporting</span> <span class="ruby-constant">Rack</span><span class="ruby-operator">::</span><span class="ruby-constant">Handler</span>)
+</pre>
+</li><li>
+<p>:AccessLog</p>
+
+<pre>webrick access log options (or supporting Rack::Handler)</pre>
+</li><li>
+<p>:debug</p>
+
+<pre class="ruby"><span class="ruby-identifier">turn</span> <span class="ruby-identifier">on</span> <span class="ruby-identifier">debug</span> <span class="ruby-identifier">output</span> (<span class="ruby-identifier">$DEBUG</span> = <span class="ruby-keyword">true</span>)
+</pre>
+</li><li>
+<p>:warn</p>
+
+<pre class="ruby"><span class="ruby-identifier">turn</span> <span class="ruby-identifier">on</span> <span class="ruby-identifier">warnings</span> (<span class="ruby-identifier">$-w</span> = <span class="ruby-keyword">true</span>)
+</pre>
+</li><li>
+<p>:include</p>
+
+<pre class="ruby"><span class="ruby-identifier">add</span> <span class="ruby-identifier">given</span> <span class="ruby-identifier">paths</span> <span class="ruby-identifier">to</span> <span class="ruby-identifier">$LOAD_PATH</span>
+</pre>
+</li><li>
+<p>:require</p>
+
+<pre class="ruby"><span class="ruby-identifier">require</span> <span class="ruby-identifier">the</span> <span class="ruby-identifier">given</span> <span class="ruby-identifier">libraries</span>
+</pre>
+</li></ul>
+          
+          
+
+          
+          <div class="method-source-code" id="new-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/rack-2.0.4/lib/rack/server.rb, line 185</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">options</span> = <span class="ruby-keyword">nil</span>)
+  <span class="ruby-ivar">@ignore_options</span> = []
+
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">options</span>
+    <span class="ruby-ivar">@use_default_options</span> = <span class="ruby-keyword">false</span>
+    <span class="ruby-ivar">@options</span> = <span class="ruby-identifier">options</span>
+    <span class="ruby-ivar">@app</span> = <span class="ruby-identifier">options</span>[<span class="ruby-value">:app</span>] <span class="ruby-keyword">if</span> <span class="ruby-identifier">options</span>[<span class="ruby-value">:app</span>]
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">argv</span> = <span class="ruby-keyword">defined?</span>(<span class="ruby-constant">SPEC_ARGV</span>) <span class="ruby-operator">?</span> <span class="ruby-constant">SPEC_ARGV</span> <span class="ruby-operator">:</span> <span class="ruby-constant">ARGV</span>
+    <span class="ruby-ivar">@use_default_options</span> = <span class="ruby-keyword">true</span>
+    <span class="ruby-ivar">@options</span> = <span class="ruby-identifier">parse_options</span>(<span class="ruby-identifier">argv</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-start" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">start</span><span
+            class="method-args">(options = nil)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Start a new rack server (like running rackup). This will parse ARGV and
+provide standard ARGV rackup options, defaulting to load
+&#39;config.ru&#39;.</p>
+
+<p>Providing an options hash will prevent ARGV parsing and will not include
+any default options.</p>
+
+<p>This method can be used to very easily launch a CGI application, for
+example:</p>
+
+<pre class="ruby"><span class="ruby-constant">Rack</span><span class="ruby-operator">::</span><span class="ruby-constant">Server</span>.<span class="ruby-identifier">start</span>(
+  :<span class="ruby-identifier">app</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">lambda</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">e</span><span class="ruby-operator">|</span>
+    [<span class="ruby-value">200</span>, {<span class="ruby-string">&#39;Content-Type&#39;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&#39;text/html&#39;</span>}, [<span class="ruby-string">&#39;hello world&#39;</span>]]
+  <span class="ruby-keyword">end</span>,
+  :<span class="ruby-identifier">server</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&#39;cgi&#39;</span>
+)
+</pre>
+
+<p>Further options available here are documented on Rack::Server#initialize</p>
+          
+          
+
+          
+          <div class="method-source-code" id="start-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/rack-2.0.4/lib/rack/server.rb, line 147</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">start</span>(<span class="ruby-identifier">options</span> = <span class="ruby-keyword">nil</span>)
+  <span class="ruby-identifier">new</span>(<span class="ruby-identifier">options</span>).<span class="ruby-identifier">start</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-app" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">app</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="app-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/rack-2.0.4/lib/rack/server.rb, line 218</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">app</span>
+  <span class="ruby-ivar">@app</span> <span class="ruby-operator">||=</span> <span class="ruby-identifier">options</span>[<span class="ruby-value">:builder</span>] <span class="ruby-operator">?</span> <span class="ruby-identifier">build_app_from_string</span> <span class="ruby-operator">:</span> <span class="ruby-identifier">build_app_and_options_from_config</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-default_options" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">default_options</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="default_options-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/rack-2.0.4/lib/rack/server.rb, line 204</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">default_options</span>
+  <span class="ruby-identifier">environment</span>  = <span class="ruby-constant">ENV</span>[<span class="ruby-string">&#39;RACK_ENV&#39;</span>] <span class="ruby-operator">||</span> <span class="ruby-string">&#39;development&#39;</span>
+  <span class="ruby-identifier">default_host</span> = <span class="ruby-identifier">environment</span> <span class="ruby-operator">==</span> <span class="ruby-string">&#39;development&#39;</span> <span class="ruby-operator">?</span> <span class="ruby-string">&#39;localhost&#39;</span> <span class="ruby-operator">:</span> <span class="ruby-string">&#39;0.0.0.0&#39;</span>
+
+  {
+    <span class="ruby-value">:environment</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">environment</span>,
+    <span class="ruby-value">:pid</span>         =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword">nil</span>,
+    <span class="ruby-value">:Port</span>        =<span class="ruby-operator">&gt;</span> <span class="ruby-value">9292</span>,
+    <span class="ruby-value">:Host</span>        =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">default_host</span>,
+    <span class="ruby-value">:AccessLog</span>   =<span class="ruby-operator">&gt;</span> [],
+    <span class="ruby-value">:config</span>      =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;config.ru&quot;</span>
+  }
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-middleware" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">middleware</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="middleware-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/rack-2.0.4/lib/rack/server.rb, line 254</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">middleware</span>
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">class</span>.<span class="ruby-identifier">middleware</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-options" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">options</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="options-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/rack-2.0.4/lib/rack/server.rb, line 199</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">options</span>
+  <span class="ruby-identifier">merged_options</span> = <span class="ruby-ivar">@use_default_options</span> <span class="ruby-operator">?</span> <span class="ruby-identifier">default_options</span>.<span class="ruby-identifier">merge</span>(<span class="ruby-ivar">@options</span>) <span class="ruby-operator">:</span> <span class="ruby-ivar">@options</span>
+  <span class="ruby-identifier">merged_options</span>.<span class="ruby-identifier">reject</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">k</span>, <span class="ruby-identifier">v</span><span class="ruby-operator">|</span> <span class="ruby-ivar">@ignore_options</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">k</span>) }
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-server" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">server</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="server-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/rack-2.0.4/lib/rack/server.rb, line 300</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">server</span>
+  <span class="ruby-ivar">@_server</span> <span class="ruby-operator">||=</span> <span class="ruby-constant">Rack</span><span class="ruby-operator">::</span><span class="ruby-constant">Handler</span>.<span class="ruby-identifier">get</span>(<span class="ruby-identifier">options</span>[<span class="ruby-value">:server</span>])
+
+  <span class="ruby-keyword">unless</span> <span class="ruby-ivar">@_server</span>
+    <span class="ruby-ivar">@_server</span> = <span class="ruby-constant">Rack</span><span class="ruby-operator">::</span><span class="ruby-constant">Handler</span>.<span class="ruby-identifier">default</span>
+
+    <span class="ruby-comment"># We already speak FastCGI</span>
+    <span class="ruby-ivar">@ignore_options</span> = [<span class="ruby-value">:File</span>, <span class="ruby-value">:Port</span>] <span class="ruby-keyword">if</span> <span class="ruby-ivar">@_server</span>.<span class="ruby-identifier">to_s</span> <span class="ruby-operator">==</span> <span class="ruby-string">&#39;Rack::Handler::FastCGI&#39;</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-ivar">@_server</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-start" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">start</span><span
+            class="method-args">(&blk)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="start-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/rack-2.0.4/lib/rack/server.rb, line 258</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">start</span> <span class="ruby-operator">&amp;</span><span class="ruby-identifier">blk</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">options</span>[<span class="ruby-value">:warn</span>]
+    <span class="ruby-identifier">$-w</span> = <span class="ruby-keyword">true</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">includes</span> = <span class="ruby-identifier">options</span>[<span class="ruby-value">:include</span>]
+    <span class="ruby-identifier">$LOAD_PATH</span>.<span class="ruby-identifier">unshift</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">includes</span>)
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">library</span> = <span class="ruby-identifier">options</span>[<span class="ruby-value">:require</span>]
+    <span class="ruby-identifier">require</span> <span class="ruby-identifier">library</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">options</span>[<span class="ruby-value">:debug</span>]
+    <span class="ruby-identifier">$DEBUG</span> = <span class="ruby-keyword">true</span>
+    <span class="ruby-identifier">require</span> <span class="ruby-string">&#39;pp&#39;</span>
+    <span class="ruby-identifier">p</span> <span class="ruby-identifier">options</span>[<span class="ruby-value">:server</span>]
+    <span class="ruby-identifier">pp</span> <span class="ruby-identifier">wrapped_app</span>
+    <span class="ruby-identifier">pp</span> <span class="ruby-identifier">app</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">check_pid!</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">options</span>[<span class="ruby-value">:pid</span>]
+
+  <span class="ruby-comment"># Touch the wrapped app, so that the config.ru is loaded before</span>
+  <span class="ruby-comment"># daemonization (i.e. before chdir, etc).</span>
+  <span class="ruby-identifier">wrapped_app</span>
+
+  <span class="ruby-identifier">daemonize_app</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">options</span>[<span class="ruby-value">:daemonize</span>]
+
+  <span class="ruby-identifier">write_pid</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">options</span>[<span class="ruby-value">:pid</span>]
+
+  <span class="ruby-identifier">trap</span>(<span class="ruby-value">:INT</span>) <span class="ruby-keyword">do</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">server</span>.<span class="ruby-identifier">respond_to?</span>(<span class="ruby-value">:shutdown</span>)
+      <span class="ruby-identifier">server</span>.<span class="ruby-identifier">shutdown</span>
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-identifier">exit</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">server</span>.<span class="ruby-identifier">run</span> <span class="ruby-identifier">wrapped_app</span>, <span class="ruby-identifier">options</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">blk</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="https://rdoc.github.io/rdoc">RDoc</a> 5.0.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

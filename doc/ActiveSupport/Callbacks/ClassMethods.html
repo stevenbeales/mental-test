@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>module ActiveSupport::Callbacks::ClassMethods - RDoc Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../../";
+  var index_rel_prefix = "../../";
+</script>
+
+<script src="../../js/jquery.js"></script>
+<script src="../../js/darkfish.js"></script>
+
+<link href="../../css/fonts.css" rel="stylesheet">
+<link href="../../css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="module">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../../table_of_contents.html#pages">Pages</a>
+    <a href="../../table_of_contents.html#classes">Classes</a>
+    <a href="../../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-i-define_callbacks">#define_callbacks</a>
+    
+    <li ><a href="#method-i-reset_callbacks">#reset_callbacks</a>
+    
+    <li ><a href="#method-i-set_callback">#set_callback</a>
+    
+    <li ><a href="#method-i-skip_callback">#skip_callback</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="module-ActiveSupport::Callbacks::ClassMethods">
+  <h1 id="module-ActiveSupport::Callbacks::ClassMethods" class="module">
+    module ActiveSupport::Callbacks::ClassMethods
+  </h1>
+
+  <section class="description">
+    
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+
+    
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-define_callbacks" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">define_callbacks</span><span
+            class="method-args">(*names)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Define sets of events in the object life cycle that support callbacks.</p>
+
+<pre class="ruby"><span class="ruby-identifier">define_callbacks</span> :<span class="ruby-identifier">validate</span>
+<span class="ruby-identifier">define_callbacks</span> :<span class="ruby-identifier">initialize</span>, :<span class="ruby-identifier">save</span>, :<span class="ruby-identifier">destroy</span>
+</pre>
+
+<h5 id="method-i-define_callbacks-label-Options"><a href="../../vendor/bundle/ruby/2_4_0/gems/oj-3_4_0/pages/Options_md.html">Options</a><span><a href="#method-i-define_callbacks-label-Options">&para;</a> <a href="#top">&uarr;</a></span></h5>
+<ul><li>
+<p><code>:terminator</code> - Determines when a before filter will halt the
+callback chain, preventing following before and around callbacks from being
+called and the event from being triggered. This should be a lambda to be
+executed. The current object and the result lambda of the callback will be
+provided to the terminator lambda.</p>
+
+<pre class="ruby"><span class="ruby-identifier">define_callbacks</span> :<span class="ruby-identifier">validate</span>, <span class="ruby-identifier">terminator</span><span class="ruby-operator">:</span> <span class="ruby-operator">-</span><span class="ruby-operator">&gt;</span>(<span class="ruby-identifier">target</span>, <span class="ruby-identifier">result_lambda</span>) { <span class="ruby-identifier">result_lambda</span>.<span class="ruby-identifier">call</span> <span class="ruby-operator">==</span> <span class="ruby-keyword">false</span> }
+</pre>
+
+<p>In this example, if any before validate callbacks returns
+<code>false</code>, any successive before and around callback is not
+executed.</p>
+
+<p>The default terminator halts the chain when a callback throws
+<code>:abort</code>.</p>
+</li><li>
+<p><code>:skip_after_callbacks_if_terminated</code> - Determines if after
+callbacks should be terminated by the <code>:terminator</code> option. By
+default after callbacks are executed no matter if callback chain was
+terminated or not. This option makes sense only when
+<code>:terminator</code> option is specified.</p>
+</li><li>
+<p><code>:scope</code> - Indicates which methods should be executed when an
+object is used as a callback.</p>
+
+<pre class="ruby"><span class="ruby-keyword">class</span> <span class="ruby-constant">Audit</span>
+  <span class="ruby-keyword">def</span> <span class="ruby-identifier">before</span>(<span class="ruby-identifier">caller</span>)
+    <span class="ruby-identifier">puts</span> <span class="ruby-string">&#39;Audit: before is called&#39;</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">def</span> <span class="ruby-identifier">before_save</span>(<span class="ruby-identifier">caller</span>)
+    <span class="ruby-identifier">puts</span> <span class="ruby-string">&#39;Audit: before_save is called&#39;</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span>
+
+<span class="ruby-keyword">class</span> <span class="ruby-constant">Account</span>
+  <span class="ruby-identifier">include</span> <span class="ruby-constant">ActiveSupport</span><span class="ruby-operator">::</span><span class="ruby-constant">Callbacks</span>
+
+  <span class="ruby-identifier">define_callbacks</span> :<span class="ruby-identifier">save</span>
+  <span class="ruby-identifier">set_callback</span> :<span class="ruby-identifier">save</span>, :<span class="ruby-identifier">before</span>, <span class="ruby-constant">Audit</span>.<span class="ruby-identifier">new</span>
+
+  <span class="ruby-keyword">def</span> <span class="ruby-identifier">save</span>
+    <span class="ruby-identifier">run_callbacks</span> :<span class="ruby-identifier">save</span> <span class="ruby-keyword">do</span>
+      <span class="ruby-identifier">puts</span> <span class="ruby-string">&#39;save in main&#39;</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span>
+</pre>
+
+<p>In the above case whenever you save an account the method
+<code>Audit#before</code> will be called. On the other hand</p>
+
+<pre class="ruby"><span class="ruby-identifier">define_callbacks</span> :<span class="ruby-identifier">save</span>, <span class="ruby-identifier">scope</span><span class="ruby-operator">:</span> [:<span class="ruby-identifier">kind</span>, :<span class="ruby-identifier">name</span>]
+</pre>
+
+<p>would trigger <code>Audit#before_save</code> instead. That&#39;s
+constructed by calling <code>#{kind}_#{name}</code> on the given instance.
+In this case “kind” is “before” and “name” is “save”. In this context
+<code>:kind</code> and <code>:name</code> have special meanings:
+<code>:kind</code> refers to the kind of callback (before/after/around) and
+<code>:name</code> refers to the method on which callbacks are being
+defined.</p>
+
+<p>A declaration like</p>
+
+<pre class="ruby"><span class="ruby-identifier">define_callbacks</span> :<span class="ruby-identifier">save</span>, <span class="ruby-identifier">scope</span><span class="ruby-operator">:</span> [:<span class="ruby-identifier">name</span>]
+</pre>
+
+<p>would call <code>Audit#save</code>.</p>
+</li></ul>
+
+<h5 id="method-i-define_callbacks-label-Notes">Notes<span><a href="#method-i-define_callbacks-label-Notes">&para;</a> <a href="#top">&uarr;</a></span></h5>
+
+<p><code>names</code> passed to <code>define_callbacks</code> must not end
+with <code>!</code>, <code>?</code> or <code>=</code>.</p>
+
+<p>Calling <code>define_callbacks</code> multiple times with the same
+<code>names</code> will overwrite previous callbacks registered with
+<code>set_callback</code>.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="define_callbacks-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/activesupport-5.1.5/lib/active_support/callbacks.rb, line 817</span>
+        <span class="ruby-keyword">def</span> <span class="ruby-identifier">define_callbacks</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">names</span>)
+          <span class="ruby-identifier">options</span> = <span class="ruby-identifier">names</span>.<span class="ruby-identifier">extract_options!</span>
+
+          <span class="ruby-identifier">names</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">name</span><span class="ruby-operator">|</span>
+            <span class="ruby-identifier">name</span> = <span class="ruby-identifier">name</span>.<span class="ruby-identifier">to_sym</span>
+
+            <span class="ruby-identifier">set_callbacks</span> <span class="ruby-identifier">name</span>, <span class="ruby-constant">CallbackChain</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">name</span>, <span class="ruby-identifier">options</span>)
+
+            <span class="ruby-identifier">module_eval</span> <span class="ruby-string">&quot;              def _run_#{name}_callbacks(&amp;block)
+                run_callbacks #{name.inspect}, &amp;block
+              end
+
+              def self._#{name}_callbacks
+                get_callbacks(#{name.inspect})
+              end
+
+              def self._#{name}_callbacks=(value)
+                set_callbacks(#{name.inspect}, value)
+              end
+
+              def _#{name}_callbacks
+                __callbacks[#{name.inspect}]
+              end
+&quot;</span>, <span class="ruby-keyword">__FILE__</span>, <span class="ruby-keyword">__LINE__</span> <span class="ruby-operator">+</span> <span class="ruby-value">1</span>
+          <span class="ruby-keyword">end</span>
+        <span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-reset_callbacks" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">reset_callbacks</span><span
+            class="method-args">(name)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Remove all set callbacks for the given event.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="reset_callbacks-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/activesupport-5.1.5/lib/active_support/callbacks.rb, line 727</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">reset_callbacks</span>(<span class="ruby-identifier">name</span>)
+  <span class="ruby-identifier">callbacks</span> = <span class="ruby-identifier">get_callbacks</span> <span class="ruby-identifier">name</span>
+
+  <span class="ruby-constant">ActiveSupport</span><span class="ruby-operator">::</span><span class="ruby-constant">DescendantsTracker</span>.<span class="ruby-identifier">descendants</span>(<span class="ruby-keyword">self</span>).<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">target</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">chain</span> = <span class="ruby-identifier">target</span>.<span class="ruby-identifier">get_callbacks</span>(<span class="ruby-identifier">name</span>).<span class="ruby-identifier">dup</span>
+    <span class="ruby-identifier">callbacks</span>.<span class="ruby-identifier">each</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">c</span><span class="ruby-operator">|</span> <span class="ruby-identifier">chain</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-identifier">c</span>) }
+    <span class="ruby-identifier">target</span>.<span class="ruby-identifier">set_callbacks</span> <span class="ruby-identifier">name</span>, <span class="ruby-identifier">chain</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">set_callbacks</span>(<span class="ruby-identifier">name</span>, <span class="ruby-identifier">callbacks</span>.<span class="ruby-identifier">dup</span>.<span class="ruby-identifier">clear</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-set_callback" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">set_callback</span><span
+            class="method-args">(name, *filter_list, &block)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Install a callback for the given event.</p>
+
+<pre class="ruby"><span class="ruby-identifier">set_callback</span> :<span class="ruby-identifier">save</span>, :<span class="ruby-identifier">before</span>, :<span class="ruby-identifier">before_method</span>
+<span class="ruby-identifier">set_callback</span> :<span class="ruby-identifier">save</span>, :<span class="ruby-identifier">after</span>,  :<span class="ruby-identifier">after_method</span>, <span class="ruby-identifier">if</span><span class="ruby-operator">:</span> :<span class="ruby-identifier">condition</span>
+<span class="ruby-identifier">set_callback</span> :<span class="ruby-identifier">save</span>, :<span class="ruby-identifier">around</span>, <span class="ruby-operator">-</span><span class="ruby-operator">&gt;</span>(<span class="ruby-identifier">r</span>, <span class="ruby-identifier">block</span>) { <span class="ruby-identifier">stuff</span>; <span class="ruby-identifier">result</span> = <span class="ruby-identifier">block</span>.<span class="ruby-identifier">call</span>; <span class="ruby-identifier">stuff</span> }
+</pre>
+
+<p>The second argument indicates whether the callback is to be run
+<code>:before</code>, <code>:after</code>, or <code>:around</code> the
+event. If omitted, <code>:before</code> is assumed. This means the first
+example above can also be written as:</p>
+
+<pre class="ruby"><span class="ruby-identifier">set_callback</span> :<span class="ruby-identifier">save</span>, :<span class="ruby-identifier">before_method</span>
+</pre>
+
+<p>The callback can be specified as a symbol naming an instance method; as a
+proc, lambda, or block; or as an object that responds to a certain method
+determined by the <code>:scope</code> argument to
+<code>define_callbacks</code>.</p>
+
+<p>If a proc, lambda, or block is given, its body is evaluated in the context
+of the current object. It can also optionally accept the current object as
+an argument.</p>
+
+<p>Before and around callbacks are called in the order that they are set;
+after callbacks are called in the reverse order.</p>
+
+<p>Around callbacks can access the return value from the event, if it
+wasn&#39;t halted, from the <code>yield</code> call.</p>
+
+<h5 id="method-i-set_callback-label-Options"><a href="../../vendor/bundle/ruby/2_4_0/gems/oj-3_4_0/pages/Options_md.html">Options</a><span><a href="#method-i-set_callback-label-Options">&para;</a> <a href="#top">&uarr;</a></span></h5>
+<ul><li>
+<p><code>:if</code> - A symbol, a string (deprecated) or an array of symbols,
+each naming an instance method or a proc; the callback will be called only
+when they all return a true value.</p>
+</li><li>
+<p><code>:unless</code> - A symbol, a string (deprecated) or an array of
+symbols, each naming an instance method or a proc; the callback will be
+called only when they all return a false value.</p>
+</li><li>
+<p><code>:prepend</code> - If <code>true</code>, the callback will be
+prepended to the existing chain rather than appended.</p>
+</li></ul>
+          
+          
+
+          
+          <div class="method-source-code" id="set_callback-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/activesupport-5.1.5/lib/active_support/callbacks.rb, line 662</span>
+        <span class="ruby-keyword">def</span> <span class="ruby-identifier">set_callback</span>(<span class="ruby-identifier">name</span>, <span class="ruby-operator">*</span><span class="ruby-identifier">filter_list</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+          <span class="ruby-identifier">type</span>, <span class="ruby-identifier">filters</span>, <span class="ruby-identifier">options</span> = <span class="ruby-identifier">normalize_callback_params</span>(<span class="ruby-identifier">filter_list</span>, <span class="ruby-identifier">block</span>)
+
+          <span class="ruby-keyword">if</span> <span class="ruby-identifier">options</span>[<span class="ruby-value">:if</span>].<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">String</span>) <span class="ruby-operator">||</span> <span class="ruby-identifier">options</span>[<span class="ruby-value">:unless</span>].<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">String</span>)
+            <span class="ruby-constant">ActiveSupport</span><span class="ruby-operator">::</span><span class="ruby-constant">Deprecation</span>.<span class="ruby-identifier">warn</span>(<span class="ruby-string">&quot;              Passing string to be evaluated in :if and :unless conditional
+              options is deprecated and will be removed in Rails 5.2 without
+              replacement. Pass a symbol for an instance method, or a lambda,
+              proc or block, instead.
+&quot;</span>.<span class="ruby-identifier">squish</span>)
+          <span class="ruby-keyword">end</span>
+
+          <span class="ruby-identifier">self_chain</span> = <span class="ruby-identifier">get_callbacks</span> <span class="ruby-identifier">name</span>
+          <span class="ruby-identifier">mapped</span> = <span class="ruby-identifier">filters</span>.<span class="ruby-identifier">map</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">filter</span><span class="ruby-operator">|</span>
+            <span class="ruby-constant">Callback</span>.<span class="ruby-identifier">build</span>(<span class="ruby-identifier">self_chain</span>, <span class="ruby-identifier">filter</span>, <span class="ruby-identifier">type</span>, <span class="ruby-identifier">options</span>)
+          <span class="ruby-keyword">end</span>
+
+          <span class="ruby-identifier">__update_callbacks</span>(<span class="ruby-identifier">name</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">target</span>, <span class="ruby-identifier">chain</span><span class="ruby-operator">|</span>
+            <span class="ruby-identifier">options</span>[<span class="ruby-value">:prepend</span>] <span class="ruby-operator">?</span> <span class="ruby-identifier">chain</span>.<span class="ruby-identifier">prepend</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">mapped</span>) <span class="ruby-operator">:</span> <span class="ruby-identifier">chain</span>.<span class="ruby-identifier">append</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">mapped</span>)
+            <span class="ruby-identifier">target</span>.<span class="ruby-identifier">set_callbacks</span> <span class="ruby-identifier">name</span>, <span class="ruby-identifier">chain</span>
+          <span class="ruby-keyword">end</span>
+        <span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-skip_callback" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">skip_callback</span><span
+            class="method-args">(name, *filter_list, &block)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Skip a previously set callback. Like <code>set_callback</code>,
+<code>:if</code> or <code>:unless</code> options may be passed in order to
+control when the callback is skipped.</p>
+
+<pre class="ruby"><span class="ruby-keyword">class</span> <span class="ruby-constant">Writer</span> <span class="ruby-operator">&lt;</span> <span class="ruby-constant">Person</span>
+   <span class="ruby-identifier">skip_callback</span> :<span class="ruby-identifier">validate</span>, :<span class="ruby-identifier">before</span>, :<span class="ruby-identifier">check_membership</span>, <span class="ruby-identifier">if</span><span class="ruby-operator">:</span> <span class="ruby-operator">-</span><span class="ruby-operator">&gt;</span> { <span class="ruby-identifier">age</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">18</span> }
+<span class="ruby-keyword">end</span>
+</pre>
+
+<p>An <code>ArgumentError</code> will be raised if the callback has not
+already been set (unless the <code>:raise</code> option is set to
+<code>false</code>).</p>
+          
+          
+
+          
+          <div class="method-source-code" id="skip_callback-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/activesupport-5.1.5/lib/active_support/callbacks.rb, line 695</span>
+        <span class="ruby-keyword">def</span> <span class="ruby-identifier">skip_callback</span>(<span class="ruby-identifier">name</span>, <span class="ruby-operator">*</span><span class="ruby-identifier">filter_list</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+          <span class="ruby-identifier">type</span>, <span class="ruby-identifier">filters</span>, <span class="ruby-identifier">options</span> = <span class="ruby-identifier">normalize_callback_params</span>(<span class="ruby-identifier">filter_list</span>, <span class="ruby-identifier">block</span>)
+
+          <span class="ruby-keyword">if</span> <span class="ruby-identifier">options</span>[<span class="ruby-value">:if</span>].<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">String</span>) <span class="ruby-operator">||</span> <span class="ruby-identifier">options</span>[<span class="ruby-value">:unless</span>].<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">String</span>)
+            <span class="ruby-constant">ActiveSupport</span><span class="ruby-operator">::</span><span class="ruby-constant">Deprecation</span>.<span class="ruby-identifier">warn</span>(<span class="ruby-string">&quot;              Passing string to :if and :unless conditional options is deprecated
+              and will be removed in Rails 5.2 without replacement.
+&quot;</span>.<span class="ruby-identifier">squish</span>)
+          <span class="ruby-keyword">end</span>
+
+          <span class="ruby-identifier">options</span>[<span class="ruby-value">:raise</span>] = <span class="ruby-keyword">true</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">options</span>.<span class="ruby-identifier">key?</span>(<span class="ruby-value">:raise</span>)
+
+          <span class="ruby-identifier">__update_callbacks</span>(<span class="ruby-identifier">name</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">target</span>, <span class="ruby-identifier">chain</span><span class="ruby-operator">|</span>
+            <span class="ruby-identifier">filters</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">filter</span><span class="ruby-operator">|</span>
+              <span class="ruby-identifier">callback</span> = <span class="ruby-identifier">chain</span>.<span class="ruby-identifier">find</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">c</span><span class="ruby-operator">|</span> <span class="ruby-identifier">c</span>.<span class="ruby-identifier">matches?</span>(<span class="ruby-identifier">type</span>, <span class="ruby-identifier">filter</span>) }
+
+              <span class="ruby-keyword">if</span> <span class="ruby-operator">!</span><span class="ruby-identifier">callback</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">options</span>[<span class="ruby-value">:raise</span>]
+                <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>, <span class="ruby-node">&quot;#{type.to_s.capitalize} #{name} callback #{filter.inspect} has not been defined&quot;</span>
+              <span class="ruby-keyword">end</span>
+
+              <span class="ruby-keyword">if</span> <span class="ruby-identifier">callback</span> <span class="ruby-operator">&amp;&amp;</span> (<span class="ruby-identifier">options</span>.<span class="ruby-identifier">key?</span>(<span class="ruby-value">:if</span>) <span class="ruby-operator">||</span> <span class="ruby-identifier">options</span>.<span class="ruby-identifier">key?</span>(<span class="ruby-value">:unless</span>))
+                <span class="ruby-identifier">new_callback</span> = <span class="ruby-identifier">callback</span>.<span class="ruby-identifier">merge_conditional_options</span>(<span class="ruby-identifier">chain</span>, <span class="ruby-identifier">if_option</span><span class="ruby-operator">:</span> <span class="ruby-identifier">options</span>[<span class="ruby-value">:if</span>], <span class="ruby-identifier">unless_option</span><span class="ruby-operator">:</span> <span class="ruby-identifier">options</span>[<span class="ruby-value">:unless</span>])
+                <span class="ruby-identifier">chain</span>.<span class="ruby-identifier">insert</span>(<span class="ruby-identifier">chain</span>.<span class="ruby-identifier">index</span>(<span class="ruby-identifier">callback</span>), <span class="ruby-identifier">new_callback</span>)
+              <span class="ruby-keyword">end</span>
+
+              <span class="ruby-identifier">chain</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-identifier">callback</span>)
+            <span class="ruby-keyword">end</span>
+            <span class="ruby-identifier">target</span>.<span class="ruby-identifier">set_callbacks</span> <span class="ruby-identifier">name</span>, <span class="ruby-identifier">chain</span>
+          <span class="ruby-keyword">end</span>
+        <span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="https://rdoc.github.io/rdoc">RDoc</a> 5.0.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

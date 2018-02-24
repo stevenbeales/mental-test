@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class RuboCop::Cop::Corrector - RDoc Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../../";
+  var index_rel_prefix = "../../";
+</script>
+
+<script src="../../js/jquery.js"></script>
+<script src="../../js/darkfish.js"></script>
+
+<link href="../../css/fonts.css" rel="stylesheet">
+<link href="../../css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../../table_of_contents.html#pages">Pages</a>
+    <a href="../../table_of_contents.html#classes">Classes</a>
+    <a href="../../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link"><a href="../../Object.html">Object</a>
+  
+</div>
+
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-c-new">::new</a>
+    
+    <li ><a href="#method-i-insert_after">#insert_after</a>
+    
+    <li ><a href="#method-i-insert_before">#insert_before</a>
+    
+    <li ><a href="#method-i-remove">#remove</a>
+    
+    <li ><a href="#method-i-remove_leading">#remove_leading</a>
+    
+    <li ><a href="#method-i-remove_preceding">#remove_preceding</a>
+    
+    <li ><a href="#method-i-remove_trailing">#remove_trailing</a>
+    
+    <li ><a href="#method-i-replace">#replace</a>
+    
+    <li ><a href="#method-i-rewrite">#rewrite</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-RuboCop::Cop::Corrector">
+  <h1 id="class-RuboCop::Cop::Corrector" class="class">
+    class RuboCop::Cop::Corrector
+  </h1>
+
+  <section class="description">
+    
+<p>This class takes a source buffer and rewrite its source based on the
+different correction rules supplied.</p>
+
+<p>Important! The nodes modified by the corrections should be part of the <a
+href="../AST.html">AST</a> of the source_buffer.</p>
+
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+    <section class="attribute-method-details" class="method-section">
+      <header>
+        <h3>Attributes</h3>
+      </header>
+
+      
+      <div id="attribute-i-corrections" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">corrections</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-diagnostics" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">diagnostics</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+    </section>
+    
+
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Class Methods</h3>
+       </header>
+
+    
+      <div id="method-c-new" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">new</span><span
+            class="method-args">(source_buffer, corrections = [])</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>@param source_buffer [Parser::Source::Buffer] @param corrections
+[Array(#call)]</p>
+
+<pre>Array of Objects that respond to #call. They will receive the
+corrector itself and should use its method to modify the source.</pre>
+
+<p>@example</p>
+
+<pre class="ruby"><span class="ruby-keyword">class</span> <span class="ruby-constant">AndOrCorrector</span>
+  <span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">node</span>)
+    <span class="ruby-ivar">@node</span> = <span class="ruby-identifier">node</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">def</span> <span class="ruby-identifier">call</span>(<span class="ruby-identifier">corrector</span>)
+    <span class="ruby-identifier">replacement</span> = (<span class="ruby-ivar">@node</span>.<span class="ruby-identifier">type</span> <span class="ruby-operator">==</span> :<span class="ruby-keyword">and</span> <span class="ruby-operator">?</span> <span class="ruby-string">&#39;&amp;&amp;&#39;</span> <span class="ruby-operator">:</span> <span class="ruby-string">&#39;||&#39;</span>)
+    <span class="ruby-identifier">corrector</span>.<span class="ruby-identifier">replace</span>(<span class="ruby-ivar">@node</span>.<span class="ruby-identifier">loc</span>.<span class="ruby-identifier">operator</span>, <span class="ruby-identifier">replacement</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span>
+
+<span class="ruby-identifier">corrections</span> = [<span class="ruby-constant">AndOrCorrector</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">node</span>)]
+<span class="ruby-identifier">corrector</span> = <span class="ruby-constant">Corrector</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">source_buffer</span>, <span class="ruby-identifier">corrections</span>)
+</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="new-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/rubocop-0.52.1/lib/rubocop/cop/corrector.rb, line 32</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">source_buffer</span>, <span class="ruby-identifier">corrections</span> = [])
+  <span class="ruby-ivar">@source_buffer</span> = <span class="ruby-identifier">source_buffer</span>
+  <span class="ruby-ivar">@corrections</span> = <span class="ruby-identifier">corrections</span>
+  <span class="ruby-ivar">@source_rewriter</span> = <span class="ruby-constant">Parser</span><span class="ruby-operator">::</span><span class="ruby-constant">Source</span><span class="ruby-operator">::</span><span class="ruby-constant">Rewriter</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">source_buffer</span>)
+
+  <span class="ruby-ivar">@diagnostics</span> = []
+  <span class="ruby-comment"># Don&#39;t print warnings to stderr if corrections conflict with each other</span>
+  <span class="ruby-ivar">@source_rewriter</span>.<span class="ruby-identifier">diagnostics</span>.<span class="ruby-identifier">consumer</span> = <span class="ruby-identifier">lambda</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">diagnostic</span><span class="ruby-operator">|</span>
+    <span class="ruby-ivar">@diagnostics</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">diagnostic</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-insert_after" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">insert_after</span><span
+            class="method-args">(range, content)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Inserts new code after the given source range.</p>
+
+<p>@param [Parser::Source::Range] range @param [String] content</p>
+          
+          
+
+          
+          <div class="method-source-code" id="insert_after-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/rubocop-0.52.1/lib/rubocop/cop/corrector.rb, line 84</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">insert_after</span>(<span class="ruby-identifier">range</span>, <span class="ruby-identifier">content</span>)
+  <span class="ruby-ivar">@source_rewriter</span>.<span class="ruby-identifier">insert_after</span>(<span class="ruby-identifier">range</span>, <span class="ruby-identifier">content</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-insert_before" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">insert_before</span><span
+            class="method-args">(range, content)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Inserts new code before the given source range.</p>
+
+<p>@param [Parser::Source::Range] range @param [String] content</p>
+          
+          
+
+          
+          <div class="method-source-code" id="insert_before-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/rubocop-0.52.1/lib/rubocop/cop/corrector.rb, line 76</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">insert_before</span>(<span class="ruby-identifier">range</span>, <span class="ruby-identifier">content</span>)
+  <span class="ruby-ivar">@source_rewriter</span>.<span class="ruby-identifier">insert_before</span>(<span class="ruby-identifier">range</span>, <span class="ruby-identifier">content</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-remove" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">remove</span><span
+            class="method-args">(range)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Removes the source range.</p>
+
+<p>@param [Parser::Source::Range] range</p>
+          
+          
+
+          
+          <div class="method-source-code" id="remove-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/rubocop-0.52.1/lib/rubocop/cop/corrector.rb, line 68</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">remove</span>(<span class="ruby-identifier">range</span>)
+  <span class="ruby-ivar">@source_rewriter</span>.<span class="ruby-identifier">remove</span>(<span class="ruby-identifier">range</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-remove_leading" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">remove_leading</span><span
+            class="method-args">(range, size)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Removes `size` characters from the beginning of the given range. If `size`
+is greater than the size of `range`, the removed region can overrun the end
+of `range`.</p>
+
+<p>@param [Parser::Source::Range] range @param [Integer] size</p>
+          
+          
+
+          
+          <div class="method-source-code" id="remove_leading-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/rubocop-0.52.1/lib/rubocop/cop/corrector.rb, line 113</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">remove_leading</span>(<span class="ruby-identifier">range</span>, <span class="ruby-identifier">size</span>)
+  <span class="ruby-identifier">to_remove</span> = <span class="ruby-constant">Parser</span><span class="ruby-operator">::</span><span class="ruby-constant">Source</span><span class="ruby-operator">::</span><span class="ruby-constant">Range</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">range</span>.<span class="ruby-identifier">source_buffer</span>,
+                                        <span class="ruby-identifier">range</span>.<span class="ruby-identifier">begin_pos</span>,
+                                        <span class="ruby-identifier">range</span>.<span class="ruby-identifier">begin_pos</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">size</span>)
+  <span class="ruby-ivar">@source_rewriter</span>.<span class="ruby-identifier">remove</span>(<span class="ruby-identifier">to_remove</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-remove_preceding" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">remove_preceding</span><span
+            class="method-args">(range, size)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Removes `size` characters prior to the source range.</p>
+
+<p>@param [Parser::Source::Range] range @param [Integer] size</p>
+          
+          
+
+          
+          <div class="method-source-code" id="remove_preceding-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/rubocop-0.52.1/lib/rubocop/cop/corrector.rb, line 100</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">remove_preceding</span>(<span class="ruby-identifier">range</span>, <span class="ruby-identifier">size</span>)
+  <span class="ruby-identifier">to_remove</span> = <span class="ruby-constant">Parser</span><span class="ruby-operator">::</span><span class="ruby-constant">Source</span><span class="ruby-operator">::</span><span class="ruby-constant">Range</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">range</span>.<span class="ruby-identifier">source_buffer</span>,
+                                        <span class="ruby-identifier">range</span>.<span class="ruby-identifier">begin_pos</span> <span class="ruby-operator">-</span> <span class="ruby-identifier">size</span>,
+                                        <span class="ruby-identifier">range</span>.<span class="ruby-identifier">begin_pos</span>)
+  <span class="ruby-ivar">@source_rewriter</span>.<span class="ruby-identifier">remove</span>(<span class="ruby-identifier">to_remove</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-remove_trailing" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">remove_trailing</span><span
+            class="method-args">(range, size)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Removes `size` characters from the end of the given range. If `size` is
+greater than the size of `range`, the removed region can overrun the
+beginning of `range`.</p>
+
+<p>@param [Parser::Source::Range] range @param [Integer] size</p>
+          
+          
+
+          
+          <div class="method-source-code" id="remove_trailing-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/rubocop-0.52.1/lib/rubocop/cop/corrector.rb, line 126</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">remove_trailing</span>(<span class="ruby-identifier">range</span>, <span class="ruby-identifier">size</span>)
+  <span class="ruby-identifier">to_remove</span> = <span class="ruby-constant">Parser</span><span class="ruby-operator">::</span><span class="ruby-constant">Source</span><span class="ruby-operator">::</span><span class="ruby-constant">Range</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">range</span>.<span class="ruby-identifier">source_buffer</span>,
+                                        <span class="ruby-identifier">range</span>.<span class="ruby-identifier">end_pos</span> <span class="ruby-operator">-</span> <span class="ruby-identifier">size</span>,
+                                        <span class="ruby-identifier">range</span>.<span class="ruby-identifier">end_pos</span>)
+  <span class="ruby-ivar">@source_rewriter</span>.<span class="ruby-identifier">remove</span>(<span class="ruby-identifier">to_remove</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-replace" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">replace</span><span
+            class="method-args">(range, content)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Replaces the code of the source range `range` with `content`.</p>
+
+<p>@param [Parser::Source::Range] range @param [String] content</p>
+          
+          
+
+          
+          <div class="method-source-code" id="replace-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/rubocop-0.52.1/lib/rubocop/cop/corrector.rb, line 92</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">replace</span>(<span class="ruby-identifier">range</span>, <span class="ruby-identifier">content</span>)
+  <span class="ruby-ivar">@source_rewriter</span>.<span class="ruby-identifier">replace</span>(<span class="ruby-identifier">range</span>, <span class="ruby-identifier">content</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-rewrite" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">rewrite</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Does the actual rewrite and returns string corresponding to the rewritten
+source.</p>
+
+<p>@return [String]</p>
+          
+          
+
+          
+          <div class="method-source-code" id="rewrite-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/rubocop-0.52.1/lib/rubocop/cop/corrector.rb, line 50</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">rewrite</span>
+  <span class="ruby-comment"># rubocop:disable Lint/HandleExceptions</span>
+  <span class="ruby-ivar">@corrections</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">correction</span><span class="ruby-operator">|</span>
+    <span class="ruby-keyword">begin</span>
+      <span class="ruby-ivar">@source_rewriter</span>.<span class="ruby-identifier">transaction</span> <span class="ruby-keyword">do</span>
+        <span class="ruby-identifier">correction</span>.<span class="ruby-identifier">call</span>(<span class="ruby-keyword">self</span>)
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">rescue</span> <span class="ruby-operator">::</span><span class="ruby-constant">Parser</span><span class="ruby-operator">::</span><span class="ruby-constant">ClobberingError</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-comment"># rubocop:enable Lint/HandleExceptions</span>
+
+  <span class="ruby-ivar">@source_rewriter</span>.<span class="ruby-identifier">process</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="https://rdoc.github.io/rdoc">RDoc</a> 5.0.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

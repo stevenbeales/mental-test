@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class RSpec::Core::Formatters::BaseTextFormatter - RDoc Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../../../";
+  var index_rel_prefix = "../../../";
+</script>
+
+<script src="../../../js/jquery.js"></script>
+<script src="../../../js/darkfish.js"></script>
+
+<link href="../../../css/fonts.css" rel="stylesheet">
+<link href="../../../css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../../../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../../../table_of_contents.html#pages">Pages</a>
+    <a href="../../../table_of_contents.html#classes">Classes</a>
+    <a href="../../../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link"><a href="BaseFormatter.html">RSpec::Core::Formatters::BaseFormatter</a>
+  
+</div>
+
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-i-close">#close</a>
+    
+    <li ><a href="#method-i-dump_failures">#dump_failures</a>
+    
+    <li ><a href="#method-i-dump_pending">#dump_pending</a>
+    
+    <li ><a href="#method-i-dump_summary">#dump_summary</a>
+    
+    <li ><a href="#method-i-message">#message</a>
+    
+    <li ><a href="#method-i-seed">#seed</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-RSpec::Core::Formatters::BaseTextFormatter">
+  <h1 id="class-RSpec::Core::Formatters::BaseTextFormatter" class="class">
+    class RSpec::Core::Formatters::BaseTextFormatter
+  </h1>
+
+  <section class="description">
+    
+<p>Base for all of RSpec&#39;s built-in formatters. See <a
+href="BaseFormatter.html">RSpec::Core::Formatters::BaseFormatter</a> to
+learn more about all of the methods called by the reporter.</p>
+
+<p>@see <a
+href="BaseFormatter.html">RSpec::Core::Formatters::BaseFormatter</a> @see
+<a href="../Reporter.html">RSpec::Core::Reporter</a></p>
+
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+
+    
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-close" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">close</span><span
+            class="method-args">(_notification)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>@api public</p>
+
+<p>Invoked at the end of a suite run. Allows the formatter to do any tidying
+up, but be aware that formatter output streams may be used elsewhere so
+don&#39;t actually close them.</p>
+
+<p>@param _notification [NullNotification] (Ignored)</p>
+          
+          
+
+          
+          <div class="method-source-code" id="close-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/rspec-core-3.7.1/lib/rspec/core/formatters/base_text_formatter.rb, line 65</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">close</span>(<span class="ruby-identifier">_notification</span>)
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">output</span>.<span class="ruby-identifier">closed?</span>
+
+  <span class="ruby-identifier">output</span>.<span class="ruby-identifier">puts</span>
+
+  <span class="ruby-identifier">output</span>.<span class="ruby-identifier">flush</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-dump_failures" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">dump_failures</span><span
+            class="method-args">(notification)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>@api public</p>
+
+<p>Dumps detailed information about each example failure.</p>
+
+<p>@param notification [NullNotification]</p>
+          
+          
+
+          
+          <div class="method-source-code" id="dump_failures-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/rspec-core-3.7.1/lib/rspec/core/formatters/base_text_formatter.rb, line 30</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">dump_failures</span>(<span class="ruby-identifier">notification</span>)
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">notification</span>.<span class="ruby-identifier">failure_notifications</span>.<span class="ruby-identifier">empty?</span>
+  <span class="ruby-identifier">output</span>.<span class="ruby-identifier">puts</span> <span class="ruby-identifier">notification</span>.<span class="ruby-identifier">fully_formatted_failed_examples</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-dump_pending" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">dump_pending</span><span
+            class="method-args">(notification)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>@private</p>
+          
+          
+
+          
+          <div class="method-source-code" id="dump_pending-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/rspec-core-3.7.1/lib/rspec/core/formatters/base_text_formatter.rb, line 47</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">dump_pending</span>(<span class="ruby-identifier">notification</span>)
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">notification</span>.<span class="ruby-identifier">pending_examples</span>.<span class="ruby-identifier">empty?</span>
+  <span class="ruby-identifier">output</span>.<span class="ruby-identifier">puts</span> <span class="ruby-identifier">notification</span>.<span class="ruby-identifier">fully_formatted_pending_examples</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-dump_summary" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">dump_summary</span><span
+            class="method-args">(summary)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>@api public</p>
+
+<p>This method is invoked after the dumping of examples and failures. Each
+parameter is assigned to a corresponding attribute.</p>
+
+<p>@param summary [SummaryNotification] containing duration,</p>
+
+<pre>example_count, failure_count and pending_count</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="dump_summary-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/rspec-core-3.7.1/lib/rspec/core/formatters/base_text_formatter.rb, line 42</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">dump_summary</span>(<span class="ruby-identifier">summary</span>)
+  <span class="ruby-identifier">output</span>.<span class="ruby-identifier">puts</span> <span class="ruby-identifier">summary</span>.<span class="ruby-identifier">fully_formatted</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-message" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">message</span><span
+            class="method-args">(notification)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>@api public</p>
+
+<p>Used by the reporter to send messages to the output stream.</p>
+
+<p>@param notification [MessageNotification] containing message</p>
+          
+          
+
+          
+          <div class="method-source-code" id="message-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/rspec-core-3.7.1/lib/rspec/core/formatters/base_text_formatter.rb, line 21</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">message</span>(<span class="ruby-identifier">notification</span>)
+  <span class="ruby-identifier">output</span>.<span class="ruby-identifier">puts</span> <span class="ruby-identifier">notification</span>.<span class="ruby-identifier">message</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-seed" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">seed</span><span
+            class="method-args">(notification)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>@private</p>
+          
+          
+
+          
+          <div class="method-source-code" id="seed-source">
+            <pre><span class="ruby-comment"># File vendor/bundle/ruby/2.4.0/gems/rspec-core-3.7.1/lib/rspec/core/formatters/base_text_formatter.rb, line 53</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">seed</span>(<span class="ruby-identifier">notification</span>)
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">notification</span>.<span class="ruby-identifier">seed_used?</span>
+  <span class="ruby-identifier">output</span>.<span class="ruby-identifier">puts</span> <span class="ruby-identifier">notification</span>.<span class="ruby-identifier">fully_formatted</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="https://rdoc.github.io/rdoc">RDoc</a> 5.0.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+
