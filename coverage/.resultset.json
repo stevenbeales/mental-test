@@ -123,18 +123,11 @@
         1,
         1,
         null,
-        null,
         1,
-        220,
-        220,
-        220,
-        220,
-        220,
-        220,
-        220,
-        null,
-        null,
-        1,
+        221,
+        221,
+        221,
+        221,
         221,
         null,
         null,
@@ -329,6 +322,20 @@
         1,
         null,
         null,
+        null,
+        null,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        null,
+        null,
         null
       ],
       "C:/Users/Steven/Source/mental-test/spec/user_spec.rb": [
@@ -431,6 +438,6 @@
         null
       ]
     },
-    "timestamp": 1519443513
+    "timestamp": 1519445747
   }
 }

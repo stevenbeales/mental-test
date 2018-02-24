@@ -32,7 +32,7 @@ class Instrument < ActiveRecord::Base
     elements = []
     pages.each { |p| elements += p['elements'] }
     elements.each do |i|
-      item = Item.create_item(i)
+      item = Item.new(i)
       @items << item
     end
     @items

@@ -21,3 +21,17 @@ RSpec.describe Survey do
     end 
   end 
 end
+
+RSpec.describe Survey do
+  describe '.assessments' do
+    it 'can have multiple assessments' do
+      survey = Survey.create! name: 'Another Test Survey '
+      user = User.create! username: 'Marie'
+      assessment = Assessment.create! survey: survey, user: user 
+      another_assessment = Assessment.create! survey: survey, user: user
+      survey.assessments.push assessment
+      survey.assessments.push another_assessment
+      expect(survey.assessments.count).to eq(2)  
+    end
+  end
+end

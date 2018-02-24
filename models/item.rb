@@ -7,21 +7,14 @@ class Item
   attr_accessor :type
   attr_accessor :title
   attr_accessor :choices # array of response options
-  attr_accessor :isRequired
+  attr_accessor :is_required
 
-  # create an item from a hash
-  def self.create_item(options={})
-    item = Item.new
-    item.name = options['name']
-    item.type = options['type']
-    item.title = options['title']
-    item.isRequired = options['isRequired']
-    item.choices = options['choices']
-    item
-  end
-
-  def initialize(options={})
-    @choices = []
+  def initialize(options = {})
+    @name = options['name']
+    @type = options['type']
+    @title = options['title']
+    @is_required = options['isRequired']
+    @choices = options['choices']
   end
 
   def find_choice_by_value(value)

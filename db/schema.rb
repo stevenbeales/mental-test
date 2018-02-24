@@ -24,12 +24,14 @@ ActiveRecord::Schema.define(version: 20180223042848) do
   end
 
   create_table "assessments", force: :cascade do |t|
+    t.bigint "user_id", null: false
     t.bigint "survey_id", null: false
     t.jsonb "content", default: "{}", null: false
     t.datetime "created_at", default: "2018-02-23 00:00:00", null: false
     t.datetime "updated_at", default: "2018-02-23 00:00:00", null: false
     t.index ["content"], name: "index_assessments_on_content", using: :gin
     t.index ["survey_id"], name: "index_assessments_on_survey_id"
+    t.index ["user_id"], name: "index_assessments_on_user_id"
   end
 
   create_table "instruments", force: :cascade do |t|
@@ -72,6 +74,7 @@ ActiveRecord::Schema.define(version: 20180223042848) do
   add_foreign_key "assessment_instruments", "assessments"
   add_foreign_key "assessment_instruments", "instruments"
   add_foreign_key "assessments", "surveys"
+  add_foreign_key "assessments", "users"
   add_foreign_key "user_surveys", "surveys"
   add_foreign_key "user_surveys", "users"
 end
