@@ -1,4 +1,15 @@
 # frozen_string_literal: true
+# == Schema Information
+#
+# Table name: instruments
+#
+#  id         :integer          not null, primary key
+#  name       :string           not null
+#  content    :jsonb            not null
+#  created_at :datetime         default(2018-02-23 00:00:00 UTC), not null
+#  updated_at :datetime         default(2018-02-23 00:00:00 UTC), not null
+#
+
 
 require 'jsonb_accessor'
 
@@ -32,11 +43,7 @@ class Instrument < ActiveRecord::Base
     @items = []
     elements = []
     pages.each { |p| elements += p['elements'] }
-    elements.each do |i|
-      item = Item.new(i)
-      @items << item
-    end
-    @items
+    @items = elements.map { |e| Item.new(e) }
   end
 
   def find_item_by_name(name)

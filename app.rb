@@ -2,8 +2,8 @@
 
 require 'sinatra'
 require 'ralyxa'
-require 'paper_trail'
-require 'paper_trail-sinatra'
+# require 'paper_trail'
+# require 'paper_trail-sinatra'
 
 require_relative 'config/db'
 require_relative 'models/init'

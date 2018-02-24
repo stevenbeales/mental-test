@@ -1,4 +1,18 @@
 # frozen_string_literal: true
+# == Schema Information
+#
+# Table name: users
+#
+#  id           :integer          not null, primary key
+#  username     :string           not null
+#  firstname    :string
+#  lastname     :string
+#  access_token :text             default(""), not null
+#  preferences  :jsonb            not null
+#  created_at   :datetime         default(2018-02-23 00:00:00 UTC), not null
+#  updated_at   :datetime         default(2018-02-23 00:00:00 UTC), not null
+#
+
 
 # Represents an application user/respondent
 # Users are linked to Alexa users using Alexa session request.user_id

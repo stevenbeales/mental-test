@@ -1,4 +1,16 @@
 # frozen_string_literal: true
+# == Schema Information
+#
+# Table name: surveys
+#
+#  id           :integer          not null, primary key
+#  name         :string           not null
+#  is_active    :boolean          default(TRUE), not null
+#  max_attempts :integer          default(0), not null
+#  created_at   :datetime         default(2018-02-23 00:00:00 UTC), not null
+#  updated_at   :datetime         default(2018-02-23 00:00:00 UTC), not null
+#
+
 
 # Model to represent a survey/campaign
 class Survey < ActiveRecord::Base
