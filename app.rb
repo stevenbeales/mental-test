@@ -1,9 +1,12 @@
 # frozen_string_literal: true
 
 require 'sinatra'
-require_relative 'models/init'
 require 'ralyxa'
+require 'paper_trail'
+require 'paper_trail-sinatra'
+
 require_relative 'config/db'
+require_relative 'models/init'
 
 APP_NAME = 'Mental Health'
 
@@ -21,6 +24,11 @@ end
 # Takes an incoming Alexa requests and dispatches
 # to a matching intent in intents folder
 class App < Sinatra::Base
+  # TODO: Enable Register PaperTrail when paper_trail gem in 9 and paper_trail-sinatra supports it 
+  # to register Paper Trail auditing and version framework
+  # register PaperTrail::Sinatra
+
+  # Alexa ruby framework dispatches request to intents
   post '/' do
     Ralyxa::Skill.handle(request)
   end

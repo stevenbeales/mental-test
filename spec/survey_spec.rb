@@ -19,6 +19,13 @@ RSpec.describe Survey do
       Survey.create! name: 'Test'
       expect(Survey.list_tests).to eq 'Test Survey Test'
     end 
+  
+    it 'lists all active tests' do
+      Survey.create! name: 'Test Survey active'
+      Survey.create! name: 'Test inactive', is_active: false
+      expect(Survey.list_active_tests).to eq 'Test Survey Test Test Survey active'
+    end 
+  
   end 
 end
 

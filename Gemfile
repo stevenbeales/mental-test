@@ -5,6 +5,9 @@ gem 'jsonb_accessor', '~> 1.0.0' # adds methods to access Jsonb fields
 gem 'logging' # logging
 gem 'multi_json' # common interface to load json
 gem 'oj' # faster json parsing
+# TODO: uncomment when squish bug is fixed
+# gem 'paper_trail' # TBD - squish bug to be fixed in paper_trail 9 - uncomment then
+# gem 'paper_trail-sinatra'
 gem 'pg' # for Postgres
 gem 'rack-protection' # protect against web attacks
 gem 'rake' # so we can run Rake tasks

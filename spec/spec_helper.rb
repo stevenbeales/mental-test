@@ -20,7 +20,6 @@ require 'simplecov'
 require './config/db'
 require 'ralyxa'
 require 'database_cleaner'
-
 SimpleCov.start
 
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
