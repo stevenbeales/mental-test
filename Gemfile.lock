@@ -19,7 +19,8 @@ GEM
     concurrent-ruby (1.0.5)
     database_cleaner (1.6.1)
     diff-lcs (1.3)
-    ffi (1.9.21-x64-mingw32)
+    docile (1.1.5)
+    ffi (1.9.22-x64-mingw32)
     formatador (0.2.5)
     guard (2.14.2)
       formatador (>= 0.2.4)
@@ -37,6 +38,7 @@ GEM
       rspec (>= 2.99.0, < 4.0)
     i18n (0.9.5)
       concurrent-ruby (~> 1.0)
+    json (2.1.0)
     jsonb_accessor (1.0.0)
       activerecord (>= 5.0)
       activesupport (>= 5.0)
@@ -104,6 +106,11 @@ GEM
     ruby-progressbar (1.9.0)
     ruby_dep (1.5.0)
     shellany (0.0.1)
+    simplecov (0.15.1)
+      docile (~> 1.1.0)
+      json (>= 1.8, < 3)
+      simplecov-html (~> 0.10.0)
+    simplecov-html (0.10.2)
     sinatra (2.0.1)
       mustermann (~> 1.0)
       rack (~> 2.0)
@@ -138,6 +145,7 @@ DEPENDENCIES
   rerun
   rspec
   rubocop
+  simplecov
   sinatra
   sinatra-activerecord
   wdm

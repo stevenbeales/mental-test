@@ -10,17 +10,17 @@ class Item
   attr_accessor :isRequired
 
   # create an item from a hash
-  def self.create_item(h)
+  def self.create_item(options={})
     item = Item.new
-    item.name = h['name']
-    item.type = h['type']
-    item.title = h['title']
-    item.isRequired = h['isRequired']
-    item.choices = h['choices']
+    item.name = options['name']
+    item.type = options['type']
+    item.title = options['title']
+    item.isRequired = options['isRequired']
+    item.choices = options['choices']
     item
   end
 
-  def initialize
+  def initialize(options={})
     @choices = []
   end
 

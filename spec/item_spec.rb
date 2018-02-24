@@ -17,4 +17,11 @@ RSpec.describe Item do
       expect(choice['value']).to eq('0')
     end
   end
+
+  describe '.to_s' do
+    it 'prints item name' do
+      item = Item.new(name: 'Time')
+      expect(item.to_s).to eq(item.name) 
+    end
+  end
 end
