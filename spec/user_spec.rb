@@ -49,3 +49,12 @@ RSpec.describe User do
     end
   end
 end
+
+RSpec.describe User do
+  describe '.to_s' do
+    it 'prints username' do
+      user = User.new(username: 'Timmy')
+      expect(user.to_s).to eq(user.username) 
+    end
+  end
+end

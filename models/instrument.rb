@@ -16,19 +16,14 @@ class Instrument < ActiveRecord::Base
   validates :name, presence: true
   validates_uniqueness_of :name
   validates_length_of :name, \
-  within: 2..50, \
-  too_long: 'pick a shorter name', \
-  too_short: 'pick a longer name'
+                      within: 2..50, \
+                      too_long: 'pick a shorter name', \
+                      too_short: 'pick a longer name'
 
-  
   after_initialize :items
 
   def self.list_tests
-    get_test_names(Instrument.all)
-  end
-
-  def self.get_test_names(tests)
-    tests.join(' ')
+    Instrument.all.join(' ')
   end
 
   # Returns an array of Items that represent the questions in an instrument.

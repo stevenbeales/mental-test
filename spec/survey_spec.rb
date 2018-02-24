@@ -15,8 +15,8 @@ RSpec.describe Survey do
 
   describe '.list_tests' do
     it 'lists all tests in a single string with spaces' do
-      survey = Survey.create! name: 'Test Survey'
-      survey = Survey.create! name: 'Test'
+      Survey.create! name: 'Test Survey'
+      Survey.create! name: 'Test'
       expect(Survey.list_tests).to eq 'Test Survey Test'
     end 
   end 
