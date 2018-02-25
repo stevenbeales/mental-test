@@ -1,8 +1,0 @@
-
-
-New method for Instrument to load items
-Call in seeds and persist items to disk
-
-Then have instrument access items like normal active record
-
-Add rating scales choices

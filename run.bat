@@ -1,1 +1,0 @@
-rerun -- rackup --port 4000 RACK_ENV=development config.ru
