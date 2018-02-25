@@ -4,6 +4,7 @@ rvm:
 
 before_script:
   - psql -c 'create database travis_ci_test;' -U postgres
+  - psql -c "CREATE USER mental WITH PASSWORD 'health';" -U postgres
 
 addons:
   postgresql: "9.5"
