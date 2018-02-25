@@ -8,6 +8,7 @@ before_script:
 
 script:
   - RACK_ENV=test bundle exec rake --trace db:migrate
+  - rake
 
 addons:
   postgresql: "9.5"
