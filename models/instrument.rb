@@ -19,6 +19,7 @@ class Instrument < ActiveRecord::Base
 
   has_many :assessments, through: :assessment_instruments
   has_many :assessment_instruments, inverse_of: :instrument
+  has_many :items, inverse_of: :instrument
   
   jsonb_accessor :content,
                  title: [:string, default: 'Untitled'],
@@ -30,23 +31,9 @@ class Instrument < ActiveRecord::Base
                       within: 2..50, \
                       too_long: 'pick a shorter name', \
                       too_short: 'pick a longer name'
-
-  after_initialize :items
-
+ 
   def self.list_tests
     Instrument.all.join(' ')
-  end
-
-  # Returns an array of Items that represent the questions in an instrument.
-  def items
-    @items = []
-    elements = []
-    pages.each { |p| elements += p['elements'] }
-    @items = elements.map { |e| Item.new(e) }
-  end
-
-  def find_item_by_name(name)
-    @items.find { |i| i.name == name }
   end
 
   def to_s

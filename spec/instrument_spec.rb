@@ -18,13 +18,6 @@ RSpec.describe Instrument do
       expect(Instrument.list_tests).to eq('Cesd-r')
     end
   end
-
-  describe '.find_item_by_name' do
-    it 'finds the item by item name' do
-      ins = Instrument.find_by_name('Cesd-r')
-      expect(ins.find_item_by_name('Appetite1').name).to eq('Appetite1')
-    end
-  end
 end
 
 RSpec.describe Instrument do
