@@ -18,8 +18,6 @@ gem 'sinatra-activerecord' # for Active Record models
 
 group :development do
   gem 'annotate'
-  gem 'pry'
-  gem 'pry-remote'
   gem 'rerun'
   gem 'rubocop', require: false # checks code quality
   gem 'wdm' # enables rerun to hot load code on Windows
