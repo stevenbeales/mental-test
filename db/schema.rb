@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180224160345) do
+ActiveRecord::Schema.define(version: 20180225042624) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -41,6 +41,13 @@ ActiveRecord::Schema.define(version: 20180224160345) do
     t.datetime "updated_at", default: "2018-02-23 00:00:00", null: false
     t.index ["content"], name: "index_instruments_on_content", using: :gin
     t.index ["name"], name: "index_instruments_on_name", unique: true
+  end
+
+  create_table "responses", force: :cascade do |t|
+    t.bigint "assessment_id", null: false
+    t.integer "score", default: -1, null: false
+    t.string "value", default: "", null: false
+    t.index ["assessment_id"], name: "index_responses_on_assessment_id"
   end
 
   create_table "surveys", force: :cascade do |t|
@@ -85,6 +92,7 @@ ActiveRecord::Schema.define(version: 20180224160345) do
   add_foreign_key "assessment_instruments", "instruments"
   add_foreign_key "assessments", "surveys"
   add_foreign_key "assessments", "users"
+  add_foreign_key "responses", "assessments"
   add_foreign_key "user_surveys", "surveys"
   add_foreign_key "user_surveys", "users"
 end

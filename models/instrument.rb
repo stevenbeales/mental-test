@@ -18,7 +18,7 @@ class Instrument < ActiveRecord::Base
   # has_paper_trail
 
   has_many :assessments, through: :assessment_instruments
-  has_many :assessment_instruments
+  has_many :assessment_instruments, inverse_of: :instrument
   
   jsonb_accessor :content,
                  title: [:string, default: 'Untitled'],

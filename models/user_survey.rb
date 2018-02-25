@@ -13,8 +13,8 @@
 class UserSurvey < ActiveRecord::Base
   # has_paper_trail
 
-  belongs_to :user
-  belongs_to :survey
+  belongs_to :user, inverse_of: :user_surveys
+  belongs_to :survey, inverse_of: :user_surveys
 
   validates :user, presence: true
   validates :survey, presence: true

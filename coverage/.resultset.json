@@ -22,6 +22,7 @@
         1,
         1,
         1,
+        1,
         1
       ],
       "C:/Users/Steven/Source/mental-test/models/alexa_help.rb": [
@@ -59,12 +60,14 @@
         1,
         1,
         1,
+        1,
         null,
         1,
         1,
         null
       ],
       "C:/Users/Steven/Source/mental-test/models/assessment_instrument.rb": [
+        null,
         null,
         null,
         null,
@@ -171,6 +174,26 @@
         null,
         null
       ],
+      "C:/Users/Steven/Source/mental-test/models/response.rb": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        1,
+        1,
+        null,
+        1,
+        null
+      ],
       "C:/Users/Steven/Source/mental-test/models/survey.rb": [
         null,
         null,
@@ -189,6 +212,7 @@
         1,
         null,
         null,
+        1,
         1,
         1,
         null,
@@ -236,6 +260,7 @@
         1,
         null,
         null,
+        1,
         1,
         1,
         null,
@@ -375,6 +400,17 @@
         1,
         1,
         null,
+        null,
+        null
+      ],
+      "C:/Users/Steven/Source/mental-test/spec/response_spec.rb": [
+        null,
+        null,
+        1,
+        null,
+        1,
+        1,
+        2,
         null,
         null
       ],
@@ -524,7 +560,7 @@
         null
       ]
     },
-    "timestamp": 1519532618
+    "timestamp": 1519535135
   },
   "Unit Tests": {
     "coverage": {

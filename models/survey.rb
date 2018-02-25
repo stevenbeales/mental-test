@@ -15,9 +15,10 @@
 class Survey < ActiveRecord::Base
   # has_paper_trail
 
-  has_many :assessments, dependent: :destroy
+  has_many :assessments, inverse_of: :survey, dependent: :destroy
   has_many :users, through: :user_surveys
-
+  has_many :user_surveys, inverse_of: :survey
+ 
   scope :active, -> { where(is_active: true) }
 
   validates :name, presence: true

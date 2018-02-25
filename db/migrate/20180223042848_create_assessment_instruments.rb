@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-# Creates tables for association class between assessments and instruments
+# Creates table for association class between assessments and instruments
 class CreateAssessmentInstruments < ActiveRecord::Migration[5.1]
   def change
     create_table :assessment_instruments do |t|
