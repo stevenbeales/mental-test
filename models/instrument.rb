@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 # == Schema Information
 #
 # Table name: instruments
@@ -9,7 +10,6 @@
 #  created_at :datetime         default(2018-02-23 00:00:00 UTC), not null
 #  updated_at :datetime         default(2018-02-23 00:00:00 UTC), not null
 #
-
 
 require 'jsonb_accessor'
 

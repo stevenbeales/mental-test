@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 # == Schema Information
 #
 # Table name: assessments
@@ -10,7 +11,6 @@
 #  created_at :datetime         default(2018-02-23 00:00:00 UTC), not null
 #  updated_at :datetime         default(2018-02-23 00:00:00 UTC), not null
 #
-
 
 # Model to represent the user taking an instrument/questionnaire within a survey/campaign
 class Assessment < ActiveRecord::Base
@@ -24,4 +24,3 @@ class Assessment < ActiveRecord::Base
   validates :survey, presence: true
   validates :user, presence: true
 end
- 
