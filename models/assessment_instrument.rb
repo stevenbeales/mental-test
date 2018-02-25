@@ -1,9 +1,8 @@
 # frozen_string_literal: true
 
 # == Schema Information
-#
 # Table name: assessment_instruments
-#
+
 #  id            :integer          not null, primary key
 #  assessment_id :integer          not null
 #  instrument_id :integer          not null
