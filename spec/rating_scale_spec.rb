@@ -10,7 +10,7 @@ RSpec.describe RatingScale do
   end
 
   it 'does save with a name greater than 1 character' do
-    expect { RatingScale.create! name: 'as' }.to_not raise_error ActiveRecord::RecordInvalid
+    expect { RatingScale.create! name: 'as' }.to_not raise_error
   end
 
   it 'has a unique name' do

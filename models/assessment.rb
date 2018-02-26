@@ -17,11 +17,13 @@ class Assessment < ActiveRecord::Base
   # has_paper_trail
 
   belongs_to :survey, inverse_of: :assessments
-  belongs_to :user, inverse_of: :assessments
+  belongs_to :visit, inverse_of: :assessments
+  # FIXME
+  # belongs_to :user, through: :visit
   has_many :instruments, through: :assessment_instruments
   has_many :assessment_instruments, inverse_of: :assessment
   has_many :responses, inverse_of: :assessment
   
   validates :survey, presence: true
-  validates :user, presence: true
+  validates :visit, presence: true
 end

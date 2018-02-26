@@ -6,6 +6,7 @@ class CreateUserSurveys < ActiveRecord::Migration[5.1]
     create_table :user_surveys do |t|
       t.references :user, null: false
       t.references :survey, null: false
+      t.timestamps null: false, default: Date.today
     end
 
     add_index :user_surveys, %i[user_id survey_id], unique: true

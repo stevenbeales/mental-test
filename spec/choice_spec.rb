@@ -14,8 +14,7 @@ RSpec.describe Choice do
   
   it 'saves with a rating scale, value and description' do
     scale = RatingScale.find_by_name 'Cesd-r'
-    expect { Choice.create! rating_scale: scale, value: 'val', description: 'text' }.not_to \
-      raise_error ActiveRecord::RecordInvalid
+    expect { Choice.create! rating_scale: scale, value: 'val', description: 'text' }.not_to raise_error
     c = Choice.find_by rating_scale_id: scale.id, value: 'val'
     c.destroy
   end

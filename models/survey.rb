@@ -18,6 +18,7 @@ class Survey < ActiveRecord::Base
   has_many :assessments, inverse_of: :survey, dependent: :destroy
   has_many :users, through: :user_surveys
   has_many :user_surveys, inverse_of: :survey
+  has_many :visits, inverse_of: :survey
  
   scope :active, -> { where(is_active: true) }
 

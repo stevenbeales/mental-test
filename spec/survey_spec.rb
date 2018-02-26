@@ -34,8 +34,9 @@ RSpec.describe Survey do
     it 'can have multiple assessments' do
       survey = Survey.create! name: 'Another Test Survey '
       user = User.create! username: 'Marie'
-      assessment = Assessment.create! survey: survey, user: user 
-      another_assessment = Assessment.create! survey: survey, user: user
+      vt = Visit.create! user: user, name: 'Visit 23'
+      assessment = Assessment.create! survey: survey, visit: vt 
+      another_assessment = Assessment.create! survey: survey, visit: vt
       survey.assessments.push assessment
       survey.assessments.push another_assessment
       expect(survey.assessments.count).to eq(2)  
