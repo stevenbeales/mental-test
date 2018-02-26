@@ -17,13 +17,13 @@ RSpec.describe Survey do
     it 'lists all tests in a single string with spaces' do
       Survey.create! name: 'Test Survey'
       Survey.create! name: 'Test'
-      expect(Survey.list_tests).to eq 'Test Survey Test'
+      expect(Survey.list_tests).to include('Test Survey Test')
     end 
   
     it 'lists all active tests' do
       Survey.create! name: 'Test Survey active'
       Survey.create! name: 'Test inactive', is_active: false
-      expect(Survey.list_active_tests).to eq 'Test Survey Test Test Survey active'
+      expect(Survey.list_active_tests).to include ('Test Survey Test Test Survey active')
     end 
   
   end 
@@ -39,6 +39,7 @@ RSpec.describe Survey do
       survey.assessments.push assessment
       survey.assessments.push another_assessment
       expect(survey.assessments.count).to eq(2)  
+      survey.destroy
     end
   end
 end

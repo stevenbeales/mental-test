@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-require './models/init'
-
 RSpec.describe Instrument do
   describe '.items' do
     it 'loads all items after initializing' do

@@ -15,4 +15,5 @@ class Response < ActiveRecord::Base
   belongs_to :assessment, inverse_of: :responses
 
   validates :assessment, presence: true
+  validates :value, presence: true
 end

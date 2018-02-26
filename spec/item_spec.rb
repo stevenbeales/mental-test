@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-require './models/init'
-
 RSpec.describe Item do
   describe '.choices' do
     it 'should have 5 choices in first item' do
