@@ -1,5 +1,13 @@
 # frozen_string_literal: true
 
+# == Schema Information
+
+# Table name: rating_scales
+#
+#  id   :integer          not null, primary key
+#  name :string           not null
+#
+
 # Model to represent a response to an item
 class RatingScale < ActiveRecord::Base
   has_many :choices, inverse_of: :rating_scale

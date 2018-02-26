@@ -1,5 +1,18 @@
 # frozen_string_literal: true
 
+# == Schema Information
+
+# Table name: items
+
+#  id              :integer          not null, primary key
+#  instrument_id   :integer          not null
+#  name            :string           not null
+#  item_type       :string           not null
+#  title           :string           not null
+#  rating_scale_id :integer
+#  is_required     :boolean          default(TRUE), not null
+#
+
 # Represents a psychometric item
 # Similar to a question with metadata
 class Item < ActiveRecord::Base
