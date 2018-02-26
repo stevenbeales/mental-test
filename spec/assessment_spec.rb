@@ -19,8 +19,8 @@ RSpec.describe Assessment do
   end
 
   it 'saves with a user and a survey' do
-    ur = User.create! username: 'random user2'
-    sy = Survey.create! name: 'random survey2'
+    ur = User.create! username: 'random user11'
+    sy = Survey.create! name: 'random survey21'
     expect { Assessment.create user: ur, survey: sy }.not_to raise_error ActiveRecord::RecordInvalid
   end
 end
