@@ -5,7 +5,7 @@ class CreateRatingScales < ActiveRecord::Migration[5.1]
   def change
     create_table :rating_scales do |t|
       t.string :name, null: false
-      t.timestamps null: false, default: Date.today
+      t.timestamps null: false, default: Time.now
     end
  
     add_index :rating_scales, :name, unique: true

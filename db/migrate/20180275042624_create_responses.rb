@@ -7,7 +7,7 @@ class CreateResponses < ActiveRecord::Migration[5.1]
       t.references :assessment, null: false, index: true
       t.references :choice, null: false, index: true
       t.string :value, null: false, default: ''
-      t.timestamps null: false, default: Date.today
+      t.timestamps null: false, default: Time.now
     end
 
     add_foreign_key :responses, :assessments

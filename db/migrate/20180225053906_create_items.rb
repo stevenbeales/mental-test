@@ -10,7 +10,7 @@ class CreateItems < ActiveRecord::Migration[5.1]
       t.string :title, null: false
       t.references :rating_scale, null: true, index: true
       t.boolean :is_required, null: false, default: true
-      t.timestamps null: false, default: Date.today
+      t.timestamps null: false, default: Time.now    
     end
     add_keys_and_indexes
   end

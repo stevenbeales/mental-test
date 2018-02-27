@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-namespace :mental do
+namespace :app do
   desc 'Run development web server'
   task :run do
     sh %( rerun -- rackup --port --no-notify 4000 RACK_ENV=development config.ru )
@@ -12,12 +12,26 @@ namespace :mental do
   end
 
   desc 'annotate models'
-  task :doc do
+  task :models do
     sh %( annotate --model-dir=./models )
   end
 
-  desc 'push to git'
-  task :git do
-    sh %( git push -u origin master )
+  desc 'run yard server'
+  task :doc do
+    sh %( yard server )
+  end
+end
+
+namespace :app do
+  namespace :git do
+    desc 'push to git'
+    task :push do
+      sh %( git push -u origin master )
+    end
+
+    desc 'git add'
+    task :add do
+      sh %( git add . )
+    end
   end
 end

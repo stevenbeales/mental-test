@@ -8,7 +8,7 @@ class CreateAssessments < ActiveRecord::Migration[5.1]
       t.references :visit, null: false, index: true
       t.references :survey, null: false, index: true
       t.jsonb :content, null: false, default: '{}'
-      t.timestamps null: false, default: Date.today
+      t.timestamps null: false, default: Time.now
     end
 
     add_index :assessments, :content, using: :gin
