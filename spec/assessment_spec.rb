@@ -15,14 +15,15 @@ RSpec.describe Assessment do
 
   it 'does not save without a survey' do
     user = User.create! username: 'random user'
-    visit = Visit.create! user: user, name: 'visit 5'
+    survey = Survey.create! name: 'random survey 2'
+    visit = Visit.create! user: user, name: 'visit 5', survey: survey
     expect { Assessment.create! visit: visit }.to raise_error ActiveRecord::RecordInvalid
   end
 
   it 'saves with a user and a survey' do
     ur = User.create! username: 'random user11'
-    vt = Visit.create! user: ur, name: 'visit 7'
     sy = Survey.create! name: 'random survey21'
+    vt = Visit.create! user: ur, name: 'visit 7', survey: sy
     expect { Assessment.create visit: vt, survey: sy }.not_to raise_error
   end
 end

@@ -18,5 +18,6 @@ class Visit < ActiveRecord::Base
   belongs_to :survey, inverse_of: :visits 
   has_many :assessments, dependent: :destroy
   validates :user, presence: true
-  validates_uniqueness_of :name, scope: :user 
+  validates :survey, presence: true
+  validates_uniqueness_of :name, scope: %i[survey user] 
 end
