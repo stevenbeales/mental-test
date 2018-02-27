@@ -9,8 +9,7 @@
 /test/version_tmp/
 /tmp/
 /coverage/
-run.bat
 gitpush.bat
 todo.txt
 ./.vscode
-doc.bat
+
