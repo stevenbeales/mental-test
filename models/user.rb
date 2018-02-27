@@ -20,8 +20,8 @@ class User < ActiveRecord::Base
   # has_paper_trail
 
   has_many :surveys, through: :user_surveys
-  has_many :user_surveys, inverse_of: :user
-  has_many :visits, inverse_of: :user
+  has_many :user_surveys, inverse_of: :user, dependent: :destroy
+  has_many :visits, inverse_of: :user, dependent: :destroy
   has_many :assessments, through: :visits
  
   validates :username, presence: true
