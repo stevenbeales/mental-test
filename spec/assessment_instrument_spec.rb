@@ -8,7 +8,7 @@ RSpec.describe AssessmentInstrument do
   end
 
   it 'does not save without an instrument' do
-    ur = User.create! username: Faker::Internet.unique.user_name
+    ur = User.create! username: Faker::Internet.unique.user_name(5..20)
     sy = Survey.create! name: Faker::Name.name
     vt = Visit.create! user: ur, name: Faker::Name.name, survey: sy
     as = Assessment.create survey: sy, visit: vt
@@ -23,7 +23,7 @@ RSpec.describe AssessmentInstrument do
   end
 
   it 'does not save with an assessment and instrument' do
-    ur = User.create! username: Faker::Internet.unique.user_name
+    ur = User.create! username: Faker::Internet.unique.user_name(5..20)
     sy = Survey.create! name: Faker::Name.name
     vt = Visit.create! user: ur, name: Faker::Name.name, survey: sy
     as = Assessment.create visit: vt, survey: sy
