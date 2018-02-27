@@ -17,4 +17,13 @@ RSpec.describe RatingScale do
     RatingScale.create! name: 'a1'
     expect { RatingScale.create! name: 'a1' }.to raise_error ActiveRecord::RecordInvalid
   end
+  
+  it 'destroys choices in a rating scale ' do
+    scale = RatingScale.create! name: Faker::Name.last_name
+    c = Choice.create! rating_scale: scale, value: 'val', description: 'text'
+    c2 = Choice.create! rating_scale: scale, value: 'val2', description: 'text2'
+    c3 = Choice.create! rating_scale: scale, value: 'val3', description: 'text3'
+    scale.choices.concat [c, c2, c3]   
+    expect { scale.destroy }.not_to raise_error
+  end
 end
