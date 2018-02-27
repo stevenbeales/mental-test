@@ -16,22 +16,13 @@ namespace :app do
     sh %( annotate --model-dir=./models )
   end
 
+  desc 'push to git'
+  task :git do
+    sh %( git push -u origin master )
+  end
+
   desc 'run yard server'
   task :doc do
     sh %( yard server )
-  end
-end
-
-namespace :app do
-  namespace :git do
-    desc 'push to git'
-    task :push do
-      sh %( git push -u origin master )
-    end
-
-    desc 'git add'
-    task :add do
-      sh %( git add . )
-    end
   end
 end
