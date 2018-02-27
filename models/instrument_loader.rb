@@ -1,15 +1,20 @@
 # frozen_string_literal: true
 
+require 'singleton'
+
 # Loads instruments from json  
 class InstrumentLoader
+  include Singleton
   attr_accessor :instrument
   attr_accessor :rating_scale
-  
-  def initialize(instrument)
+ 
+  def load(instrument:)
     @instrument = instrument
     load_json!(name: instrument.name)
     instrument.save!
   end
+
+  private
 
   # Returns an array of Items that represent the questions in an instrument.
   def load_json!(name:)
@@ -19,8 +24,6 @@ class InstrumentLoader
     load_items!(elements)
   end
   
-  private
-
   def load_rating_scale!(elements:, name:)
     @rating_scale = RatingScale.create!(name: name)
     elements.each do |el| 

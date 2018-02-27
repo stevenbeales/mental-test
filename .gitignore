@@ -1,16 +1,12 @@
 ## Documentation cache and generated files:
 /.yardoc/
-/_yardoc/
 /doc/
-/rdoc/
-/spec/reports/
+## test results
 /spec/examples.txt
-/test/tmp/
-/test/version_tmp/
-/tmp/
+## code coverage
 /coverage/
-gitpush.bat
+## TODO
 todo.txt
+## Visual Studio code
 ./.vscode
-./.git
-
+.rbenv
