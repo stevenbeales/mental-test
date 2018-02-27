@@ -32,9 +32,9 @@ end
 RSpec.describe Survey do
   describe '.assessments' do
     it 'can have multiple assessments' do
-      survey = Survey.create! name: 'Another Test Survey '
-      user = User.create! username: 'Marie'
-      vt = Visit.create! user: user, name: 'Visit 23', survey: survey
+      survey = Survey.create! name: Faker::Name.name
+      user = User.create! username: Faker::Internet.unique.user_name
+      vt = Visit.create! user: user, name: Faker::Name.name, survey: survey
       assessment = Assessment.create! survey: survey, visit: vt 
       another_assessment = Assessment.create! survey: survey, visit: vt
       survey.assessments.push assessment

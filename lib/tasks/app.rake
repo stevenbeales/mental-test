@@ -25,4 +25,8 @@ namespace :app do
   task :doc do
     sh %( yard server )
   end
+
+  task :cop do
+    sh %( rubocop )
+  end
 end

@@ -20,6 +20,8 @@ require 'simplecov'
 require './config/db'
 require 'ralyxa'
 require 'database_cleaner'
+require 'faker'
+require 'factory_bot'
 SimpleCov.start
 
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
@@ -30,6 +32,8 @@ RSpec.configure do |config|
     DatabaseCleaner.clean_with(:truncation)
     require './db/seeds'
   end
+
+  config.before(:all) { Faker::Config.random = Random.new(config.seed) }
 
   # Disable validation of Alexa requests as these will fail when running under rspec
   #  config.before :each do

@@ -4,10 +4,8 @@ require './models/init'
 
 RSpec.describe User do
   describe '.authenticate' do
-    random_user_id = ('a'..'z').to_a.sample(8).join
-
     it 'creates a user if one does not exist' do
-      expect { User.authenticate(random_user_id) }.to change { User.count }.by(1)
+      expect { User.authenticate(Faker::Internet.unique.user_name) }.to change { User.count }.by(1)
     end
 
     it 'retrieves a user if a one with that name and access token does exist' do
@@ -22,7 +20,7 @@ RSpec.describe User do
     end
 
     it 'does not create a user with a name shorter than 5 characters' do
-      expect { User.authenticate('Lisa') }.to change { User.count }.by(0)
+      expect { User.authenticate(Faker::Internet.unique.user_name) }.to change { User.count }.by(0)
     end
   end
 end
