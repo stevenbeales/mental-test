@@ -4,7 +4,6 @@ require 'sinatra/activerecord'
 require 'sinatra/activerecord/rake'
 require './app'
 require 'rspec/core/rake_task'
-require './models/init'
 
 Dir.glob('lib/tasks/*.rake').each { |r| load r }
 
