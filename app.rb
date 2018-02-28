@@ -5,10 +5,9 @@ require 'ralyxa'
 # require 'paper_trail'
 # require 'paper_trail-sinatra'
 
+require_relative 'lib/app_constants'
 require_relative 'config/db'
 require_relative 'models/init'
-
-APP_NAME = 'Mental Health'
 
 AlexaVerifier.configure do |config|
   # Disables all checks, even though we enable them individually below

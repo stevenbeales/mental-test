@@ -1,15 +1,24 @@
 # frozen_string_literal: true
 
+require './lib/app_constants'
 require 'singleton'
 
 # Loads instruments from json  
 class InstrumentLoader
   include Singleton
+  include AppConstants
   attr_accessor :instrument
   attr_accessor :rating_scale
  
-  def load(instrument:)
+  def load(instrument:, overwrite: false)
     @instrument = instrument
+    existing = Instrument.find_by_name(instrument.name)
+   
+    if existing && !overwrite 
+      raise 'An instrument of that name already exists. To overwrite please pass overwrite: true'
+    end
+
+    existing&.destroy!
     load_json!(name: instrument.name)
     instrument.save!
   end
