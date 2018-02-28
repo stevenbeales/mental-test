@@ -17,7 +17,7 @@ namespace :app do
   end
 
   desc 'push to git'
-  task :git do
+  task :push do
     sh %( git push -u origin master )
   end
 
