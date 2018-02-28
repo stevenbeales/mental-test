@@ -8,7 +8,7 @@ RSpec.describe UserSurvey do
   end
 
   it 'does not save without a user' do
-    survey = Survey.create! name: Faker::Name.unique.name
+    survey = Survey.create! name: 'Survey 21'
     expect { UserSurvey.create! survey: survey }.to raise_error ActiveRecord::RecordInvalid
   end
 
@@ -18,7 +18,7 @@ RSpec.describe UserSurvey do
   end
 
   it 'does save with a user and a survey' do
-    user = User.create! username: Faker::Internet.unique.user_name(5..20)
+    user = User.create! username: Faker::Internet.unique.user_name(5..22)
     survey = Survey.create! name: Faker::Name.unique.last_name
     expect { UserSurvey.create! user: user, survey: survey }.not_to raise_error
   end
