@@ -14,7 +14,7 @@ require 'jsonb_accessor'
 
 # Represents a psychometric instrument
 # Similar to a survey or questionnaire
-class Instrument < ActiveRecord::Base
+class Instrument < ApplicationRecord
   # has_paper_trail
 
   has_many :assessments, through: :assessment_instruments

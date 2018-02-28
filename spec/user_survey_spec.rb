@@ -22,4 +22,10 @@ RSpec.describe UserSurvey do
     survey = Survey.create! name: Faker::Name.unique.last_name
     expect { UserSurvey.create! user: user, survey: survey }.not_to raise_error
   end
+
+  it 'prints .to_s as username and survey name' do
+    user = User.create! username: 'fake user'
+    survey = Survey.create! name: 'test survey'
+    expect((UserSurvey.create! user: user, survey: survey).to_s).to eq('fake user test survey')
+  end
 end

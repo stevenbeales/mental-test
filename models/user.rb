@@ -16,7 +16,7 @@
 
 # Represents an application user/respondent
 # Users are linked to Alexa users using Alexa session request.user_id
-class User < ActiveRecord::Base
+class User < ApplicationRecord
   # has_paper_trail
 
   has_many :surveys, through: :user_surveys

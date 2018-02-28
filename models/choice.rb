@@ -12,7 +12,7 @@
 #
 
 # Model to represent choices in a rating scale
-class Choice < ActiveRecord::Base
+class Choice < ApplicationRecord
   belongs_to :rating_scale, inverse_of: :choices
   has_many :responses, inverse_of: :choice
 

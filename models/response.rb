@@ -11,7 +11,7 @@
 #
 
 # Model to represent a response to an item
-class Response < ActiveRecord::Base
+class Response < ApplicationRecord
   belongs_to :assessment, inverse_of: :responses
   belongs_to :choice, optional: true
 

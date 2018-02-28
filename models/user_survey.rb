@@ -10,7 +10,7 @@
 #
 
 # Association class between users and surveys
-class UserSurvey < ActiveRecord::Base
+class UserSurvey < ApplicationRecord
   # has_paper_trail
 
   belongs_to :user, inverse_of: :user_surveys
@@ -18,4 +18,8 @@ class UserSurvey < ActiveRecord::Base
 
   validates :user, presence: true
   validates :survey, presence: true
+
+  def to_s
+    "#{user} #{survey}"
+  end
 end

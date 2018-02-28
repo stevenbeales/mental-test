@@ -5,6 +5,7 @@
 # Table name: visits
 #
 #  id         :integer          not null, primary key
+#  survey_id         :integer   not null
 #  user_id    :integer          not null
 #  name       :string           default("2018-02-26 15:05:06.484447"), not null
 #  visit_date :datetime         default(2018-02-26 15:05:06 UTC), not null
@@ -13,7 +14,8 @@
 #
 
 # Model to represent a user visit or an attempt in a self assessment
-class Visit < ActiveRecord::Base
+class Visit < ApplicationRecord
+  include Comparable
   belongs_to :user, inverse_of: :visits 
   belongs_to :survey, inverse_of: :visits 
   has_many :assessments, dependent: :destroy
@@ -22,4 +24,8 @@ class Visit < ActiveRecord::Base
   validates :survey, presence: true
   validates_uniqueness_of :name, scope: %i[survey user] 
   validates :name, presence: true, allow_blank: false
+
+  def to_s
+    "#{user} #{survey} #{name}"
+  end
 end

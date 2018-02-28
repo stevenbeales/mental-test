@@ -15,7 +15,7 @@
 
 # Represents a psychometric item
 # Similar to a question with metadata
-class Item < ActiveRecord::Base
+class Item < ApplicationRecord
   belongs_to :instrument, inverse_of: :items
   belongs_to :rating_scale, inverse_of: :items
   has_many :choices, through: :rating_scale  

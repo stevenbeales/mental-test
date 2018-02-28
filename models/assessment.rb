@@ -13,7 +13,7 @@
 #
 
 # Model to represent the user taking an instrument/questionnaire within a survey/campaign
-class Assessment < ActiveRecord::Base
+class Assessment < ApplicationRecord
   # has_paper_trail
 
   belongs_to :survey, inverse_of: :assessments
