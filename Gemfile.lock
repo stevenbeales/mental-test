@@ -58,7 +58,7 @@ GEM
     rack (2.0.4)
     rack-protection (2.0.1)
       rack
-    rack-test (0.8.2)
+    rack-test (0.8.3)
       rack (>= 1.0, < 3)
     rainbow (3.0.0)
     rake (12.3.0)
@@ -104,7 +104,6 @@ GEM
     sinatra-activerecord (2.0.13)
       activerecord (>= 3.2)
       sinatra (>= 1.0)
-    sysrandom (1.0.5)
     thread_safe (0.3.6)
     tilt (2.0.8)
     tzinfo (1.2.5)
@@ -137,7 +136,6 @@ DEPENDENCIES
   simplecov
   sinatra
   sinatra-activerecord
-  sysrandom
   wdm
 
 BUNDLED WITH
