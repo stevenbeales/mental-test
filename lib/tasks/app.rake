@@ -3,7 +3,7 @@
 namespace :app do
   desc 'Run development web server'
   task :run do
-    sh %( rerun -- rackup --port --no-notify 4000 RACK_ENV=development config.ru )
+    sh %( rerun -- rackup --port --no-notify --quiet 4000 RACK_ENV=development config.ru )
   end
   
   desc 'Make rspec work like autotest'

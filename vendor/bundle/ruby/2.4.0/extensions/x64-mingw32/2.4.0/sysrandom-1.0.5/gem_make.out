@@ -1,0 +1,17 @@
+current directory: C:/Users/Steven/Source/mental-test/vendor/bundle/ruby/2.4.0/gems/sysrandom-1.0.5/ext/sysrandom
+C:/Ruby24-x64/bin/ruby.exe -r ./siteconf20180228-16172-1kqmvq0.rb extconf.rb
+creating Makefile
+
+current directory: C:/Users/Steven/Source/mental-test/vendor/bundle/ruby/2.4.0/gems/sysrandom-1.0.5/ext/sysrandom
+make "DESTDIR=" clean
+
+current directory: C:/Users/Steven/Source/mental-test/vendor/bundle/ruby/2.4.0/gems/sysrandom-1.0.5/ext/sysrandom
+make "DESTDIR="
+generating sysrandom_ext-x64-mingw32.def
+compiling randombytes_sysrandom.c
+compiling sysrandom_ext.c
+linking shared-object sysrandom_ext.so
+
+current directory: C:/Users/Steven/Source/mental-test/vendor/bundle/ruby/2.4.0/gems/sysrandom-1.0.5/ext/sysrandom
+make "DESTDIR=" install
+/usr/bin/install -c -m 0755 sysrandom_ext.so ./.gem.20180228-16172-125fyh

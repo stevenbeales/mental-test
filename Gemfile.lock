@@ -104,6 +104,7 @@ GEM
     sinatra-activerecord (2.0.13)
       activerecord (>= 3.2)
       sinatra (>= 1.0)
+    sysrandom (1.0.5)
     thread_safe (0.3.6)
     tilt (2.0.8)
     tzinfo (1.2.5)
@@ -136,6 +137,7 @@ DEPENDENCIES
   simplecov
   sinatra
   sinatra-activerecord
+  sysrandom
   wdm
 
 BUNDLED WITH
