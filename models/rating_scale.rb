@@ -18,4 +18,8 @@ class RatingScale < ActiveRecord::Base
                       within: 2..50, \
                       too_long: 'pick a shorter name', \
                       too_short: 'pick a longer name'
+
+  def to_s
+    name
+  end
 end

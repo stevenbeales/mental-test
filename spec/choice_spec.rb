@@ -18,4 +18,12 @@ RSpec.describe Choice do
     c = Choice.find_by rating_scale_id: scale.id, value: 'val'
     c.destroy
   end
+
+  it 'has .to_s' do
+    scale = RatingScale.find_by_name 'Cesd-r'
+    c = Choice.create! rating_scale: scale, value: 'val', description: 'text'
+    expect(c.to_s).to eq('Cesd-r val text') 
+    c = Choice.find_by rating_scale_id: scale.id, value: 'val'
+    c.destroy
+  end
 end

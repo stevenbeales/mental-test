@@ -13,6 +13,7 @@
 # Model to represent a response to an item
 class Response < ActiveRecord::Base
   belongs_to :assessment, inverse_of: :responses
+  belongs_to :choice, optional: true
 
   validates :assessment, presence: true
   validates :value, presence: true

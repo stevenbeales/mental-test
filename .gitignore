@@ -10,3 +10,8 @@ todo.txt
 ## Visual Studio code
 ./.vscode
 .rbenv
+
+# Elastic Beanstalk Files
+.elasticbeanstalk/*
+!.elasticbeanstalk/*.cfg.yml
+!.elasticbeanstalk/*.global.yml

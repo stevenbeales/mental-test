@@ -26,4 +26,9 @@ RSpec.describe RatingScale do
     scale.choices.concat [c, c2, c3]   
     expect { scale.destroy }.not_to raise_error
   end
+
+  it 'has .to_s' do
+    scale = RatingScale.find_by_name 'Cesd-r'
+    expect(scale.to_s).to eq('Cesd-r') 
+  end
 end
