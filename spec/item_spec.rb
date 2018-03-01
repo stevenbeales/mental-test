@@ -2,30 +2,37 @@
 
 RSpec.describe Item, type: :model do
   subject { described_class.find_or_create_by name: 'Appetite1' }
+  let(:instrument) { described_class.find_or_create_by name: AppConstants::TEST_INSTRUMENT }
 
-  describe '.choices' do
+  describe '#choices' do
     it 'has 5 choices' do
       expect(subject.choices.count).to eq(5)
     end
   end
 
-  describe '.find_by_choice' do
+  describe '#find_choice_by_value' do
     it 'has choice eq 0' do
       choice = subject.find_choice_by_value('0')
       expect(choice.value).to eq('0')
     end
   end
 
-  describe '.to_s' do
+  describe '#to_s' do
     it do
       item = Item.new(name: 'Time')
       expect(item.to_s).to eq(item.name) 
     end
   end
 
-  describe '.find_by_name' do
-    it 'finds item by name' do
+  describe '#find_by_name' do
+    it do
       expect(subject.name).to eq('Appetite1')
+    end
+  end
+
+  describe '#instrument' do
+    it do
+      expect(subject.instrument).to eq(instrument)
     end
   end
 end
