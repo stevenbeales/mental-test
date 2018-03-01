@@ -6,7 +6,7 @@ RSpec.describe UserSurvey, type: :model do
   subject { described_class.find_or_create_by user: user, survey: survey }
   
   let!(:survey) { Survey.find_or_create_by name: AppConstants::TEST_SURVEY }
-  let!(:user) { User.create! username: AppConstants::TEST_USER }
+  let!(:user) { User.find_or_create_by username: AppConstants::TEST_USER }
   
   describe '#create!' do
     context 'with no user or survey' do
@@ -43,9 +43,11 @@ RSpec.describe UserSurvey, type: :model do
   end
 
   describe '#to_s' do
-    content 'username and survey name' do
-      expect(subject.class.where(user: user, survey: survey).to_s).to \
-        eq("#{AppConstants::TEST_USER} #{AppConstants::TEST_SURVEY}")     
+    context 'username and survey name' do
+      it do 
+        expect(subject.class.where(user: user, survey: survey).first.to_s).to \
+          eq("#{AppConstants::TEST_USER} #{AppConstants::TEST_SURVEY}")
+      end
     end
   end
 end
