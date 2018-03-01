@@ -3,7 +3,7 @@
 namespace :app do
   desc 'Run development web server'
   task :run do
-    sh %( rackup -p 4000)
+    sh %( bundle exec rackup -p 4000)
   end
   
   desc 'Make rspec work like autotest'
