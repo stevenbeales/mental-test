@@ -24,7 +24,6 @@ GEM
     docile (1.1.5)
     faker (1.8.7)
       i18n (>= 0.7)
-    ffi (1.9.23)
     ffi (1.9.23-x64-mingw32)
     fuubar (2.3.1)
       rspec-core (~> 3.0)
@@ -51,7 +50,6 @@ GEM
     parallel (1.12.1)
     parser (2.5.0.2)
       ast (~> 2.4.0)
-    pg (1.0.0)
     pg (1.0.0-x64-mingw32)
     powerpack (0.1.1)
     rack (2.0.4)
@@ -111,7 +109,6 @@ GEM
 
 PLATFORMS
   x64-mingw32
-  x86_64-linux
 
 DEPENDENCIES
   annotate
