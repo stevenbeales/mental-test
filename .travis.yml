@@ -11,4 +11,4 @@ script:
   - bundle exec rake
 
 addons:
-  postgresql: "9.5"
+  postgresql: "9.6"
