@@ -43,15 +43,9 @@ RSpec.describe UserSurvey, type: :model do
   end
 
   describe '#to_s' do
-     content 'username and survey name' do
-        
-     end
-  end
-end
-
-  it 'prints .to_s as username and survey name' do
-    user = User.create! username: 'fake user'
-    survey = Survey.create! name: 'test survey'
-    expect((UserSurvey.create! user: user, survey: survey).to_s).to eq('fake user test survey')
+    content 'username and survey name' do
+      expect(subject.class.where(user: user, survey: survey).to_s).to \
+        eq("#{AppConstants::TEST_USER} #{AppConstants::TEST_SURVEY}")     
+    end
   end
 end

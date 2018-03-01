@@ -7,5 +7,5 @@ module AppConstants
   LOADER_NIL_INSTRUMENT = 'Error: no instrument was passed. Please create your instrument before loading contents.'
   TEST_INSTRUMENT = 'Cesd-r'
   TEST_SURVEY = 'Depression Survey'
-  TEST_USER 'Test User'
+  TEST_USER = 'Test User'
 end
