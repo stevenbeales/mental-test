@@ -3,42 +3,46 @@
 require './models/init'
 
 RSpec.describe Survey do
-  describe '.name' do
-    it 'cannot save without a name' do
-      expect { Survey.create! }.to raise_error ActiveRecord::RecordInvalid
+  subject { described_class.find_by_name name: AppConstants::TEST_SURVEY }
+
+  describe '.create!' do
+    it 'without a name' do
+      expect { described_class.create! }.to raise_error ActiveRecord::RecordInvalid
     end
 
-    it 'cannot save with a single character name' do
-      expect { Survey.create!(name: 'a') }.to raise_error ActiveRecord::RecordInvalid
+    it 'with single character name' do
+      expect { described_class.create!(name: 'a') }.to raise_error ActiveRecord::RecordInvalid
+    end
+
+    it 'with 2+ character name' do
+      expect { described_class.create!(name: 'as') }.to raise_error ActiveRecord::RecordInvalid
     end
   end
 
   describe '.list_tests' do
-    it 'lists all tests in a single string with spaces' do
-      Survey.create! name: 'Test Survey'
-      Survey.create! name: 'Test'
-      expect(Survey.list_tests).to include 'Test Survey Test'
+    it 'single string' do
+      described_class.find_or_create_by! name: 'Test Survey'
+      described_class.find_or_create_by! name: 'Test'
+      expect(described_class.list_tests).to include 'Test Survey Test'
     end 
   
-    it 'lists all active tests' do
-      Survey.create! name: 'Test Survey active'
-      Survey.create! name: 'Test inactive', is_active: false
-      expect(Survey.list_active_tests).to include 'Test Survey Test Test Survey active'
+    it 'active tests' do
+      described_class.find_or_create_by! name: 'Test Survey active'
+      described_class.find_or_create_by! name: 'Test inactive', is_active: false
+      expect(described_class.list_active_tests).to include 'Test Survey Test Test Survey active'
     end 
 
     it 'prints .to_s as name' do
-      survey = Survey.create! name: 'Welcome!1'
+      survey = described_class.create! name: 'Welcome!1'
       expect(survey.to_s).to eq 'Welcome!1'
     end
   end 
-end
 
-RSpec.describe Survey do
   describe '.assessments' do
     it 'can have multiple assessments' do
-      survey = Survey.create! name: Faker::Name.first_name
+      survey = described_class.create! name: Faker::Name.first_name
       user = User.create! username: Faker::Internet.unique.user_name(5..20)
-      vt = Visit.create! user: user, name: 'Visit 27', survey: survey
+      vt = Visit.find_or_create_by! user: user, name: 'Visit 27', survey: survey
       assessment = Assessment.create! survey: survey, visit: vt 
       another_assessment = Assessment.create! survey: survey, visit: vt
       survey.assessments.push assessment
