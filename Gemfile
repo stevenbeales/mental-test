@@ -13,6 +13,7 @@ gem 'pg' # for Postgres
 gem 'rack-protection' # protect against web attacks
 gem 'rake' # so we can run Rake tasks
 gem 'ralyxa' # ruby alexa framework
+gem 'schema_plus_pg_indexes'  
 gem 'sinatra' # Web server
 gem 'sinatra-activerecord' # for Active Record models
 

@@ -1,0 +1,10 @@
+/coverage
+/tmp
+/pkg
+/Gemfile.local
+
+.byebug_history
+*.lock
+*.log
+*.sqlite3
+!gemfiles/**/*.sqlite3
