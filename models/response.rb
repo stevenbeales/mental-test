@@ -17,4 +17,8 @@ class Response < ApplicationRecord
 
   validates :assessment, presence: true
   validates :value, presence: true
+
+  def to_s 
+    "#{assessment} #{value}"
+  end
 end
