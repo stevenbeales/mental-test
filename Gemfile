@@ -13,7 +13,6 @@ gem 'pg' # for Postgres
 gem 'rack-protection' # protect against web attacks
 gem 'rake' # so we can run Rake tasks
 gem 'ralyxa' # ruby alexa framework
-gem 'schema_plus_pg_indexes'  
 gem 'sinatra' # Web server
 gem 'sinatra-activerecord' # for Active Record models
 
@@ -21,7 +20,6 @@ group :development do
   gem 'annotate'
   gem 'rerun'
   gem 'rubocop', require: false # checks code quality
-  gem 'wdm' # enables rerun to hot load code on Windows
 end
 
 group :test do
@@ -30,6 +28,5 @@ group :test do
   gem 'fuubar'
   gem 'rack-test'
   gem 'rspec'
-  gem 'rspec-instafail'
   gem 'simplecov', require: false
 end

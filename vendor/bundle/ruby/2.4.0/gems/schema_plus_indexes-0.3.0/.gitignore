@@ -1,9 +1,0 @@
-/coverage
-/tmp
-/pkg
-/Gemfile.local
-
-*.lock
-*.log
-*.sqlite3
-!gemfiles/**/*.sqlite3
