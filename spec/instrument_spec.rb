@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-RSpec.describe Instrument do
+RSpec.describe Instrument, type: :model do
   describe '.items' do
     it 'loads all items after initializing' do
       ins = Instrument.find_by_name('Cesd-r')

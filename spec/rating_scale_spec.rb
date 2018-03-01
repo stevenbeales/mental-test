@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-RSpec.describe RatingScale do
+RSpec.describe RatingScale, type: :model do
   it 'does not save without a name' do
     expect { RatingScale.create! }.to raise_error ActiveRecord::RecordInvalid
   end

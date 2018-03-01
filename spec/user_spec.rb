@@ -2,7 +2,7 @@
 
 require './models/init'
 
-RSpec.describe User do
+RSpec.describe User, type: :model do
   describe '.authenticate' do
     it 'creates a user if one does not exist' do
       expect { User.authenticate(Faker::Internet.unique.user_name(5..20)) }.to change { User.count }.by(1)

@@ -8,4 +8,5 @@ module AppConstants
   TEST_INSTRUMENT = 'Cesd-r'
   TEST_SURVEY = 'Depression Survey'
   TEST_USER = 'Test User'
+  TEST_VISIT = 'Test Visit'
 end

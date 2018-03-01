@@ -2,38 +2,43 @@
 
 require './models/init'
 
-RSpec.describe Assessment do
-  it 'does not save without a survey and visit' do
-    expect { Assessment.create! }.to raise_error ActiveRecord::RecordInvalid
-  end
+RSpec.describe Assessment, type: :model do
+  subject { described_class.find_or_create_by survey: survey, visit: visit }
 
-  it 'does not save without a visit' do
-    survey = Survey.create! name: Faker::Name.unique.name
-    expect { Assessment.create! survey: survey }.to raise_error ActiveRecord::RecordInvalid
-    survey.destroy
-  end
+  let!(:survey) { Survey.find_or_create_by! name: AppConstants::TEST_SURVEY }
+  let!(:user) { User.find_or_create_by! username: AppConstants::TEST_USER }
+  let!(:visit) { Visit.find_or_create_by! user: user, name: AppConstants::TEST_VISIT, survey: survey }
 
-  it 'does not save without a survey' do
-    user = User.create! username: Faker::Internet.unique.user_name(5..20)
-    survey = Survey.create! name: Faker::Name.last_name
-    visit = Visit.create! user: user, name: Faker::Name.unique.last_name, survey: survey
-    expect { Assessment.create! visit: visit }.to raise_error ActiveRecord::RecordInvalid
-  end
+  describe '#create!' do
+    context 'with no survey and visit' do
+      it { expect { described_class.create! }.to raise_error ActiveRecord::RecordInvalid }
+    end
+  
+    context 'with no visit' do
+      it { expect { described_class.create! survey: survey }.to raise_error ActiveRecord::RecordInvalid }
+    end
 
-  it 'saves with a user and a survey' do
-    ur = User.create! username: Faker::Internet.unique.user_name(5..20)
-    sy = Survey.create! name: Faker::Name.first_name
-    vt = Visit.create! user: ur, name: Faker::Name.first_name, survey: sy
-    expect { Assessment.create! visit: vt, survey: sy }.not_to raise_error
-  end
-end
+    context 'with no survey' do
+      it { expect { described_class.create! visit: visit }.to raise_error ActiveRecord::RecordInvalid }
+    end
 
-RSpec.describe Assessment do
-  it 'has a user' do
-    ur = User.create! username: Faker::Internet.unique.user_name(5..20)
-    sy = Survey.create! name: Faker::Name.initials(3)
-    vt = Visit.create! user: ur, name: Faker::Name.initials(3), survey: sy
-    ass = Assessment.create visit: vt, survey: sy 
-    expect(ass.user).to eq(ur)
+    context 'with user and survey' do
+      it { expect { described_class.find_or_create_by! visit: visit, survey: survey }.not_to raise_error }
+    end
+  end
+  
+  describe '#user' do
+    it 'has user' do
+      expect(subject.user).to eq(user) 
+    end
+  end 
+
+  describe '#to_s' do
+    context 'user survey visit' do
+      it do 
+        expect(described_class.where(survey: survey, visit: visit).first.to_s).to \
+          eq("#{user} #{survey} #{visit}")
+      end
+    end
   end
 end

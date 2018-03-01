@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-RSpec.describe Item do
+RSpec.describe Item, type: :model do
   describe '.choices' do
     it 'should have 5 choices in first item' do
       item = Item.find_by_name('Appetite1')

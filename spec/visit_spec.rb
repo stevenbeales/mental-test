@@ -2,7 +2,7 @@
 
 require './models/init'
 
-RSpec.describe Visit do
+RSpec.describe Visit, type: :model do
   it 'does not save without a survey and visit' do
     expect { Visit.create! }.to raise_error ActiveRecord::RecordInvalid
   end

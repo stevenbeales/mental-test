@@ -2,7 +2,7 @@
 
 require './models/init'
 
-RSpec.describe Choice do
+RSpec.describe Choice, type: :model do
   it 'does not save without a value' do
     expect { Choice.create! }.to raise_error ActiveRecord::RecordInvalid
   end
