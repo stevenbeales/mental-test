@@ -17,4 +17,8 @@ class AssessmentInstrument < ApplicationRecord
 
   validates :assessment, presence: true
   validates :instrument, presence: true
+
+  def to_s
+    "#{assessment} #{instrument}"
+  end
 end

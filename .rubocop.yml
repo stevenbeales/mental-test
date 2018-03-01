@@ -25,3 +25,8 @@ Layout/TrailingWhitespace:
   Description: 'Avoid trailing whitespace.'
   StyleGuide: '#no-trailing-whitespace'
   Enabled: false
+Metrics/BlockLength:
+  Exclude:
+    - 'Rakefile'
+    - '**/*.rake'
+    - 'spec/**/*.rb'

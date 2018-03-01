@@ -13,7 +13,7 @@ RSpec.describe Instrument do
     end
 
     it 'should return a list of instrument names' do
-      expect(Instrument.list_tests).to eq('Cesd-r')
+      expect(Instrument.list_tests).to eq(AppConstants::TEST_INSTRUMENT)
     end
   end
 end

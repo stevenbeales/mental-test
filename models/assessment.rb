@@ -26,4 +26,8 @@ class Assessment < ApplicationRecord
   
   validates :survey, presence: true
   validates :visit, presence: true
+
+  def to_s
+    "#{user} #{survey} #{visit}"
+  end
 end

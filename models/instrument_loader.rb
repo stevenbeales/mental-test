@@ -11,19 +11,23 @@ class InstrumentLoader
   attr_accessor :rating_scale
  
   def load(instrument:, overwrite: false)
-    @instrument = instrument
-    existing = Instrument.find_by_name(instrument.name)
+    raise AppConstants::LOADER_NIL_INSTRUMENT unless instrument 
+    raise AppConstants::LOADER_INSTRUMENT_EXISTS unless overwrite
    
-    if existing && !overwrite 
-      raise 'An instrument of that name already exists. To overwrite please pass overwrite: true'
-    end
-
-    existing&.destroy!
-    load_json!(name: instrument.name)
-    instrument.save!
+    @instrument = destroy_and_recreate!(instrument) # since overwrite is true
+    load_json!(name: @instrument.name)
+    instrument
   end
 
   private
+
+  # destroys and returns a new instrument 
+  def destroy_and_recreate!(existing)
+    cached_name = existing.name
+    cached_content = existing.content
+    existing.destroy!
+    Instrument.create!(name: cached_name, content: cached_content)
+  end
 
   # Returns an array of Items that represent the questions in an instrument.
   def load_json!(name:)
@@ -34,7 +38,7 @@ class InstrumentLoader
   end
   
   def load_rating_scale!(elements:, name:)
-    @rating_scale = RatingScale.create!(name: name)
+    @rating_scale = RatingScale.find_or_create_by!(name: name)
     elements.each do |el| 
       el['choices'].map do |ch| 
         choice = load_choice!(ch)

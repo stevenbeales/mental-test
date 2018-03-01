@@ -11,5 +11,5 @@ json_hash = MultiJson.load(json_data)
 # Load cesd-r if not already loaded
 unless Instrument.find_by_name('Cesd-r')
   instrument = Instrument.new(name: 'Cesd-r', content: json_hash)
-  InstrumentLoader.instance.load(instrument: instrument)
+  InstrumentLoader.instance.load(instrument: instrument, overwrite: true)
 end

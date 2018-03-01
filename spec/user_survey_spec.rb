@@ -2,26 +2,52 @@
 
 require './models/init'
 
-RSpec.describe UserSurvey do
-  it 'does not save without a user and survey' do
-    expect { UserSurvey.create! }.to raise_error ActiveRecord::RecordInvalid
+RSpec.describe UserSurvey, type: :model do
+  subject { described_class.find_or_create_by user: user, survey: survey }
+  
+  let!(:survey) { Survey.find_or_create_by name: AppConstants::TEST_SURVEY }
+  let!(:user) { User.create! username: AppConstants::TEST_USER }
+  
+  describe '#create!' do
+    context 'with no user or survey' do
+      it { expect { subject.class.create! }.to raise_error ActiveRecord::RecordInvalid }
+    end
+
+    context 'with no survey' do
+      it { expect { subject.class.create! user: user }.to raise_error ActiveRecord::RecordInvalid }
+    end
+
+    context 'with no survey' do
+      it { expect { subject.class.create! survey: survey }.to raise_error ActiveRecord::RecordInvalid }
+    end
+ 
+    context 'with survey and user' do
+      it do 
+        expect { subject.class.find_or_create_by user: user, survey: survey }.not_to raise_error
+      end
+    end
   end
 
-  it 'does not save without a user' do
-    survey = Survey.create! name: 'Survey 21'
-    expect { UserSurvey.create! survey: survey }.to raise_error ActiveRecord::RecordInvalid
+  describe '#destroy!' do
+    before :each do
+      subject.destroy!
+    end
+
+    context 'when user is not destroyed' do
+      it { expect(User.exists?(user.id)).to be_truthy }
+    end
+
+    context 'when survey is not destroyed' do
+      it { expect(Survey.exists?(survey.id)).to be_truthy }
+    end
   end
 
-  it 'does not save without a survey' do
-    user = User.create! username: Faker::Internet.unique.user_name(5..20)
-    expect { UserSurvey.create! user: user }.to raise_error ActiveRecord::RecordInvalid
+  describe '#to_s' do
+     content 'username and survey name' do
+        
+     end
   end
-
-  it 'does save with a user and a survey' do
-    user = User.create! username: Faker::Internet.unique.user_name(5..22)
-    survey = Survey.create! name: Faker::Name.unique.last_name
-    expect { UserSurvey.create! user: user, survey: survey }.not_to raise_error
-  end
+end
 
   it 'prints .to_s as username and survey name' do
     user = User.create! username: 'fake user'
