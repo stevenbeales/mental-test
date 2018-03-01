@@ -3,13 +3,13 @@
 require './models/init'
 
 RSpec.describe Assessment, type: :model do
-  subject { described_class.find_or_create_by survey: survey, visit: visit }
+  subject { described_class.find_or_create_by! survey: survey, visit: visit }
 
   let!(:survey) { Survey.find_or_create_by! name: AppConstants::TEST_SURVEY }
   let!(:user) { User.find_or_create_by! username: AppConstants::TEST_USER }
   let!(:visit) { Visit.find_or_create_by! user: user, name: AppConstants::TEST_VISIT, survey: survey }
 
-  describe '#create!' do
+  describe '.create!' do
     context 'with no survey and visit' do
       it { expect { described_class.create! }.to raise_error ActiveRecord::RecordInvalid }
     end

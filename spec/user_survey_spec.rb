@@ -8,7 +8,7 @@ RSpec.describe UserSurvey, type: :model do
   let!(:survey) { Survey.find_or_create_by name: AppConstants::TEST_SURVEY }
   let!(:user) { User.find_or_create_by username: AppConstants::TEST_USER }
   
-  describe '#create!' do
+  describe '.create!' do
     context 'with no user or survey' do
       it { expect { subject.class.create! }.to raise_error ActiveRecord::RecordInvalid }
     end

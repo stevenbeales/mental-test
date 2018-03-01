@@ -3,7 +3,7 @@
 require './models/init'
 
 RSpec.describe AssessmentInstrument, type: :model do
-  subject { described_class.find_or_create_by assessment: assess, instrument: instrument }
+  subject { described_class.find_or_create_by! assessment: assess, instrument: instrument }
 
   let!(:instrument) { Instrument.find_by_name(AppConstants::TEST_INSTRUMENT) }
   let!(:survey) { Survey.find_or_create_by! name: AppConstants::TEST_SURVEY }
@@ -11,7 +11,7 @@ RSpec.describe AssessmentInstrument, type: :model do
   let!(:visit) { Visit.find_or_create_by! user: user, name: AppConstants::TEST_VISIT, survey: survey }
   let!(:assess) { Assessment.find_or_create_by! survey: survey, visit: visit }
   
-  describe '#create!' do
+  describe '.create!' do
     context 'with no instrument or assessment' do
       it { expect { described_class.create! }.to raise_error ActiveRecord::RecordInvalid }
     end
