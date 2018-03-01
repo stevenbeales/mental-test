@@ -21,7 +21,7 @@ RSpec.describe Visit, type: :model do
     end
 
     context 'with user and survey' do
-      it { expect { described_class.create! user: user, survey: survey }.not_to raise_error ActiveRecord::RecordInvalid }
+      it { expect { described_class.create! user: user, survey: survey }.not_to raise_error }
     end
   end
 

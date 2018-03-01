@@ -21,7 +21,7 @@ require './config/db'
 require 'ralyxa'
 require 'database_cleaner'
 require 'faker'
-require 'factory_bot'
+
 SimpleCov.start
 
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration

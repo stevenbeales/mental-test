@@ -1,1 +1,6 @@
 --require spec_helper
+--format Fuubar
+--color
+--require rspec/instafail
+--format RSpec::Instafail
+--format progress # to keep dots appear
