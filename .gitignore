@@ -9,7 +9,7 @@
 todo.txt
 ## Visual Studio code
 ./.vscode
-##Gemfile.lock does not work crossplatform
+## Gemfile.lock does not work crossplatform
 Gemfile.lock
 
 # Elastic Beanstalk Files
@@ -20,3 +20,5 @@ Gemfile.lock
 
 !.elasticbeanstalk/*.global.yml
 
+# Windows batch files
+rap.bat

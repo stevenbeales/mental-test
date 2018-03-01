@@ -15,7 +15,7 @@ RSpec.describe Survey do
     end
 
     it 'with 2+ character name' do
-      expect { described_class.create!(name: 'as') }.to raise_error ActiveRecord::RecordInvalid
+      expect { described_class.create!(name: 'as') }.not_to raise_error
     end
   end
 
