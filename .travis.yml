@@ -12,3 +12,6 @@ script:
 
 addons:
   postgresql: "9.6"
+
+deploy: 
+  skip_cleanup: true
