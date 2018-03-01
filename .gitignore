@@ -9,9 +9,14 @@
 todo.txt
 ## Visual Studio code
 ./.vscode
-.rbenv
-
-# Elastic Beanstalk Files
-.elasticbeanstalk/*
-!.elasticbeanstalk/*.cfg.yml
-!.elasticbeanstalk/*.global.yml
+##Gemfile.lock does not work crossplatform
+Gemfile.lock
+
+# Elastic Beanstalk Files
+
+.elasticbeanstalk/*
+
+!.elasticbeanstalk/*.cfg.yml
+
+!.elasticbeanstalk/*.global.yml
+
