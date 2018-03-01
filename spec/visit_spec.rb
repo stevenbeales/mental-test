@@ -3,41 +3,45 @@
 require './models/init'
 
 RSpec.describe Visit, type: :model do
-  it 'does not save without a survey and visit' do
-    expect { Visit.create! }.to raise_error ActiveRecord::RecordInvalid
+  subject { described_class.find_or_create_by! name: AppConstants::TEST_VISIT }
+  let!(:survey) { Survey.find_or_create_by! name: AppConstants::TEST_SURVEY }
+  let!(:user) { User.find_or_create_by! username: AppConstants::TEST_USER }
+  
+  describe '.create!' do
+    context 'without survey and user' do
+      it { expect { described_class.create! }.to raise_error ActiveRecord::RecordInvalid }
+    end
+
+    context 'without user' do
+      it { expect { described_class.create! survey: survey }.to raise_error ActiveRecord::RecordInvalid }
+    end
+  
+    context 'without survey' do
+      it { expect { described_class.create! user: user }.to raise_error ActiveRecord::RecordInvalid }
+    end
+
+    context 'with user and survey' do
+      it { expect { described_class.create! user: user, survey: survey }.not_to raise_error ActiveRecord::RecordInvalid }
+    end
   end
 
-  it 'does not save without a user' do
-    survey = Survey.create! name: 'server'
-    expect { Visit.create! survey: survey }.to raise_error ActiveRecord::RecordInvalid
-    survey.destroy
+  describe '#to_s' do
+    it do
+      ur = User.find_or_create_by! username: 'bernie'
+      v = described_class.create! user: ur, name: AppConstants::TEST_VISIT, survey: survey
+      expect(v.to_s).to eq("bernie #{survey.name} #{v.name}")
+    end
   end
 
-  it 'does not save without a survey' do
-    user = User.create! username: 'sharon'
-    expect { Visit.create! user: user }.to raise_error ActiveRecord::RecordInvalid
-  end
-
-  it 'saves with a user and a survey' do
-    ur = User.create! username: 'maury'
-    sy = Survey.create! name: Faker::Name.first_name
-    expect { Visit.create! user: ur, name: Faker::Name.first_name, survey: sy }.not_to raise_error
-  end
-end
-
-RSpec.describe Visit do
-  it 'prints .to_s as User Survey and Name' do
-    ur = User.create! username: 'bernie'
-    sy = Survey.create! name: Faker::Name.initials(3)
-    v = Visit.create! user: ur, name: Faker::Name.first_name, survey: sy
-    expect(v.to_s).to eq("bernie #{sy.name} #{v.name}")
-  end
-
-  it '2 visits are equal if same user, survey and name' do
-    ur = User.create! username: 'user compare'
-    sy = Survey.create! name: 'survey compare'
-    v1 = Visit.create! user: ur, name: 'visit 1', survey: sy
-    v2 = Visit.where(user_id: v1.user.id, name: v1.name, survey_id: v1.survey.id).first
-    expect(v1).to eq(v2)
+  describe 'visits are equal' do
+    context 'same user, survey and name' do
+      ur = User.create! username: 'user compare'
+      sy = Survey.create! name: 'survey compare'
+      v1 = described_class.create! user: ur, name: 'visit 1', survey: sy
+      v2 = described_class.where(user_id: v1.user.id, name: v1.name, survey_id: v1.survey.id).first
+      it { expect(v1).to eq(v2) }
+      ur.destroy!
+      sy.destroy!
+    end
   end
 end

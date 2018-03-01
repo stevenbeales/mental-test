@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
 RSpec.describe Item, type: :model do
-  subject { described_class.find_or_create_by name: 'Appetite1' }
-  let(:instrument) { described_class.find_or_create_by name: AppConstants::TEST_INSTRUMENT }
+  subject { described_class.find_or_create_by! name: 'Appetite1' }
+  let!(:instrument) { Instrument.find_or_create_by! name: AppConstants::TEST_INSTRUMENT }
 
   describe '#choices' do
     it 'has 5 choices' do
@@ -19,7 +19,7 @@ RSpec.describe Item, type: :model do
 
   describe '#to_s' do
     it do
-      item = Item.new(name: 'Time')
+      item = described_class.new(name: 'Time')
       expect(item.to_s).to eq(item.name) 
     end
   end
