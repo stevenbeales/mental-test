@@ -22,14 +22,14 @@ RSpec.describe Visit, type: :model do
     end
 
     context 'with user and survey' do
-      it { expect { described_class.create! user: user, survey: survey }.not_to raise_error }
+      it { expect { described_class.find_or_create_by! user: user, survey: survey }.not_to raise_error }
     end
   end
 
   describe '#to_s' do
     it do
       ur = User.find_or_create_by! username: 'bernie'
-      v = described_class.create! user: ur, name: AppConstants::TEST_VISIT, survey: survey
+      v = described_class.find_or_create_by! user: ur, name: AppConstants::TEST_VISIT, survey: survey
       expect(v.to_s).to eq("bernie #{survey.name} #{v.name}")
     end
   end

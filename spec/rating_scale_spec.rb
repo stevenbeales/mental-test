@@ -13,7 +13,7 @@ RSpec.describe RatingScale, type: :model do
     end
     
     context 'with a 2+ character name' do
-      it { expect { described_class.create! name: 'as' }.to_not raise_error }
+      it { expect { described_class.find_or_create_by! name: 'as' }.to_not raise_error }
     end
 
     context 'has a unique name' do

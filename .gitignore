@@ -9,6 +9,10 @@
 todo.txt
 ## Visual Studio code
 ./.vscode
+## Gemfile.lock does not work crossplatform
+Gemfile.lock
+## Deployment files
+mental.zip
 
 # Elastic Beanstalk Files
 

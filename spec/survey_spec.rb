@@ -15,7 +15,7 @@ RSpec.describe Survey do
     end
 
     it 'with 2+ character name' do
-      expect { described_class.create!(name: 'as') }.not_to raise_error
+      expect { described_class.find_or_create_by!(name: 'as') }.not_to raise_error
     end
   end
 
@@ -33,8 +33,9 @@ RSpec.describe Survey do
     end 
 
     it 'prints .to_s as name' do
-      survey = described_class.create! name: 'Welcome!1'
+      survey = described_class.find_or_create_by! name: 'Welcome!1'
       expect(survey.to_s).to eq 'Welcome!1'
+      survey.destroy!
     end
   end 
 
