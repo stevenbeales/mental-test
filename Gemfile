@@ -5,7 +5,7 @@ gem 'jsonb_accessor', '~> 1.0.0' # adds methods to access Jsonb fields
 gem 'logging' # logging
 gem 'multi_json' # common interface to load json
 gem 'oj' # faster json parsing
-gem 'pg' # for Postgres
+gem 'pg', platform: :ruby # for Postgres
 gem 'puma' # puma web server
 gem 'rack-protection' # protect against web attacks
 gem 'rake' # so we can run Rake tasks
