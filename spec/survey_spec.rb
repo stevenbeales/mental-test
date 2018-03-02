@@ -39,14 +39,15 @@ RSpec.describe Survey do
   end 
 
   describe '.assessments' do
-    it 'can have multiple assessments' do
+    it 'have multiple assessments' do
       survey = described_class.create! name: Faker::Name.first_name
       user = User.create! username: Faker::Internet.unique.user_name(5..20)
       vt = Visit.find_or_create_by! user: user, name: 'Visit 27', survey: survey
-      assessment = Assessment.create! survey: survey, visit: vt 
-      another_assessment = Assessment.create! survey: survey, visit: vt
-      survey.assessments.push assessment
-      survey.assessments.push another_assessment
+      assessment = Assessment.create! visit: vt 
+      another_assessment = Assessment.create! visit: vt
+      survey.visits.concat(vt)
+      vt.assessments.concat(assessment)
+      vt.assessments.concat(another_assessment)
       expect(survey.assessments.count).to eq(2)  
       survey.destroy
     end

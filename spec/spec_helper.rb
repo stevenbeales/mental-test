@@ -16,11 +16,11 @@
 #
 ENV['RACK_ENV'] = 'test'
 
-require 'simplecov'
 require './config/db'
-require 'ralyxa'
 require 'database_cleaner'
 require 'faker'
+require 'ralyxa'
+require 'simplecov'
 
 SimpleCov.start
 

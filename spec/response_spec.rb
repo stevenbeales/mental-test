@@ -4,7 +4,7 @@ require './models/init'
 
 RSpec.describe Response, type: :model do
   subject { described_class.find_or_create_by! assessment: ass, value: 'something' }
-  let(:ass) { Assessment.find_or_create_by! visit: vt, survey: sy }
+  let(:ass) { Assessment.find_or_create_by! visit: vt }
   let!(:sy) { Survey.find_or_create_by! name: AppConstants::TEST_SURVEY }
   let!(:ur) { User.find_or_create_by! username: AppConstants::TEST_USER }
   let!(:vt) { Visit.find_or_create_by! user: ur, name: Faker::Name.prefix, survey: sy }

@@ -5,11 +5,11 @@ require './models/init'
 RSpec.describe AssessmentInstrument, type: :model do
   subject { described_class.find_or_create_by! assessment: assess, instrument: instrument }
 
-  let!(:instrument) { Instrument.find_by_name(AppConstants::TEST_INSTRUMENT) }
   let!(:survey) { Survey.find_or_create_by! name: AppConstants::TEST_SURVEY }
+  let!(:instrument) { Instrument.find_by_name(AppConstants::TEST_INSTRUMENT) }
   let!(:user) { User.find_or_create_by! username: AppConstants::TEST_USER }
   let!(:visit) { Visit.find_or_create_by! user: user, name: AppConstants::TEST_VISIT, survey: survey }
-  let!(:assess) { Assessment.find_or_create_by! survey: survey, visit: visit }
+  let!(:assess) { Assessment.find_or_create_by! visit: visit }
   
   describe '.create!' do
     context 'with no instrument or assessment' do
