@@ -1,8 +1,0 @@
-#!/bin/bash
-set -euo pipefail
-IFS=$'\n\t'
-
-bundle
-
-rake db:create
-rake db:migrate
