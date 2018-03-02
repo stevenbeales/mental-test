@@ -9,7 +9,7 @@ before_script:
 script:
   - RACK_ENV=test bundle exec rake --trace db:migrate
   - bundle exec rake
-  - rake bundle:audit
+  - bundle exec rake bundle:audit
 
 addons:
   postgresql: "9.6"
