@@ -10,3 +10,8 @@ Dir.glob('lib/tasks/*.rake').each { |r| load r }
 RSpec::Core::RakeTask.new
 
 task default: :spec
+
+require 'bundler/audit/task'
+Bundler::Audit::Task.new
+
+task default: 'bundle:audit'

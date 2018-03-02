@@ -17,8 +17,8 @@ require 'jsonb_accessor'
 class Instrument < ApplicationRecord
   # has_paper_trail
 
-  has_many :assessments, through: :assessment_instruments
   has_many :assessment_instruments, inverse_of: :instrument, dependent: :destroy
+  has_many :assessments, through: :assessment_instruments
   has_many :items, inverse_of: :instrument, dependent: :destroy
   
   jsonb_accessor :content,

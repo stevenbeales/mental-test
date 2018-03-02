@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+ENV['RACK_ENV'] ||= 'development' 
+
 require 'sinatra'
 require 'ralyxa'
 # require 'paper_trail'

@@ -40,7 +40,7 @@ RSpec.describe Visit, type: :model do
       v1 = described_class.find_or_create_by! user: user, name: 'visit 1', survey: survey
       v1.assessments.concat(assessment)
       v1.destroy
-      expect{ Assessment.find(cached_id) }.to raise_error(ActiveRecord::RecordNotFound)
+      expect { Assessment.find(cached_id) }.to raise_error(ActiveRecord::RecordNotFound)
     end
   end
 

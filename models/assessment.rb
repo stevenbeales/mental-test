@@ -20,7 +20,7 @@ class Assessment < ApplicationRecord
   has_one :survey, through: :visit
   has_one :user, through: :visit
   has_many :instruments, through: :assessment_instruments
-  has_many :assessment_instruments, inverse_of: :assessment
+  has_many :assessment_instruments, inverse_of: :assessment, dependent: :destroy 
   has_many :responses, inverse_of: :assessment, dependent: :destroy
   
   validates :visit, presence: true

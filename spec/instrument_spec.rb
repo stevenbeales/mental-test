@@ -37,4 +37,8 @@ RSpec.describe Instrument, type: :model do
   describe '#to_s' do
     it { expect(subject.to_s).to eq(AppConstants::TEST_INSTRUMENT) }
   end
+
+  describe '#version' do
+    it { expect(subject.version_number).to eq('1.0') }
+  end
 end

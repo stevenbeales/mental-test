@@ -25,6 +25,9 @@ class InstrumentLoader
   def destroy_and_recreate!(existing)
     cached_name = existing.name
     cached_content = existing.content
+    # We must explicitly removed any assessment instruments because these are not destroyed when
+    # instrument is deleted
+    existing&.assessment_instruments&.destroy
     existing.destroy!
     Instrument.create!(name: cached_name, content: cached_content)
   end
