@@ -3,7 +3,6 @@
 source 'https://rubygems.org'
 gem 'dotenv' # adds environment variables from .env files
 gem 'jsonb_accessor', '~> 1.0.0' # adds methods to access Jsonb fields
-gem 'logging' # logging
 gem 'multi_json' # common interface to load json
 gem 'oj' # faster json parsing
 gem 'pg', platform: :ruby # for Postgres
