@@ -11,6 +11,9 @@ RSpec::Core::RakeTask.new
 
 task default: :spec
 
+require 'dotenv'
+Dotenv.load
+
 require 'bundler/audit/task'
 Bundler::Audit::Task.new
 

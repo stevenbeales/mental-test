@@ -23,3 +23,7 @@ Gemfile.lock
 # Windows batch files
 rap.bat
 development.log
+.env
+production.log
+log/access.log
+log/error.log

@@ -31,16 +31,13 @@ class App < Sinatra::Base
   # TODO: Enable Register PaperTrail when paper_trail gem in 9 and paper_trail-sinatra supports it 
   # to register Paper Trail auditing and version framework
   # register PaperTrail::Sinatra
-  configure do
-    enable :logging
-    dirname = File.dirname("#{settings.root}/log")
-    !File.directory?(dirname) && FileUtils.mkdir_p(dirname) # make folder if it does not exist
-    file = File.new("#{dirname}/#{settings.environment}.log", 'a+')
-    file.sync = true
-    use Rack::CommonLogger, file
-  end
-
   # Alexa ruby framework dispatches request to intents
+  log_path = ::File.join(::File.dirname(::File.expand_path(__FILE__)), 'log')
+  error_logger = ::File.new(::File.join(log_path, 'error.log'), 'a+')
+  error_logger.sync = true
+ 
+  before { env['rack.errors'] = error_logger }
+
   post '/' do
     Ralyxa::Skill.handle(request)
   end
