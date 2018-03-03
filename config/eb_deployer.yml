@@ -11,7 +11,7 @@ common:
   tier: WebServer
 
   # AWS region to deploy. Default to us-east-1
-  region: us-east-2
+  # region: us-east-2
 
   # There are three deployment strategies: 'blue-green', 'blue-only', or 'inplace-update'.
   # Blue green deployments keep two elastic beanstalk environments and always deploy to
