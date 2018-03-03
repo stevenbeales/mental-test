@@ -7,9 +7,3 @@ development:
   options:
     aws:autoscaling:launchconfiguration:
       InstanceType: t1.micro
-
-production:
-  strategy: blue-green 
-  options:
-    aws:autoscaling:launchconfiguration:
-      InstanceType: t1.small
