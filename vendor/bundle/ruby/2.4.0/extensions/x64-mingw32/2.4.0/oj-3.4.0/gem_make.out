@@ -1,5 +1,5 @@
 current directory: C:/Users/Steven/source/mental-test/vendor/bundle/ruby/2.4.0/gems/oj-3.4.0/ext/oj
-C:/Ruby24-x64/bin/ruby.exe -r ./siteconf20180302-14112-1nxyg4k.rb extconf.rb
+C:/Ruby24-x64/bin/ruby.exe -r ./siteconf20180302-6488-f461ka.rb extconf.rb
 >>>>> Creating Makefile for ruby version 2.4.3 on x64-mingw32 <<<<<
 creating Makefile
 
@@ -44,4 +44,4 @@ linking shared-object oj/oj.so
 
 current directory: C:/Users/Steven/source/mental-test/vendor/bundle/ruby/2.4.0/gems/oj-3.4.0/ext/oj
 make "DESTDIR=" install
-/usr/bin/install -c -m 0755 oj.so ./.gem.20180302-14112-18k4j6x/oj
+/usr/bin/install -c -m 0755 oj.so ./.gem.20180302-6488-1u5tgpr/oj

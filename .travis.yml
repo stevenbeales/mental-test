@@ -7,8 +7,8 @@ before_script:
   - psql -c "CREATE USER mental WITH PASSWORD 'health';" -U postgres
 
 script:
-  - RACK_ENV=test bundle exec rake --trace db:migrate
-  - bundle exec rake
+  - RACK_ENV=test bundle exec rake db:migrate
+  - bundle exec rspec
   - bundle exec rake bundle:audit
 
 addons:
