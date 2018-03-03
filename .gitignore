@@ -12,18 +12,10 @@ todo.txt
 ## Gemfile.lock does not work crossplatform
 Gemfile.lock
 
-# Elastic Beanstalk Files
-
-.elasticbeanstalk/*
-
-!.elasticbeanstalk/*.cfg.yml
-
-!.elasticbeanstalk/*.global.yml
-
 # Windows batch files
 rap.bat
-development.log
 .env
-production.log
-log/access.log
-log/error.log
+
+# logs
+log/development.log
+log/production.log
