@@ -1,0 +1,12 @@
+# sample config demonstrating white label overrides
+---
+domain: <undefined>
+title: <undefined2>
+layouts:
+  app: <undefined3>
+  public: <undefined4>
+#---
+
+
+features:
+  scheduling: true

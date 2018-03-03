@@ -1,0 +1,2 @@
+spec = Gem::Specification.find_by_name('elastic-beanstalk', '>= 1.2.2')
+load "#{spec.gem_dir}/lib/elastic/beanstalk/tasks/eb.rake"

@@ -1,0 +1,12 @@
+# sample config demonstrating white label overrides for acme.com
+---
+domain: acme.com
+title: Acme Industries Limited, Inc.
+layouts:
+  app: layouts/app.haml
+  public: layouts/public.haml
+#---
+
+
+features:
+  scheduling: false

@@ -13,6 +13,9 @@ todo.txt
 Gemfile.lock
 ## Deployment files
 mental.zip
+## Aws secrets
+./.aws
+
 
 # Elastic Beanstalk Files
 

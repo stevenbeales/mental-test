@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 source 'https://rubygems.org'
+gem 'elastic-beanstalk'
 gem 'jsonb_accessor', '~> 1.0.0' # adds methods to access Jsonb fields
 gem 'logging' # logging
 gem 'multi_json' # common interface to load json

@@ -1,0 +1,22 @@
+# https://docs.docker.com/v1.6/compose/cli/#environment-variables
+web:
+  build: .
+  command: bin/rails server --port 3000 --binding 0.0.0.0
+  ports:
+    - "3000:3000"
+  links:
+    - db
+  volumes:
+    - .:/myapp
+db:
+  # https://github.com/docker-library/docs/tree/master/mysql
+  image: library/mysql:5.7.6
+  ports:
+    - "3306:3306"
+    #  volumes:
+    #    - ~/docker/mysql/${PROJECT_NAME}:/var/lib/mysql:rw
+    # interpolation coming in compose 1.5
+    #   https://github.com/docker/compose/pull/1765
+    #   https://github.com/docker/compose/issues/1377
+  environment:
+    - MYSQL_ALLOW_EMPTY_PASSWORD=true

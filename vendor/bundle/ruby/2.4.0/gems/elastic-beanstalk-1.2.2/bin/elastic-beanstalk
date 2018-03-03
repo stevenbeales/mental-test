@@ -1,0 +1,25 @@
+#!/usr/bin/env ruby
+require 'rake'
+require 'bundler'
+
+raise "Bundler is required.  Please install bundler with 'gem install bundler'" unless defined?(Bundler)
+
+#
+# Example:
+#
+#   elastic-beanstalk eb:show_config
+#   elastic-beanstalk eb:show_config[1.1.1]
+#
+
+# init dependencies
+Bundler.setup
+
+# init rake
+Rake.application.init
+
+# load the rake tasks
+gem_dir = File.expand_path('..',File.dirname(__FILE__))
+load "#{gem_dir}/lib/elastic/beanstalk/tasks/eb.rake"
+
+# invoke the given task
+Rake.application.invoke_task(ARGV[0])

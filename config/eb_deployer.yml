@@ -11,7 +11,7 @@ common:
   tier: WebServer
 
   # AWS region to deploy. Default to us-east-1
-  region: us-east-1
+  region: us-east-2
 
   # There are three deployment strategies: 'blue-green', 'blue-only', or 'inplace-update'.
   # Blue green deployments keep two elastic beanstalk environments and always deploy to
@@ -111,9 +111,9 @@ common:
     # are not very responsible, so m1.small is suggested for saving time.
     # But if you care about the marginal cost difference you can comment this out to
     # go back to t1.micro.
-    - namespace: aws:autoscaling:launchconfiguration
-      option_name: InstanceType
-      value: m1.small
+    # namespace: aws:autoscaling:launchconfiguration
+    #  option_name: InstanceType
+    #  value: m1.small
 
 
   # If resources specified, eb_deployer will use the CloudFormation

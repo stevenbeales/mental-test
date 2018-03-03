@@ -1,0 +1,15 @@
+app: mental-test
+region: us-east-2
+solution_stack_name: 64bit Amazon Linux 2017.09 v2.7.1 running Ruby 2.4 (Puma)
+strategy: inplace-update 
+keep_latest: 10
+development:
+  options:
+    aws:autoscaling:launchconfiguration:
+      InstanceType: t1.micro
+
+production:
+  strategy: blue-green 
+  options:
+    aws:autoscaling:launchconfiguration:
+      InstanceType: t1.small

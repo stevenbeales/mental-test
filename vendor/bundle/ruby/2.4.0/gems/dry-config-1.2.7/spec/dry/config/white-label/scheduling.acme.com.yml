@@ -1,0 +1,10 @@
+# sample config demonstrating white label overrides for acme.com
+---
+domain: scheduling.acme.com
+layouts:
+  app: layouts/scheduling_app.haml
+#---
+
+
+features:
+  scheduling: 8

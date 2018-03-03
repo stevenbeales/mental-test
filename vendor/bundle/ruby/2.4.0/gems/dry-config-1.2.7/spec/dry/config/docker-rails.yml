@@ -1,0 +1,71 @@
+verbose: true
+
+# local environments need elasticsearch, staging/production connects to existing running instance.
+elasticsearch: &elasticsearch
+  elasticsearch:
+    image: library/elasticsearch:1.7
+    ports:
+      - "9200:9200"
+
+development:
+  docker-compose:
+    <<: *elasticsearch
+    web:
+      command: >
+        bash -c "
+        echo 'Bundling gems'
+        && bundle install --jobs 4 --retry 3
+
+        && echo 'Generating Spring binstubs'
+        && bundle exec spring binstub --all
+
+        && echo 'Clearing logs and tmp dirs'
+        && bundle exec rake log:clear tmp:clear
+
+        && echo 'Check and wait for database connection'
+        && bundle exec docker-rails-db-check
+
+        && echo 'DB rebuild'
+        && bundle exec rake db:rebuild
+
+        && echo "Starting app server"
+        && bundle exec rails s -p 3000
+
+        && echo 'Setup and start foreman'
+        && gem install foreman
+        && foreman start
+        "
+
+      links:
+        - elasticsearch # standard yaml doesn't merge arrays so we have to add this explicitly
+docker-compose:
+  web:
+    build: .
+    working_dir: /project/spec/dummy
+    ports:
+      - "3000:3000"
+
+    volumes:
+      - .:/project
+
+    links:
+      - db
+
+    volumes_from:
+      # Mount the gems data volume container for cached bundler gem files
+      - #{GEMS_VOLUME_NAME}
+
+    # https://docs.docker.com/v1.6/docker-compose/cli/#environment-variables
+    environment:
+      # Tell bundler where to get the files
+      - GEM_HOME=#{GEMS_VOLUME_PATH}
+
+  db:
+    # https://github.com/docker-library/docs/tree/master/mysql
+    image: library/mysql:5.7.6
+    ports:
+      - "3306:3306"
+
+    # https://github.com/docker-library/docs/tree/master/mysql#environment-variables
+    environment:
+      - MYSQL_ALLOW_EMPTY_PASSWORD=true
