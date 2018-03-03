@@ -3,7 +3,7 @@
 namespace :app do
   desc 'Run development web server'
   task :run do
-    sh %( bundle exec rackup -p 4000)
+    sh %( ruby app.rb)
   end
   
   desc 'push to git'

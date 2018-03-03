@@ -3,7 +3,7 @@
 require './models/init'
 
 RSpec.describe Survey do
-  subject { described_class.find_by_name name: AppConstants::TEST_SURVEY }
+  subject { described_class.find_or_create_by! name: AppConstants::TEST_SURVEY }
 
   describe '.create!' do
     it 'without a name' do
@@ -41,16 +41,16 @@ RSpec.describe Survey do
 
   describe '.assessments' do
     it 'have multiple assessments' do
-      survey = described_class.create! name: Faker::Name.first_name
-      user = User.create! username: Faker::Internet.unique.user_name(5..20)
+      survey = described_class.find_or_create_by! name: Faker::Name.first_name
+      user = User.find_or_create_by! username: Faker::Internet.unique.user_name(5..20)
       vt = Visit.find_or_create_by! user: user, name: 'Visit 27', survey: survey
-      assessment = Assessment.create! visit: vt 
+      assessment = Assessment.find_or_create_by! visit: vt 
       another_assessment = Assessment.create! visit: vt
       survey.visits.concat(vt)
       vt.assessments.concat(assessment)
       vt.assessments.concat(another_assessment)
       expect(survey.assessments.count).to eq(2)  
-      survey.destroy
+      survey.destroy!
     end
   end
 end

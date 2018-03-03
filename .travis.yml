@@ -8,7 +8,7 @@ before_script:
 
 script:
   - RACK_ENV=test bundle exec rake db:migrate
-  - bundle exec rspec
+  - RACK_ENV=test bundle exec rake spec
   - bundle exec rake bundle:audit
 
 addons:

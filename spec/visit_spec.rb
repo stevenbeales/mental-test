@@ -46,8 +46,8 @@ RSpec.describe Visit, type: :model do
 
   describe 'visits are equal' do
     context 'same user, survey and name' do
-      ur = User.create! username: 'user compare'
-      sy = Survey.create! name: 'survey compare'
+      ur = User.find_or_create_by! username: 'user compare'
+      sy = Survey.find_or_create_by! name: 'survey compare'
       v1 = described_class.create! user: ur, name: 'visit 1', survey: sy
       v2 = described_class.where(user_id: v1.user.id, name: v1.name, survey_id: v1.survey.id).first
       it { expect(v1).to eq(v2) }

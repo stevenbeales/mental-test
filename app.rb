@@ -6,10 +6,13 @@ require 'sinatra'
 require 'ralyxa'
 # require 'paper_trail'
 # require 'paper_trail-sinatra'
+set :root, File.dirname(__FILE__)
 
 require_relative 'lib/app_constants'
 require_relative 'config/db'
 require_relative 'models/init'
+
+
 
 AlexaVerifier.configure do |config|
   # Disables all checks, even though we enable them individually below
