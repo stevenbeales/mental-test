@@ -9,5 +9,5 @@ module AppConstants
   TEST_SURVEY = 'Depression Survey'
   TEST_USER = 'Test User'
   TEST_VISIT = 'Test Visit'
-  TEST_RATING_SCALE = 'Test Rating Scale'
+  TEST_RESPONSE_SCALE = 'Test Response Scale'
 end

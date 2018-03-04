@@ -37,14 +37,14 @@ ActiveRecord::Schema.define(version: 20180304030326) do
   end
 
   create_table "choices", force: :cascade do |t|
-    t.bigint "rating_scale_id", null: false
+    t.bigint "response_scale_id", null: false
     t.string "value", null: false
     t.integer "score", default: -1, null: false
     t.string "description", null: false
     t.datetime "created_at", default: -> { "CURRENT_TIMESTAMP" }, null: false
     t.datetime "updated_at", default: -> { "CURRENT_TIMESTAMP" }, null: false
-    t.index ["rating_scale_id", "value"], name: "index_choices_on_rating_scale_id_and_value", unique: true
-    t.index ["rating_scale_id"], name: "index_choices_on_rating_scale_id"
+    t.index ["response_scale_id", "value"], name: "index_choices_on_response_scale_id_and_value", unique: true
+    t.index ["response_scale_id"], name: "index_choices_on_response_scale_id"
   end
 
   create_table "instruments", force: :cascade do |t|
@@ -64,20 +64,20 @@ ActiveRecord::Schema.define(version: 20180304030326) do
     t.string "name", null: false
     t.string "item_type", null: false
     t.string "title", null: false
-    t.bigint "rating_scale_id"
+    t.bigint "response_scale_id"
     t.boolean "is_required", default: true, null: false
     t.datetime "created_at", default: -> { "CURRENT_TIMESTAMP" }, null: false
     t.datetime "updated_at", default: -> { "CURRENT_TIMESTAMP" }, null: false
     t.index ["instrument_id"], name: "index_items_on_instrument_id"
     t.index ["name"], name: "index_items_on_name", unique: true
-    t.index ["rating_scale_id"], name: "index_items_on_rating_scale_id"
+    t.index ["response_scale_id"], name: "index_items_on_response_scale_id"
   end
 
-  create_table "rating_scales", force: :cascade do |t|
+  create_table "response_scales", force: :cascade do |t|
     t.string "name", null: false
     t.datetime "created_at", default: -> { "CURRENT_TIMESTAMP" }, null: false
     t.datetime "updated_at", default: -> { "CURRENT_TIMESTAMP" }, null: false
-    t.index ["name"], name: "index_rating_scales_on_name", unique: true
+    t.index ["name"], name: "index_response_scales_on_name", unique: true
   end
 
   create_table "responses", force: :cascade do |t|
@@ -157,9 +157,9 @@ ActiveRecord::Schema.define(version: 20180304030326) do
   add_foreign_key "assessment_instruments", "assessments"
   add_foreign_key "assessment_instruments", "instruments"
   add_foreign_key "assessments", "visits"
-  add_foreign_key "choices", "rating_scales"
+  add_foreign_key "choices", "response_scales"
   add_foreign_key "items", "instruments"
-  add_foreign_key "items", "rating_scales"
+  add_foreign_key "items", "response_scales"
   add_foreign_key "responses", "assessments"
   add_foreign_key "scores", "assessments"
   add_foreign_key "user_surveys", "surveys"

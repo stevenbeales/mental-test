@@ -8,7 +8,7 @@ class CreateItems < ActiveRecord::Migration[5.1]
       t.string :name, null: false
       t.string :item_type, null: false
       t.string :title, null: false
-      t.references :rating_scale, null: true, index: true
+      t.references :response_scale, null: true, index: true
       t.boolean :is_required, null: false, default: true
       t.timestamps null: false, default: -> { 'CURRENT_TIMESTAMP' }    
     end
@@ -17,7 +17,7 @@ class CreateItems < ActiveRecord::Migration[5.1]
 
   def add_keys_and_indexes
     add_foreign_key :items, :instruments
-    add_foreign_key :items, :rating_scales
+    add_foreign_key :items, :response_scales
     add_index :items, :name, unique: true
   end
 end

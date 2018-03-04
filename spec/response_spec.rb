@@ -8,8 +8,8 @@ RSpec.describe Response, type: :model do
   let!(:sy) { Survey.find_or_create_by! name: AppConstants::TEST_SURVEY }
   let!(:ur) { User.find_or_create_by! username: AppConstants::TEST_USER }
   let!(:vt) { Visit.find_or_create_by! user: ur, name: Faker::Name.prefix, survey: sy }
-  let!(:choice) { Choice.find_or_create_by! rating_scale: scale, value: 'val', description: 'text' }
-  let!(:scale) { RatingScale.find_or_create_by! name: AppConstants::TEST_RATING_SCALE }
+  let!(:choice) { Choice.find_or_create_by! response_scale: scale, value: 'val', description: 'text' }
+  let!(:scale) { ResponseScale.find_or_create_by! name: AppConstants::TEST_RESPONSE_SCALE }
   
 
   describe '.create!' do

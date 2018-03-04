@@ -8,7 +8,7 @@ class InstrumentLoader
   include Singleton
   include AppConstants
   attr_accessor :instrument
-  attr_accessor :rating_scale
+  attr_accessor :response_scale
  
   def load(instrument:, overwrite: false)
     raise AppConstants::LOADER_NIL_INSTRUMENT unless instrument 
@@ -36,24 +36,24 @@ class InstrumentLoader
   def load_json!(name:)
     elements = []
     @instrument.pages.each { |p| elements += p['elements'] }
-    load_rating_scale!(elements: elements, name: name)
+    load_response_scale!(elements: elements, name: name)
     load_items!(elements)
   end
   
-  def load_rating_scale!(elements:, name:)
-    @rating_scale = RatingScale.find_or_create_by!(name: name)
+  def load_response_scale!(elements:, name:)
+    @response_scale = ResponseScale.find_or_create_by!(name: name)
     elements.each do |el| 
       el['choices'].map do |ch| 
         choice = load_choice!(ch)
-        @rating_scale.choices.concat(choice) 
+        @response_scale.choices.concat(choice) 
       end 
     end
-    @rating_scale
+    @response_scale
   end
 
   def load_choice!(ch)
     Choice.create_with(description: ch['text']) \
-          .find_or_create_by(rating_scale: @rating_scale, value: ch['value'])
+          .find_or_create_by(response_scale: @response_scale, value: ch['value'])
   end
 
   def load_items!(elements)
@@ -62,7 +62,7 @@ class InstrumentLoader
                           name: e['name'], \
                           item_type: e['type'], \
                           is_required: e['isRequired'], \
-                          rating_scale: @rating_scale, \
+                          response_scale: @response_scale, \
                           title: e['title'])
       @instrument.items.concat(item)
     end

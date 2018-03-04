@@ -9,7 +9,7 @@
 #  name            :string           not null
 #  item_type       :string           not null
 #  title           :string           not null
-#  rating_scale_id :integer
+#  response_scale_id :integer
 #  is_required     :boolean          default(TRUE), not null
 #
 
@@ -17,8 +17,8 @@
 # Similar to a question with metadata
 class Item < ApplicationRecord
   belongs_to :instrument, inverse_of: :items
-  belongs_to :rating_scale, inverse_of: :items
-  has_many :choices, through: :rating_scale  
+  belongs_to :response_scale, inverse_of: :items
+  has_many :choices, through: :response_scale  
   validates :name, presence: true
   validates_uniqueness_of :name
   validates_length_of :name, \
@@ -27,7 +27,7 @@ class Item < ApplicationRecord
                       too_short: 'pick a longer name'
   
   def find_choice_by_value(value)
-    choices.find_by_rating_scale_id_and_value(rating_scale.id, value)
+    choices.find_by_response_scale_id_and_value(response_scale.id, value)
   end
 
   def to_s
