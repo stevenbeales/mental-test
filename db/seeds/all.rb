@@ -4,7 +4,7 @@ require 'json'
 require 'oj'
 require 'multi_json'
 require 'multi_json/adapters/oj'
-require './models/instrument_loader'
+require './services/instrument_loader'
 
 json_data = File.read('./db/cesdr.json')
 json_hash = MultiJson.load(json_data)

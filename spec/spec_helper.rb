@@ -21,6 +21,7 @@ require 'database_cleaner'
 require 'faker'
 require 'ralyxa'
 require 'simplecov'
+require './services/init'
 
 SimpleCov.start
 

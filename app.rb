@@ -14,6 +14,7 @@ set :app_file, __FILE__
 
 require_relative 'lib/app_constants'
 require_relative 'config/db'
+require_relative 'services/init'
 require_relative 'models/init'
 
 AlexaVerifier.configure do |config|
