@@ -8,23 +8,52 @@ RSpec.describe Response, type: :model do
   let!(:sy) { Survey.find_or_create_by! name: AppConstants::TEST_SURVEY }
   let!(:ur) { User.find_or_create_by! username: AppConstants::TEST_USER }
   let!(:vt) { Visit.find_or_create_by! user: ur, name: Faker::Name.prefix, survey: sy }
+  let!(:choice) { Choice.find_or_create_by! rating_scale: scale, value: 'val', description: 'text' }
+  let!(:scale) { RatingScale.find_or_create_by! name: AppConstants::TEST_RATING_SCALE }
+  
 
   describe '.create!' do
     context 'without assessment' do
       it { expect { described_class.create! }.to raise_error ActiveRecord::RecordInvalid }
     end
 
-    context 'without a value' do
+    context 'without value' do
       it { expect { described_class.create! assessment: ass }.to raise_error ActiveRecord::RecordInvalid }
     end
   
     
-    context 'with a value and assessment' do
+    context 'with value and assessment' do
       it { expect { described_class.find_or_create_by! assessment: ass, value: 'something' }.not_to raise_error }
     end
   end
 
   describe '#to_s' do
     it { expect(subject.to_s).to eq("#{ass} something") }
+  end
+
+  describe '#destroy!' do
+    context 'with choice' do
+      it do
+        subject.choice = choice
+        subject.destroy!
+        expect(choice).not_to be_nil
+      end
+    end
+
+    context 'with assessment' do
+      it do
+        subject.destroy!
+        expect(ass).not_to be_nil
+      end
+    end
+  end
+    
+  describe 'multiple responses' do
+    it do
+      rep2 = described_class.find_or_create_by! assessment: ass, value: '2' 
+      rep3 = described_class.create_with(score: 5).find_or_create_by! assessment: ass, value: '3' 
+      ass.responses.concat([rep2, rep3])
+      expect(subject.assessment.responses.count.to_s).to eq '3'     
+    end
   end
 end

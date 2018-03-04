@@ -22,10 +22,11 @@ class Assessment < ApplicationRecord
   has_many :instruments, through: :assessment_instruments
   has_many :assessment_instruments, inverse_of: :assessment, dependent: :destroy 
   has_many :responses, inverse_of: :assessment, dependent: :destroy
+  has_many :scores, inverse_of: :assessment, dependent: :destroy
   
   validates :visit, presence: true
 
   def to_s
-    "#{user} #{visit}"
+    visit.to_s
   end
 end

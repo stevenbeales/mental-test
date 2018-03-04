@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180304012222) do
+ActiveRecord::Schema.define(version: 20180304030326) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -88,6 +88,17 @@ ActiveRecord::Schema.define(version: 20180304012222) do
     t.index ["choice_id"], name: "index_responses_on_choice_id"
   end
 
+  create_table "scores", force: :cascade do |t|
+    t.bigint "assessment_id", null: false
+    t.string "name", null: false
+    t.integer "score", null: false
+    t.datetime "created_at", default: "2018-03-04 03:31:40", null: false
+    t.datetime "updated_at", default: "2018-03-04 03:31:40", null: false
+    t.index ["assessment_id", "name"], name: "index_scores_on_assessment_id_and_name", unique: true
+    t.index ["assessment_id"], name: "index_scores_on_assessment_id"
+    t.index ["name"], name: "index_scores_on_name"
+  end
+
   create_table "surveys", force: :cascade do |t|
     t.string "name", null: false
     t.boolean "is_active", default: true, null: false
@@ -147,6 +158,7 @@ ActiveRecord::Schema.define(version: 20180304012222) do
   add_foreign_key "items", "instruments"
   add_foreign_key "items", "rating_scales"
   add_foreign_key "responses", "assessments"
+  add_foreign_key "scores", "assessments"
   add_foreign_key "user_surveys", "surveys"
   add_foreign_key "user_surveys", "users"
   add_foreign_key "visits", "surveys"

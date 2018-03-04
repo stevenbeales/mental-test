@@ -34,7 +34,7 @@ RSpec.describe Assessment, type: :model do
     context 'user survey visit' do
       it do 
         expect(described_class.where(visit: visit).first.to_s).to \
-          eq("#{user} #{visit}")
+          eq(visit.to_s)
       end
     end
   end

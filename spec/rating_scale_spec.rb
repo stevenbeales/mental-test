@@ -8,15 +8,15 @@ RSpec.describe RatingScale, type: :model do
       it { expect { described_class.create! }.to raise_error ActiveRecord::RecordInvalid }
     end  
 
-    context 'with a 1 character name' do
+    context 'with 1 character name' do
       it { expect { described_class.create! name: 'a' }.to raise_error ActiveRecord::RecordInvalid }
     end
     
-    context 'with a 2+ character name' do
+    context 'with 2+ character name' do
       it { expect { described_class.find_or_create_by! name: 'as' }.to_not raise_error }
     end
 
-    context 'has a unique name' do
+    context 'has unique name' do
       it do
         rs = described_class.create! name: 'a12'
         expect { described_class.create! name: 'a12' }.to raise_error ActiveRecord::RecordInvalid
