@@ -19,3 +19,4 @@ rap.bat
 # logs
 log/development.log
 log/production.log
+be.bat

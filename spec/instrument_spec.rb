@@ -3,7 +3,7 @@
 RSpec.describe Instrument, type: :model do
   subject { described_class.find_or_create_by name: AppConstants::TEST_INSTRUMENT }
 
-  describe '.items' do
+  describe '#items' do
     it 'loads all items after initializing' do
       expect(subject.items).not_to be_empty
     end
@@ -40,5 +40,32 @@ RSpec.describe Instrument, type: :model do
 
   describe '#version' do
     it { expect(subject.version_number).to eq('1.0') }
+  end
+
+  describe '#tags' do
+    it do
+      subject.tags = %w[Depression Anxiety] 
+      subject.tags -= %w[Depression]
+      subject.tags += %w[Schizophrenia]
+      expect(subject.tags).to eq %w[Anxiety Schizophrenia] 
+    end
+  end
+
+  describe '#with_any_tags' do
+    context 'present' do
+      it do
+        subject.tags = %w[Depression Anxiety] 
+        subject.tags -= %w[Depression]
+        subject.tags += %w[Schizophrenia]
+        subject.save!
+        expect(described_class.with_any_tags('Anxiety')&.first).to eq subject
+      end
+    end
+
+    context 'absent' do
+      it do
+        expect(described_class.with_any_tags('Depression')&.first).to be_nil
+      end
+    end
   end
 end

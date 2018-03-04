@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 source 'https://rubygems.org'
+gem 'acts-as-taggable-array-on'
 gem 'dotenv' # adds environment variables from .env files
 gem 'jsonb_accessor', '~> 1.0.0' # adds methods to access Jsonb fields
 gem 'multi_json' # common interface to load json

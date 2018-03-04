@@ -6,16 +6,19 @@
 #
 #  id         :integer          not null, primary key
 #  name       :string           not null
+#  version    :string           not null
 #  content    :jsonb            not null
 #  created_at :datetime         default(2018-02-23 00:00:00 UTC), not null
 #  updated_at :datetime         default(2018-02-23 00:00:00 UTC), not null
 
+require 'acts-as-taggable-array-on'
 require 'jsonb_accessor'
 
 # Represents a psychometric instrument
 # Similar to a survey or questionnaire
 class Instrument < ApplicationRecord
   # has_paper_trail
+  acts_as_taggable_array_on :tags
 
   has_many :assessment_instruments, inverse_of: :instrument, dependent: :destroy
   has_many :assessments, through: :assessment_instruments

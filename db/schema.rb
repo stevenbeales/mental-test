@@ -10,18 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180227035049) do
+ActiveRecord::Schema.define(version: 20180304012222) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
-  enable_extension "pg_stat_statements"
-  enable_extension "pg_buffercache"
 
   create_table "assessment_instruments", force: :cascade do |t|
     t.bigint "assessment_id", null: false
     t.bigint "instrument_id", null: false
-    t.datetime "created_at", default: "2018-03-03 20:34:20", null: false
-    t.datetime "updated_at", default: "2018-03-03 20:34:20", null: false
+    t.datetime "created_at", default: "2018-03-02 05:43:58", null: false
+    t.datetime "updated_at", default: "2018-03-02 05:43:58", null: false
     t.index ["assessment_id", "instrument_id"], name: "index_assessment_instruments_on_assessment_id_and_instrument_id", unique: true
     t.index ["assessment_id"], name: "index_assessment_instruments_on_assessment_id"
     t.index ["instrument_id"], name: "index_assessment_instruments_on_instrument_id"
@@ -30,8 +28,8 @@ ActiveRecord::Schema.define(version: 20180227035049) do
   create_table "assessments", force: :cascade do |t|
     t.bigint "visit_id", null: false
     t.jsonb "content", default: "{}", null: false
-    t.datetime "created_at", default: "2018-03-03 20:34:17", null: false
-    t.datetime "updated_at", default: "2018-03-03 20:34:17", null: false
+    t.datetime "created_at", default: "2018-03-02 05:43:58", null: false
+    t.datetime "updated_at", default: "2018-03-02 05:43:58", null: false
     t.index ["content"], name: "index_assessments_on_content", using: :gin
     t.index ["visit_id"], name: "index_assessments_on_visit_id"
   end
@@ -41,8 +39,8 @@ ActiveRecord::Schema.define(version: 20180227035049) do
     t.string "value", null: false
     t.integer "score", default: -1, null: false
     t.string "description", null: false
-    t.datetime "created_at", default: "2018-03-03 20:34:13", null: false
-    t.datetime "updated_at", default: "2018-03-03 20:34:13", null: false
+    t.datetime "created_at", default: "2018-03-02 05:43:58", null: false
+    t.datetime "updated_at", default: "2018-03-02 05:43:58", null: false
     t.index ["rating_scale_id", "value"], name: "index_choices_on_rating_scale_id_and_value", unique: true
     t.index ["rating_scale_id"], name: "index_choices_on_rating_scale_id"
   end
@@ -51,10 +49,12 @@ ActiveRecord::Schema.define(version: 20180227035049) do
     t.string "name", null: false
     t.string "version_number", default: "1.0", null: false
     t.jsonb "content", default: "{}", null: false
-    t.datetime "created_at", default: "2018-03-03 20:34:02", null: false
-    t.datetime "updated_at", default: "2018-03-03 20:34:02", null: false
+    t.datetime "created_at", default: "2018-03-02 05:43:57", null: false
+    t.datetime "updated_at", default: "2018-03-02 05:43:57", null: false
+    t.string "tags", default: [], array: true
     t.index ["content"], name: "index_instruments_on_content", using: :gin
     t.index ["name"], name: "index_instruments_on_name", unique: true
+    t.index ["tags"], name: "index_instruments_on_tags", using: :gin
   end
 
   create_table "items", force: :cascade do |t|
@@ -64,8 +64,8 @@ ActiveRecord::Schema.define(version: 20180227035049) do
     t.string "title", null: false
     t.bigint "rating_scale_id"
     t.boolean "is_required", default: true, null: false
-    t.datetime "created_at", default: "2018-03-03 20:34:11", null: false
-    t.datetime "updated_at", default: "2018-03-03 20:34:11", null: false
+    t.datetime "created_at", default: "2018-03-02 05:43:57", null: false
+    t.datetime "updated_at", default: "2018-03-02 05:43:57", null: false
     t.index ["instrument_id"], name: "index_items_on_instrument_id"
     t.index ["name"], name: "index_items_on_name", unique: true
     t.index ["rating_scale_id"], name: "index_items_on_rating_scale_id"
@@ -73,8 +73,8 @@ ActiveRecord::Schema.define(version: 20180227035049) do
 
   create_table "rating_scales", force: :cascade do |t|
     t.string "name", null: false
-    t.datetime "created_at", default: "2018-03-03 20:34:10", null: false
-    t.datetime "updated_at", default: "2018-03-03 20:34:10", null: false
+    t.datetime "created_at", default: "2018-03-02 05:43:57", null: false
+    t.datetime "updated_at", default: "2018-03-02 05:43:57", null: false
     t.index ["name"], name: "index_rating_scales_on_name", unique: true
   end
 
@@ -82,8 +82,8 @@ ActiveRecord::Schema.define(version: 20180227035049) do
     t.bigint "assessment_id", null: false
     t.bigint "choice_id"
     t.string "value", default: "", null: false
-    t.datetime "created_at", default: "2018-03-03 20:34:19", null: false
-    t.datetime "updated_at", default: "2018-03-03 20:34:19", null: false
+    t.datetime "created_at", default: "2018-03-02 05:43:58", null: false
+    t.datetime "updated_at", default: "2018-03-02 05:43:58", null: false
     t.index ["assessment_id"], name: "index_responses_on_assessment_id"
     t.index ["choice_id"], name: "index_responses_on_choice_id"
   end
@@ -92,15 +92,15 @@ ActiveRecord::Schema.define(version: 20180227035049) do
     t.string "name", null: false
     t.boolean "is_active", default: true, null: false
     t.integer "max_attempts", default: 0, null: false
-    t.datetime "created_at", default: "2018-03-03 20:34:06", null: false
-    t.datetime "updated_at", default: "2018-03-03 20:34:06", null: false
+    t.datetime "created_at", default: "2018-03-02 05:43:57", null: false
+    t.datetime "updated_at", default: "2018-03-02 05:43:57", null: false
   end
 
   create_table "user_surveys", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.bigint "survey_id", null: false
-    t.datetime "created_at", default: "2018-03-03 20:34:07", null: false
-    t.datetime "updated_at", default: "2018-03-03 20:34:07", null: false
+    t.datetime "created_at", default: "2018-03-02 05:43:57", null: false
+    t.datetime "updated_at", default: "2018-03-02 05:43:57", null: false
     t.index ["survey_id"], name: "index_user_surveys_on_survey_id"
     t.index ["user_id", "survey_id"], name: "index_user_surveys_on_user_id_and_survey_id", unique: true
     t.index ["user_id"], name: "index_user_surveys_on_user_id"
@@ -112,8 +112,8 @@ ActiveRecord::Schema.define(version: 20180227035049) do
     t.string "lastname"
     t.text "access_token", default: "", null: false
     t.jsonb "preferences", default: "{}", null: false
-    t.datetime "created_at", default: "2018-03-03 20:34:05", null: false
-    t.datetime "updated_at", default: "2018-03-03 20:34:05", null: false
+    t.datetime "created_at", default: "2018-03-02 05:43:57", null: false
+    t.datetime "updated_at", default: "2018-03-02 05:43:57", null: false
     t.index ["preferences"], name: "index_users_on_preferences", using: :gin
     t.index ["username"], name: "index_users_on_username", unique: true
   end
@@ -131,10 +131,10 @@ ActiveRecord::Schema.define(version: 20180227035049) do
   create_table "visits", force: :cascade do |t|
     t.bigint "survey_id", null: false
     t.bigint "user_id", null: false
-    t.string "name", default: "2018-03-03 20:34:15.469623", null: false
-    t.datetime "visit_date", default: "2018-03-03 20:34:15", null: false
-    t.datetime "created_at", default: "2018-03-03 20:34:15", null: false
-    t.datetime "updated_at", default: "2018-03-03 20:34:15", null: false
+    t.string "name", default: "2018-03-02 05:43:58.265505", null: false
+    t.datetime "visit_date", default: "2018-03-02 05:43:58", null: false
+    t.datetime "created_at", default: "2018-03-02 05:43:58", null: false
+    t.datetime "updated_at", default: "2018-03-02 05:43:58", null: false
     t.index ["survey_id", "user_id", "name"], name: "index_visits_on_survey_id_and_user_id_and_name", unique: true
     t.index ["survey_id"], name: "index_visits_on_survey_id"
     t.index ["user_id"], name: "index_visits_on_user_id"

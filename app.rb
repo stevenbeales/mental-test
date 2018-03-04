@@ -32,8 +32,8 @@ class App < Sinatra::Base
   # to register Paper Trail auditing and version framework
   # register PaperTrail::Sinatra
   # Alexa ruby framework dispatches request to intents
-  log_path = ::File.join(::File.dirname(::File.expand_path(__FILE__)), 'log')
-  error_logger = ::File.new(::File.join(log_path, 'error.log'), 'a+')
+  log_path = File.join(File.dirname(File.expand_path(__FILE__)), 'log')
+  error_logger = File.new(File.join(log_path, 'error.log'), 'a+')
   error_logger.sync = true
  
   before { env['rack.errors'] = error_logger }
