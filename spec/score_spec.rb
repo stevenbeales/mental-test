@@ -14,4 +14,40 @@ RSpec.describe Score, type: :model do
   describe '#to_s' do
     it { expect(subject.to_s).to eq "#{subject.assessment} #{subject.name}: #{subject.score}" }   
   end
+
+  describe '.create!' do
+    context 'without an assessment or name' do
+      it { expect { described_class.create! }.to raise_error ActiveRecord::RecordInvalid }
+    end
+
+    context 'without an assessment' do
+      it { expect { described_class.create!(name: 'total') }.to raise_error ActiveRecord::RecordInvalid }
+    end
+
+    context 'without a name' do
+      it { expect { described_class.create!(assessment: ass) }.to raise_error ActiveRecord::RecordInvalid }
+    end
+
+    context 'with an assessment or name' do
+      it { expect { Score.create_with(score: 8).find_or_create_by!(assessment: ass, name: 'tote') }.not_to raise_error }
+    end
+  end
+
+  describe '#destroy!' do
+    context 'with assessment' do
+      it do
+        subject.destroy!
+        expect(ass).not_to be_nil
+      end
+    end
+  end
+    
+  describe 'multiple scores' do
+    it do
+      rep2 = described_class.create_with(score: 2).find_or_create_by! assessment: ass, name: 'Depression' 
+      rep3 = described_class.create_with(score: 5).find_or_create_by! assessment: ass, name: 'Anxiety' 
+      ass.scores.concat([rep2, rep3])
+      expect(subject.assessment.scores.count.to_s).to eq '3'     
+    end
+  end
 end

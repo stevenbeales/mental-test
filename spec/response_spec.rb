@@ -23,7 +23,7 @@ RSpec.describe Response, type: :model do
   
     
     context 'with value and assessment' do
-      it { expect { described_class.find_or_create_by! assessment: ass, value: 'something' }.not_to raise_error }
+      it { expect { described_class.find_or_create_by!(assessment: ass, value: 'something') }.not_to raise_error }
     end
   end
 
@@ -50,8 +50,8 @@ RSpec.describe Response, type: :model do
     
   describe 'multiple responses' do
     it do
-      rep2 = described_class.find_or_create_by! assessment: ass, value: '2' 
-      rep3 = described_class.create_with(score: 5).find_or_create_by! assessment: ass, value: '3' 
+      rep2 = described_class.create_with(score: 2).find_or_create_by!(assessment: ass, value: '2') 
+      rep3 = described_class.create_with(score: 5).find_or_create_by!(assessment: ass, value: '3') 
       ass.responses.concat([rep2, rep3])
       expect(subject.assessment.responses.count.to_s).to eq '3'     
     end
