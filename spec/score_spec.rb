@@ -32,7 +32,7 @@ RSpec.describe Score, type: :model do
       it { expect { Score.create_with(score: 8).find_or_create_by!(assessment: ass, name: 'tote') }.not_to raise_error }
     end
 
-    context 'with a duplicate assessment or name' do
+    context 'with a duplicate assessment and name' do
       it { expect { Score.create!(assessment: ass, name: 'tote') }.to raise_error ActiveRecord::RecordInvalid }
     end
   end

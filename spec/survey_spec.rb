@@ -17,6 +17,10 @@ RSpec.describe Survey do
     it 'with 2+ character name' do
       expect { described_class.find_or_create_by!(name: 'as') }.not_to raise_error
     end
+
+    it 'with duplicate name' do
+      expect { Survey.create!(name: AppConstants::TEST_SURVEY) }.to raise_error ActiveRecord::RecordInvalid
+    end
   end
 
   describe '.list_tests' do

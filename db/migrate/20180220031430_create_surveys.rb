@@ -10,5 +10,7 @@ class CreateSurveys < ActiveRecord::Migration[5.1]
       t.integer :max_attempts, null: false, default: 0
       t.timestamps null: false, default: Time.now
     end
+    
+    add_index :surveys, :name, unique: true
   end
 end
