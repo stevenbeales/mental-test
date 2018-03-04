@@ -33,7 +33,13 @@ RSpec.describe Score, type: :model do
     end
 
     context 'with a duplicate assessment and name' do
-      it { expect { Score.create!(assessment: ass, name: 'tote', order_number: 1) }.to raise_error ActiveRecord::RecordInvalid }
+      it do
+        expect do
+          Score.create!(assessment: ass, \
+                        name: 'tote', \
+                        order_number: 1).to raise_error ActiveRecord::RecordInvalid
+        end 
+      end 
     end
   end
 

@@ -16,6 +16,10 @@ RSpec.describe Assessment, type: :model do
     context 'with visit' do
       it { expect { described_class.find_or_create_by! visit: visit }.not_to raise_error }
     end
+
+    context 'with order_number' do
+      it { expect(subject.order_number).to be > 0 } 
+    end
   end
   
   describe '#user' do

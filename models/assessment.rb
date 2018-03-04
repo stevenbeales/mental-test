@@ -25,6 +25,7 @@ class Assessment < ApplicationRecord
   has_many :scores, inverse_of: :assessment, dependent: :destroy
   
   validates :visit, presence: true
+  validates :order_number, presence: true
 
   def to_s
     visit.to_s
