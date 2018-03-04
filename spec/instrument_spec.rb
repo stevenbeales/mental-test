@@ -58,7 +58,7 @@ RSpec.describe Instrument, type: :model do
         subject.tags -= %w[Depression]
         subject.tags += %w[Schizophrenia]
         subject.save!
-        expect(described_class.with_any_tags('Anxiety')&.first).to eq subject
+        expect(described_class.with_any_tags('Anxiety')&.first&.name).to eq subject.name
       end
     end
 
