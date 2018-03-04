@@ -33,9 +33,22 @@ RSpec.describe Assessment, type: :model do
   describe '#to_s' do
     context 'user survey visit' do
       it do 
-        expect(described_class.where(visit: visit).first.to_s).to \
-          eq(visit.to_s)
+        expect(described_class.where(visit: visit).first.to_s).to eq(visit.to_s)
       end
+    end
+  end
+
+  describe 'multiple assessments' do
+    it do
+      visit.assessments.each(&:destroy!)
+      expect(visit.assessments.count.to_s).to eq '0' 
+    end
+
+    it do
+      ass1 = described_class.create! visit: visit
+      ass2 = described_class.create! visit: visit
+      visit.assessments.concat [ass1, ass2]
+      expect(visit.assessments.count.to_s).to eq '2' 
     end
   end
 end

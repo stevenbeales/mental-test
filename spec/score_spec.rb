@@ -31,6 +31,10 @@ RSpec.describe Score, type: :model do
     context 'with an assessment or name' do
       it { expect { Score.create_with(score: 8).find_or_create_by!(assessment: ass, name: 'tote') }.not_to raise_error }
     end
+
+    context 'with a duplicate assessment or name' do
+      it { expect { Score.create!(assessment: ass, name: 'tote') }.to raise_error ActiveRecord::RecordInvalid }
+    end
   end
 
   describe '#destroy!' do
@@ -43,6 +47,11 @@ RSpec.describe Score, type: :model do
   end
     
   describe 'multiple scores' do
+    it do
+      ass.scores.each(&:destroy!)
+      expect(ass.scores.count.to_s).to eq '0' 
+    end
+
     it do
       rep2 = described_class.create_with(score: 2).find_or_create_by! assessment: ass, name: 'Depression' 
       rep3 = described_class.create_with(score: 5).find_or_create_by! assessment: ass, name: 'Anxiety' 
