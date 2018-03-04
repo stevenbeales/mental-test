@@ -6,7 +6,7 @@ class CreateAssessmentInstruments < ActiveRecord::Migration[5.1]
     create_table :assessment_instruments do |t|
       t.references :assessment, null: false
       t.references :instrument, null: false
-      t.timestamps null: false, default: Time.now
+      t.timestamps null: false, default: -> { 'CURRENT_TIMESTAMP' }
     end
 
     add_index :assessment_instruments, %i[assessment_id instrument_id], unique: true

@@ -8,7 +8,7 @@ class CreateChoices < ActiveRecord::Migration[5.1]
       t.string :value, null: false
       t.integer :score, null: false, default: -1
       t.string :description, null: false
-      t.timestamps null: false, default: Time.now
+      t.timestamps null: false, default: -> { 'CURRENT_TIMESTAMP' }
     end
 
     add_foreign_key :choices, :rating_scales

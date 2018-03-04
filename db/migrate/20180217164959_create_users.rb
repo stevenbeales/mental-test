@@ -10,7 +10,7 @@ class CreateUsers < ActiveRecord::Migration[5.1]
       t.string :lastname, null: true
       t.text :access_token, null: false, default: ''
       t.jsonb :preferences, null: false, default: '{}'
-      t.timestamps null: false, default: Time.now
+      t.timestamps null: false, default: -> { 'CURRENT_TIMESTAMP' }
     end
 
     add_indexes_and_keys

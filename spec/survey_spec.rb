@@ -49,7 +49,7 @@ RSpec.describe Survey do
       user = User.find_or_create_by! username: Faker::Internet.unique.user_name(5..20)
       vt = Visit.find_or_create_by! user: user, name: 'Visit 27', survey: survey
       assessment = Assessment.find_or_create_by! visit: vt 
-      another_assessment = Assessment.create! visit: vt
+      another_assessment = Assessment.create! visit: vt, order_number: 2
       survey.visits.concat(vt)
       vt.assessments.concat(assessment)
       vt.assessments.concat(another_assessment)

@@ -46,7 +46,7 @@ RSpec.describe Assessment, type: :model do
 
     it do
       ass1 = described_class.create! visit: visit
-      ass2 = described_class.create! visit: visit
+      ass2 = described_class.create! visit: visit, order_number: 2
       visit.assessments.concat [ass1, ass2]
       expect(visit.assessments.count.to_s).to eq '2' 
     end

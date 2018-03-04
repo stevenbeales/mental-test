@@ -11,7 +11,7 @@ class CreateVersions < ActiveRecord::Migration[5.1]
       t.string   :event,     null: false
       t.string   :whodunnit
       t.text     :object, limit: TEXT_BYTES
-      t.datetime :created_at
+      t.datetime :created_at, default: -> { 'CURRENT_TIMESTAMP' }
     end
     add_index :versions, %i[item_type item_id]
   end
