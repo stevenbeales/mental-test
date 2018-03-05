@@ -51,19 +51,16 @@ class InstrumentLoader
     @response_scale
   end
 
-  def load_choice!(ch)
-    Choice.create_with(description: ch['text']) \
-          .find_or_create_by(response_scale: @response_scale, value: ch['value'])
+  def load_choice!(choice)
+    Choice.create_with(description: choice['text']) \
+          .find_or_create_by(response_scale: @response_scale, value: choice['value'])
   end
 
   def load_items!(elements)
     elements.map do |e| 
-      item = Item.create!(instrument: @instrument, \
-                          name: e['name'], \
-                          item_type: e['type'], \
-                          is_required: e['isRequired'], \
-                          response_scale: @response_scale, \
-                          title: e['title'])
+      item = Item.create!(instrument: @instrument, name: e['name'], \
+                          item_type: e['type'], is_required: e['isRequired'], \
+                          response_scale: @response_scale, title: e['title'])
       @instrument.items.concat(item)
     end
     @instrument.items
