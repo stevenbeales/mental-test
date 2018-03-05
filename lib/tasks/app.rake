@@ -18,6 +18,6 @@ namespace :app do
 
   desc 'run rubocop'
   task :cop do
-    sh %( rubocop )
+    sh %( bundle exec rubocop )
   end
 end
