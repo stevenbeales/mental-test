@@ -10,6 +10,7 @@ before_script:
 script:
   - RACK_ENV=test bundle exec rake db:migrate
   - RACK_ENV=test bundle exec rake spec
+  - bundle exec rake app:cop
   - bundle exec rake bundle:audit
 
 addons:
