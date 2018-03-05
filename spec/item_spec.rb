@@ -35,4 +35,9 @@ RSpec.describe Item, type: :model do
       expect(subject.instrument).to eq(instrument)
     end
   end
+  
+  describe 'created_at today' do
+    # expect record to be created within the last 5 minutes to check timestamp works
+    it { expect(Time.now - subject.created_at).to be < 300 }
+  end
 end

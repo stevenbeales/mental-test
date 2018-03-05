@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180304030326) do
+ActiveRecord::Schema.define(version: 20180305180749) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -47,6 +47,13 @@ ActiveRecord::Schema.define(version: 20180304030326) do
     t.index ["response_scale_id"], name: "index_choices_on_response_scale_id"
   end
 
+  create_table "folders", force: :cascade do |t|
+    t.string "name", null: false
+    t.datetime "created_at", default: -> { "CURRENT_TIMESTAMP" }, null: false
+    t.datetime "updated_at", default: -> { "CURRENT_TIMESTAMP" }, null: false
+    t.index ["name"], name: "index_folders_on_name"
+  end
+
   create_table "instruments", force: :cascade do |t|
     t.string "name", null: false
     t.string "version_number", default: "1.0", null: false
@@ -71,6 +78,16 @@ ActiveRecord::Schema.define(version: 20180304030326) do
     t.index ["instrument_id"], name: "index_items_on_instrument_id"
     t.index ["name"], name: "index_items_on_name", unique: true
     t.index ["response_scale_id"], name: "index_items_on_response_scale_id"
+  end
+
+  create_table "projects", force: :cascade do |t|
+    t.string "name", null: false
+    t.bigint "folder_id"
+    t.string "title", null: false
+    t.datetime "created_at", default: -> { "CURRENT_TIMESTAMP" }, null: false
+    t.datetime "updated_at", default: -> { "CURRENT_TIMESTAMP" }, null: false
+    t.index ["folder_id"], name: "index_projects_on_folder_id"
+    t.index ["name"], name: "index_projects_on_name"
   end
 
   create_table "response_scales", force: :cascade do |t|

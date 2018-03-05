@@ -13,10 +13,15 @@ todo.txt
 Gemfile.lock
 
 # Windows batch files
-rap.bat
+bin/rap.bat
+bin/mit.bat
+bin/mid.bat
+bin/be.bat
+
+#environment files
 .env
 
 # logs
 log/development.log
 log/production.log
-be.bat
+

@@ -63,6 +63,13 @@ RSpec.describe Score, type: :model do
       rep3 = described_class.create_with(score: 5).find_or_create_by! assessment: ass, name: 'Anxiety' 
       ass.scores.concat([rep2, rep3])
       expect(subject.assessment.scores.count.to_s).to eq '3'     
+      rep2.destroy!
+      rep3.destroy!
     end
+  end
+
+  describe 'created_at today' do
+    # expect record to be created within the last 5 minutes to check timestamp works
+    it { expect(Time.now - subject.created_at).to be < 300 }
   end
 end

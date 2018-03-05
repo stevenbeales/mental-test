@@ -3,6 +3,8 @@
 require './models/init'
 
 RSpec.describe User, type: :model do
+  subject { described_class.find_or_create_by!(username: 'Steven') }
+
   describe '.authenticate' do
     it 'creates a user if one does not exist' do
       expect { described_class.authenticate(Faker::Internet.unique.user_name(5..20)) }.to change { User.count }.by(1)
@@ -50,5 +52,10 @@ RSpec.describe User, type: :model do
       user = described_class.new(username: 'Timmy')
       expect(user.to_s).to eq(user.username) 
     end
+  end
+
+  describe 'created_at today' do
+    # expect record to be created within the last 5 minutes to check timestamp works
+    it { expect(Time.now - subject.created_at).to be < 300 }
   end
 end

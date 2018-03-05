@@ -5,9 +5,12 @@ module AppConstants
   APP_NAME = 'Mental Health'
   LOADER_INSTRUMENT_EXISTS = 'An instrument of that name already exists. To overwrite please pass overwrite: true'
   LOADER_NIL_INSTRUMENT = 'Error: no instrument was passed. Please create your instrument before loading contents.'
+  TEST_FOLDER = 'Test Folder'
   TEST_INSTRUMENT = 'Cesd-r'
+  TEST_PROJECT = 'Project Test'
+  TEST_PROJECT_TITLE = 'Project Test Title'
+  TEST_RESPONSE_SCALE = 'Test Response Scale'
   TEST_SURVEY = 'Depression Survey'
   TEST_USER = 'Test User'
   TEST_VISIT = 'Test Visit'
-  TEST_RESPONSE_SCALE = 'Test Response Scale'
 end
