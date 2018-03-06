@@ -1,9 +1,11 @@
 # frozen_string_literal: true
 
-# Model to represent studies
-class Study < ApplicationRecord
-  has_one :schedule, inverse_of: :study, dependent: :destroy
+# Model to represent visit schedules
+class Schedule < ApplicationRecord
+  belongs_to :study
+
   validates :name, presence: true
+  validates :study, presence: true
   validates_uniqueness_of :name
   validates_length_of :name, \
                       within: 2..50, \

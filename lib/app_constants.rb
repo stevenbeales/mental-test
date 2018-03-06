@@ -10,6 +10,7 @@ module AppConstants
   TEST_PROJECT = 'Project Test'
   TEST_PROJECT_TITLE = 'Project Test Title'
   TEST_RESPONSE_SCALE = 'Test Response Scale'
+  TEST_SCHEDULE = 'Test Schedule'
   TEST_STUDY = 'Test Study'
   TEST_SURVEY = 'Depression Survey'
   TEST_USER = 'Test User'

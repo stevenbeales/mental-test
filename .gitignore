@@ -18,7 +18,7 @@ bin/mit.bat
 bin/mid.bat
 bin/be.bat
 bin/rt.bat
-
+bin/cmig.bat
 
 #environment files
 .env
@@ -26,3 +26,4 @@ bin/rt.bat
 # logs
 log/development.log
 log/production.log
+

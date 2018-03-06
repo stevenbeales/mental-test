@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180306043815) do
+ActiveRecord::Schema.define(version: 20180306151658) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -113,6 +113,15 @@ ActiveRecord::Schema.define(version: 20180306043815) do
     t.index ["choice_id"], name: "index_responses_on_choice_id"
   end
 
+  create_table "schedules", force: :cascade do |t|
+    t.string "name", null: false
+    t.bigint "study_id", null: false
+    t.datetime "created_at", default: -> { "CURRENT_TIMESTAMP" }, null: false
+    t.datetime "updated_at", default: -> { "CURRENT_TIMESTAMP" }, null: false
+    t.index ["name"], name: "index_schedules_on_name"
+    t.index ["study_id"], name: "index_schedules_on_study_id"
+  end
+
   create_table "scores", force: :cascade do |t|
     t.bigint "assessment_id", null: false
     t.string "name", null: false
@@ -191,6 +200,7 @@ ActiveRecord::Schema.define(version: 20180306043815) do
   add_foreign_key "items", "instruments"
   add_foreign_key "items", "response_scales"
   add_foreign_key "responses", "assessments"
+  add_foreign_key "schedules", "studies"
   add_foreign_key "scores", "assessments"
   add_foreign_key "user_surveys", "surveys"
   add_foreign_key "user_surveys", "users"
