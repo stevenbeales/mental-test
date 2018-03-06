@@ -12,14 +12,6 @@ todo.txt
 ## Gemfile.lock does not work crossplatform
 Gemfile.lock
 
-# Windows batch files
-bin/rap.bat
-bin/mit.bat
-bin/mid.bat
-bin/be.bat
-bin/rt.bat
-bin/cmig.bat
-
 #environment files
 .env
 

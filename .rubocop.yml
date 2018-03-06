@@ -4,6 +4,7 @@ AllCops:
     - 'vendor/**/*'
     - '.git/**/*'
     - 'db/schema.rb'
+    - 'bin/**/*'
   TargetRubyVersion: 2.4
 Metrics/LineLength:
   Max: 125

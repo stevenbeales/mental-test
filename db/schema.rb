@@ -184,11 +184,12 @@ ActiveRecord::Schema.define(version: 20180306151658) do
   create_table "visits", force: :cascade do |t|
     t.bigint "survey_id", null: false
     t.bigint "user_id", null: false
-    t.string "name", default: -> { "CURRENT_TIMESTAMP" }, null: false
+    t.string "name"
+    t.integer "number", default: 1, null: false
     t.datetime "visit_date", default: -> { "CURRENT_TIMESTAMP" }, null: false
     t.datetime "created_at", default: -> { "CURRENT_TIMESTAMP" }, null: false
     t.datetime "updated_at", default: -> { "CURRENT_TIMESTAMP" }, null: false
-    t.index ["survey_id", "user_id", "name"], name: "index_visits_on_survey_id_and_user_id_and_name", unique: true
+    t.index ["survey_id", "user_id", "number"], name: "index_visits_on_survey_id_and_user_id_and_number", unique: true
     t.index ["survey_id"], name: "index_visits_on_survey_id"
     t.index ["user_id"], name: "index_visits_on_user_id"
   end

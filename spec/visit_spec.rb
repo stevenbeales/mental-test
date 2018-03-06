@@ -29,15 +29,15 @@ RSpec.describe Visit, type: :model do
   describe '#to_s' do
     it do
       ur = User.find_or_create_by! username: 'bernie'
-      v = described_class.find_or_create_by! user: ur, name: AppConstants::TEST_VISIT, survey: survey
-      expect(v.to_s).to eq("bernie #{survey.name} #{v.name}")
+      v = described_class.find_or_create_by! user: ur, number: 1, survey: survey
+      expect(v.to_s).to eq("bernie #{survey.name} #{v.number}")
     end
   end
  
   describe '#destroy!' do
     it do
       cached_id = assessment.id
-      v1 = described_class.find_or_create_by! user: user, name: 'visit 1', survey: survey
+      v1 = described_class.find_or_create_by! user: user, name: 'visit 1', survey: survey, number: 2
       v1.assessments.concat(assessment)
       v1.destroy
       expect { Assessment.find(cached_id) }.to raise_error(ActiveRecord::RecordNotFound)

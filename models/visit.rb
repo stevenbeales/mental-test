@@ -22,10 +22,11 @@ class Visit < ApplicationRecord
   
   validates :user, presence: true
   validates :survey, presence: true
-  validates_uniqueness_of :name, scope: %i[survey user] 
-  validates :name, presence: true, allow_blank: false
+  validates_uniqueness_of :number, scope: %i[survey user] 
+  validates :number, presence: true, allow_blank: false
+  validates :number, numericality: { only_integer: true, greater_than_or_equal_to: 1, less_than_or_equal_to: 10_000 }
 
   def to_s
-    "#{user} #{survey} #{name}"
+    "#{user} #{survey} #{number}"
   end
 end
