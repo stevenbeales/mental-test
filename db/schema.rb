@@ -10,10 +10,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180306151658) do
+ActiveRecord::Schema.define(version: 20180306180610) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "arms", force: :cascade do |t|
+    t.string "name", null: false
+    t.integer "number", null: false
+    t.bigint "schedule_id", null: false
+    t.datetime "created_at", default: -> { "CURRENT_TIMESTAMP" }, null: false
+    t.datetime "updated_at", default: -> { "CURRENT_TIMESTAMP" }, null: false
+    t.index ["name"], name: "index_arms_on_name"
+    t.index ["number"], name: "index_arms_on_number"
+    t.index ["schedule_id", "name"], name: "index_arms_on_schedule_id_and_name", unique: true
+    t.index ["schedule_id", "number"], name: "index_arms_on_schedule_id_and_number", unique: true
+    t.index ["schedule_id"], name: "index_arms_on_schedule_id"
+  end
 
   create_table "assessment_instruments", force: :cascade do |t|
     t.bigint "assessment_id", null: false
@@ -194,6 +207,7 @@ ActiveRecord::Schema.define(version: 20180306151658) do
     t.index ["user_id"], name: "index_visits_on_user_id"
   end
 
+  add_foreign_key "arms", "schedules"
   add_foreign_key "assessment_instruments", "assessments"
   add_foreign_key "assessment_instruments", "instruments"
   add_foreign_key "assessments", "visits"

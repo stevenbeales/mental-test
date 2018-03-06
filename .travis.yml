@@ -8,11 +8,9 @@ before_script:
   - psql -c "CREATE USER mental WITH PASSWORD 'health';" -U postgres
 
 script:
-  - export PATH="./bin:$PATH"
   - RACK_ENV=test bundle exec rake db:migrate
   - RACK_ENV=test bundle exec rake spec
   - bundle exec rake bundle:audit
-  - bundle exec rake app:cop
   
 addons:
   postgresql: "9.6"

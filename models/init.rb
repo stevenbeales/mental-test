@@ -2,6 +2,7 @@
 
 require_relative 'alexa_help'
 require_relative 'application_record'
+require_relative 'arm'
 require_relative 'assessment'
 require_relative 'assessment_instrument'
 require_relative 'choice'
