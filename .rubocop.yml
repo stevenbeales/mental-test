@@ -7,6 +7,8 @@ AllCops:
   TargetRubyVersion: 2.4
 Metrics/LineLength:
   Max: 125
+Metrics/MethodLength:
+  Max: 15
 Layout/ClassStructure:
   Description: 'Enforces a configured order of definitions within a class body.'
   StyleGuide: 'https://github.com/bbatsov/ruby-style-guide#consistent-classes'
@@ -30,4 +32,3 @@ Metrics/BlockLength:
     - 'Rakefile'
     - '**/*.rake'
     - 'spec/**/*.rb'
-  

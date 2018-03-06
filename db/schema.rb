@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180305180749) do
+ActiveRecord::Schema.define(version: 20180306043815) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -84,6 +84,12 @@ ActiveRecord::Schema.define(version: 20180305180749) do
     t.string "name", null: false
     t.bigint "folder_id"
     t.string "title", null: false
+    t.text "purpose"
+    t.string "irb_number"
+    t.string "grant_number"
+    t.string "pi_firstname"
+    t.string "pi_lastname"
+    t.boolean "archived", default: false
     t.datetime "created_at", default: -> { "CURRENT_TIMESTAMP" }, null: false
     t.datetime "updated_at", default: -> { "CURRENT_TIMESTAMP" }, null: false
     t.index ["folder_id"], name: "index_projects_on_folder_id"
@@ -116,6 +122,13 @@ ActiveRecord::Schema.define(version: 20180305180749) do
     t.index ["assessment_id", "name"], name: "index_scores_on_assessment_id_and_name", unique: true
     t.index ["assessment_id"], name: "index_scores_on_assessment_id"
     t.index ["name"], name: "index_scores_on_name"
+  end
+
+  create_table "studies", force: :cascade do |t|
+    t.string "name", null: false
+    t.datetime "created_at", default: -> { "CURRENT_TIMESTAMP" }, null: false
+    t.datetime "updated_at", default: -> { "CURRENT_TIMESTAMP" }, null: false
+    t.index ["name"], name: "index_studies_on_name"
   end
 
   create_table "surveys", force: :cascade do |t|

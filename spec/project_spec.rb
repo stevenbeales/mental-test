@@ -25,6 +25,14 @@ RSpec.describe Project, type: :model do
       end
     end
   end
+
+  describe 'active projects' do
+    it do
+      described_class.find_or_create_by! name: 'Test Project Active', title: 'title'
+      described_class.find_or_create_by! name: 'Test Archived', archived: true, title: 'title'
+      expect(described_class.list_active_projects).not_to include 'Archived '
+    end 
+  end
   
   describe '#to_s' do
     it { expect(subject.to_s).to eq AppConstants::TEST_PROJECT }
