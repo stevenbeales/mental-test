@@ -18,6 +18,6 @@ class CreateItems < ActiveRecord::Migration[5.1]
   def add_keys_and_indexes
     add_foreign_key :items, :instruments
     add_foreign_key :items, :response_scales
-    add_index :items, :name, unique: true
+    add_index :items, :name, unique: true, name: 'index_by_item_name'
   end
 end

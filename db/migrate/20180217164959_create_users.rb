@@ -17,7 +17,7 @@ class CreateUsers < ActiveRecord::Migration[5.1]
   end
 
   def add_indexes_and_keys
-    add_index :users, :preferences, using: :gin
-    add_index :users, :username, unique: true
+    add_index :users, :preferences, using: :gin, name: 'preferences'
+    add_index :users, :username, unique: true, name: 'username'
   end
 end

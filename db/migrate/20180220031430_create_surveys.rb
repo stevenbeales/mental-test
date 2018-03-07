@@ -11,6 +11,6 @@ class CreateSurveys < ActiveRecord::Migration[5.1]
       t.timestamps null: false, default: -> { 'CURRENT_TIMESTAMP' }
     end
     
-    add_index :surveys, :name, unique: true
+    add_index :surveys, :name, unique: true, name: 'index_by_survey_name'
   end
 end

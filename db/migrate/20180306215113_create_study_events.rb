@@ -11,6 +11,6 @@ class CreateStudyEvents < ActiveRecord::Migration[5.1]
       t.timestamps null: false, default: -> { 'CURRENT_TIMESTAMP' }
     end
 
-    add_index :study_events, %i[arm_id name], unique: true
+    add_index :study_events, %i[arm_id name], unique: true, name: 'index_by_arm_name'
   end
 end

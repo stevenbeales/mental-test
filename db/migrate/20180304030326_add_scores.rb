@@ -11,6 +11,6 @@ class AddScores < ActiveRecord::Migration[5.1]
     end
 
     add_foreign_key :scores, :assessments
-    add_index :scores, %i[assessment_id name], unique: true
+    add_index :scores, %i[assessment_id name], unique: true, name: 'index_by_assessment_name'
   end
 end

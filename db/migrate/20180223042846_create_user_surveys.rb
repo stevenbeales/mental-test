@@ -9,7 +9,7 @@ class CreateUserSurveys < ActiveRecord::Migration[5.1]
       t.timestamps null: false, default: -> { 'CURRENT_TIMESTAMP' }
     end
 
-    add_index :user_surveys, %i[user_id survey_id], unique: true
+    add_index :user_surveys, %i[user_id survey_id], unique: true, name: 'index_by_user_survey'
     add_foreign_key :user_surveys, :users
     add_foreign_key :user_surveys, :surveys
   end

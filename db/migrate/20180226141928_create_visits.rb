@@ -14,6 +14,6 @@ class CreateVisits < ActiveRecord::Migration[5.1]
 
     add_foreign_key :visits, :users
     add_foreign_key :visits, :surveys
-    add_index :visits, %i[survey_id user_id number], unique: true
+    add_index :visits, %i[survey_id user_id number], unique: true, name: 'index_by_survey_user_number'
   end
 end

@@ -8,6 +8,6 @@ class CreateResponseScales < ActiveRecord::Migration[5.1]
       t.timestamps null: false, default: -> { 'CURRENT_TIMESTAMP' }
     end
  
-    add_index :response_scales, :name, unique: true
+    add_index :response_scales, :name, unique: true, name: 'index_by_response_scale_name'
   end
 end

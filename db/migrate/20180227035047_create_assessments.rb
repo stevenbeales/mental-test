@@ -11,8 +11,8 @@ class CreateAssessments < ActiveRecord::Migration[5.1]
       t.timestamps null: false, default: -> { 'CURRENT_TIMESTAMP' }
     end
 
-    add_index :assessments, :content, using: :gin
-    add_index :assessments, %i[visit_id order_number], unique: true
+    add_index :assessments, :content, using: :gin, name: 'assessment_content'
+    add_index :assessments, %i[visit_id order_number], unique: true, name: 'index_by_visit_order_number'
     add_foreign_key :assessments, :visits
   end
 end

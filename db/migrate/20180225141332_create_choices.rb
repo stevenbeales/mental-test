@@ -12,6 +12,6 @@ class CreateChoices < ActiveRecord::Migration[5.1]
     end
 
     add_foreign_key :choices, :response_scales
-    add_index :choices, %i[response_scale_id value], unique: true
+    add_index :choices, %i[response_scale_id value], unique: true, name: 'index_by_response_scale_value'
   end
 end

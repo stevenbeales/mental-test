@@ -6,6 +6,6 @@ class AddTagsToInstrument < ActiveRecord::Migration[5.1]
     change_table :instruments do |t|
       t.string :tags, array: true, default: '{}'
     end
-    add_index :instruments, :tags, using: 'gin'
+    add_index :instruments, :tags, using: 'gin', name: 'instrument_tags'
   end
 end
