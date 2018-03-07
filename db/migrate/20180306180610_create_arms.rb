@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-# Model to represent study arms
+# Table to represent study arms
 class CreateArms < ActiveRecord::Migration[5.1]
   def change
     create_table :arms do |t|

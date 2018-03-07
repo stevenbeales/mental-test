@@ -13,6 +13,7 @@ module AppConstants
   TEST_RESPONSE_SCALE = 'Test Response Scale'
   TEST_SCHEDULE = 'Test Schedule'
   TEST_STUDY = 'Test Study'
+  TEST_STUDY_EVENT = 'Test Study Event'
   TEST_SURVEY = 'Depression Survey'
   TEST_USER = 'Test User'
   TEST_VISIT = 'Test Visit'

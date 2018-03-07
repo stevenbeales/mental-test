@@ -4,6 +4,8 @@
 class Arm < ApplicationRecord
   belongs_to :schedule, inverse_of: :arms 
   delegate :study, to: :schedule, allow_nil: true
+  has_many :study_events
+  
   validates :name, presence: true
   validates :schedule, presence: true
   validates_uniqueness_of :number, scope: %i[schedule] 

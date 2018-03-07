@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-# Model to represent schedules
+# Table to represent schedules
 class CreateSchedules < ActiveRecord::Migration[5.1]
   def change
     create_table :schedules do |t|

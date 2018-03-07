@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180306180610) do
+ActiveRecord::Schema.define(version: 20180306215113) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -153,6 +153,19 @@ ActiveRecord::Schema.define(version: 20180306180610) do
     t.index ["name"], name: "index_studies_on_name"
   end
 
+  create_table "study_events", force: :cascade do |t|
+    t.string "name", null: false
+    t.integer "order", default: 1, null: false
+    t.bigint "arm_id", null: false
+    t.datetime "event_date", default: -> { "CURRENT_TIMESTAMP" }, null: false
+    t.datetime "created_at", default: -> { "CURRENT_TIMESTAMP" }, null: false
+    t.datetime "updated_at", default: -> { "CURRENT_TIMESTAMP" }, null: false
+    t.index ["arm_id", "name"], name: "index_study_events_on_arm_id_and_name", unique: true
+    t.index ["arm_id"], name: "index_study_events_on_arm_id"
+    t.index ["name"], name: "index_study_events_on_name"
+    t.index ["order"], name: "index_study_events_on_order"
+  end
+
   create_table "surveys", force: :cascade do |t|
     t.string "name", null: false
     t.boolean "is_active", default: true, null: false
@@ -217,6 +230,7 @@ ActiveRecord::Schema.define(version: 20180306180610) do
   add_foreign_key "responses", "assessments"
   add_foreign_key "schedules", "studies"
   add_foreign_key "scores", "assessments"
+  add_foreign_key "study_events", "arms"
   add_foreign_key "user_surveys", "surveys"
   add_foreign_key "user_surveys", "users"
   add_foreign_key "visits", "surveys"

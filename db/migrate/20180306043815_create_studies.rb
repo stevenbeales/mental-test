@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-# Model to represent studies
+# Table to represent studies
 class CreateStudies < ActiveRecord::Migration[5.1]
   def change
     create_table :studies do |t|

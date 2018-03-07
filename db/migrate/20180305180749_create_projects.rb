@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-# Model to represent projects 
+# Table to represent projects 
 # Projects are the development and production phase of a study
 class CreateProjects < ActiveRecord::Migration[5.1]
   def change
