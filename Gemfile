@@ -25,4 +25,5 @@ group :test do
   gem 'rspec', '~> 3.7.0', require: false # for behavioral driven testing
   gem 'rubocop', '~> 0.53.0', require: false # syntax checking
   gem 'simplecov', '~> 0.15.1', require: false # for code coverage
+  gem 'travis', '~> 1.8.8', require: false #for continuous integrations
 end
