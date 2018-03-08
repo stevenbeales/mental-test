@@ -12,8 +12,8 @@
 class StudyEventInstrument < ApplicationRecord
   # has_paper_trail
 
-  belongs_to :study_event, inverse_of: :study_events_instruments
-  belongs_to :instrument, inverse_of: :study_events_instruments
+  belongs_to :study_event, inverse_of: :study_event_instruments
+  belongs_to :instrument, inverse_of: :study_event_instruments
 
   validates :study_event, presence: true
   validates :instrument, presence: true

@@ -37,11 +37,11 @@ RSpec.configure do |config|
   config.before(:all) { Faker::Config.random = Random.new(config.seed) }
 
   # Disable validation of Alexa requests as these will fail when running under rspec
-  #  config.before :each do
-  #   Ralyxa.configure do |c|
-  #    c.validate_requests = false
-  #  end
-  # end
+  config.before :each do
+    Ralyxa.configure do |c|
+      c.validate_requests = false
+    end
+  end
 
   # rspec-expectations config goes here. You can use an alternate
   # assertion/expectation library such as wrong or the stdlib/minitest

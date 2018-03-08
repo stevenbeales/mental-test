@@ -5,7 +5,9 @@ class StudyEvent < ApplicationRecord
   belongs_to :arm, inverse_of: :study_events 
   delegate :schedule, to: :arm, allow_nil: true
   delegate :study, to: :schedule, allow_nil: true
-  
+  has_many :study_event_instruments
+  has_many :instruments, through: :study_event_instruments
+    
   validates :name, presence: true
   validates :arm, presence: true
   validates :name, presence: true

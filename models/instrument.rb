@@ -21,6 +21,7 @@ class Instrument < ApplicationRecord
   acts_as_taggable_array_on :tags
 
   has_many :assessment_instruments, inverse_of: :instrument, dependent: :destroy
+  has_many :study_event_instruments, inverse_of: :instrument, dependent: :destroy
   has_many :assessments, through: :assessment_instruments
   has_many :items, inverse_of: :instrument, dependent: :destroy
   
