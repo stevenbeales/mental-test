@@ -4,7 +4,7 @@ require './models/init'
 
 RSpec.describe Choice, type: :model do
   subject { described_class.find_or_create_by! response_scale: scale, value: 'val', description: 'text' }
-  let!(:scale) { ResponseScale.find_or_create_by! name: AppConstants::TEST_RESPONSE_SCALE }
+  let!(:scale) { TestFactory.test_response_scale }
 
   describe '.create!' do
     context 'without response scale or value' do

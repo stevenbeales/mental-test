@@ -2,23 +2,23 @@
 
 RSpec.describe Schedule, type: :model do
   subject { described_class.find_or_create_by! name: AppConstants::TEST_SCHEDULE, study: study }
-  let!(:study) { Study.find_or_create_by! name: AppConstants::TEST_STUDY }
+  let!(:study) { TestFactory.test_study }
  
  
   describe '.create!' do
-    context 'without a name or study' do
+    context 'without name or study' do
       it { expect { described_class.create! }.to raise_error ActiveRecord::RecordInvalid }
     end  
 
-    context 'with 1 character name' do
+    context '1 character name' do
       it { expect { described_class.create! name: 'a', study: study }.to raise_error ActiveRecord::RecordInvalid }
     end
     
-    context 'with 2+ character name and title' do
+    context '2+ character name and title' do
       it { expect { described_class.find_or_create_by! name: 'as', study: study }.to_not raise_error }
     end
 
-    context 'has unique name' do
+    context 'unique name' do
       it do
         rs = described_class.create! name: 'a12', study: study
         expect { described_class.create! name: 'a12', study: study }.to raise_error ActiveRecord::RecordInvalid

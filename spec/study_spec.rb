@@ -1,18 +1,18 @@
 # frozen_string_literal: true
 
 RSpec.describe Study, type: :model do
-  subject { described_class.find_or_create_by! name: AppConstants::TEST_STUDY }
+  subject { TestFactory.test_study }
  
   describe '.create!' do
     context 'without a name' do
       it { expect { described_class.create! }.to raise_error ActiveRecord::RecordInvalid }
     end  
 
-    context 'with 1 character name' do
+    context '1 character name' do
       it { expect { described_class.create! name: 'a' }.to raise_error ActiveRecord::RecordInvalid }
     end
     
-    context 'with 2+ character name and title' do
+    context '2+ character name and title' do
       it { expect { described_class.find_or_create_by! name: 'as' }.to_not raise_error }
     end
 

@@ -6,7 +6,7 @@ RSpec.describe StudyEventInstrument, type: :model do
   subject { described_class.find_or_create_by! study_event: study_event, instrument: instrument }
   let!(:arm) { Arm.find_or_create_by! name: AppConstants::TEST_ARM, schedule: schedule, number: 1 }
   let!(:schedule) { Schedule.find_or_create_by! name: AppConstants::TEST_SCHEDULE, study: study }
-  let!(:study) { Study.find_or_create_by! name: AppConstants::TEST_STUDY }
+  let!(:study) { TestFactory.test_study }
   let!(:instrument) { Instrument.find_by_name(AppConstants::TEST_INSTRUMENT) }
   let!(:study_event) { StudyEvent.find_or_create_by! name: AppConstants::TEST_STUDY_EVENT, arm: arm }
   
@@ -35,21 +35,15 @@ RSpec.describe StudyEventInstrument, type: :model do
       subject.destroy!
     end
 
-    context 'when instrument is not destroyed' do
-      it { expect(Instrument.exists?(instrument.id)).to be_truthy }
-    end
-
-    context 'when StudyEvent is not destroyed' do
-      it { expect(StudyEvent.exists?(study_event.id)).to be_truthy }
-    end
+    it { expect(Instrument.exists?(instrument.id)).to be_truthy }
+    
+    it { expect(StudyEvent.exists?(study_event.id)).to be_truthy }
   end
   
   describe '#to_s' do
-    context 'StudyEvent and instrument' do
-      it do 
-        expect(subject.class.where(study_event: study_event, instrument: instrument).first.to_s).to \
-          eq("#{study_event} #{instrument}")
-      end
+    it do 
+      expect(subject.class.where(study_event: study_event, instrument: instrument).first.to_s).to \
+        eq("#{study_event} #{instrument}")
     end
   end
 

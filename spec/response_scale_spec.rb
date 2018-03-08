@@ -1,18 +1,18 @@
 # frozen_string_literal: true
 
 RSpec.describe ResponseScale, type: :model do
-  subject { described_class.find_or_create_by! name: AppConstants::TEST_RESPONSE_SCALE }
+  subject { TestFactory.test_response_scale }
   
   describe '.create!' do
     context 'without a name' do
       it { expect { described_class.create! }.to raise_error ActiveRecord::RecordInvalid }
     end  
 
-    context 'with 1 character name' do
+    context '1 character name' do
       it { expect { described_class.create! name: 'a' }.to raise_error ActiveRecord::RecordInvalid }
     end
     
-    context 'with 2+ character name' do
+    context '2+ character name' do
       it { expect { described_class.find_or_create_by! name: 'as' }.to_not raise_error }
     end
 

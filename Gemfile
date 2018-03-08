@@ -26,4 +26,8 @@ group :test do
   gem 'rubocop', '~> 0.53.0', require: false # syntax checking
   gem 'simplecov', '~> 0.15.1', require: false # for code coverage
   gem 'travis', '~> 1.8.8', require: false #for continuous integrations
+  gem "factory_bot", "~> 4.0", require: false #for test data setup
 end
+
+# Added at 2018-03-08 11:26:55 -0500 by steven-surface\steven:
+gem "byebug", "~> 10.0", groups: [:development, :test], require: false

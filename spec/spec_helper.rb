@@ -21,6 +21,8 @@ require 'database_cleaner'
 require 'faker'
 require 'ralyxa'
 require 'simplecov'
+require 'factory_bot'
+require './spec/test_factory'
 require './services/init'
 
 SimpleCov.start
@@ -41,6 +43,12 @@ RSpec.configure do |config|
     Ralyxa.configure do |c|
       c.validate_requests = false
     end
+  end
+
+  config.include FactoryBot::Syntax::Methods
+
+  config.before(:suite) do
+    FactoryBot.find_definitions
   end
 
   # rspec-expectations config goes here. You can use an alternate

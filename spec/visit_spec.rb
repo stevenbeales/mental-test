@@ -4,20 +4,20 @@ require './models/init'
 
 RSpec.describe Visit, type: :model do 
   subject { described_class.find_or_create_by! survey: survey, name: AppConstants::TEST_VISIT, user: user }
-  let!(:survey) { Survey.find_or_create_by! name: AppConstants::TEST_SURVEY }
-  let!(:user) { User.find_or_create_by! username: AppConstants::TEST_USER }
+  let!(:survey) { TestFactory.test_survey }
+  let!(:user) { TestFactory.test_user }
   let!(:assessment) { Assessment.find_or_create_by! visit: subject }
     
   describe '.create!' do
-    context 'without survey and user' do
+    context 'no survey and user' do
       it { expect { described_class.create! }.to raise_error ActiveRecord::RecordInvalid }
     end
 
-    context 'without user' do
+    context 'no user' do
       it { expect { described_class.create! survey: survey }.to raise_error ActiveRecord::RecordInvalid }
     end
   
-    context 'without survey' do
+    context 'no survey' do
       it { expect { described_class.create! user: user }.to raise_error ActiveRecord::RecordInvalid }
     end
 
@@ -33,18 +33,8 @@ RSpec.describe Visit, type: :model do
       expect(v.to_s).to eq("bernie #{survey.name} #{v.number}")
     end
   end
- 
-  describe '#destroy!' do
-    it do
-      cached_id = assessment.id
-      v1 = described_class.find_or_create_by! user: user, name: 'visit 1', survey: survey, number: 2
-      v1.assessments.concat(assessment)
-      v1.destroy
-      expect { Assessment.find(cached_id) }.to raise_error(ActiveRecord::RecordNotFound)
-    end
-  end
 
-  describe 'visits are equal' do
+  describe '#eq' do
     context 'same user, survey and name' do
       ur = User.find_or_create_by! username: 'user compare'
       sy = Survey.find_or_create_by! name: 'survey compare'
@@ -56,12 +46,22 @@ RSpec.describe Visit, type: :model do
     end
   end
 
-  describe '.assessments' do
-    it do
+  describe '#destroy!' do
+    it 'destroys assessment' do
+      cached_id = assessment.id
+      v1 = described_class.find_or_create_by! user: user, name: 'visit 1', survey: survey, number: 2
+      v1.assessments.concat(assessment)
+      v1.destroy
+      expect { Assessment.find(cached_id) }.to raise_error(ActiveRecord::RecordNotFound)
+    end
+
+    it 'destroys assessments' do
       subject.assessments.each(&:destroy!)
       expect(subject.assessments.count.to_s).to eq '0' 
     end
+  end
 
+  describe '#concat assessments' do
     it do
       ass1 = Assessment.create! visit: subject, order_number: 24
       ass2 = Assessment.create! visit: subject, order_number: 2

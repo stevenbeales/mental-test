@@ -3,18 +3,18 @@
 require './models/init'
 
 RSpec.describe Survey do
-  subject { described_class.find_or_create_by! name: AppConstants::TEST_SURVEY }
+  subject { TestFactory.test_survey }
 
   describe '.create!' do
-    it 'without a name' do
+    it 'without name' do
       expect { described_class.create! }.to raise_error ActiveRecord::RecordInvalid
     end
 
-    it 'with single character name' do
+    it '1 character name' do
       expect { described_class.create!(name: 'a') }.to raise_error ActiveRecord::RecordInvalid
     end
 
-    it 'with 2+ character name' do
+    it '2+ character name' do
       expect { described_class.find_or_create_by!(name: 'as') }.not_to raise_error
     end
 
@@ -47,8 +47,8 @@ RSpec.describe Survey do
     end
   end 
 
-  describe '#assessments' do
-    it 'has multiple assessments' do
+  describe '#destroy!' do
+    it 'destroys assessments' do
       survey = described_class.find_or_create_by! name: Faker::Name.first_name
       user = User.find_or_create_by! username: Faker::Internet.unique.user_name(5..20)
       vt = Visit.find_or_create_by! user: user, name: 'Visit 27', survey: survey

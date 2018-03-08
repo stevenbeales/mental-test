@@ -5,11 +5,11 @@ RSpec.describe InstrumentLoader do
   let!(:instrument) { Instrument.find_by_name(AppConstants::TEST_INSTRUMENT) }
 
   context 'existing instrument' do
-    context 'overwrite is false' do
+    context 'overwrite false' do
       it { expect { subject.load(instrument: instrument) }.to raise_error(RuntimeError) }
     end
 
-    context 'overwrite is true' do
+    context 'overwrite true' do
       it { expect(subject.load(instrument: instrument, overwrite: true).name).to eq(instrument.name) }
     end
   end

@@ -3,18 +3,18 @@
 require './models/init'
 
 RSpec.describe User, type: :model do
-  subject { described_class.find_or_create_by!(username: 'Steven') }
+  subject { TestFactory.test_user }
 
   describe '.authenticate' do
     it 'creates a user if one does not exist' do
       expect { described_class.authenticate(Faker::Internet.unique.user_name(5..20)) }.to change { User.count }.by(1)
     end
 
-    it 'retrieves a user if a one with that name and access token does exist' do
-      described_class.create(username: 'Timmy', access_token: 'AccessToken')
-      expect { described_class.authenticate('Timmy') }.not_to(change { described_class.count })
-      expect(described_class.authenticate('Timmy').username).to eq 'Timmy'
-      expect(described_class.authenticate('Timmy').access_token).to eq 'AccessToken'
+    it 'retrieves a user if name and access token exists' do
+      timmy = create(:timmy)
+      expect { described_class.authenticate(timmy.username) }.not_to(change { described_class.count })
+      expect(described_class.authenticate(timmy.username).username).to eq timmy.username
+      expect(described_class.authenticate(timmy.username).access_token).to eq timmy.access_token
     end
 
     it 'does not create a user without a username' do
@@ -33,7 +33,7 @@ RSpec.describe User, type: :model do
     end
 
     it 'can be persisted' do
-      user = described_class.new(username: 'Timmy', access_token: 'AccessToken')
+      user = build(:timmy)
       user.save
 
       persisted_user = described_class.find_by_username 'Timmy'
@@ -42,14 +42,14 @@ RSpec.describe User, type: :model do
       expect(persisted_user.access_token).to eq 'AccessToken'
     end
 
-    it 'must have a unique name' do
+    it 'has unique name' do
       expect { described_class.authenticate('Timmy') }.to change { described_class.count }.by(0)
     end
   end
 
-  describe '.to_s' do
-    it 'prints username' do
-      user = described_class.new(username: 'Timmy')
+  describe '#to_s' do
+    it do
+      user = build(:timmy)
       expect(user.to_s).to eq(user.username) 
     end
   end

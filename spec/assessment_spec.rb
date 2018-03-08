@@ -4,8 +4,8 @@ require './models/init'
 
 RSpec.describe Assessment, type: :model do
   subject { described_class.find_or_create_by! visit: visit }
-  let!(:survey) { Survey.find_or_create_by! name: AppConstants::TEST_SURVEY }
-  let!(:user) { User.find_or_create_by! username: AppConstants::TEST_USER }
+  let!(:survey) { TestFactory.test_survey }
+  let!(:user) { TestFactory.test_user }
   let!(:visit) { Visit.find_or_create_by! user: user, name: AppConstants::TEST_VISIT, survey: survey }
 
   describe '.create!' do
@@ -17,28 +17,26 @@ RSpec.describe Assessment, type: :model do
       it { expect { described_class.find_or_create_by! visit: visit }.not_to raise_error }
     end
 
-    context 'with order_number' do
+    context 'with default order_number' do
       it { expect(subject.order_number).to be > 0 } 
     end
   end
   
   describe '#user' do
-    it 'has user' do
+    it do
       expect(subject.user).to eq(user) 
     end
   end 
 
   describe '#survey' do
-    it 'has survey' do
+    it do
       expect(subject.survey).to eq(survey) 
     end
   end 
 
   describe '#to_s' do
-    context 'user survey visit' do
-      it do 
-        expect(described_class.where(visit: visit).first.to_s).to eq(visit.to_s)
-      end
+    it do 
+      expect(described_class.where(visit: visit).first.to_s).to eq(visit.to_s)
     end
   end
 

@@ -18,7 +18,7 @@ RSpec.describe Folder, type: :model do
       it { expect { described_class.find_or_create_by! name: 'as' }.to_not raise_error }
     end
 
-    context 'has unique name' do
+    context 'with unique name' do
       it do
         rs = described_class.create! name: 'a12'
         expect { described_class.create! name: 'a12' }.to raise_error ActiveRecord::RecordInvalid
@@ -28,7 +28,7 @@ RSpec.describe Folder, type: :model do
   end
 
   describe '#destroy!' do
-    context 'does not destroy projects' do 
+    context 'with projects' do 
       it do
         folder = described_class.create! name: 'a13'
         folder.projects.concat [project1, project2]
