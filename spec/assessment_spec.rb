@@ -42,21 +42,7 @@ RSpec.describe Assessment, type: :model do
     end
   end
 
-  describe 'multiple assessments' do
-    it do
-      visit.assessments.each(&:destroy!)
-      expect(visit.assessments.count.to_s).to eq '0' 
-    end
-
-    it do
-      ass1 = described_class.create! visit: visit
-      ass2 = described_class.create! visit: visit, order_number: 2
-      visit.assessments.concat [ass1, ass2]
-      expect(visit.assessments.count.to_s).to eq '2' 
-    end
-  end
-
-  describe 'created_at today' do
+  describe '#created_at today' do
     # expect record to be created within the last 5 minutes to check timestamp works
     it { expect(Time.now - subject.created_at).to be < 300 }
   end

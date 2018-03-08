@@ -56,7 +56,22 @@ RSpec.describe Visit, type: :model do
     end
   end
 
-  describe 'created_at today' do
+  describe '.assessments' do
+    it do
+      subject.assessments.each(&:destroy!)
+      expect(subject.assessments.count.to_s).to eq '0' 
+    end
+
+    it do
+      ass1 = Assessment.create! visit: subject, order_number: 24
+      ass2 = Assessment.create! visit: subject, order_number: 2
+      subject.assessments.concat [ass1, ass2]
+      expect(subject.assessments.count.to_s).to eq '3' 
+      subject.assessments.each(&:destroy!)
+    end
+  end
+
+  describe '#created_at today' do
     # expect record to be created within the last 5 minutes to check timestamp works
     it { expect(Time.now - subject.created_at).to be < 300 }
   end

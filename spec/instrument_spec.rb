@@ -1,34 +1,45 @@
 # frozen_string_literal: true
 
 RSpec.describe Instrument, type: :model do
-  subject { described_class.find_or_create_by name: AppConstants::TEST_INSTRUMENT }
+  subject { described_class.find_or_create_by! name: AppConstants::TEST_INSTRUMENT }
 
-  describe '#items' do
-    it 'loads all items after initializing' do
+  describe 'test instrument #items' do
+    it 'is not empty' do
       expect(subject.items).not_to be_empty
     end
 
-    it 'should have 20 items in first instrument' do
+    it 'has 20 items' do
       expect(subject.items.count).to eq(20)
-    end
-
-    it 'should return a list of instrument names' do
-      expect(described_class.list_tests).to eq(AppConstants::TEST_INSTRUMENT)
     end
   end
 
-  describe '#name' do
-    it 'does not save without a name' do
+  describe '#items' do
+    context 'has no items' do 
+      it do
+        ins2 = described_class.find_or_create_by! name: 'Instrument 2'
+        expect(ins2.items.count).to eq 0 
+      end
+    end
+  end
+
+  describe '.list_tests' do
+    it 'should return a list of instrument names' do
+      expect(described_class.list_tests).to include(AppConstants::TEST_INSTRUMENT)
+    end
+  end
+
+  describe '#save!' do
+    it 'without a name' do
       ins = described_class.new
       expect { ins.save! }.to raise_error ActiveRecord::RecordInvalid
     end
 
-    it 'does not save with 1 character name' do
+    it 'with 1 character name' do
       ins = described_class.new name: 'a'
       expect { ins.save! }.to raise_error ActiveRecord::RecordInvalid
     end
 
-    it 'does not save with duplicate name' do
+    it 'with duplicate name' do
       ins = described_class.new name: AppConstants::TEST_INSTRUMENT
       expect { ins.save! }.to raise_error ActiveRecord::RecordInvalid
     end
@@ -69,7 +80,7 @@ RSpec.describe Instrument, type: :model do
     end
   end
 
-  describe 'created_at today' do
+  describe '#created_at today' do
     # expect record to be created within the last 5 minutes to check timestamp works
     it { expect(Time.now - subject.created_at).to be < 300 }
   end

@@ -22,7 +22,8 @@ class Instrument < ApplicationRecord
 
   has_many :assessment_instruments, inverse_of: :instrument, dependent: :destroy
   has_many :study_event_instruments, inverse_of: :instrument, dependent: :destroy
-  has_many :assessments, through: :assessment_instruments
+  has_many :assessments, inverse_of: :instrument, through: :assessment_instruments
+  has_many :study_events, inverse_of: :instrument, through: :study_event_instruments
   has_many :items, inverse_of: :instrument, dependent: :destroy
   
   jsonb_accessor :content,

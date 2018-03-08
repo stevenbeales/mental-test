@@ -17,9 +17,10 @@
 # Similar to a question with metadata
 class Item < ApplicationRecord
   belongs_to :instrument, inverse_of: :items
-  belongs_to :response_scale, inverse_of: :items
+  belongs_to :response_scale, inverse_of: :items, optional: true
   has_many :choices, through: :response_scale  
   validates :name, presence: true
+  validates :instrument, presence: true
   validates_uniqueness_of :name
   validates_length_of :name, \
                       within: 2..20, \
