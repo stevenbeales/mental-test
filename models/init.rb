@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require_relative 'alexa_help'
+require_relative 'alexa_helper'
 require_relative 'application_record'
 require_relative 'arm'
 require_relative 'assessment'

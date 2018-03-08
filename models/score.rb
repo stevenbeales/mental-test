@@ -4,7 +4,7 @@
 class Score < ApplicationRecord
   belongs_to :assessment, inverse_of: :scores 
   has_one :visit, through: :assessment
-  has_one :suvey, through: :visit
+  has_one :survey, through: :visit
   has_one :user, through: :visit
 
   validates :name, presence: true
