@@ -19,3 +19,4 @@ Gemfile.lock
 log/development.log
 log/production.log
 
+/tmp/
