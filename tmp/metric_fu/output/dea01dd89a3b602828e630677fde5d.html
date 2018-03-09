@@ -35,7 +35,7 @@
           </td>
           <td valign='top'>
             <div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"><a href="#n1" name="n1">1</a></span><span class="key">language</span>: ruby
+  <div class="code"><pre><span class="line-numbers"><a href="#n1" name="n1">1</a></span><span class="key">sudo</span>: <span class="predefined-constant">false</span>
 </pre></div>
 </div>
 
@@ -51,7 +51,7 @@
           </td>
           <td valign='top'>
             <div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"><a href="#n2" name="n2">2</a></span><span class="key">rvm</span>:
+  <div class="code"><pre><span class="line-numbers"><a href="#n2" name="n2">2</a></span><span class="key">language</span>: ruby
 </pre></div>
 </div>
 
@@ -67,7 +67,7 @@
           </td>
           <td valign='top'>
             <div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"><a href="#n3" name="n3">3</a></span>  - <span class="float">2.4</span>.<span class="error">1</span>
+  <div class="code"><pre><span class="line-numbers"><a href="#n3" name="n3">3</a></span><span class="key">rvm</span>:
 </pre></div>
 </div>
 
@@ -83,7 +83,7 @@
           </td>
           <td valign='top'>
             <div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"><a href="#n4" name="n4">4</a></span>  - <span class="float">2.3</span>
+  <div class="code"><pre><span class="line-numbers"><a href="#n4" name="n4">4</a></span>  - <span class="float">2.4</span>.<span class="error">1</span>
 </pre></div>
 </div>
 
@@ -99,7 +99,7 @@
           </td>
           <td valign='top'>
             <div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"><a href="#n5" name="n5">5</a></span>
+  <div class="code"><pre><span class="line-numbers"><a href="#n5" name="n5">5</a></span>  - <span class="float">2.3</span>
 </pre></div>
 </div>
 
@@ -115,7 +115,7 @@
           </td>
           <td valign='top'>
             <div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"><a href="#n6" name="n6">6</a></span><span class="key">before_script</span>:
+  <div class="code"><pre><span class="line-numbers"><a href="#n6" name="n6">6</a></span>
 </pre></div>
 </div>
 
@@ -131,7 +131,7 @@
           </td>
           <td valign='top'>
             <div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"><a href="#n7" name="n7">7</a></span>  - psql -c <span class="string"><span class="delimiter">'</span><span class="content">CREATE DATABASE mental_health_test;</span><span class="delimiter">'</span></span> -<span class="constant">U</span> postgres
+  <div class="code"><pre><span class="line-numbers"><a href="#n7" name="n7">7</a></span><span class="key">before_script</span>:
 </pre></div>
 </div>
 
@@ -147,7 +147,7 @@
           </td>
           <td valign='top'>
             <div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"><a href="#n8" name="n8">8</a></span>  - psql -c <span class="string"><span class="delimiter">&quot;</span><span class="content">CREATE USER mental WITH PASSWORD 'health';</span><span class="delimiter">&quot;</span></span> -<span class="constant">U</span> postgres
+  <div class="code"><pre><span class="line-numbers"><a href="#n8" name="n8">8</a></span>  - psql -c <span class="string"><span class="delimiter">'</span><span class="content">CREATE DATABASE mental_health_test;</span><span class="delimiter">'</span></span> -<span class="constant">U</span> postgres
 </pre></div>
 </div>
 
@@ -163,7 +163,7 @@
           </td>
           <td valign='top'>
             <div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"> <a href="#n9" name="n9">9</a></span>
+  <div class="code"><pre><span class="line-numbers"> <a href="#n9" name="n9">9</a></span>  - psql -c <span class="string"><span class="delimiter">&quot;</span><span class="content">CREATE USER mental WITH PASSWORD 'health';</span><span class="delimiter">&quot;</span></span> -<span class="constant">U</span> postgres
 </pre></div>
 </div>
 
@@ -179,7 +179,7 @@
           </td>
           <td valign='top'>
             <div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"><strong><a href="#n10" name="n10">10</a></strong></span><span class="key">script</span>:
+  <div class="code"><pre><span class="line-numbers"><strong><a href="#n10" name="n10">10</a></strong></span>
 </pre></div>
 </div>
 
@@ -195,7 +195,7 @@
           </td>
           <td valign='top'>
             <div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"><a href="#n11" name="n11">11</a></span>  - <span class="constant">RACK_ENV</span>=test bundle exec rake <span class="key">db</span>:migrate
+  <div class="code"><pre><span class="line-numbers"><a href="#n11" name="n11">11</a></span><span class="key">script</span>:
 </pre></div>
 </div>
 
@@ -211,7 +211,7 @@
           </td>
           <td valign='top'>
             <div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"><a href="#n12" name="n12">12</a></span>  - <span class="constant">RACK_ENV</span>=test bundle exec rake spec
+  <div class="code"><pre><span class="line-numbers"><a href="#n12" name="n12">12</a></span>  - <span class="constant">RACK_ENV</span>=test bundle exec rake <span class="key">db</span>:migrate
 </pre></div>
 </div>
 
@@ -227,7 +227,7 @@
           </td>
           <td valign='top'>
             <div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"><a href="#n13" name="n13">13</a></span>  - bundle exec rake <span class="key">bundle</span>:audit
+  <div class="code"><pre><span class="line-numbers"><a href="#n13" name="n13">13</a></span>  - <span class="constant">RACK_ENV</span>=test bundle exec rake spec
 </pre></div>
 </div>
 
@@ -243,7 +243,7 @@
           </td>
           <td valign='top'>
             <div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"><a href="#n14" name="n14">14</a></span>  
+  <div class="code"><pre><span class="line-numbers"><a href="#n14" name="n14">14</a></span>  - bundle exec rake <span class="key">bundle</span>:audit
 </pre></div>
 </div>
 
@@ -259,7 +259,7 @@
           </td>
           <td valign='top'>
             <div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"><a href="#n15" name="n15">15</a></span><span class="key">addons</span>:
+  <div class="code"><pre><span class="line-numbers"><a href="#n15" name="n15">15</a></span>  
 </pre></div>
 </div>
 
@@ -275,7 +275,23 @@
           </td>
           <td valign='top'>
             <div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"><a href="#n16" name="n16">16</a></span>  <span class="key">postgresql</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">9.6</span><span class="delimiter">&quot;</span></span>
+  <div class="code"><pre><span class="line-numbers"><a href="#n16" name="n16">16</a></span><span class="key">addons</span>:
+</pre></div>
+</div>
+
+          </td>
+         </tr>
+         
+        
+        <tr>
+          <td valign='top'>
+           
+              &nbsp;
+          
+          </td>
+          <td valign='top'>
+            <div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n17" name="n17">17</a></span>  <span class="key">postgresql</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">9.6</span><span class="delimiter">&quot;</span></span>
 </pre></div>
 </div>
 
