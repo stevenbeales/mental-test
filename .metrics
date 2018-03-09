@@ -1,0 +1,19 @@
+MetricFu.configuration.configure_metrics.each do |metric|
+  metric.enabled = ![:flog, :reek, :rails_best_practices, :rcov].include?(metric.name)
+end
+
+MetricFu::Configuration.run do |config|
+  config.configure_metric(:cane) do |cane|
+    cane.enabled = true
+    cane.abc_max = 15
+    cane.line_length = 125
+    cane.no_doc = 'y'
+    cane.no_readme = 'y'
+  end
+end
+
+MetricFu.configuration.configure_metric(:churn) do |churn|
+  churn.enabled = true
+  churn.ignore_files = 'HISTORY.md, TODO.md'
+  churn.start_date = '6 months ago'
+end

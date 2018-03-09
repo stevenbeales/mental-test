@@ -1,0 +1,648 @@
+---
+:churn:
+  :changes:
+  - :file_path: db/schema.rb
+    :times_changed: 29
+  - :file_path: Gemfile
+    :times_changed: 29
+  - :file_path: models/instrument.rb
+    :times_changed: 28
+  - :file_path: Gemfile.lock
+    :times_changed: 26
+  - :file_path: spec/survey_spec.rb
+    :times_changed: 25
+  - :file_path: models/init.rb
+    :times_changed: 25
+  - :file_path: spec/assessment_spec.rb
+    :times_changed: 23
+  - :file_path: ".travis.yml"
+    :times_changed: 21
+  - :file_path: models/user.rb
+    :times_changed: 20
+  - :file_path: ".gitignore"
+    :times_changed: 20
+  - :file_path: app.rb
+    :times_changed: 19
+  - :file_path: spec/examples.txt
+    :times_changed: 19
+  - :file_path: spec/instrument_spec.rb
+    :times_changed: 18
+  - :file_path: models/item.rb
+    :times_changed: 17
+  - :file_path: spec/spec_helper.rb
+    :times_changed: 17
+  - :file_path: models/survey.rb
+    :times_changed: 15
+  - :file_path: models/assessment.rb
+    :times_changed: 15
+  - :file_path: spec/assessment_instrument_spec.rb
+    :times_changed: 15
+  - :file_path: spec/choice_spec.rb
+    :times_changed: 14
+  - :file_path: spec/user_survey_spec.rb
+    :times_changed: 14
+  - :file_path: spec/item_spec.rb
+    :times_changed: 14
+  - :file_path: Rakefile
+    :times_changed: 14
+  - :file_path: db/migrate/20180217164959_create_users.rb
+    :times_changed: 13
+  - :file_path: spec/score_spec.rb
+    :times_changed: 13
+  - :file_path: spec/visit_spec.rb
+    :times_changed: 13
+  - :file_path: lib/tasks/app.rake
+    :times_changed: 13
+  - :file_path: ".bundle/config"
+    :times_changed: 12
+  - :file_path: spec/response_spec.rb
+    :times_changed: 12
+  - :file_path: db/migrate/20180217164525_create_instruments.rb
+    :times_changed: 11
+  - :file_path: spec/user_spec.rb
+    :times_changed: 11
+  - :file_path: lib/app_constants.rb
+    :times_changed: 11
+  - :file_path: coverage/.resultset.json
+    :times_changed: 10
+  - :file_path: coverage/index.html
+    :times_changed: 10
+  - :file_path: models/choice.rb
+    :times_changed: 10
+  :class_churn:
+  - klass: &1
+      file: spec/test_factory.rb
+      klass: TestFactory
+    times_changed: 1
+  :method_churn: []
+  :changed_files:
+  - spec/assessment_spec.rb
+  - spec/factories.rb
+  - spec/folder_spec.rb
+  - spec/project_spec.rb
+  - spec/test_factory.rb
+  - spec/user_survey_spec.rb
+  :changed_classes:
+  - *1
+  :changed_methods: []
+:flay:
+  :total_score: '0'
+  :matches: []
+:stats:
+  :codeLOC: 17
+  :testLOC: 915
+  :code_to_test_ratio: 53.8
+  :lines:
+  - :name: Libraries
+    :lines: 20
+    :loc: 17
+    :classes: 0
+    :methods: 0
+    :methods_per_class: 0
+    :loc_per_method: 0
+  - :name: Uncategorized specs
+    :lines: 1250
+    :loc: 915
+    :classes: 1
+    :methods: 6
+    :methods_per_class: 6
+    :loc_per_method: 150
+  - :name: Total
+    :lines: 1270
+    :loc: 932
+    :classes: 1
+    :methods: 6
+    :methods_per_class: 6
+    :loc_per_method: 153
+:roodi:
+  :total:
+  - Found 0 errors.
+  :problems: []
+:saikuro:
+  :files:
+  - :classes:
+    - :class_name: ''
+      :complexity: 0
+      :lines: 1
+      :methods: []
+    - :class_name: AppConstants
+      :complexity: 0
+      :lines: 16
+      :methods: []
+    :filename: lib/app_constants.rb
+  :classes:
+  - :name: ''
+    :complexity: 0
+    :lines: 1
+  - :name: AppConstants
+    :complexity: 0
+    :lines: 16
+  :methods: []
+:cane:
+  :total_violations: 97
+  :violations:
+    :line_style:
+    - :line: spec/arm_spec.rb:7
+      :description: Line contains trailing whitespace
+    - :line: spec/arm_spec.rb:11
+      :description: Line contains trailing whitespace
+    - :line: spec/arm_spec.rb:16
+      :description: Line contains trailing whitespace
+    - :line: spec/assessment_instrument_spec.rb:13
+      :description: Line contains trailing whitespace
+    - :line: spec/assessment_instrument_spec.rb:26
+      :description: Line contains trailing whitespace
+    - :line: spec/assessment_instrument_spec.rb:28
+      :description: Line contains trailing whitespace
+    - :line: spec/assessment_instrument_spec.rb:40
+      :description: Line contains trailing whitespace
+    - :line: spec/assessment_instrument_spec.rb:43
+      :description: Line contains trailing whitespace
+    - :line: spec/assessment_instrument_spec.rb:45
+      :description: Line contains trailing whitespace
+    - :line: spec/assessment_spec.rb:15
+      :description: Line contains trailing whitespace
+    - :line: spec/assessment_spec.rb:21
+      :description: Line contains trailing whitespace
+    - :line: spec/assessment_spec.rb:24
+      :description: Line contains trailing whitespace
+    - :line: spec/assessment_spec.rb:27
+      :description: Line contains trailing whitespace
+    - :line: spec/assessment_spec.rb:29
+      :description: Line contains trailing whitespace
+    - :line: spec/assessment_spec.rb:33
+      :description: Line contains trailing whitespace
+    - :line: spec/assessment_spec.rb:35
+      :description: Line contains trailing whitespace
+    - :line: spec/assessment_spec.rb:38
+      :description: Line contains trailing whitespace
+    - :line: spec/choice_spec.rb:17
+      :description: Line contains trailing whitespace
+    - :line: spec/choice_spec.rb:32
+      :description: Line contains trailing whitespace
+    - :line: spec/choice_spec.rb:38
+      :description: Line contains trailing whitespace
+    - :line: spec/factories.rb:19
+      :description: Line contains trailing whitespace
+    - :line: spec/factories.rb:27
+      :description: Line contains trailing whitespace
+    - :line: spec/folder_spec.rb:5
+      :description: Line contains trailing whitespace
+    - :line: spec/folder_spec.rb:6
+      :description: Line contains trailing whitespace
+    - :line: spec/folder_spec.rb:7
+      :description: Line contains trailing whitespace
+    - :line: spec/folder_spec.rb:11
+      :description: Line contains trailing whitespace
+    - :line: spec/folder_spec.rb:16
+      :description: Line contains trailing whitespace
+    - :line: spec/folder_spec.rb:31
+      :description: Line contains trailing whitespace
+    - :line: spec/folder_spec.rb:35
+      :description: Line contains trailing whitespace
+    - :line: spec/folder_spec.rb:36
+      :description: Line contains trailing whitespace
+    - :line: spec/folder_spec.rb:40
+      :description: Line contains trailing whitespace
+    - :line: spec/instrument_spec.rb:17
+      :description: Line contains trailing whitespace
+    - :line: spec/instrument_spec.rb:20
+      :description: Line contains trailing whitespace
+    - :line: spec/instrument_spec.rb:58
+      :description: Line contains trailing whitespace
+    - :line: spec/instrument_spec.rb:61
+      :description: Line contains trailing whitespace
+    - :line: spec/instrument_spec.rb:68
+      :description: Line contains trailing whitespace
+    - :line: spec/item_spec.rb:23
+      :description: Line contains trailing whitespace
+    - :line: spec/item_spec.rb:38
+      :description: Line contains trailing whitespace
+    - :line: spec/project_spec.rb:10
+      :description: Line contains trailing whitespace
+    - :line: spec/project_spec.rb:15
+      :description: Line contains trailing whitespace
+    - :line: spec/project_spec.rb:34
+      :description: Line contains trailing whitespace
+    - :line: spec/project_spec.rb:36
+      :description: Line contains trailing whitespace
+    - :line: spec/response_scale_spec.rb:5
+      :description: Line contains trailing whitespace
+    - :line: spec/response_scale_spec.rb:9
+      :description: Line contains trailing whitespace
+    - :line: spec/response_scale_spec.rb:14
+      :description: Line contains trailing whitespace
+    - :line: spec/response_scale_spec.rb:29
+      :description: Line contains trailing whitespace
+    - :line: spec/response_scale_spec.rb:34
+      :description: Line contains trailing whitespace
+    - :line: spec/response_scale_spec.rb:35
+      :description: Line contains trailing whitespace
+    - :line: spec/response_scale_spec.rb:36
+      :description: Line contains trailing whitespace
+    - :line: spec/response_scale_spec.rb:39
+      :description: Line contains trailing whitespace
+    - :line: spec/response_scale_spec.rb:43
+      :description: Line contains trailing whitespace
+    - :line: spec/response_spec.rb:13
+      :description: Line contains trailing whitespace
+    - :line: spec/response_spec.rb:23
+      :description: Line contains trailing whitespace
+    - :line: spec/response_spec.rb:24
+      :description: Line contains trailing whitespace
+    - :line: spec/response_spec.rb:50
+      :description: Line contains trailing whitespace
+    - :line: spec/response_spec.rb:53
+      :description: Line contains trailing whitespace
+    - :line: spec/response_spec.rb:54
+      :description: Line contains trailing whitespace
+    - :line: spec/response_spec.rb:56
+      :description: Line contains trailing whitespace
+    - :line: spec/schedule_spec.rb:6
+      :description: Line contains trailing whitespace
+    - :line: spec/schedule_spec.rb:7
+      :description: Line contains trailing whitespace
+    - :line: spec/schedule_spec.rb:11
+      :description: Line contains trailing whitespace
+    - :line: spec/schedule_spec.rb:16
+      :description: Line contains trailing whitespace
+    - :line: spec/score_spec.rb:15
+      :description: Line contains trailing whitespace
+    - :line: spec/score_spec.rb:39
+      :description: Line contains trailing whitespace
+    - :line: spec/score_spec.rb:40
+      :description: Line contains trailing whitespace
+    - :line: spec/score_spec.rb:54
+      :description: Line contains trailing whitespace
+    - :line: spec/score_spec.rb:58
+      :description: Line contains trailing whitespace
+    - :line: spec/score_spec.rb:62
+      :description: Line contains trailing whitespace
+    - :line: spec/score_spec.rb:63
+      :description: Line contains trailing whitespace
+    - :line: spec/score_spec.rb:65
+      :description: Line contains trailing whitespace
+    - :line: spec/study_event_instrument_spec.rb:12
+      :description: Line contains trailing whitespace
+    - :line: spec/study_event_instrument_spec.rb:25
+      :description: Line contains trailing whitespace
+    - :line: spec/study_event_instrument_spec.rb:27
+      :description: Line contains trailing whitespace
+    - :line: spec/study_event_instrument_spec.rb:39
+      :description: Line contains trailing whitespace
+    - :line: spec/study_event_instrument_spec.rb:42
+      :description: Line contains trailing whitespace
+    - :line: spec/study_event_instrument_spec.rb:44
+      :description: Line contains trailing whitespace
+    - :line: spec/study_event_spec.rb:8
+      :description: Line contains trailing whitespace
+    - :line: spec/study_event_spec.rb:12
+      :description: Line contains trailing whitespace
+    - :line: spec/study_event_spec.rb:17
+      :description: Line contains trailing whitespace
+    - :line: spec/study_spec.rb:5
+      :description: Line contains trailing whitespace
+    - :line: spec/study_spec.rb:9
+      :description: Line contains trailing whitespace
+    - :line: spec/study_spec.rb:14
+      :description: Line contains trailing whitespace
+    - :line: spec/survey_spec.rb:31
+      :description: Line contains trailing whitespace
+    - :line: spec/survey_spec.rb:39
+      :description: Line contains trailing whitespace
+    - :line: spec/survey_spec.rb:48
+      :description: Line contains trailing whitespace
+    - :line: spec/survey_spec.rb:55
+      :description: Line contains trailing whitespace
+    - :line: spec/survey_spec.rb:60
+      :description: Line contains trailing whitespace
+    - :line: spec/test_factory.rb:19
+      :description: Line contains trailing whitespace
+    - :line: spec/user_spec.rb:53
+      :description: Line contains trailing whitespace
+    - :line: spec/user_survey_spec.rb:9
+      :description: Line contains trailing whitespace
+    - :line: spec/user_survey_spec.rb:22
+      :description: Line contains trailing whitespace
+    - :line: spec/user_survey_spec.rb:24
+      :description: Line contains trailing whitespace
+    - :line: spec/visit_spec.rb:5
+      :description: Line contains trailing whitespace
+    - :line: spec/visit_spec.rb:10
+      :description: Line contains trailing whitespace
+    - :line: spec/visit_spec.rb:19
+      :description: Line contains trailing whitespace
+    - :line: spec/visit_spec.rb:60
+      :description: Line contains trailing whitespace
+    - :line: spec/visit_spec.rb:69
+      :description: Line contains trailing whitespace
+:hotspots:
+  files:
+  - location:
+      class_name: 
+      method_name: 
+      file_path: db/schema.rb
+      file_name: db/schema.rb
+      line_number: 
+      hash_key: '["db/schema.rb", nil, nil]'
+    details:
+      churn: detected high level of churn (changed 29 times)
+  - location:
+      class_name: 
+      method_name: 
+      file_path: Gemfile
+      file_name: Gemfile
+      line_number: 
+      hash_key: '["Gemfile", nil, nil]'
+    details:
+      churn: detected high level of churn (changed 29 times)
+  - location:
+      class_name: 
+      method_name: 
+      file_path: models/instrument.rb
+      file_name: models/instrument.rb
+      line_number: 
+      hash_key: '["models/instrument.rb", nil, nil]'
+    details:
+      churn: detected high level of churn (changed 28 times)
+  - location:
+      class_name: 
+      method_name: 
+      file_path: Gemfile.lock
+      file_name: Gemfile.lock
+      line_number: 
+      hash_key: '["Gemfile.lock", nil, nil]'
+    details:
+      churn: detected high level of churn (changed 26 times)
+  - location:
+      class_name: 
+      method_name: 
+      file_path: spec/survey_spec.rb
+      file_name: spec/survey_spec.rb
+      line_number: 
+      hash_key: '["spec/survey_spec.rb", nil, nil]'
+    details:
+      churn: detected high level of churn (changed 25 times)
+  - location:
+      class_name: 
+      method_name: 
+      file_path: models/init.rb
+      file_name: models/init.rb
+      line_number: 
+      hash_key: '["models/init.rb", nil, nil]'
+    details:
+      churn: detected high level of churn (changed 25 times)
+  - location:
+      class_name: 
+      method_name: 
+      file_path: spec/assessment_spec.rb
+      file_name: spec/assessment_spec.rb
+      line_number: 
+      hash_key: '["spec/assessment_spec.rb", nil, nil]'
+    details:
+      churn: detected high level of churn (changed 23 times)
+  - location:
+      class_name: 
+      method_name: 
+      file_path: ".travis.yml"
+      file_name: ".travis.yml"
+      line_number: 
+      hash_key: '[".travis.yml", nil, nil]'
+    details:
+      churn: detected high level of churn (changed 21 times)
+  - location:
+      class_name: 
+      method_name: 
+      file_path: models/user.rb
+      file_name: models/user.rb
+      line_number: 
+      hash_key: '["models/user.rb", nil, nil]'
+    details:
+      churn: detected high level of churn (changed 20 times)
+  - location:
+      class_name: 
+      method_name: 
+      file_path: ".gitignore"
+      file_name: ".gitignore"
+      line_number: 
+      hash_key: '[".gitignore", nil, nil]'
+    details:
+      churn: detected high level of churn (changed 20 times)
+  - location:
+      class_name: 
+      method_name: 
+      file_path: app.rb
+      file_name: app.rb
+      line_number: 
+      hash_key: '["app.rb", nil, nil]'
+    details:
+      churn: detected high level of churn (changed 19 times)
+  - location:
+      class_name: 
+      method_name: 
+      file_path: spec/examples.txt
+      file_name: spec/examples.txt
+      line_number: 
+      hash_key: '["spec/examples.txt", nil, nil]'
+    details:
+      churn: detected high level of churn (changed 19 times)
+  - location:
+      class_name: 
+      method_name: 
+      file_path: spec/instrument_spec.rb
+      file_name: spec/instrument_spec.rb
+      line_number: 
+      hash_key: '["spec/instrument_spec.rb", nil, nil]'
+    details:
+      churn: detected high level of churn (changed 18 times)
+  - location:
+      class_name: 
+      method_name: 
+      file_path: models/item.rb
+      file_name: models/item.rb
+      line_number: 
+      hash_key: '["models/item.rb", nil, nil]'
+    details:
+      churn: detected high level of churn (changed 17 times)
+  - location:
+      class_name: 
+      method_name: 
+      file_path: spec/spec_helper.rb
+      file_name: spec/spec_helper.rb
+      line_number: 
+      hash_key: '["spec/spec_helper.rb", nil, nil]'
+    details:
+      churn: detected high level of churn (changed 17 times)
+  - location:
+      class_name: 
+      method_name: 
+      file_path: models/survey.rb
+      file_name: models/survey.rb
+      line_number: 
+      hash_key: '["models/survey.rb", nil, nil]'
+    details:
+      churn: detected high level of churn (changed 15 times)
+  - location:
+      class_name: 
+      method_name: 
+      file_path: models/assessment.rb
+      file_name: models/assessment.rb
+      line_number: 
+      hash_key: '["models/assessment.rb", nil, nil]'
+    details:
+      churn: detected high level of churn (changed 15 times)
+  - location:
+      class_name: 
+      method_name: 
+      file_path: spec/assessment_instrument_spec.rb
+      file_name: spec/assessment_instrument_spec.rb
+      line_number: 
+      hash_key: '["spec/assessment_instrument_spec.rb", nil, nil]'
+    details:
+      churn: detected high level of churn (changed 15 times)
+  - location:
+      class_name: 
+      method_name: 
+      file_path: spec/choice_spec.rb
+      file_name: spec/choice_spec.rb
+      line_number: 
+      hash_key: '["spec/choice_spec.rb", nil, nil]'
+    details:
+      churn: detected high level of churn (changed 14 times)
+  - location:
+      class_name: 
+      method_name: 
+      file_path: spec/user_survey_spec.rb
+      file_name: spec/user_survey_spec.rb
+      line_number: 
+      hash_key: '["spec/user_survey_spec.rb", nil, nil]'
+    details:
+      churn: detected high level of churn (changed 14 times)
+  - location:
+      class_name: 
+      method_name: 
+      file_path: spec/item_spec.rb
+      file_name: spec/item_spec.rb
+      line_number: 
+      hash_key: '["spec/item_spec.rb", nil, nil]'
+    details:
+      churn: detected high level of churn (changed 14 times)
+  - location:
+      class_name: 
+      method_name: 
+      file_path: Rakefile
+      file_name: Rakefile
+      line_number: 
+      hash_key: '["Rakefile", nil, nil]'
+    details:
+      churn: detected high level of churn (changed 14 times)
+  - location:
+      class_name: 
+      method_name: 
+      file_path: db/migrate/20180217164959_create_users.rb
+      file_name: db/migrate/20180217164959_create_users.rb
+      line_number: 
+      hash_key: '["db/migrate/20180217164959_create_users.rb", nil, nil]'
+    details:
+      churn: detected high level of churn (changed 13 times)
+  - location:
+      class_name: 
+      method_name: 
+      file_path: spec/score_spec.rb
+      file_name: spec/score_spec.rb
+      line_number: 
+      hash_key: '["spec/score_spec.rb", nil, nil]'
+    details:
+      churn: detected high level of churn (changed 13 times)
+  - location:
+      class_name: 
+      method_name: 
+      file_path: spec/visit_spec.rb
+      file_name: spec/visit_spec.rb
+      line_number: 
+      hash_key: '["spec/visit_spec.rb", nil, nil]'
+    details:
+      churn: detected high level of churn (changed 13 times)
+  - location:
+      class_name: 
+      method_name: 
+      file_path: lib/tasks/app.rake
+      file_name: lib/tasks/app.rake
+      line_number: 
+      hash_key: '["lib/tasks/app.rake", nil, nil]'
+    details:
+      churn: detected high level of churn (changed 13 times)
+  - location:
+      class_name: 
+      method_name: 
+      file_path: ".bundle/config"
+      file_name: ".bundle/config"
+      line_number: 
+      hash_key: '[".bundle/config", nil, nil]'
+    details:
+      churn: detected high level of churn (changed 12 times)
+  - location:
+      class_name: 
+      method_name: 
+      file_path: spec/response_spec.rb
+      file_name: spec/response_spec.rb
+      line_number: 
+      hash_key: '["spec/response_spec.rb", nil, nil]'
+    details:
+      churn: detected high level of churn (changed 12 times)
+  - location:
+      class_name: 
+      method_name: 
+      file_path: db/migrate/20180217164525_create_instruments.rb
+      file_name: db/migrate/20180217164525_create_instruments.rb
+      line_number: 
+      hash_key: '["db/migrate/20180217164525_create_instruments.rb", nil, nil]'
+    details:
+      churn: detected high level of churn (changed 11 times)
+  - location:
+      class_name: 
+      method_name: 
+      file_path: spec/user_spec.rb
+      file_name: spec/user_spec.rb
+      line_number: 
+      hash_key: '["spec/user_spec.rb", nil, nil]'
+    details:
+      churn: detected high level of churn (changed 11 times)
+  - location:
+      class_name: 
+      method_name: 
+      file_path: lib/app_constants.rb
+      file_name: lib/app_constants.rb
+      line_number: 
+      hash_key: '["lib/app_constants.rb", nil, nil]'
+    details:
+      churn: detected high level of churn (changed 11 times)
+  - location:
+      class_name: 
+      method_name: 
+      file_path: coverage/.resultset.json
+      file_name: coverage/.resultset.json
+      line_number: 
+      hash_key: '["coverage/.resultset.json", nil, nil]'
+    details:
+      churn: detected high level of churn (changed 10 times)
+  - location:
+      class_name: 
+      method_name: 
+      file_path: coverage/index.html
+      file_name: coverage/index.html
+      line_number: 
+      hash_key: '["coverage/index.html", nil, nil]'
+    details:
+      churn: detected high level of churn (changed 10 times)
+  - location:
+      class_name: 
+      method_name: 
+      file_path: models/choice.rb
+      file_name: models/choice.rb
+      line_number: 
+      hash_key: '["models/choice.rb", nil, nil]'
+    details:
+      churn: detected high level of churn (changed 10 times)
+  classes: []
+  methods: []

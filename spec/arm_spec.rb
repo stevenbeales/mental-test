@@ -4,17 +4,16 @@ RSpec.describe Arm, type: :model do
   subject { described_class.find_or_create_by! name: AppConstants::TEST_ARM, schedule: schedule, number: 1 }
   let!(:schedule) { Schedule.find_or_create_by! name: AppConstants::TEST_SCHEDULE, study: study }
   let!(:study) { TestFactory.test_study }
- 
- 
+
   describe '.create!' do
     context 'no name or schedule' do
       it { expect { described_class.create! }.to raise_error ActiveRecord::RecordInvalid }
-    end  
+    end
 
     context '1 character name' do
       it { expect { described_class.create! name: 'a', schedule: schedule }.to raise_error ActiveRecord::RecordInvalid }
     end
-    
+
     context '2+ character name and title' do
       it { expect { described_class.find_or_create_by! name: 'as', schedule: schedule, number: 2 }.to_not raise_error }
     end

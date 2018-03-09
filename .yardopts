@@ -1,0 +1,8 @@
+
+--no-private
+
+--readme README.md
+
+lib/metric_fu.rb
+
+lib/metric_fu/**/*.rb

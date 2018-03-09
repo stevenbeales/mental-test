@@ -14,10 +14,6 @@ gem 'ralyxa', '~> 1.6.2' # ruby alexa framework
 gem 'sinatra', '~> 2.0.1' # Web server
 gem 'sinatra-activerecord', '~> 2.0.13' # for Active Record models
 
-group :development do
-  gem 'bundler-audit', '~> 0.6.0', require: false # check gems for security issues
-end
-
 group :test do
   gem 'database_cleaner', '=1.6.1', require: false # for test database cleaning
   gem 'faker', '=1.8.7', require: false # for generating fake test data
@@ -27,6 +23,11 @@ group :test do
   gem 'simplecov', '~> 0.15.1', require: false # for code coverage
   gem 'travis', '~> 1.8.8', require: false #for continuous integrations
   gem "factory_bot", "~> 4.0", require: false #for test data setup
+  gem "flay", "~> 2.10"
+  gem "flog", "~> 4.6"
+  gem "heckle", "~> 1.4"
+  gem 'metric_fu'
+  gem 'bundler-audit', '~> 0.6.0', require: false # check gems for security issues
 end
 
 # Added at 2018-03-08 11:26:55 -0500 by steven-surface\steven:
