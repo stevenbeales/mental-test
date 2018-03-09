@@ -4,7 +4,6 @@ require './models/init'
 
 RSpec.describe UserSurvey, type: :model do
   subject { described_class.find_or_create_by user: user, survey: survey }
-  
   let!(:survey) { TestFactory.test_survey }
   let!(:user) { TestFactory.test_user }
   

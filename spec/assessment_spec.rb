@@ -24,13 +24,13 @@ RSpec.describe Assessment, type: :model do
   
   describe '#user' do
     it do
-      expect(subject.user).to eq(user) 
+      expect(subject.user.id).to eq(user.id) 
     end
   end 
 
   describe '#survey' do
     it do
-      expect(subject.survey).to eq(survey) 
+      expect(subject.survey.id).to eq(survey.id) 
     end
   end 
 

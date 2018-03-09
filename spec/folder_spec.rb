@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 RSpec.describe Folder, type: :model do
-  subject { described_class.find_or_create_by! name: AppConstants::TEST_FOLDER }
+  subject { TestFactory.test_folder }
   let!(:project1) { Project.find_or_create_by! name: AppConstants::TEST_PROJECT, title: AppConstants::TEST_PROJECT_TITLE } 
   let!(:project2) { Project.find_or_create_by! name: 'Project 2', title: 'Test Project 2 title' } 
   

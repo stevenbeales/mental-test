@@ -1,6 +1,14 @@
 # frozen_string_literal: true
 
 FactoryBot.define do
+  factory :test_folder, class: 'Folder' do
+    username AppConstants::TEST_FOLDER
+  end
+
+  factory :test_project, class: 'Project' do
+    username AppConstants::TEST_PROJECT
+  end
+
   factory :test_user, class: 'User' do
     username AppConstants::TEST_USER
   end

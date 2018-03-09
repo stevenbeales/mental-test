@@ -17,4 +17,12 @@ class TestFactory
   def self.test_response_scale
     @scale ||= ResponseScale.find_or_create_by! name: AppConstants::TEST_RESPONSE_SCALE || create(:test_response_scale)
   end 
+
+  def self.test_folder
+    @folder ||= Folder.find_or_create_by! name: AppConstants::TEST_FOLDER || create(:test_folder)
+  end
+
+  def self.test_project
+    @project ||= Project.find_or_create_by! name: AppConstants::TEST_PROJECT || create(:test_project)
+  end
 end
