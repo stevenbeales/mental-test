@@ -3,7 +3,7 @@
 require 'rubygems'
 
 require 'bundler'
-Bundler.require(:test)
+Bundler.require(:default)
 
 require './app'
 require 'rspec/core/rake_task'
