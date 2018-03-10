@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
-# Static class to define Alexa's default help responses
-class AlexaHelper
+# Class to define Alexa's intent behavior
+class AlexaService
   DEFAULT_HELP_RESPONSE = 'TBD'
   DEFAULT_TESTNAME_SLOT = 'testname'
 

@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 # Migration to add assessment scores table
-class AddScores < ActiveRecord::Migration[5.1]
+class CreateScores < ActiveRecord::Migration[5.1]
   def change
     create_table :scores do |t|
       t.references :assessment, null: false

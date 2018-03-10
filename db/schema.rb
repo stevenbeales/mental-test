@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180307040020) do
+ActiveRecord::Schema.define(version: 20180310200548) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -102,9 +102,9 @@ ActiveRecord::Schema.define(version: 20180307040020) do
     t.string "grant_number"
     t.string "pi_firstname"
     t.string "pi_lastname"
-    t.boolean "archived", default: false
     t.datetime "created_at", default: -> { "CURRENT_TIMESTAMP" }, null: false
     t.datetime "updated_at", default: -> { "CURRENT_TIMESTAMP" }, null: false
+    t.integer "status", default: 0
     t.index ["folder_id"], name: "index_projects_on_folder_id"
     t.index ["name"], name: "index_projects_on_name"
   end

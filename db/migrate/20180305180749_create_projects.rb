@@ -13,7 +13,6 @@ class CreateProjects < ActiveRecord::Migration[5.1]
       t.string :grant_number, null: true
       t.string :pi_firstname, null: true
       t.string :pi_lastname, null: true
-      t.boolean :archived, default: false
       t.timestamps null: false, default: -> { 'CURRENT_TIMESTAMP' }
     end
   end

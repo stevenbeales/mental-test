@@ -28,8 +28,8 @@ RSpec.describe Project, type: :model do
 
   describe 'active projects' do
     it do
-      described_class.find_or_create_by! name: 'Test Project Active', title: 'title'
-      described_class.find_or_create_by! name: 'Test Archived', archived: true, title: 'title'
+      described_class.find_or_create_by! name: 'Test Project Active', title: 'title', status: :production
+      described_class.find_or_create_by! name: 'Test Archived', title: 'title', status: :archived
       expect(described_class.list_active_projects).not_to include 'Archived '
     end 
   end

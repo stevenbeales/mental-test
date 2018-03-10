@@ -2,9 +2,11 @@
 
 # Model to represent projects
 class Project < ApplicationRecord
+  enum status: %i[development production inactive archived]
+
   has_one :folder, inverse_of: :projects
 
-  scope :active, -> { where(archived: false) }
+  scope :active, -> { where(status: [:production]) }
 
   validates :name, presence: true
   validates :title, presence: true
