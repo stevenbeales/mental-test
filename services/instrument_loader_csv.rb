@@ -8,8 +8,8 @@ class InstrumentLoaderCsv
   # Returns an array of Items that represent the questions in an instrument.
   def load!(instrument:)
     @instrument = instrument
-    load_response_scale!()
-    load_items!()
+    load_response_scale!
+    load_items!
   end
 
   private
@@ -23,7 +23,8 @@ class InstrumentLoaderCsv
           .find_or_create_by(response_scale: @response_scale, value: choice['value'])
   end
 
-  def load_items!()
+  # TODO
+  def load_items!
     nil
   end
 end
