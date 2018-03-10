@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 require 'singleton'
-require 'facets/kernel/blank'
+require 'facets'
 
 # Loads instruments 
 class InstrumentLoader
