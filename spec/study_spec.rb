@@ -2,6 +2,9 @@
 
 RSpec.describe Study, type: :model do
   subject { TestFactory.test_study }
+  let!(:test_study2) { TestFactory.test_study2 }
+  let!(:schedule) { TestFactory.test_schedule }
+  
  
   describe '.create!' do
     context 'without a name' do
@@ -31,6 +34,14 @@ RSpec.describe Study, type: :model do
     describe '#created_at today' do
       # expect record to be created within the last 5 minutes to check timestamp works
       it { expect(Time.now - subject.created_at).to be < 300 }
+    end
+
+    describe '#destroy' do
+      it do
+        sc = test_study2.schedule
+        test_study2.destroy!
+        expect(sc).to be_nil  
+      end
     end
   end
 end

@@ -17,8 +17,17 @@ FactoryBot.define do
     name AppConstants::TEST_STUDY
   end
   
+  factory :test_study2, class: 'Study' do
+    name 'Test Study 2'
+  end
+  
   factory :test_survey, class: 'Survey' do
     name AppConstants::TEST_SURVEY
+  end
+
+  factory :test_schedule, class: 'Schedule' do
+    name AppConstants::TEST_SCHEDULE
+    test_survey
   end
 
   factory :test_response_scale, class: 'ResponseScale' do

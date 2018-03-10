@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 RSpec.describe Schedule, type: :model do
-  subject { described_class.find_or_create_by! name: AppConstants::TEST_SCHEDULE, study: study }
+  subject { TestFactory.test_schedule }
   let!(:study) { TestFactory.test_study }
  
  
@@ -15,7 +15,10 @@ RSpec.describe Schedule, type: :model do
     end
     
     context '2+ character name and title' do
-      it { expect { described_class.find_or_create_by! name: 'as', study: study }.to_not raise_error }
+      it do
+        expect { described_class.find_or_create_by! name: 'as', study: study }.to_not raise_error 
+        described_class.find_by(name: 'as', study: study).destroy!
+      end
     end
 
     context 'unique name' do

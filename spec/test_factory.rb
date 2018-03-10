@@ -6,6 +6,10 @@ class TestFactory
     @test_study ||= Study.find_or_create_by! name: AppConstants::TEST_STUDY || create(:test_study)
   end
 
+  def self.test_study2
+    @test_study2 ||= FactoryBot::create(:test_study2)
+  end
+
   def self.test_user
     @test_user ||= User.find_or_create_by! username: AppConstants::TEST_USER || create(:test_user)
   end
@@ -17,6 +21,11 @@ class TestFactory
   def self.test_response_scale
     @test_response_scale ||= ResponseScale.find_or_create_by! \
       name: AppConstants::TEST_RESPONSE_SCALE || create(:test_response_scale)
+  end 
+
+  def self.test_schedule
+    @test_schedule ||= Schedule.find_or_create_by! name: AppConstants::TEST_SCHEDULE, \
+                                                   study: test_study || create(:test_schedule)
   end 
 
   def self.test_hipaa_identifier
