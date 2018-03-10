@@ -2,7 +2,9 @@
 
 source 'https://rubygems.org'
 gem 'acts-as-taggable-array-on', '~> 0.4.0' # adds tags
+gem 'awesome_print' # row printing
 gem 'dotenv', '~> 2.2.1' # adds environment variables from .env files
+gem 'facets', '~> 3.1.0'
 gem 'kiba', '~> 2.0.0' # ETL
 gem 'jsonb_accessor', '~> 1.0.0' # adds methods to access Jsonb fields
 gem 'multi_json', '~> 1.13.1' # common interface to load json

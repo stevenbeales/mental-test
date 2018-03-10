@@ -34,7 +34,7 @@ RSpec.describe Choice, type: :model do
 
   describe '#to_s' do
     it do
-      c = Choice.find_or_create_by! response_scale: scale, value: 'val', description: 'text'
+      c = subject
       expect(c.to_s).to eq("#{scale} val text") 
       c = Choice.find_by response_scale_id: scale.id, value: 'val'
       c.destroy!

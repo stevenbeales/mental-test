@@ -12,7 +12,6 @@ require 'fileutils'
 set :root, File.dirname(__FILE__)
 set :app_file, __FILE__
 
-require_relative 'lib/app_constants'
 require_relative 'config/db'
 require_relative 'services/init'
 require_relative 'models/init'

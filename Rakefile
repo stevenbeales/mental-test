@@ -1,7 +1,10 @@
 # frozen_string_literal: true
 
-require 'sinatra/activerecord'
-require 'sinatra/activerecord/rake'
+require 'rubygems'
+
+require 'bundler'
+Bundler.require(:test)
+
 require './app'
 require 'rspec/core/rake_task'
 
