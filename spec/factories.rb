@@ -25,6 +25,10 @@ FactoryBot.define do
     name AppConstants::TEST_RESPONSE_SCALE
   end
   
+  factory :test_hipaa_identifier, class: 'HipaaIdentifier' do
+    name AppConstants::TEST_HIPAA_IDENTIFIER
+  end
+  
   factory :timmy, class: 'User' do
     username 'Timmy'
     access_token 'AccessToken'

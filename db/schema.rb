@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180310200548) do
+ActiveRecord::Schema.define(version: 20180310203617) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -65,6 +65,11 @@ ActiveRecord::Schema.define(version: 20180310200548) do
     t.datetime "created_at", default: -> { "CURRENT_TIMESTAMP" }, null: false
     t.datetime "updated_at", default: -> { "CURRENT_TIMESTAMP" }, null: false
     t.index ["name"], name: "index_folders_on_name"
+  end
+
+  create_table "hipaa_identifiers", force: :cascade do |t|
+    t.string "name", null: false
+    t.index ["name"], name: "index_hipaa_identifiers_on_name"
   end
 
   create_table "instruments", force: :cascade do |t|

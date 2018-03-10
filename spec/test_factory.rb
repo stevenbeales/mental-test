@@ -19,6 +19,11 @@ class TestFactory
       name: AppConstants::TEST_RESPONSE_SCALE || create(:test_response_scale)
   end 
 
+  def self.test_hipaa_identifier
+    @test_hipaa_identifier ||= HipaaIdentifier.find_or_create_by! \
+      name: AppConstants::TEST_HIPAA_IDENTIFIER || create(:test_hipaa_identifier)
+  end 
+
   def self.test_folder
     @test_folder ||= Folder.find_or_create_by! name: AppConstants::TEST_FOLDER || create(:test_folder)
   end

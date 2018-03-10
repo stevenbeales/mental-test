@@ -7,6 +7,7 @@ module AppConstants
   LOADER_NIL_INSTRUMENT = 'Error: no instrument was passed. Please create your instrument before loading contents.'
   TEST_ARM = 'Test Arm'
   TEST_FOLDER = 'Test Folder'
+  TEST_HIPAA_IDENTIFIER = 'Test Hipaa Identifier'
   TEST_INSTRUMENT = 'Cesd-r'
   TEST_PROJECT = 'Project Test'
   TEST_PROJECT_TITLE = 'Project Test Title'
