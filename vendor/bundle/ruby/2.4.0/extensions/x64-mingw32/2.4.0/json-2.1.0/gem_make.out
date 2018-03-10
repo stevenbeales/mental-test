@@ -1,0 +1,13 @@
+current directory: C:/Users/Steven/Source/mental-test/vendor/bundle/ruby/2.4.0/gems/json-2.1.0/ext/json
+C:/Ruby24-x64/bin/ruby.exe -r ./siteconf20180308-19836-4mg6rs.rb extconf.rb
+creating Makefile
+
+current directory: C:/Users/Steven/Source/mental-test/vendor/bundle/ruby/2.4.0/gems/json-2.1.0/ext/json
+make "DESTDIR=" clean
+
+current directory: C:/Users/Steven/Source/mental-test/vendor/bundle/ruby/2.4.0/gems/json-2.1.0/ext/json
+make "DESTDIR="
+make: Nothing to be done for 'all'.
+
+current directory: C:/Users/Steven/Source/mental-test/vendor/bundle/ruby/2.4.0/gems/json-2.1.0/ext/json
+make "DESTDIR=" install
