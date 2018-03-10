@@ -1,2 +1,0 @@
-class UnsecureUrlError < StandardError
-end
