@@ -2,13 +2,19 @@
 
 FactoryBot.define do
   factory :test_folder, class: 'Folder' do
-    username AppConstants::TEST_FOLDER
+    name AppConstants::TEST_FOLDER
   end
 
   factory :test_project, class: 'Project' do
-    username AppConstants::TEST_PROJECT
+    name AppConstants::TEST_PROJECT
+    title AppConstants::TEST_PROJECT_TITLE
   end
-
+  
+  factory :test_project2, class: 'Project' do
+    name AppConstants::TEST_PROJECT2
+    title AppConstants::TEST_PROJECT_TITLE2
+  end
+  
   factory :test_user, class: 'User' do
     username AppConstants::TEST_USER
   end
@@ -18,7 +24,7 @@ FactoryBot.define do
   end
   
   factory :test_study2, class: 'Study' do
-    name 'Test Study 2'
+    name AppConstants::TEST_STUDY2
   end
   
   factory :test_survey, class: 'Survey' do
@@ -27,7 +33,13 @@ FactoryBot.define do
 
   factory :test_schedule, class: 'Schedule' do
     name AppConstants::TEST_SCHEDULE
-    test_survey
+    association :study, factory: :test_study
+  end
+  
+  factory :test_arm, class: 'Arm' do
+    name AppConstants::TEST_ARM
+    number 1
+    association :schedule, factory: :test_schedule
   end
 
   factory :test_response_scale, class: 'ResponseScale' do

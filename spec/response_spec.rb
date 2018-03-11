@@ -9,7 +9,7 @@ RSpec.describe Response, type: :model do
   let!(:ur) { TestFactory.test_user }
   let!(:vt) { Visit.find_or_create_by! user: ur, name: AppConstants:: TEST_VISIT, survey: sy }
   let!(:choice) { Choice.find_or_create_by! response_scale: scale, value: 'val', description: 'text' }
-  let!(:scale) { ResponseScale.find_or_create_by! name: AppConstants::TEST_RESPONSE_SCALE }
+  let!(:scale) { TestFactory.test_response_scale }
   
 
   describe '.create!' do

@@ -33,4 +33,4 @@ end
 gem 'letter_opener', group: :development # view emails in development
 
 # Added at 2018-03-08 11:26:55 -0500 by steven-surface\steven:
-gem 'byebug', '~> 10.0', groups: %i[:development :test], require: false
+gem 'byebug', '~> 10.0', groups: %i[development test], require: false

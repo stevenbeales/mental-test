@@ -3,8 +3,7 @@
 RSpec.describe Schedule, type: :model do
   subject { TestFactory.test_schedule }
   let!(:study) { TestFactory.test_study }
- 
- 
+  
   describe '.create!' do
     context 'without name or study' do
       it { expect { described_class.create! }.to raise_error ActiveRecord::RecordInvalid }
