@@ -9,6 +9,7 @@ module AppConstants
   TEST_FOLDER = 'Test Folder'
   TEST_HIPAA_IDENTIFIER = 'Test Hipaa Identifier'
   TEST_INSTRUMENT = 'Cesd-r'
+  TEST_PARTICIPANT_EMAIL = 'test_participant@test.com'
   TEST_PROJECT = 'Project Test'
   TEST_PROJECT_TITLE = 'Project Test Title'
   TEST_PROJECT2 = 'Project Test2'

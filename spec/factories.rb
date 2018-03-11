@@ -15,6 +15,10 @@ FactoryBot.define do
     name AppConstants::TEST_HIPAA_IDENTIFIER
   end
 
+  factory :test_participant, class: 'Participant' do
+    email AppConstants::TEST_PARTICIPANT_EMAIL
+  end
+
   factory :test_project, class: 'Project' do
     name AppConstants::TEST_PROJECT
     title AppConstants::TEST_PROJECT_TITLE

@@ -1,1 +1,0 @@
-be rake db:reset

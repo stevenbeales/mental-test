@@ -5,8 +5,8 @@ gem 'acts-as-taggable-array-on', '~> 0.4.0' # adds tags
 gem 'dotenv', '~> 2.2.1' # adds environment variables from .env files
 gem 'facets', '~> 3.1.0' # additional core methods
 gem 'jsonb_accessor', '~> 1.0.0' # adds methods to access Jsonb fields
-gem 'kiba', '~> 2.0.0' # ETL
-gem 'kiba-common'
+gem 'kiba', '~> 2.0.0', require: false # ETL
+gem 'kiba-common', require: false
 gem 'multi_json', '~> 1.13.1' # common interface to load json
 gem 'oj', '~> 3.5.0' # faster json parsing
 gem 'pg', '~> 1.0.0', platform: :ruby # for Postgres
@@ -16,6 +16,8 @@ gem 'rake', '~> 12.3.0' # so we can run Rake tasks
 gem 'ralyxa', '~> 1.6.2' # ruby alexa framework
 gem 'sinatra', '~> 2.0.1' # Web server
 gem 'sinatra-activerecord', '~> 2.0.13' # for Active Record models
+gem 'validates_email_format_of', '~>1.6.3', require: false # validates email format
+
 
 group :test do
   gem 'bundler-audit', '~> 0.6.0', require: false # check gems for security issues

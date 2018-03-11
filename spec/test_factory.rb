@@ -14,6 +14,10 @@ class TestFactory
   def self.test_hipaa_identifier
     @test_hipaa_identifier ||= FactoryBot.create(:test_hipaa_identifier)
   end 
+  
+  def self.test_participant
+    @test_participant ||= FactoryBot.create(:test_participant)
+  end
 
   def self.test_project
     @test_project ||= FactoryBot.create(:test_project)
