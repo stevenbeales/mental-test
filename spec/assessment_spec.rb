@@ -6,7 +6,7 @@ RSpec.describe Assessment, type: :model do
   subject { described_class.find_or_create_by! visit: visit }
   let!(:survey) { TestFactory.test_survey }
   let!(:user) { TestFactory.test_user }
-  let!(:visit) { Visit.find_or_create_by! user: user, name: AppConstants::TEST_VISIT, survey: survey }
+  let!(:visit) { TestFactory.test_visit }
 
   describe '.create!' do
     context 'with no visit' do

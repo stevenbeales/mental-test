@@ -8,7 +8,7 @@ RSpec.describe StudyEventInstrument, type: :model do
   let!(:schedule) { TestFactory.test_schedule }
   let!(:study) { TestFactory.test_study }
   let!(:instrument) { Instrument.find_by_name(AppConstants::TEST_INSTRUMENT) }
-  let!(:study_event) { StudyEvent.find_or_create_by! name: AppConstants::TEST_STUDY_EVENT, arm: arm }
+  let!(:study_event) { TestFactory.test_study_event }
   
   describe '.create!' do
     context 'with no instrument or StudyEvent' do

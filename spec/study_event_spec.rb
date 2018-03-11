@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 RSpec.describe StudyEvent, type: :model do
-  subject { described_class.find_or_create_by! name: AppConstants::TEST_STUDY_EVENT, arm: arm }
+  subject { TestFactory.test_study_event }
   let!(:arm) { TestFactory.test_arm }
   let!(:schedule) { TestFactory.test_schedule }
   let!(:study) { TestFactory.test_study }

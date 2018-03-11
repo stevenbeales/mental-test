@@ -4,7 +4,6 @@ require './models/init'
 
 RSpec.describe AssessmentInstrument, type: :model do
   subject { described_class.find_or_create_by! assessment: assess, instrument: instrument }
-
   let!(:survey) { TestFactory.test_survey }
   let!(:instrument) { Instrument.find_by_name(AppConstants::TEST_INSTRUMENT) }
   let!(:user) { TestFactory.test_user }

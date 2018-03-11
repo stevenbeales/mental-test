@@ -3,7 +3,7 @@
 require './models/init'
 
 RSpec.describe Visit, type: :model do 
-  subject { described_class.find_or_create_by! survey: survey, name: AppConstants::TEST_VISIT, user: user }
+  subject { TestFactory.test_visit }
   let!(:survey) { TestFactory.test_survey }
   let!(:user) { TestFactory.test_user }
   let!(:assessment) { Assessment.find_or_create_by! visit: subject }
