@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 # Creates tables for association class between participants and surveys
-class CreateParticidpantSurveys < ActiveRecord::Migration[5.1]
+class CreateParticipantSurveys < ActiveRecord::Migration[5.1]
   def change
     create_table :participant_surveys do |t|
       t.references :participant, null: false
