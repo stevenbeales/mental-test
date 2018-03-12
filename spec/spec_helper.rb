@@ -24,6 +24,8 @@ require 'simplecov'
 require 'factory_bot'
 require './spec/test_factory'
 require './services/init'
+require './models/init'
+
 
 SimpleCov.start
 

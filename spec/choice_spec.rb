@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-require './models/init'
-
 RSpec.describe Choice, type: :model do
   subject { described_class.find_or_create_by! response_scale: scale, value: 'val', description: 'text' }
   let!(:scale) { TestFactory.test_response_scale }

@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-require './models/init'
-
 RSpec.describe Visit, type: :model do 
   subject { TestFactory.test_visit }
   let!(:survey) { TestFactory.test_survey }

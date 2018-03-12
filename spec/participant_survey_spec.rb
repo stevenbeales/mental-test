@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-require './models/init'
-
 RSpec.describe ParticipantSurvey, type: :model do
   subject { described_class.find_or_create_by participant: participant, survey: survey }
   let!(:survey) { TestFactory.test_survey }

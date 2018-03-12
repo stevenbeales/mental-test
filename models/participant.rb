@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-require 'validates_email_format_of'
-
 # Model to represent survey participants
 class Participant < ApplicationRecord
   belongs_to :user, optional: true

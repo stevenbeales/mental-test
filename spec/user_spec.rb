@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-require './models/init'
-
 RSpec.describe User, type: :model do
   subject { TestFactory.test_user }
 

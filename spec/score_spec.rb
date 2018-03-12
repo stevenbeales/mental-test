@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-require './models/init'
-
 RSpec.describe Score, type: :model do
   subject { described_class.create_with(score: 1).find_or_create_by! assessment: ass, name: 'total' }
   let(:ass) { Assessment.find_or_create_by! visit: vt, order_number: 1 }

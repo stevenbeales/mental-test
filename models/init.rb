@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require 'validates_email_format_of'
+
 require_relative 'application_record'
 require_relative 'arm'
 require_relative 'assessment'
@@ -22,3 +24,4 @@ require_relative 'study_event_instrument'
 require_relative 'survey'
 require_relative 'user'
 require_relative 'visit'
+

@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-require './models/init'
-
 RSpec.describe AlexaService do
   describe '.default_help_response' do
     it { expect(AlexaService.default_help_response).to eq(AlexaService::DEFAULT_HELP_RESPONSE) }

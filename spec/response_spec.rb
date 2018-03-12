@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-require './models/init'
-
 RSpec.describe Response, type: :model do
   subject { described_class.find_or_create_by! assessment: ass, value: 'something' }
   let(:ass) { Assessment.find_or_create_by! visit: vt }
