@@ -4,8 +4,8 @@
 class Participant < ApplicationRecord
   belongs_to :user, optional: true
   validates_email_format_of :email, message: 'is not a valid email'
-  has_many :participant_surveys, inverse_of: :participant, dependent: :destroy
-  has_many :surveys, through: :participant_surveys
+  has_many :survey_participants, inverse_of: :participant, dependent: :destroy
+  has_many :surveys, through: :survey_participants
   
  
 

@@ -15,10 +15,10 @@
 class Survey < ApplicationRecord
   # has_paper_trail
 
-  has_many :participant_surveys, inverse_of: :survey, dependent: :destroy
+  has_many :survey_participants, inverse_of: :survey, dependent: :destroy
   has_many :visits, inverse_of: :survey, dependent: :destroy
   has_many :assessments, through: :visits
-  has_many :participants, through: :participant_surveys
+  has_many :participants, through: :survey_participants
   
   scope :active, -> { where(is_active: true) }
 

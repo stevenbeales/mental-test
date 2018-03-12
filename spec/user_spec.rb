@@ -2,6 +2,8 @@
 
 RSpec.describe User, type: :model do
   subject { TestFactory.test_user }
+  let!(:survey) { TestFactory.test_survey }
+  let!(:participant) { TestFactory.test_participant }
 
   describe '.authenticate' do
     it 'creates a user if one does not exist' do
@@ -42,6 +44,12 @@ RSpec.describe User, type: :model do
 
     it 'has unique name' do
       expect { described_class.authenticate('Timmy') }.to change { described_class.count }.by(0)
+    end
+
+    it 'may be survey participant' do
+      subject.participant = participant
+      subject.save!
+      expect(subject.participant.id).to eq(participant.id)
     end
   end
 

@@ -10,11 +10,11 @@
 #
 
 # Association class between users and surveys
-class ParticipantSurvey < ApplicationRecord
+class SurveyParticipant < ApplicationRecord
   # has_paper_trail
 
-  belongs_to :participant, inverse_of: :participant_surveys
-  belongs_to :survey, inverse_of: :participant_surveys
+  belongs_to :participant, inverse_of: :survey_participants
+  belongs_to :survey, inverse_of: :survey_participants
 
   validates :participant, presence: true
   validates :survey, presence: true

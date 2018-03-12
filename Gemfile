@@ -31,7 +31,9 @@ group :test do
   gem 'travis', '~> 1.8.8', require: false # for continuous integrations
 end
 
-gem 'letter_opener', require: false, group: :development # view emails in development
-
+group :development do
+  gem 'letter_opener', require: false  # view emails in development
+  gem 'guard'
+end
 # Added at 2018-03-08 11:26:55 -0500 by steven-surface\steven:
 gem 'byebug', '~> 10.0', groups: %i[development test], require: false

@@ -98,16 +98,6 @@ ActiveRecord::Schema.define(version: 20180311033124) do
     t.index ["response_scale_id"], name: "index_items_on_response_scale_id"
   end
 
-  create_table "participant_surveys", force: :cascade do |t|
-    t.bigint "participant_id", null: false
-    t.bigint "survey_id", null: false
-    t.datetime "created_at", default: -> { "CURRENT_TIMESTAMP" }, null: false
-    t.datetime "updated_at", default: -> { "CURRENT_TIMESTAMP" }, null: false
-    t.index ["participant_id", "survey_id"], name: "index_by_participant_survey", unique: true
-    t.index ["participant_id"], name: "index_participant_surveys_on_participant_id"
-    t.index ["survey_id"], name: "index_participant_surveys_on_survey_id"
-  end
-
   create_table "participants", force: :cascade do |t|
     t.string "email", null: false
     t.string "identifier"
@@ -202,6 +192,16 @@ ActiveRecord::Schema.define(version: 20180311033124) do
     t.index ["order"], name: "index_study_events_on_order"
   end
 
+  create_table "survey_participants", force: :cascade do |t|
+    t.bigint "participant_id", null: false
+    t.bigint "survey_id", null: false
+    t.datetime "created_at", default: -> { "CURRENT_TIMESTAMP" }, null: false
+    t.datetime "updated_at", default: -> { "CURRENT_TIMESTAMP" }, null: false
+    t.index ["participant_id", "survey_id"], name: "index_by_participant_survey", unique: true
+    t.index ["participant_id"], name: "index_survey_participants_on_participant_id"
+    t.index ["survey_id"], name: "index_survey_participants_on_survey_id"
+  end
+
   create_table "surveys", force: :cascade do |t|
     t.string "name", null: false
     t.boolean "is_active", default: true, null: false
@@ -253,14 +253,14 @@ ActiveRecord::Schema.define(version: 20180311033124) do
   add_foreign_key "choices", "response_scales"
   add_foreign_key "items", "instruments"
   add_foreign_key "items", "response_scales"
-  add_foreign_key "participant_surveys", "participants"
-  add_foreign_key "participant_surveys", "surveys"
   add_foreign_key "responses", "assessments"
   add_foreign_key "schedules", "studies"
   add_foreign_key "scores", "assessments"
   add_foreign_key "study_event_instruments", "instruments"
   add_foreign_key "study_event_instruments", "study_events"
   add_foreign_key "study_events", "arms"
+  add_foreign_key "survey_participants", "participants"
+  add_foreign_key "survey_participants", "surveys"
   add_foreign_key "visits", "surveys"
   add_foreign_key "visits", "users"
 end

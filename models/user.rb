@@ -22,8 +22,8 @@ class User < ApplicationRecord
   has_many :visits, inverse_of: :user, dependent: :destroy
   has_many :assessments, through: :visits
   has_one :participant, dependent: :destroy
-  has_many :participant_surveys, through: :participant
-  has_many :surveys, through: :participant_surveys
+  has_many :survey_participants, through: :participant
+  has_many :surveys, through: :survey_participants
   
   validates :username, presence: true
   validates_uniqueness_of :username

@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-RSpec.describe ParticipantSurvey, type: :model do
+RSpec.describe SurveyParticipant, type: :model do
   subject { described_class.find_or_create_by participant: participant, survey: survey }
   let!(:survey) { TestFactory.test_survey }
   let!(:participant) { TestFactory.test_participant }

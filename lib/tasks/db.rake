@@ -5,4 +5,10 @@ namespace :db do
   task recreate: ['db:drop', 'db:create', 'db:migrate', 'db:seed'] do
     puts 'Reseeding completed.'
   end
+
+  desc 'Remove schema.rb'
+  task remove_schema: [] do
+    File.delete('./../../db/schema.rb') if File.exist? './../../db/schema.rb'
+    puts 'Completed.'
+  end
 end
