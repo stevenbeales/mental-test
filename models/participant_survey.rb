@@ -5,21 +5,21 @@
 # Table name: user_surveys
 #
 #  id        :integer          not null, primary key
-#  user_id   :integer          not null
+#  participant_id   :integer          not null
 #  survey_id :integer          not null
 #
 
 # Association class between users and surveys
-class UserSurvey < ApplicationRecord
+class ParticipantSurvey < ApplicationRecord
   # has_paper_trail
 
-  belongs_to :user, inverse_of: :user_surveys
-  belongs_to :survey, inverse_of: :user_surveys
+  belongs_to :participant, inverse_of: :participant_surveys
+  belongs_to :survey, inverse_of: :participant_surveys
 
-  validates :user, presence: true
+  validates :participant, presence: true
   validates :survey, presence: true
 
   def to_s
-    "#{user} #{survey}"
+    "#{participant} #{survey}"
   end
 end

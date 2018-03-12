@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180311033114) do
+ActiveRecord::Schema.define(version: 20180311033124) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -96,6 +96,16 @@ ActiveRecord::Schema.define(version: 20180311033114) do
     t.index ["instrument_id"], name: "index_items_on_instrument_id"
     t.index ["name"], name: "index_by_item_name", unique: true
     t.index ["response_scale_id"], name: "index_items_on_response_scale_id"
+  end
+
+  create_table "participant_surveys", force: :cascade do |t|
+    t.bigint "participant_id", null: false
+    t.bigint "survey_id", null: false
+    t.datetime "created_at", default: -> { "CURRENT_TIMESTAMP" }, null: false
+    t.datetime "updated_at", default: -> { "CURRENT_TIMESTAMP" }, null: false
+    t.index ["participant_id", "survey_id"], name: "index_by_participant_survey", unique: true
+    t.index ["participant_id"], name: "index_participant_surveys_on_participant_id"
+    t.index ["survey_id"], name: "index_participant_surveys_on_survey_id"
   end
 
   create_table "participants", force: :cascade do |t|
@@ -201,16 +211,6 @@ ActiveRecord::Schema.define(version: 20180311033114) do
     t.index ["name"], name: "index_by_survey_name", unique: true
   end
 
-  create_table "user_surveys", force: :cascade do |t|
-    t.bigint "user_id", null: false
-    t.bigint "survey_id", null: false
-    t.datetime "created_at", default: -> { "CURRENT_TIMESTAMP" }, null: false
-    t.datetime "updated_at", default: -> { "CURRENT_TIMESTAMP" }, null: false
-    t.index ["survey_id"], name: "index_user_surveys_on_survey_id"
-    t.index ["user_id", "survey_id"], name: "index_by_user_survey", unique: true
-    t.index ["user_id"], name: "index_user_surveys_on_user_id"
-  end
-
   create_table "users", force: :cascade do |t|
     t.string "username", null: false
     t.string "firstname"
@@ -253,14 +253,14 @@ ActiveRecord::Schema.define(version: 20180311033114) do
   add_foreign_key "choices", "response_scales"
   add_foreign_key "items", "instruments"
   add_foreign_key "items", "response_scales"
+  add_foreign_key "participant_surveys", "participants"
+  add_foreign_key "participant_surveys", "surveys"
   add_foreign_key "responses", "assessments"
   add_foreign_key "schedules", "studies"
   add_foreign_key "scores", "assessments"
   add_foreign_key "study_event_instruments", "instruments"
   add_foreign_key "study_event_instruments", "study_events"
   add_foreign_key "study_events", "arms"
-  add_foreign_key "user_surveys", "surveys"
-  add_foreign_key "user_surveys", "users"
   add_foreign_key "visits", "surveys"
   add_foreign_key "visits", "users"
 end

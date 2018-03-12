@@ -2,27 +2,27 @@
 
 require './models/init'
 
-RSpec.describe UserSurvey, type: :model do
-  subject { described_class.find_or_create_by user: user, survey: survey }
+RSpec.describe ParticipantSurvey, type: :model do
+  subject { described_class.find_or_create_by participant: participant, survey: survey }
   let!(:survey) { TestFactory.test_survey }
-  let!(:user) { TestFactory.test_user }
+  let!(:participant) { TestFactory.test_participant }
   
   describe '.create!' do
-    context 'no user or survey' do
+    context 'no participant or survey' do
       it { expect { subject.class.create! }.to raise_error ActiveRecord::RecordInvalid }
     end
 
-    context 'no user' do
-      it { expect { subject.class.create! user: user }.to raise_error ActiveRecord::RecordInvalid }
+    context 'no participant' do
+      it { expect { subject.class.create! participant: participant }.to raise_error ActiveRecord::RecordInvalid }
     end
 
     context 'no survey' do
       it { expect { subject.class.create! survey: survey }.to raise_error ActiveRecord::RecordInvalid }
     end
  
-    context 'survey and user' do
+    context 'survey and participant' do
       it do 
-        expect { subject.class.find_or_create_by! user: user, survey: survey }.not_to raise_error
+        expect { subject.class.find_or_create_by! participant: participant, survey: survey }.not_to raise_error
       end
     end
   end
@@ -32,15 +32,15 @@ RSpec.describe UserSurvey, type: :model do
       subject.destroy!
     end
 
-    it { expect(User.exists?(user.id)).to be_truthy }
+    it { expect(Participant.exists?(participant.id)).to be_truthy }
 
     it { expect(Survey.exists?(survey.id)).to be_truthy }
   end
 
   describe '#to_s' do
     it do
-      expect(subject.class.where(user: user, survey: survey).first.to_s).to \
-        eq("#{AppConstants::TEST_USER} #{AppConstants::TEST_SURVEY}")
+      expect(subject.class.where(participant: participant, survey: survey).first.to_s).to \
+        eq("#{AppConstants::TEST_PARTICIPANT_EMAIL} #{AppConstants::TEST_SURVEY}")
     end
   end
 

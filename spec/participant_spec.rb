@@ -13,7 +13,7 @@ RSpec.describe Participant, type: :model do
 
   describe '#to_s' do
     it do
-      expect(subject.to_s).to eq("#{subject.identifier} #{subject.email}") 
+      expect(subject.to_s).to eq("#{subject.identifier} #{subject.email}".strip) 
     end
   end
 

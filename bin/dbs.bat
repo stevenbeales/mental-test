@@ -1,1 +1,1 @@
-be rake db:recreate
+be rake db:recreate RACK_ENV=test

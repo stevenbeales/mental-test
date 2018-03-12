@@ -18,7 +18,6 @@ gem 'sinatra', '~> 2.0.1' # Web server
 gem 'sinatra-activerecord', '~> 2.0.13' # for Active Record models
 gem 'validates_email_format_of', '~>1.6.3', require: false # validates email format
 
-
 group :test do
   gem 'bundler-audit', '~> 0.6.0', require: false # check gems for security issues
   gem 'database_cleaner', '=1.6.1', require: false # for test database cleaning
