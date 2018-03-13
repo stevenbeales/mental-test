@@ -4,11 +4,11 @@
 class Arm < ApplicationRecord
   belongs_to :schedule, inverse_of: :arms 
   delegate :study, to: :schedule, allow_nil: true
-  has_many :study_events
+  has_many :study_events, dependent: :destroy
   
   validates :name, presence: true
   validates :schedule, presence: true
-  validates_uniqueness_of :number, scope: %i[schedule] 
+  validates_uniqueness_of :number, scope: %i[schedule name] 
   validates :number, presence: true, allow_blank: false
   validates :number, numericality: { only_integer: true, greater_than_or_equal_to: 1, less_than_or_equal_to: 10_000 }
 

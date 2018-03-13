@@ -23,12 +23,6 @@ guard :rspec, cmd: 'bundle exec rspec' do
   %w[models config db services intents bin public].select do |d| 
     Dir.exist?(d) ? d : UI.warning("Directory #{d} does not exist")
   end
-  
-  # Turnip features and steps
-  # watch(%r{^spec/acceptance/(.+)\.feature$})
-  # watch(%r{^spec/acceptance/steps/(.+)_steps\.rb$}) do |m|
-  # Dir[File.join("**/#{m[1]}.feature")][0] || "spec/acceptance"
-  # end
 end
 
 guard :rspec, cmd: 'rspec -f html -o ./tmp/spec_results.html', launchy: './tmp/spec_results.html' do

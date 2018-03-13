@@ -7,6 +7,11 @@ class TestFactory
                                          schedule: test_schedule, number: 1 || FactoryBot.create(:test_arm)
   end 
 
+  def self.test_arm2
+    @test_arm2 ||= Arm.find_or_create_by! name: AppConstants::TEST_ARM2, \
+                                          schedule: test_schedule, number: 2 || FactoryBot.create(:test_arm2)
+  end 
+
   def self.test_folder
     @test_folder ||= FactoryBot.create(:test_folder)
   end

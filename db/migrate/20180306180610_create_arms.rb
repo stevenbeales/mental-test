@@ -10,7 +10,7 @@ class CreateArms < ActiveRecord::Migration[5.1]
       t.timestamps null: false, default: -> { 'CURRENT_TIMESTAMP' }
     end
 
-    add_index :arms, %i[schedule_id name], unique: true, name: 'index_by_schedule_name'
-    add_index :arms, %i[schedule_id number], unique: true, name: 'index_by_schedule_number'
+    add_index :arms, %i[schedule_id id name], unique: true, name: 'index_by_schedule_name'
+    add_index :arms, %i[schedule_id id number], unique: true, name: 'index_by_schedule_number'
   end
 end

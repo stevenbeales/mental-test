@@ -6,6 +6,7 @@ module AppConstants
   LOADER_INSTRUMENT_EXISTS = 'An instrument of that name already exists. To overwrite please pass overwrite: true'
   LOADER_NIL_INSTRUMENT = 'Error: no instrument was passed. Please create your instrument before loading contents.'
   TEST_ARM = 'Test Arm'
+  TEST_ARM2 = 'Test Arm 2'
   TEST_FOLDER = 'Test Folder'
   TEST_HIPAA_IDENTIFIER = 'Test Hipaa Identifier'
   TEST_INSTRUMENT = 'Cesd-r'

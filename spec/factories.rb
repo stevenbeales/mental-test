@@ -7,6 +7,12 @@ FactoryBot.define do
     association :schedule, factory: :test_schedule
   end
 
+  factory :test_arm2, class: 'Arm' do
+    name AppConstants::TEST_ARM2
+    number 2
+    association :schedule, factory: :test_schedule
+  end
+
   factory :test_folder, class: 'Folder' do
     name AppConstants::TEST_FOLDER
   end

@@ -23,8 +23,8 @@ ActiveRecord::Schema.define(version: 20180311033124) do
     t.datetime "updated_at", default: -> { "CURRENT_TIMESTAMP" }, null: false
     t.index ["name"], name: "index_arms_on_name"
     t.index ["number"], name: "index_arms_on_number"
-    t.index ["schedule_id", "name"], name: "index_by_schedule_name", unique: true
-    t.index ["schedule_id", "number"], name: "index_by_schedule_number", unique: true
+    t.index ["schedule_id", "id", "name"], name: "index_by_schedule_name", unique: true
+    t.index ["schedule_id", "id", "number"], name: "index_by_schedule_number", unique: true
     t.index ["schedule_id"], name: "index_arms_on_schedule_id"
   end
 
