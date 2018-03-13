@@ -33,7 +33,9 @@ end
 
 group :development do
   gem 'letter_opener', require: false  # view emails in development
-  gem 'guard'
+  gem 'guard', require: false # watch for changed files 
+  gem 'guard-rspec', require: false # run rspec on change
+  gem 'wdm', '>= 0.1.0' if Gem.win_platform?
 end
 # Added at 2018-03-08 11:26:55 -0500 by steven-surface\steven:
 gem 'byebug', '~> 10.0', groups: %i[development test], require: false

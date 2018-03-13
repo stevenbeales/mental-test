@@ -22,9 +22,9 @@ RSpec.describe Schedule, type: :model do
 
     context 'unique name' do
       it do
-        rs = described_class.create! name: 'a12', study: study
+        another_object = described_class.create! name: 'a12', study: study
         expect { described_class.create! name: 'a12', study: study }.to raise_error ActiveRecord::RecordInvalid
-        rs.destroy!
+        another_object.destroy!
       end
     end
 
