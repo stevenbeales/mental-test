@@ -5,9 +5,17 @@ RSpec.describe AssessmentInstrument, type: :model do
   let!(:survey) { TestFactory.test_survey }
   let!(:instrument) { Instrument.find_by_name(AppConstants::TEST_INSTRUMENT) }
   let!(:user) { TestFactory.test_user }
-  let!(:visit) { Visit.find_or_create_by! user: user, name: AppConstants::TEST_VISIT, survey: survey }
-  let!(:assess) { Assessment.find_or_create_by! visit: visit }
+  let!(:visit) { TestFactory.test_visit }
+  let!(:assess) { TestFactory.test_assessment }
   
+  it 'is an instance of AssessmentInstrument' do
+    expect(subject).to be_an AssessmentInstrument
+  end
+
+  it 'is valid with valid attributes' do
+    expect(subject).to be_valid
+  end
+
   describe '.create!' do
     context 'no instrument or assessment' do
       it { expect { described_class.create! }.to raise_error ActiveRecord::RecordInvalid }

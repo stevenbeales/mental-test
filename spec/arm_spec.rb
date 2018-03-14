@@ -15,7 +15,7 @@ RSpec.describe Arm, type: :model do
   end
 
   describe '#name' do
-    it 'is set to arm and number if nil' do
+    it 'is set to arm1 if missing' do
       cached_name = subject.name
       subject.name = nil
       subject.valid?
@@ -33,14 +33,22 @@ RSpec.describe Arm, type: :model do
       subject.schedule = cached_schedule
     end
 
-    context '#schedule nil' do
-      it 'study is nil' do
+    context '#schedule missing' do
+      it 'is missing study' do
         cached_schedule = subject.schedule
         subject.schedule = nil
         expect(subject.study).to be_nil
         subject.schedule = cached_schedule
       end
     end
+
+    context '#schedule#arms' do
+      it { expect(subject.schedule.arms.index(subject)).to eq(0) }
+    end
+  end
+
+  describe '#study' do
+    it { expect(subject.schedule.study).to eq(subject.study) }
   end
 
   describe '#number' do

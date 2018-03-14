@@ -12,6 +12,10 @@ class TestFactory
                                           schedule: test_schedule, number: 2 || FactoryBot.create(:test_arm2)
   end 
 
+  def self.test_assessment
+    @test_assessment ||= Assessment.find_or_create_by! visit: test_visit || FactoryBot.create(:test_assessment)
+  end
+
   def self.test_folder
     @test_folder ||= FactoryBot.create(:test_folder)
   end

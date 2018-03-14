@@ -3,9 +3,10 @@
 # Assessment scores and sub scores
 class Score < ApplicationRecord
   belongs_to :assessment, inverse_of: :scores 
-  has_one :visit, through: :assessment
-  has_one :survey, through: :visit
-  has_one :user, through: :visit
+  delegate :visit, to: :assessment, allow_nil: true
+  delegate :survey, to: :visit, allow_nil: true
+  delegate :participant, to: :survey, allow_nil: true
+  delegate :user, to: :participant, allow_nil: true
 
   validates :name, presence: true
   validates :assessment, presence: true

@@ -4,6 +4,14 @@ RSpec.describe Choice, type: :model do
   subject { described_class.find_or_create_by! response_scale: scale, value: 'val', description: 'text' }
   let!(:scale) { TestFactory.test_response_scale }
 
+  it 'is an instance of Choice' do
+    expect(subject).to be_a Choice
+  end
+
+  it 'is valid with valid attributes' do
+    expect(subject).to be_valid
+  end
+
   describe '.create!' do
     context 'without response scale or value' do
       it { expect { described_class.create! }.to raise_error ActiveRecord::RecordInvalid }
@@ -14,7 +22,9 @@ RSpec.describe Choice, type: :model do
     end
     
     it 'with response scale, value and description' do
-      expect { described_class.create! response_scale: scale, value: 'val', description: 'text' }.not_to raise_error
+      expect do
+        described_class.find_or_create_by! response_scale: scale, value: 'val', description: 'text' 
+      end.not_to raise_error
       c = Choice.find_by response_scale_id: scale.id, value: 'val'
       c.destroy!
     end

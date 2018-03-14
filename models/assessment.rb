@@ -27,7 +27,15 @@ class Assessment < ApplicationRecord
   validates :visit, presence: true
   validates :order_number, presence: true
 
+  before_destroy :destroy_scores
+
   def to_s
     visit.to_s
+  end
+
+  private
+
+  def destroy_scores
+    scores.each(&:destroy!)
   end
 end

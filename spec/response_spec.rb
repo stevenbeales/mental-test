@@ -2,10 +2,10 @@
 
 RSpec.describe Response, type: :model do
   subject { described_class.find_or_create_by! assessment: ass, value: 'something' }
-  let(:ass) { Assessment.find_or_create_by! visit: vt }
+  let(:ass) { TestFactory.test_assessment }
   let!(:sy) { TestFactory.test_survey }
   let!(:ur) { TestFactory.test_user }
-  let!(:vt) { Visit.find_or_create_by! user: ur, name: AppConstants:: TEST_VISIT, survey: sy }
+  let!(:vt) { TestFactory.test_visit }
   let!(:choice) { Choice.find_or_create_by! response_scale: scale, value: 'val', description: 'text' }
   let!(:scale) { TestFactory.test_response_scale }
   

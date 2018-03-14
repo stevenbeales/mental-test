@@ -1,10 +1,18 @@
 # frozen_string_literal: true
 
 RSpec.describe Assessment, type: :model do
-  subject { described_class.find_or_create_by! visit: visit }
+  subject { TestFactory.test_assessment }
   let!(:survey) { TestFactory.test_survey }
   let!(:user) { TestFactory.test_user }
   let!(:visit) { TestFactory.test_visit }
+
+  it 'is an instance of Assessment' do
+    expect(subject).to be_an Assessment
+  end
+
+  it 'is valid with valid attributes' do
+    expect(subject).to be_valid
+  end
 
   describe '.create!' do
     context 'with no visit' do

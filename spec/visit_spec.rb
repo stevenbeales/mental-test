@@ -4,7 +4,7 @@ RSpec.describe Visit, type: :model do
   subject { TestFactory.test_visit }
   let!(:survey) { TestFactory.test_survey }
   let!(:user) { TestFactory.test_user }
-  let!(:assessment) { Assessment.find_or_create_by! visit: subject }
+  let!(:assessment) { TestFactory.test_assessment }
     
   describe '.create!' do
     context 'no survey and user' do
@@ -49,7 +49,8 @@ RSpec.describe Visit, type: :model do
       cached_id = assessment.id
       v1 = described_class.find_or_create_by! user: user, name: 'visit 1', survey: survey, number: 2
       v1.assessments.concat(assessment)
-      v1.destroy
+      assessment.destroy!
+      v1.destroy!
       expect { Assessment.find(cached_id) }.to raise_error(ActiveRecord::RecordNotFound)
     end
 
@@ -63,8 +64,7 @@ RSpec.describe Visit, type: :model do
     it do
       ass1 = Assessment.create! visit: subject, order_number: 24
       ass2 = Assessment.create! visit: subject, order_number: 2
-      subject.assessments.concat [ass1, ass2]
-      expect(subject.assessments.count.to_s).to eq '3' 
+      expect { subject.assessments.concat [ass1, ass2] }.to change { subject.assessments.size }.by(2)
       subject.assessments.each(&:destroy!)
     end
   end

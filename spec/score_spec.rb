@@ -2,10 +2,10 @@
 
 RSpec.describe Score, type: :model do
   subject { described_class.create_with(score: 1).find_or_create_by! assessment: ass, name: 'total' }
-  let(:ass) { Assessment.find_or_create_by! visit: vt, order_number: 1 }
+  let(:ass) { TestFactory.test_assessment }
   let!(:sy) { TestFactory.test_survey }
   let!(:ur) { TestFactory.test_user }
-  let!(:vt) { Visit.find_or_create_by! user: ur, name: AppConstants::TEST_VISIT, survey: sy }
+  let!(:vt) { TestFactory.test_visit }
   let!(:choice) { Choice.find_or_create_by! response_scale: scale, value: 'val', description: 'text' }
   let!(:scale) { TestFactory.test_response_scale }
 
@@ -61,8 +61,7 @@ RSpec.describe Score, type: :model do
       rep3 = described_class.create_with(score: 5).find_or_create_by! assessment: ass, name: 'Anxiety' 
       ass.scores.concat([rep2, rep3])
       expect(subject.assessment.scores.count.to_s).to eq '3'     
-      rep2.destroy!
-      rep3.destroy!
+      ass.scores.each(&:destroy!)
     end
   end
 

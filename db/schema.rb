@@ -255,7 +255,6 @@ ActiveRecord::Schema.define(version: 20180311033124) do
   add_foreign_key "items", "response_scales"
   add_foreign_key "responses", "assessments"
   add_foreign_key "schedules", "studies"
-  add_foreign_key "scores", "assessments"
   add_foreign_key "study_event_instruments", "instruments"
   add_foreign_key "study_event_instruments", "study_events"
   add_foreign_key "study_events", "arms"

@@ -5,6 +5,14 @@ RSpec.describe Folder, type: :model do
   let!(:project1) { TestFactory.test_project }
   let!(:project2) { TestFactory.test_project2 } 
   
+  it 'is an instance of Folder' do
+    expect(subject).to be_a Folder
+  end
+
+  it 'is valid with valid attributes' do
+    expect(subject).to be_valid
+  end
+
   describe '.create!' do
     context 'without a name' do
       it { expect { described_class.create! }.to raise_error ActiveRecord::RecordInvalid }

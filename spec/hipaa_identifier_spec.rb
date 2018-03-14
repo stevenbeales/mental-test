@@ -3,6 +3,14 @@
 RSpec.describe HipaaIdentifier, type: :model do
   subject { TestFactory.test_hipaa_identifier }
  
+  it 'is an instance of HipaaIdentifier' do
+    expect(subject).to be_a HipaaIdentifier
+  end
+
+  it 'is valid with valid attributes' do
+    expect(subject).to be_valid
+  end
+
   describe '.create!' do
     context 'without a name' do
       it { expect { described_class.create! }.to raise_error ActiveRecord::RecordInvalid }

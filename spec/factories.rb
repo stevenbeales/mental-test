@@ -13,6 +13,10 @@ FactoryBot.define do
     association :schedule, factory: :test_schedule
   end
 
+  factory :test_assessment, class: 'Assessment' do
+    association :visit, factory: :test_visit
+  end
+
   factory :test_folder, class: 'Folder' do
     name AppConstants::TEST_FOLDER
   end
