@@ -6,6 +6,14 @@ RSpec.describe Visit, type: :model do
   let!(:user) { TestFactory.test_user }
   let!(:assessment) { TestFactory.test_assessment }
     
+  it 'is an instance of Visit' do
+    expect(subject).to be_a Visit
+  end
+
+  it 'is valid with valid attributes' do
+    expect(subject).to be_valid
+  end
+
   describe '.create!' do
     context 'no survey and user' do
       it { expect { described_class.create! }.to raise_error ActiveRecord::RecordInvalid }

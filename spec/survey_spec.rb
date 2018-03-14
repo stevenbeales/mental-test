@@ -3,6 +3,14 @@
 RSpec.describe Survey do
   subject { TestFactory.test_survey }
 
+  it 'is an instance of Survey' do
+    expect(subject).to be_a Survey
+  end
+
+  it 'is valid with valid attributes' do
+    expect(subject).to be_valid
+  end
+
   describe '.create!' do
     it 'without name' do
       expect { described_class.create! }.to raise_error ActiveRecord::RecordInvalid

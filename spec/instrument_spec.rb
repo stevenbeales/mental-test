@@ -2,6 +2,14 @@
 
 RSpec.describe Instrument, type: :model do
   subject { described_class.find_or_create_by! name: AppConstants::TEST_INSTRUMENT }
+  
+  it 'is an instance of Instrument' do
+    expect(subject).to be_an Instrument
+  end
+
+  it 'is valid with valid attributes' do
+    expect(subject).to be_valid
+  end
 
   describe 'test instrument #items' do
     it 'is not empty' do

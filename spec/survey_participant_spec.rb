@@ -5,6 +5,14 @@ RSpec.describe SurveyParticipant, type: :model do
   let!(:survey) { TestFactory.test_survey }
   let!(:participant) { TestFactory.test_participant }
   
+  it 'is an instance of Survey Participant' do
+    expect(subject).to be_an SurveyParticipant
+  end
+
+  it 'is valid with valid attributes' do
+    expect(subject).to be_valid
+  end
+  
   describe '.create!' do
     context 'no participant or survey' do
       it { expect { subject.class.create! }.to raise_error ActiveRecord::RecordInvalid }

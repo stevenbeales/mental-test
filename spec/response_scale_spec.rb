@@ -3,6 +3,14 @@
 RSpec.describe ResponseScale, type: :model do
   subject { TestFactory.test_response_scale }
   
+  it 'is an instance of ResponseScale' do
+    expect(subject).to be_an ResponseScale
+  end
+
+  it 'is valid with valid attributes' do
+    expect(subject).to be_valid
+  end
+
   describe '.create!' do
     context 'without a name' do
       it { expect { described_class.create! }.to raise_error ActiveRecord::RecordInvalid }

@@ -4,6 +4,14 @@ RSpec.describe Item, type: :model do
   subject { described_class.find_or_create_by! name: 'Appetite1' }
   let!(:instrument) { Instrument.find_or_create_by! name: AppConstants::TEST_INSTRUMENT }
 
+  it 'is an instance of Item' do
+    expect(subject).to be_an Item
+  end
+
+  it 'is valid with valid attributes' do
+    expect(subject).to be_valid
+  end
+
   describe 'test item #choices' do
     it 'has 5 choices' do
       expect(subject.choices.count).to eq(5)

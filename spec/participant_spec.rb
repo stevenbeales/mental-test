@@ -3,6 +3,14 @@
 RSpec.describe Participant, type: :model do
   subject { TestFactory.test_participant }
 
+  it 'is an instance of Participant' do
+    expect(subject).to be_an Participant
+  end
+
+  it 'is valid with valid attributes' do
+    expect(subject).to be_valid
+  end
+
   describe '.create!' do
     it 'does not create a participant without an email' do
       expect { described_class.create! }.to raise_error ActiveRecord::RecordInvalid

@@ -4,6 +4,14 @@ RSpec.describe Project, type: :model do
   subject { TestFactory.test_project }
   let!(:folder1) { TestFactory.test_folder }
 
+  it 'is an instance of Project' do
+    expect(subject).to be_an Project
+  end
+
+  it 'is valid with valid attributes' do
+    expect(subject).to be_valid
+  end
+
   describe '.create!' do
     context 'without name or title' do
       it { expect { described_class.create! }.to raise_error ActiveRecord::RecordInvalid }

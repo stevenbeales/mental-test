@@ -8,6 +8,14 @@ RSpec.describe StudyEventInstrument, type: :model do
   let!(:instrument) { Instrument.find_by_name(AppConstants::TEST_INSTRUMENT) }
   let!(:study_event) { TestFactory.test_study_event }
   
+  it 'is an instance of Study Event Instrument' do
+    expect(subject).to be_an StudyEventInstrument
+  end
+
+  it 'is valid with valid attributes' do
+    expect(subject).to be_valid
+  end
+  
   describe '.create!' do
     context 'with no instrument or StudyEvent' do
       it { expect { described_class.create! }.to raise_error ActiveRecord::RecordInvalid }

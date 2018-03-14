@@ -9,6 +9,14 @@ RSpec.describe Score, type: :model do
   let!(:choice) { Choice.find_or_create_by! response_scale: scale, value: 'val', description: 'text' }
   let!(:scale) { TestFactory.test_response_scale }
 
+  it 'is an instance of score' do
+    expect(subject).to be_an Score
+  end
+
+  it 'is valid with valid attributes' do
+    expect(subject).to be_valid
+  end
+
   describe '#to_s' do
     it { expect(subject.to_s).to eq "#{subject.assessment} #{subject.name}: #{subject.score}" }   
   end

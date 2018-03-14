@@ -4,6 +4,10 @@ RSpec.describe InstrumentLoader do
   subject { described_class.instance }
   let!(:instrument) { Instrument.find_by_name(AppConstants::TEST_INSTRUMENT) }
 
+  it 'is an instance of InstrumentLoader' do
+    expect(subject).to be_an InstrumentLoader
+  end
+
   context 'existing instrument' do
     context 'overwrite false' do
       it { expect { subject.load(instrument: instrument) }.to raise_error(RuntimeError) }

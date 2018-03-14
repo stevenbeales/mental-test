@@ -6,6 +6,14 @@ RSpec.describe StudyEvent, type: :model do
   let!(:schedule) { TestFactory.test_schedule }
   let!(:study) { TestFactory.test_study }
  
+  it 'is an instance of Study Event' do
+    expect(subject).to be_an StudyEvent
+  end
+
+  it 'is valid with valid attributes' do
+    expect(subject).to be_valid
+  end
+
   describe '.create!' do
     context 'without name or arm' do
       it { expect { described_class.create! }.to raise_error ActiveRecord::RecordInvalid }

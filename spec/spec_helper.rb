@@ -26,7 +26,6 @@ require './spec/test_factory'
 require './services/init'
 require './models/init'
 
-
 SimpleCov.start
 
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration

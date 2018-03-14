@@ -3,7 +3,15 @@
 RSpec.describe Schedule, type: :model do
   subject { TestFactory.test_schedule }
   let!(:study) { TestFactory.test_study }
-  
+
+  it 'is an instance of schedule' do
+    expect(subject).to be_an Schedule
+  end
+
+  it 'is valid with valid attributes' do
+    expect(subject).to be_valid
+  end
+
   describe '.create!' do
     context 'without name or study' do
       it { expect { described_class.create! }.to raise_error ActiveRecord::RecordInvalid }
