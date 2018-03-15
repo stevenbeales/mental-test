@@ -23,7 +23,6 @@ group :test do
   gem 'database_cleaner', '=1.6.1', require: false # for test database cleaning
   gem 'factory_bot', '~> 4.0', require: false # for test data setup
   gem 'faker', '=1.8.7', require: false # for generating fake test data
-  gem 'metric_fu', require: false # metrics dashboard
   gem 'rack-test', '~> 0.8.3', require: false # for testing rake servers
   gem 'rspec', '~> 3.7.0', require: false # for behavioral driven testing
   gem 'rubocop', '~> 0.53.0', require: false # syntax checking
