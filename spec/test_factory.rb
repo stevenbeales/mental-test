@@ -61,6 +61,10 @@ class TestFactory
   def self.test_study_event
     @test_study_event ||= FactoryBot.create(:test_study_event)
   end 
+  
+  def self.test_study_event_instrument
+    @test_study_event_instrument ||= FactoryBot.create(:test_study_event_instrument)
+  end
 
   def self.test_survey
     @test_survey ||= FactoryBot.create(:test_survey)

@@ -12,27 +12,62 @@ RSpec.describe SurveyParticipant, type: :model do
   it 'is valid with valid attributes' do
     expect(subject).to be_valid
   end
+
+  describe '#survey' do
+    before(:each) do
+      @cached_survey = subject.survey
+    end
+    after(:each) do
+      subject.survey = @cached_survey
+    end
+    it do
+      subject.survey = nil
+      subject.valid?
+      expect(subject.errors[:survey].size).to eq(1)
+    end
+  end
+  
+  describe '#participant' do
+    before(:each) do
+      @cached_participant = subject.participant
+    end
+    after(:each) do
+      subject.participant = @cached_participant
+    end
+    it do
+      subject.participant = nil
+      subject.valid?
+      expect(subject.errors[:participant].size).to eq(1)
+    end
+  end
   
   describe '.create!' do
     context 'no participant or survey' do
-      it { expect { subject.class.create! }.to raise_error ActiveRecord::RecordInvalid }
+      it { expect { described_class.create! }.to raise_error ActiveRecord::RecordInvalid }
     end
 
     context 'no participant' do
-      it { expect { subject.class.create! participant: participant }.to raise_error ActiveRecord::RecordInvalid }
+      it { expect { described_class.create! participant: participant }.to raise_error ActiveRecord::RecordInvalid }
     end
 
     context 'no survey' do
-      it { expect { subject.class.create! survey: survey }.to raise_error ActiveRecord::RecordInvalid }
+      it { expect { described_class.create! survey: survey }.to raise_error ActiveRecord::RecordInvalid }
     end
  
     context 'survey and participant' do
       it do 
-        expect { subject.class.find_or_create_by! participant: participant, survey: survey }.not_to raise_error
+        expect { described_class.find_or_create_by! participant: participant, survey: survey }.not_to raise_error
       end
     end
   end
 
+  describe '#to_s' do
+    it do
+      expect(described_class.where(participant: participant, survey: survey).first.to_s).to \
+        eq("#{AppConstants::TEST_PARTICIPANT_EMAIL} #{AppConstants::TEST_SURVEY}")
+    end
+  end
+  
   describe '#destroy!' do
     before :each do
       subject.destroy!
@@ -41,13 +76,6 @@ RSpec.describe SurveyParticipant, type: :model do
     it { expect(Participant.exists?(participant.id)).to be_truthy }
 
     it { expect(Survey.exists?(survey.id)).to be_truthy }
-  end
-
-  describe '#to_s' do
-    it do
-      expect(subject.class.where(participant: participant, survey: survey).first.to_s).to \
-        eq("#{AppConstants::TEST_PARTICIPANT_EMAIL} #{AppConstants::TEST_SURVEY}")
-    end
   end
 
   describe '#created_at today' do
