@@ -18,6 +18,9 @@ class StudyEventInstrument < ApplicationRecord
   validates :study_event, presence: true
   validates :instrument, presence: true
 
+  validates_uniqueness_of :instrument, scope: :study_event
+  validates_uniqueness_of :study_event, scope: :instrument
+  
   def to_s
     "#{study_event} #{instrument}"
   end

@@ -48,7 +48,7 @@ RSpec.describe Arm, type: :model do
     context '#schedule#arms' do
       it do
         subject.schedule.arms.concat(subject)
-        expect(subject.schedule.arms.index(subject)).to eq(0) 
+        expect(subject.schedule.arms.index(subject)).not_to be_nil 
       end
     end
   end

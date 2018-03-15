@@ -3,17 +3,19 @@
 # Factory to create or return test objects
 class TestFactory
   def self.test_arm
-    @test_arm ||= Arm.find_or_create_by! name: AppConstants::TEST_ARM, \
-                                         schedule: test_schedule, number: 1 || FactoryBot.create(:test_arm)
+    @test_arm ||= FactoryBot.create(:test_arm)
   end 
 
   def self.test_arm2
-    @test_arm2 ||= Arm.find_or_create_by! name: AppConstants::TEST_ARM2, \
-                                          schedule: test_schedule, number: 2 || FactoryBot.create(:test_arm2)
+    @test_arm2 ||= FactoryBot.create(:test_arm2)  
   end 
 
   def self.test_assessment
-    @test_assessment ||= Assessment.find_or_create_by! visit: test_visit || FactoryBot.create(:test_assessment)
+    @test_assessment ||= FactoryBot.create(:test_assessment)
+  end
+
+  def self.test_assessment_instrument
+    @test_assessment_instrument ||= FactoryBot.create(:test_assessment_instrument)
   end
 
   def self.test_folder
@@ -24,6 +26,10 @@ class TestFactory
     @test_hipaa_identifier ||= FactoryBot.create(:test_hipaa_identifier)
   end 
   
+  def self.test_instrument
+    @test_instrument ||= Instrument.find_by(name: AppConstants::TEST_INSTRUMENT) 
+  end
+
   def self.test_participant
     @test_participant ||= FactoryBot.create(:test_participant)
   end
@@ -45,7 +51,7 @@ class TestFactory
   end 
  
   def self.test_study
-    @test_study ||= Study.find_or_create_by! name: AppConstants::TEST_STUDY || FactoryBot.create(:test_study)
+    @test_study ||= FactoryBot.create(:test_study)
   end
 
   def self.test_study2
@@ -53,8 +59,7 @@ class TestFactory
   end
 
   def self.test_study_event
-    @test_study_event ||= StudyEvent.find_or_create_by! name: AppConstants::TEST_STUDY_EVENT, \
-                                                        arm: test_arm || FactoryBot.create(:test_study_event)
+    @test_study_event ||= FactoryBot.create(:test_study_event)
   end 
 
   def self.test_survey
@@ -66,8 +71,6 @@ class TestFactory
   end
 
   def self.test_visit
-    @test_visit ||= Visit.find_or_create_by! survey: test_survey, \
-                                             name: AppConstants::TEST_VISIT, \
-                                             user: test_user || FactoryBot.create(:test_visit)
+    @test_visit ||= FactoryBot.create(:test_visit)
   end
 end

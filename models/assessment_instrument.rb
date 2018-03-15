@@ -18,6 +18,9 @@ class AssessmentInstrument < ApplicationRecord
   validates :assessment, presence: true
   validates :instrument, presence: true
 
+  validates_uniqueness_of :instrument, scope: :assessment
+  validates_uniqueness_of :assessment, scope: :instrument
+  
   def to_s
     "#{assessment} #{instrument}"
   end

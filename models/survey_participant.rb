@@ -19,6 +19,9 @@ class SurveyParticipant < ApplicationRecord
   validates :participant, presence: true
   validates :survey, presence: true
 
+  validates_uniqueness_of :survey, scope: :participant
+  validates_uniqueness_of :participant, scope: :survey
+  
   def to_s
     "#{participant} #{survey}"
   end

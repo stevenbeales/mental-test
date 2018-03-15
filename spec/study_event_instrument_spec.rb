@@ -2,9 +2,6 @@
 
 RSpec.describe StudyEventInstrument, type: :model do
   subject { described_class.find_or_create_by! study_event: study_event, instrument: instrument }
-  let!(:arm) { TestFactory.test_arm }
-  let!(:schedule) { TestFactory.test_schedule }
-  let!(:study) { TestFactory.test_study }
   let!(:instrument) { Instrument.find_by_name(AppConstants::TEST_INSTRUMENT) }
   let!(:study_event) { TestFactory.test_study_event }
   
