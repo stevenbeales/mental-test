@@ -25,25 +25,31 @@ RSpec.describe Arm, type: :model do
   end
 
   describe '#schedule' do
+    before(:each) do
+      @cached_schedule = subject.schedule
+    end
+    after(:each) do
+      subject.schedule = @cached_schedule
+    end
+    
     it 'is required' do
-      cached_schedule = subject.schedule
       subject.schedule = nil
       subject.valid?
       expect(subject.errors[:schedule].size).to eq(1)
-      subject.schedule = cached_schedule
     end
 
     context '#schedule missing' do
       it 'is missing study' do
-        cached_schedule = subject.schedule
         subject.schedule = nil
         expect(subject.study).to be_nil
-        subject.schedule = cached_schedule
       end
     end
 
     context '#schedule#arms' do
-      it { expect(subject.schedule.arms.index(subject)).to eq(0) }
+      it do
+        subject.schedule.arms.concat(subject)
+        expect(subject.schedule.arms.index(subject)).to eq(0) 
+      end
     end
   end
 

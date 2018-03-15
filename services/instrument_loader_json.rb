@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 # Loads instruments from json  
-class InstrumentLoaderJson
+class InstrumentLoaderJson < InstrumentLoader
   attr_accessor :instrument
   attr_accessor :response_scale
  

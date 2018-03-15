@@ -23,7 +23,7 @@ class InstrumentLoader
   protected 
   
   def load!(content: '')
-    loader = content.present? ? InstrumentLoaderJson.new : InstrumentLoaderCsv.new
+    loader = content.present? ? InstrumentLoaderJson.instance : InstrumentLoaderCsv.instance
     loader.load!(instrument: @instrument)
   end
 

@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 # Loads instruments from csv  
-class InstrumentLoaderCsv
+class InstrumentLoaderCsv < InstrumentLoader
   attr_accessor :instrument
   attr_accessor :response_scale
  

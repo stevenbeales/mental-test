@@ -1,6 +1,10 @@
 # frozen_string_literal: true
 
 RSpec.describe AlexaService do
+  subject { described_class.new }
+  
+  it { expect(subject).to be_an AlexaService }
+  
   describe '.default_help_response' do
     it { expect(AlexaService.default_help_response).to eq(AlexaService::DEFAULT_HELP_RESPONSE) }
   end
