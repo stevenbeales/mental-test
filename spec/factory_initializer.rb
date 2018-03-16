@@ -13,10 +13,18 @@ class FactoryInitializer
   def self.test_assessment
     Assessment.find_or_create_by! visit: test_visit
   end
+  
+  def self.test_choice
+    TestChoice.find_or_create_by! response_scale: scale, value: 'val', description: 'text'
+  end
 
   def self.test_instrument
     Instrument.find_by name: AppConstants::TEST_INSTRUMENT 
   end
+
+  def self.test_response_scale
+    ResponseScale.find_or_create_by! name: AppConstants::TEST_RESPONSE_SCALE
+  end 
 
   def self.test_schedule
     Schedule.find_or_create_by!(name: AppConstants::TEST_SCHEDULE, study: test_study)

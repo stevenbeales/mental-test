@@ -6,7 +6,7 @@ RSpec.describe Response, type: :model do
   let!(:sy) { TestFactory.test_survey }
   let!(:ur) { TestFactory.test_user }
   let!(:vt) { TestFactory.test_visit }
-  let!(:choice) { Choice.find_or_create_by! response_scale: scale, value: 'val', description: 'text' }
+  let!(:choice) { TestFactory.test_choice }
   let!(:scale) { TestFactory.test_response_scale }
   
   it 'is an instance of response' do

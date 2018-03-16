@@ -18,6 +18,10 @@ class TestFactory
     @test_assessment_instrument ||= FactoryBot.create(:test_assessment_instrument)
   end
 
+  def self.test_choice
+    @test_choice ||= FactoryBot.create(:test_choice)
+  end
+
   def self.test_folder
     @test_folder ||= FactoryBot.create(:test_folder)
   end

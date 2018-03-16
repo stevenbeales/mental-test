@@ -14,6 +14,34 @@ RSpec.describe Assessment, type: :model do
     expect(subject).to be_valid
   end
 
+  describe '#visit' do
+    before(:each) do
+      @cached_visit = subject.visit
+    end
+    after(:each) do
+      subject.visit = @cached_visit
+    end
+    it do
+      subject.visit = nil
+      subject.valid?
+      expect(subject.errors[:visit].size).to eq(1)
+    end
+  end
+  
+  describe '#order_number' do
+    before(:each) do
+      @cached_order_number = subject.order_number
+    end
+    after(:each) do
+      subject.order_number = @cached_order_number
+    end
+    it do
+      subject.order_number = nil
+      subject.valid?
+      expect(subject.errors[:order_number].size).to eq(1)
+    end
+  end
+  
   describe '.create!' do
     context 'with no visit' do
       it { expect { described_class.create! }.to raise_error ActiveRecord::RecordInvalid }

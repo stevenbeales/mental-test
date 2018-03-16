@@ -41,6 +41,16 @@ FactoryBot.define do
     end
   end
 
+  factory :test_choice, class: 'Choice' do
+    value 'val'
+    description 'text'
+    association :response_scale, factory: :test_response_scale
+    initialize_with do
+      scale = FactoryInitializer.test_response_scale
+      Choice.find_or_create_by! response_scale: scale, value: 'val', description: 'text'
+    end
+  end
+
   factory :test_folder, class: 'Folder' do
     name AppConstants::TEST_FOLDER
     initialize_with { Folder.find_or_create_by! name: AppConstants::TEST_FOLDER }
