@@ -11,6 +11,20 @@ RSpec.describe Participant, type: :model do
     expect(subject).to be_valid
   end
 
+  describe '#email' do
+    before(:each) do
+      @cached_email = subject.email
+    end
+    after(:each) do
+      subject.email = @cached_email
+    end
+    it do
+      subject.email = nil
+      subject.valid?
+      expect(subject.errors[:email].size).to eq(1)
+    end
+  end
+
   describe '.create!' do
     it 'does not create a participant without an email' do
       expect { described_class.create! }.to raise_error ActiveRecord::RecordInvalid

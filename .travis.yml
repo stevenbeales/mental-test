@@ -15,3 +15,6 @@ script:
   
 addons:
   postgresql: "9.6"
+
+bundler_args: 
+  --without production
