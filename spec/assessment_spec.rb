@@ -7,13 +7,29 @@ RSpec.describe Assessment, type: :model do
   let!(:visit) { TestFactory.test_visit }
   let!(:assessment2) { TestFactory.test_assessment2 }
   let!(:instrument) { TestFactory.test_instrument }
-
+  let!(:assessment_from_db) { Assessment.find_or_create_by! visit: visit }
+   
   it 'is an instance of Assessment' do
     expect(subject).to be_an Assessment
   end
 
   it 'is valid with valid attributes' do
     expect(subject).to be_valid
+  end
+  
+  describe '#respond_to?' do
+    it { expect(subject.respond_to?(:visit)).to be_truthy }
+    it { expect(subject.respond_to?(:survey)).to be_truthy }
+    it { expect(subject.respond_to?(:user)).to be_truthy }
+    it { expect(subject.respond_to?(:order_number)).to be_truthy }
+    it { expect(subject.respond_to?(:assessment_instruments)).to be_truthy }
+    it { expect(subject.respond_to?(:instruments)).to be_truthy }
+    it { expect(subject.respond_to?(:responses)).to be_truthy }
+    it { expect(subject.respond_to?(:scores)).to be_truthy }
+    it { expect(subject.respond_to?(:created_at)).to be_truthy }
+    it { expect(subject.respond_to?(:updated_at)).to be_truthy }
+     
+    it { expect(subject.respond_to?(:random_name)).not_to be_truthy }
   end
 
   describe '#visit' do
@@ -44,12 +60,18 @@ RSpec.describe Assessment, type: :model do
     end
   end
 
-  describe '#instruments' do
+  describe '#assessment_instruments' do
     it do
-      expect subject.instruments.index(instrument).to be > 0
+      expect(subject.assessment_instruments.size).to eq 0
     end
   end
   
+  describe '#instruments' do
+    it do
+      expect(subject.instruments.index(instrument)).to be_nil
+    end
+  end
+
   describe '.create!' do
     context 'with no visit' do
       it { expect { described_class.create! }.to raise_error ActiveRecord::RecordInvalid }

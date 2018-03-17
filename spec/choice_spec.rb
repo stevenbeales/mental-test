@@ -11,6 +11,19 @@ RSpec.describe Choice, type: :model do
   it 'is valid with valid attributes' do
     expect(subject).to be_valid
   end
+
+  describe '#respond_to?' do
+    it { expect(subject.respond_to?(:value)).to be_truthy }
+    it { expect(subject.respond_to?(:description)).to be_truthy }
+    it { expect(subject.respond_to?(:score)).to be_truthy }
+    it { expect(subject.respond_to?(:response_scale)).to be_truthy }
+    it { expect(subject.respond_to?(:responses)).to be_truthy }
+    it { expect(subject.respond_to?(:created_at)).to be_truthy }
+    it { expect(subject.respond_to?(:updated_at)).to be_truthy }
+   
+    it { expect(subject.respond_to?(:random_name)).not_to be_truthy }
+  end
+
  
   describe '#response_scale' do
     before(:each) do
@@ -30,9 +43,11 @@ RSpec.describe Choice, type: :model do
     before(:each) do
       @cached_value = subject.value
     end
+
     after(:each) do
       subject.value = @cached_value
     end
+    
     it do
       subject.value = nil
       subject.valid?
@@ -44,9 +59,11 @@ RSpec.describe Choice, type: :model do
     before(:each) do
       @cached_description = subject.description
     end
+    
     after(:each) do
       subject.description = @cached_description
     end
+    
     it do
       subject.description = nil
       subject.valid?

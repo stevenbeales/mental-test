@@ -25,6 +25,15 @@ FactoryBot.define do
 
   factory :test_assessment, class: 'Assessment' do
     association :visit, factory: :test_visit
+    factory :test_assessment_with_instruments do
+      transient do
+        ai_count 1
+      end
+
+      after(:create) do |test_assessment, evaluator|
+        create_list(:test_instrument, evaluator.ai_count, assessment: test_assessment)
+      end
+    end
     initialize_with do
       test_visit = FactoryInitializer.test_visit
       Assessment.find_or_create_by! visit: test_visit

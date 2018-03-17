@@ -13,17 +13,32 @@ RSpec.describe AssessmentInstrument, type: :model do
     expect(subject).to be_valid
   end
 
+  describe '#respond_to?' do
+    it { expect(subject.respond_to?(:assessment)).to be_truthy }
+    it { expect(subject.respond_to?(:instrument)).to be_truthy }
+    it { expect(subject.respond_to?(:created_at)).to be_truthy }
+    it { expect(subject.respond_to?(:updated_at)).to be_truthy }
+   
+    it { expect(subject.respond_to?(:random_name)).not_to be_truthy }
+  end
+
   describe '#instrument' do
     before(:each) do
       @cached_instrument = subject.instrument
     end
+   
     after(:each) do
       subject.instrument = @cached_instrument
     end
+   
     it do
       subject.instrument = nil
       subject.valid?
       expect(subject.errors[:instrument].size).to eq(1)
+    end
+
+    it do
+      expect(subject.instrument).to eq(instrument)
     end
   end
   
@@ -31,13 +46,19 @@ RSpec.describe AssessmentInstrument, type: :model do
     before(:each) do
       @cached_assessment = subject.assessment
     end
+
     after(:each) do
       subject.assessment = @cached_assessment
     end
+
     it do
       subject.assessment = nil
       subject.valid?
       expect(subject.errors[:assessment].size).to eq(1)
+    end
+
+    it do
+      expect(subject.assessment).to eq(assess)
     end
   end
 
