@@ -18,13 +18,14 @@
 # Users are linked to Alexa users using Alexa session request.user_id
 class User < ApplicationRecord
   # has_paper_trail
-
   has_many :visits, inverse_of: :user, dependent: :destroy
   has_many :assessments, through: :visits
   has_one :participant, dependent: :destroy
   has_many :survey_participants, through: :participant
   has_many :surveys, through: :survey_participants
-  
+  jsonb_accessor :preferences,
+                 locale: [:string, default: 'en-US']
+    
   validates :username, presence: true
   validates_uniqueness_of :username
   validates_length_of :username, \

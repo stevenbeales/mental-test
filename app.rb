@@ -5,6 +5,14 @@ ENV['RACK_ENV'] ||= 'development'
 require 'sinatra'
 require 'ralyxa'
 require 'fileutils'
+require 'bullet'
+
+Bullet.enable = true
+Bullet.alert = true
+Bullet.bullet_logger = true
+Bullet.console = true
+
+use Bullet::Rack
 
 # require 'paper_trail'
 # require 'paper_trail-sinatra'

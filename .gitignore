@@ -21,3 +21,4 @@ log/production.log
 
 /tmp/
 /vendor/
+log/bullet.log

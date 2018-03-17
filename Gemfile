@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 source 'https://rubygems.org'
+
 gem 'acts-as-taggable-array-on', '~> 0.4.0' # adds tags
 gem 'dotenv', '~> 2.2.1' # adds environment variables from .env files
 gem 'facets', '~> 3.1.0', require: false # additional core methods
@@ -35,6 +36,7 @@ group :development do
   gem 'guard-rspec', require: false # run rspec on change
   gem 'letter_opener', require: false # view emails in development
   gem 'wdm', '>= 0.1.0' if Gem.win_platform?
+  gem 'bullet', require: false # check for n+1 queries
 end
-# Added at 2018-03-08 11:26:55 -0500 by steven-surface\steven:
-gem 'byebug', '~> 10.0', groups: %i[development test], require: false
+
+gem 'sdoc', '~> 1.0.0', require: false, group: :doc # static documentation

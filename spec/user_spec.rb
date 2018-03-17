@@ -20,9 +20,11 @@ RSpec.describe User, type: :model do
     it { expect(subject.respond_to?(:visits)).to be_truthy }
     it { expect(subject.respond_to?(:assessments)).to be_truthy }
     it { expect(subject.respond_to?(:participant)).to be_truthy }
+    it { expect(subject.respond_to?(:preferences)).to be_truthy }
+    it { expect(subject.respond_to?(:locale)).to be_truthy }
     it { expect(subject.respond_to?(:created_at)).to be_truthy }
     it { expect(subject.respond_to?(:updated_at)).to be_truthy }
-   
+       
     it { expect(subject.respond_to?(:random_name)).not_to be_truthy }
   end
   
@@ -39,6 +41,15 @@ RSpec.describe User, type: :model do
       subject.username = nil
       subject.valid?
       expect(subject.errors[:username].size).to eq(2)
+    end
+  end
+
+  describe '#locale' do
+    it { expect(subject.locale).to eq('en-US') }
+
+    it do
+      subject.locale = 'en-GB'
+      expect(subject.locale).to eq('en-GB')
     end
   end
 
