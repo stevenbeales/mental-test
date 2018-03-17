@@ -11,11 +11,6 @@ namespace :app do
     sh %( git push -u origin master )
   end
 
-  desc 'run yard server'
-  task :doc do
-    sh %( yard server )
-  end
-
   desc 'run rubocop'
   task :cop do
     sh %( 'rubocop' ) 
