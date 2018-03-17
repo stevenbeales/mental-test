@@ -17,6 +17,19 @@ RSpec.describe Score, type: :model do
     expect(subject).to be_valid
   end
 
+  describe '#respond_to?' do
+    it { expect(subject.respond_to?(:name)).to be_truthy }
+    it { expect(subject.respond_to?(:assessment)).to be_truthy }
+    it { expect(subject.respond_to?(:score)).to be_truthy }
+    it { expect(subject.respond_to?(:visit)).to be_truthy }
+    it { expect(subject.respond_to?(:survey)).to be_truthy }
+    it { expect(subject.respond_to?(:participant)).to be_truthy }
+    it { expect(subject.respond_to?(:created_at)).to be_truthy }
+    it { expect(subject.respond_to?(:updated_at)).to be_truthy }
+     
+    it { expect(subject.respond_to?(:random_name)).not_to be_truthy }
+  end
+
   describe '#to_s' do
     it { expect(subject.to_s).to eq "#{subject.assessment} #{subject.name}: #{subject.score}" }   
   end

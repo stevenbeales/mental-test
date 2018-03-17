@@ -11,6 +11,17 @@ RSpec.describe Participant, type: :model do
     expect(subject).to be_valid
   end
 
+  describe '#respond_to?' do
+    it { expect(subject.respond_to?(:email)).to be_truthy }
+    it { expect(subject.respond_to?(:user)).to be_truthy }
+    it { expect(subject.respond_to?(:survey_participants)).to be_truthy }
+    it { expect(subject.respond_to?(:surveys)).to be_truthy }
+    it { expect(subject.respond_to?(:created_at)).to be_truthy }
+    it { expect(subject.respond_to?(:updated_at)).to be_truthy }
+     
+    it { expect(subject.respond_to?(:random_name)).not_to be_truthy }
+  end
+
   describe '#email' do
     before(:each) do
       @cached_email = subject.email

@@ -11,14 +11,27 @@ RSpec.describe Project, type: :model do
   it 'is valid with valid attributes' do
     expect(subject).to be_valid
   end
+  
+  describe '#respond_to?' do
+    it { expect(subject.respond_to?(:name)).to be_truthy }
+    it { expect(subject.respond_to?(:title)).to be_truthy }
+    it { expect(subject.respond_to?(:folder)).to be_truthy }
+    it { expect(subject.respond_to?(:status)).to be_truthy }
+    it { expect(subject.respond_to?(:created_at)).to be_truthy }
+    it { expect(subject.respond_to?(:updated_at)).to be_truthy }
+     
+    it { expect(subject.respond_to?(:random_name)).not_to be_truthy }
+  end
 
   describe '#name' do
     before(:each) do
       @cached_name = subject.name
     end
+
     after(:each) do
       subject.name = @cached_name
     end
+    
     it do
       subject.name = nil
       subject.valid?
@@ -30,9 +43,11 @@ RSpec.describe Project, type: :model do
     before(:each) do
       @cached_title = subject.title
     end
+    
     after(:each) do
       subject.title = @cached_title
     end
+    
     it do
       subject.title = nil
       subject.valid?

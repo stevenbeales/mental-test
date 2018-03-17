@@ -13,13 +13,24 @@ RSpec.describe StudyEventInstrument, type: :model do
     expect(subject).to be_valid
   end
 
+  describe '#respond_to?' do
+    it { expect(subject.respond_to?(:study_event)).to be_truthy }
+    it { expect(subject.respond_to?(:instrument)).to be_truthy }
+    it { expect(subject.respond_to?(:created_at)).to be_truthy }
+    it { expect(subject.respond_to?(:updated_at)).to be_truthy }
+   
+    it { expect(subject.respond_to?(:random_name)).not_to be_truthy }
+  end
+
   describe '#instrument' do
     before(:each) do
       @cached_instrument = subject.instrument
     end
+
     after(:each) do
       subject.instrument = @cached_instrument
     end
+    
     it do
       subject.instrument = nil
       subject.valid?
@@ -31,9 +42,11 @@ RSpec.describe StudyEventInstrument, type: :model do
     before(:each) do
       @cached_study_event = subject.study_event
     end
+    
     after(:each) do
       subject.study_event = @cached_study_event
     end
+    
     it do
       subject.study_event = nil
       subject.valid?

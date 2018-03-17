@@ -38,7 +38,7 @@ RSpec.describe AssessmentInstrument, type: :model do
     end
 
     it do
-      expect(subject.instrument).to eq(instrument)
+      expect(subject.instrument.id).to eq(instrument.id)
     end
   end
   
@@ -58,7 +58,7 @@ RSpec.describe AssessmentInstrument, type: :model do
     end
 
     it do
-      expect(subject.assessment).to eq(assess)
+      expect(subject.assessment.id).to eq(assess.id)
     end
   end
 

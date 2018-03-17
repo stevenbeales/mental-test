@@ -10,6 +10,23 @@ RSpec.describe Instrument, type: :model do
   it 'is valid with valid attributes' do
     expect(subject).to be_valid
   end
+  
+  describe '#respond_to?' do
+    it { expect(subject.respond_to?(:name)).to be_truthy }
+    it { expect(subject.respond_to?(:content)).to be_truthy }
+    it { expect(subject.respond_to?(:title)).to be_truthy }
+    it { expect(subject.respond_to?(:pages)).to be_truthy }
+    it { expect(subject.respond_to?(:assessment_instruments)).to be_truthy }
+    it { expect(subject.respond_to?(:assessments)).to be_truthy }
+    it { expect(subject.respond_to?(:study_event_instruments)).to be_truthy }
+    it { expect(subject.respond_to?(:study_events)).to be_truthy }
+    it { expect(subject.respond_to?(:items)).to be_truthy }
+   
+    it { expect(subject.respond_to?(:created_at)).to be_truthy }
+    it { expect(subject.respond_to?(:updated_at)).to be_truthy }
+     
+    it { expect(subject.respond_to?(:random_name)).not_to be_truthy }
+  end
 
   describe '#name' do
     before(:each) do

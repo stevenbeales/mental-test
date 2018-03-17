@@ -7,8 +7,6 @@ class Participant < ApplicationRecord
   has_many :survey_participants, inverse_of: :participant, dependent: :destroy
   has_many :surveys, through: :survey_participants
   
- 
-
   def to_s
     "#{identifier} #{email}".strip
   end

@@ -13,14 +13,29 @@ RSpec.describe StudyEvent, type: :model do
   it 'is valid with valid attributes' do
     expect(subject).to be_valid
   end
+  
+  describe '#respond_to?' do
+    it { expect(subject.respond_to?(:arm)).to be_truthy }
+    it { expect(subject.respond_to?(:name)).to be_truthy }
+    it { expect(subject.respond_to?(:schedule)).to be_truthy }
+    it { expect(subject.respond_to?(:study)).to be_truthy }
+    it { expect(subject.respond_to?(:study_event_instruments)).to be_truthy }
+    it { expect(subject.respond_to?(:instruments)).to be_truthy }
+    it { expect(subject.respond_to?(:created_at)).to be_truthy }
+    it { expect(subject.respond_to?(:updated_at)).to be_truthy }
+   
+    it { expect(subject.respond_to?(:random_name)).not_to be_truthy }
+  end
 
   describe '#name' do
     before(:each) do
       @cached_name = subject.name
     end
+  
     after(:each) do
       subject.name = @cached_name
     end
+  
     it do
       subject.name = nil
       subject.valid?

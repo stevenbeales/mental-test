@@ -47,6 +47,16 @@ RSpec.describe ResponseScale, type: :model do
     end
   end
 
+  describe '#respond_to?' do
+    it { expect(subject.respond_to?(:name)).to be_truthy }
+    it { expect(subject.respond_to?(:items)).to be_truthy }
+    it { expect(subject.respond_to?(:choices)).to be_truthy }
+    it { expect(subject.respond_to?(:created_at)).to be_truthy }
+    it { expect(subject.respond_to?(:updated_at)).to be_truthy }
+     
+    it { expect(subject.respond_to?(:random_name)).not_to be_truthy }
+  end
+
   describe '#destroy!' do
     context 'destroys choices' do 
       rsubject = described_class.create! name: 'a13'

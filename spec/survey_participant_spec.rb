@@ -12,14 +12,25 @@ RSpec.describe SurveyParticipant, type: :model do
   it 'is valid with valid attributes' do
     expect(subject).to be_valid
   end
+  
+  describe '#respond_to?' do
+    it { expect(subject.respond_to?(:survey)).to be_truthy }
+    it { expect(subject.respond_to?(:participant)).to be_truthy }
+    it { expect(subject.respond_to?(:created_at)).to be_truthy }
+    it { expect(subject.respond_to?(:updated_at)).to be_truthy }
+   
+    it { expect(subject.respond_to?(:random_name)).not_to be_truthy }
+  end
 
   describe '#survey' do
     before(:each) do
       @cached_survey = subject.survey
     end
+   
     after(:each) do
       subject.survey = @cached_survey
     end
+   
     it do
       subject.survey = nil
       subject.valid?
@@ -31,9 +42,11 @@ RSpec.describe SurveyParticipant, type: :model do
     before(:each) do
       @cached_participant = subject.participant
     end
+   
     after(:each) do
       subject.participant = @cached_participant
     end
+   
     it do
       subject.participant = nil
       subject.valid?

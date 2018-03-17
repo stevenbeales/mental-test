@@ -14,13 +14,78 @@ RSpec.describe Visit, type: :model do
     expect(subject).to be_valid
   end
 
+  describe '#respond_to?' do
+    it { expect(subject.respond_to?(:user)).to be_truthy }
+    it { expect(subject.respond_to?(:survey)).to be_truthy }
+    it { expect(subject.respond_to?(:assessments)).to be_truthy }
+    it { expect(subject.respond_to?(:number)).to be_truthy }
+    it { expect(subject.respond_to?(:created_at)).to be_truthy }
+    it { expect(subject.respond_to?(:updated_at)).to be_truthy }
+   
+    it { expect(subject.respond_to?(:random_name)).not_to be_truthy }
+  end
+
+  describe '#number' do
+    before(:each) do
+      @cached_number = subject.number 
+    end
+    
+    after(:each) do
+      subject.number = @cached_number
+    end
+    
+    it 'is required and positive' do
+      subject.number = nil
+      subject.valid?
+      expect(subject.errors[:number].size).to eq(2)
+    end
+ 
+    it 'must be positive' do
+      subject.number = -1
+      subject.valid?
+      expect(subject.errors[:number].size).to eq(1)
+    end
+ 
+    context 'must be < 10001' do
+      it do
+        subject.number = 10_001
+        subject.valid?
+        expect(subject.errors[:number].size).to eq(1)
+      end
+
+      it do
+        subject.number = 10_000
+        subject.valid?
+        expect(subject.errors[:number].size).to eq(0)
+      end
+    end
+
+    context 'must be > 0' do
+      it do
+        subject.number = 0
+        subject.valid?
+        expect(subject.errors[:number].size).to eq(1)
+      end
+    end
+
+    context 'must be an integer' do
+      it do
+        subject.number = 1.5
+        subject.valid?
+        expect(subject.errors[:number].size).to eq(1)
+      end
+    end
+  end
+
   describe '#user' do
     before(:each) do
       @cached_user = subject.user
     end
+    
     after(:each) do
       subject.user = @cached_user
     end
+    
     it do
       subject.user = nil
       subject.valid?
@@ -32,9 +97,11 @@ RSpec.describe Visit, type: :model do
     before(:each) do
       @cached_survey = subject.survey
     end
+    
     after(:each) do
       subject.survey = @cached_survey
     end
+    
     it do
       subject.survey = nil
       subject.valid?

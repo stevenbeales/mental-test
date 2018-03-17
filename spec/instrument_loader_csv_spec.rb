@@ -9,8 +9,7 @@ RSpec.describe InstrumentLoaderCsv do
 
   describe '#respond_to?' do
     it { expect(subject.respond_to?(:load)).to be_truthy }
-    
+
     it { expect(subject.respond_to?(:random_name)).not_to be_truthy }
   end
-
 end

@@ -14,7 +14,6 @@ RSpec.describe InstrumentLoader do
     it { expect(subject.respond_to?(:random_name)).not_to be_truthy }
   end
 
-
   context 'existing instrument' do
     context 'overwrite false' do
       it { expect { subject.load(instrument: instrument) }.to raise_error(RuntimeError) }
