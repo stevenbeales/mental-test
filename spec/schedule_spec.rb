@@ -25,6 +25,20 @@ RSpec.describe Schedule, type: :model do
       expect(subject.errors[:name].size).to eq(2)
     end
   end
+  
+  describe '#study' do
+    before(:each) do
+      @cached_study = subject.study
+    end
+    after(:each) do
+      subject.study = @cached_study
+    end
+    it do
+      subject.study = nil
+      subject.valid?
+      expect(subject.errors[:study].size).to eq(1)
+    end
+  end
 
   describe '.create!' do
     context 'without name or study' do

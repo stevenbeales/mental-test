@@ -6,6 +6,7 @@ RSpec.describe Assessment, type: :model do
   let!(:user) { TestFactory.test_user }
   let!(:visit) { TestFactory.test_visit }
   let!(:assessment2) { TestFactory.test_assessment2 }
+  let!(:instrument) { TestFactory.test_instrument }
 
   it 'is an instance of Assessment' do
     expect(subject).to be_an Assessment
@@ -40,6 +41,12 @@ RSpec.describe Assessment, type: :model do
       subject.order_number = nil
       subject.valid?
       expect(subject.errors[:order_number].size).to eq(1)
+    end
+  end
+
+  describe '#instruments' do
+    it do
+      expect subject.instruments.index(instrument).to be > 0
     end
   end
   
