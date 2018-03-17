@@ -11,6 +11,20 @@ RSpec.describe Instrument, type: :model do
     expect(subject).to be_valid
   end
 
+  describe '#name' do
+    before(:each) do
+      @cached_name = subject.name
+    end
+    after(:each) do
+      subject.name = @cached_name
+    end
+    it do
+      subject.name = nil
+      subject.valid?
+      expect(subject.errors[:name].size).to eq(2)
+    end
+  end
+  
   describe 'test instrument #items' do
     it 'is not empty' do
       expect(subject.items).not_to be_empty

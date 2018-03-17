@@ -5,6 +5,7 @@ RSpec.describe Assessment, type: :model do
   let!(:survey) { TestFactory.test_survey }
   let!(:user) { TestFactory.test_user }
   let!(:visit) { TestFactory.test_visit }
+  let!(:assessment2) { TestFactory.test_assessment2 }
 
   it 'is an instance of Assessment' do
     expect(subject).to be_an Assessment
@@ -77,5 +78,13 @@ RSpec.describe Assessment, type: :model do
   describe '#created_at today' do
     # expect record to be created within the last 5 minutes to check timestamp works
     it { expect(Time.now - subject.created_at).to be < 300 }
+  end
+
+  describe '#destroy!' do
+    it do
+      vis = assessment2.visit
+      assessment2.destroy!
+      expect(Visit.exists?(vis.id)).to be_truthy 
+    end
   end
 end

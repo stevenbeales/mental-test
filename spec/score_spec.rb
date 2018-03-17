@@ -21,6 +21,20 @@ RSpec.describe Score, type: :model do
     it { expect(subject.to_s).to eq "#{subject.assessment} #{subject.name}: #{subject.score}" }   
   end
 
+  describe '#name' do
+    before(:each) do
+      @cached_name = subject.name
+    end
+    after(:each) do
+      subject.name = @cached_name
+    end
+    it do
+      subject.name = nil
+      subject.valid?
+      expect(subject.errors[:name].size).to eq(1)
+    end
+  end
+
   describe '.create!' do
     context 'without assessment or name' do
       it { expect { described_class.create! }.to raise_error ActiveRecord::RecordInvalid }

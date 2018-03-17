@@ -59,6 +59,14 @@ RSpec.describe SurveyParticipant, type: :model do
         expect { described_class.find_or_create_by! participant: participant, survey: survey }.not_to raise_error
       end
     end
+    
+    context 'unique survey and participant' do
+      it do 
+        expect do
+          described_class.create!(participant: participant, survey: survey)
+        end.to raise_error ActiveRecord::RecordInvalid   
+      end
+    end
   end
 
   describe '#to_s' do

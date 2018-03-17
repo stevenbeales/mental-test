@@ -59,6 +59,14 @@ RSpec.describe AssessmentInstrument, type: :model do
         expect { described_class.find_or_create_by instrument: instrument, assessment: assess }.not_to raise_error
       end
     end
+
+    context 'unique instrument and assessment' do
+      it do 
+        expect do
+          described_class.create!(instrument: instrument, assessment: assess)
+        end.to raise_error ActiveRecord::RecordInvalid   
+      end
+    end
   end
   
   describe '#to_s' do

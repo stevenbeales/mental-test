@@ -13,6 +13,20 @@ RSpec.describe User, type: :model do
     expect(subject).to be_valid
   end
 
+  describe '#username' do
+    before(:each) do
+      @cached_username = subject.username
+    end
+    after(:each) do
+      subject.username = @cached_username
+    end
+    it do
+      subject.username = nil
+      subject.valid?
+      expect(subject.errors[:username].size).to eq(2)
+    end
+  end
+
   describe '.authenticate' do
     it 'creates a user if one does not exist' do
       expect { described_class.authenticate(Faker::Internet.unique.user_name(5..20)) }.to change { User.count }.by(1)

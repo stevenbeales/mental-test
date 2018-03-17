@@ -14,6 +14,20 @@ RSpec.describe StudyEvent, type: :model do
     expect(subject).to be_valid
   end
 
+  describe '#name' do
+    before(:each) do
+      @cached_name = subject.name
+    end
+    after(:each) do
+      subject.name = @cached_name
+    end
+    it do
+      subject.name = nil
+      subject.valid?
+      expect(subject.errors[:name].size).to eq(2)
+    end
+  end
+
   describe '.create!' do
     context 'without name or arm' do
       it { expect { described_class.create! }.to raise_error ActiveRecord::RecordInvalid }

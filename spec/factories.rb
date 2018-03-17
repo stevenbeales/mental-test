@@ -30,6 +30,14 @@ FactoryBot.define do
       Assessment.find_or_create_by! visit: test_visit
     end
   end
+  
+  factory :test_assessment2, class: 'Assessment' do
+    association :visit, factory: :test_visit2
+    initialize_with do
+      test_visit2 = FactoryInitializer.test_visit2
+      Assessment.find_or_create_by! visit: test_visit2
+    end
+  end
 
   factory :test_assessment_instrument, class: 'AssessmentInstrument' do
     association :assessment, factory: :test_assessment
@@ -144,6 +152,7 @@ FactoryBot.define do
   factory :timmy, class: 'User' do
     username 'Timmy'
     access_token 'AccessToken'
+    initialize_with { User.find_or_create_by! username: 'Timmy', access_token: 'AccessToken' }
   end
 
   factory :test_visit, class: 'Visit' do
@@ -155,6 +164,19 @@ FactoryBot.define do
       survey = FactoryInitializer.test_survey
       user = FactoryInitializer.test_user
       Visit.find_or_create_by!(name: AppConstants::TEST_VISIT, survey: survey, user: user)
+    end
+  end
+
+  
+  factory :test_visit2, class: 'Visit' do
+    name AppConstants::TEST_VISIT
+    association :user, factory: :timmy
+    association :survey, factory: :test_survey
+
+    initialize_with do
+      survey = FactoryInitializer.test_survey
+      user2 = FactoryInitializer.test_user2
+      Visit.find_or_create_by!(name: AppConstants::TEST_VISIT, survey: survey, user: user2)
     end
   end
 end

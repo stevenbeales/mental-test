@@ -14,6 +14,34 @@ RSpec.describe Visit, type: :model do
     expect(subject).to be_valid
   end
 
+  describe '#user' do
+    before(:each) do
+      @cached_user = subject.user
+    end
+    after(:each) do
+      subject.user = @cached_user
+    end
+    it do
+      subject.user = nil
+      subject.valid?
+      expect(subject.errors[:user].size).to eq(1)
+    end
+  end
+  
+  describe '#survey' do
+    before(:each) do
+      @cached_survey = subject.survey
+    end
+    after(:each) do
+      subject.survey = @cached_survey
+    end
+    it do
+      subject.survey = nil
+      subject.valid?
+      expect(subject.errors[:survey].size).to eq(1)
+    end
+  end
+
   describe '.create!' do
     context 'no survey and user' do
       it { expect { described_class.create! }.to raise_error ActiveRecord::RecordInvalid }

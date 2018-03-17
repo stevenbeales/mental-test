@@ -70,18 +70,8 @@ RSpec.describe Project, type: :model do
     context 'invalid' do
       it { expect { subject.status = :invalid }.to raise_error(ArgumentError) }
     end
-
-    after(:each) do
-      subject.title = @cached_title
-    end
-
-    it do
-      subject.title = nil
-      subject.valid?
-      expect(subject.errors[:title].size).to eq(1)
-    end
   end
-
+  
   describe '.create!' do
     context 'without name or title' do
       it { expect { described_class.create! }.to raise_error ActiveRecord::RecordInvalid }

@@ -14,6 +14,10 @@ class FactoryInitializer
     Assessment.find_or_create_by! visit: test_visit
   end
   
+  def self.test_assessment2
+    Assessment.find_or_create_by! visit: test_visit2
+  end
+  
   def self.test_choice
     TestChoice.find_or_create_by! response_scale: scale, value: 'val', description: 'text'
   end
@@ -46,7 +50,15 @@ class FactoryInitializer
     User.find_or_create_by! username: AppConstants::TEST_USER 
   end    
 
+  def self.test_user2
+    User.find_or_create_by! username: 'timmy'
+  end    
+
   def self.test_visit
     Visit.find_or_create_by!(name: AppConstants::TEST_VISIT, survey: test_survey, user: test_user)
+  end
+  
+  def self.test_visit2
+    Visit.find_or_create_by!(name: AppConstants::TEST_VISIT, survey: test_survey, user: test_user2)
   end
 end

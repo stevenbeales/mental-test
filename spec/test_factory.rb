@@ -14,6 +14,10 @@ class TestFactory
     @test_assessment ||= FactoryBot.create(:test_assessment)
   end
 
+  def self.test_assessment2
+    @test_assessment2 ||= FactoryBot.create(:test_assessment2)
+  end
+
   def self.test_assessment_instrument
     @test_assessment_instrument ||= FactoryBot.create(:test_assessment_instrument)
   end

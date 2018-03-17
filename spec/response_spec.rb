@@ -17,6 +17,34 @@ RSpec.describe Response, type: :model do
     expect(subject).to be_valid
   end
 
+  describe '#assessment' do
+    before(:each) do
+      @cached_assessment = subject.assessment
+    end
+    after(:each) do
+      subject.assessment = @cached_assessment
+    end
+    it do
+      subject.assessment = nil
+      subject.valid?
+      expect(subject.errors[:assessment].size).to eq(1)
+    end
+  end
+  
+  describe '#value' do
+    before(:each) do
+      @cached_value = subject.value
+    end
+    after(:each) do
+      subject.value = @cached_value
+    end
+    it do
+      subject.value = nil
+      subject.valid?
+      expect(subject.errors[:value].size).to eq(1)
+    end
+  end
+
   describe '.create!' do
     context 'without assessment' do
       it { expect { described_class.create! }.to raise_error ActiveRecord::RecordInvalid }

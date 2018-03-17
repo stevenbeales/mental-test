@@ -10,6 +10,20 @@ RSpec.describe Survey do
   it 'is valid with valid attributes' do
     expect(subject).to be_valid
   end
+  
+  describe '#name' do
+    before(:each) do
+      @cached_name = subject.name
+    end
+    after(:each) do
+      subject.name = @cached_name
+    end
+    it do
+      subject.name = nil
+      subject.valid?
+      expect(subject.errors[:name].size).to eq(2)
+    end
+  end
 
   describe '.create!' do
     it 'without name' do
