@@ -22,7 +22,7 @@ RSpec.describe Project, type: :model do
     it do
       subject.name = nil
       subject.valid?
-      expect(subject.errors[:name].size).to eq(1)
+      expect(subject.errors[:name].size).to eq(2)
     end
   end
 
@@ -33,6 +33,48 @@ RSpec.describe Project, type: :model do
     after(:each) do
       subject.title = @cached_title
     end
+    it do
+      subject.title = nil
+      subject.valid?
+      expect(subject.errors[:title].size).to eq(1)
+    end
+  end
+
+  describe '#status' do
+    context 'valid' do
+      it do
+        subject.status = :development
+        subject.valid?
+        expect(subject.errors[:status].size).to eq(0)     
+      end
+
+      it do
+        subject.status = :production
+        subject.valid?
+        expect(subject.errors[:status].size).to eq(0)     
+      end
+
+      it do
+        subject.status = :inactive
+        subject.valid?
+        expect(subject.errors[:status].size).to eq(0)     
+      end
+
+      it do
+        subject.status = :archived
+        subject.valid?
+        expect(subject.errors[:status].size).to eq(0)     
+      end
+    end
+
+    context 'invalid' do
+      it { expect { subject.status = :invalid }.to raise_error(ArgumentError) }
+    end
+
+    after(:each) do
+      subject.title = @cached_title
+    end
+
     it do
       subject.title = nil
       subject.valid?
@@ -77,5 +119,15 @@ RSpec.describe Project, type: :model do
   describe '#created_at today' do
     # expect record to be created within the last 5 minutes to check timestamp works
     it { expect(Time.now - subject.created_at).to be < 300 }
+  end
+
+  describe '#destroy!' do
+    context 'does not remove folder' do
+      it do
+        subject.folder = folder1
+        subject.destroy!
+        expect { folder1.not_to be_nil }
+      end
+    end
   end
 end

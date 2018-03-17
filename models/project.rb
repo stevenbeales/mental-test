@@ -4,7 +4,7 @@
 class Project < ApplicationRecord
   enum status: %i[development production inactive archived]
 
-  has_one :folder, inverse_of: :projects
+  belongs_to :folder, inverse_of: :projects, optional: true
 
   scope :active, -> { where(status: [:production]) }
 
