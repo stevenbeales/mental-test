@@ -29,18 +29,40 @@ RSpec.describe Score, type: :model do
      
     it { expect(subject.respond_to?(:random_name)).not_to be_truthy }
   end
-
-  describe '#to_s' do
-    it { expect(subject.to_s).to eq "#{subject.assessment} #{subject.name}: #{subject.score}" }   
+  
+  describe '#score' do
+    before(:each) do
+      @cached_score = subject.score 
+    end
+    
+    after(:each) do
+      subject.score = @cached_score
+    end
+    
+    it 'is required' do
+      subject.score = nil
+      subject.valid?
+      expect(subject.errors[:score].size).to eq(1)
+    end
+ 
+    context 'must be an integer' do
+      it do
+        subject.score = 1.5
+        subject.valid?
+        expect(subject.errors[:score].size).to eq(1)
+      end
+    end
   end
 
   describe '#name' do
     before(:each) do
       @cached_name = subject.name
     end
+
     after(:each) do
       subject.name = @cached_name
     end
+
     it do
       subject.name = nil
       subject.valid?
@@ -74,6 +96,10 @@ RSpec.describe Score, type: :model do
 
       it { expect { described_class.create!(assessment: ass, name: 'tote', order_number: 2).not_to raise_error } }
     end
+  end
+  
+  describe '#to_s' do
+    it { expect(subject.to_s).to eq "#{subject.assessment} #{subject.name}: #{subject.score}" }   
   end
 
   describe '#destroy!' do

@@ -36,9 +36,11 @@ RSpec.describe Assessment, type: :model do
     before(:each) do
       @cached_visit = subject.visit
     end
+
     after(:each) do
       subject.visit = @cached_visit
     end
+
     it do
       subject.visit = nil
       subject.valid?
@@ -50,9 +52,11 @@ RSpec.describe Assessment, type: :model do
     before(:each) do
       @cached_order_number = subject.order_number
     end
+
     after(:each) do
       subject.order_number = @cached_order_number
     end
+    
     it do
       subject.order_number = nil
       subject.valid?

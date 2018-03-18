@@ -26,9 +26,11 @@ RSpec.describe Study, type: :model do
     before(:each) do
       @cached_name = subject.name
     end
+
     after(:each) do
       subject.name = @cached_name
     end
+    
     it do
       subject.name = nil
       subject.valid?

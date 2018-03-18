@@ -29,9 +29,11 @@ RSpec.describe Choice, type: :model do
     before(:each) do
       @cached_response_scale = subject.response_scale
     end
+
     after(:each) do
       subject.response_scale = @cached_response_scale
     end
+    
     it do
       subject.response_scale = nil
       subject.valid?

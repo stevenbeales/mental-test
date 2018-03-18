@@ -31,9 +31,11 @@ RSpec.describe Response, type: :model do
     before(:each) do
       @cached_assessment = subject.assessment
     end
+
     after(:each) do
       subject.assessment = @cached_assessment
     end
+
     it do
       subject.assessment = nil
       subject.valid?
@@ -45,9 +47,11 @@ RSpec.describe Response, type: :model do
     before(:each) do
       @cached_value = subject.value
     end
+
     after(:each) do
       subject.value = @cached_value
     end
+
     it do
       subject.value = nil
       subject.valid?

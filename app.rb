@@ -17,7 +17,6 @@ use Bullet::Rack
 # require 'paper_trail'
 # require 'paper_trail-sinatra'
 
-set :root, File.dirname(__FILE__)
 set :app_file, __FILE__
 
 require_relative 'config/db'

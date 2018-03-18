@@ -26,9 +26,11 @@ RSpec.describe Schedule, type: :model do
     before(:each) do
       @cached_name = subject.name
     end
+
     after(:each) do
       subject.name = @cached_name
     end
+
     it do
       subject.name = nil
       subject.valid?
@@ -40,9 +42,11 @@ RSpec.describe Schedule, type: :model do
     before(:each) do
       @cached_study = subject.study
     end
+
     after(:each) do
       subject.study = @cached_study
     end
+    
     it do
       subject.study = nil
       subject.valid?

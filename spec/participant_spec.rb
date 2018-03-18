@@ -26,9 +26,11 @@ RSpec.describe Participant, type: :model do
     before(:each) do
       @cached_email = subject.email
     end
+
     after(:each) do
       subject.email = @cached_email
     end
+    
     it do
       subject.email = nil
       subject.valid?
