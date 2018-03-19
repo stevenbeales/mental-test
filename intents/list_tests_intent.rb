@@ -1,5 +1,5 @@
 # frozen_string_literal: true
 
 intent 'ListTests' do
-  respond(Instrument.list_tests)
+  respond(AlexaService.list_tests)
 end

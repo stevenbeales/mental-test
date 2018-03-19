@@ -16,6 +16,8 @@ RSpec.describe Study, type: :model do
   describe '#respond_to?' do
     it { expect(subject.respond_to?(:name)).to be_truthy }
     it { expect(subject.respond_to?(:schedule)).to be_truthy }
+    it { expect(subject.respond_to?(:study_participants)).to be_truthy }
+    it { expect(subject.respond_to?(:participants)).to be_truthy }
     it { expect(subject.respond_to?(:created_at)).to be_truthy }
     it { expect(subject.respond_to?(:updated_at)).to be_truthy }
      

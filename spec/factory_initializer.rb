@@ -26,6 +26,10 @@ class FactoryInitializer
     Instrument.find_by name: AppConstants::TEST_INSTRUMENT 
   end
 
+  def self.test_participant
+    Participant.find_or_create_by! email: AppConstants::TEST_PARTICIPANT_EMAIL 
+  end
+
   def self.test_response_scale
     ResponseScale.find_or_create_by! name: AppConstants::TEST_RESPONSE_SCALE
   end 
@@ -40,6 +44,10 @@ class FactoryInitializer
   
   def self.test_study_event
     StudyEvent.find_or_create_by! name: AppConstants::TEST_STUDY_EVENT, arm: test_arm
+  end
+  
+  def self.test_study_participant
+    StudyParticipant.find_or_create_by! study: test_study, participant: test_participant
   end
 
   def self.test_survey

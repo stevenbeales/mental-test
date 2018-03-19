@@ -82,6 +82,15 @@ FactoryBot.define do
     name AppConstants::TEST_INSTRUMENT
     initialize_with { Instrument.find_or_create_by! name: AppConstants::TEST_INSTRUMENT }
   end
+  
+  factory :test_journal, class: 'Journal' do
+    name AppConstants::TEST_JOURNAL
+    association :study_participant, factory: :test_study_participant 
+    initialize_with do
+      test_study_participant = FactoryInitializer.test_study_participant
+      Journal.find_or_create_by! name: AppConstants::TEST_JOURNAL, study_participant: test_study_participant
+    end
+  end
 
   factory :test_participant, class: 'Participant' do
     email AppConstants::TEST_PARTICIPANT_EMAIL
@@ -134,7 +143,17 @@ FactoryBot.define do
     association :arm, factory: :test_arm
     initialize_with do 
       test_arm = FactoryInitializer.test_arm
-      StudyEvent.find_or_create_by(name: AppConstants::TEST_STUDY_EVENT, arm: test_arm) 
+      StudyEvent.find_or_create_by!(name: AppConstants::TEST_STUDY_EVENT, arm: test_arm) 
+    end
+  end
+  
+  factory :test_study_participant, class: 'StudyParticipant' do
+    association :study, factory: :test_study
+    association :participant, factory: :test_participant
+    initialize_with do 
+      test_study = FactoryInitializer.test_study
+      test_participant = FactoryInitializer.test_participant
+      StudyParticipant.find_or_create_by!(study: test_study, participant: test_participant) 
     end
   end
 

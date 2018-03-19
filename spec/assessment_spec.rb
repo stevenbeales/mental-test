@@ -56,7 +56,7 @@ RSpec.describe Assessment, type: :model do
     after(:each) do
       subject.order_number = @cached_order_number
     end
-    
+
     it do
       subject.order_number = nil
       subject.valid?
@@ -101,6 +101,15 @@ RSpec.describe Assessment, type: :model do
       expect(subject.survey.id).to eq(survey.id) 
     end
   end 
+
+  describe '#responses' do
+    it do
+      rep2 = Response.create_with(score: 2).find_or_create_by!(assessment: subject, value: '2') 
+      rep3 = Response.create_with(score: 5).find_or_create_by!(assessment: subject, value: '3') 
+      subject.responses.concat([rep2, rep3])
+      expect(subject.responses.count).to eq(2)     
+    end
+  end
 
   describe '#to_s' do
     it do 

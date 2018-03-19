@@ -2,14 +2,14 @@
 
 # == Schema Information
 #
-# Table name: user_surveys
+# Table name: survey_participants
 #
 #  id        :integer          not null, primary key
 #  participant_id   :integer          not null
 #  survey_id :integer          not null
 #
 
-# Association class between users and surveys
+# Association class between participants and surveys
 class SurveyParticipant < ApplicationRecord
   # has_paper_trail
 

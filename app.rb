@@ -4,15 +4,15 @@ ENV['RACK_ENV'] ||= 'development'
 
 require 'sinatra'
 require 'ralyxa'
-require 'fileutils'
-require 'bullet'
+require 'bugsnag'
 
-Bullet.enable = true
-Bullet.alert = true
-Bullet.bullet_logger = true
-Bullet.console = true
+Bugsnag.configure do |config|
+  config.api_key = 'b27cf77d548381f51613fb5c142ae212'
+end
 
-use Bullet::Rack
+set :raise_errors, true
+
+use Bugsnag::Rack
 
 # require 'paper_trail'
 # require 'paper_trail-sinatra'
@@ -23,12 +23,18 @@ require_relative 'config/db'
 require_relative 'services/init'
 require_relative 'models/init'
 
+set :show_exceptions, :after_handler
+
 AlexaVerifier.configure do |config|
   config.enabled            = false # Disables all checks, even though we enable them individually below
   config.verify_uri         = true
   config.verify_timeliness  = true
   config.verify_certificate = false
   config.verify_signature   = false
+end
+
+error do
+  Bugsnag.notify 'Sorry there was a nasty error - ' + env['sinatra.error'].message
 end
 
 # Main entry point to Application.

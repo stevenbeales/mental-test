@@ -1,11 +1,10 @@
 # frozen_string_literal: true
 
-# Model to represent studies
-class Study < ApplicationRecord
-  has_one :schedule, inverse_of: :study, dependent: :destroy
-  has_many :study_participants, inverse_of: :study, dependent: :destroy
-  has_many :participants, through: :study_participants
-
+# Model to represent patient journals
+class Journal < ApplicationRecord
+  belongs_to :study_participant, inverse_of: :journal
+  has_many :journal_entries
+  validates :study_participant, presence: true
   validates :name, presence: true
   validates_uniqueness_of :name
   validates_length_of :name, \

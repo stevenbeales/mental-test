@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180311033124) do
+ActiveRecord::Schema.define(version: 20180318170052) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -96,6 +96,25 @@ ActiveRecord::Schema.define(version: 20180311033124) do
     t.index ["instrument_id"], name: "index_items_on_instrument_id"
     t.index ["name"], name: "index_by_item_name", unique: true
     t.index ["response_scale_id"], name: "index_items_on_response_scale_id"
+  end
+
+  create_table "journal_entries", force: :cascade do |t|
+    t.bigint "journal_id", null: false
+    t.datetime "entry_date", default: -> { "CURRENT_TIMESTAMP" }, null: false
+    t.text "entry", default: "", null: false
+    t.datetime "created_at", default: -> { "CURRENT_TIMESTAMP" }, null: false
+    t.datetime "updated_at", default: -> { "CURRENT_TIMESTAMP" }, null: false
+    t.index ["entry_date"], name: "index_journal_entries_on_entry_date"
+    t.index ["journal_id"], name: "index_journal_entries_on_journal_id"
+  end
+
+  create_table "journals", force: :cascade do |t|
+    t.string "name", null: false
+    t.bigint "study_participant_id", null: false
+    t.datetime "created_at", default: -> { "CURRENT_TIMESTAMP" }, null: false
+    t.datetime "updated_at", default: -> { "CURRENT_TIMESTAMP" }, null: false
+    t.index ["name"], name: "index_journals_on_name"
+    t.index ["study_participant_id"], name: "index_journals_on_study_participant_id"
   end
 
   create_table "participants", force: :cascade do |t|
@@ -192,6 +211,16 @@ ActiveRecord::Schema.define(version: 20180311033124) do
     t.index ["order"], name: "index_study_events_on_order"
   end
 
+  create_table "study_participants", force: :cascade do |t|
+    t.bigint "participant_id", null: false
+    t.bigint "study_id", null: false
+    t.datetime "created_at", default: -> { "CURRENT_TIMESTAMP" }, null: false
+    t.datetime "updated_at", default: -> { "CURRENT_TIMESTAMP" }, null: false
+    t.index ["participant_id", "study_id"], name: "index_by_participant_study", unique: true
+    t.index ["participant_id"], name: "index_study_participants_on_participant_id"
+    t.index ["study_id"], name: "index_study_participants_on_study_id"
+  end
+
   create_table "survey_participants", force: :cascade do |t|
     t.bigint "participant_id", null: false
     t.bigint "survey_id", null: false
@@ -253,11 +282,15 @@ ActiveRecord::Schema.define(version: 20180311033124) do
   add_foreign_key "choices", "response_scales"
   add_foreign_key "items", "instruments"
   add_foreign_key "items", "response_scales"
+  add_foreign_key "journal_entries", "journals"
+  add_foreign_key "journals", "study_participants"
   add_foreign_key "responses", "assessments"
   add_foreign_key "schedules", "studies"
   add_foreign_key "study_event_instruments", "instruments"
   add_foreign_key "study_event_instruments", "study_events"
   add_foreign_key "study_events", "arms"
+  add_foreign_key "study_participants", "participants"
+  add_foreign_key "study_participants", "studies"
   add_foreign_key "survey_participants", "participants"
   add_foreign_key "survey_participants", "surveys"
   add_foreign_key "visits", "surveys"

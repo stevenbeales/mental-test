@@ -79,7 +79,7 @@ RSpec.describe Response, type: :model do
   end
 
   describe '#destroy!' do
-    context 'with choice' do
+    context 'choice' do
       it do
         subject.choice = choice
         subject.destroy!
@@ -87,7 +87,7 @@ RSpec.describe Response, type: :model do
       end
     end
 
-    context 'with assessment' do
+    context 'assessment' do
       it do
         subject.destroy!
         expect(ass).not_to be_nil
@@ -95,15 +95,6 @@ RSpec.describe Response, type: :model do
     end
   end
     
-  describe 'multiple responses' do
-    it do
-      rep2 = described_class.create_with(score: 2).find_or_create_by!(assessment: ass, value: '2') 
-      rep3 = described_class.create_with(score: 5).find_or_create_by!(assessment: ass, value: '3') 
-      ass.responses.concat([rep2, rep3])
-      expect(subject.assessment.responses.count.to_s).to eq '3'     
-    end
-  end
-
   describe '#created_at today' do
     # expect record to be created within the last 5 minutes to check timestamp works
     it { expect(Time.now - subject.created_at).to be < 300 }

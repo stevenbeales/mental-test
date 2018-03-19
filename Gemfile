@@ -28,6 +28,7 @@ group :test do
   gem 'rspec', '~> 3.7.0', require: false # for behavioral driven testing
   gem 'rubocop', '~> 0.53.0', require: false # syntax checking
   gem 'simplecov', '~> 0.15.1', require: false # for code coverage
+  gem 'timecop', require: false # testing time dependent
   gem 'travis', '~> 1.8.8', require: false # for continuous integrations
 end
 
@@ -36,7 +37,9 @@ group :development do
   gem 'guard-rspec', require: false # run rspec on change
   gem 'letter_opener', require: false # view emails in development
   gem 'wdm', '>= 0.1.0' if Gem.win_platform?
-  gem 'bullet', require: false # check for n+1 queries
 end
 
 gem 'sdoc', '~> 1.0.0', require: false, group: :doc # static documentation
+
+# Added at 2018-03-17 22:24:31 -0400 by steven-surface\steven:
+gem "bugsnag", "~> 6.6"
