@@ -5,24 +5,19 @@ ENV['RACK_ENV'] ||= 'development'
 require 'sinatra'
 require 'ralyxa'
 require 'bugsnag'
-
-Bugsnag.configure do |config|
-  config.api_key = 'b27cf77d548381f51613fb5c142ae212'
-end
-
-set :raise_errors, true
-
-use Bugsnag::Rack
-
 # require 'paper_trail'
 # require 'paper_trail-sinatra'
-
-set :app_file, __FILE__
 
 require_relative 'config/db'
 require_relative 'services/init'
 require_relative 'models/init'
 
+# report errors to bugsnag.com
+Bugsnag.configure do |config|
+  config.api_key = 'b27cf77d548381f51613fb5c142ae212'
+end
+set :raise_errors, true
+use Bugsnag::Rack
 set :show_exceptions, :after_handler
 
 AlexaVerifier.configure do |config|

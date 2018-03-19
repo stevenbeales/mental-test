@@ -82,6 +82,10 @@ class TestFactory
     @test_journal ||= FactoryBot.create(:test_journal)
   end
 
+  def self.test_journal_entry
+    @test_journal_entry ||= FactoryBot.create(:test_journal_entry)
+  end
+
   def self.test_survey
     @test_survey ||= FactoryBot.create(:test_survey)
   end

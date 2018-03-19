@@ -91,6 +91,14 @@ FactoryBot.define do
       Journal.find_or_create_by! name: AppConstants::TEST_JOURNAL, study_participant: test_study_participant
     end
   end
+   
+  factory :test_journal_entry, class: 'JournalEntry' do
+    association :journal, factory: :test_journal 
+    initialize_with do
+      test_journal = FactoryInitializer.test_journal
+      JournalEntry.find_or_create_by! journal: test_journal
+    end
+  end
 
   factory :test_participant, class: 'Participant' do
     email AppConstants::TEST_PARTICIPANT_EMAIL
