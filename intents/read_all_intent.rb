@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-intent 'ReadAll' do
+Ralyxa::Skill.intent 'ReadAll' do
   # TODO
   AlexaService.read_all
 end

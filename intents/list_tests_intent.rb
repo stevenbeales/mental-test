@@ -1,5 +1,5 @@
 # frozen_string_literal: true
 
-intent 'ListTests' do
+Ralyxa::Skill.intent 'ListTests' do
   respond(AlexaService.list_tests)
 end

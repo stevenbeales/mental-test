@@ -6,22 +6,10 @@ class FactoryInitializer
     Arm.find_or_create_by!(name: AppConstants::TEST_ARM, schedule: test_schedule, number: 1)
   end
 
-  def self.test_arm2
-    Arm.find_or_create_by!(name: AppConstants::TEST_ARM2, schedule: test_schedule, number: 2)
-  end
-
   def self.test_assessment
     Assessment.find_or_create_by! visit: test_visit
   end
   
-  def self.test_assessment2
-    Assessment.find_or_create_by! visit: test_visit2
-  end
-  
-  def self.test_choice
-    TestChoice.find_or_create_by! response_scale: scale, value: 'val', description: 'text'
-  end
-
   def self.test_instrument
     Instrument.find_by name: AppConstants::TEST_INSTRUMENT 
   end

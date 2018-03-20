@@ -2,7 +2,6 @@
 
 require 'sinatra/activerecord'
 require 'sinatra/activerecord/rake'
-require './app'
 require 'rspec/core/rake_task'
 require 'dotenv'
 require 'factory_bot'

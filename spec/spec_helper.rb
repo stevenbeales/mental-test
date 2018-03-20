@@ -14,19 +14,46 @@
 # the additional setup, and require it from the spec files that actually need
 # it.
 #
+require 'ralyxa'
+require 'simplecov'
+
+SimpleCov.profiles.define 'app' do
+  add_group 'Models', 'models'
+  add_group 'Services', 'services'
+  add_group 'Intents', 'intents'
+  add_group 'Lib', 'lib'
+  add_group 'Config', 'config'
+  add_group 'Db', 'db'
+  add_group 'Spec', 'spec'
+  
+  add_filter '/.bundle/'
+  add_filter '/.vscode/'
+  add_filter '/bin/'
+  add_filter '/coverage/'
+  add_filter '/doc/'
+  add_filter '/tmp/'
+  add_filter '/public/'
+  add_filter '/vendor/'
+  add_filter '/log/'
+  add_filter ['Gemfile.lock', 'README.md', 'todo.txt', '.gitignore', '.rspec', \
+              '.travis.yml', '.rubocop.yml', 'config/database.yml', 'Guardfile', 'Rakefile'] 
+end
+
+SimpleCov.start 'app' do
+  track_files 'app.rb'
+  track_files 'config.ru'
+end
+
 ENV['RACK_ENV'] = 'test'
 
 require './config/db'
 require 'database_cleaner'
 require 'faker'
-require 'ralyxa'
-require 'simplecov'
 require 'factory_bot'
 require './spec/test_factory'
 require './services/init'
 require './models/init'
-
-SimpleCov.start
+require './config/init'
 
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
 RSpec.configure do |config|

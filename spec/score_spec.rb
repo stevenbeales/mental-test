@@ -89,9 +89,7 @@ RSpec.describe Score, type: :model do
 
     context 'duplicate assessment and name' do
       it do
-        expect do
-          described_class.create!(assessment: ass, name: 'tote', order_number: 1).to raise_error ActiveRecord::RecordInvalid
-        end 
+        expect { Score.create!(assessment: ass, name: 'tote', order_number: 1).to raise_error ActiveRecord::RecordInvalid }
       end 
 
       it { expect { described_class.create!(assessment: ass, name: 'tote', order_number: 2).not_to raise_error } }
