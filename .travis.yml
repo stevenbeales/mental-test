@@ -13,10 +13,10 @@ script:
   - RACK_ENV=test bundle exec rake db:migrate
   - RACK_ENV=test bundle exec rake spec
   - bundle exec rake bundle:audit
+  - bundle exec rubocop 
   
 addons:
   postgresql: "9.6"
-  postgresql: "9.5"
-  
+
 bundler_args: 
   --without production
