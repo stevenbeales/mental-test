@@ -5,12 +5,12 @@ RSpec.describe AlexaService do
   
   it { expect(subject).to be_an AlexaService }
   
-  describe '.default_help_response' do
-    it { expect(AlexaService.default_help_response).to eq(AlexaService::DEFAULT_HELP_RESPONSE) }
+  describe '.help_response' do
+    it { expect(AlexaService.help_response).to eq(AlexaConstants::HELP_RESPONSE) }
   end
   
-  describe '.default_testname_slot' do
-    it { expect(AlexaService::DEFAULT_TESTNAME_SLOT).to eq(AlexaService::DEFAULT_TESTNAME_SLOT) }
+  describe '.testname_slot' do
+    it { expect(AlexaService::TESTNAME_SLOT).to eq(AlexaConstants::TESTNAME_SLOT) }
   end
 
   describe '.list_tests' do

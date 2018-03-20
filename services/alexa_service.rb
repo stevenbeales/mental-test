@@ -2,15 +2,10 @@
 
 # Class to define Alexa's intent behavior
 class AlexaService
-  DEFAULT_HELP_RESPONSE = <<-HELP
-    Alexa can only process a few seconds of speech at a time, so after each sentence, 
-    pause for a breath while your sentence is saved, then continue speaking when you hear the prompt.
-  HELP
-
-  DEFAULT_TESTNAME_SLOT = 'testname'
-
-  def self.default_help_response
-    DEFAULT_HELP_RESPONSE
+  include AlexaConstants
+  
+  def self.help_response
+    HELP_RESPONSE
   end
 
   def self.list_tests
