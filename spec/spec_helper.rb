@@ -14,7 +14,6 @@
 # the additional setup, and require it from the spec files that actually need
 # it.
 #
-require 'ralyxa'
 require 'simplecov'
 
 SimpleCov.profiles.define 'app' do
@@ -41,19 +40,19 @@ end
 
 SimpleCov.start 'app' do
   track_files 'app.rb'
-  track_files 'config.ru'
 end
 
 ENV['RACK_ENV'] = 'test'
 
 require './config/db'
 require 'database_cleaner'
+require 'ralyxa'
 require 'faker'
 require 'factory_bot'
 require './spec/test_factory'
 require './services/init'
 require './models/init'
-require './config/init'
+require './intents/init'
 
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
 RSpec.configure do |config|

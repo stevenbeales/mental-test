@@ -1,5 +1,4 @@
 ## Documentation cache and generated files:
-/.yardoc/
 /doc/
 ## test results
 /spec/examples.txt
@@ -21,4 +20,3 @@ log/production.log
 
 /tmp/
 /vendor/
-log/bullet.log

@@ -12,4 +12,9 @@ RSpec.describe AlexaService do
   describe '.default_testname_slot' do
     it { expect(AlexaService::DEFAULT_TESTNAME_SLOT).to eq(AlexaService::DEFAULT_TESTNAME_SLOT) }
   end
+
+  describe '.list_tests' do
+    it { expect(AlexaService.list_tests).to eq(Instrument.list_tests) }
+  end
+
 end
