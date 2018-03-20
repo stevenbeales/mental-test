@@ -8,6 +8,7 @@
 
 [![Dependency Status](https://beta.gemnasium.com/badges/github.com/stevenbeales/mental-test.svg)](https://beta.gemnasium.com/projects/github.com/stevenbeales/mental-test) 
 
+[![Inline docs](http://inch-ci.org/github/stevenbeales/mental-test.svg?branch=master)](http://inch-ci.org/github/stevenbeales/mental-test)
 
 [![license](https://img.shields.io/github/license/mashape/apistatus.svg)](https://opensource.org/licenses/MIT)
 
