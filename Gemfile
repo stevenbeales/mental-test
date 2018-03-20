@@ -40,4 +40,5 @@ group :development do
 end
 
 gem 'bugsnag', '~> 6.6' # online bug reporting 
+gem 'coveralls', require: false # code coverage
 gem 'sdoc', '~> 1.0.0', require: false, group: :doc # static documentation

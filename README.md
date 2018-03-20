@@ -1,6 +1,12 @@
+# Mental Test
+
 [![Build Status](https://travis-ci.org/stevenbeales/mental-test.png)](https://travis-ci.org/stevenbeales/mental-test)
 
 <a href="https://codeclimate.com/github/stevenbeales/mental-test/maintainability"><img src="https://api.codeclimate.com/v1/badges/6574b93819edbc0cff7d/maintainability" /></a>
+
+[![Coverage Status](https://coveralls.io/repos/stevenbeales/mental-test/badge.svg?branch=master)](https://coveralls.io/r/stevenbeales/mental-test?branch=master)
+
+[![Dependency Status](https://beta.gemnasium.com/badges/github.com/stevenbeales/mental-test.svg)](https://beta.gemnasium.com/projects/github.com/stevenbeales/mental-test) 
 
 An Alexa skill for validated Mental Health Self-Assessments, written in Ruby using the Sinatra and Ralyxa frameworks.
 
@@ -27,3 +33,12 @@ To generate the skill documentation -
 
 1) rake rdoc 
 
+## Contributing
+
+See the [Contribution Guidelines](https://github.com/stevenbeales/mental-test/blob/master/CONTRIBUTING.md)
+
+### Resources
+
+- [Git Repository](https://github.com/stevenbeales/mental-test)
+- [Git Repository Mental-Test Alexa Skill CLI](https://github.com/stevenbeales/mental-health)
+- [Git Repository Mental-Test Survey Editor](https://github.com/stevenbeales/mental-editor)

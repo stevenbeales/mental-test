@@ -14,6 +14,9 @@
 # the additional setup, and require it from the spec files that actually need
 # it.
 #
+require 'coveralls'
+Coveralls.wear!
+
 require 'simplecov'
 
 SimpleCov.profiles.define 'app' do
@@ -36,7 +39,10 @@ SimpleCov.profiles.define 'app' do
   add_filter '/log/'
   add_filter ['Gemfile.lock', 'README.md', 'todo.txt', '.gitignore', '.rspec', \
               '.travis.yml', '.rubocop.yml', 'config/database.yml', 'Guardfile', 'Rakefile'] 
+  add_filter 'app/secrets'
 end
+
+SimpleCov.formatter = Coveralls::SimpleCov::Formatter
 
 SimpleCov.start 'app' do
   track_files 'app.rb'
