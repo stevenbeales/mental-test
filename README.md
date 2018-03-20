@@ -8,6 +8,9 @@
 
 [![Dependency Status](https://beta.gemnasium.com/badges/github.com/stevenbeales/mental-test.svg)](https://beta.gemnasium.com/projects/github.com/stevenbeales/mental-test) 
 
+
+[![license](https://img.shields.io/github/license/mashape/apistatus.svg)](https://opensource.org/licenses/MIT)
+
 An Alexa skill for validated Mental Health Self-Assessments, written in Ruby using the Sinatra and Ralyxa frameworks.
 
 The application supports importing Surveys and Instruments from SurveyJS.io and REDCap.

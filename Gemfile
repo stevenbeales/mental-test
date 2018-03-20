@@ -41,4 +41,5 @@ end
 
 gem 'bugsnag', '~> 6.6' # online bug reporting 
 gem 'coveralls', require: false # code coverage
+gem 'rest-client', '~> 1.8.0' #minimum version without security vulnerabilities 
 gem 'sdoc', '~> 1.0.0', require: false, group: :doc # static documentation
