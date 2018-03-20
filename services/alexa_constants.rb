@@ -8,5 +8,4 @@ module AlexaConstants
   HELP
 
   TESTNAME_SLOT = 'testname'
-
 end

@@ -39,7 +39,5 @@ group :development do
   gem 'wdm', '>= 0.1.0' if Gem.win_platform?
 end
 
+gem 'bugsnag', '~> 6.6;' # online bug reporting 
 gem 'sdoc', '~> 1.0.0', require: false, group: :doc # static documentation
-
-# Added at 2018-03-17 22:24:31 -0400 by steven-surface\steven:
-gem "bugsnag", "~> 6.6"

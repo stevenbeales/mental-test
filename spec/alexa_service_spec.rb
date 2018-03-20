@@ -16,5 +16,4 @@ RSpec.describe AlexaService do
   describe '.list_tests' do
     it { expect(AlexaService.list_tests).to eq(Instrument.list_tests) }
   end
-
 end
