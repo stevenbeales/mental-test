@@ -1,0 +1,19 @@
+checks:
+      ruby:
+        code_rating: true
+        duplicate_code: true
+        
+build:
+    environment:
+        # Any environment variables we should set for you.
+        variables:
+            DB_DATABASE=mentalhealth
+            DB_USERNAME=mentalhealth@mentalhealth
+            DB_HOST=mentalhealth.postgres.database.azure.com
+
+        # Languages
+        ruby:                     "2.3.1"
+     
+        # Various pre-installed services that can be configured.
+        postgresql:           true
+     

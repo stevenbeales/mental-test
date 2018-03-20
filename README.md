@@ -2,11 +2,13 @@
 
 [![Build Status](https://travis-ci.org/stevenbeales/mental-test.png)](https://travis-ci.org/stevenbeales/mental-test)
 
-<a href="https://codeclimate.com/github/stevenbeales/mental-test/maintainability"><img src="https://api.codeclimate.com/v1/badges/6574b93819edbc0cff7d/maintainability" /></a>
-
 [![Coverage Status](https://coveralls.io/repos/stevenbeales/mental-test/badge.svg?branch=master)](https://coveralls.io/r/stevenbeales/mental-test?branch=master)
 
 [![Dependency Status](https://beta.gemnasium.com/badges/github.com/stevenbeales/mental-test.svg)](https://beta.gemnasium.com/projects/github.com/stevenbeales/mental-test) 
+
+<img title="Scrutinizer Code Quality" src="https://scrutinizer-ci.com/g/stevenbeales/mental-test/badges/quality-score.png?b=master">
+
+<a href="https://codeclimate.com/github/stevenbeales/mental-test/maintainability"><img src="https://api.codeclimate.com/v1/badges/6574b93819edbc0cff7d/maintainability" /></a>
 
 [![Inline docs](http://inch-ci.org/github/stevenbeales/mental-test.svg?branch=master)](http://inch-ci.org/github/stevenbeales/mental-test)
 
