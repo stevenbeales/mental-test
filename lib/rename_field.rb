@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-# Helper class to rename columns in Csv file
+# Helper class to rename columns in CSV files
 class RenameField
   def initialize(from:, dest:)
     @from = from

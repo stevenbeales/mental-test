@@ -2,7 +2,7 @@
 
 require 'facets/kernel/blank'
 
-# Helper class to verify presence of
+# Helper class to verify presence of expected fields
 class VerifyFieldsPresence
   def initialize(expected_fields)
     @expected_fields = expected_fields
