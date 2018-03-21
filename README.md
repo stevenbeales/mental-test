@@ -17,10 +17,10 @@
 An Alexa skill for validated Mental Health Self-Assessments, written in Ruby using the Sinatra and Ralyxa frameworks.
 
 The application supports importing Surveys and Instruments from SurveyJS.io and REDCap.
-TODO - The application supports automated scoring of Instruments where applicable.
-TODO - The application will direct you to a physician or clinical trial that specializes in your assessed conditions.
+<p>TODO - The application supports automated scoring of Instruments where applicable.</p>
+<p>TODO - The application will direct you to a physician or clinical trial that specializes in your assessed conditions.</p>
 
-Disclaimer. These statements have not been validated by the FDA. THis skill is not intended to diagnose or treat any condition.
+Disclaimer. These statements have not been validated by the FDA. This skill is not intended to diagnose or treat any condition.
 
 To install dependencies -
 
