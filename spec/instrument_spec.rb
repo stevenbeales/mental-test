@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 RSpec.describe Instrument, type: :model do
-  subject { described_class.find_or_create_by! name: AppConstants::TEST_INSTRUMENT }
+  subject { described_class.find_or_create_by! name: TestConstants::TEST_INSTRUMENT }
   
   it 'is an instance of Instrument' do
     expect(subject).to be_an Instrument
@@ -63,7 +63,7 @@ RSpec.describe Instrument, type: :model do
 
   describe '.list_tests' do
     it 'should return a list of instrument names' do
-      expect(described_class.list_tests).to include(AppConstants::TEST_INSTRUMENT)
+      expect(described_class.list_tests).to include(TestConstants::TEST_INSTRUMENT)
     end
   end
 
@@ -79,13 +79,13 @@ RSpec.describe Instrument, type: :model do
     end
 
     it 'with duplicate name' do
-      ins = described_class.new name: AppConstants::TEST_INSTRUMENT
+      ins = described_class.new name: TestConstants::TEST_INSTRUMENT
       expect { ins.save! }.to raise_error ActiveRecord::RecordInvalid
     end
   end
 
   describe '#to_s' do
-    it { expect(subject.to_s).to eq(AppConstants::TEST_INSTRUMENT) }
+    it { expect(subject.to_s).to eq(TestConstants::TEST_INSTRUMENT) }
   end
 
   describe '#version' do

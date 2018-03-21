@@ -55,7 +55,7 @@ RSpec.describe HipaaIdentifier, type: :model do
     end
 
     describe '#to_s' do
-      it { expect(subject.to_s).to eq AppConstants::TEST_HIPAA_IDENTIFIER }
+      it { expect(subject.to_s).to eq TestConstants::TEST_HIPAA_IDENTIFIER }
     end
   end
 end

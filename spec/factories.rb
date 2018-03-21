@@ -4,22 +4,22 @@ require 'factory_initializer'
 
 FactoryBot.define do
   factory :test_arm, class: 'Arm' do
-    name AppConstants::TEST_ARM
+    name TestConstants::TEST_ARM
     number 1
     association :schedule, factory: :test_schedule
     initialize_with do
       test_schedule = FactoryInitializer.test_schedule
-      Arm.find_or_create_by!(name: AppConstants::TEST_ARM, schedule: test_schedule, number: 1)
+      Arm.find_or_create_by!(name: TestConstants::TEST_ARM, schedule: test_schedule, number: 1)
     end
   end
 
   factory :test_arm2, class: 'Arm' do
-    name AppConstants::TEST_ARM2
+    name TestConstants::TEST_ARM2
     number 2
     association :schedule, factory: :test_schedule
     initialize_with do
       test_schedule = FactoryInitializer.test_schedule
-      Arm.find_or_create_by!(name: AppConstants::TEST_ARM2, schedule: test_schedule, number: 2)
+      Arm.find_or_create_by!(name: TestConstants::TEST_ARM2, schedule: test_schedule, number: 2)
     end
   end
 
@@ -60,26 +60,26 @@ FactoryBot.define do
   end
 
   factory :test_folder, class: 'Folder' do
-    name AppConstants::TEST_FOLDER
-    initialize_with { Folder.find_or_create_by! name: AppConstants::TEST_FOLDER }
+    name TestConstants::TEST_FOLDER
+    initialize_with { Folder.find_or_create_by! name: TestConstants::TEST_FOLDER }
   end
 
   factory :test_hipaa_identifier, class: 'HipaaIdentifier' do
-    name AppConstants::TEST_HIPAA_IDENTIFIER
-    initialize_with { HipaaIdentifier.find_or_create_by! name: AppConstants::TEST_HIPAA_IDENTIFIER }
+    name TestConstants::TEST_HIPAA_IDENTIFIER
+    initialize_with { HipaaIdentifier.find_or_create_by! name: TestConstants::TEST_HIPAA_IDENTIFIER }
   end
 
   factory :test_instrument, class: 'Instrument' do
-    name AppConstants::TEST_INSTRUMENT
-    initialize_with { Instrument.find_or_create_by! name: AppConstants::TEST_INSTRUMENT }
+    name TestConstants::TEST_INSTRUMENT
+    initialize_with { Instrument.find_or_create_by! name: TestConstants::TEST_INSTRUMENT }
   end
   
   factory :test_journal, class: 'Journal' do
-    name AppConstants::TEST_JOURNAL
+    name TestConstants::TEST_JOURNAL
     association :study_participant, factory: :test_study_participant 
     initialize_with do
       test_study_participant = FactoryInitializer.test_study_participant
-      Journal.find_or_create_by! name: AppConstants::TEST_JOURNAL, study_participant: test_study_participant
+      Journal.find_or_create_by! name: TestConstants::TEST_JOURNAL, study_participant: test_study_participant
     end
   end
    
@@ -92,57 +92,57 @@ FactoryBot.define do
   end
 
   factory :test_participant, class: 'Participant' do
-    email AppConstants::TEST_PARTICIPANT_EMAIL
-    initialize_with { Participant.find_or_create_by! email: AppConstants::TEST_PARTICIPANT_EMAIL }
+    email TestConstants::TEST_PARTICIPANT_EMAIL
+    initialize_with { Participant.find_or_create_by! email: TestConstants::TEST_PARTICIPANT_EMAIL }
   end
 
   factory :test_project, class: 'Project' do
-    name AppConstants::TEST_PROJECT
-    title AppConstants::TEST_PROJECT_TITLE
+    name TestConstants::TEST_PROJECT
+    title TestConstants::TEST_PROJECT_TITLE
     initialize_with do 
-      Project.find_or_create_by! name: AppConstants::TEST_PROJECT, title: AppConstants::TEST_PROJECT_TITLE
+      Project.find_or_create_by! name: TestConstants::TEST_PROJECT, title: TestConstants::TEST_PROJECT_TITLE
     end
   end
   
   factory :test_project2, class: 'Project' do
-    name AppConstants::TEST_PROJECT2
-    title AppConstants::TEST_PROJECT_TITLE2
+    name TestConstants::TEST_PROJECT2
+    title TestConstants::TEST_PROJECT_TITLE2
     initialize_with do
-      Project.find_or_create_by! name: AppConstants::TEST_PROJECT2, title: AppConstants::TEST_PROJECT_TITLE2
+      Project.find_or_create_by! name: TestConstants::TEST_PROJECT2, title: TestConstants::TEST_PROJECT_TITLE2
     end
   end
 
   factory :test_response_scale, class: 'ResponseScale' do
-    name AppConstants::TEST_RESPONSE_SCALE
-    initialize_with { ResponseScale.find_or_create_by! name: AppConstants::TEST_RESPONSE_SCALE }
+    name TestConstants::TEST_RESPONSE_SCALE
+    initialize_with { ResponseScale.find_or_create_by! name: TestConstants::TEST_RESPONSE_SCALE }
   end
   
   factory :test_schedule, class: 'Schedule' do
-    name AppConstants::TEST_SCHEDULE
+    name TestConstants::TEST_SCHEDULE
     association :study, factory: :test_study
     
     initialize_with do
       study = FactoryInitializer.test_study
-      Schedule.find_or_create_by! name: AppConstants::TEST_SCHEDULE, study: study
+      Schedule.find_or_create_by! name: TestConstants::TEST_SCHEDULE, study: study
     end
   end
   
   factory :test_study, class: 'Study' do
-    name AppConstants::TEST_STUDY
-    initialize_with { Study.find_or_create_by! name: AppConstants::TEST_STUDY }
+    name TestConstants::TEST_STUDY
+    initialize_with { Study.find_or_create_by! name: TestConstants::TEST_STUDY }
   end
   
   factory :test_study2, class: 'Study' do
-    name AppConstants::TEST_STUDY2
-    initialize_with { Study.find_or_create_by! name: AppConstants::TEST_STUDY2 }
+    name TestConstants::TEST_STUDY2
+    initialize_with { Study.find_or_create_by! name: TestConstants::TEST_STUDY2 }
   end
 
   factory :test_study_event, class: 'StudyEvent' do
-    name AppConstants::TEST_STUDY_EVENT
+    name TestConstants::TEST_STUDY_EVENT
     association :arm, factory: :test_arm
     initialize_with do 
       test_arm = FactoryInitializer.test_arm
-      StudyEvent.find_or_create_by!(name: AppConstants::TEST_STUDY_EVENT, arm: test_arm) 
+      StudyEvent.find_or_create_by!(name: TestConstants::TEST_STUDY_EVENT, arm: test_arm) 
     end
   end
   
@@ -167,13 +167,13 @@ FactoryBot.define do
   end
 
   factory :test_survey, class: 'Survey' do
-    name AppConstants::TEST_SURVEY
-    initialize_with { Survey.find_or_create_by! name: AppConstants::TEST_SURVEY }
+    name TestConstants::TEST_SURVEY
+    initialize_with { Survey.find_or_create_by! name: TestConstants::TEST_SURVEY }
   end
 
   factory :test_user, class: 'User' do
-    username AppConstants::TEST_USER
-    initialize_with { User.find_or_create_by! username: AppConstants::TEST_USER }
+    username TestConstants::TEST_USER
+    initialize_with { User.find_or_create_by! username: TestConstants::TEST_USER }
   end
 
   factory :timmy, class: 'User' do
@@ -183,27 +183,27 @@ FactoryBot.define do
   end
 
   factory :test_visit, class: 'Visit' do
-    name AppConstants::TEST_VISIT
+    name TestConstants::TEST_VISIT
     association :user, factory: :test_user
     association :survey, factory: :test_survey
 
     initialize_with do
       survey = FactoryInitializer.test_survey
       user = FactoryInitializer.test_user
-      Visit.find_or_create_by!(name: AppConstants::TEST_VISIT, survey: survey, user: user)
+      Visit.find_or_create_by!(name: TestConstants::TEST_VISIT, survey: survey, user: user)
     end
   end
 
   
   factory :test_visit2, class: 'Visit' do
-    name AppConstants::TEST_VISIT
+    name TestConstants::TEST_VISIT
     association :user, factory: :timmy
     association :survey, factory: :test_survey
 
     initialize_with do
       survey = FactoryInitializer.test_survey
       user2 = FactoryInitializer.test_user2
-      Visit.find_or_create_by!(name: AppConstants::TEST_VISIT, survey: survey, user: user2)
+      Visit.find_or_create_by!(name: TestConstants::TEST_VISIT, survey: survey, user: user2)
     end
   end
 end

@@ -72,7 +72,7 @@ RSpec.describe Folder, type: :model do
   end
   
   describe '#to_s' do
-    it { expect(subject.to_s).to eq AppConstants::TEST_FOLDER }
+    it { expect(subject.to_s).to eq TestConstants::TEST_FOLDER }
   end
 
   describe '#created_at today' do

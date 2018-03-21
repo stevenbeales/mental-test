@@ -85,7 +85,7 @@ RSpec.describe Journal, type: :model do
     end
 
     describe '#to_s' do
-      it { expect(subject.to_s).to eq AppConstants::TEST_JOURNAL }
+      it { expect(subject.to_s).to eq TestConstants::TEST_JOURNAL }
     end
 
     describe '#created_at today' do

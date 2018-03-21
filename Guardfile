@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-# A sample Guardfile
+# A Guardfile
 # More info at https://github.com/guard/guard#readme
 
 # Note: The cmd option is now required due to the increasing number of ways

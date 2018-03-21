@@ -79,7 +79,7 @@ RSpec.describe Schedule, type: :model do
     end
 
     describe '#to_s' do
-      it { expect(subject.to_s).to eq AppConstants::TEST_SCHEDULE }
+      it { expect(subject.to_s).to eq TestConstants::TEST_SCHEDULE }
     end
 
     describe '#created_at today' do

@@ -72,7 +72,7 @@ RSpec.describe ResponseScale, type: :model do
   end
   
   describe '#to_s' do
-    it { expect(subject.to_s).to eq AppConstants::TEST_RESPONSE_SCALE }
+    it { expect(subject.to_s).to eq TestConstants::TEST_RESPONSE_SCALE }
   end
     
   describe '#created_at today' do

@@ -2,7 +2,7 @@
 
 RSpec.describe Item, type: :model do
   subject { described_class.find_or_create_by! name: 'Appetite1' }
-  let!(:instrument) { Instrument.find_or_create_by! name: AppConstants::TEST_INSTRUMENT }
+  let!(:instrument) { Instrument.find_or_create_by! name: TestConstants::TEST_INSTRUMENT }
 
   it 'is an instance of Item' do
     expect(subject).to be_an Item

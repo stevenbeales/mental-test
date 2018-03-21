@@ -36,7 +36,7 @@ group :development do
   gem 'guard', require: false # watch for changed files 
   gem 'guard-rspec', require: false # run rspec on change
   gem 'letter_opener', require: false # view emails in development
-  gem 'wdm', '>= 0.1.0' if Gem.win_platform?
+  gem 'wdm', '>= 0.1.0' if Gem.win_platform? # supports Guard watching files on Windows OS.
 end
 
 gem 'bugsnag', '~> 6.6' # online bug reporting 

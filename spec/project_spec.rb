@@ -118,7 +118,7 @@ RSpec.describe Project, type: :model do
   end
   
   describe '#to_s' do
-    it { expect(subject.to_s).to eq AppConstants::TEST_PROJECT }
+    it { expect(subject.to_s).to eq TestConstants::TEST_PROJECT }
   end
 
   describe '#created_at today' do

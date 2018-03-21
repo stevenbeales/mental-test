@@ -35,7 +35,7 @@ class TestFactory
   end 
   
   def self.test_instrument
-    @test_instrument ||= Instrument.find_by(name: AppConstants::TEST_INSTRUMENT) 
+    @test_instrument ||= Instrument.find_by(name: TestConstants::TEST_INSTRUMENT) 
   end
 
   def self.test_participant

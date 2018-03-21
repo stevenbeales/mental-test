@@ -2,7 +2,7 @@
 
 RSpec.describe InstrumentLoader do
   subject { described_class.instance }
-  let!(:instrument) { Instrument.find_by_name(AppConstants::TEST_INSTRUMENT) }
+  let!(:instrument) { Instrument.find_by_name(TestConstants::TEST_INSTRUMENT) }
 
   it 'is an instance of InstrumentLoader' do
     expect(subject).to be_an InstrumentLoader

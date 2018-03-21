@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 namespace :metrics do
+  desc 'generate line counts for each module'
   task :lines do
     total_lines = 0
     total_codelines = 0

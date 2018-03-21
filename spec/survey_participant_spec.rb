@@ -85,7 +85,7 @@ RSpec.describe SurveyParticipant, type: :model do
   describe '#to_s' do
     it do
       expect(described_class.where(participant: participant, survey: survey).first.to_s).to \
-        eq("#{AppConstants::TEST_PARTICIPANT_EMAIL} #{AppConstants::TEST_SURVEY}")
+        eq("#{TestConstants::TEST_PARTICIPANT_EMAIL} #{TestConstants::TEST_SURVEY}")
     end
   end
   

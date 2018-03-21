@@ -2,7 +2,7 @@
 
 RSpec.describe AssessmentInstrument, type: :model do
   subject { TestFactory.test_assessment_instrument }
-  let!(:instrument) { Instrument.find_by name: AppConstants::TEST_INSTRUMENT }
+  let!(:instrument) { Instrument.find_by name: TestConstants::TEST_INSTRUMENT }
   let!(:assess) { TestFactory.test_assessment }
   
   it 'is an instance of AssessmentInstrument' do

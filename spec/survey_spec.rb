@@ -54,7 +54,7 @@ RSpec.describe Survey do
     end
 
     it 'with duplicate name' do
-      expect { Survey.create!(name: AppConstants::TEST_SURVEY) }.to raise_error ActiveRecord::RecordInvalid
+      expect { Survey.create!(name: TestConstants::TEST_SURVEY) }.to raise_error ActiveRecord::RecordInvalid
     end
   end
 

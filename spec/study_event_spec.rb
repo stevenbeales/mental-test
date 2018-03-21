@@ -65,7 +65,7 @@ RSpec.describe StudyEvent, type: :model do
     end
 
     describe '#to_s' do
-      it { expect(subject.to_s).to eq "#{study} #{arm} #{AppConstants::TEST_STUDY_EVENT}" }
+      it { expect(subject.to_s).to eq "#{study} #{arm} #{TestConstants::TEST_STUDY_EVENT}" }
     end
 
     describe '#created_at today' do
