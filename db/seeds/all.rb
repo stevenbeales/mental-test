@@ -8,10 +8,10 @@ require './services/instrument_loader'
 require './lib/app_constants'
 
 # Load cesd-r if not already loaded
-unless Instrument.find_by_name(AppConstants::SEED_INSTRUMENT)
+unless Instrument.find_by_name(AppConstants::DEFAULT_INSTRUMENT)
   json_data = File.read('./db/files/cesdr.json')
   json_hash = MultiJson.load(json_data)
-  instrument = Instrument.new(name: AppConstants::SEED_INSTRUMENT, content: json_hash)
+  instrument = Instrument.new(name: AppConstants::DEFAULT_INSTRUMENT, content: json_hash)
   InstrumentLoader.instance.load(instrument: instrument, overwrite: true)
 end
 

@@ -3,12 +3,13 @@
 require 'singleton'
 require 'facets/kernel/blank'
 
-# Loads instruments 
+# Singleton template class for loading either CSV or json instruments 
 class InstrumentLoader
   include Singleton
   attr_accessor :instrument
   attr_accessor :response_scale
  
+  # load method saves an instrument to DB from either CSV or json
   def load(instrument:, overwrite: false)
     raise AppConstants::LOADER_NIL_INSTRUMENT unless instrument 
     raise AppConstants::LOADER_INSTRUMENT_EXISTS unless overwrite
@@ -22,9 +23,11 @@ class InstrumentLoader
 
   protected 
   
+  # delegates loading to either Json Loader or CSV Loader
   def load!(content: '')
     loader = content.present? ? InstrumentLoaderJson.instance : InstrumentLoaderCsv.instance
     loader.load!(instrument: @instrument)
+    @instrument.save!
   end
 
   private

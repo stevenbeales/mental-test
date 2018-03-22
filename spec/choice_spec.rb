@@ -23,7 +23,6 @@ RSpec.describe Choice, type: :model do
    
     it { expect(subject.respond_to?(:random_name)).not_to be_truthy }
   end
-
  
   describe '#response_scale' do
     before(:each) do

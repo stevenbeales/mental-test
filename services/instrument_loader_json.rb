@@ -5,18 +5,27 @@ class InstrumentLoaderJson < InstrumentLoader
   attr_accessor :instrument
   attr_accessor :response_scale
  
-  # Returns an array of Items that represent the questions in an instrument.
+  # Loads attributes, an array of Items, and rating scale that represent the questions in an instrument.
   def load!(instrument:)
     @instrument = instrument
+    load_attributes
+    load_elements
+    @instrument
+  end
+
+  private
+ 
+  def load_attributes
+    @instrument.instructions = @instrument.pages[0]['title']
+  end
+
+  def load_elements 
     elements = []
     @instrument.pages.each { |p| elements += p['elements'] }
     load_response_scale!(elements: elements, name: instrument.name)
     load_items!(elements)
-    instrument
   end
 
-  private
-  
   def load_response_scale!(elements:, name:)
     @response_scale = ResponseScale.find_or_create_by!(name: name)
     elements.each do |el| 

@@ -37,8 +37,8 @@ class Instrument < ApplicationRecord
                       too_long: 'pick a shorter name', \
                       too_short: 'pick a longer name'
  
-  def self.list_tests
-    Instrument.all.join(' ')
+  def self.list_tests(limit: 4)
+    Instrument.order(:name).limit(limit).join(' ')
   end
 
   def to_s

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180318170052) do
+ActiveRecord::Schema.define(version: 20180322010326) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -79,6 +79,7 @@ ActiveRecord::Schema.define(version: 20180318170052) do
     t.datetime "created_at", default: -> { "CURRENT_TIMESTAMP" }, null: false
     t.datetime "updated_at", default: -> { "CURRENT_TIMESTAMP" }, null: false
     t.string "tags", default: [], array: true
+    t.text "instructions", default: ""
     t.index ["content"], name: "instrument_content", using: :gin
     t.index ["name"], name: "index_instruments_on_name"
     t.index ["tags"], name: "instrument_tags", using: :gin

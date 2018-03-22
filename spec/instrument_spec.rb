@@ -15,6 +15,7 @@ RSpec.describe Instrument, type: :model do
     it { expect(subject.respond_to?(:name)).to be_truthy }
     it { expect(subject.respond_to?(:content)).to be_truthy }
     it { expect(subject.respond_to?(:title)).to be_truthy }
+    it { expect(subject.respond_to?(:instructions)).to be_truthy }
     it { expect(subject.respond_to?(:pages)).to be_truthy }
     it { expect(subject.respond_to?(:assessment_instruments)).to be_truthy }
     it { expect(subject.respond_to?(:assessments)).to be_truthy }
@@ -63,7 +64,7 @@ RSpec.describe Instrument, type: :model do
 
   describe '.list_tests' do
     it 'should return a list of instrument names' do
-      expect(described_class.list_tests).to include(TestConstants::TEST_INSTRUMENT)
+      expect(described_class.list_tests(limit: 10)).to include(TestConstants::TEST_INSTRUMENT)
     end
   end
 
@@ -117,6 +118,10 @@ RSpec.describe Instrument, type: :model do
         expect(described_class.with_any_tags('Depression')&.first).to be_nil
       end
     end
+  end
+
+  describe '#instructions' do
+    it { expect(subject.instructions).to include 'felt or behaved' }
   end
 
   describe '#created_at today' do
