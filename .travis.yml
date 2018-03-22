@@ -8,21 +8,28 @@ rvm:
 before_script:
   - psql -c 'CREATE DATABASE mental_health_test;' -U postgres
   - psql -c "CREATE USER mental WITH PASSWORD 'health';" -U postgres
+  - cp ~/.gemfile.lock ~/.gemfile.windows
+
+# ensure bundle does not install docs
+before_install:
+  - "echo 'gem: --no-ri --no-rdoc' > ~/.gemrc"
 
 script:
   - RACK_ENV=test bundle exec rake db:migrate
   - RACK_ENV=test bundle exec rake spec
   - bundle exec rake bundle:audit
   - bundle exec rubocop 
+  - cp ~/.gemfile.windows ~/.gemfile.lock
   
 addons:
   postgresql: "9.6"
 
 bundler_args: 
-  --without production
+  --without development production
 
 env:
   global:
     - NOKOGIRI_USE_SYSTEM_LIBRARIES=true
+    - RACK_ENV=test
 
 cache: bundler

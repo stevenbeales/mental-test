@@ -8,8 +8,6 @@
 todo.txt
 ## Visual Studio code
 ./.vscode
-## Gemfile.lock does not work crossplatform
-Gemfile.lock
 
 #environment files
 .env
