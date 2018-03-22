@@ -12,6 +12,10 @@ class Journal < ApplicationRecord
                       too_long: 'pick a shorter name', \
                       too_short: 'pick a longer name'
   
+  def list_entries(limit: 4)
+    journal_entries.order('entry_date DESC').limit(limit).join(' ')
+  end
+
   def to_s
     name
   end

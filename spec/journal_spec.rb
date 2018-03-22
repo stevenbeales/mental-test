@@ -22,6 +22,14 @@ RSpec.describe Journal, type: :model do
     it { expect(subject.respond_to?(:random_name)).not_to be_truthy }
   end
 
+  describe '#list_entries' do
+    context 'defaults to last 4' do
+      it do
+        expect(subject.list_entries).to eq subject.journal_entries.order('entry_date DESC').limit(4).join(' ') 
+      end
+    end
+  end
+
   describe '#name' do
     before(:each) do
       @cached_name = subject.name

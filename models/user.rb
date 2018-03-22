@@ -32,7 +32,9 @@ class User < ApplicationRecord
                       within: 5..20, \
                       too_long: 'pick a shorter name', \
                       too_short: 'pick a longer name'
-   
+    
+  delegate :journal, to: :participant, allow_nil: true
+
   def self.authenticate(user_id)
     User.find_or_create_by(username: user_id)
   end

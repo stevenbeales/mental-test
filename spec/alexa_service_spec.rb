@@ -1,7 +1,9 @@
 # frozen_string_literal: true
 
 RSpec.describe AlexaService do
-  subject { described_class.new }
+  subject { described_class.new(user) }
+  let!(:user) { TestFactory.test_user }
+  
   
   it { expect(subject).to be_an AlexaService }
   
@@ -40,6 +42,11 @@ RSpec.describe AlexaService do
       expect(AlexaService.start_test(testname: AppConstants::DEFAULT_INSTRUMENT)).to \
         eq(Instrument.find_by(name: AppConstants::DEFAULT_INSTRUMENT).instructions)
     end
-    
+  end
+
+  describe '#read_all' do
+    it do
+      expect(subject.read_all).to eq(user.journal.list_entries(limit: 4).join(' '))
+    end
   end
 end

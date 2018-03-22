@@ -4,6 +4,8 @@
 class AlexaService
   include AlexaConstants
 
+  attr_reader :user
+
   def self.goodbye_response
     GOODBYE_RESPONSE
   end
@@ -30,8 +32,12 @@ class AlexaService
     instrument.instructions
   end
 
-  def self.read_all
-    # TODO
+  def initialize(user)
+    @user = user
+  end
+
+  def read_all
+    user.journal.list_entries(limit: 4)
   end
 
   def self.read_entry(day:)
