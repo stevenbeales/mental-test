@@ -9,7 +9,7 @@ RSpec.describe Response, type: :model do
   let!(:choice) { TestFactory.test_choice }
   let!(:scale) { TestFactory.test_response_scale }
   
-  it 'is an instance of response' do
+  it 'is an instance of Response' do
     expect(subject).to be_an Response
   end
 

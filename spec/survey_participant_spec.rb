@@ -5,7 +5,7 @@ RSpec.describe SurveyParticipant, type: :model do
   let!(:survey) { TestFactory.test_survey }
   let!(:participant) { TestFactory.test_participant }
   
-  it 'is an instance of Survey Participant' do
+  it 'is an instance of SurveyParticipant' do
     expect(subject).to be_an SurveyParticipant
   end
 

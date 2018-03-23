@@ -76,10 +76,10 @@ FactoryBot.define do
   
   factory :test_journal, class: 'Journal' do
     name TestConstants::TEST_JOURNAL
-    association :study_participant, factory: :test_study_participant 
+    association :participant, factory: :test_participant 
     initialize_with do
-      test_study_participant = FactoryInitializer.test_study_participant
-      Journal.find_or_create_by! name: TestConstants::TEST_JOURNAL, study_participant: test_study_participant
+      test_participant = FactoryInitializer.test_participant
+      Journal.find_or_create_by! name: TestConstants::TEST_JOURNAL, participant: test_participant
     end
   end
    
@@ -93,7 +93,9 @@ FactoryBot.define do
 
   factory :test_participant, class: 'Participant' do
     email TestConstants::TEST_PARTICIPANT_EMAIL
-    initialize_with { Participant.find_or_create_by! email: TestConstants::TEST_PARTICIPANT_EMAIL }
+    initialize_with do 
+      Participant.find_or_create_by! email: TestConstants::TEST_PARTICIPANT_EMAIL
+    end
   end
 
   factory :test_project, class: 'Project' do

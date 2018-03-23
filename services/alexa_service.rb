@@ -37,7 +37,7 @@ class AlexaService
   end
 
   def read_all
-    user.journal.list_entries(limit: 4)
+    user.journal&.list_entries(limit: 4)
   end
 
   def self.read_entry(day:)

@@ -5,7 +5,7 @@ RSpec.describe StudyEventInstrument, type: :model do
   let!(:instrument) { Instrument.find_by_name(TestConstants::TEST_INSTRUMENT) }
   let!(:study_event) { TestFactory.test_study_event }
   
-  it 'is an instance of Study Event Instrument' do
+  it 'is an instance of StudyEventInstrument' do
     expect(subject).to be_an StudyEventInstrument
   end
 

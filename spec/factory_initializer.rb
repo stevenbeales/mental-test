@@ -15,11 +15,11 @@ class FactoryInitializer
   end
 
   def self.test_journal
-    Journal.find_or_create_by! name: TestConstants::TEST_JOURNAL, study_participant: test_study_participant
+    Journal.find_or_create_by! name: TestConstants::TEST_JOURNAL
   end
 
   def self.test_participant
-    Participant.find_or_create_by! email: TestConstants::TEST_PARTICIPANT_EMAIL 
+    Participant.find_or_create_by! email: TestConstants::TEST_PARTICIPANT_EMAIL
   end
 
   def self.test_response_scale

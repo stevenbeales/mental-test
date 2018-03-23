@@ -15,7 +15,6 @@ class StudyParticipant < ApplicationRecord
 
   belongs_to :participant, inverse_of: :study_participants
   belongs_to :study, inverse_of: :study_participants
-  has_one :journal, inverse_of: :study_participant, dependent: :destroy
   validates :participant, presence: true
   validates :study, presence: true
 

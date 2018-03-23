@@ -8,6 +8,6 @@ class ApplicationRecord < ActiveRecord::Base
   # Redefine equality for Application Records
   # Rather than jus having equal IDs, check that all attributes are equal.
   def ==(other)
-    attributes == other.attributes
+    return attributes == other.attributes if other
   end
 end

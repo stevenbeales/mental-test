@@ -25,12 +25,8 @@ RSpec.describe Choice, type: :model do
   end
  
   describe '#response_scale' do
-    before(:each) do
-      @cached_response_scale = subject.response_scale
-    end
-
     after(:each) do
-      subject.response_scale = @cached_response_scale
+      subject.restore_attributes
     end
     
     it do
@@ -41,12 +37,8 @@ RSpec.describe Choice, type: :model do
   end
   
   describe '#value' do
-    before(:each) do
-      @cached_value = subject.value
-    end
-
     after(:each) do
-      subject.value = @cached_value
+      subject.restore_attributes
     end
     
     it do
@@ -57,12 +49,8 @@ RSpec.describe Choice, type: :model do
   end
 
   describe '#description' do
-    before(:each) do
-      @cached_description = subject.description
-    end
-    
     after(:each) do
-      subject.description = @cached_description
+      subject.restore_attributes
     end
     
     it do

@@ -21,6 +21,7 @@ gem 'validates_email_format_of', '~>1.6.3', require: false # validates email for
 
 group :test do
   gem 'bundler-audit', '~> 0.6.0', require: false # check gems for security issues
+  gem 'coveralls', require: false # code coverage
   gem 'database_cleaner', '=1.6.1', require: false # for test database cleaning
   gem 'factory_bot', '~> 4.0', require: false # for test data setup
   gem 'faker', '=1.8.7', require: false # for generating fake test data
@@ -39,7 +40,10 @@ group :development do
   gem 'wdm', '>= 0.1.0' if Gem.win_platform? # supports Guard watching files on Windows OS.
 end
 
+group :doc do
+  gem 'sdoc', '~> 1.0.0', require: false # static documentation
+end
+
 gem 'bugsnag', '~> 6.6' # online bug reporting 
-gem 'coveralls', require: false # code coverage
+gem 'mobility', '~> 0.5.1' # translations
 gem 'rest-client', '~> 1.8.0' # minimum version without security vulnerabilities 
-gem 'sdoc', '~> 1.0.0', require: false, group: :doc # static documentation

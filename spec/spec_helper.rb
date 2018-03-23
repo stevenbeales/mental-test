@@ -50,6 +50,7 @@ end
 
 ENV['RACK_ENV'] = 'test'
 
+require './lib/app_constants'
 require './config/db'
 require 'database_cleaner'
 require 'ralyxa'

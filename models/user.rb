@@ -35,8 +35,15 @@ class User < ApplicationRecord
     
   delegate :journal, to: :participant, allow_nil: true
 
+  after_initialize :create_participant
+
   def self.authenticate(user_id)
-    User.find_or_create_by(username: user_id)
+    user = User.find_or_create_by(username: user_id)
+    user
+  end
+
+  def create_participant 
+    self.participant ||= Participant.create!(user: self, email: AppConstants::PLACEHOLDER_EMAIL) if new_record?
   end
 
   def to_s

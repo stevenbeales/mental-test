@@ -14,6 +14,7 @@ RSpec.describe Participant, type: :model do
   describe '#respond_to?' do
     it { expect(subject.respond_to?(:email)).to be_truthy }
     it { expect(subject.respond_to?(:user)).to be_truthy }
+    it { expect(subject.respond_to?(:journal)).to be_truthy }
     it { expect(subject.respond_to?(:survey_participants)).to be_truthy }
     it { expect(subject.respond_to?(:surveys)).to be_truthy }
     it { expect(subject.respond_to?(:created_at)).to be_truthy }
@@ -23,18 +24,20 @@ RSpec.describe Participant, type: :model do
   end
 
   describe '#email' do
-    before(:each) do
-      @cached_email = subject.email
-    end
-
-    after(:each) do
-      subject.email = @cached_email
-    end
-    
     it do
       subject.email = nil
       subject.valid?
       expect(subject.errors[:email].size).to eq(1)
+      subject.restore_attributes
+    end
+  end
+
+  describe '#journal' do
+    it do
+      subject.journal = nil
+      subject.valid?
+      expect(subject.errors[:journal].size).to eq(1)
+      subject.restore_attributes
     end
   end
 

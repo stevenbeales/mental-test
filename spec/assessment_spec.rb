@@ -33,12 +33,8 @@ RSpec.describe Assessment, type: :model do
   end
 
   describe '#visit' do
-    before(:each) do
-      @cached_visit = subject.visit
-    end
-
     after(:each) do
-      subject.visit = @cached_visit
+      subject.restore_attributes
     end
 
     it do

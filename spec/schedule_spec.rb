@@ -4,7 +4,7 @@ RSpec.describe Schedule, type: :model do
   subject { TestFactory.test_schedule }
   let!(:study) { TestFactory.test_study }
 
-  it 'is an instance of schedule' do
+  it 'is an instance of Schedule' do
     expect(subject).to be_an Schedule
   end
 

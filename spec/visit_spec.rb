@@ -26,12 +26,8 @@ RSpec.describe Visit, type: :model do
   end
 
   describe '#number' do
-    before(:each) do
-      @cached_number = subject.number 
-    end
-    
     after(:each) do
-      subject.number = @cached_number
+      subject.restore_attributes
     end
     
     it 'is required and positive' do
@@ -78,12 +74,8 @@ RSpec.describe Visit, type: :model do
   end
 
   describe '#user' do
-    before(:each) do
-      @cached_user = subject.user
-    end
-    
     after(:each) do
-      subject.user = @cached_user
+      subject.restore_attributes
     end
     
     it do
@@ -94,12 +86,8 @@ RSpec.describe Visit, type: :model do
   end
   
   describe '#survey' do
-    before(:each) do
-      @cached_survey = subject.survey
-    end
-    
     after(:each) do
-      subject.survey = @cached_survey
+      subject.restore_attributes
     end
     
     it do

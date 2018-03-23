@@ -23,12 +23,8 @@ RSpec.describe AssessmentInstrument, type: :model do
   end
 
   describe '#instrument' do
-    before(:each) do
-      @cached_instrument = subject.instrument
-    end
-   
     after(:each) do
-      subject.instrument = @cached_instrument
+      subject.restore_attributes
     end
    
     it do
@@ -43,12 +39,8 @@ RSpec.describe AssessmentInstrument, type: :model do
   end
   
   describe '#assessment' do
-    before(:each) do
-      @cached_assessment = subject.assessment
-    end
-
     after(:each) do
-      subject.assessment = @cached_assessment
+      subject.restore_attributes
     end
 
     it do

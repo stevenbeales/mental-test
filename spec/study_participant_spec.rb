@@ -5,7 +5,7 @@ RSpec.describe StudyParticipant, type: :model do
   let!(:study) { TestFactory.test_study }
   let!(:participant) { TestFactory.test_participant }
   
-  it 'is an instance of Study Participant' do
+  it 'is an instance of StudyParticipant' do
     expect(subject).to be_an StudyParticipant
   end
 
@@ -16,7 +16,6 @@ RSpec.describe StudyParticipant, type: :model do
   describe '#respond_to?' do
     it { expect(subject.respond_to?(:study)).to be_truthy }
     it { expect(subject.respond_to?(:participant)).to be_truthy }
-    it { expect(subject.respond_to?(:journal)).to be_truthy }
     it { expect(subject.respond_to?(:created_at)).to be_truthy }
     it { expect(subject.respond_to?(:updated_at)).to be_truthy }
    
@@ -24,34 +23,20 @@ RSpec.describe StudyParticipant, type: :model do
   end
 
   describe '#study' do
-    before(:each) do
-      @cached_study = subject.study
-    end
-   
-    after(:each) do
-      subject.study = @cached_study
-    end
-   
     it do
       subject.study = nil
       subject.valid?
       expect(subject.errors[:study].size).to eq(1)
+      subject.restore_attributes
     end
   end
   
   describe '#participant' do
-    before(:each) do
-      @cached_participant = subject.participant
-    end
-   
-    after(:each) do
-      subject.participant = @cached_participant
-    end
-   
     it do
       subject.participant = nil
       subject.valid?
       expect(subject.errors[:participant].size).to eq(1)
+      subject.restore_attributes
     end
   end
   

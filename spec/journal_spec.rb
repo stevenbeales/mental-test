@@ -2,9 +2,9 @@
 
 RSpec.describe Journal, type: :model do
   subject { TestFactory.test_journal }
-  let!(:study_participant) { TestFactory.test_study_participant }
+  let!(:participant) { TestFactory.test_participant }
 
-  it 'is an instance of schedule' do
+  it 'is an instance of Journal' do
     expect(subject).to be_an Journal
   end
 
@@ -14,7 +14,7 @@ RSpec.describe Journal, type: :model do
 
   describe '#respond_to?' do
     it { expect(subject.respond_to?(:name)).to be_truthy }
-    it { expect(subject.respond_to?(:study_participant)).to be_truthy }
+    it { expect(subject.respond_to?(:participant)).to be_truthy }
     it { expect(subject.respond_to?(:journal_entries)).to be_truthy }
     it { expect(subject.respond_to?(:created_at)).to be_truthy }
     it { expect(subject.respond_to?(:updated_at)).to be_truthy }
@@ -46,19 +46,19 @@ RSpec.describe Journal, type: :model do
     end
   end
   
-  describe '#study_participant' do
+  describe '#participant' do
     before(:each) do
-      @cached_study_participant = subject.study_participant
+      @cached_participant = subject.participant
     end
 
     after(:each) do
-      subject.study_participant = @cached_study_participant
+      subject.participant = @cached_participant
     end
     
     it do
-      subject.study_participant = nil
+      subject.participant = nil
       subject.valid?
-      expect(subject.errors[:study_participant].size).to eq(1)
+      expect(subject.errors[:participant].size).to eq(1)
     end
   end
 
@@ -70,23 +70,23 @@ RSpec.describe Journal, type: :model do
     context '1 character name' do
       it do 
         expect do
-          described_class.create! name: 'a', study_participant: study_participant
+          described_class.create! name: 'a', participant: participant
         end.to raise_error ActiveRecord::RecordInvalid 
       end
     end
     
     context '2+ character name and title' do
       it do
-        expect { described_class.find_or_create_by! name: 'as', study_participant: study_participant }.to_not raise_error 
-        described_class.find_by(name: 'as', study_participant: study_participant).destroy!
+        expect { described_class.find_or_create_by! name: 'as', participant: participant }.to_not raise_error 
+        described_class.find_by(name: 'as', participant: participant).destroy!
       end
     end
 
     context 'unique name' do
       it do
-        another_object = described_class.create! name: 'a12', study_participant: study_participant
+        another_object = described_class.create! name: 'a12', participant: participant
         expect do 
-          described_class.create! name: 'a12', study_participant: study_participant 
+          described_class.create! name: 'a12', participant: participant 
         end.to raise_error ActiveRecord::RecordInvalid
         another_object.destroy!
       end
@@ -94,6 +94,10 @@ RSpec.describe Journal, type: :model do
 
     describe '#to_s' do
       it { expect(subject.to_s).to eq TestConstants::TEST_JOURNAL }
+    end
+
+    describe '#create_entry_for_today' do
+      it { expect(subject.journal_entries.size).to be > 0 }
     end
 
     describe '#created_at today' do

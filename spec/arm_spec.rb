@@ -28,21 +28,16 @@ RSpec.describe Arm, type: :model do
 
   describe '#name' do
     it 'is set to arm1 if missing' do
-      cached_name = subject.name
       subject.name = nil
       subject.valid?
       expect(subject.name).to eq('arm ' + subject.number.to_s)
-      subject.name = cached_name
+      subject.restore_attributes
     end
   end
 
   describe '#schedule' do
-    before(:each) do
-      @cached_schedule = subject.schedule
-    end
-
     after(:each) do
-      subject.schedule = @cached_schedule
+      subject.restore_attributes
     end
     
     it 'is required' do
@@ -71,12 +66,8 @@ RSpec.describe Arm, type: :model do
   end
 
   describe '#number' do
-    before(:each) do
-      @cached_number = subject.number 
-    end
-    
     after(:each) do
-      subject.number = @cached_number
+      subject.restore_attributes
     end
     
     it 'is required and positive' do

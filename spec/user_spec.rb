@@ -29,18 +29,11 @@ RSpec.describe User, type: :model do
   end
   
   describe '#username' do
-    before(:each) do
-      @cached_username = subject.username
-    end
-
-    after(:each) do
-      subject.username = @cached_username
-    end
-
     it do
       subject.username = nil
       subject.valid?
       expect(subject.errors[:username].size).to eq(2)
+      subject.restore_attributes
     end
   end
 
@@ -50,6 +43,7 @@ RSpec.describe User, type: :model do
     it do
       subject.locale = 'en-GB'
       expect(subject.locale).to eq('en-GB')
+      subject.restore_attributes
     end
   end
 
@@ -75,6 +69,10 @@ RSpec.describe User, type: :model do
   end
 
   describe 'Saving to a database' do
+    after(:each) do
+      subject.restore_attributes
+    end
+
     it 'starts out unpersisted' do
       user = described_class.new
       expect(user.id).to be_nil
@@ -94,10 +92,9 @@ RSpec.describe User, type: :model do
       expect { described_class.authenticate('Timmy') }.to change { described_class.count }.by(0)
     end
 
-    it 'may be survey participant' do
-      subject.participant = participant
+    it 'is participant' do
       subject.save!
-      expect(subject.participant.id).to eq(participant.id)
+      expect(subject.participant).not_to be_nil
     end
   end
 

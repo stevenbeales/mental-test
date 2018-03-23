@@ -6,7 +6,7 @@ RSpec.describe StudyEvent, type: :model do
   let!(:schedule) { TestFactory.test_schedule }
   let!(:study) { TestFactory.test_study }
  
-  it 'is an instance of Study Event' do
+  it 'is an instance of StudyEvent' do
     expect(subject).to be_an StudyEvent
   end
 
@@ -28,18 +28,11 @@ RSpec.describe StudyEvent, type: :model do
   end
 
   describe '#name' do
-    before(:each) do
-      @cached_name = subject.name
-    end
-  
-    after(:each) do
-      subject.name = @cached_name
-    end
-  
     it do
       subject.name = nil
       subject.valid?
       expect(subject.errors[:name].size).to eq(2)
+      subject.restore_attributes
     end
   end
 

@@ -9,7 +9,7 @@ RSpec.describe Score, type: :model do
   let!(:choice) { TestFactory.test_choice }
   let!(:scale) { TestFactory.test_response_scale }
 
-  it 'is an instance of score' do
+  it 'is an instance of Score' do
     expect(subject).to be_an Score
   end
 

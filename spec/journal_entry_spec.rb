@@ -4,7 +4,7 @@ RSpec.describe JournalEntry, type: :model do
   subject { TestFactory.test_journal_entry }
   let!(:journal) { TestFactory.test_journal }
 
-  it 'is an instance of schedule' do
+  it 'is an instance of JournalEntry' do
     expect(subject).to be_an JournalEntry
   end
 
