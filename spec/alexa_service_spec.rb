@@ -45,7 +45,8 @@ RSpec.describe AlexaService do
 
   describe '#read_all' do
     it do
-      expect(subject.read_all).to eq(user.journal&.list_entries(limit: 4)&.join(' '))
+      entries = user.journal&.list_entries(limit: 4)
+      expect(subject.read_all).to eq(entries)
     end
     
     it do

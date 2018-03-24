@@ -15,7 +15,8 @@ class Journal < ApplicationRecord
   after_initialize :create_entry_for_today
   
   def list_entries(limit: 4)
-    journal_entries.order('entry_date DESC').limit(limit).join(' ')
+    entries = journal_entries.order('entry_date DESC').limit(limit)
+    entries.join(' ')
   end
 
   def to_s
