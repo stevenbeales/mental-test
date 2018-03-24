@@ -35,12 +35,8 @@ RSpec.describe Schedule, type: :model do
   end
   
   describe '#study' do
-    before(:each) do
-      @cached_study = subject.study
-    end
-
     after(:each) do
-      subject.study = @cached_study
+      subject.restore_attributes
     end
     
     it do

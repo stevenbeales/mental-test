@@ -45,14 +45,10 @@ RSpec.describe Assessment, type: :model do
   end
   
   describe '#order_number' do
-    before(:each) do
-      @cached_order_number = subject.order_number
-    end
-
     after(:each) do
-      subject.order_number = @cached_order_number
+      subject.restore_attributes
     end
-
+    
     it do
       subject.order_number = nil
       subject.valid?

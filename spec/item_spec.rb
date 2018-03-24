@@ -24,12 +24,8 @@ RSpec.describe Item, type: :model do
   end
 
   describe '#name' do
-    before(:each) do
-      @cached_name = subject.name
-    end
-
     after(:each) do
-      subject.name = @cached_name
+      subject.restore_attributes
     end
     
     it do

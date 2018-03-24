@@ -158,6 +158,16 @@ FactoryBot.define do
     end
   end
 
+  factory :test_survey_participant, class: 'SurveyParticipant' do
+    association :survey, factory: :test_survey
+    association :participant, factory: :test_participant
+    initialize_with do 
+      test_survey = FactoryInitializer.test_survey
+      test_participant = FactoryInitializer.test_participant
+      SurveyParticipant.find_or_create_by!(survey: test_survey, participant: test_participant) 
+    end
+  end
+
   factory :test_study_event_instrument, class: 'StudyEventInstrument' do
     association :study_event, factory: :test_study_event
     association :instrument, factory: :test_instrument

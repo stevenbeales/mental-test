@@ -35,12 +35,8 @@ RSpec.describe JournalEntry, type: :model do
   end
   
   describe '#journal' do
-    before(:each) do
-      @cached_journal = subject.journal
-    end
-
     after(:each) do
-      subject.journal = @cached_journal
+      subject.restore_attributes
     end
     
     it do
