@@ -31,6 +31,7 @@ group :test do
   gem 'simplecov', '~> 0.15.1', require: false # for code coverage
   gem 'timecop', require: false # testing time dependent
   gem 'travis', '~> 1.8.8', require: false # for continuous integrations
+  gem 'travis_check_rubies',  require: false # check ruby versions on Travis
 end
 
 group :development do

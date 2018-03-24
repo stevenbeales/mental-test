@@ -18,7 +18,8 @@ script:
   - RACK_ENV=test bundle exec rake spec
   - bundle exec rake bundle:audit
   - bundle exec rubocop 
-  - cp Gemfile.lock.org Gemfile.lock
+  - bundle exec travis_check_rubies
+  - cp -p Gemfile.lock.org Gemfile.lock
   
 addons:
   postgresql: "9.6"

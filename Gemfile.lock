@@ -53,6 +53,7 @@ GEM
     ffi (1.9.23)
     ffi (1.9.23-x64-mingw32)
     formatador (0.2.5)
+    fspath (3.1.0)
     gh (0.15.1)
       addressable (~> 2.4.0)
       backports
@@ -204,6 +205,8 @@ GEM
       launchy (~> 2.1)
       pusher-client (~> 0.4)
       typhoeus (~> 0.6, >= 0.6.8)
+    travis_check_rubies (0.2.5)
+      fspath (~> 3.0)
     typhoeus (0.8.0)
       ethon (>= 0.8.0)
     tzinfo (1.2.5)
@@ -256,6 +259,7 @@ DEPENDENCIES
   sinatra-activerecord (~> 2.0.13)
   timecop
   travis (~> 1.8.8)
+  travis_check_rubies
   validates_email_format_of (~> 1.6.3)
   wdm (>= 0.1.0)
 

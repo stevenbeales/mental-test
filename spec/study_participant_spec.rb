@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 RSpec.describe StudyParticipant, type: :model do
-  subject { described_class.find_or_create_by participant: participant, study: study }
+  subject { TestFactory.test_study_participant }
   let!(:study) { TestFactory.test_study }
   let!(:participant) { TestFactory.test_participant }
   
