@@ -61,7 +61,7 @@ RSpec.describe SurveyParticipant, type: :model do
  
     context 'survey and participant' do
       it do 
-        expect { described_class.find_or_create_by! participant: participant, survey: survey }.not_to raise_error
+        expect { SurveyParticipant.find_or_create_by! participant: participant, survey: survey }.not_to raise_error
       end
     end
     

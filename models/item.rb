@@ -28,7 +28,7 @@ class Item < ApplicationRecord
                       too_short: 'pick a longer name'
   
   def find_choice_by_value(value)
-    choices.find_by_response_scale_id_and_value(response_scale.id, value)
+    choices.find_by(response_scale: response_scale, value: value)
   end
 
   def to_s

@@ -19,6 +19,10 @@ class Journal < ApplicationRecord
     entries.join(' ')
   end
 
+  def read_entry(day)
+    JournalEntry.where(entry_date: day.beginning_of_day..day.end_of_day)
+  end
+
   def to_s
     name
   end

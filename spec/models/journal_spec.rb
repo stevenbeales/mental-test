@@ -30,6 +30,12 @@ RSpec.describe Journal, type: :model do
     end
   end
 
+  describe '#read_entry' do
+    it do
+      expect(subject.read_entry(Date.today).size).to be > 0
+    end
+  end
+
   describe '#name' do
     after(:each) do
       subject.restore_attributes

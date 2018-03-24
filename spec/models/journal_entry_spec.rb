@@ -67,18 +67,7 @@ RSpec.describe JournalEntry, type: :model do
     
     context 'with journal and date ' do
       it do
-        expect { described_class.find_or_create_by! journal: journal, entry_date: Date.today }.to_not raise_error 
-        described_class.find_by(journal: journal, entry_date: Date.today).destroy!
-      end
-    end
-
-    context 'unique name' do
-      it do
-        another_object = described_class.create! journal: journal, entry_date: Date.today
-        expect do 
-          described_class.create! journal: journal, entry_date: Date.today
-        end.to raise_error ActiveRecord::RecordInvalid
-        another_object.destroy!
+        expect { JournalEntry.find_or_create_by! journal: journal, entry_date: '12/12/2012' }.to_not raise_error 
       end
     end
 

@@ -69,10 +69,7 @@ RSpec.describe User, type: :model do
   end
 
   describe 'Saving to a database' do
-    after(:each) do
-      subject.restore_attributes
-    end
-
+  
     it 'starts out unpersisted' do
       user = described_class.new
       expect(user.id).to be_nil
@@ -80,7 +77,7 @@ RSpec.describe User, type: :model do
 
     it 'can be persisted' do
       user = build(:timmy)
-      user.save
+      user.save!
 
       persisted_user = described_class.find_by_username 'Timmy'
       expect(persisted_user.id).not_to be_nil
@@ -92,7 +89,7 @@ RSpec.describe User, type: :model do
       expect { described_class.authenticate('Timmy') }.to change { described_class.count }.by(0)
     end
 
-    it 'is participant' do
+    it 'is a participant' do
       subject.save!
       expect(subject.participant).not_to be_nil
     end
