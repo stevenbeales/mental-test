@@ -31,12 +31,8 @@ RSpec.describe Journal, type: :model do
   end
 
   describe '#name' do
-    before(:each) do
-      @cached_name = subject.name
-    end
-
     after(:each) do
-      subject.name = @cached_name
+      subject.restore_attributes
     end
 
     it do
@@ -47,12 +43,8 @@ RSpec.describe Journal, type: :model do
   end
   
   describe '#participant' do
-    before(:each) do
-      @cached_participant = subject.participant
-    end
-
     after(:each) do
-      subject.participant = @cached_participant
+      subject.restore_attributes
     end
     
     it do

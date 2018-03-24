@@ -31,12 +31,8 @@ RSpec.describe Score, type: :model do
   end
   
   describe '#score' do
-    before(:each) do
-      @cached_score = subject.score 
-    end
-    
     after(:each) do
-      subject.score = @cached_score
+      subject.restore_attributes
     end
     
     it 'is required' do

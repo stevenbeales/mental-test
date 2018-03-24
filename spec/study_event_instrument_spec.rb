@@ -23,12 +23,8 @@ RSpec.describe StudyEventInstrument, type: :model do
   end
 
   describe '#instrument' do
-    before(:each) do
-      @cached_instrument = subject.instrument
-    end
-
     after(:each) do
-      subject.instrument = @cached_instrument
+      subject.restore_attributes
     end
     
     it do
@@ -39,12 +35,8 @@ RSpec.describe StudyEventInstrument, type: :model do
   end
   
   describe '#study_event' do
-    before(:each) do
-      @cached_study_event = subject.study_event
-    end
-    
     after(:each) do
-      subject.study_event = @cached_study_event
+      subject.restore_attributes
     end
     
     it do

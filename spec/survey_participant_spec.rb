@@ -23,12 +23,8 @@ RSpec.describe SurveyParticipant, type: :model do
   end
 
   describe '#survey' do
-    before(:each) do
-      @cached_survey = subject.survey
-    end
-   
     after(:each) do
-      subject.survey = @cached_survey
+      subject.restore_attributes
     end
    
     it do
@@ -39,12 +35,8 @@ RSpec.describe SurveyParticipant, type: :model do
   end
   
   describe '#participant' do
-    before(:each) do
-      @cached_participant = subject.participant
-    end
-   
     after(:each) do
-      subject.participant = @cached_participant
+      subject.restore_attributes
     end
    
     it do

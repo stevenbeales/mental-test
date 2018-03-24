@@ -24,20 +24,26 @@ RSpec.describe Participant, type: :model do
   end
 
   describe '#email' do
+    after(:each) do
+      subject.restore_attributes
+    end
+    
     it do
       subject.email = nil
       subject.valid?
       expect(subject.errors[:email].size).to eq(1)
-      subject.restore_attributes
     end
   end
 
   describe '#journal' do
+    after(:each) do
+      subject.restore_attributes
+    end
+    
     it do
       subject.journal = nil
       subject.valid?
       expect(subject.errors[:journal].size).to eq(1)
-      subject.restore_attributes
     end
   end
 

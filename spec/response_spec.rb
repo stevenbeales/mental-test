@@ -28,12 +28,8 @@ RSpec.describe Response, type: :model do
   end
 
   describe '#assessment' do
-    before(:each) do
-      @cached_assessment = subject.assessment
-    end
-
     after(:each) do
-      subject.assessment = @cached_assessment
+      subject.restore_attributes
     end
 
     it do
@@ -44,12 +40,8 @@ RSpec.describe Response, type: :model do
   end
   
   describe '#value' do
-    before(:each) do
-      @cached_value = subject.value
-    end
-
     after(:each) do
-      subject.value = @cached_value
+      subject.restore_attributes
     end
 
     it do

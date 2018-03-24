@@ -3,8 +3,7 @@
 RSpec.describe AlexaService do
   subject { described_class.new(user) }
   let!(:user) { TestFactory.test_user }
-  
-  
+    
   it { expect(subject).to be_an AlexaService }
   
   describe '.help_response' do

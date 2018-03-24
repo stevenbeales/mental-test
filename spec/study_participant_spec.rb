@@ -23,20 +23,26 @@ RSpec.describe StudyParticipant, type: :model do
   end
 
   describe '#study' do
+    after(:each) do
+      subject.restore_attributes
+    end
+
     it do
       subject.study = nil
       subject.valid?
       expect(subject.errors[:study].size).to eq(1)
-      subject.restore_attributes
     end
   end
   
   describe '#participant' do
+    after(:each) do
+      subject.restore_attributes
+    end
+
     it do
       subject.participant = nil
       subject.valid?
       expect(subject.errors[:participant].size).to eq(1)
-      subject.restore_attributes
     end
   end
   

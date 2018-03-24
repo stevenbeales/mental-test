@@ -23,12 +23,8 @@ RSpec.describe JournalEntry, type: :model do
   end
 
   describe '#entry_date' do
-    before(:each) do
-      @cached_entry_date = subject.entry_date
-    end
-
     after(:each) do
-      subject.entry_date = @cached_entry_date
+      subject.restore_attributes
     end
 
     it do

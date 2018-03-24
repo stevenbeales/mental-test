@@ -24,12 +24,8 @@ RSpec.describe Project, type: :model do
   end
 
   describe '#name' do
-    before(:each) do
-      @cached_name = subject.name
-    end
-
     after(:each) do
-      subject.name = @cached_name
+      subject.restore_attributes
     end
     
     it do
@@ -40,12 +36,8 @@ RSpec.describe Project, type: :model do
   end
 
   describe '#title' do
-    before(:each) do
-      @cached_title = subject.title
-    end
-    
     after(:each) do
-      subject.title = @cached_title
+      subject.restore_attributes
     end
     
     it do

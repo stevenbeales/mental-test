@@ -28,11 +28,14 @@ RSpec.describe StudyEvent, type: :model do
   end
 
   describe '#name' do
+    after(:each) do
+      subject.restore_attributes
+    end
+
     it do
       subject.name = nil
       subject.valid?
       expect(subject.errors[:name].size).to eq(2)
-      subject.restore_attributes
     end
   end
 
