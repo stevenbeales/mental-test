@@ -79,11 +79,15 @@ RSpec.configure do |config|
   end
 
   # Disable validation of Alexa requests as these will fail when running under rspec
-  # config.before :each do
-  # Ralyxa.configure do |c|
-  # c.validate_requests = false
-  # end
-  # end
+  config.before :each do
+    Ralyxa.configure do |c|
+      c.validate_requests = false
+    end
+  end
+
+  config.expect_with :rspec do |c|
+    c.syntax = :expect
+  end
 
   config.include FactoryBot::Syntax::Methods
 

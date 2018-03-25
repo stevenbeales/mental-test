@@ -16,10 +16,15 @@ RSpec.describe JournalEntry, type: :model do
     it { expect(subject.respond_to?(:entry_date)).to be_truthy }
     it { expect(subject.respond_to?(:entry)).to be_truthy }
     it { expect(subject.respond_to?(:journal)).to be_truthy }
-    it { expect(subject.respond_to?(:created_at)).to be_truthy }
-    it { expect(subject.respond_to?(:updated_at)).to be_truthy }
-     
-    it { expect(subject.respond_to?(:random_name)).not_to be_truthy }
+    context '#created_at' do
+      it { expect(subject.respond_to?(:created_at)).to be_truthy }
+    end
+    context '#updated_at' do
+      it { expect(subject.respond_to?(:updated_at)).to be_truthy }
+    end 
+    context '#not_an_attibute' do
+      it { expect(subject.respond_to?(:not_an_attibute)).not_to be_truthy }
+    end
   end
 
   describe '#entry_date' do

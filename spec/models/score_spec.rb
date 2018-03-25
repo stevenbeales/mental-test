@@ -24,10 +24,15 @@ RSpec.describe Score, type: :model do
     it { expect(subject.respond_to?(:visit)).to be_truthy }
     it { expect(subject.respond_to?(:survey)).to be_truthy }
     it { expect(subject.respond_to?(:participant)).to be_truthy }
-    it { expect(subject.respond_to?(:created_at)).to be_truthy }
-    it { expect(subject.respond_to?(:updated_at)).to be_truthy }
-     
-    it { expect(subject.respond_to?(:random_name)).not_to be_truthy }
+    context '#created_at' do
+      it { expect(subject.respond_to?(:created_at)).to be_truthy }
+    end
+    context '#updated_at' do
+      it { expect(subject.respond_to?(:updated_at)).to be_truthy }
+    end 
+    context '#not_an_attibute' do
+      it { expect(subject.respond_to?(:not_an_attibute)).not_to be_truthy }
+    end
   end
   
   describe '#score' do
@@ -89,7 +94,9 @@ RSpec.describe Score, type: :model do
   end
   
   describe '#to_s' do
-    it { expect(subject.to_s).to eq "#{subject.assessment} #{subject.name}: #{subject.score}" }   
+    it 'prints assessment name: score' do
+      expect(subject.to_s).to eq "#{subject.assessment} #{subject.name}: #{subject.score}" 
+    end   
   end
 
   describe '#destroy!' do

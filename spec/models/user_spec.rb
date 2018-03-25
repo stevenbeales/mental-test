@@ -22,10 +22,15 @@ RSpec.describe User, type: :model do
     it { expect(subject.respond_to?(:participant)).to be_truthy }
     it { expect(subject.respond_to?(:preferences)).to be_truthy }
     it { expect(subject.respond_to?(:locale)).to be_truthy }
-    it { expect(subject.respond_to?(:created_at)).to be_truthy }
-    it { expect(subject.respond_to?(:updated_at)).to be_truthy }
-       
-    it { expect(subject.respond_to?(:random_name)).not_to be_truthy }
+    context '#created_at' do
+      it { expect(subject.respond_to?(:created_at)).to be_truthy }
+    end
+    context '#updated_at' do
+      it { expect(subject.respond_to?(:updated_at)).to be_truthy }
+    end 
+    context '#not_an_attibute' do
+      it { expect(subject.respond_to?(:not_an_attibute)).not_to be_truthy }
+    end
   end
   
   describe '#username' do

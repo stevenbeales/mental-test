@@ -1,1 +1,3 @@
 --require spec_helper
+--format Fuubar --format documentation --out ./spec/rspec.txt
+--color

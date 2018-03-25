@@ -18,18 +18,39 @@ RSpec.describe Assessment, type: :model do
   end
   
   describe '#respond_to?' do
-    it { expect(subject.respond_to?(:visit)).to be_truthy }
-    it { expect(subject.respond_to?(:survey)).to be_truthy }
-    it { expect(subject.respond_to?(:user)).to be_truthy }
-    it { expect(subject.respond_to?(:order_number)).to be_truthy }
-    it { expect(subject.respond_to?(:assessment_instruments)).to be_truthy }
-    it { expect(subject.respond_to?(:instruments)).to be_truthy }
-    it { expect(subject.respond_to?(:responses)).to be_truthy }
-    it { expect(subject.respond_to?(:scores)).to be_truthy }
-    it { expect(subject.respond_to?(:created_at)).to be_truthy }
-    it { expect(subject.respond_to?(:updated_at)).to be_truthy }
-     
-    it { expect(subject.respond_to?(:random_name)).not_to be_truthy }
+    context '#visit' do
+      it { expect(subject.respond_to?(:visit)).to be_truthy }
+    end
+    context '#survey' do
+      it { expect(subject.respond_to?(:survey)).to be_truthy }
+    end
+    context '#user' do
+      it { expect(subject.respond_to?(:user)).to be_truthy }
+    end
+    context '#order_number' do
+      it { expect(subject.respond_to?(:order_number)).to be_truthy }
+    end
+    context '#assessment_instruments' do
+      it { expect(subject.respond_to?(:assessment_instruments)).to be_truthy }
+    end
+    context '#instruments' do
+      it { expect(subject.respond_to?(:instruments)).to be_truthy }
+    end
+    context '#responses' do
+      it { expect(subject.respond_to?(:responses)).to be_truthy }
+    end 
+    context '#scores' do
+      it { expect(subject.respond_to?(:scores)).to be_truthy }
+    end
+    context '#created_at' do
+      it { expect(subject.respond_to?(:created_at)).to be_truthy }
+    end
+    context '#updated_at' do
+      it { expect(subject.respond_to?(:updated_at)).to be_truthy }
+    end 
+    context '#not_an_attibute' do
+      it { expect(subject.respond_to?(:not_an_attibute)).not_to be_truthy }
+    end
   end
 
   describe '#visit' do

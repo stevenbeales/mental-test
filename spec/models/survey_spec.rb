@@ -12,16 +12,23 @@ RSpec.describe Survey do
   end
     
   describe '#respond_to?' do
-    it { expect(subject.respond_to?(:name)).to be_truthy }
+    context '#name' do
+      it { expect(subject.respond_to?(:name)).to be_truthy }
+    end
     it { expect(subject.respond_to?(:survey_participants)).to be_truthy }
     it { expect(subject.respond_to?(:participants)).to be_truthy }
     it { expect(subject.respond_to?(:visits)).to be_truthy }
     it { expect(subject.respond_to?(:assessments)).to be_truthy }
     it { expect(subject.respond_to?(:is_active)).to be_truthy }
-    it { expect(subject.respond_to?(:created_at)).to be_truthy }
-    it { expect(subject.respond_to?(:updated_at)).to be_truthy }
-   
-    it { expect(subject.respond_to?(:random_name)).not_to be_truthy }
+    context '#created_at' do
+      it { expect(subject.respond_to?(:created_at)).to be_truthy }
+    end
+    context '#updated_at' do
+      it { expect(subject.respond_to?(:updated_at)).to be_truthy }
+    end 
+    context '#not_an_attibute' do
+      it { expect(subject.respond_to?(:not_an_attibute)).not_to be_truthy }
+    end
   end
   
   describe '#name' do

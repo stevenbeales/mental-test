@@ -15,19 +15,34 @@ RSpec.describe Arm, type: :model do
   end
 
   describe '#respond_to?' do
-    it { expect(subject.respond_to?(:name)).to be_truthy }
-    it { expect(subject.respond_to?(:number)).to be_truthy }
-    it { expect(subject.respond_to?(:schedule)).to be_truthy }
-    it { expect(subject.respond_to?(:study)).to be_truthy }
-    it { expect(subject.respond_to?(:study_events)).to be_truthy }
-    it { expect(subject.respond_to?(:created_at)).to be_truthy }
-    it { expect(subject.respond_to?(:updated_at)).to be_truthy }
-   
-    it { expect(subject.respond_to?(:random_name)).not_to be_truthy }
+    context '#name' do
+      it { expect(subject.respond_to?(:name)).to be_truthy }
+    end
+    context '#number' do
+      it { expect(subject.respond_to?(:number)).to be_truthy }
+    end
+    context '#schedule' do
+      it { expect(subject.respond_to?(:schedule)).to be_truthy }
+    end
+    context '#study' do
+      it { expect(subject.respond_to?(:study)).to be_truthy }
+    end
+    context '#study_events' do
+      it { expect(subject.respond_to?(:study_events)).to be_truthy }
+    end
+    context '#created_at' do
+      it { expect(subject.respond_to?(:created_at)).to be_truthy }
+    end
+    context '#updated_at' do
+      it { expect(subject.respond_to?(:updated_at)).to be_truthy }
+    end 
+    context '#not_an_attibute' do
+      it { expect(subject.respond_to?(:not_an_attibute)).not_to be_truthy }
+    end
   end
 
   describe '#name' do
-    it 'is set to arm1 if missing' do
+    it 'is set to "arm1" if missing' do
       subject.name = nil
       subject.valid?
       expect(subject.name).to eq('arm ' + subject.number.to_s)
@@ -46,23 +61,30 @@ RSpec.describe Arm, type: :model do
       expect(subject.errors[:schedule].size).to eq(1)
     end
 
-    context '#schedule missing' do
-      it 'is missing study' do
+    context 'missing schedule' do
+      it 'study is nil' do
         subject.schedule = nil
         expect(subject.study).to be_nil
       end
     end
 
-    context '#schedule#arms' do
+    context '#arms' do
       it do
         subject.schedule.arms.concat(subject)
         expect(subject.schedule.arms.index(subject)).not_to be_nil 
+      end
+      
+      it do
+        subject.schedule.arms.concat(subject)
+        expect(subject.schedule.arms.size).to be > 0 
       end
     end
   end
 
   describe '#study' do
-    it { expect(subject.schedule.study).to eq(subject.study) }
+    it 'equals test study' do
+      expect(subject.schedule.study).to eq(subject.study)
+    end
   end
 
   describe '#number' do
@@ -89,7 +111,7 @@ RSpec.describe Arm, type: :model do
         expect(subject.errors[:number].size).to eq(1)
       end
 
-      it do
+      it 'must equal 10000' do
         subject.number = 10_000
         subject.valid?
         expect(subject.errors[:number].size).to eq(0)
@@ -139,7 +161,7 @@ RSpec.describe Arm, type: :model do
     end
 
     describe '#destroy!' do
-      it do
+      it 'also removes study_events' do
         another_object = TestFactory.test_arm2
         events = another_object.study_events
         another_object.destroy!
@@ -148,12 +170,16 @@ RSpec.describe Arm, type: :model do
     end
 
     describe '#to_s' do
-      it { expect(subject.to_s).to eq "#{subject.study} #{subject.schedule} #{subject.name} #{subject.number}" }
+      it 'prints study schedule name number' do
+        expect(subject.to_s).to eq "#{subject.study} #{subject.schedule} #{subject.name} #{subject.number}" 
+      end  
     end
 
     describe '#created_at today' do
       # expect record to be created within the last 5 minutes to check timestamp works
-      it { expect(Time.now - subject.created_at).to be < 300 }
+      it 'is created less than 5 minutes ago' do
+        expect(Time.now - subject.created_at).to be < 300
+      end
     end
   end
 end

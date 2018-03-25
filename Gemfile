@@ -24,6 +24,7 @@ group :test do
   gem 'coveralls', '~> 0.7.1', require: false # code coverage
   gem 'database_cleaner', '=1.6.1', require: false # for test database cleaning
   gem 'factory_bot', '~> 4.0', require: false # for test data setup
+  gem 'fuubar', '~> 2.3.1', require: false # rspec formatter
   gem 'rack-test', '~> 0.8.3', require: false # for testing rake servers
   gem 'rspec', '~> 3.7.0', require: false # for behavioral driven testing
   gem 'rubocop', '~> 0.54.0', require: false # syntax checking
