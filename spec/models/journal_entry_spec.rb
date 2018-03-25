@@ -34,6 +34,23 @@ RSpec.describe JournalEntry, type: :model do
     end
   end
   
+  describe '#entry' do
+    after(:each) do
+      subject.restore_attributes
+    end
+
+    it do
+      subject.entry = nil
+      subject.valid?
+      expect(subject.errors[:entry].size).to eq(1)
+    end
+
+    it do
+      subject.entry = ''
+      expect(subject.valid?).to be true
+    end
+  end
+
   describe '#journal' do
     after(:each) do
       subject.restore_attributes
@@ -68,6 +85,16 @@ RSpec.describe JournalEntry, type: :model do
     context 'with journal and date ' do
       it do
         expect { JournalEntry.find_or_create_by! journal: journal, entry_date: '12/12/2012' }.to_not raise_error 
+      end
+    end
+
+    context 'unique entry date' do
+      it timecop: :freeze do
+        another_object = described_class.create! journal: journal, entry_date: Date.today.noon.to_date
+        expect do 
+          described_class.create! journal: journal, entry_date: Date.today.noon.to_date
+        end.to raise_error ActiveRecord::RecordInvalid
+        another_object.destroy!
       end
     end
 

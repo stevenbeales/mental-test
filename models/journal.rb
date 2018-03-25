@@ -27,6 +27,8 @@ class Journal < ApplicationRecord
     name
   end
 
+  private
+
   def create_entry_for_today
     journal_entries.concat(JournalEntry.new(journal: self)) if new_record?
   end

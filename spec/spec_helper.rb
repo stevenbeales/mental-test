@@ -54,7 +54,6 @@ require './lib/app_constants'
 require './config/db'
 require 'database_cleaner'
 require 'ralyxa'
-require 'faker'
 require 'factory_bot'
 require 'test_constants'
 require './spec/test_factory'
@@ -71,14 +70,20 @@ RSpec.configure do |config|
     require './db/seeds'
   end
 
-  config.before(:all) { Faker::Config.random = Random.new(config.seed) }
+  config.before :each, timecop: :freeze do
+    Timecop.freeze
+  end
+
+  config.after :each, timecop: :freeze do
+    Timecop.return
+  end
 
   # Disable validation of Alexa requests as these will fail when running under rspec
-  config.before :each do
-    Ralyxa.configure do |c|
-      c.validate_requests = false
-    end
-  end
+  # config.before :each do
+  # Ralyxa.configure do |c|
+  # c.validate_requests = false
+  # end
+  # end
 
   config.include FactoryBot::Syntax::Methods
 

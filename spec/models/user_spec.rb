@@ -49,7 +49,7 @@ RSpec.describe User, type: :model do
 
   describe '.authenticate' do
     it 'creates a user if one does not exist' do
-      expect { described_class.authenticate(Faker::Internet.unique.user_name(5..20)) }.to change { User.count }.by(1)
+      expect { described_class.authenticate('Strangely') }.to change { User.count }.by(1)
     end
 
     it 'retrieves a user if name and access token exists' do

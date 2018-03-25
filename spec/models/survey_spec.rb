@@ -80,8 +80,8 @@ RSpec.describe Survey do
 
   describe '#destroy!' do
     it 'destroys assessments' do
-      survey = described_class.find_or_create_by! name: Faker::Name.first_name
-      user = User.find_or_create_by! username: Faker::Internet.unique.user_name(5..20)
+      survey = described_class.find_or_create_by!(name: '!P@ssword2')
+      user = User.find_or_create_by! username: 'Randomly'
       vt = Visit.find_or_create_by! user: user, name: 'Visit 27', survey: survey
       assessment = Assessment.find_or_create_by! visit: vt 
       another_assessment = Assessment.create! visit: vt, order_number: 2

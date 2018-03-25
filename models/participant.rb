@@ -17,6 +17,8 @@ class Participant < ApplicationRecord
     "#{identifier} #{email}".strip
   end
 
+  private 
+  
   def create_journal
     self.journal ||= Journal.new(participant: self, name: Time.now.to_s) if new_record?
   end
