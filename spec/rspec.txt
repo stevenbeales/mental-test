@@ -86,10 +86,10 @@ AssessmentInstrument
     #not_an_attibute
 [32m      should not be truthy[0m
   #instrument
-[32m    should eq 1[0m
+[32m    is required[0m
 [32m    should eq 1[0m
   #assessment
-[32m    should eq 1[0m
+[32m    is required[0m
 [32m    should eq 1[0m
   .create!
     no instrument or assessment
@@ -137,9 +137,9 @@ Assessment
     #not_an_attibute
 [32m      should not be truthy[0m
   #visit
-[32m    should eq 1[0m
+[32m    is required[0m
   #order_number
-[32m    should eq 1[0m
+[32m    is required[0m
   #assessment_instruments
 [32m    should eq 0[0m
   #instruments
@@ -180,9 +180,9 @@ Choice
     #not_an_attibute
 [32m      should not be truthy[0m
   #response_scale
-[32m    should eq 1[0m
+[32m    is required[0m
   #value
-[32m    should eq 1[0m
+[32m    is required[0m
   #description
 [32m    should eq 1[0m
   .create!
@@ -212,7 +212,7 @@ Folder
     #not_an_attibute
 [32m      should not be truthy[0m
   #name
-[32m    should eq 2[0m
+[32m    is required[0m
   .create!
     without a name
 [32m      should raise ActiveRecord::RecordInvalid[0m
@@ -237,7 +237,7 @@ HipaaIdentifier
 [32m    should be truthy[0m
 [32m    should not be truthy[0m
   #name
-[32m    should eq 2[0m
+[32m    is required[0m
   .create!
     without a name
 [32m      should raise ActiveRecord::RecordInvalid[0m
@@ -272,7 +272,7 @@ Instrument
     #not_an_attibute
 [32m      should not be truthy[0m
   #name
-[32m    should eq 2[0m
+[32m    is required[0m
   test instrument #items
 [32m    is not empty[0m
 [32m    has 20 items[0m
@@ -317,7 +317,7 @@ Item
     #not_an_attibute
 [32m      should not be truthy[0m
   #name
-[32m    should eq 2[0m
+[32m    is required[0m
   test item #choices
 [32m    has 5 choices[0m
   test item #find_choice_by_value
@@ -345,12 +345,12 @@ JournalEntry
     #not_an_attibute
 [32m      should not be truthy[0m
   #entry_date
-[32m    should eq 1[0m
+[32m    is required[0m
   #entry
-[32m    should eq 1[0m
-[32m    should equal true[0m
+[32m    is required[0m
+[32m    is valid if blank[0m
   #journal
-[32m    should eq 1[0m
+[32m    is required[0m
   .create!
     without date or journal
 [32m      should raise ActiveRecord::RecordInvalid[0m
@@ -363,7 +363,7 @@ JournalEntry
     unique entry date
 [32m      {:timecop=>:freeze}[0m
     #to_s
-[32m      should eq "2018-03-25 22:53:44 UTC "[0m
+[32m      should eq "2018-03-25 23:43:38 UTC "[0m
     #created_at today
 [32m      should be < 300[0m
 
@@ -383,13 +383,13 @@ Journal
 [32m      should not be truthy[0m
   #list_entries
     defaults to last 4
-[32m      should eq "2018-03-25 22:53:44 UTC  2012-12-12 00:00:00 UTC "[0m
+[32m      should eq "2018-03-25 23:43:38 UTC  2012-12-12 00:00:00 UTC "[0m
   #read_entry
 [32m    should be > 0[0m
   #name
-[32m    should eq 2[0m
+[32m    is required[0m
   #participant
-[32m    should eq 1[0m
+[32m    is required[0m
   .create!
     without name or study
 [32m      should raise ActiveRecord::RecordInvalid[0m
@@ -422,9 +422,9 @@ Participant
     #not_an_attibute
 [32m      should not be truthy[0m
   #email
-[32m    should eq 1[0m
+[32m    is required[0m
   #journal
-[32m    should eq 1[0m
+[32m    is required[0m
   .create!
 [32m    does not create a participant without an email[0m
   #to_s
@@ -448,9 +448,9 @@ Project
     #not_an_attibute
 [32m      should not be truthy[0m
   #name
-[32m    should eq 2[0m
+[32m    is required[0m
   #title
-[32m    should eq 1[0m
+[32m    is required[0m
   #status
     valid
 [32m      should eq 0[0m
@@ -482,7 +482,7 @@ ResponseScale
 [32m  is an instance of ResponseScale[0m
 [32m  is valid with valid attributes[0m
   #name
-[32m    should eq 2[0m
+[32m    is required[0m
   .create!
     without a name
 [32m      should raise ActiveRecord::RecordInvalid[0m
@@ -525,9 +525,9 @@ Response
     #not_an_attibute
 [32m      should not be truthy[0m
   #assessment
-[32m    should eq 1[0m
+[32m    is required[0m
   #value
-[32m    should eq 1[0m
+[32m    is required[0m
   .create!
     without assessment
 [32m      should raise ActiveRecord::RecordInvalid[0m
@@ -560,7 +560,7 @@ Schedule
     #not_an_attibute
 [32m      should not be truthy[0m
   #name
-[32m    should eq 2[0m
+[32m    is required[0m
   #study
 [32m    should eq 1[0m
   .create!
@@ -598,7 +598,7 @@ Score
     must be an integer
 [32m      should eq 1[0m
   #name
-[32m    should eq 1[0m
+[32m    is required[0m
   .create!
     without assessment or name
 [32m      should raise ActiveRecord::RecordInvalid[0m
@@ -635,9 +635,9 @@ StudyEventInstrument
     #not_an_attibute
 [32m      should not be truthy[0m
   #instrument
-[32m    should eq 1[0m
+[32m    is required[0m
   #study_event
-[32m    should eq 1[0m
+[32m    is required[0m
   .create!
     with no instrument or StudyEvent
 [32m      should raise ActiveRecord::RecordInvalid[0m
@@ -675,7 +675,7 @@ StudyEvent
     #not_an_attibute
 [32m      should not be truthy[0m
   #name
-[32m    should eq 2[0m
+[32m    is required[0m
   .create!
     without name or arm
 [32m      should raise ActiveRecord::RecordInvalid[0m
@@ -703,7 +703,7 @@ StudyParticipant
     #not_an_attibute
 [32m      should not be truthy[0m
   #study
-[32m    should eq 1[0m
+[32m    is required[0m
   #participant
 [32m    should eq 1[0m
   .create!
@@ -741,7 +741,7 @@ Study
     #not_an_attibute
 [32m      should not be truthy[0m
   #name
-[32m    should eq 2[0m
+[32m    is required[0m
   .create!
     without a name
 [32m      should raise ActiveRecord::RecordInvalid[0m
@@ -771,7 +771,7 @@ SurveyParticipant
     #not_an_attibute
 [32m      should not be truthy[0m
   #survey
-[32m    should eq 1[0m
+[32m    is required[0m
   #participant
 [32m    should eq 1[0m
   .create!
@@ -811,7 +811,7 @@ Survey
     #not_an_attibute
 [32m      should not be truthy[0m
   #name
-[32m    should eq 2[0m
+[32m    is required[0m
   .create!
 [32m    without name[0m
 [32m    1 character name[0m
@@ -847,7 +847,7 @@ User
     #not_an_attibute
 [32m      should not be truthy[0m
   #username
-[32m    should eq 2[0m
+[32m    is required[0m
   #locale
 [32m    should eq "en-US"[0m
 [32m    should eq "en-GB"[0m
@@ -862,18 +862,22 @@ User
 [32m    has unique name[0m
 [32m    is a participant[0m
   #to_s
-[32m    should eq "Timmy"[0m
+[32m    prints username[0m
   #created_at today
-[32m    should be < 300[0m
+[32m    is created less than 5 minutes ago[0m
 
 Visit
 [32m  is an instance of Visit[0m
 [32m  is valid with valid attributes[0m
   #respond_to?
-[32m    should be truthy[0m
-[32m    should be truthy[0m
-[32m    should be truthy[0m
-[32m    should be truthy[0m
+    #user
+[32m      should be truthy[0m
+    #survey
+[32m      should be truthy[0m
+    #assessments
+[32m      should be truthy[0m
+    #number
+[32m      should be truthy[0m
     #created_at
 [32m      should be truthy[0m
     #updated_at
@@ -891,9 +895,9 @@ Visit
     must be an integer
 [32m      should eq 1[0m
   #user
-[32m    should eq 1[0m
+[32m    is required[0m
   #survey
-[32m    should eq 1[0m
+[32m    is required[0m
   .create!
     no survey and user
 [32m      should raise ActiveRecord::RecordInvalid[0m
@@ -914,7 +918,7 @@ Visit
   #assessments
 [32m    should change `subject.assessments.size` by 2[0m
   #created_at today
-[32m    should be < 300[0m
+[32m    is created less than 5 minutes ago[0m
 
 AlexaService
 [32m  should be a kind of AlexaService[0m
@@ -935,7 +939,7 @@ AlexaService
 [32m    should eq "    Cannot find instrument blah. Please try again.\n"[0m
 [32m    should eq "Below is a list of the ways you might have felt or behaved. Please check the boxes to tell me how often you have felt this way in the past week or so."[0m
   #read_all
-[32m    should eq "2018-03-25 22:53:42 UTC "[0m
+[32m    should eq "2018-03-25 23:43:36 UTC "[0m
 [32m    should not be nil[0m
 
 InstrumentLoaderCsv
@@ -963,6 +967,6 @@ InstrumentLoader
   nil instrument
 [32m    should raise RuntimeError[0m
 
-Finished in 9.23 seconds (files took 7.46 seconds to load)
+Finished in 8.48 seconds (files took 4.38 seconds to load)
 [32m508 examples, 0 failures[0m
 

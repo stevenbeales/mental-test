@@ -33,9 +33,11 @@ class App < Sinatra::Base
   # TODO: Enable Register PaperTrail when paper_trail gem in 9 and paper_trail-sinatra supports it 
   # to register Paper Trail auditing and version framework
   # register PaperTrail::Sinatra
-  enable :logging
-  use Rack::CommonLogger, LOGGER
-
+  configure :development, :production do
+    enable :logging
+    use Rack::CommonLogger, LOGGER
+  end
+  
   configure do
     register Sinatra::Kittens
   end
