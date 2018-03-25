@@ -23,8 +23,10 @@ require_relative 'config/db'
 require_relative 'services/init'
 require_relative 'models/init'
 
-LOGGER ||= SinatraLogger::Loggers.file_logger('./log/sinatra.log')
-LOGGER ||= SinatraLogger::Loggers.stdout_logger
+if ENV['RACK_ENV'] == ['development'] || ENV['RACK_ENV'] == ['production'] 
+  LOGGER ||= SinatraLogger::Loggers.file_logger('./log/sinatra.log')
+  LOGGER ||= SinatraLogger::Loggers.stdout_logger
+end
 
 # This class is the main entry point to Application.
 # Takes an incoming Alexa requests and dispatches
