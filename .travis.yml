@@ -4,27 +4,6 @@ rvm:
   - 2.5.0
   - 2.4.3
 
-before_script:
-  - psql -c 'CREATE DATABASE mental_health_test;' -U postgres
-  - psql -c "CREATE USER mental WITH PASSWORD 'health';" -U postgres
-  - sh -e /etc/init.d/xvfb start
-
-after_script:
-  - sh -e /ext/init.d/xvfb stop
-
-# ensure bundle does not install docs
-before_install:
-  - "echo 'gem: --no-ri --no-rdoc' > ~/.gemrc"
-  - cp -p Gemfile.lock Gemfile.lock.org
-
-script:
-  - RACK_ENV=test bundle exec rake db:migrate
-  - RACK_ENV=test bundle exec rake spec
-  - bundle exec rake bundle:audit
-  - bundle exec rubocop 
-  - bundle exec travis_check_rubies
-  - cp -p Gemfile.lock.org Gemfile.lock
-  
 addons:
   postgresql: "9.6"
 
@@ -35,6 +14,31 @@ env:
   global:
     - NOKOGIRI_USE_SYSTEM_LIBRARIES=true
     - RACK_ENV=test
-    - DISPLAY=":99.0"
+    - CC_TEST_REPORTER_ID=4b6ed992c24fa35dd06ddd7f4a4f610c782e6de9fabfcc419aa756e3f8bce2f1
 
 cache: bundler
+
+before_script:
+  - psql -c 'CREATE DATABASE mental_health_test;' -U postgres
+  - psql -c "CREATE USER mental WITH PASSWORD 'health';" -U postgres
+
+# ensure bundle does not install docs
+before_install:
+  - "echo 'gem: --no-ri --no-rdoc' > ~/.gemrc"
+  - cp -p Gemfile.lock Gemfile.lock.org
+  - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
+  - chmod +x ./cc-test-reporter
+
+script:
+  - RACK_ENV=test bundle exec rake db:migrate
+  - RACK_ENV=test bundle exec rake spec
+  - bundle exec rake bundle:audit
+  - bundle exec rubocop 
+  - bundle exec travis_check_rubies
+  - cp -p Gemfile.lock.org Gemfile.lock
+  
+after_script:
+  - ./cc-test-reporter format-coverage -t simplecov -o coverage/codeclimate.backend.json coverage/backend/.resultset.json # Format backend coverage
+  - ./cc-test-reporter format-coverage -t lcov -o coverage/codeclimate.frontend.json coverage/frontend/lcov.info  # Format frontend coverage
+  - ./cc-test-reporter sum-coverage coverage/codeclimate.*.json -p 2                  # Sum both coverage parts into coverage/codeclimate.json
+  - if [[ "$TRAVIS_TEST_RESULT" == 0 ]]; then ./cc-test-reporter upload-coverage; fi  # Upload coverage/codeclimate.json
