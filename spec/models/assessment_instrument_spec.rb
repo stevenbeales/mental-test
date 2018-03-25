@@ -36,7 +36,7 @@ RSpec.describe AssessmentInstrument, type: :model do
       subject.restore_attributes
     end
    
-    it do
+    it 'is required' do
       subject.instrument = nil
       subject.valid?
       expect(subject.errors[:instrument].size).to eq(1)
@@ -52,7 +52,7 @@ RSpec.describe AssessmentInstrument, type: :model do
       subject.restore_attributes
     end
 
-    it do
+    it 'is required' do
       subject.assessment = nil
       subject.valid?
       expect(subject.errors[:assessment].size).to eq(1)

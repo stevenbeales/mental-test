@@ -58,7 +58,7 @@ RSpec.describe Assessment, type: :model do
       subject.restore_attributes
     end
 
-    it do
+    it 'is required' do
       subject.visit = nil
       subject.valid?
       expect(subject.errors[:visit].size).to eq(1)
@@ -70,7 +70,7 @@ RSpec.describe Assessment, type: :model do
       subject.restore_attributes
     end
     
-    it do
+    it 'is required' do
       subject.order_number = nil
       subject.valid?
       expect(subject.errors[:order_number].size).to eq(1)

@@ -32,7 +32,7 @@ RSpec.describe SurveyParticipant, type: :model do
       subject.restore_attributes
     end
    
-    it do
+    it 'is required' do
       subject.survey = nil
       subject.valid?
       expect(subject.errors[:survey].size).to eq(1)

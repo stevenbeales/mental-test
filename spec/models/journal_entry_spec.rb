@@ -32,7 +32,7 @@ RSpec.describe JournalEntry, type: :model do
       subject.restore_attributes
     end
 
-    it do
+    it 'is required' do
       subject.entry_date = nil
       subject.valid?
       expect(subject.errors[:entry_date].size).to eq(1)
@@ -44,13 +44,13 @@ RSpec.describe JournalEntry, type: :model do
       subject.restore_attributes
     end
 
-    it do
+    it 'is required' do
       subject.entry = nil
       subject.valid?
       expect(subject.errors[:entry].size).to eq(1)
     end
 
-    it do
+    it 'is valid if blank' do
       subject.entry = ''
       expect(subject.valid?).to be true
     end
@@ -61,7 +61,7 @@ RSpec.describe JournalEntry, type: :model do
       subject.restore_attributes
     end
     
-    it do
+    it 'is required' do
       subject.journal = nil
       subject.valid?
       expect(subject.errors[:journal].size).to eq(1)

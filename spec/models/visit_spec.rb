@@ -15,10 +15,18 @@ RSpec.describe Visit, type: :model do
   end
 
   describe '#respond_to?' do
-    it { expect(subject.respond_to?(:user)).to be_truthy }
-    it { expect(subject.respond_to?(:survey)).to be_truthy }
-    it { expect(subject.respond_to?(:assessments)).to be_truthy }
-    it { expect(subject.respond_to?(:number)).to be_truthy }
+    context '#user' do
+      it { expect(subject.respond_to?(:user)).to be_truthy }
+    end
+    context '#survey' do
+      it { expect(subject.respond_to?(:survey)).to be_truthy }
+    end
+    context '#assessments' do
+      it { expect(subject.respond_to?(:assessments)).to be_truthy }
+    end
+    context '#number' do
+      it { expect(subject.respond_to?(:number)).to be_truthy }
+    end
     context '#created_at' do
       it { expect(subject.respond_to?(:created_at)).to be_truthy }
     end
@@ -83,7 +91,7 @@ RSpec.describe Visit, type: :model do
       subject.restore_attributes
     end
     
-    it do
+    it 'is required' do
       subject.user = nil
       subject.valid?
       expect(subject.errors[:user].size).to eq(1)
@@ -95,7 +103,7 @@ RSpec.describe Visit, type: :model do
       subject.restore_attributes
     end
     
-    it do
+    it 'is required' do
       subject.survey = nil
       subject.valid?
       expect(subject.errors[:survey].size).to eq(1)
@@ -165,8 +173,11 @@ RSpec.describe Visit, type: :model do
     end
   end
 
+ 
   describe '#created_at today' do
     # expect record to be created within the last 5 minutes to check timestamp works
-    it { expect(Time.now - subject.created_at).to be < 300 }
+    it 'is created less than 5 minutes ago' do
+      expect(Time.now - subject.created_at).to be < 300
+    end
   end
 end

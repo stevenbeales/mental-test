@@ -13,8 +13,7 @@ todo.txt
 .env
 
 # logs
-log/development.log
-log/production.log
+/log/
 
 /tmp/
 /vendor/

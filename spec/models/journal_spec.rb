@@ -48,7 +48,7 @@ RSpec.describe Journal, type: :model do
       subject.restore_attributes
     end
 
-    it do
+    it 'is required' do
       subject.name = nil
       subject.valid?
       expect(subject.errors[:name].size).to eq(2)
@@ -59,8 +59,8 @@ RSpec.describe Journal, type: :model do
     after(:each) do
       subject.restore_attributes
     end
-    
-    it do
+     
+    it 'is required' do
       subject.participant = nil
       subject.valid?
       expect(subject.errors[:participant].size).to eq(1)

@@ -34,7 +34,7 @@ RSpec.describe Choice, type: :model do
       subject.restore_attributes
     end
     
-    it do
+    it 'is required' do
       subject.response_scale = nil
       subject.valid?
       expect(subject.errors[:response_scale].size).to eq(1)
@@ -46,7 +46,7 @@ RSpec.describe Choice, type: :model do
       subject.restore_attributes
     end
     
-    it do
+    it 'is required' do
       subject.value = nil
       subject.valid?
       expect(subject.errors[:value].size).to eq(1)

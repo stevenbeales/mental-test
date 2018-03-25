@@ -35,7 +35,7 @@ RSpec.describe Project, type: :model do
       subject.restore_attributes
     end
     
-    it do
+    it 'is required' do
       subject.name = nil
       subject.valid?
       expect(subject.errors[:name].size).to eq(2)
@@ -47,7 +47,7 @@ RSpec.describe Project, type: :model do
       subject.restore_attributes
     end
     
-    it do
+    it 'is required' do
       subject.title = nil
       subject.valid?
       expect(subject.errors[:title].size).to eq(1)

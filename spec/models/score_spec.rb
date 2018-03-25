@@ -60,7 +60,7 @@ RSpec.describe Score, type: :model do
       subject.restore_attributes
     end
 
-    it do
+    it 'is required' do
       subject.name = nil
       subject.valid?
       expect(subject.errors[:name].size).to eq(1)

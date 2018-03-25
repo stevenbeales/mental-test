@@ -33,7 +33,7 @@ RSpec.describe Participant, type: :model do
       subject.restore_attributes
     end
     
-    it do
+    it 'is required' do
       subject.email = nil
       subject.valid?
       expect(subject.errors[:email].size).to eq(1)
@@ -45,7 +45,7 @@ RSpec.describe Participant, type: :model do
       subject.restore_attributes
     end
     
-    it do
+    it 'is required' do
       subject.journal = nil
       subject.valid?
       expect(subject.errors[:journal].size).to eq(1)

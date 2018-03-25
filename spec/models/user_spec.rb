@@ -34,21 +34,27 @@ RSpec.describe User, type: :model do
   end
   
   describe '#username' do
-    it do
+    after(:each) do
+      subject.restore_attributes
+    end
+    
+    it 'is required' do
       subject.username = nil
       subject.valid?
       expect(subject.errors[:username].size).to eq(2)
-      subject.restore_attributes
     end
   end
 
   describe '#locale' do
+    after(:each) do
+      subject.restore_attributes
+    end
+    
     it { expect(subject.locale).to eq('en-US') }
 
     it do
       subject.locale = 'en-GB'
       expect(subject.locale).to eq('en-GB')
-      subject.restore_attributes
     end
   end
 
@@ -101,14 +107,16 @@ RSpec.describe User, type: :model do
   end
 
   describe '#to_s' do
-    it do
+    it 'prints username' do
       user = build(:timmy)
       expect(user.to_s).to eq(user.username) 
     end
   end
-
+ 
   describe '#created_at today' do
     # expect record to be created within the last 5 minutes to check timestamp works
-    it { expect(Time.now - subject.created_at).to be < 300 }
+    it 'is created less than 5 minutes ago' do
+      expect(Time.now - subject.created_at).to be < 300
+    end
   end
 end

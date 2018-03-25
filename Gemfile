@@ -17,6 +17,8 @@ gem 'rake', '~> 12.3.1', require: false # so we can run Rake tasks
 gem 'ralyxa', '~> 1.7.0' # ruby alexa framework
 gem 'sinatra', '~> 2.0.1', require: false # Web server
 gem 'sinatra-activerecord', '~> 2.0.13', require: false # for Active Record models
+gem 'sinatra-kittens', '~> 0.0.4' # kitten error page
+gem 'sinatra_logger', '~> 0.1.0' # for logging
 gem 'validates_email_format_of', '~>1.6.3', require: false # validates email format
 
 group :test do

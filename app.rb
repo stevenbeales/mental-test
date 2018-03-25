@@ -15,33 +15,16 @@ ENV['RACK_ENV'] ||= 'development'
 require 'sinatra'
 require 'ralyxa'
 require 'bugsnag'
+require 'sinatra_logger'
+require 'sinatra/kittens'
 # require 'paper_trail'
 # require 'paper_trail-sinatra'
-
 require_relative 'config/db'
 require_relative 'services/init'
 require_relative 'models/init'
 
-# report errors to bugsnag.com
-Bugsnag.configure do |config|
-  config.api_key = 'b27cf77d548381f51613fb5c142ae212'
-end
-
-set :raise_errors, true
-use Bugsnag::Rack
-set :show_exceptions, :after_handler
-
-error do
-  Bugsnag.notify 'Sorry there was a nasty error - ' + env['sinatra.error'].message
-end
-
-AlexaVerifier.configure do |config|
-  config.enabled            = false # Disables all checks, even though we enable them individually below
-  config.verify_uri         = true
-  config.verify_timeliness  = true
-  config.verify_certificate = false
-  config.verify_signature   = false
-end
+LOGGER ||= SinatraLogger::Loggers.file_logger('./log/sinatra.log')
+LOGGER ||= SinatraLogger::Loggers.stdout_logger
 
 # This class is the main entry point to Application.
 # Takes an incoming Alexa requests and dispatches
@@ -50,13 +33,12 @@ class App < Sinatra::Base
   # TODO: Enable Register PaperTrail when paper_trail gem in 9 and paper_trail-sinatra supports it 
   # to register Paper Trail auditing and version framework
   # register PaperTrail::Sinatra
+  enable :logging
+  use Rack::CommonLogger, LOGGER
 
-  log_path = File.join(File.dirname(File.expand_path(__FILE__)), 'log')
-  error_logger = File.new(File.join(log_path, 'error.log'), 'a+')
-  error_logger.sync = true
- 
-  before { env['rack.errors'] = error_logger }
-
+  configure do
+    register Sinatra::Kittens
+  end
   # Entry point for requests from Amazon Alexa. 
   # The incoming requests are dispatched to intents in the intents folder by Ralyxa.
   post '/' do

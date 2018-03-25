@@ -32,7 +32,7 @@ RSpec.describe StudyEventInstrument, type: :model do
       subject.restore_attributes
     end
     
-    it do
+    it 'is required' do
       subject.instrument = nil
       subject.valid?
       expect(subject.errors[:instrument].size).to eq(1)
@@ -44,13 +44,12 @@ RSpec.describe StudyEventInstrument, type: :model do
       subject.restore_attributes
     end
     
-    it do
+    it 'is required' do
       subject.study_event = nil
       subject.valid?
       expect(subject.errors[:study_event].size).to eq(1)
     end
   end
-
   
   describe '.create!' do
     context 'with no instrument or StudyEvent' do
