@@ -14,20 +14,27 @@ RSpec.describe InstrumentLoader do
     it { expect(subject.respond_to?(:random_name)).not_to be_truthy }
   end
 
-  context 'existing instrument' do
+  context '#load existing instrument' do
     context 'overwrite false' do
-      it { expect { subject.load(instrument: instrument) }.to raise_error(RuntimeError) }
+      it do 
+        expect { subject.load(instrument: instrument) }.to \
+          raise_error(RuntimeError)
+      end
     end
 
-    context 'overwrite true' do
-      it { expect(subject.load(instrument: instrument, overwrite: true).name).to eq(instrument.name) }
+    context '#load overwrite true' do
+      it do 
+        expect(subject.load(instrument: instrument, overwrite: true).name).to \
+          eq(instrument.name)
+      end
     end
   end
 
-  context 'nil instrument' do
+  context 'missing instrument' do
     it do
-      expect { subject.load(instrument: Instrument.find_by_name('does not exist')) }.to \
-        raise_error(RuntimeError)
+      expect do
+        subject.load(instrument: Instrument.find_by_name('does not exist')) 
+      end.to raise_error(RuntimeError)
     end
   end
 end

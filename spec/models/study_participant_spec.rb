@@ -57,16 +57,25 @@ RSpec.describe StudyParticipant, type: :model do
     end
 
     context 'no participant' do
-      it { expect { described_class.create! participant: participant }.to raise_error ActiveRecord::RecordInvalid }
+      it do
+        expect { described_class.create! participant: participant }.to \
+          raise_error ActiveRecord::RecordInvalid
+      end
     end
 
     context 'no study' do
-      it { expect { described_class.create! study: study }.to raise_error ActiveRecord::RecordInvalid }
+      it do
+        expect do
+          described_class.create! study: study 
+        end.to raise_error ActiveRecord::RecordInvalid
+      end
     end
  
     context 'study and participant' do
       it do 
-        expect { StudyParticipant.find_or_create_by! participant: participant, study: study }.not_to raise_error
+        expect do
+          StudyParticipant.find_or_create_by! participant: participant, study: study
+        end.not_to raise_error
       end
     end
     

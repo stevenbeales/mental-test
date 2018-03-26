@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 RSpec.describe Instrument, type: :model do
-  subject { described_class.find_or_create_by! name: TestConstants::TEST_INSTRUMENT }
+  subject { Instrument.find_or_create_by! name: TestConstants::TEST_INSTRUMENT }
   
   it 'is an instance of Instrument' do
     expect(subject).to be_an Instrument
@@ -67,7 +67,8 @@ RSpec.describe Instrument, type: :model do
 
   describe '.list_tests' do
     it 'should return a list of instrument names' do
-      expect(described_class.list_tests(limit: 10)).to include(TestConstants::TEST_INSTRUMENT)
+      expect(described_class.list_tests(limit: 10)).to \
+        include(TestConstants::TEST_INSTRUMENT)
     end
   end
 
@@ -112,7 +113,8 @@ RSpec.describe Instrument, type: :model do
         subject.tags -= %w[Depression]
         subject.tags += %w[Schizophrenia]
         subject.save!
-        expect(described_class.with_any_tags('Anxiety')&.first&.name).to eq subject.name
+        expect(described_class.with_any_tags('Anxiety')&.first&.name).to \
+          eq subject.name
       end
     end
 
@@ -128,7 +130,10 @@ RSpec.describe Instrument, type: :model do
   end
 
   describe '#created_at today' do
-    # expect record to be created within the last 5 minutes to check timestamp works
-    it { expect(Time.now - subject.created_at).to be < 300 }
+    # expect record to be created within the last 
+    # 5 minutes to check timestamp works
+    it 'is created less than 5 minutes ago' do
+      expect(Time.now - subject.created_at).to be < 300
+    end
   end
 end

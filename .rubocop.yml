@@ -7,7 +7,7 @@ AllCops:
     - 'bin/**/*'
   TargetRubyVersion: 2.4
 Metrics/LineLength:
-  Max: 125
+  Max: 120
 Metrics/MethodLength:
   Max: 15
 Layout/ClassStructure:

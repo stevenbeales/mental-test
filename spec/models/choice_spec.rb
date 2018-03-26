@@ -67,16 +67,25 @@ RSpec.describe Choice, type: :model do
 
   describe '.create!' do
     context 'without response scale or descriptionue' do
-      it { expect { described_class.create! }.to raise_error ActiveRecord::RecordInvalid }
+      it do
+        expect { described_class.create! }.to raise_error \
+          ActiveRecord::RecordInvalid
+      end
     end
 
     context 'without response scale' do
-      it { expect { described_class.create! value: 'val', description: 'text' }.to raise_error ActiveRecord::RecordInvalid }
+      it do 
+        expect do
+          described_class.create! value: 'val', description: 'text'
+        end.to raise_error ActiveRecord::RecordInvalid
+      end
     end
     
     it 'with response scale, value and description' do
       expect do
-        described_class.find_or_create_by! response_scale: scale, value: 'val', description: 'text' 
+        described_class.find_or_create_by! response_scale: scale, 
+                                           value: 'val', 
+                                           description: 'text' 
       end.not_to raise_error
       c = Choice.find_by response_scale_id: scale.id, value: 'val'
       c.destroy!
@@ -101,7 +110,10 @@ RSpec.describe Choice, type: :model do
   end
 
   describe '#created_at today' do
-    # expect record to be created within the last 5 minutes to check timestamp works
-    it { expect(Time.now - subject.created_at).to be < 300 }
+    # expect record to be created within the last 
+    # 5 minutes to check timestamp works
+    it 'is created less than 5 minutes ago' do
+      expect(Time.now - subject.created_at).to be < 300
+    end
   end
 end

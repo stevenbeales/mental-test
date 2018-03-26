@@ -91,11 +91,17 @@ RSpec.describe Assessment, type: :model do
 
   describe '.create!' do
     context 'with no visit' do
-      it { expect { described_class.create! }.to raise_error ActiveRecord::RecordInvalid }
+      it do 
+        expect { described_class.create! }.to raise_error \
+          ActiveRecord::RecordInvalid
+      end
     end
   
     context 'with visit' do
-      it { expect { described_class.find_or_create_by! visit: visit }.not_to raise_error }
+      it do
+        expect { described_class.find_or_create_by! visit: visit }.not_to \
+          raise_error
+      end
     end
 
     context 'with default order_number' do
@@ -117,8 +123,12 @@ RSpec.describe Assessment, type: :model do
 
   describe '#responses' do
     it do
-      rep2 = Response.create_with(score: 2).find_or_create_by!(assessment: subject, value: '2') 
-      rep3 = Response.create_with(score: 5).find_or_create_by!(assessment: subject, value: '3') 
+      rep2 = Response.create_with(score: 2)
+                     .find_or_create_by! assessment: subject, 
+                                         value: '2' 
+      rep3 = Response.create_with(score: 5)
+                     .find_or_create_by! assessment: subject, 
+                                         value: '3' 
       subject.responses.concat([rep2, rep3])
       expect(subject.responses.count).to eq(2)     
     end
@@ -131,8 +141,11 @@ RSpec.describe Assessment, type: :model do
   end
 
   describe '#created_at today' do
-    # expect record to be created within the last 5 minutes to check timestamp works
-    it { expect(Time.now - subject.created_at).to be < 300 }
+    # expect record to be created within the last 
+    # 5 minutes to check timestamp works
+    it 'is created less than 5 minutes ago' do
+      expect(Time.now - subject.created_at).to be < 300
+    end
   end
 
   describe '#destroy!' do

@@ -66,7 +66,9 @@ RSpec.describe StudyEventInstrument, type: :model do
  
     context 'with StudyEvent and instrument' do
       it do 
-        expect { described_class.find_or_create_by! instrument: instrument, study_event: study_event }.not_to raise_error
+        expect do
+          described_class.find_or_create_by! instrument: instrument, study_event: study_event
+        end.not_to raise_error
       end
     end
     

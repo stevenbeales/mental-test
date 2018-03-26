@@ -363,7 +363,7 @@ JournalEntry
     unique entry date
 [32m      {:timecop=>:freeze}[0m
     #to_s
-[32m      should eq "2018-03-25 23:55:33 UTC "[0m
+[32m      should eq "2018-03-26 01:33:37 UTC "[0m
     #created_at today
 [32m      should be < 300[0m
 
@@ -383,7 +383,7 @@ Journal
 [32m      should not be truthy[0m
   #list_entries
     defaults to last 4
-[32m      should eq "2018-03-25 23:55:33 UTC  2012-12-12 00:00:00 UTC "[0m
+[32m      should eq "2018-03-26 01:33:37 UTC  2012-12-12 00:00:00 UTC "[0m
   #read_entry
 [32m    should be > 0[0m
   #name
@@ -937,9 +937,9 @@ AlexaService
 [32m    should include "2"[0m
   .start_test
 [32m    should eq "    Cannot find instrument blah. Please try again.\n"[0m
-[32m    should eq "Below is a list of the ways you might have felt or behaved. Please check the boxes to tell me how often you have felt this way in the past week or so."[0m
+[31m    example at ./spec/services/alexa_service_spec.rb:63 (FAILED - 1)[0m
   #read_all
-[32m    should eq "2018-03-25 23:55:32 UTC "[0m
+[32m    should eq "2018-03-26 01:33:35 UTC "[0m
 [32m    should not be nil[0m
 
 InstrumentLoaderCsv
@@ -959,14 +959,58 @@ InstrumentLoader
   #respond_to?
 [32m    should be truthy[0m
 [32m    should not be truthy[0m
-  existing instrument
+  #load existing instrument
     overwrite false
 [32m      should raise RuntimeError[0m
-    overwrite true
+    #load overwrite true
 [32m      should eq "Cesd-r"[0m
-  nil instrument
+  missing instrument
 [32m    should raise RuntimeError[0m
 
-Finished in 8.51 seconds (files took 5.1 seconds to load)
-[32m508 examples, 0 failures[0m
+Failures:
+
+  1) AlexaService.start_test 
+     [31mFailure/Error:[0m
+     [31m  expect AlexaService.start_test(testname: \[0m
+     [31m    AppConstants::DEFAULT_INSTRUMENT).to eq(ins.instructions)[0m
+     [31m[0m
+     [31mArgumentError:[0m
+     [31m  bad value for range[0m
+     [36m# ./vendor/bundle/ruby/2.4.0/gems/activesupport-5.1.5/lib/active_support/core_ext/string/access.rb:62:in `to'[0m
+     [36m# ./spec/services/alexa_service_spec.rb:65:in `block (3 levels) in <top (required)>'[0m
+     [36m# ./vendor/bundle/ruby/2.4.0/gems/rspec-core-3.7.1/lib/rspec/core/example.rb:254:in `instance_exec'[0m
+     [36m# ./vendor/bundle/ruby/2.4.0/gems/rspec-core-3.7.1/lib/rspec/core/example.rb:254:in `block in run'[0m
+     [36m# ./vendor/bundle/ruby/2.4.0/gems/rspec-core-3.7.1/lib/rspec/core/example.rb:500:in `block in with_around_and_singleton_context_hooks'[0m
+     [36m# ./vendor/bundle/ruby/2.4.0/gems/rspec-core-3.7.1/lib/rspec/core/example.rb:457:in `block in with_around_example_hooks'[0m
+     [36m# ./vendor/bundle/ruby/2.4.0/gems/rspec-core-3.7.1/lib/rspec/core/hooks.rb:466:in `block in run'[0m
+     [36m# ./vendor/bundle/ruby/2.4.0/gems/rspec-core-3.7.1/lib/rspec/core/hooks.rb:604:in `run_around_example_hooks_for'[0m
+     [36m# ./vendor/bundle/ruby/2.4.0/gems/rspec-core-3.7.1/lib/rspec/core/hooks.rb:466:in `run'[0m
+     [36m# ./vendor/bundle/ruby/2.4.0/gems/rspec-core-3.7.1/lib/rspec/core/example.rb:457:in `with_around_example_hooks'[0m
+     [36m# ./vendor/bundle/ruby/2.4.0/gems/rspec-core-3.7.1/lib/rspec/core/example.rb:500:in `with_around_and_singleton_context_hooks'[0m
+     [36m# ./vendor/bundle/ruby/2.4.0/gems/rspec-core-3.7.1/lib/rspec/core/example.rb:251:in `run'[0m
+     [36m# ./vendor/bundle/ruby/2.4.0/gems/rspec-core-3.7.1/lib/rspec/core/example_group.rb:628:in `block in run_examples'[0m
+     [36m# ./vendor/bundle/ruby/2.4.0/gems/rspec-core-3.7.1/lib/rspec/core/example_group.rb:624:in `map'[0m
+     [36m# ./vendor/bundle/ruby/2.4.0/gems/rspec-core-3.7.1/lib/rspec/core/example_group.rb:624:in `run_examples'[0m
+     [36m# ./vendor/bundle/ruby/2.4.0/gems/rspec-core-3.7.1/lib/rspec/core/example_group.rb:590:in `run'[0m
+     [36m# ./vendor/bundle/ruby/2.4.0/gems/rspec-core-3.7.1/lib/rspec/core/example_group.rb:591:in `block in run'[0m
+     [36m# ./vendor/bundle/ruby/2.4.0/gems/rspec-core-3.7.1/lib/rspec/core/example_group.rb:591:in `map'[0m
+     [36m# ./vendor/bundle/ruby/2.4.0/gems/rspec-core-3.7.1/lib/rspec/core/example_group.rb:591:in `run'[0m
+     [36m# ./vendor/bundle/ruby/2.4.0/gems/rspec-core-3.7.1/lib/rspec/core/runner.rb:118:in `block (3 levels) in run_specs'[0m
+     [36m# ./vendor/bundle/ruby/2.4.0/gems/rspec-core-3.7.1/lib/rspec/core/runner.rb:118:in `map'[0m
+     [36m# ./vendor/bundle/ruby/2.4.0/gems/rspec-core-3.7.1/lib/rspec/core/runner.rb:118:in `block (2 levels) in run_specs'[0m
+     [36m# ./vendor/bundle/ruby/2.4.0/gems/rspec-core-3.7.1/lib/rspec/core/configuration.rb:1926:in `with_suite_hooks'[0m
+     [36m# ./vendor/bundle/ruby/2.4.0/gems/rspec-core-3.7.1/lib/rspec/core/runner.rb:113:in `block in run_specs'[0m
+     [36m# ./vendor/bundle/ruby/2.4.0/gems/rspec-core-3.7.1/lib/rspec/core/reporter.rb:79:in `report'[0m
+     [36m# ./vendor/bundle/ruby/2.4.0/gems/rspec-core-3.7.1/lib/rspec/core/runner.rb:112:in `run_specs'[0m
+     [36m# ./vendor/bundle/ruby/2.4.0/gems/rspec-core-3.7.1/lib/rspec/core/runner.rb:87:in `run'[0m
+     [36m# ./vendor/bundle/ruby/2.4.0/gems/rspec-core-3.7.1/lib/rspec/core/runner.rb:71:in `run'[0m
+     [36m# ./vendor/bundle/ruby/2.4.0/gems/rspec-core-3.7.1/lib/rspec/core/runner.rb:45:in `invoke'[0m
+     [36m# ./vendor/bundle/ruby/2.4.0/gems/rspec-core-3.7.1/exe/rspec:4:in `<main>'[0m
+
+Finished in 8.16 seconds (files took 4.1 seconds to load)
+[31m508 examples, 1 failure[0m
+
+Failed examples:
+
+[31mrspec ./spec/services/alexa_service_spec.rb:63[0m [36m# AlexaService.start_test [0m
 

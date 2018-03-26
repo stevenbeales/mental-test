@@ -9,6 +9,9 @@ class CreateAssessmentInstruments < ActiveRecord::Migration[5.1]
       t.timestamps null: false, default: -> { 'CURRENT_TIMESTAMP' }
     end
 
-    add_index :assessment_instruments, %i[assessment_id instrument_id], unique: true, name: 'index_by_assessment_instrument'
+    add_index :assessment_instruments, 
+              %i[assessment_id instrument_id], 
+              unique: true,
+              name: 'index_by_assessment_instrument'
   end
 end

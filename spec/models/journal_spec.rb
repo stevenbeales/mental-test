@@ -32,7 +32,8 @@ RSpec.describe Journal, type: :model do
   describe '#list_entries' do
     context 'defaults to last 4' do
       it do
-        expect(subject.list_entries).to eq subject.journal_entries.order('entry_date DESC').limit(4).join(' ') 
+        expect(subject.list_entries).to eq subject.journal_entries \
+          .order('entry_date DESC').limit(4).join(' ') 
       end
     end
   end
@@ -69,7 +70,10 @@ RSpec.describe Journal, type: :model do
 
   describe '.create!' do
     context 'without name or study' do
-      it { expect { described_class.create! }.to raise_error ActiveRecord::RecordInvalid }
+      it do
+        expect { described_class.create! }.to raise_error \
+          ActiveRecord::RecordInvalid 
+      end
     end  
 
     context '1 character name' do
@@ -82,16 +86,21 @@ RSpec.describe Journal, type: :model do
     
     context '2+ character name and title' do
       it do
-        expect { described_class.find_or_create_by! name: 'as', participant: participant }.to_not raise_error 
+        expect do
+          described_class.find_or_create_by! name: 'as', 
+                                             participant: participant 
+        end.to_not raise_error 
         described_class.find_by(name: 'as', participant: participant).destroy!
       end
     end
 
     context 'unique name' do
       it do
-        another_object = described_class.create! name: 'a12', participant: participant
+        another_object = described_class.create! name: 'a12', 
+                                                 participant: participant
         expect do 
-          described_class.create! name: 'a12', participant: participant 
+          described_class.create! name: 'a12', 
+                                  participant: participant 
         end.to raise_error ActiveRecord::RecordInvalid
         another_object.destroy!
       end
@@ -106,8 +115,11 @@ RSpec.describe Journal, type: :model do
     end
 
     describe '#created_at today' do
-      # expect record to be created within the last 5 minutes to check timestamp works
-      it { expect(Time.now - subject.created_at).to be < 300 }
+      # expect record to be created within the last 
+      # 5 minutes to check timestamp works
+      it 'is created less than 5 minutes ago' do
+        expect(Time.now - subject.created_at).to be < 300
+      end
     end
   end
 end

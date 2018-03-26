@@ -38,7 +38,8 @@ SimpleCov.profiles.define 'app' do
   add_filter '/vendor/'
   add_filter '/log/'
   add_filter ['Gemfile.lock', 'README.md', 'todo.txt', '.gitignore', '.rspec', \
-              '.travis.yml', '.rubocop.yml', 'config/database.yml', 'Guardfile', 'Rakefile'] 
+              '.travis.yml', '.rubocop.yml', 'config/database.yml', \
+              'Guardfile', 'Rakefile'] 
   add_filter 'app/secrets'
 end
 
@@ -78,7 +79,8 @@ RSpec.configure do |config|
     Timecop.return
   end
 
-  # Disable validation of Alexa requests as these will fail when running under rspec
+  # Disable validation of Alexa requests as 
+  # these will fail when running under rspec
   config.before :each do
     Ralyxa.configure do |c|
       c.validate_requests = false

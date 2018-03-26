@@ -54,18 +54,23 @@ RSpec.describe Participant, type: :model do
 
   describe '.create!' do
     it 'does not create a participant without an email' do
-      expect { described_class.create! }.to raise_error ActiveRecord::RecordInvalid
+      expect { described_class.create! }.to raise_error \
+        ActiveRecord::RecordInvalid
     end
   end
 
   describe '#to_s' do
     it do
-      expect(subject.to_s).to eq("#{subject.identifier} #{subject.email}".strip) 
+      to_s = "#{subject.identifier} #{subject.email}".strip
+      expect(subject.to_s).to eq to_s
     end
   end
 
   describe '#created_at today' do
-    # expect record to be created within the last 5 minutes to check timestamp works
-    it { expect(Time.now - subject.created_at).to be < 300 }
+    # expect record to be created within the last 
+    # 5 minutes to check timestamp works
+    it 'is created less than 5 minutes ago' do
+      expect(Time.now - subject.created_at).to be < 300
+    end
   end
 end

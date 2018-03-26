@@ -45,19 +45,23 @@ RSpec.describe Survey do
 
   describe '.create!' do
     it 'without name' do
-      expect { described_class.create! }.to raise_error ActiveRecord::RecordInvalid
+      expect { described_class.create! }.to raise_error \
+        ActiveRecord::RecordInvalid
     end
 
     it '1 character name' do
-      expect { described_class.create!(name: 'a') }.to raise_error ActiveRecord::RecordInvalid
+      expect { described_class.create!(name: 'a') }.to raise_error \
+        ActiveRecord::RecordInvalid
     end
 
     it '2+ character name' do
-      expect { described_class.find_or_create_by!(name: 'as') }.not_to raise_error
+      expect { described_class.find_or_create_by!(name: 'as') }.not_to \
+        raise_error
     end
 
     it 'with duplicate name' do
-      expect { Survey.create!(name: TestConstants::TEST_SURVEY) }.to raise_error ActiveRecord::RecordInvalid
+      expect { Survey.create!(name: TestConstants::TEST_SURVEY) }.to \
+        raise_error ActiveRecord::RecordInvalid
     end
   end
 
@@ -73,7 +77,8 @@ RSpec.describe Survey do
     it do
       described_class.find_or_create_by! name: 'Test Survey active'
       described_class.find_or_create_by! name: 'Test inactive', is_active: false
-      expect(described_class.list_active_tests).to include 'Test Survey Test Test Survey active'
+      expect(described_class.list_active_tests).to \
+        include 'Test Survey Test Test Survey active'
     end 
   end
 
@@ -101,7 +106,8 @@ RSpec.describe Survey do
   end
 
   describe '#created_at today' do
-    # expect record to be created within the last 5 minutes to check timestamp works
+    # expect record to be created within the 
+    # last 5 minutes to check timestamp works
     it { expect(Time.now - subject.created_at).to be < 300 }
   end
 end
