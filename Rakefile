@@ -4,6 +4,7 @@ require 'sinatra/activerecord'
 require 'sinatra/activerecord/rake'
 require 'rspec/core/rake_task'
 require 'dotenv'
+require 'turnout/rake_tasks' # rake maintenance:start, rake maintenance:end
 
 Dotenv.load
 

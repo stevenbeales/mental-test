@@ -53,7 +53,7 @@ ENV['RACK_ENV'] = 'test'
 
 require 'rack/test'
 require 'rspec'
-require './lib/app_constants'
+require './app/app_constants'
 require './config/db'
 require 'database_cleaner'
 require 'ralyxa'
