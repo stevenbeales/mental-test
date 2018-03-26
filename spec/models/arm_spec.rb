@@ -187,7 +187,7 @@ RSpec.describe Arm, type: :model do
 
     describe '#to_s' do
       it 'prints study schedule name number' do
-        expect(subject.to_s).to eq "#{subject.study} #{subject.schedule}" \
+        expect(subject.to_s).to eq "#{subject.study} #{subject.schedule} " \
                                    + "#{subject.name} #{subject.number}" 
       end  
     end

@@ -20,8 +20,8 @@ Coveralls.wear!
 require 'simplecov'
 
 SimpleCov.profiles.define 'app' do
-  add_group 'Models', 'models'
-  add_group 'Services', 'services'
+  add_group 'Models', 'app/models'
+  add_group 'Services', 'app/services'
   add_group 'Intents', 'intents'
   add_group 'Lib', 'lib'
   add_group 'Config', 'config'
@@ -51,6 +51,8 @@ end
 
 ENV['RACK_ENV'] = 'test'
 
+require 'rack/test'
+require 'rspec'
 require './lib/app_constants'
 require './config/db'
 require 'database_cleaner'
@@ -58,9 +60,19 @@ require 'ralyxa'
 require 'factory_bot'
 require 'test_constants'
 require './spec/test_factory'
-require './services/init'
-require './models/init'
+require './app/services/init'
+require './app/models/init'
 require './intents/init'
+
+# Sinatra testing
+module RSpecMixin
+  include Rack::Test::Methods
+  def app
+    described_class 
+  end
+end
+
+RSpec.configure { |c| c.include RSpecMixin }
 
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
 RSpec.configure do |config|
@@ -86,7 +98,7 @@ RSpec.configure do |config|
       c.validate_requests = false
     end
   end
-
+  
   config.expect_with :rspec do |c|
     c.syntax = :expect
   end

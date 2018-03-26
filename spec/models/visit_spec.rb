@@ -198,7 +198,6 @@ RSpec.describe Visit, type: :model do
       subject.assessments.each(&:destroy!)
     end
   end
-
  
   describe '#created_at today' do
     # expect record to be created within the last 

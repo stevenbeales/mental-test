@@ -20,8 +20,8 @@ require 'sinatra/kittens'
 # require 'paper_trail'
 # require 'paper_trail-sinatra'
 require_relative 'config/db'
-require_relative 'services/init'
-require_relative 'models/init'
+require_relative 'app/services/init'
+require_relative 'app/models/init'
 
 if ENV['RACK_ENV'] == ['development'] || ENV['RACK_ENV'] == ['production'] 
   LOGGER ||= SinatraLogger::Loggers.file_logger('./log/sinatra.log')
