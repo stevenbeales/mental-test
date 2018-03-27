@@ -18,9 +18,8 @@ RSpec.describe JournalEntry, type: :model do
     it { expect(subject.respond_to?(:entry_date)).to be_truthy }
     it { expect(subject.respond_to?(:entry)).to be_truthy }
     it { expect(subject.respond_to?(:journal)).to be_truthy }
-    context 'common attributes' do
-      it { expect(timestamps?).to be_truthy }
-    end 
+  
+    include_examples 'common attributes'
   end
 
   describe '#entry_date' do

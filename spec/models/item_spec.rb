@@ -15,15 +15,12 @@ RSpec.describe Item, type: :model do
   describe '#respond_to?' do
     include_context 'shared attributes'
    
-    context '#name' do
-      it { expect(subject.respond_to?(:name)).to be_truthy }
-    end
-    it { expect(subject.respond_to?(:choices)).to be_truthy }
-    it { expect(subject.respond_to?(:instrument)).to be_truthy }
-    it { expect(subject.respond_to?(:response_scale)).to be_truthy }
-    context 'common attributes' do
-      it { expect(timestamps?).to be_truthy }
-    end 
+    it { expect(attribute?(:choices)).to be_truthy }
+    it { expect(attribute?(:instrument)).to be_truthy }
+    it { expect(attribute?(:response_scale)).to be_truthy }
+   
+    include_examples 'name'
+    include_examples 'common attributes'
   end
 
   describe '#name' do

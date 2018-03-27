@@ -18,9 +18,8 @@ RSpec.describe StudyParticipant, type: :model do
 
     it { expect(subject.respond_to?(:study)).to be_truthy }
     it { expect(subject.respond_to?(:participant)).to be_truthy }
-    context 'common attributes' do
-      it { expect(timestamps?).to be_truthy }
-    end 
+   
+    include_examples 'common attributes'
   end
 
   describe '#study' do
@@ -91,7 +90,6 @@ RSpec.describe StudyParticipant, type: :model do
     include_context 'destroy subject'
 
     it { expect(Participant.exists?(participant.id)).to be_truthy }
-
     it { expect(Study.exists?(study.id)).to be_truthy }
   end
 

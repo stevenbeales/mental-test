@@ -18,9 +18,7 @@ RSpec.describe SurveyParticipant, type: :model do
 
     it { expect(subject.respond_to?(:survey)).to be_truthy }
     it { expect(subject.respond_to?(:participant)).to be_truthy }
-    context 'common attributes' do
-      it { expect(timestamps?).to be_truthy }
-    end 
+    include_examples 'common attributes'
   end
 
   describe '#survey' do
@@ -96,7 +94,6 @@ RSpec.describe SurveyParticipant, type: :model do
     include_context 'destroy subject'
 
     it { expect(Participant.exists?(participant.id)).to be_truthy }
-
     it { expect(Survey.exists?(survey.id)).to be_truthy }
   end
 

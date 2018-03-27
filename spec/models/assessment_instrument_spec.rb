@@ -22,9 +22,8 @@ RSpec.describe AssessmentInstrument, type: :model do
     context '#instrument' do
       it { expect(attribute?(:instrument)).to be_truthy }
     end 
-    context 'common attributes' do
-      it { expect(timestamps?).to be_truthy }
-    end 
+    
+    include_examples 'common attributes'
   end
 
   describe '#instrument' do
@@ -109,7 +108,6 @@ RSpec.describe AssessmentInstrument, type: :model do
     include_context 'destroy subject'
 
     it { expect(Instrument.exists?(instrument.id)).to be_truthy }
-   
     it { expect(Assessment.exists?(assess.id)).to be_truthy }
   end
   

@@ -14,15 +14,11 @@ RSpec.describe Schedule, type: :model do
 
   describe '#respond_to?' do
     include_context 'shared attributes'
-    
-    context '#name' do
-      it { expect(subject.respond_to?(:name)).to be_truthy }
-    end
+
     it { expect(subject.respond_to?(:study)).to be_truthy }
     it { expect(subject.respond_to?(:arms)).to be_truthy }
-    context 'common attributes' do
-      it { expect(timestamps?).to be_truthy }
-    end 
+ 
+    include_examples 'common attributes'
   end
 
   describe '#name' do

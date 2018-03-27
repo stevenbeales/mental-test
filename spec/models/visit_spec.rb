@@ -16,22 +16,21 @@ RSpec.describe Visit, type: :model do
 
   describe '#respond_to?' do
     include_context 'shared attributes'
-    
+
     context '#user' do
-      it { expect(subject.respond_to?(:user)).to be_truthy }
+      it { expect(attribute?(:user)).to be_truthy }
     end
     context '#survey' do
-      it { expect(subject.respond_to?(:survey)).to be_truthy }
+      it { expect(attribute?(:survey)).to be_truthy }
     end
     context '#assessments' do
-      it { expect(subject.respond_to?(:assessments)).to be_truthy }
+      it { expect(attribute?(:assessments)).to be_truthy }
     end
     context '#number' do
-      it { expect(subject.respond_to?(:number)).to be_truthy }
+      it { expect(attribute?(:number)).to be_truthy }
     end
-    context 'common attributes' do
-      it { expect(timestamps?).to be_truthy }
-    end 
+   
+    include_examples 'common attributes'
   end
 
   describe '#number' do

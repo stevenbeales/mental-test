@@ -23,9 +23,8 @@ RSpec.describe Response, type: :model do
     it { expect(subject.respond_to?(:value)).to be_truthy }
     it { expect(subject.respond_to?(:assessment)).to be_truthy }
     it { expect(subject.respond_to?(:choice)).to be_truthy }
-    context 'common attributes' do
-      it { expect(timestamps?).to be_truthy }
-    end 
+  
+    include_examples 'common attributes'
   end
 
   describe '#assessment' do

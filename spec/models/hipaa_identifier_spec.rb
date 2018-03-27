@@ -12,9 +12,10 @@ RSpec.describe HipaaIdentifier, type: :model do
   end
 
   describe '#respond_to?' do
-    it { expect(subject.respond_to?(:name)).to be_truthy }
-   
-    it { expect(subject.respond_to?(:random_name)).not_to be_truthy }
+    include_context 'shared attributes'
+
+    include_examples 'name'
+    it { expect(subject.respond_to?(:not_attribute)).not_to be_truthy }
   end
 
   describe '#name' do

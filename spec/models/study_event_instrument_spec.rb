@@ -18,9 +18,8 @@ RSpec.describe StudyEventInstrument, type: :model do
 
     it { expect(subject.respond_to?(:study_event)).to be_truthy }
     it { expect(subject.respond_to?(:instrument)).to be_truthy }
-    context 'common attributes' do
-      it { expect(timestamps?).to be_truthy }
-    end 
+   
+    include_examples 'common attributes'
   end
 
   describe '#instrument' do

@@ -19,9 +19,8 @@ RSpec.describe Participant, type: :model do
     it { expect(subject.respond_to?(:journal)).to be_truthy }
     it { expect(subject.respond_to?(:survey_participants)).to be_truthy }
     it { expect(subject.respond_to?(:surveys)).to be_truthy }
-    context 'common attributes' do
-      it { expect(timestamps?).to be_truthy }
-    end 
+  
+    include_examples 'common attributes'
   end
 
   describe '#email' do

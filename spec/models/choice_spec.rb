@@ -13,20 +13,15 @@ RSpec.describe Choice, type: :model do
   end
 
   describe '#respond_to?' do
+    include_context 'shared attributes'
+
     it { expect(subject.respond_to?(:value)).to be_truthy }
     it { expect(subject.respond_to?(:description)).to be_truthy }
     it { expect(subject.respond_to?(:score)).to be_truthy }
     it { expect(subject.respond_to?(:response_scale)).to be_truthy }
     it { expect(subject.respond_to?(:responses)).to be_truthy }
-    context '#created_at' do
-      it { expect(subject.respond_to?(:created_at)).to be_truthy }
-    end
-    context '#updated_at' do
-      it { expect(subject.respond_to?(:updated_at)).to be_truthy }
-    end 
-    context '#not_an_attibute' do
-      it { expect(subject.respond_to?(:not_an_attibute)).not_to be_truthy }
-    end
+  
+    include_examples 'common attributes'
   end
  
   describe '#response_scale' do

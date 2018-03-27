@@ -15,14 +15,11 @@ RSpec.describe Journal, type: :model do
   describe '#respond_to?' do    
     include_context 'shared attributes'
 
-    context '#name' do
-      it { expect(subject.respond_to?(:name)).to be_truthy }
-    end
-    it { expect(subject.respond_to?(:participant)).to be_truthy }
-    it { expect(subject.respond_to?(:journal_entries)).to be_truthy }
-    context 'common attributes' do
-      it { expect(timestamps?).to be_truthy }
-    end 
+    it { expect(attribute?(:participant)).to be_truthy }
+    it { expect(attribute?(:journal_entries)).to be_truthy }
+
+    include_examples 'name'
+    include_examples 'common attributes'
   end
 
   describe '#list_entries' do
@@ -36,7 +33,7 @@ RSpec.describe Journal, type: :model do
 
   describe '#read_entry' do
     it do
-      expect(subject.read_entry(Date.today).size).to be > 0
+      expect(subject.read_entry(Date.today).size).to be.positive?
     end
   end
 
@@ -103,7 +100,7 @@ RSpec.describe Journal, type: :model do
     end
 
     describe '#create_entry_for_today' do
-      it { expect(subject.journal_entries.size).to be > 0 }
+      it { expect(subject.journal_entries.size).to be.positive? }
     end
 
     describe '#created_at today' do

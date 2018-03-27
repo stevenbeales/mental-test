@@ -44,9 +44,8 @@ RSpec.describe Assessment, type: :model do
     context '#scores' do
       it { expect(subject.respond_to?(:scores)).to be_truthy }
     end
-    context 'common attributes' do
-      it { expect(timestamps?).to be_truthy }
-    end 
+   
+    include_examples 'common attributes'
   end
 
   describe '#visit' do
@@ -97,7 +96,7 @@ RSpec.describe Assessment, type: :model do
     end
 
     context 'with default order_number' do
-      it { expect(subject.order_number).to be > 0 } 
+      it { expect(subject.order_number).to be.positive? } 
     end
   end
   

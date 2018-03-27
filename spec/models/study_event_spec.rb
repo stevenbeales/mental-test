@@ -18,16 +18,13 @@ RSpec.describe StudyEvent, type: :model do
     include_context 'shared attributes'
   
     it { expect(subject.respond_to?(:arm)).to be_truthy }
-    context '#name' do
-      it { expect(subject.respond_to?(:name)).to be_truthy }
-    end
     it { expect(subject.respond_to?(:schedule)).to be_truthy }
     it { expect(subject.respond_to?(:study)).to be_truthy }
     it { expect(subject.respond_to?(:study_event_instruments)).to be_truthy }
     it { expect(subject.respond_to?(:instruments)).to be_truthy }
-    context 'common attributes' do
-      it { expect(timestamps?).to be_truthy }
-    end 
+    
+    include_examples 'name'
+    include_examples 'common attributes'
   end
 
   describe '#name' do

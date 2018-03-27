@@ -23,12 +23,8 @@ RSpec.describe User, type: :model do
     it { expect(subject.respond_to?(:participant)).to be_truthy }
     it { expect(subject.respond_to?(:preferences)).to be_truthy }
     it { expect(subject.respond_to?(:locale)).to be_truthy }
-    context '#created_at' do
-      it { expect(subject.respond_to?(:created_at)).to be_truthy }
-    end
-    context 'common attributes' do
-      it { expect(timestamps?).to be_truthy }
-    end 
+ 
+    include_examples 'common attributes'
   end
   
   describe '#username' do

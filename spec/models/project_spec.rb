@@ -15,15 +15,12 @@ RSpec.describe Project, type: :model do
   describe '#respond_to?' do
     include_context 'shared attributes'
    
-    context '#name' do
-      it { expect(subject.respond_to?(:name)).to be_truthy }
-    end
     it { expect(subject.respond_to?(:title)).to be_truthy }
     it { expect(subject.respond_to?(:folder)).to be_truthy }
     it { expect(subject.respond_to?(:status)).to be_truthy }
-    context 'common attributes' do
-      it { expect(timestamps?).to be_truthy }
-    end 
+  
+    include_examples 'name'
+    include_examples 'common attributes'
   end
 
   describe '#name' do
