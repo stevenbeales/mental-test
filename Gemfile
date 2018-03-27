@@ -7,7 +7,7 @@ gem 'acts-as-taggable-array-on', '~> 0.4.0', require: false # adds tags
 gem 'bugsnag', '~> 6.6', require: false # online bug reporting
 gem 'dotenv', '~> 2.2.1', require: false # adds environment variables from .env files
 gem 'facets', '~> 3.1.0', require: false # additional core methods
-gem 'i18n'
+gem 'i18n', '~> 0.9.5', require: false # internationalization support
 gem 'jsonb_accessor', '~> 1.0.0', require: false # adds methods to access Jsonb fields
 gem 'kiba', '~> 2.0.0', require: false # ETL
 gem 'mobility', '~> 0.5.1', require: false # translations
@@ -16,6 +16,7 @@ gem 'oj', '~> 3.5.0', require: false # faster json parsing
 gem 'pg', '~> 1.0.0', platform: :ruby, require: false # for Postgres
 gem 'puma', '~> 3.11.2', require: false # puma web server
 gem 'rack-cache', '~> 1.7.1', require: false # http caching
+gem 'rack-contrib', '~> 2.0.1', require: false # browser localization
 gem 'rack-heartbeat', '~> 1.1.0' # provide /heartbeat URL
 gem 'rack-protection', '~> 2.0.1', require: false # protect against web attacks
 gem 'rack-ssl', '~> 1.4.1', require: false # ssl for rack in production
@@ -46,8 +47,8 @@ end
 
 group :development do
   gem 'better_errors', '~> 2.4.0', require: false
-  gem 'guard', '~> 2.14.2',  require: false # watch for changed files 
-  gem 'guard-rspec', '~> 4.7.3',  require: false # run rspec on change
+  gem 'guard', '~> 2.14.2', require: false # watch for changed files 
+  gem 'guard-rspec', '~> 4.7.3', require: false # run rspec on change
   gem 'wdm', '>= 0.1.0', require: false if Gem.win_platform? # supports Guard watching files on Windows OS.
 end
 

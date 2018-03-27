@@ -36,6 +36,15 @@ class App < Sinatra::Base
   require 'route_downcaser'
   use RouteDowncaser::DowncaseRouteMiddleware # case insensitive URLs
 
+  require 'i18n'
+  require 'i18n/backend/fallbacks'
+
+  configure do
+    I18n::Backend::Simple.send(:include, I18n::Backend::Fallbacks)
+    I18n.load_path += Dir[File.join(settings.root, 'locales', '*.yml')]
+    I18n.backend.load_translations
+  end
+
   configure :development do
     require 'better_errors'
     use BetterErrors::Middleware
@@ -51,6 +60,10 @@ class App < Sinatra::Base
     LOGGER ||= SinatraLogger::Loggers.stdout_logger
     use Rack::CommonLogger, LOGGER
 
+    require 'rack/contrib' # use browser locales
+    use Rack::Locale
+
+    # maintenance support
     require 'rack/turnout'
     use Rack::Turnout
     
