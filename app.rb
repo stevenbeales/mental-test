@@ -36,13 +36,21 @@ class App < Sinatra::Base
   require 'route_downcaser'
   use RouteDowncaser::DowncaseRouteMiddleware # case insensitive URLs
 
-  require 'sinatra_logger'  
-  enable :logging
-  LOGGER ||= SinatraLogger::Loggers.file_logger('./log/sinatra.log')
-  LOGGER ||= SinatraLogger::Loggers.stdout_logger
-  use Rack::CommonLogger, LOGGER
+  configure :development do
+    require 'better_errors'
+    use BetterErrors::Middleware
+    # you need to set the application root in order to abbreviate filenames
+    # within the application:
+    BetterErrors.application_root = File.expand_path(__dir__)
+  end
 
   configure :development, :production do
+    require 'sinatra_logger'  
+    enable :logging
+    LOGGER ||= SinatraLogger::Loggers.file_logger('./log/sinatra.log')
+    LOGGER ||= SinatraLogger::Loggers.stdout_logger
+    use Rack::CommonLogger, LOGGER
+
     require 'rack/turnout'
     use Rack::Turnout
     
