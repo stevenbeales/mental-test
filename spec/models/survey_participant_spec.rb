@@ -93,9 +93,7 @@ RSpec.describe SurveyParticipant, type: :model do
   end
   
   describe '#destroy!' do
-    before :each do
-      subject.destroy!
-    end
+    include_context 'destroy subject'
 
     it { expect(Participant.exists?(participant.id)).to be_truthy }
 

@@ -42,14 +42,14 @@ RSpec.describe Folder, type: :model do
   describe '.create!' do
     context 'without a name' do
       it do
-        expect { described_class.create! }.to raise_error \
+        expect { Folder.create! }.to raise_error \
           ActiveRecord::RecordInvalid
       end
     end  
 
     context 'with 1 character name' do
       it do
-        expect { described_class.create! name: 'a' }.to raise_error \
+        expect { Folder.create! name: 'a' }.to raise_error \
           ActiveRecord::RecordInvalid
       end
     end
@@ -57,15 +57,15 @@ RSpec.describe Folder, type: :model do
     context 'with 2+ character name' do
       it do
         expect do
-          described_class.find_or_create_by! name: 'as' 
+          Folder.find_or_create_by! name: 'as' 
         end.to_not raise_error
       end
     end
 
     context 'with unique name' do
       it do
-        rs = described_class.create! name: 'a12'
-        expect { described_class.create! name: 'a12' }.to \
+        rs = Folder.create! name: 'a12'
+        expect { Folder.create! name: 'a12' }.to \
           raise_error ActiveRecord::RecordInvalid
         rs.destroy!
       end
@@ -75,7 +75,7 @@ RSpec.describe Folder, type: :model do
   describe '#destroy!' do
     context 'with projects' do 
       it do
-        folder = described_class.create! name: 'a13'
+        folder = Folder.create! name: 'a13'
         folder.projects.concat [project1, project2]
         folder.destroy! 
         expect(project1).not_to be_nil 

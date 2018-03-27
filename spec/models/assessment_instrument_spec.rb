@@ -66,7 +66,7 @@ RSpec.describe AssessmentInstrument, type: :model do
     context 'no instrument' do
       it do 
         expect do 
-          described_class.create! assessment: assess 
+          AssessmentInstrument.create! assessment: assess 
         end.to raise_error ActiveRecord::RecordInvalid 
       end
     end
@@ -74,7 +74,7 @@ RSpec.describe AssessmentInstrument, type: :model do
     context 'no assessment' do
       it do 
         expect do 
-          described_class.create! instrument: instrument 
+          AssessmentInstrument.create! instrument: instrument 
         end.to raise_error ActiveRecord::RecordInvalid
       end
     end
@@ -82,8 +82,8 @@ RSpec.describe AssessmentInstrument, type: :model do
     context 'with assessment and instrument' do
       it do 
         expect do
-          described_class.find_or_create_by instrument: instrument, 
-                                            assessment: assess
+          AssessmentInstrument.find_or_create_by instrument: instrument, 
+                                                 assessment: assess
         end.not_to raise_error
       end
     end
@@ -91,7 +91,7 @@ RSpec.describe AssessmentInstrument, type: :model do
     context 'unique instrument and assessment' do
       it do 
         expect do
-          described_class.create!(instrument: instrument, assessment: assess)
+          AssessmentInstrument.create!(instrument: instrument, assessment: assess)
         end.to raise_error ActiveRecord::RecordInvalid   
       end
     end
@@ -99,16 +99,14 @@ RSpec.describe AssessmentInstrument, type: :model do
   
   describe '#to_s' do
     it do 
-      expect(described_class.where(assessment: assess.id, 
-                                   instrument: instrument.id) \
+      expect(AssessmentInstrument.where(assessment: assess.id, 
+                                        instrument: instrument.id) \
                                    .first.to_s).to eq("#{assess} #{instrument}")
     end
   end
 
   describe '#destroy!' do
-    before :each do
-      subject.destroy!
-    end
+    include_context 'destroy subject'
 
     it { expect(Instrument.exists?(instrument.id)).to be_truthy }
    

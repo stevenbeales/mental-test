@@ -15,6 +15,7 @@ RSpec.describe StudyParticipant, type: :model do
   
   describe '#respond_to?' do
     include_context 'shared attributes'
+
     it { expect(subject.respond_to?(:study)).to be_truthy }
     it { expect(subject.respond_to?(:participant)).to be_truthy }
     context 'common attributes' do
@@ -44,12 +45,12 @@ RSpec.describe StudyParticipant, type: :model do
   
   describe '.create!' do
     context 'no participant or study' do
-      it { expect { described_class.create! }.to raise_error ActiveRecord::RecordInvalid }
+      it { expect { StudyParticipant.create! }.to raise_error ActiveRecord::RecordInvalid }
     end
 
     context 'no participant' do
       it do
-        expect { described_class.create! participant: participant }.to \
+        expect { StudyParticipant.create! participant: participant }.to \
           raise_error ActiveRecord::RecordInvalid
       end
     end
@@ -57,7 +58,7 @@ RSpec.describe StudyParticipant, type: :model do
     context 'no study' do
       it do
         expect do
-          described_class.create! study: study 
+          StudyParticipant.create! study: study 
         end.to raise_error ActiveRecord::RecordInvalid
       end
     end
@@ -73,7 +74,7 @@ RSpec.describe StudyParticipant, type: :model do
     context 'unique study and participant' do
       it do 
         expect do
-          described_class.create!(participant: participant, study: study)
+          StudyParticipant.create!(participant: participant, study: study)
         end.to raise_error ActiveRecord::RecordInvalid   
       end
     end
@@ -81,15 +82,13 @@ RSpec.describe StudyParticipant, type: :model do
 
   describe '#to_s' do
     it do
-      expect(described_class.where(participant: participant, study: study).first.to_s).to \
+      expect(StudyParticipant.where(participant: participant, study: study).first.to_s).to \
         eq("#{TestConstants::TEST_PARTICIPANT_EMAIL} #{TestConstants::TEST_STUDY}")
     end
   end
   
   describe '#destroy!' do
-    before :each do
-      subject.destroy!
-    end
+    include_context 'destroy subject'
 
     it { expect(Participant.exists?(participant.id)).to be_truthy }
 

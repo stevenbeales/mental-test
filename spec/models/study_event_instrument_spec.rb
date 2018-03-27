@@ -15,7 +15,7 @@ RSpec.describe StudyEventInstrument, type: :model do
 
   describe '#respond_to?' do
     include_context 'shared attributes'
-    
+
     it { expect(subject.respond_to?(:study_event)).to be_truthy }
     it { expect(subject.respond_to?(:instrument)).to be_truthy }
     context 'common attributes' do
@@ -81,10 +81,8 @@ RSpec.describe StudyEventInstrument, type: :model do
   end
 
   describe '#destroy!' do
-    before :each do
-      subject.destroy!
-    end
-
+    include_context 'destroy subject'
+   
     it { expect(Instrument.exists?(instrument.id)).to be_truthy }
     
     it { expect(StudyEvent.exists?(study_event.id)).to be_truthy }

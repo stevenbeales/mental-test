@@ -21,3 +21,9 @@ RSpec.shared_context 'restore attributes' do
     subject.restore_attributes
   end
 end
+
+RSpec.shared_context 'destroy subject' do
+  before :each do
+    subject.destroy!
+  end
+end
