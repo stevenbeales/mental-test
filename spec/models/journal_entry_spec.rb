@@ -15,10 +15,9 @@ RSpec.describe JournalEntry, type: :model do
   describe '#respond_to?' do
     include_context 'shared attributes'
    
-    it { expect(subject.respond_to?(:entry_date)).to be_truthy }
-    it { expect(subject.respond_to?(:entry)).to be_truthy }
-    it { expect(subject.respond_to?(:journal)).to be_truthy }
-  
+    include_examples 'attribute?', :entry_date
+    include_examples 'attribute?', :entry
+    include_examples 'attribute?', :journal
     include_examples 'common attributes'
   end
 
