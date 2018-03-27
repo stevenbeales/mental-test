@@ -12,26 +12,20 @@ RSpec.describe Participant, type: :model do
   end
 
   describe '#respond_to?' do
+    include_context 'shared attributes'
+
     it { expect(subject.respond_to?(:email)).to be_truthy }
     it { expect(subject.respond_to?(:user)).to be_truthy }
     it { expect(subject.respond_to?(:journal)).to be_truthy }
     it { expect(subject.respond_to?(:survey_participants)).to be_truthy }
     it { expect(subject.respond_to?(:surveys)).to be_truthy }
-    context '#created_at' do
-      it { expect(subject.respond_to?(:created_at)).to be_truthy }
-    end
-    context '#updated_at' do
-      it { expect(subject.respond_to?(:updated_at)).to be_truthy }
+    context 'common attributes' do
+      it { expect(timestamps?).to be_truthy }
     end 
-    context '#not_an_attibute' do
-      it { expect(subject.respond_to?(:not_an_attibute)).not_to be_truthy }
-    end
   end
 
   describe '#email' do
-    after(:each) do
-      subject.restore_attributes
-    end
+    include_context 'restore attributes'
     
     it 'is required' do
       subject.email = nil
@@ -41,9 +35,7 @@ RSpec.describe Participant, type: :model do
   end
 
   describe '#journal' do
-    after(:each) do
-      subject.restore_attributes
-    end
+    include_context 'restore attributes'
     
     it 'is required' do
       subject.journal = nil

@@ -16,6 +16,7 @@ RSpec.describe Visit, type: :model do
 
   describe '#respond_to?' do
     include_context 'shared attributes'
+    
     context '#user' do
       it { expect(subject.respond_to?(:user)).to be_truthy }
     end

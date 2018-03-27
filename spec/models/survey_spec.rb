@@ -13,6 +13,7 @@ RSpec.describe Survey do
     
   describe '#respond_to?' do
     include_context 'shared attributes'
+    
     context '#name' do
       it { expect(subject.respond_to?(:name)).to be_truthy }
     end

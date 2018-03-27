@@ -15,6 +15,7 @@ RSpec.describe SurveyParticipant, type: :model do
   
   describe '#respond_to?' do
     include_context 'shared attributes'
+
     it { expect(subject.respond_to?(:survey)).to be_truthy }
     it { expect(subject.respond_to?(:participant)).to be_truthy }
     context 'common attributes' do
@@ -45,21 +46,21 @@ RSpec.describe SurveyParticipant, type: :model do
   describe '.create!' do
     context 'no participant or survey' do
       it do
-        expect { described_class.create! }.to raise_error \
+        expect { SurveyParticipant.create! }.to raise_error \
           ActiveRecord::RecordInvalid
       end
     end
 
     context 'no participant' do
       it do
-        expect { described_class.create! participant: participant }.to \
+        expect { SurveyParticipant.create! participant: participant }.to \
           raise_error ActiveRecord::RecordInvalid
       end
     end
 
     context 'no survey' do
       it do
-        expect { described_class.create! survey: survey }.to raise_error \
+        expect { SurveyParticipant.create! survey: survey }.to raise_error \
           ActiveRecord::RecordInvalid
       end
     end

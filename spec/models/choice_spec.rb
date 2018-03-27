@@ -30,9 +30,7 @@ RSpec.describe Choice, type: :model do
   end
  
   describe '#response_scale' do
-    after(:each) do
-      subject.restore_attributes
-    end
+    include_context 'restore attributes'
     
     it 'is required' do
       subject.response_scale = nil
@@ -42,9 +40,7 @@ RSpec.describe Choice, type: :model do
   end
   
   describe '#value' do
-    after(:each) do
-      subject.restore_attributes
-    end
+    include_context 'restore attributes'
     
     it 'is required' do
       subject.value = nil

@@ -19,6 +19,7 @@ RSpec.describe Assessment, type: :model do
   
   describe '#respond_to?' do
     include_context 'shared attributes'
+
     context '#visit' do
       it { expect(subject.respond_to?(:visit)).to be_truthy }
     end
@@ -49,9 +50,7 @@ RSpec.describe Assessment, type: :model do
   end
 
   describe '#visit' do
-    after(:each) do
-      subject.restore_attributes
-    end
+    include_context 'restore attributes'
 
     it 'is required' do
       subject.visit = nil
@@ -61,9 +60,7 @@ RSpec.describe Assessment, type: :model do
   end
   
   describe '#order_number' do
-    after(:each) do
-      subject.restore_attributes
-    end
+    include_context 'restore attributes'
     
     it 'is required' do
       subject.order_number = nil

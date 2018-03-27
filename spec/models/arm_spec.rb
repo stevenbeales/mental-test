@@ -46,9 +46,7 @@ RSpec.describe Arm, type: :model do
   end
 
   describe '#schedule' do
-    after(:each) do
-      subject.restore_attributes
-    end
+    include_context 'restore attributes'
     
     it 'is required' do
       subject.schedule = nil
@@ -83,9 +81,7 @@ RSpec.describe Arm, type: :model do
   end
 
   describe '#number' do
-    after(:each) do
-      subject.restore_attributes
-    end
+    include_context 'restore attributes'
     
     it 'is required and positive' do
       subject.number = nil

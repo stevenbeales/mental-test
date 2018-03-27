@@ -13,24 +13,18 @@ RSpec.describe JournalEntry, type: :model do
   end
 
   describe '#respond_to?' do
+    include_context 'shared attributes'
+   
     it { expect(subject.respond_to?(:entry_date)).to be_truthy }
     it { expect(subject.respond_to?(:entry)).to be_truthy }
     it { expect(subject.respond_to?(:journal)).to be_truthy }
-    context '#created_at' do
-      it { expect(subject.respond_to?(:created_at)).to be_truthy }
-    end
-    context '#updated_at' do
-      it { expect(subject.respond_to?(:updated_at)).to be_truthy }
+    context 'common attributes' do
+      it { expect(timestamps?).to be_truthy }
     end 
-    context '#not_an_attibute' do
-      it { expect(subject.respond_to?(:not_an_attibute)).not_to be_truthy }
-    end
   end
 
   describe '#entry_date' do
-    after(:each) do
-      subject.restore_attributes
-    end
+    include_context 'restore attributes'
 
     it 'is required' do
       subject.entry_date = nil
@@ -40,9 +34,7 @@ RSpec.describe JournalEntry, type: :model do
   end
   
   describe '#entry' do
-    after(:each) do
-      subject.restore_attributes
-    end
+    include_context 'restore attributes'
 
     it 'is required' do
       subject.entry = nil
@@ -57,9 +49,7 @@ RSpec.describe JournalEntry, type: :model do
   end
 
   describe '#journal' do
-    after(:each) do
-      subject.restore_attributes
-    end
+    include_context 'restore attributes'
     
     it 'is required' do
       subject.journal = nil

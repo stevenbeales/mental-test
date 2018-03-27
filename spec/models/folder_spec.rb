@@ -15,10 +15,13 @@ RSpec.describe Folder, type: :model do
 
   describe '#respond_to?' do
     include_context 'shared attributes'
+    
     context '#name' do
-      it { expect(subject.respond_to?(:name)).to be_truthy }
+      it { expect(attribute?(:name)).to be_truthy }
     end
-    it { expect(subject.respond_to?(:projects)).to be_truthy }
+    context '#projects' do
+      it { expect(attribute?(:projects)).to be_truthy }
+    end
     context 'common attributes' do
       it { expect(timestamps?).to be_truthy }
     end 

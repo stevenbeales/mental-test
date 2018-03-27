@@ -19,6 +19,7 @@ RSpec.describe Score, type: :model do
 
   describe '#respond_to?' do
     include_context 'shared attributes'
+    
     it { expect(subject.respond_to?(:name)).to be_truthy }
     it { expect(subject.respond_to?(:assessment)).to be_truthy }
     it { expect(subject.respond_to?(:score)).to be_truthy }

@@ -15,6 +15,7 @@ RSpec.describe StudyEventInstrument, type: :model do
 
   describe '#respond_to?' do
     include_context 'shared attributes'
+    
     it { expect(subject.respond_to?(:study_event)).to be_truthy }
     it { expect(subject.respond_to?(:instrument)).to be_truthy }
     context 'common attributes' do

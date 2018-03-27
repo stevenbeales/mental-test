@@ -15,6 +15,7 @@ RSpec.describe AssessmentInstrument, type: :model do
 
   describe '#respond_to?' do
     include_context 'shared attributes'
+
     context '#assessment' do
       it { expect(attribute?(:assessment)).to be_truthy }
     end
@@ -27,9 +28,7 @@ RSpec.describe AssessmentInstrument, type: :model do
   end
 
   describe '#instrument' do
-    after(:each) do
-      subject.restore_attributes
-    end
+    include_context 'restore attributes'
    
     it 'is required' do
       subject.instrument = nil
@@ -43,9 +42,7 @@ RSpec.describe AssessmentInstrument, type: :model do
   end
   
   describe '#assessment' do
-    after(:each) do
-      subject.restore_attributes
-    end
+    include_context 'restore attributes'
 
     it 'is required' do
       subject.assessment = nil

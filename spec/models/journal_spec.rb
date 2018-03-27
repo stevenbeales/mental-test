@@ -14,6 +14,7 @@ RSpec.describe Journal, type: :model do
 
   describe '#respond_to?' do    
     include_context 'shared attributes'
+
     context '#name' do
       it { expect(subject.respond_to?(:name)).to be_truthy }
     end
@@ -40,9 +41,7 @@ RSpec.describe Journal, type: :model do
   end
 
   describe '#name' do
-    after(:each) do
-      subject.restore_attributes
-    end
+    include_context 'restore attributes'
 
     it 'is required' do
       subject.name = nil
@@ -52,9 +51,7 @@ RSpec.describe Journal, type: :model do
   end
   
   describe '#participant' do
-    after(:each) do
-      subject.restore_attributes
-    end
+    include_context 'restore attributes'
      
     it 'is required' do
       subject.participant = nil
@@ -66,7 +63,7 @@ RSpec.describe Journal, type: :model do
   describe '.create!' do
     context 'without name or study' do
       it do
-        expect { described_class.create! }.to raise_error \
+        expect { Journal.create! }.to raise_error \
           ActiveRecord::RecordInvalid 
       end
     end  
