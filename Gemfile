@@ -26,6 +26,7 @@ gem 'rest-client', '~> 2.0.2', require: false # minimum version without security
 gem 'route_downcaser', '~> 1.2.1', require: false # case isnensitive URLs
 gem 'sinatra', '~> 2.0.1', require: false # Web server
 gem 'sinatra-activerecord', '~> 2.0.13', require: false # for Active Record models
+gem 'sinatra-contrib', '~> 2.0.1', require: false # hot reloading
 gem 'sinatra_logger', '~> 0.1.0', require: false # for logging
 gem 'turnout', '~> 2.4.1', require: false # for maintenance mode
 gem 'validates_email_format_of', '~>1.6.3', require: false # validates email format
@@ -39,6 +40,7 @@ group :test do
   gem 'rack-test', '~> 0.8.3', require: false # for testing rake servers
   gem 'rspec', '~> 3.7.0', require: false # for behavioral driven testing
   gem 'rubocop', '~> 0.54.0', require: false # syntax checking
+  gem 'ruby_audit', '~> 1.2.0', require: false # complements bundler-audit
   gem 'simplecov', '~> 0.16.1', require: false # for code coverage
   gem 'timecop', '~> 0.9.1', require: false # testing time dependent
   gem 'travis', '~> 1.8.8', require: false # for continuous integrations

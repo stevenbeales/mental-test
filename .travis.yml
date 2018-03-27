@@ -36,6 +36,7 @@ script:
   - bundle exec rake bundle:audit
   - bundle exec rubocop 
   - bundle exec travis_check_rubies
+  - bundle exec ruby-audit check
   - cp -p Gemfile.lock.org Gemfile.lock
   
 after_script:

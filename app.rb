@@ -46,6 +46,9 @@ class App < Sinatra::Base
   end
 
   configure :development do
+    require 'sinatra/reloader'
+    register Sinatra::Reloader
+
     require 'better_errors'
     use BetterErrors::Middleware
     # you need to set the application root in order to abbreviate filenames
@@ -82,19 +85,8 @@ class App < Sinatra::Base
   end
 
   configure :production do
-    
     require 'rack/ssl'
     use Rack::SSL
-
-    require 'rack/cache'
-    use Rack::Cache
-    sha1, date = `git log HEAD~1..HEAD --pretty=format:%h^%ci`.strip.split('^')
-
-    before do
-      cache_control :public, :must_revalidate, max_age: 300
-      etag sha1
-      last_modified date
-    end
   end 
  
   AlexaVerifier.configure do |config|
