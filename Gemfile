@@ -7,6 +7,7 @@ gem 'acts-as-taggable-array-on', '~> 0.4.0', require: false # adds tags
 gem 'bugsnag', '~> 6.6', require: false # online bug reporting
 gem 'dotenv', '~> 2.2.1', require: false # adds environment variables from .env files
 gem 'facets', '~> 3.1.0', require: false # additional core methods
+gem 'i18n'
 gem 'jsonb_accessor', '~> 1.0.0', require: false # adds methods to access Jsonb fields
 gem 'kiba', '~> 2.0.0', require: false # ETL
 gem 'mobility', '~> 0.5.1', require: false # translations

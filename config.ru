@@ -2,7 +2,7 @@
 
 require 'rubygems'
 
-require 'bundler'
+require 'bundler/setup'
 Bundler.require(:default, ENV['RACK_ENV'].to_sym)
 
 require 'dotenv'
