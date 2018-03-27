@@ -1,9 +1,9 @@
 # frozen_string_literal: true
 
 RSpec.describe Folder, type: :model do
-  subject { TestFactory.test_folder }
-  let!(:project1) { TestFactory.test_project }
-  let!(:project2) { TestFactory.test_project2 } 
+  subject { ProjectTestFactory.test_folder }
+  let!(:project1) { ProjectTestFactory.test_project }
+  let!(:project2) { ProjectTestFactory.test_project2 } 
   
   it 'is an instance of Folder' do
     expect(subject).to be_a Folder
@@ -14,19 +14,14 @@ RSpec.describe Folder, type: :model do
   end
 
   describe '#respond_to?' do
+    include_context 'shared attributes'
     context '#name' do
       it { expect(subject.respond_to?(:name)).to be_truthy }
     end
     it { expect(subject.respond_to?(:projects)).to be_truthy }
-    context '#created_at' do
-      it { expect(subject.respond_to?(:created_at)).to be_truthy }
-    end
-    context '#updated_at' do
-      it { expect(subject.respond_to?(:updated_at)).to be_truthy }
+    context 'common attributes' do
+      it { expect(timestamps?).to be_truthy }
     end 
-    context '#not_an_attibute' do
-      it { expect(subject.respond_to?(:not_an_attibute)).not_to be_truthy }
-    end
   end
 
   describe '#name' do

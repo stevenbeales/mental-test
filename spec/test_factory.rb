@@ -27,34 +27,13 @@ class TestFactory
     @test_choice ||= FactoryBot.create(:test_choice)
   end
 
-  def self.test_folder
-    @test_folder ||= FactoryBot.create(:test_folder)
-  end
-
   def self.test_hipaa_identifier
     @test_hipaa_identifier ||= FactoryBot.create(:test_hipaa_identifier)
   end 
   
-  def self.test_instrument
-    @test_instrument ||= 
-      Instrument.find_by(name: TestConstants::TEST_INSTRUMENT) 
-  end
-
   def self.test_participant
     @test_participant ||= FactoryBot.create(:test_participant)
   end
-
-  def self.test_project
-    @test_project ||= FactoryBot.create(:test_project)
-  end
-
-  def self.test_project2
-    @test_project2 ||= FactoryBot.create(:test_project2)
-  end
- 
-  def self.test_response_scale
-    @test_response_scale ||= FactoryBot.create(:test_response_scale)
-  end 
 
   def self.test_schedule
     @test_schedule ||= FactoryBot.create(:test_schedule)
@@ -103,5 +82,32 @@ class TestFactory
 
   def self.test_visit
     @test_visit ||= FactoryBot.create(:test_visit)
+  end
+end
+
+# Factory to create or return instrument related test objects
+class InstrumentTestFactory
+  def self.test_instrument
+    @test_instrument ||= 
+      Instrument.find_by(name: TestConstants::TEST_INSTRUMENT) 
+  end
+  
+  def self.test_response_scale
+    @test_response_scale ||= FactoryBot.create(:test_response_scale)
+  end 
+end
+
+# Factory to create or return project related test objects
+class ProjectTestFactory
+  def self.test_folder
+    @test_folder ||= FactoryBot.create(:test_folder)
+  end
+  
+  def self.test_project
+    @test_project ||= FactoryBot.create(:test_project)
+  end
+
+  def self.test_project2
+    @test_project2 ||= FactoryBot.create(:test_project2)
   end
 end

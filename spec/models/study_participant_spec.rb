@@ -40,9 +40,7 @@ RSpec.describe StudyParticipant, type: :model do
   end
   
   describe '#participant' do
-    after(:each) do
-      subject.restore_attributes
-    end
+    include_context 'restore attributes'
 
     it do
       subject.participant = nil

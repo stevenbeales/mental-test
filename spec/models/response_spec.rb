@@ -7,7 +7,7 @@ RSpec.describe Response, type: :model do
   let!(:ur) { TestFactory.test_user }
   let!(:vt) { TestFactory.test_visit }
   let!(:choice) { TestFactory.test_choice }
-  let!(:scale) { TestFactory.test_response_scale }
+  let!(:scale) { InstrumentTestFactory.test_response_scale }
   
   it 'is an instance of Response' do
     expect(subject).to be_an Response
@@ -33,9 +33,7 @@ RSpec.describe Response, type: :model do
   end
 
   describe '#assessment' do
-    after(:each) do
-      subject.restore_attributes
-    end
+    include_context 'restore attributes'
 
     it 'is required' do
       subject.assessment = nil
@@ -45,9 +43,7 @@ RSpec.describe Response, type: :model do
   end
   
   describe '#value' do
-    after(:each) do
-      subject.restore_attributes
-    end
+    include_context 'restore attributes'
 
     it 'is required' do
       subject.value = nil

@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
 RSpec.describe Project, type: :model do
-  subject { TestFactory.test_project }
-  let!(:folder1) { TestFactory.test_folder }
+  subject { ProjectTestFactory.test_project }
+  let!(:folder1) { ProjectTestFactory.test_folder }
 
   it 'is an instance of Project' do
     expect(subject).to be_an Project
@@ -31,9 +31,7 @@ RSpec.describe Project, type: :model do
   end
 
   describe '#name' do
-    after(:each) do
-      subject.restore_attributes
-    end
+    include_context 'restore attributes'
     
     it 'is required' do
       subject.name = nil
@@ -43,9 +41,7 @@ RSpec.describe Project, type: :model do
   end
 
   describe '#title' do
-    after(:each) do
-      subject.restore_attributes
-    end
+    include_context 'restore attributes'
     
     it 'is required' do
       subject.title = nil

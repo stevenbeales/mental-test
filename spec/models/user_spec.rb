@@ -34,9 +34,7 @@ RSpec.describe User, type: :model do
   end
   
   describe '#username' do
-    after(:each) do
-      subject.restore_attributes
-    end
+    include_context 'restore attributes'
     
     it 'is required' do
       subject.username = nil
@@ -46,9 +44,7 @@ RSpec.describe User, type: :model do
   end
 
   describe '#locale' do
-    after(:each) do
-      subject.restore_attributes
-    end
+    include_context 'restore attributes'
     
     it { expect(subject.locale).to eq('en-US') }
 

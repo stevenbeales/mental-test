@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 RSpec.describe ResponseScale, type: :model do
-  subject { TestFactory.test_response_scale }
+  subject { InstrumentTestFactory.test_response_scale }
   
   it 'is an instance of ResponseScale' do
     expect(subject).to be_an ResponseScale

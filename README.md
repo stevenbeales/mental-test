@@ -4,11 +4,11 @@
 
 [![Coverage Status](https://coveralls.io/repos/stevenbeales/mental-test/badge.svg?branch=master)](https://coveralls.io/r/stevenbeales/mental-test?branch=master)
 
-[![Dependency Status](https://beta.gemnasium.com/badges/github.com/stevenbeales/mental-test.svg)](https://beta.gemnasium.com/projects/github.com/stevenbeales/mental-test) 
+[![Dependency Status](https://beta.gemnasium.com/badges/github.com/stevenbeales/mental-test.svg)](https://beta.gemnasium.com/projects/github.com/stevenbeales/mental-test)
 
-<img title="Scrutinizer Code Quality" src="https://scrutinizer-ci.com/g/stevenbeales/mental-test/badges/quality-score.png?b=master">
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/stevenbeales/mental-test/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/stevenbeales/mental-test/?branch=master)
 
-<a href="https://codeclimate.com/github/stevenbeales/mental-test/maintainability"><img src="https://api.codeclimate.com/v1/badges/6574b93819edbc0cff7d/maintainability" /></a>
+[![Maintainability](https://api.codeclimate.com/v1/badges/6574b93819edbc0cff7d/maintainability)](https://codeclimate.com/github/stevenbeales/mental-test/maintainability)
 
 [![Inline docs](http://inch-ci.org/github/stevenbeales/mental-test.svg?branch=master)](http://inch-ci.org/github/stevenbeales/mental-test)
 
@@ -17,14 +17,14 @@
 An Alexa skill for validated Mental Health Self-Assessments, written in Ruby using the Sinatra and Ralyxa frameworks.
 
 The application supports importing Surveys and Instruments from SurveyJS.io and REDCap.
-<p>TODO - The application supports automated scoring of Instruments where applicable.</p>
-<p>TODO - The application will direct you to a physician or clinical trial that specializes in your assessed conditions.</p>
+TODO - The application supports automated scoring of Instruments where applicable.
+TODO - The application will direct you to a physician or clinical trial that specializes in your assessed conditions.
 
 Disclaimer. These statements have not been validated by the FDA. This skill is not intended to diagnose or treat any condition.
 
 To install dependencies -
 
-1) Install Postgres 9.4 or higher. This skill uses Postgres jsonb columns to store indexed unstructured data. 
+1) Install Postgres 9.4 or higher. This skill uses Postgres jsonb columns to store indexed unstructured data.
 2) Use bundler - bundle install - to install all other gems from the Gemfile.
 3) bundle exec rake db:setup - To generate test and development databases and seed the databases with test data
 4) Supports Travis Continuous Integration if you have linked Travis CI and Github accounts.
@@ -37,7 +37,7 @@ TO run the test suite -
 
 To generate the skill documentation -
 
-1) rake rdoc 
+1) rake rdoc
 
 ## Contributing
 

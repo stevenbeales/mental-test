@@ -27,12 +27,8 @@ Arm
 [32m      should be truthy[0m
     #study_events
 [32m      should be truthy[0m
-    #created_at
+    common attributes
 [32m      should be truthy[0m
-    #updated_at
-[32m      should be truthy[0m
-    #not_an_attibute
-[32m      should not be truthy[0m
   #name
 [32m    is set to "arm1" if missing[0m
   #schedule
@@ -80,12 +76,8 @@ AssessmentInstrument
 [32m      should be truthy[0m
     #instrument
 [32m      should be truthy[0m
-    #created_at
+    common attributes
 [32m      should be truthy[0m
-    #updated_at
-[32m      should be truthy[0m
-    #not_an_attibute
-[32m      should not be truthy[0m
   #instrument
 [32m    is required[0m
 [32m    should eq 1[0m
@@ -131,12 +123,8 @@ Assessment
 [32m      should be truthy[0m
     #scores
 [32m      should be truthy[0m
-    #created_at
+    common attributes
 [32m      should be truthy[0m
-    #updated_at
-[32m      should be truthy[0m
-    #not_an_attibute
-[32m      should not be truthy[0m
   #visit
 [32m    is required[0m
   #order_number
@@ -206,12 +194,8 @@ Folder
 [32m    should be truthy[0m
     #name
 [32m      should be truthy[0m
-    #created_at
+    common attributes
 [32m      should be truthy[0m
-    #updated_at
-[32m      should be truthy[0m
-    #not_an_attibute
-[32m      should not be truthy[0m
   #name
 [32m    is required[0m
   .create!
@@ -328,7 +312,7 @@ Item
   #find_by_name
 [32m    should eq "Appetite1"[0m
   #instrument
-[32m    should eq #<Instrument id: 1, name: "Cesd-r", version_number: "1.0", content: {"pages"=>[{"name"=>"page1", "tit...3"}, {"text"=>"Nearly every day for 2 weeks", "value"=>"4"}], "colCount"=>5, "isRequired"=>true}]}]>[0m
+[32m    should eq 1[0m
   #created_at today
 [32m    is created less than 5 minutes ago[0m
 
@@ -364,7 +348,7 @@ JournalEntry
     unique entry date
 [32m      {:timecop=>:freeze}[0m
     #to_s
-[32m      should eq "2018-03-27 02:26:45 UTC "[0m
+[32m      should eq "2018-03-27 16:42:07 UTC "[0m
     #created_at today
 [32m      is created less than 5 minutes ago[0m
 
@@ -376,15 +360,11 @@ Journal
 [32m    should be truthy[0m
     #name
 [32m      should be truthy[0m
-    #created_at
+    common attributes
 [32m      should be truthy[0m
-    #updated_at
-[32m      should be truthy[0m
-    #not_an_attibute
-[32m      should not be truthy[0m
   #list_entries
     defaults to last 4
-[32m      should eq "2018-03-27 02:26:45 UTC  2012-12-12 00:00:00 UTC "[0m
+[32m      should eq "2018-03-27 16:42:07 UTC  2012-12-12 00:00:00 UTC "[0m
   #read_entry
 [32m    should be > 0[0m
   #name
@@ -477,7 +457,7 @@ Project
 [32m    is created less than 5 minutes ago[0m
   #destroy!
     does not remove folder
-[32m      example at ./spec/models/project_spec.rb:133[0m
+[32m      example at ./spec/models/project_spec.rb:129[0m
 
 ResponseScale
 [32m  is an instance of ResponseScale[0m
@@ -554,12 +534,8 @@ Schedule
 [32m    should be truthy[0m
     #name
 [32m      should be truthy[0m
-    #created_at
+    common attributes
 [32m      should be truthy[0m
-    #updated_at
-[32m      should be truthy[0m
-    #not_an_attibute
-[32m      should not be truthy[0m
   #name
 [32m    is required[0m
   #study
@@ -588,12 +564,8 @@ Score
 [32m    should be truthy[0m
 [32m    should be truthy[0m
 [32m    should be truthy[0m
-    #created_at
+    common attributes
 [32m      should be truthy[0m
-    #updated_at
-[32m      should be truthy[0m
-    #not_an_attibute
-[32m      should not be truthy[0m
   #score
 [32m    is required[0m
     must be an integer
@@ -610,8 +582,8 @@ Score
     assessment and name
 [32m      should not raise Exception[0m
     duplicate assessment and name
-[32m      example at ./spec/models/score_spec.rb:88[0m
-[32m      example at ./spec/models/score_spec.rb:94[0m
+[32m      example at ./spec/models/score_spec.rb:79[0m
+[32m      example at ./spec/models/score_spec.rb:85[0m
   #to_s
 [32m    prints assessment name: score[0m
   #destroy!
@@ -629,12 +601,8 @@ StudyEventInstrument
   #respond_to?
 [32m    should be truthy[0m
 [32m    should be truthy[0m
-    #created_at
+    common attributes
 [32m      should be truthy[0m
-    #updated_at
-[32m      should be truthy[0m
-    #not_an_attibute
-[32m      should not be truthy[0m
   #instrument
 [32m    is required[0m
   #study_event
@@ -765,12 +733,8 @@ SurveyParticipant
   #respond_to?
 [32m    should be truthy[0m
 [32m    should be truthy[0m
-    #created_at
+    common attributes
 [32m      should be truthy[0m
-    #updated_at
-[32m      should be truthy[0m
-    #not_an_attibute
-[32m      should not be truthy[0m
   #survey
 [32m    is required[0m
   #participant
@@ -805,12 +769,8 @@ Survey
 [32m    should be truthy[0m
     #name
 [32m      should be truthy[0m
-    #created_at
+    common attributes
 [32m      should be truthy[0m
-    #updated_at
-[32m      should be truthy[0m
-    #not_an_attibute
-[32m      should not be truthy[0m
   #name
 [32m    is required[0m
   .create!
@@ -879,12 +839,8 @@ Visit
 [32m      should be truthy[0m
     #number
 [32m      should be truthy[0m
-    #created_at
+    common attributes
 [32m      should be truthy[0m
-    #updated_at
-[32m      should be truthy[0m
-    #not_an_attibute
-[32m      should not be truthy[0m
   #number
 [32m    is required and positive[0m
 [32m    must be positive[0m
@@ -912,7 +868,7 @@ Visit
 [32m    should eq "bernie Depression Survey 1"[0m
   #eq
     user, survey and name
-[32m      should eq 6[0m
+[32m      should eq 1[0m
   #destroy!
 [32m    assessment[0m
 [32m    assessments[0m
@@ -940,7 +896,7 @@ AlexaService
 [32m    should eq "    Cannot find instrument blah. Please try again.\n"[0m
 [32m    should eq "Below is a list of the ways you might have felt or behaved. Please check the boxes to tell me how often you have felt this way in the past week or so."[0m
   #read_all
-[32m    should eq "2018-03-27 02:26:43 UTC "[0m
+[32m    should eq "2018-03-27 16:42:05 UTC "[0m
 [32m    should not be nil[0m
 
 InstrumentLoaderCsv
@@ -968,6 +924,6 @@ InstrumentLoader
   missing instrument
 [32m    should raise RuntimeError[0m
 
-Finished in 8.39 seconds (files took 4.9 seconds to load)
-[32m509 examples, 0 failures[0m
+Finished in 8.16 seconds (files took 4.36 seconds to load)
+[32m487 examples, 0 failures[0m
 

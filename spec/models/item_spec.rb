@@ -1,10 +1,8 @@
 # frozen_string_literal: true
 
 RSpec.describe Item, type: :model do
-  subject { described_class.find_or_create_by! name: 'Appetite1' }
-  let!(:instrument) do
-    Instrument.find_or_create_by! name: TestConstants::TEST_INSTRUMENT
-  end
+  subject { Item.find_or_create_by! name: 'Appetite1' }
+  let!(:instrument) { InstrumentTestFactory.test_instrument }
 
   it 'is an instance of Item' do
     expect(subject).to be_an Item
@@ -33,9 +31,7 @@ RSpec.describe Item, type: :model do
   end
 
   describe '#name' do
-    after(:each) do
-      subject.restore_attributes
-    end
+    include_context 'restore attributes'
     
     it 'is required' do
       subject.name = nil
@@ -72,7 +68,7 @@ RSpec.describe Item, type: :model do
 
   describe '#instrument' do
     it do
-      expect(subject.instrument).to eq(instrument)
+      expect(subject.instrument.id).to eq(instrument.id)
     end
   end
   

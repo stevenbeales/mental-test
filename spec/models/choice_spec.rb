@@ -2,7 +2,7 @@
 
 RSpec.describe Choice, type: :model do
   subject { TestFactory.test_choice }
-  let!(:scale) { TestFactory.test_response_scale }
+  let!(:scale) { InstrumentTestFactory.test_response_scale }
 
   it 'is an instance of Choice' do
     expect(subject).to be_a Choice

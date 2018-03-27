@@ -13,26 +13,19 @@ RSpec.describe Schedule, type: :model do
   end
 
   describe '#respond_to?' do
+    include_context 'shared attributes'
     context '#name' do
       it { expect(subject.respond_to?(:name)).to be_truthy }
     end
     it { expect(subject.respond_to?(:study)).to be_truthy }
     it { expect(subject.respond_to?(:arms)).to be_truthy }
-    context '#created_at' do
-      it { expect(subject.respond_to?(:created_at)).to be_truthy }
-    end
-    context '#updated_at' do
-      it { expect(subject.respond_to?(:updated_at)).to be_truthy }
+    context 'common attributes' do
+      it { expect(timestamps?).to be_truthy }
     end 
-    context '#not_an_attibute' do
-      it { expect(subject.respond_to?(:not_an_attibute)).not_to be_truthy }
-    end
   end
 
   describe '#name' do
-    after(:each) do
-      subject.restore_attributes
-    end
+    include_context 'restore attributes'
 
     it 'is required' do
       subject.name = nil
@@ -42,9 +35,7 @@ RSpec.describe Schedule, type: :model do
   end
   
   describe '#study' do
-    after(:each) do
-      subject.restore_attributes
-    end
+    include_context 'restore attributes'
     
     it do
       subject.study = nil

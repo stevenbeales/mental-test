@@ -32,9 +32,7 @@ RSpec.describe Study, type: :model do
   end
 
   describe '#name' do
-    after(:each) do
-      subject.restore_attributes
-    end
+    include_context 'restore attributes'
     
     it 'is required' do
       subject.name = nil

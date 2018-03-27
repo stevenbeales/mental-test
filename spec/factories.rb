@@ -198,20 +198,17 @@ FactoryBot.define do
     name TestConstants::TEST_VISIT
     association :user, factory: :test_user
     association :survey, factory: :test_survey
-
     initialize_with do
       survey = FactoryInitializer.test_survey
       user = FactoryInitializer.test_user
       Visit.find_or_create_by!(name: TestConstants::TEST_VISIT, survey: survey, user: user)
     end
   end
-
   
   factory :test_visit2, class: 'Visit' do
     name TestConstants::TEST_VISIT
     association :user, factory: :timmy
     association :survey, factory: :test_survey
-
     initialize_with do
       survey = FactoryInitializer.test_survey
       user2 = FactoryInitializer.test_user2
