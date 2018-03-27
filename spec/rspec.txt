@@ -157,11 +157,16 @@ Choice
 [32m  is an instance of Choice[0m
 [32m  is valid with valid attributes[0m
   #respond_to?
-[32m    should be truthy[0m
-[32m    should be truthy[0m
-[32m    should be truthy[0m
-[32m    should be truthy[0m
-[32m    should be truthy[0m
+    #response_scale
+[32m      should be truthy[0m
+    #responses
+[32m      should be truthy[0m
+    #description
+[32m      should be truthy[0m
+    #score
+[32m      should be truthy[0m
+    #value
+[32m      should be truthy[0m
     common attributes
 [32m      should be truthy[0m
   #response_scale
@@ -334,7 +339,7 @@ JournalEntry
     unique entry date
 [32m      {:timecop=>:freeze}[0m
     #to_s
-[32m      should eq "2018-03-27 19:35:48 UTC "[0m
+[32m      should eq "2018-03-27 19:45:33 UTC "[0m
     #created_at today
 [32m      is created less than 5 minutes ago[0m
 
@@ -350,7 +355,7 @@ Journal
 [32m      should be truthy[0m
   #list_entries
     defaults to last 4
-[32m      should eq "2018-03-27 19:35:48 UTC  2012-12-12 00:00:00 UTC "[0m
+[32m      should eq "2018-03-27 19:45:33 UTC  2012-12-12 00:00:00 UTC "[0m
   #read_entry
 [32m    should be > 0[0m
   #name
@@ -380,8 +385,10 @@ Participant
 [32m    should be truthy[0m
 [32m    should be truthy[0m
 [32m    should be truthy[0m
-[32m    should be truthy[0m
-[32m    should be truthy[0m
+    #user
+[32m      should be truthy[0m
+    #email
+[32m      should be truthy[0m
     common attributes
 [32m      should be truthy[0m
   #email
@@ -399,9 +406,12 @@ Project
 [32m  is an instance of Project[0m
 [32m  is valid with valid attributes[0m
   #respond_to?
-[32m    should be truthy[0m
-[32m    should be truthy[0m
-[32m    should be truthy[0m
+    #title
+[32m      should be truthy[0m
+    #folder
+[32m      should be truthy[0m
+    #status
+[32m      should be truthy[0m
     #name
 [32m      should be truthy[0m
     common attributes
@@ -435,7 +445,7 @@ Project
 [32m    is created less than 5 minutes ago[0m
   #destroy!
     does not remove folder
-[32m      example at ./spec/models/project_spec.rb:122[0m
+[32m      example at ./spec/models/project_spec.rb:121[0m
 
 ResponseScale
 [32m  is an instance of ResponseScale[0m
@@ -500,8 +510,10 @@ Schedule
 [32m  is an instance of Schedule[0m
 [32m  is valid with valid attributes[0m
   #respond_to?
-[32m    should be truthy[0m
-[32m    should be truthy[0m
+    #arms
+[32m      should be truthy[0m
+    #study
+[32m      should be truthy[0m
     common attributes
 [32m      should be truthy[0m
   #name
@@ -667,9 +679,12 @@ Study
 [32m  is an instance of Study[0m
 [32m  is valid with valid attributes[0m
   #respond_to?
-[32m    should be truthy[0m
-[32m    should be truthy[0m
-[32m    should be truthy[0m
+    #study_participants
+[32m      should be truthy[0m
+    #participants
+[32m      should be truthy[0m
+    #schedule
+[32m      should be truthy[0m
     #name
 [32m      should be truthy[0m
     common attributes
@@ -859,7 +874,7 @@ AlexaService
 [32m    should eq "    Cannot find instrument blah. Please try again.\n"[0m
 [32m    should eq "Below is a list of the ways you might have felt or behaved. Please check the boxes to tell me how often you have felt this way in the past week or so."[0m
   #read_all
-[32m    should eq "2018-03-27 19:35:47 UTC "[0m
+[32m    should eq "2018-03-27 19:45:32 UTC "[0m
 [32m    should not be nil[0m
 
 InstrumentLoaderCsv
@@ -887,6 +902,6 @@ InstrumentLoader
   missing instrument
 [32m    should raise RuntimeError[0m
 
-Finished in 9.13 seconds (files took 4.47 seconds to load)
+Finished in 7.98 seconds (files took 4.57 seconds to load)
 [32m462 examples, 0 failures[0m
 
