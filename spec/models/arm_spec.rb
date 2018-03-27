@@ -67,7 +67,7 @@ RSpec.describe Arm, type: :model do
       
       it do
         subject.schedule.arms.concat(subject)
-        expect(subject.schedule.arms.size).to be.positive? 
+        expect(subject.schedule.arms.size).to be > 0 
       end
     end
   end

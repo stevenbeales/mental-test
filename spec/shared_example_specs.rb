@@ -16,3 +16,9 @@ RSpec.shared_examples 'name' do
     it { expect(attribute?(:name)).to be_truthy }
   end
 end
+
+RSpec.shared_examples 'attribute?' do |attribute|
+  context "##{attribute}" do
+    it { expect(attribute?(attribute)).to be_truthy }
+  end
+end

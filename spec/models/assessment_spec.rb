@@ -96,7 +96,7 @@ RSpec.describe Assessment, type: :model do
     end
 
     context 'with default order_number' do
-      it { expect(subject.order_number).to be.positive? } 
+      it { expect(subject.order_number).to be > 0 } 
     end
   end
   

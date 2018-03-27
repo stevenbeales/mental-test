@@ -16,8 +16,8 @@ RSpec.describe SurveyParticipant, type: :model do
   describe '#respond_to?' do
     include_context 'shared attributes'
 
-    it { expect(subject.respond_to?(:survey)).to be_truthy }
-    it { expect(subject.respond_to?(:participant)).to be_truthy }
+    include_examples 'attribute?', :survey
+    include_examples 'attribute?', :participant
     include_examples 'common attributes'
   end
 

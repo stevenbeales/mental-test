@@ -33,7 +33,7 @@ RSpec.describe Journal, type: :model do
 
   describe '#read_entry' do
     it do
-      expect(subject.read_entry(Date.today).size).to be.positive?
+      expect(subject.read_entry(Date.today).size).to be > 0
     end
   end
 
@@ -100,7 +100,7 @@ RSpec.describe Journal, type: :model do
     end
 
     describe '#create_entry_for_today' do
-      it { expect(subject.journal_entries.size).to be.positive? }
+      it { expect(subject.journal_entries.size).to be > 0 }
     end
 
     describe '#created_at today' do
