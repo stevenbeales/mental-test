@@ -53,9 +53,13 @@ group :development do
   gem 'better_errors', '>= 2.4.0', require: false
   gem 'guard', '>= 2.14.2', require: false # watch for changed files 
   gem 'guard-rspec', '>= 4.7.3', require: false # run rspec on change
-  gem 'wdm', '>= 0.1.0', require: false if Gem.win_platform? # supports Guard watching files on Windows OS.
 end
 
 group :doc do
   gem 'sdoc', '>= 1.0.0', require: false # static documentation
+end
+
+group :windows do
+  gem 'wdm', '>= 0.1.0', require: false if Gem.win_platform? # supports Guard watching files on Windows OS.
+  gem 'win32console', '>= 1.3.2 ', require: false if Gem.win_platform? # color code coverage
 end
