@@ -5,12 +5,9 @@ checks:
         
 build:
     environment:
-        # Any environment variables we should set for you.
-        variables:
-   
         # Languages
-        ruby:                     "2.3.1"
+        ruby: 2.4.2
      
         # Various pre-installed services that can be configured.
-        postgresql:           true
+        postgresql: true
      
