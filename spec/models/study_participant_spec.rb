@@ -5,12 +5,12 @@ RSpec.describe StudyParticipant, type: :model do
   let!(:study) { TestFactory.test_study }
   let!(:participant) { TestFactory.test_participant }
   
-  include_examples 'valid', StudyParticipant
+  include_examples 'valid object creation', StudyParticipant
   
   describe '#respond_to?' do
     include_context 'shared attributes'
-    include_examples 'attribute?', :study
-    include_examples 'attribute?', :participant
+    include_examples 'responds', :study
+    include_examples 'responds', :participant
     include_examples 'common attributes'
   end
 

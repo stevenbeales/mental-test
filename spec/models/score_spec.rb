@@ -9,16 +9,16 @@ RSpec.describe Score, type: :model do
   let!(:choice) { TestFactory.test_choice }
   let!(:scale) { InstrumentTestFactory.test_response_scale }
 
-  include_examples 'valid', Score
+  include_examples 'valid object creation', Score
 
   describe '#respond_to?' do
     include_context 'shared attributes'
-    include_examples 'attribute?', :survey
-    include_examples 'attribute?', :participant
-    include_examples 'attribute?', :visit
-    include_examples 'attribute?', :score
-    include_examples 'attribute?', :assessment
-    include_examples 'attribute?', :name
+    include_examples 'responds', :survey
+    include_examples 'responds', :participant
+    include_examples 'responds', :visit
+    include_examples 'responds', :score
+    include_examples 'responds', :assessment
+    include_examples 'responds', :name
     include_examples 'common attributes'
   end
   
@@ -50,11 +50,9 @@ RSpec.describe Score, type: :model do
     end
   end
 
-  describe '.create!' do
-    context 'without assessment or name' do
-      include_examples 'invalid create' 
-    end
+  include_examples 'invalid create', 'without assessment or name' 
 
+  describe '.create!' do
     context 'without assessment' do
       it { expect { described_class.create!(name: 'total') }.to raise_error ActiveRecord::RecordInvalid }
     end

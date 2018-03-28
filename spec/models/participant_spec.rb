@@ -3,17 +3,15 @@
 RSpec.describe Participant, type: :model do
   subject { TestFactory.test_participant }
 
-  include_examples 'valid', Participant
+  include_examples 'valid object creation', Participant
 
   describe '#respond_to?' do
     include_context 'shared attributes'
-
-    it { expect(subject.respond_to?(:journal)).to be_truthy }
-    it { expect(subject.respond_to?(:survey_participants)).to be_truthy }
-    it { expect(subject.respond_to?(:surveys)).to be_truthy }
-  
-    include_examples 'attribute?', :user
-    include_examples 'attribute?', :email
+    include_examples 'responds', :journal
+    include_examples 'responds', :survey_participants
+    include_examples 'responds', :surveys
+    include_examples 'responds', :user
+    include_examples 'responds', :email
     include_examples 'common attributes'
   end
 
@@ -37,12 +35,8 @@ RSpec.describe Participant, type: :model do
     end
   end
 
-  describe '.create!' do
-    context 'does not create a participant without an email' do
-      include_examples 'invalid create' 
-    end
-  end
-
+  include_examples 'invalid create', 'does not create a participant without an email'
+ 
   describe '#to_s' do
     it do
       to_s = "#{subject.identifier} #{subject.email}".strip

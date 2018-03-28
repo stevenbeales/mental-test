@@ -61,6 +61,7 @@ Arm
   .create!
     no name or schedule
 [32m      should raise ActiveRecord::RecordInvalid[0m
+  .create!
     1 character name
 [32m      should raise ActiveRecord::RecordInvalid[0m
     2+ character name and title
@@ -94,8 +95,9 @@ AssessmentInstrument
 [32m    is required[0m
 [32m    equals assessment[0m
   .create!
-    no instrument or assessment
+    no assessment or instrument
 [32m      should raise ActiveRecord::RecordInvalid[0m
+  .create!
     no instrument
 [32m      should raise ActiveRecord::RecordInvalid[0m
     no assessment
@@ -148,6 +150,7 @@ Assessment
   .create!
     with no visit
 [32m      should raise ActiveRecord::RecordInvalid[0m
+  .create!
     with visit
 [32m      should not raise Exception[0m
     with default order_number
@@ -191,9 +194,10 @@ Choice
   #description
 [32m    should eq 1[0m
   .create!
-[32m    with response scale, value and description[0m
     without response scale or description
 [32m      should raise ActiveRecord::RecordInvalid[0m
+  .create!
+[32m    with response scale, value and description[0m
     without response scale
 [32m      should raise ActiveRecord::RecordInvalid[0m
   #to_s
@@ -219,13 +223,10 @@ Folder
   #name
 [32m    is required[0m
   .create!
+[32m    1 character name[0m
+[32m    2+ character name[0m
+[32m    with duplicate name[0m
     without a name
-[32m      should raise ActiveRecord::RecordInvalid[0m
-    with 1 character name
-[32m      should raise ActiveRecord::RecordInvalid[0m
-    with 2+ character name
-[32m      should not raise Exception[0m
-    with unique name
 [32m      should raise ActiveRecord::RecordInvalid[0m
   #destroy!
     with projects
@@ -247,16 +248,13 @@ HipaaIdentifier
   #name
 [32m    is required[0m
   .create!
+[32m    1 character name[0m
+[32m    2+ character name[0m
+[32m    with duplicate name[0m
     without a name
 [32m      should raise ActiveRecord::RecordInvalid[0m
-    2 character name
-[32m      should raise ActiveRecord::RecordInvalid[0m
-    3+ character name and title
-[32m      should not raise Exception[0m
-    has unique name
-[32m      should raise ActiveRecord::RecordInvalid[0m
-    #to_s
-[32m      should eq "Test Hipaa Identifier"[0m
+  #to_s
+[32m    should eq "Test Hipaa Identifier"[0m
 
 Instrument
 [32m  is an instance of Instrument[0m
@@ -264,10 +262,14 @@ Instrument
   #created_at today
 [32m    is created less than 5 minutes ago[0m
   #respond_to?
-[32m    should be truthy[0m
-[32m    should be truthy[0m
-[32m    should be truthy[0m
-[32m    should be truthy[0m
+    #assessment_instruments
+[32m      should be truthy[0m
+    #assessments
+[32m      should be truthy[0m
+    #study_event_instruments
+[32m      should be truthy[0m
+    #study_events
+[32m      should be truthy[0m
     #instructions
 [32m      should be truthy[0m
     #content
@@ -295,8 +297,9 @@ Instrument
 [32m      should eq 0[0m
   .list_tests
 [32m    should return a list of instrument names[0m
-  #save!
-[32m    with 1 character name[0m
+  .create!
+[32m    1 character name[0m
+[32m    2+ character name[0m
 [32m    with duplicate name[0m
     without a name
 [32m      should raise ActiveRecord::RecordInvalid[0m
@@ -320,9 +323,12 @@ Item
   #created_at today
 [32m    is created less than 5 minutes ago[0m
   #respond_to?
-[32m    should be truthy[0m
-[32m    should be truthy[0m
-[32m    should be truthy[0m
+    #choices
+[32m      should be truthy[0m
+    #instrument
+[32m      should be truthy[0m
+    #response_scale
+[32m      should be truthy[0m
     #name
 [32m      should be truthy[0m
     timestamps
@@ -370,6 +376,7 @@ JournalEntry
   .create!
     without date or journal
 [32m      should raise ActiveRecord::RecordInvalid[0m
+  .create!
     without journal
 [32m      should raise ActiveRecord::RecordInvalid[0m
     without date
@@ -379,7 +386,7 @@ JournalEntry
     unique entry date
 [32m      {:timecop=>:freeze}[0m
     #to_s
-[32m      should eq "2018-03-28 13:54:19 UTC "[0m
+[32m      should eq "2018-03-28 16:31:03 UTC "[0m
 
 Journal
 [32m  is an instance of Journal[0m
@@ -400,7 +407,7 @@ Journal
 [32m      should not be truthy[0m
   #list_entries
     defaults to last 4
-[32m      should eq "2018-03-28 13:54:19 UTC  2012-12-12 00:00:00 UTC "[0m
+[32m      should eq "2018-03-28 16:31:03 UTC  2012-12-12 00:00:00 UTC "[0m
   #read_entry
 [32m    should be > 0[0m
   #name
@@ -410,6 +417,7 @@ Journal
   .create!
     without name or study
 [32m      should raise ActiveRecord::RecordInvalid[0m
+  .create!
     1 character name
 [32m      should raise ActiveRecord::RecordInvalid[0m
     2+ character name and title
@@ -427,9 +435,12 @@ Participant
   #created_at today
 [32m    is created less than 5 minutes ago[0m
   #respond_to?
-[32m    should be truthy[0m
-[32m    should be truthy[0m
-[32m    should be truthy[0m
+    #journal
+[32m      should be truthy[0m
+    #survey_participants
+[32m      should be truthy[0m
+    #surveys
+[32m      should be truthy[0m
     #user
 [32m      should be truthy[0m
     #email
@@ -483,6 +494,7 @@ Project
   .create!
     without name or title
 [32m      should raise ActiveRecord::RecordInvalid[0m
+  .create!
     1 character name and title
 [32m      should raise ActiveRecord::RecordInvalid[0m
     2+ character name and title
@@ -495,24 +507,13 @@ Project
 [32m    should eq "Project Test"[0m
   #destroy!
     does not remove folder
-[32m      example at ./spec/models/project_spec.rb:106[0m
+[32m      example at ./spec/models/project_spec.rb:104[0m
 
 ResponseScale
 [32m  is an instance of ResponseScale[0m
 [32m  is valid with valid attributes[0m
   #created_at today
 [32m    is created less than 5 minutes ago[0m
-  #name
-[32m    is required[0m
-  .create!
-    without a name
-[32m      should raise ActiveRecord::RecordInvalid[0m
-    1 character name
-[32m      should raise ActiveRecord::RecordInvalid[0m
-    2+ character name
-[32m      should not raise Exception[0m
-    has unique name
-[32m      should raise ActiveRecord::RecordInvalid[0m
   #respond_to?
     #choices
 [32m      should be truthy[0m
@@ -525,6 +526,14 @@ ResponseScale
 [32m      should be truthy[0m
     missing attribute
 [32m      should not be truthy[0m
+  #name
+[32m    is required[0m
+  .create!
+[32m    1 character name[0m
+[32m    2+ character name[0m
+[32m    with duplicate name[0m
+    without a name
+[32m      should raise ActiveRecord::RecordInvalid[0m
   #destroy!
     destroys choices
 [32m      should be nil[0m
@@ -555,6 +564,7 @@ Response
   .create!
     without assessment
 [32m      should raise ActiveRecord::RecordInvalid[0m
+  .create!
     without value
 [32m      should raise ActiveRecord::RecordInvalid[0m
     with value and assessment
@@ -589,6 +599,7 @@ Schedule
   .create!
     without name or study
 [32m      should raise ActiveRecord::RecordInvalid[0m
+  .create!
     1 character name
 [32m      should raise ActiveRecord::RecordInvalid[0m
     2+ character name and title
@@ -630,6 +641,7 @@ Score
   .create!
     without assessment or name
 [32m      should raise ActiveRecord::RecordInvalid[0m
+  .create!
     without assessment
 [32m      should raise ActiveRecord::RecordInvalid[0m
     without name
@@ -637,8 +649,8 @@ Score
     assessment and name
 [32m      should not raise Exception[0m
     duplicate assessment and name
-[32m      example at ./spec/models/score_spec.rb:71[0m
-[32m      example at ./spec/models/score_spec.rb:77[0m
+[32m      example at ./spec/models/score_spec.rb:69[0m
+[32m      example at ./spec/models/score_spec.rb:75[0m
   #to_s
 [32m    prints assessment name: score[0m
   #destroy!
@@ -670,6 +682,7 @@ StudyEventInstrument
   .create!
     with no instrument or StudyEvent
 [32m      should raise ActiveRecord::RecordInvalid[0m
+  .create!
     with no instrument
 [32m      should raise ActiveRecord::RecordInvalid[0m
     with no StudyEvent
@@ -712,14 +725,15 @@ StudyEvent
   .create!
     without name or arm
 [32m      should raise ActiveRecord::RecordInvalid[0m
+  .create!
     1 character name
 [32m      should raise ActiveRecord::RecordInvalid[0m
     2+ character name and title
 [32m      should not raise Exception[0m
     has unique name
 [32m      should raise ActiveRecord::RecordInvalid[0m
-    #to_s
-[32m      should eq "Test Study Test Study Test Schedule Test Arm 1 Test Study Event"[0m
+  #to_s
+[32m    should eq "Test Study Test Study Test Schedule Test Arm 1 Test Study Event"[0m
 
 StudyParticipant
 [32m  is an instance of StudyParticipant[0m
@@ -742,7 +756,9 @@ StudyParticipant
 [32m    should eq 1[0m
   .create!
     no participant or study
-[32m      should raise ActiveRecord::RecordInvalid[0m
+      .create!
+        
+[32m          should raise ActiveRecord::RecordInvalid[0m
     no participant
 [32m      should raise ActiveRecord::RecordInvalid[0m
     no study
@@ -779,18 +795,15 @@ Study
   #name
 [32m    is required[0m
   .create!
+[32m    1 character name[0m
+[32m    2+ character name[0m
+[32m    with duplicate name[0m
     without a name
 [32m      should raise ActiveRecord::RecordInvalid[0m
-    1 character name
-[32m      should raise ActiveRecord::RecordInvalid[0m
-    2+ character name and title
-[32m      should not raise Exception[0m
-    has unique name
-[32m      should raise ActiveRecord::RecordInvalid[0m
-    #to_s
-[32m      should eq "Test Study"[0m
-    #destroy
-[32m      should be nil[0m
+  #to_s
+[32m    should eq "Test Study"[0m
+  #destroy
+[32m    should be nil[0m
 
 SurveyParticipant
 [32m  is an instance of SurveyParticipant[0m
@@ -814,6 +827,7 @@ SurveyParticipant
   .create!
     no participant or survey
 [32m      should raise ActiveRecord::RecordInvalid[0m
+  .create!
     no participant
 [32m      should raise ActiveRecord::RecordInvalid[0m
     no survey
@@ -834,11 +848,16 @@ Survey
   #created_at today
 [32m    is created less than 5 minutes ago[0m
   #respond_to?
-[32m    should be truthy[0m
-[32m    should be truthy[0m
-[32m    should be truthy[0m
-[32m    should be truthy[0m
-[32m    should be truthy[0m
+    #survey_participants
+[32m      should be truthy[0m
+    #participants
+[32m      should be truthy[0m
+    #visits
+[32m      should be truthy[0m
+    #assessments
+[32m      should be truthy[0m
+    #is_active
+[32m      should be truthy[0m
     #name
 [32m      should be truthy[0m
     timestamps
@@ -869,14 +888,22 @@ User
   #created_at today
 [32m    is created less than 5 minutes ago[0m
   #respond_to?
-[32m    should be truthy[0m
-[32m    should be truthy[0m
-[32m    should be truthy[0m
-[32m    should be truthy[0m
-[32m    should be truthy[0m
-[32m    should be truthy[0m
-[32m    should be truthy[0m
-[32m    should be truthy[0m
+    #username
+[32m      should be truthy[0m
+    #survey_participants
+[32m      should be truthy[0m
+    #surveys
+[32m      should be truthy[0m
+    #visits
+[32m      should be truthy[0m
+    #assessments
+[32m      should be truthy[0m
+    #participant
+[32m      should be truthy[0m
+    #preferences
+[32m      should be truthy[0m
+    #locale
+[32m      should be truthy[0m
     timestamps
 [32m      should be truthy[0m
 [32m      should be truthy[0m
@@ -936,6 +963,7 @@ Visit
   .create!
     no survey and user
 [32m      should raise ActiveRecord::RecordInvalid[0m
+  .create!
     no user
 [32m      should raise ActiveRecord::RecordInvalid[0m
     no survey
@@ -966,32 +994,38 @@ AlexaService
   .testname_slot
 [32m    should eq "testname"[0m
   .list_tests
-[32m    should include "Cesd-r Instrument 2"[0m
-[32m    should include "2"[0m
+[32m    should include "as Cesd-r Instrument 2"[0m
+[32m    should include "3"[0m
   .start_test
 [32m    should eq "    Cannot find instrument blah. Please try again.\n"[0m
 [32m    should eq "Below is a list of the ways you might have felt or behaved. Please check the boxes to tell me how often you have felt this way in the past week or so."[0m
   #read_all
-[32m    should eq "2018-03-28 13:54:18 UTC "[0m
+[32m    should eq "2018-03-28 16:31:01 UTC "[0m
 [32m    should not be nil[0m
 
 InstrumentLoaderCsv
 [32m  is an instance of InstrumentLoaderCsv[0m
   #respond_to?
-[32m    should be truthy[0m
-[32m    should not be truthy[0m
+    #load
+[32m      should be truthy[0m
+    missing attribute
+[32m      should not be truthy[0m
 
 InstrumentLoaderJson
 [32m  is an instance of InstrumentLoaderJson[0m
   #respond_to?
-[32m    should be truthy[0m
-[32m    should not be truthy[0m
+    #load
+[32m      should be truthy[0m
+    missing attribute
+[32m      should not be truthy[0m
 
 InstrumentLoader
 [32m  is an instance of InstrumentLoader[0m
   #respond_to?
-[32m    should be truthy[0m
-[32m    should not be truthy[0m
+    #load
+[32m      should be truthy[0m
+    missing attribute
+[32m      should not be truthy[0m
   #load existing instrument
     overwrite false
 [32m      should raise RuntimeError[0m
@@ -1000,6 +1034,6 @@ InstrumentLoader
   missing instrument
 [32m    should raise RuntimeError[0m
 
-Finished in 10.39 seconds (files took 11.5 seconds to load)
-[32m510 examples, 0 failures[0m
+Finished in 8.46 seconds (files took 5 seconds to load)
+[32m511 examples, 0 failures[0m
 

@@ -9,36 +9,18 @@ RSpec.describe Assessment, type: :model do
   let!(:instrument) { InstrumentTestFactory.test_instrument }
   let!(:assessment_from_db) { Assessment.find_or_create_by! visit: visit }
   
-  include_examples 'valid', Assessment
+  include_examples 'valid object creation', Assessment
   
   describe '#respond_to?' do
     include_context 'shared attributes'
-
-    context '#visit' do
-      it { expect(subject.respond_to?(:visit)).to be_truthy }
-    end
-    context '#survey' do
-      it { expect(subject.respond_to?(:survey)).to be_truthy }
-    end
-    context '#user' do
-      it { expect(subject.respond_to?(:user)).to be_truthy }
-    end
-    context '#order_number' do
-      it { expect(subject.respond_to?(:order_number)).to be_truthy }
-    end
-    context '#assessment_instruments' do
-      it { expect(subject.respond_to?(:assessment_instruments)).to be_truthy }
-    end
-    context '#instruments' do
-      it { expect(subject.respond_to?(:instruments)).to be_truthy }
-    end
-    context '#responses' do
-      it { expect(subject.respond_to?(:responses)).to be_truthy }
-    end 
-    context '#scores' do
-      it { expect(subject.respond_to?(:scores)).to be_truthy }
-    end
-   
+    include_examples 'responds', :visit
+    include_examples 'responds', :survey
+    include_examples 'responds', :user
+    include_examples 'responds', :order_number
+    include_examples 'responds', :assessment_instruments
+    include_examples 'responds', :instruments
+    include_examples 'responds', :responses
+    include_examples 'responds', :scores
     include_examples 'common attributes'
   end
 
@@ -74,11 +56,9 @@ RSpec.describe Assessment, type: :model do
     end
   end
 
-  describe '.create!' do
-    context 'with no visit' do
-      include_examples 'invalid create' 
-    end
+  include_examples 'invalid create', 'with no visit' 
   
+  describe '.create!' do
     context 'with visit' do
       it do
         expect { described_class.find_or_create_by! visit: visit }.not_to \

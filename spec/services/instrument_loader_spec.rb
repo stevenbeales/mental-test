@@ -9,9 +9,9 @@ RSpec.describe InstrumentLoader do
   end
 
   describe '#respond_to?' do
-    it { expect(subject.respond_to?(:load)).to be_truthy }
-   
-    it { expect(subject.respond_to?(:random_name)).not_to be_truthy }
+    include_context 'shared attributes'
+    include_examples 'responds', :load
+    include_examples 'missing attribute'
   end
 
   context '#load existing instrument' do

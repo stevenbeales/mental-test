@@ -4,13 +4,13 @@ RSpec.describe Journal, type: :model do
   subject { TestFactory.test_journal }
   let!(:participant) { TestFactory.test_participant }
 
-  include_examples 'valid', Journal
+  include_examples 'valid object creation', Journal
 
   describe '#respond_to?' do    
     include_context 'shared attributes'
-    include_examples 'attribute?', :journal_entries
-    include_examples 'attribute?', :participant
-    include_examples 'attribute?', :name
+    include_examples 'responds', :journal_entries
+    include_examples 'responds', :participant
+    include_examples 'responds', :name
     include_examples 'common attributes'
   end
 
@@ -49,11 +49,9 @@ RSpec.describe Journal, type: :model do
     end
   end
 
-  describe '.create!' do
-    context 'without name or study' do
-      include_examples 'invalid create' 
-    end  
+  include_examples 'invalid create', 'without name or study' 
 
+  describe '.create!' do
     context '1 character name' do
       it do 
         expect do

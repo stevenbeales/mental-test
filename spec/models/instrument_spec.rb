@@ -3,22 +3,20 @@
 RSpec.describe Instrument, type: :model do
   subject { Instrument.find_or_create_by! name: TestConstants::TEST_INSTRUMENT }
   
-  include_examples 'valid', Instrument
+  include_examples 'valid object creation', Instrument
   
   describe '#respond_to?' do
     include_context 'shared attributes'
-
-    it { expect(subject.respond_to?(:assessment_instruments)).to be_truthy }
-    it { expect(subject.respond_to?(:assessments)).to be_truthy }
-    it { expect(subject.respond_to?(:study_event_instruments)).to be_truthy }
-    it { expect(subject.respond_to?(:study_events)).to be_truthy }
-  
-    include_examples 'attribute?', :instructions
-    include_examples 'attribute?', :content
-    include_examples 'attribute?', :title
-    include_examples 'attribute?', :pages
-    include_examples 'attribute?', :items
-    include_examples 'attribute?', :name
+    include_examples 'responds', :assessment_instruments
+    include_examples 'responds', :assessments
+    include_examples 'responds', :study_event_instruments
+    include_examples 'responds', :study_events
+    include_examples 'responds', :instructions
+    include_examples 'responds', :content
+    include_examples 'responds', :title
+    include_examples 'responds', :pages
+    include_examples 'responds', :items
+    include_examples 'responds', :name
     include_examples 'common attributes'
   end
 
@@ -58,21 +56,7 @@ RSpec.describe Instrument, type: :model do
     end
   end
 
-  describe '#save!' do
-    context 'without a name' do
-      include_examples 'invalid create' 
-    end
-
-    it 'with 1 character name' do
-      ins = described_class.new name: 'a'
-      expect { ins.save! }.to raise_error ActiveRecord::RecordInvalid
-    end
-
-    it 'with duplicate name' do
-      ins = described_class.new name: TestConstants::TEST_INSTRUMENT
-      expect { ins.save! }.to raise_error ActiveRecord::RecordInvalid
-    end
-  end
+  include_examples 'create!_with_name', 'without a name', TestConstants::TEST_INSTRUMENT
 
   describe '#to_s' do
     it { expect(subject.to_s).to eq(TestConstants::TEST_INSTRUMENT) }

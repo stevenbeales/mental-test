@@ -5,12 +5,12 @@ RSpec.describe Folder, type: :model do
   let!(:project1) { ProjectTestFactory.test_project }
   let!(:project2) { ProjectTestFactory.test_project2 } 
   
-  include_examples 'valid', Folder
+  include_examples 'valid object creation', Folder
 
   describe '#respond_to?' do
     include_context 'shared attributes'
-    include_examples 'attribute?', :projects
-    include_examples 'attribute?', :name
+    include_examples 'responds', :projects
+    include_examples 'responds', :name
     include_examples 'common attributes'
   end
 
@@ -24,35 +24,7 @@ RSpec.describe Folder, type: :model do
     end
   end
 
-  describe '.create!' do
-    context 'without a name' do
-      include_examples 'invalid create' 
-    end  
-
-    context 'with 1 character name' do
-      it do
-        expect { Folder.create! name: 'a' }.to raise_error \
-          ActiveRecord::RecordInvalid
-      end
-    end
-    
-    context 'with 2+ character name' do
-      it do
-        expect do
-          Folder.find_or_create_by! name: 'as' 
-        end.to_not raise_error
-      end
-    end
-
-    context 'with unique name' do
-      it do
-        rs = Folder.create! name: 'a12'
-        expect { Folder.create! name: 'a12' }.to \
-          raise_error ActiveRecord::RecordInvalid
-        rs.destroy!
-      end
-    end
-  end
+  include_examples 'create!_with_name', 'without a name', TestConstants::TEST_FOLDER
 
   describe '#destroy!' do
     context 'with projects' do 

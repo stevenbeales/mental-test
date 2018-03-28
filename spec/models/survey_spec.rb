@@ -3,18 +3,16 @@
 RSpec.describe Survey do
   subject { TestFactory.test_survey }
 
-  include_examples 'valid', Survey
+  include_examples 'valid object creation', Survey
     
   describe '#respond_to?' do
-    include_context 'shared attributes'
-
-    it { expect(subject.respond_to?(:survey_participants)).to be_truthy }
-    it { expect(subject.respond_to?(:participants)).to be_truthy }
-    it { expect(subject.respond_to?(:visits)).to be_truthy }
-    it { expect(subject.respond_to?(:assessments)).to be_truthy }
-    it { expect(subject.respond_to?(:is_active)).to be_truthy }
-   
-    include_examples 'attribute?', :name
+    include_context 'shared attributes'   
+    include_examples 'responds', :survey_participants
+    include_examples 'responds', :participants
+    include_examples 'responds', :visits
+    include_examples 'responds', :assessments
+    include_examples 'responds', :is_active
+    include_examples 'responds', :name
     include_examples 'common attributes'
   end
   
@@ -28,27 +26,8 @@ RSpec.describe Survey do
     end
   end
 
-  describe '.create!' do
-    context 'without name' do
-      include_examples 'invalid create' 
-    end
-
-    it '1 character name' do
-      expect { described_class.create!(name: 'a') }.to raise_error \
-        ActiveRecord::RecordInvalid
-    end
-
-    it '2+ character name' do
-      expect { described_class.find_or_create_by!(name: 'as') }.not_to \
-        raise_error
-    end
-
-    it 'with duplicate name' do
-      expect { Survey.create!(name: TestConstants::TEST_SURVEY) }.to \
-        raise_error ActiveRecord::RecordInvalid
-    end
-  end
-
+  include_examples 'create!_with_name', 'without name', TestConstants::TEST_SURVEY
+  
   describe '.list_tests' do
     it do
       described_class.find_or_create_by! name: 'Test Survey'

@@ -6,15 +6,15 @@ RSpec.describe Arm, type: :model do
   let!(:study) { TestFactory.test_study }
   let!(:study_event) { TestFactory.test_study_event }
 
-  include_examples 'valid', Arm
+  include_examples 'valid object creation', Arm
 
   describe '#respond_to?' do
     include_context 'shared attributes'
-    include_examples 'attribute?', :schedule
-    include_examples 'attribute?', :study
-    include_examples 'attribute?', :study_events
-    include_examples 'attribute?', :number
-    include_examples 'attribute?', :name
+    include_examples 'responds', :schedule
+    include_examples 'responds', :study
+    include_examples 'responds', :study_events
+    include_examples 'responds', :number
+    include_examples 'responds', :name
     include_examples 'common attributes'
   end
 
@@ -66,18 +66,16 @@ RSpec.describe Arm, type: :model do
 
   describe '#number' do
     include_context 'restore attributes'
-    include_examples 'number'
+    include_examples 'number specs'
   end
 
   describe '#study_events' do
     it { expect(subject.study_events.count).to eq(1) }
   end
 
+  include_examples 'invalid create', 'no name or schedule' 
+  
   describe '.create!' do
-    context 'no name or schedule' do
-      include_examples 'invalid create' 
-    end
-
     context '1 character name' do
       it do
         expect do 

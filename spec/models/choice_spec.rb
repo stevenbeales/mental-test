@@ -4,15 +4,15 @@ RSpec.describe Choice, type: :model do
   subject { TestFactory.test_choice }
   let!(:scale) { InstrumentTestFactory.test_response_scale }
 
-  include_examples 'valid', Choice
+  include_examples 'valid object creation', Choice
 
   describe '#respond_to?' do
     include_context 'shared attributes'
-    include_examples 'attribute?', :response_scale
-    include_examples 'attribute?', :responses
-    include_examples 'attribute?', :description
-    include_examples 'attribute?', :score
-    include_examples 'attribute?', :value
+    include_examples 'responds', :response_scale
+    include_examples 'responds', :responses
+    include_examples 'responds', :description
+    include_examples 'responds', :score
+    include_examples 'responds', :value
     include_examples 'common attributes'
   end
  
@@ -46,11 +46,9 @@ RSpec.describe Choice, type: :model do
     end
   end
 
+  include_examples 'invalid create', 'without response scale or description' 
+  
   describe '.create!' do
-    context 'without response scale or description' do
-      include_examples 'invalid create' 
-    end
-
     context 'without response scale' do
       it do 
         expect do

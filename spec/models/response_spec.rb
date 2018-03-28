@@ -9,13 +9,13 @@ RSpec.describe Response, type: :model do
   let!(:choice) { TestFactory.test_choice }
   let!(:scale) { InstrumentTestFactory.test_response_scale }
   
-  include_examples 'valid', Response
+  include_examples 'valid object creation', Response
 
   describe '#respond_to?' do
     include_context 'shared attributes'
-    include_examples 'attribute?', :value   
-    include_examples 'attribute?', :assessment    
-    include_examples 'attribute?', :choice
+    include_examples 'responds', :value   
+    include_examples 'responds', :assessment    
+    include_examples 'responds', :choice
     include_examples 'common attributes'
   end
 
@@ -39,16 +39,13 @@ RSpec.describe Response, type: :model do
     end
   end
 
+  include_examples 'invalid create', 'without assessment' 
+   
   describe '.create!' do
-    context 'without assessment' do
-      include_examples 'invalid create' 
-    end
-
     context 'without value' do
       it { expect { described_class.create! assessment: ass }.to raise_error ActiveRecord::RecordInvalid }
     end
   
-    
     context 'with value and assessment' do
       it { expect { described_class.find_or_create_by!(assessment: ass, value: 'something') }.not_to raise_error }
     end

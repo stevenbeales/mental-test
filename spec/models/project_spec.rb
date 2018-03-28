@@ -4,14 +4,14 @@ RSpec.describe Project, type: :model do
   subject { ProjectTestFactory.test_project }
   let!(:folder1) { ProjectTestFactory.test_folder }
 
-  include_examples 'valid', Project
+  include_examples 'valid object creation', Project
   
   describe '#respond_to?' do
     include_context 'shared attributes'
-    include_examples 'attribute?', :title
-    include_examples 'attribute?', :folder
-    include_examples 'attribute?', :status
-    include_examples 'attribute?', :name
+    include_examples 'responds', :title
+    include_examples 'responds', :folder
+    include_examples 'responds', :status
+    include_examples 'responds', :name
     include_examples 'common attributes'
   end
 
@@ -67,11 +67,9 @@ RSpec.describe Project, type: :model do
     end
   end
   
+  include_examples 'invalid create', 'without name or title'
+   
   describe '.create!' do
-    context 'without name or title' do
-      include_examples 'invalid create' 
-    end  
-
     context '1 character name and title' do
       it { expect { described_class.create! name: 'a', title: 'title' }.to raise_error ActiveRecord::RecordInvalid }
     end

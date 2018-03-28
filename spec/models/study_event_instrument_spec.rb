@@ -5,12 +5,12 @@ RSpec.describe StudyEventInstrument, type: :model do
   let!(:instrument) { Instrument.find_by_name(TestConstants::TEST_INSTRUMENT) }
   let!(:study_event) { TestFactory.test_study_event }
   
-  include_examples 'valid', StudyEventInstrument
+  include_examples 'valid object creation', StudyEventInstrument
 
   describe '#respond_to?' do
     include_context 'shared attributes'
-    include_examples 'attribute?', :study_event
-    include_examples 'attribute?', :instrument
+    include_examples 'responds', :study_event
+    include_examples 'responds', :instrument
     include_examples 'common attributes'
   end
 
@@ -34,11 +34,9 @@ RSpec.describe StudyEventInstrument, type: :model do
     end
   end
   
-  describe '.create!' do
-    context 'with no instrument or StudyEvent' do
-      include_examples 'invalid create' 
-    end
+  include_examples 'invalid create', 'with no instrument or StudyEvent' 
 
+  describe '.create!' do
     context 'with no instrument' do
       it { expect { described_class.create! study_event: study_event }.to raise_error ActiveRecord::RecordInvalid }
     end

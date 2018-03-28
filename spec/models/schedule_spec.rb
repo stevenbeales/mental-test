@@ -4,12 +4,12 @@ RSpec.describe Schedule, type: :model do
   subject { TestFactory.test_schedule }
   let!(:study) { TestFactory.test_study }
 
-  include_examples 'valid', Schedule
+  include_examples 'valid object creation', Schedule
 
   describe '#respond_to?' do
     include_context 'shared attributes'
-    include_examples 'attribute?', :arms
-    include_examples 'attribute?', :study
+    include_examples 'responds', :arms
+    include_examples 'responds', :study
     include_examples 'common attributes'
   end
 
@@ -33,11 +33,9 @@ RSpec.describe Schedule, type: :model do
     end
   end
 
-  describe '.create!' do
-    context 'without name or study' do
-      include_examples 'invalid create' 
-    end  
+  include_examples 'invalid create', 'without name or study' 
 
+  describe '.create!' do
     context '1 character name' do
       it { expect { Schedule.create! name: 'a', study: study }.to raise_error ActiveRecord::RecordInvalid }
     end

@@ -4,16 +4,14 @@ RSpec.describe Item, type: :model do
   subject { Item.find_or_create_by! name: 'Appetite1' }
   let!(:instrument) { InstrumentTestFactory.test_instrument }
 
-  include_examples 'valid', Item
+  include_examples 'valid object creation', Item
 
   describe '#respond_to?' do
     include_context 'shared attributes'
-   
-    it { expect(attribute?(:choices)).to be_truthy }
-    it { expect(attribute?(:instrument)).to be_truthy }
-    it { expect(attribute?(:response_scale)).to be_truthy }
-   
-    include_examples 'attribute?', :name
+    include_examples 'responds', :choices
+    include_examples 'responds', :instrument
+    include_examples 'responds', :response_scale
+    include_examples 'responds', :name
     include_examples 'common attributes'
   end
 

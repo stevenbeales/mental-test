@@ -3,7 +3,15 @@
 RSpec.describe ResponseScale, type: :model do
   subject { InstrumentTestFactory.test_response_scale }
   
-  include_examples 'valid', ResponseScale
+  include_examples 'valid object creation', ResponseScale
+
+  describe '#respond_to?' do
+    include_context 'shared attributes'
+    include_examples 'responds', :choices
+    include_examples 'responds', :items
+    include_examples 'responds', :name
+    include_examples 'common attributes'
+  end
 
   describe '#name' do
     include_context 'restore attributes'
@@ -15,36 +23,8 @@ RSpec.describe ResponseScale, type: :model do
     end
   end
 
-  describe '.create!' do
-    context 'without a name' do
-      include_examples 'invalid create' 
-    end  
-
-    context '1 character name' do
-      it { expect { described_class.create! name: 'a' }.to raise_error ActiveRecord::RecordInvalid }
-    end
+  include_examples 'create!_with_name', 'without a name', TestConstants::TEST_RESPONSE_SCALE 
     
-    context '2+ character name' do
-      it { expect { described_class.find_or_create_by! name: 'as' }.to_not raise_error }
-    end
-
-    context 'has unique name' do
-      it do
-        rs = described_class.create! name: 'a12'
-        expect { described_class.create! name: 'a12' }.to raise_error ActiveRecord::RecordInvalid
-        rs.destroy!
-      end
-    end
-  end
-
-  describe '#respond_to?' do
-    include_context 'shared attributes'
-    include_examples 'attribute?', :choices
-    include_examples 'attribute?', :items
-    include_examples 'attribute?', :name
-    include_examples 'common attributes'
-  end
-
   describe '#destroy!' do
     context 'destroys choices' do 
       rsubject = described_class.create! name: 'a13'

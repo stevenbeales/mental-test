@@ -5,12 +5,12 @@ RSpec.describe AssessmentInstrument, type: :model do
   let!(:instrument) { InstrumentTestFactory.test_instrument }
   let!(:assess) { TestFactory.test_assessment }
   
-  include_examples 'valid', AssessmentInstrument
+  include_examples 'valid object creation', AssessmentInstrument
 
   describe '#respond_to?' do
     include_context 'shared attributes'
-    include_examples 'attribute?', :assessment
-    include_examples 'attribute?', :instrument
+    include_examples 'responds', :assessment
+    include_examples 'responds', :instrument
     include_examples 'common attributes'
   end
 
@@ -42,11 +42,9 @@ RSpec.describe AssessmentInstrument, type: :model do
     end
   end
 
+  include_examples 'invalid create', 'no assessment or instrument'   
+  
   describe '.create!' do
-    context 'no instrument or assessment' do
-      include_examples 'invalid create' 
-    end
-
     context 'no instrument' do
       it do 
         expect do 

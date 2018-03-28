@@ -5,12 +5,12 @@ RSpec.describe SurveyParticipant, type: :model do
   let!(:survey) { TestFactory.test_survey }
   let!(:participant) { TestFactory.test_participant }
   
-  include_examples 'valid', SurveyParticipant
+  include_examples 'valid object creation', SurveyParticipant
   
   describe '#respond_to?' do
     include_context 'shared attributes'
-    include_examples 'attribute?', :survey
-    include_examples 'attribute?', :participant
+    include_examples 'responds', :survey
+    include_examples 'responds', :participant
     include_examples 'common attributes'
   end
 
@@ -34,11 +34,9 @@ RSpec.describe SurveyParticipant, type: :model do
     end
   end
   
+  include_examples 'invalid create', 'no participant or survey' 
+  
   describe '.create!' do
-    context 'no participant or survey' do
-      include_examples 'invalid create' 
-    end
-
     context 'no participant' do
       it do
         expect { SurveyParticipant.create! participant: participant }.to \

@@ -6,20 +6,20 @@ RSpec.describe Visit, type: :model do
   let!(:user) { TestFactory.test_user }
   let!(:assessment) { TestFactory.test_assessment }
     
-  include_examples 'valid', Visit
+  include_examples 'valid object creation', Visit
 
   describe '#respond_to?' do
     include_context 'shared attributes'
-    include_examples 'attribute?', :user
-    include_examples 'attribute?', :survey
-    include_examples 'attribute?', :assessments
-    include_examples 'attribute?', :number
+    include_examples 'responds', :user
+    include_examples 'responds', :survey
+    include_examples 'responds', :assessments
+    include_examples 'responds', :number
     include_examples 'common attributes'
   end
 
   describe '#number' do
     include_context 'restore attributes'
-    include_examples 'number'
+    include_examples 'number specs'
   end
 
   describe '#user' do
@@ -42,11 +42,9 @@ RSpec.describe Visit, type: :model do
     end
   end
 
-  describe '.create!' do
-    context 'no survey and user' do
-      include_examples 'invalid create' 
-    end
+  include_examples 'invalid create', 'no survey and user' 
 
+  describe '.create!' do
     context 'no user' do
       it do
         expect do

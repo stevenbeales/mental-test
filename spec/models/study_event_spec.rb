@@ -6,16 +6,16 @@ RSpec.describe StudyEvent, type: :model do
   let!(:schedule) { TestFactory.test_schedule }
   let!(:study) { TestFactory.test_study }
  
-  include_examples 'valid', StudyEvent
+  include_examples 'valid object creation', StudyEvent
 
   describe '#respond_to?' do
     include_context 'shared attributes'
-    include_examples 'attribute?', :study_event_instruments
-    include_examples 'attribute?', :instruments
-    include_examples 'attribute?', :arm
-    include_examples 'attribute?', :schedule
-    include_examples 'attribute?', :study
-    include_examples 'attribute?', :name
+    include_examples 'responds', :study_event_instruments
+    include_examples 'responds', :instruments
+    include_examples 'responds', :arm
+    include_examples 'responds', :schedule
+    include_examples 'responds', :study
+    include_examples 'responds', :name
     include_examples 'common attributes'
   end
 
@@ -29,11 +29,9 @@ RSpec.describe StudyEvent, type: :model do
     end
   end
 
+  include_examples 'invalid create', 'without name or arm'
+  
   describe '.create!' do
-    context 'without name or arm' do
-      include_examples 'invalid create' 
-    end  
-
     context '1 character name' do
       it { expect { described_class.create! name: 'a', arm: arm }.to raise_error ActiveRecord::RecordInvalid }
     end
@@ -49,9 +47,9 @@ RSpec.describe StudyEvent, type: :model do
         rs.destroy!
       end
     end
+  end
 
-    describe '#to_s' do
-      it { expect(subject.to_s).to eq "#{study} #{arm} #{TestConstants::TEST_STUDY_EVENT}" }
-    end
+  describe '#to_s' do
+    it { expect(subject.to_s).to eq "#{study} #{arm} #{TestConstants::TEST_STUDY_EVENT}" }
   end
 end

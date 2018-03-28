@@ -3,31 +3,78 @@
 # Note: file cannot be renamed to shared_spec because of rspec bug that double loads 
 # shared spec files ending in _spec.rb https://github.com/rspec/rspec-core/issues/82
 
-# Enables testing of attributes and methods common to multiple classes 
-
-RSpec.shared_examples 'common attributes' do
+# Tests timestamps existence - common to multiple classes
+RSpec.shared_examples 'timestamps?' do
   context 'timestamps' do
-    it { expect(attribute?(:updated_at)).to be_truthy }
-    it { expect(attribute?(:created_at)).to be_truthy }
+    it { expect(responds(:updated_at)).to be_truthy }
+    it { expect(responds(:created_at)).to be_truthy }
   end
+end
+
+# Tests that a class does not respond to a missing attribute
+RSpec.shared_examples 'missing attribute' do
   context 'missing attribute' do
     it { expect(subject.respond_to?(:not_attribute)).not_to be_truthy }
   end
 end
 
-RSpec.shared_examples 'attribute?' do |attribute|
+# Tests common to multiple classes - existence of timestamps 
+# and non-existence of missing attributes
+RSpec.shared_examples 'common attributes' do
+  include_examples 'timestamps?'
+  include_examples 'missing attribute'
+end
+
+# Tests if an object responds to method
+RSpec.shared_examples 'responds' do |attribute|
   context "##{attribute}" do
-    it { expect(attribute?(attribute)).to be_truthy }
+    it { expect(responds(attribute)).to be_truthy }
   end
 end
 
-RSpec.shared_examples 'invalid create' do
-  it do
-    expect { described_class.create! }.to raise_error ActiveRecord::RecordInvalid
+# Tests if an object is invalid with default constructor
+RSpec.shared_examples 'invalid create' do |text|
+  describe '.create!' do
+    context text do 
+      it do
+        expect { described_class.create! }.to raise_error ActiveRecord::RecordInvalid
+      end
+    end
   end
 end
 
-RSpec.shared_examples 'number' do
+# Tests object creation - 
+#   with missing name 
+#   1 character name
+#   longer than 1 character
+#   duplicate names 
+RSpec.shared_examples 'create!_with_name' do |text, dup|
+  describe '.create!' do
+    context text do 
+      it do
+        expect { described_class.create! }.to raise_error ActiveRecord::RecordInvalid
+      end
+    end
+   
+    it '1 character name' do
+      expect { described_class.create!(name: 'a') }.to raise_error \
+        ActiveRecord::RecordInvalid
+    end
+
+    it '2+ character name' do
+      expect { described_class.find_or_create_by!(name: 'as') }.not_to \
+        raise_error
+    end
+
+    it 'with duplicate name' do
+      expect { described_class.create!(name: dup) }.to \
+        raise_error ActiveRecord::RecordInvalid
+    end
+  end
+end
+
+# Tests numeric values
+RSpec.shared_examples 'number specs' do
   it 'is required' do
     subject.number = nil
     subject.valid?
@@ -71,7 +118,8 @@ RSpec.shared_examples 'number' do
   end
 end
 
-RSpec.shared_examples 'valid' do |klass|
+# Tests for valid object creation
+RSpec.shared_examples 'valid object creation' do |klass|
   it "is an instance of #{klass}" do
     expect(subject).to be_a klass
   end

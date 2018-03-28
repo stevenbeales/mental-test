@@ -5,7 +5,7 @@
 
 # Enables testing of attributes and methods common to multiple classes 
 RSpec.shared_context 'shared attributes', a: :b do
-  def attribute?(attribute) 
+  def responds(attribute) 
     subject.respond_to?(attribute)
   end
 

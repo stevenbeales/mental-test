@@ -5,19 +5,18 @@ RSpec.describe User, type: :model do
   let!(:survey) { TestFactory.test_survey }
   let!(:participant) { TestFactory.test_participant }
 
-  include_examples 'valid', User
+  include_examples 'valid object creation', User
 
   describe '#respond_to?' do
-    include_context 'shared attributes'
-    it { expect(subject.respond_to?(:username)).to be_truthy }
-    it { expect(subject.respond_to?(:survey_participants)).to be_truthy }
-    it { expect(subject.respond_to?(:surveys)).to be_truthy }
-    it { expect(subject.respond_to?(:visits)).to be_truthy }
-    it { expect(subject.respond_to?(:assessments)).to be_truthy }
-    it { expect(subject.respond_to?(:participant)).to be_truthy }
-    it { expect(subject.respond_to?(:preferences)).to be_truthy }
-    it { expect(subject.respond_to?(:locale)).to be_truthy }
- 
+    include_context 'shared attributes'   
+    include_examples 'responds', :username
+    include_examples 'responds', :survey_participants
+    include_examples 'responds', :surveys
+    include_examples 'responds', :visits
+    include_examples 'responds', :assessments
+    include_examples 'responds', :participant
+    include_examples 'responds', :preferences
+    include_examples 'responds', :locale
     include_examples 'common attributes'
   end
   

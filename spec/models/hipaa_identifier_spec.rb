@@ -3,7 +3,7 @@
 RSpec.describe HipaaIdentifier, type: :model do
   subject { TestFactory.test_hipaa_identifier }
  
-  include_examples 'valid', HipaaIdentifier
+  include_examples 'valid object creation', HipaaIdentifier
 
   describe '#respond_to?' do
     include_context 'shared attributes'
@@ -20,29 +20,9 @@ RSpec.describe HipaaIdentifier, type: :model do
     end
   end
 
-  describe '.create!' do
-    context 'without a name' do
-      include_examples 'invalid create' 
-    end  
+  include_examples 'create!_with_name', 'without a name', TestConstants::TEST_HIPAA_IDENTIFIER
 
-    context '2 character name' do
-      it { expect { described_class.create! name: 'as' }.to raise_error ActiveRecord::RecordInvalid }
-    end
-    
-    context '3+ character name and title' do
-      it { expect { described_class.find_or_create_by! name: 'ast' }.to_not raise_error }
-    end
-
-    context 'has unique name' do
-      it do
-        rs = described_class.create! name: 'ame'
-        expect { described_class.create! name: 'ame' }.to raise_error ActiveRecord::RecordInvalid
-        rs.destroy!
-      end
-    end
-
-    describe '#to_s' do
-      it { expect(subject.to_s).to eq TestConstants::TEST_HIPAA_IDENTIFIER }
-    end
+  describe '#to_s' do
+    it { expect(subject.to_s).to eq TestConstants::TEST_HIPAA_IDENTIFIER }
   end
 end
