@@ -6,8 +6,8 @@ checks:
 build:
     dependencies:
         before:
-            - psql -h 127.0.0.1 -c 'CREATE DATABASE mental_health_test;' -U scrutinizer 
-            - psql -h 127.0.0.1 -d mental_health_test -c "CREATE USER mental WITH PASSWORD 'health';" -U scrutinizer
+            - psql -h 127.0.0.1 -c 'CREATE DATABASE mental_health_test;' -U scrutinizer -P scrutinizer
+            - psql -h 127.0.0.1 -d mental_health_test -c "CREATE USER mental WITH PASSWORD 'health';" -U scrutinizer -P scrutinizer
     environment:
         # Languages
         ruby: 2.4.2
