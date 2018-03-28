@@ -17,7 +17,7 @@ RSpec.describe ResponseScale, type: :model do
 
   describe '.create!' do
     context 'without a name' do
-      it { expect { described_class.create! }.to raise_error ActiveRecord::RecordInvalid }
+      include_examples 'invalid create' 
     end  
 
     context '1 character name' do
@@ -39,10 +39,8 @@ RSpec.describe ResponseScale, type: :model do
 
   describe '#respond_to?' do
     include_context 'shared attributes'
-   
-    it { expect(subject.respond_to?(:items)).to be_truthy }
-    it { expect(subject.respond_to?(:choices)).to be_truthy }
-
+    include_examples 'attribute?', :choices
+    include_examples 'attribute?', :items
     include_examples 'attribute?', :name
     include_examples 'common attributes'
   end
@@ -61,13 +59,5 @@ RSpec.describe ResponseScale, type: :model do
   
   describe '#to_s' do
     it { expect(subject.to_s).to eq TestConstants::TEST_RESPONSE_SCALE }
-  end
-    
-  describe '#created_at today' do
-    # expect record to be created within the last 
-    # 5 minutes to check timestamp works
-    it 'is created less than 5 minutes ago' do
-      expect(Time.now - subject.created_at).to be < 300
-    end
   end
 end

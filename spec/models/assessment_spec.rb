@@ -76,10 +76,7 @@ RSpec.describe Assessment, type: :model do
 
   describe '.create!' do
     context 'with no visit' do
-      it do 
-        expect { described_class.create! }.to raise_error \
-          ActiveRecord::RecordInvalid
-      end
+      include_examples 'invalid create' 
     end
   
     context 'with visit' do
@@ -122,14 +119,6 @@ RSpec.describe Assessment, type: :model do
   describe '#to_s' do
     it do 
       expect(described_class.where(visit: visit).first.to_s).to eq(visit.to_s)
-    end
-  end
-
-  describe '#created_at today' do
-    # expect record to be created within the last 
-    # 5 minutes to check timestamp works
-    it 'is created less than 5 minutes ago' do
-      expect(Time.now - subject.created_at).to be < 300
     end
   end
 

@@ -10,10 +10,8 @@ RSpec.describe StudyEvent, type: :model do
 
   describe '#respond_to?' do
     include_context 'shared attributes'
-  
-    it { expect(subject.respond_to?(:study_event_instruments)).to be_truthy }
-    it { expect(subject.respond_to?(:instruments)).to be_truthy }
-   
+    include_examples 'attribute?', :study_event_instruments
+    include_examples 'attribute?', :instruments
     include_examples 'attribute?', :arm
     include_examples 'attribute?', :schedule
     include_examples 'attribute?', :study
@@ -33,7 +31,7 @@ RSpec.describe StudyEvent, type: :model do
 
   describe '.create!' do
     context 'without name or arm' do
-      it { expect { described_class.create! }.to raise_error ActiveRecord::RecordInvalid }
+      include_examples 'invalid create' 
     end  
 
     context '1 character name' do
@@ -54,14 +52,6 @@ RSpec.describe StudyEvent, type: :model do
 
     describe '#to_s' do
       it { expect(subject.to_s).to eq "#{study} #{arm} #{TestConstants::TEST_STUDY_EVENT}" }
-    end
-
-    describe '#created_at today' do
-      # expect record to be created within the last 
-      # 5 minutes to check timestamp works
-      it 'is created less than 5 minutes ago' do
-        expect(Time.now - subject.created_at).to be < 300
-      end
     end
   end
 end

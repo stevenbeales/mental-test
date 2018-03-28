@@ -21,6 +21,56 @@ RSpec.shared_examples 'attribute?' do |attribute|
   end
 end
 
+RSpec.shared_examples 'invalid create' do
+  it do
+    expect { described_class.create! }.to raise_error ActiveRecord::RecordInvalid
+  end
+end
+
+RSpec.shared_examples 'number' do
+  it 'is required' do
+    subject.number = nil
+    subject.valid?
+    expect(subject.errors[:number].size).to eq(2)
+  end
+
+  it 'is not negative' do
+    subject.number = -1
+    subject.valid?
+    expect(subject.errors[:number].size).to eq(1)
+  end
+
+  context 'is < 10001' do
+    it do
+      subject.number = 10_001
+      subject.valid?
+      expect(subject.errors[:number].size).to eq(1)
+    end
+
+    it 'may equal 10000' do
+      subject.number = 10_000
+      subject.valid?
+      expect(subject.errors[:number].size).to eq(0)
+    end
+  end
+
+  context 'is positive' do
+    it do
+      subject.number = 0
+      subject.valid?
+      expect(subject.errors[:number].size).to eq(1)
+    end
+  end
+
+  context 'is integer' do
+    it do
+      subject.number = 1.5
+      subject.valid?
+      expect(subject.errors[:number].size).to eq(1)
+    end
+  end
+end
+
 RSpec.shared_examples 'valid' do |klass|
   it "is an instance of #{klass}" do
     expect(subject).to be_a klass
@@ -28,5 +78,13 @@ RSpec.shared_examples 'valid' do |klass|
 
   it 'is valid with valid attributes' do
     expect(subject).to be_valid
+  end
+
+  describe '#created_at today' do
+    # expect record to be created within the last 
+    # 5 minutes to check timestamp works
+    it 'is created less than 5 minutes ago' do
+      expect(Time.now - subject.created_at).to be < 300
+    end
   end
 end

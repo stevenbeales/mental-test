@@ -7,9 +7,7 @@ RSpec.describe HipaaIdentifier, type: :model do
 
   describe '#respond_to?' do
     include_context 'shared attributes'
-
-    include_examples 'attribute?', :name
-    it { expect(subject.respond_to?(:not_attribute)).not_to be_truthy }
+    include_examples 'common attributes'
   end
 
   describe '#name' do
@@ -24,7 +22,7 @@ RSpec.describe HipaaIdentifier, type: :model do
 
   describe '.create!' do
     context 'without a name' do
-      it { expect { described_class.create! }.to raise_error ActiveRecord::RecordInvalid }
+      include_examples 'invalid create' 
     end  
 
     context '2 character name' do

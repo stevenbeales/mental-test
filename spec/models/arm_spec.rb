@@ -10,30 +10,22 @@ RSpec.describe Arm, type: :model do
 
   describe '#respond_to?' do
     include_context 'shared attributes'
- 
-    context '#number' do
-      it { expect(subject.respond_to?(:number)).to be_truthy }
-    end
-    context '#schedule' do
-      it { expect(subject.respond_to?(:schedule)).to be_truthy }
-    end
-    context '#study' do
-      it { expect(subject.respond_to?(:study)).to be_truthy }
-    end
-    context '#study_events' do
-      it { expect(subject.respond_to?(:study_events)).to be_truthy }
-    end
- 
+    include_examples 'attribute?', :schedule
+    include_examples 'attribute?', :study
+    include_examples 'attribute?', :study_events
+    include_examples 'attribute?', :number
     include_examples 'attribute?', :name
     include_examples 'common attributes'
   end
 
   describe '#name' do
-    it 'is set to "arm1" if missing' do
-      subject.name = nil
-      subject.valid?
-      expect(subject.name).to eq('arm ' + subject.number.to_s)
-      subject.restore_attributes
+    context 'when missing' do
+      it 'set to "arm1"' do
+        subject.name = nil
+        subject.valid?
+        expect(subject.name).to eq('arm ' + subject.number.to_s)
+        subject.restore_attributes
+      end
     end
   end
 
@@ -46,7 +38,7 @@ RSpec.describe Arm, type: :model do
       expect(subject.errors[:schedule].size).to eq(1)
     end
 
-    context 'missing schedule' do
+    context 'when missing' do
       it 'study is nil' do
         subject.schedule = nil
         expect(subject.study).to be_nil
@@ -54,68 +46,27 @@ RSpec.describe Arm, type: :model do
     end
 
     context '#arms' do
-      it do
+      it 'includes arm' do
         subject.schedule.arms.concat(subject)
-        expect(subject.schedule.arms.index(subject)).not_to be_nil 
+        expect(subject.schedule.arms).to include(subject) 
       end
       
       it do
         subject.schedule.arms.concat(subject)
-        expect(subject.schedule.arms.size).to be > 0 
+        expect(subject.schedule.arms).not_to be_empty 
       end
     end
   end
 
-  describe '#study' do
-    it 'equals test study' do
-      expect(subject.schedule.study).to eq(subject.study)
+  context '#study' do
+    it 'equals schedule study' do
+      expect(subject.study.id).to eq(subject.schedule.study.id)
     end
   end
 
   describe '#number' do
     include_context 'restore attributes'
-    
-    it 'is required and positive' do
-      subject.number = nil
-      subject.valid?
-      expect(subject.errors[:number].size).to eq(2)
-    end
- 
-    it 'must be positive' do
-      subject.number = -1
-      subject.valid?
-      expect(subject.errors[:number].size).to eq(1)
-    end
- 
-    context 'must be < 10001' do
-      it do
-        subject.number = 10_001
-        subject.valid?
-        expect(subject.errors[:number].size).to eq(1)
-      end
-
-      it 'must equal 10000' do
-        subject.number = 10_000
-        subject.valid?
-        expect(subject.errors[:number].size).to eq(0)
-      end
-    end
-
-    context 'must be > 0' do
-      it do
-        subject.number = 0
-        subject.valid?
-        expect(subject.errors[:number].size).to eq(1)
-      end
-    end
-
-    context 'must be an integer' do
-      it do
-        subject.number = 1.5
-        subject.valid?
-        expect(subject.errors[:number].size).to eq(1)
-      end
-    end
+    include_examples 'number'
   end
 
   describe '#study_events' do
@@ -124,11 +75,7 @@ RSpec.describe Arm, type: :model do
 
   describe '.create!' do
     context 'no name or schedule' do
-      it do 
-        expect do
-          described_class.create! 
-        end.to raise_error ActiveRecord::RecordInvalid
-      end
+      include_examples 'invalid create' 
     end
 
     context '1 character name' do
@@ -173,14 +120,6 @@ RSpec.describe Arm, type: :model do
         expect(subject.to_s).to eq "#{subject.study} #{subject.schedule} " \
                                    + "#{subject.name} #{subject.number}" 
       end  
-    end
-
-    describe '#created_at today' do
-      # expect record to be created within the last 
-      # 5 minutes to check timestamp works
-      it 'is created less than 5 minutes ago' do
-        expect(Time.now - subject.created_at).to be < 300
-      end
     end
   end
 end

@@ -13,7 +13,6 @@ RSpec.describe Score, type: :model do
 
   describe '#respond_to?' do
     include_context 'shared attributes'
-
     include_examples 'attribute?', :survey
     include_examples 'attribute?', :participant
     include_examples 'attribute?', :visit
@@ -53,7 +52,7 @@ RSpec.describe Score, type: :model do
 
   describe '.create!' do
     context 'without assessment or name' do
-      it { expect { described_class.create! }.to raise_error ActiveRecord::RecordInvalid }
+      include_examples 'invalid create' 
     end
 
     context 'without assessment' do
@@ -106,14 +105,6 @@ RSpec.describe Score, type: :model do
       ass.scores.concat([rep2, rep3])
       expect(subject.assessment.scores.count.to_s).to eq '3'     
       ass.scores.each(&:destroy!)
-    end
-  end
-
-  describe '#created_at today' do
-    # expect record to be created within the last 
-    # 5 minutes to check timestamp works
-    it 'is created less than 5 minutes ago' do
-      expect(Time.now - subject.created_at).to be < 300
     end
   end
 end

@@ -9,7 +9,6 @@ RSpec.describe SurveyParticipant, type: :model do
   
   describe '#respond_to?' do
     include_context 'shared attributes'
-
     include_examples 'attribute?', :survey
     include_examples 'attribute?', :participant
     include_examples 'common attributes'
@@ -37,10 +36,7 @@ RSpec.describe SurveyParticipant, type: :model do
   
   describe '.create!' do
     context 'no participant or survey' do
-      it do
-        expect { SurveyParticipant.create! }.to raise_error \
-          ActiveRecord::RecordInvalid
-      end
+      include_examples 'invalid create' 
     end
 
     context 'no participant' do
@@ -89,11 +85,5 @@ RSpec.describe SurveyParticipant, type: :model do
 
     it { expect(Participant.exists?(participant.id)).to be_truthy }
     it { expect(Survey.exists?(survey.id)).to be_truthy }
-  end
-
-  describe '#created_at today' do
-    # expect record to be created within the last 
-    # 5 minutes to check timestamp works
-    it { expect(Time.now - subject.created_at).to be < 300 }
   end
 end

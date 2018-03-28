@@ -29,9 +29,8 @@ RSpec.describe Survey do
   end
 
   describe '.create!' do
-    it 'without name' do
-      expect { described_class.create! }.to raise_error \
-        ActiveRecord::RecordInvalid
+    context 'without name' do
+      include_examples 'invalid create' 
     end
 
     it '1 character name' do
@@ -88,11 +87,5 @@ RSpec.describe Survey do
       expect(survey.assessments.count).to eq(2)  
       survey.destroy!
     end
-  end
-
-  describe '#created_at today' do
-    # expect record to be created within the 
-    # last 5 minutes to check timestamp works
-    it { expect(Time.now - subject.created_at).to be < 300 }
   end
 end

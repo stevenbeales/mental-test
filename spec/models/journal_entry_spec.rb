@@ -8,7 +8,6 @@ RSpec.describe JournalEntry, type: :model do
 
   describe '#respond_to?' do
     include_context 'shared attributes'
-   
     include_examples 'attribute?', :entry_date
     include_examples 'attribute?', :entry
     include_examples 'attribute?', :journal
@@ -52,11 +51,7 @@ RSpec.describe JournalEntry, type: :model do
 
   describe '.create!' do
     context 'without date or journal' do
-      it do
-        expect do
-          described_class.create! 
-        end.to raise_error ActiveRecord::RecordInvalid
-      end
+      include_examples 'invalid create' 
     end  
 
     context 'without journal' do
@@ -98,14 +93,6 @@ RSpec.describe JournalEntry, type: :model do
 
     describe '#to_s' do
       it { expect(subject.to_s).to eq "#{subject.entry_date} #{subject.entry}" }
-    end
-
-    describe '#created_at today' do
-      # expect record to be created within the last 
-      # 5 minutes to check timestamp works
-      it 'is created less than 5 minutes ago' do
-        expect(Time.now - subject.created_at).to be < 300
-      end
     end
   end
 end

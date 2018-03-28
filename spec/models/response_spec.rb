@@ -13,11 +13,9 @@ RSpec.describe Response, type: :model do
 
   describe '#respond_to?' do
     include_context 'shared attributes'
-    
-    it { expect(subject.respond_to?(:value)).to be_truthy }
-    it { expect(subject.respond_to?(:assessment)).to be_truthy }
-    it { expect(subject.respond_to?(:choice)).to be_truthy }
-  
+    include_examples 'attribute?', :value   
+    include_examples 'attribute?', :assessment    
+    include_examples 'attribute?', :choice
     include_examples 'common attributes'
   end
 
@@ -43,7 +41,7 @@ RSpec.describe Response, type: :model do
 
   describe '.create!' do
     context 'without assessment' do
-      it { expect { described_class.create! }.to raise_error ActiveRecord::RecordInvalid }
+      include_examples 'invalid create' 
     end
 
     context 'without value' do
@@ -74,14 +72,6 @@ RSpec.describe Response, type: :model do
         subject.destroy!
         expect(ass).not_to be_nil
       end
-    end
-  end
-    
-  describe '#created_at today' do
-    # expect record to be created within the last 
-    # 5 minutes to check timestamp works
-    it 'is created less than 5 minutes ago' do
-      expect(Time.now - subject.created_at).to be < 300
     end
   end
 end

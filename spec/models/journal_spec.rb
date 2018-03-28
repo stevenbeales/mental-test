@@ -8,7 +8,6 @@ RSpec.describe Journal, type: :model do
 
   describe '#respond_to?' do    
     include_context 'shared attributes'
-
     include_examples 'attribute?', :journal_entries
     include_examples 'attribute?', :participant
     include_examples 'attribute?', :name
@@ -52,10 +51,7 @@ RSpec.describe Journal, type: :model do
 
   describe '.create!' do
     context 'without name or study' do
-      it do
-        expect { Journal.create! }.to raise_error \
-          ActiveRecord::RecordInvalid 
-      end
+      include_examples 'invalid create' 
     end  
 
     context '1 character name' do
@@ -94,14 +90,6 @@ RSpec.describe Journal, type: :model do
 
     describe '#create_entry_for_today' do
       it { expect(subject.journal_entries.size).to be > 0 }
-    end
-
-    describe '#created_at today' do
-      # expect record to be created within the last 
-      # 5 minutes to check timestamp works
-      it 'is created less than 5 minutes ago' do
-        expect(Time.now - subject.created_at).to be < 300
-      end
     end
   end
 end

@@ -8,7 +8,6 @@ RSpec.describe Schedule, type: :model do
 
   describe '#respond_to?' do
     include_context 'shared attributes'
-
     include_examples 'attribute?', :arms
     include_examples 'attribute?', :study
     include_examples 'common attributes'
@@ -36,7 +35,7 @@ RSpec.describe Schedule, type: :model do
 
   describe '.create!' do
     context 'without name or study' do
-      it { expect { Schedule.create! }.to raise_error ActiveRecord::RecordInvalid }
+      include_examples 'invalid create' 
     end  
 
     context '1 character name' do
@@ -60,14 +59,6 @@ RSpec.describe Schedule, type: :model do
 
     describe '#to_s' do
       it { expect(subject.to_s).to eq TestConstants::TEST_SCHEDULE }
-    end
-
-    describe '#created_at today' do
-      # expect record to be created within the last 
-      # 5 minutes to check timestamp works
-      it 'is created less than 5 minutes ago' do
-        expect(Time.now - subject.created_at).to be < 300
-      end
     end
   end
 end

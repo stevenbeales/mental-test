@@ -9,14 +9,8 @@ RSpec.describe AssessmentInstrument, type: :model do
 
   describe '#respond_to?' do
     include_context 'shared attributes'
-
-    context '#assessment' do
-      it { expect(attribute?(:assessment)).to be_truthy }
-    end
-    context '#instrument' do
-      it { expect(attribute?(:instrument)).to be_truthy }
-    end 
-    
+    include_examples 'attribute?', :assessment
+    include_examples 'attribute?', :instrument
     include_examples 'common attributes'
   end
 
@@ -29,7 +23,7 @@ RSpec.describe AssessmentInstrument, type: :model do
       expect(subject.errors[:instrument].size).to eq(1)
     end
 
-    it do
+    it 'equals instrument' do
       expect(subject.instrument.id).to eq(instrument.id)
     end
   end
@@ -43,17 +37,14 @@ RSpec.describe AssessmentInstrument, type: :model do
       expect(subject.errors[:assessment].size).to eq(1)
     end
 
-    it do
+    it 'equals assessment' do
       expect(subject.assessment.id).to eq(assess.id)
     end
   end
 
   describe '.create!' do
     context 'no instrument or assessment' do
-      it do
-        expect { described_class.create! }.to raise_error \
-          ActiveRecord::RecordInvalid
-      end
+      include_examples 'invalid create' 
     end
 
     context 'no instrument' do
@@ -103,13 +94,5 @@ RSpec.describe AssessmentInstrument, type: :model do
 
     it { expect(Instrument.exists?(instrument.id)).to be_truthy }
     it { expect(Assessment.exists?(assess.id)).to be_truthy }
-  end
-  
-  describe '#created_at today' do
-    # expect record to be created within the last 
-    # 5 minutes to check timestamp works
-    it 'is created less than 5 minutes ago' do
-      expect(Time.now - subject.created_at).to be < 300
-    end
   end
 end

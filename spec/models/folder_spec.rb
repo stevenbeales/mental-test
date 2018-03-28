@@ -9,16 +9,13 @@ RSpec.describe Folder, type: :model do
 
   describe '#respond_to?' do
     include_context 'shared attributes'
-    
     include_examples 'attribute?', :projects
     include_examples 'attribute?', :name
     include_examples 'common attributes'
   end
 
   describe '#name' do
-    after(:each) do
-      subject.restore_attributes
-    end
+    include_context 'restore attributes'
 
     it 'is required' do
       subject.name = nil
@@ -29,10 +26,7 @@ RSpec.describe Folder, type: :model do
 
   describe '.create!' do
     context 'without a name' do
-      it do
-        expect { Folder.create! }.to raise_error \
-          ActiveRecord::RecordInvalid
-      end
+      include_examples 'invalid create' 
     end  
 
     context 'with 1 character name' do
@@ -73,13 +67,5 @@ RSpec.describe Folder, type: :model do
   
   describe '#to_s' do
     it { expect(subject.to_s).to eq TestConstants::TEST_FOLDER }
-  end
-
-  describe '#created_at today' do
-    # expect record to be created within the last 
-    # 5 minutes to check timestamp works
-    it 'is created less than 5 minutes ago' do
-      expect(Time.now - subject.created_at).to be < 300
-    end
   end
 end

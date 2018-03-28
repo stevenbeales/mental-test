@@ -16,14 +16,16 @@ ApplicationRecord
 Arm
 [32m  is an instance of Arm[0m
 [32m  is valid with valid attributes[0m
+  #created_at today
+[32m    is created less than 5 minutes ago[0m
   #respond_to?
-    #number
-[32m      should be truthy[0m
     #schedule
 [32m      should be truthy[0m
     #study
 [32m      should be truthy[0m
     #study_events
+[32m      should be truthy[0m
+    #number
 [32m      should be truthy[0m
     #name
 [32m      should be truthy[0m
@@ -33,25 +35,26 @@ Arm
     missing attribute
 [32m      should not be truthy[0m
   #name
-[32m    is set to "arm1" if missing[0m
+    when missing
+[32m      set to "arm1"[0m
   #schedule
 [32m    is required[0m
-    missing schedule
+    when missing
 [32m      study is nil[0m
     #arms
-[32m      should not be nil[0m
-[32m      should be > 0[0m
+[32m      includes arm[0m
+[32m      should not be empty[0m
   #study
-[32m    equals test study[0m
+[32m    equals schedule study[0m
   #number
-[32m    is required and positive[0m
-[32m    must be positive[0m
-    must be < 10001
+[32m    is required[0m
+[32m    is not negative[0m
+    is < 10001
 [32m      should eq 1[0m
-[32m      must equal 10000[0m
-    must be > 0
+[32m      may equal 10000[0m
+    is positive
 [32m      should eq 1[0m
-    must be an integer
+    is integer
 [32m      should eq 1[0m
   #study_events
 [32m    should eq 1[0m
@@ -68,12 +71,12 @@ Arm
 [32m      also removes study_events[0m
     #to_s
 [32m      prints study schedule name number[0m
-    #created_at today
-[32m      is created less than 5 minutes ago[0m
 
 AssessmentInstrument
 [32m  is an instance of AssessmentInstrument[0m
 [32m  is valid with valid attributes[0m
+  #created_at today
+[32m    is created less than 5 minutes ago[0m
   #respond_to?
     #assessment
 [32m      should be truthy[0m
@@ -86,10 +89,10 @@ AssessmentInstrument
 [32m      should not be truthy[0m
   #instrument
 [32m    is required[0m
-[32m    should eq 1[0m
+[32m    equals instrument[0m
   #assessment
 [32m    is required[0m
-[32m    should eq 1[0m
+[32m    equals assessment[0m
   .create!
     no instrument or assessment
 [32m      should raise ActiveRecord::RecordInvalid[0m
@@ -106,12 +109,12 @@ AssessmentInstrument
   #destroy!
 [32m    should be truthy[0m
 [32m    should be truthy[0m
-  #created_at today
-[32m    is created less than 5 minutes ago[0m
 
 Assessment
 [32m  is an instance of Assessment[0m
 [32m  is valid with valid attributes[0m
+  #created_at today
+[32m    is created less than 5 minutes ago[0m
   #respond_to?
     #visit
 [32m      should be truthy[0m
@@ -157,14 +160,14 @@ Assessment
 [32m    should eq 2[0m
   #to_s
 [32m    should eq "Test User Depression Survey 1"[0m
-  #created_at today
-[32m    is created less than 5 minutes ago[0m
   #destroy!
 [32m    should be truthy[0m
 
 Choice
 [32m  is an instance of Choice[0m
 [32m  is valid with valid attributes[0m
+  #created_at today
+[32m    is created less than 5 minutes ago[0m
   #respond_to?
     #response_scale
 [32m      should be truthy[0m
@@ -189,7 +192,7 @@ Choice
 [32m    should eq 1[0m
   .create!
 [32m    with response scale, value and description[0m
-    without response scale or descriptionue
+    without response scale or description
 [32m      should raise ActiveRecord::RecordInvalid[0m
     without response scale
 [32m      should raise ActiveRecord::RecordInvalid[0m
@@ -197,12 +200,12 @@ Choice
 [32m    should eq "Test Response Scale val text"[0m
   #destroy!
 [32m    should eq "0"[0m
-  #created_at today
-[32m    is created less than 5 minutes ago[0m
 
 Folder
 [32m  is an instance of Folder[0m
 [32m  is valid with valid attributes[0m
+  #created_at today
+[32m    is created less than 5 minutes ago[0m
   #respond_to?
     #projects
 [32m      should be truthy[0m
@@ -229,16 +232,18 @@ Folder
 [32m      should not be nil[0m
   #to_s
 [32m    should eq "Test Folder"[0m
-  #created_at today
-[32m    is created less than 5 minutes ago[0m
 
 HipaaIdentifier
 [32m  is an instance of HipaaIdentifier[0m
 [32m  is valid with valid attributes[0m
+  #created_at today
+[32m    is created less than 5 minutes ago[0m
   #respond_to?
-[32m    should not be truthy[0m
-    #name
+    timestamps
 [32m      should be truthy[0m
+[32m      should be truthy[0m
+    missing attribute
+[32m      should not be truthy[0m
   #name
 [32m    is required[0m
   .create!
@@ -256,6 +261,8 @@ HipaaIdentifier
 Instrument
 [32m  is an instance of Instrument[0m
 [32m  is valid with valid attributes[0m
+  #created_at today
+[32m    is created less than 5 minutes ago[0m
   #respond_to?
 [32m    should be truthy[0m
 [32m    should be truthy[0m
@@ -289,9 +296,10 @@ Instrument
   .list_tests
 [32m    should return a list of instrument names[0m
   #save!
-[32m    without a name[0m
 [32m    with 1 character name[0m
 [32m    with duplicate name[0m
+    without a name
+[32m      should raise ActiveRecord::RecordInvalid[0m
   #to_s
 [32m    should eq "Cesd-r"[0m
   #version
@@ -305,12 +313,12 @@ Instrument
 [32m      should be nil[0m
   #instructions
 [32m    should include "felt or behaved"[0m
-  #created_at today
-[32m    is created less than 5 minutes ago[0m
 
 Item
 [32m  is an instance of Item[0m
 [32m  is valid with valid attributes[0m
+  #created_at today
+[32m    is created less than 5 minutes ago[0m
   #respond_to?
 [32m    should be truthy[0m
 [32m    should be truthy[0m
@@ -334,12 +342,12 @@ Item
 [32m    should eq "Appetite1"[0m
   #instrument
 [32m    should eq 1[0m
-  #created_at today
-[32m    is created less than 5 minutes ago[0m
 
 JournalEntry
 [32m  is an instance of JournalEntry[0m
 [32m  is valid with valid attributes[0m
+  #created_at today
+[32m    is created less than 5 minutes ago[0m
   #respond_to?
     #entry_date
 [32m      should be truthy[0m
@@ -371,13 +379,13 @@ JournalEntry
     unique entry date
 [32m      {:timecop=>:freeze}[0m
     #to_s
-[32m      should eq "2018-03-28 01:43:01 UTC "[0m
-    #created_at today
-[32m      is created less than 5 minutes ago[0m
+[32m      should eq "2018-03-28 03:12:00 UTC "[0m
 
 Journal
 [32m  is an instance of Journal[0m
 [32m  is valid with valid attributes[0m
+  #created_at today
+[32m    is created less than 5 minutes ago[0m
   #respond_to?
     #journal_entries
 [32m      should be truthy[0m
@@ -392,7 +400,7 @@ Journal
 [32m      should not be truthy[0m
   #list_entries
     defaults to last 4
-[32m      should eq "2018-03-28 01:43:01 UTC  2012-12-12 00:00:00 UTC "[0m
+[32m      should eq "2018-03-28 03:12:00 UTC  2012-12-12 00:00:00 UTC "[0m
   #read_entry
 [32m    should be > 0[0m
   #name
@@ -412,12 +420,12 @@ Journal
 [32m      should eq "Test Journal"[0m
     #create_entry_for_today
 [32m      should be > 0[0m
-    #created_at today
-[32m      is created less than 5 minutes ago[0m
 
 Participant
 [32m  is an instance of Participant[0m
 [32m  is valid with valid attributes[0m
+  #created_at today
+[32m    is created less than 5 minutes ago[0m
   #respond_to?
 [32m    should be truthy[0m
 [32m    should be truthy[0m
@@ -436,15 +444,16 @@ Participant
   #journal
 [32m    is required[0m
   .create!
-[32m    does not create a participant without an email[0m
+    does not create a participant without an email
+[32m      should raise ActiveRecord::RecordInvalid[0m
   #to_s
 [32m    should eq "test_participant@test.com"[0m
-  #created_at today
-[32m    is created less than 5 minutes ago[0m
 
 Project
 [32m  is an instance of Project[0m
 [32m  is valid with valid attributes[0m
+  #created_at today
+[32m    is created less than 5 minutes ago[0m
   #respond_to?
     #title
 [32m      should be truthy[0m
@@ -484,15 +493,15 @@ Project
 [32m    should not include "Archived "[0m
   #to_s
 [32m    should eq "Project Test"[0m
-  #created_at today
-[32m    is created less than 5 minutes ago[0m
   #destroy!
     does not remove folder
-[32m      example at ./spec/models/project_spec.rb:115[0m
+[32m      example at ./spec/models/project_spec.rb:106[0m
 
 ResponseScale
 [32m  is an instance of ResponseScale[0m
 [32m  is valid with valid attributes[0m
+  #created_at today
+[32m    is created less than 5 minutes ago[0m
   #name
 [32m    is required[0m
   .create!
@@ -505,8 +514,10 @@ ResponseScale
     has unique name
 [32m      should raise ActiveRecord::RecordInvalid[0m
   #respond_to?
-[32m    should be truthy[0m
-[32m    should be truthy[0m
+    #choices
+[32m      should be truthy[0m
+    #items
+[32m      should be truthy[0m
     #name
 [32m      should be truthy[0m
     timestamps
@@ -519,16 +530,19 @@ ResponseScale
 [32m      should be nil[0m
   #to_s
 [32m    should eq "Test Response Scale"[0m
-  #created_at today
-[32m    is created less than 5 minutes ago[0m
 
 Response
 [32m  is an instance of Response[0m
 [32m  is valid with valid attributes[0m
+  #created_at today
+[32m    is created less than 5 minutes ago[0m
   #respond_to?
-[32m    should be truthy[0m
-[32m    should be truthy[0m
-[32m    should be truthy[0m
+    #value
+[32m      should be truthy[0m
+    #assessment
+[32m      should be truthy[0m
+    #choice
+[32m      should be truthy[0m
     timestamps
 [32m      should be truthy[0m
 [32m      should be truthy[0m
@@ -552,12 +566,12 @@ Response
 [32m      should not be nil[0m
     assessment
 [32m      should not be nil[0m
-  #created_at today
-[32m    is created less than 5 minutes ago[0m
 
 Schedule
 [32m  is an instance of Schedule[0m
 [32m  is valid with valid attributes[0m
+  #created_at today
+[32m    is created less than 5 minutes ago[0m
   #respond_to?
     #arms
 [32m      should be truthy[0m
@@ -583,12 +597,12 @@ Schedule
 [32m      should raise ActiveRecord::RecordInvalid[0m
     #to_s
 [32m      should eq "Test Schedule"[0m
-    #created_at today
-[32m      is created less than 5 minutes ago[0m
 
 Score
 [32m  is an instance of Score[0m
 [32m  is valid with valid attributes[0m
+  #created_at today
+[32m    is created less than 5 minutes ago[0m
   #respond_to?
     #survey
 [32m      should be truthy[0m
@@ -623,8 +637,8 @@ Score
     assessment and name
 [32m      should not raise Exception[0m
     duplicate assessment and name
-[32m      example at ./spec/models/score_spec.rb:72[0m
-[32m      example at ./spec/models/score_spec.rb:78[0m
+[32m      example at ./spec/models/score_spec.rb:71[0m
+[32m      example at ./spec/models/score_spec.rb:77[0m
   #to_s
 [32m    prints assessment name: score[0m
   #destroy!
@@ -633,15 +647,17 @@ Score
   destroys multiple scores
 [32m    should eq "0"[0m
 [32m    should eq "3"[0m
-  #created_at today
-[32m    is created less than 5 minutes ago[0m
 
 StudyEventInstrument
 [32m  is an instance of StudyEventInstrument[0m
 [32m  is valid with valid attributes[0m
+  #created_at today
+[32m    is created less than 5 minutes ago[0m
   #respond_to?
-[32m    should be truthy[0m
-[32m    should be truthy[0m
+    #study_event
+[32m      should be truthy[0m
+    #instrument
+[32m      should be truthy[0m
     timestamps
 [32m      should be truthy[0m
 [32m      should be truthy[0m
@@ -667,15 +683,17 @@ StudyEventInstrument
   #destroy!
 [32m    should be truthy[0m
 [32m    should be truthy[0m
-  #created_at today
-[32m    is created less than 5 minutes ago[0m
 
 StudyEvent
 [32m  is an instance of StudyEvent[0m
 [32m  is valid with valid attributes[0m
+  #created_at today
+[32m    is created less than 5 minutes ago[0m
   #respond_to?
-[32m    should be truthy[0m
-[32m    should be truthy[0m
+    #study_event_instruments
+[32m      should be truthy[0m
+    #instruments
+[32m      should be truthy[0m
     #arm
 [32m      should be truthy[0m
     #schedule
@@ -702,12 +720,12 @@ StudyEvent
 [32m      should raise ActiveRecord::RecordInvalid[0m
     #to_s
 [32m      should eq "Test Study Test Study Test Schedule Test Arm 1 Test Study Event"[0m
-    #created_at today
-[32m      is created less than 5 minutes ago[0m
 
 StudyParticipant
 [32m  is an instance of StudyParticipant[0m
 [32m  is valid with valid attributes[0m
+  #created_at today
+[32m    is created less than 5 minutes ago[0m
   #respond_to?
     #study
 [32m      should be truthy[0m
@@ -738,12 +756,12 @@ StudyParticipant
   #destroy!
 [32m    should be truthy[0m
 [32m    should be truthy[0m
-  #created_at today
-[32m    is created less than 5 minutes ago[0m
 
 Study
 [32m  is an instance of Study[0m
 [32m  is valid with valid attributes[0m
+  #created_at today
+[32m    is created less than 5 minutes ago[0m
   #respond_to?
     #study_participants
 [32m      should be truthy[0m
@@ -771,14 +789,14 @@ Study
 [32m      should raise ActiveRecord::RecordInvalid[0m
     #to_s
 [32m      should eq "Test Study"[0m
-    #created_at today
-[32m      is created less than 5 minutes ago[0m
     #destroy
 [32m      should be nil[0m
 
 SurveyParticipant
 [32m  is an instance of SurveyParticipant[0m
 [32m  is valid with valid attributes[0m
+  #created_at today
+[32m    is created less than 5 minutes ago[0m
   #respond_to?
     #survey
 [32m      should be truthy[0m
@@ -809,12 +827,12 @@ SurveyParticipant
   #destroy!
 [32m    should be truthy[0m
 [32m    should be truthy[0m
-  #created_at today
-[32m    should be < 300[0m
 
 Survey
 [32m  is an instance of Survey[0m
 [32m  is valid with valid attributes[0m
+  #created_at today
+[32m    is created less than 5 minutes ago[0m
   #respond_to?
 [32m    should be truthy[0m
 [32m    should be truthy[0m
@@ -831,10 +849,11 @@ Survey
   #name
 [32m    is required[0m
   .create!
-[32m    without name[0m
 [32m    1 character name[0m
 [32m    2+ character name[0m
 [32m    with duplicate name[0m
+    without name
+[32m      should raise ActiveRecord::RecordInvalid[0m
   .list_tests
 [32m    should include "Test Survey Test"[0m
   .list_active_tests
@@ -843,12 +862,12 @@ Survey
 [32m    should eq "Welcome!1"[0m
   #destroy!
 [32m    destroys assessments[0m
-  #created_at today
-[32m    should be < 300[0m
 
 User
 [32m  is an instance of User[0m
 [32m  is valid with valid attributes[0m
+  #created_at today
+[32m    is created less than 5 minutes ago[0m
   #respond_to?
 [32m    should be truthy[0m
 [32m    should be truthy[0m
@@ -880,12 +899,12 @@ User
 [32m    is a participant[0m
   #to_s
 [32m    prints username[0m
-  #created_at today
-[32m    is created less than 5 minutes ago[0m
 
 Visit
 [32m  is an instance of Visit[0m
 [32m  is valid with valid attributes[0m
+  #created_at today
+[32m    is created less than 5 minutes ago[0m
   #respond_to?
     #user
 [32m      should be truthy[0m
@@ -901,14 +920,14 @@ Visit
     missing attribute
 [32m      should not be truthy[0m
   #number
-[32m    is required and positive[0m
-[32m    must be positive[0m
-    must be < 10001
+[32m    is required[0m
+[32m    is not negative[0m
+    is < 10001
 [32m      should eq 1[0m
-[32m      should eq 0[0m
-    must be > 0
+[32m      may equal 10000[0m
+    is positive
 [32m      should eq 1[0m
-    must be an integer
+    is integer
 [32m      should eq 1[0m
   #user
 [32m    is required[0m
@@ -933,8 +952,6 @@ Visit
 [32m    assessments[0m
   #assessments
 [32m    should change `subject.assessments.size` by 2[0m
-  #created_at today
-[32m    is created less than 5 minutes ago[0m
 
 AlexaService
 [32m  should be a kind of AlexaService[0m
@@ -955,7 +972,7 @@ AlexaService
 [32m    should eq "    Cannot find instrument blah. Please try again.\n"[0m
 [32m    should eq "Below is a list of the ways you might have felt or behaved. Please check the boxes to tell me how often you have felt this way in the past week or so."[0m
   #read_all
-[32m    should eq "2018-03-28 01:43:00 UTC "[0m
+[32m    should eq "2018-03-28 03:11:58 UTC "[0m
 [32m    should not be nil[0m
 
 InstrumentLoaderCsv
@@ -983,6 +1000,6 @@ InstrumentLoader
   missing instrument
 [32m    should raise RuntimeError[0m
 
-Finished in 8 seconds (files took 4.13 seconds to load)
-[32m508 examples, 0 failures[0m
+Finished in 7.8 seconds (files took 4.19 seconds to load)
+[32m510 examples, 0 failures[0m
 

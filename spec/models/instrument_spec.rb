@@ -59,9 +59,8 @@ RSpec.describe Instrument, type: :model do
   end
 
   describe '#save!' do
-    it 'without a name' do
-      ins = described_class.new
-      expect { ins.save! }.to raise_error ActiveRecord::RecordInvalid
+    context 'without a name' do
+      include_examples 'invalid create' 
     end
 
     it 'with 1 character name' do
@@ -113,13 +112,5 @@ RSpec.describe Instrument, type: :model do
 
   describe '#instructions' do
     it { expect(subject.instructions).to include 'felt or behaved' }
-  end
-
-  describe '#created_at today' do
-    # expect record to be created within the last 
-    # 5 minutes to check timestamp works
-    it 'is created less than 5 minutes ago' do
-      expect(Time.now - subject.created_at).to be < 300
-    end
   end
 end

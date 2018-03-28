@@ -10,67 +10,16 @@ RSpec.describe Visit, type: :model do
 
   describe '#respond_to?' do
     include_context 'shared attributes'
-
-    context '#user' do
-      it { expect(attribute?(:user)).to be_truthy }
-    end
-    context '#survey' do
-      it { expect(attribute?(:survey)).to be_truthy }
-    end
-    context '#assessments' do
-      it { expect(attribute?(:assessments)).to be_truthy }
-    end
-    context '#number' do
-      it { expect(attribute?(:number)).to be_truthy }
-    end
-   
+    include_examples 'attribute?', :user
+    include_examples 'attribute?', :survey
+    include_examples 'attribute?', :assessments
+    include_examples 'attribute?', :number
     include_examples 'common attributes'
   end
 
   describe '#number' do
     include_context 'restore attributes'
-    
-    it 'is required and positive' do
-      subject.number = nil
-      subject.valid?
-      expect(subject.errors[:number].size).to eq(2)
-    end
- 
-    it 'must be positive' do
-      subject.number = -1
-      subject.valid?
-      expect(subject.errors[:number].size).to eq(1)
-    end
- 
-    context 'must be < 10001' do
-      it do
-        subject.number = 10_001
-        subject.valid?
-        expect(subject.errors[:number].size).to eq(1)
-      end
-
-      it do
-        subject.number = 10_000
-        subject.valid?
-        expect(subject.errors[:number].size).to eq(0)
-      end
-    end
-
-    context 'must be > 0' do
-      it do
-        subject.number = 0
-        subject.valid?
-        expect(subject.errors[:number].size).to eq(1)
-      end
-    end
-
-    context 'must be an integer' do
-      it do
-        subject.number = 1.5
-        subject.valid?
-        expect(subject.errors[:number].size).to eq(1)
-      end
-    end
+    include_examples 'number'
   end
 
   describe '#user' do
@@ -95,10 +44,7 @@ RSpec.describe Visit, type: :model do
 
   describe '.create!' do
     context 'no survey and user' do
-      it do
-        expect { described_class.create! }.to raise_error \
-          ActiveRecord::RecordInvalid 
-      end
+      include_examples 'invalid create' 
     end
 
     context 'no user' do
@@ -179,14 +125,6 @@ RSpec.describe Visit, type: :model do
       expect { subject.assessments.concat [ass1, ass2] }.to \
         change { subject.assessments.size }.by(2)
       subject.assessments.each(&:destroy!)
-    end
-  end
- 
-  describe '#created_at today' do
-    # expect record to be created within the last 
-    # 5 minutes to check timestamp works
-    it 'is created less than 5 minutes ago' do
-      expect(Time.now - subject.created_at).to be < 300
     end
   end
 end

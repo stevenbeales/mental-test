@@ -69,6 +69,8 @@ ActiveRecord::Schema.define(version: 20180322010326) do
 
   create_table "hipaa_identifiers", force: :cascade do |t|
     t.string "name", null: false
+    t.datetime "created_at", default: -> { "CURRENT_TIMESTAMP" }, null: false
+    t.datetime "updated_at", default: -> { "CURRENT_TIMESTAMP" }, null: false
     t.index ["name"], name: "index_hipaa_identifiers_on_name"
   end
 
@@ -111,11 +113,11 @@ ActiveRecord::Schema.define(version: 20180322010326) do
 
   create_table "journals", force: :cascade do |t|
     t.string "name", null: false
-    t.bigint "study_participant_id", null: false
+    t.bigint "participant_id", null: false
     t.datetime "created_at", default: -> { "CURRENT_TIMESTAMP" }, null: false
     t.datetime "updated_at", default: -> { "CURRENT_TIMESTAMP" }, null: false
     t.index ["name"], name: "index_journals_on_name"
-    t.index ["study_participant_id"], name: "index_journals_on_study_participant_id"
+    t.index ["participant_id"], name: "index_journals_on_participant_id"
   end
 
   create_table "participants", force: :cascade do |t|
@@ -284,7 +286,7 @@ ActiveRecord::Schema.define(version: 20180322010326) do
   add_foreign_key "items", "instruments"
   add_foreign_key "items", "response_scales"
   add_foreign_key "journal_entries", "journals"
-  add_foreign_key "journals", "study_participants"
+  add_foreign_key "journals", "participants"
   add_foreign_key "responses", "assessments"
   add_foreign_key "schedules", "studies"
   add_foreign_key "study_event_instruments", "instruments"

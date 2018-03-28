@@ -8,7 +8,6 @@ RSpec.describe Choice, type: :model do
 
   describe '#respond_to?' do
     include_context 'shared attributes'
-
     include_examples 'attribute?', :response_scale
     include_examples 'attribute?', :responses
     include_examples 'attribute?', :description
@@ -38,9 +37,7 @@ RSpec.describe Choice, type: :model do
   end
 
   describe '#description' do
-    after(:each) do
-      subject.restore_attributes
-    end
+    include_context 'restore attributes'
     
     it do
       subject.description = nil
@@ -50,11 +47,8 @@ RSpec.describe Choice, type: :model do
   end
 
   describe '.create!' do
-    context 'without response scale or descriptionue' do
-      it do
-        expect { described_class.create! }.to raise_error \
-          ActiveRecord::RecordInvalid
-      end
+    context 'without response scale or description' do
+      include_examples 'invalid create' 
     end
 
     context 'without response scale' do
@@ -91,13 +85,5 @@ RSpec.describe Choice, type: :model do
       scale.save!
       expect(scale.choices.count.to_s).to eq '0'
     end    
-  end
-
-  describe '#created_at today' do
-    # expect record to be created within the last 
-    # 5 minutes to check timestamp works
-    it 'is created less than 5 minutes ago' do
-      expect(Time.now - subject.created_at).to be < 300
-    end
   end
 end
