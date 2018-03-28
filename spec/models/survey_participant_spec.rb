@@ -5,13 +5,7 @@ RSpec.describe SurveyParticipant, type: :model do
   let!(:survey) { TestFactory.test_survey }
   let!(:participant) { TestFactory.test_participant }
   
-  it 'is an instance of SurveyParticipant' do
-    expect(subject).to be_an SurveyParticipant
-  end
-
-  it 'is valid with valid attributes' do
-    expect(subject).to be_valid
-  end
+  include_examples 'valid', SurveyParticipant
   
   describe '#respond_to?' do
     include_context 'shared attributes'

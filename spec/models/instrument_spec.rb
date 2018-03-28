@@ -3,28 +3,22 @@
 RSpec.describe Instrument, type: :model do
   subject { Instrument.find_or_create_by! name: TestConstants::TEST_INSTRUMENT }
   
-  it 'is an instance of Instrument' do
-    expect(subject).to be_an Instrument
-  end
-
-  it 'is valid with valid attributes' do
-    expect(subject).to be_valid
-  end
+  include_examples 'valid', Instrument
   
   describe '#respond_to?' do
     include_context 'shared attributes'
 
-    it { expect(subject.respond_to?(:content)).to be_truthy }
-    it { expect(subject.respond_to?(:title)).to be_truthy }
-    it { expect(subject.respond_to?(:instructions)).to be_truthy }
-    it { expect(subject.respond_to?(:pages)).to be_truthy }
     it { expect(subject.respond_to?(:assessment_instruments)).to be_truthy }
     it { expect(subject.respond_to?(:assessments)).to be_truthy }
     it { expect(subject.respond_to?(:study_event_instruments)).to be_truthy }
     it { expect(subject.respond_to?(:study_events)).to be_truthy }
-    it { expect(subject.respond_to?(:items)).to be_truthy }
-   
-    include_examples 'name'
+  
+    include_examples 'attribute?', :instructions
+    include_examples 'attribute?', :content
+    include_examples 'attribute?', :title
+    include_examples 'attribute?', :pages
+    include_examples 'attribute?', :items
+    include_examples 'attribute?', :name
     include_examples 'common attributes'
   end
 

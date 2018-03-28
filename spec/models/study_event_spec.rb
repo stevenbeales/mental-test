@@ -6,24 +6,18 @@ RSpec.describe StudyEvent, type: :model do
   let!(:schedule) { TestFactory.test_schedule }
   let!(:study) { TestFactory.test_study }
  
-  it 'is an instance of StudyEvent' do
-    expect(subject).to be_an StudyEvent
-  end
+  include_examples 'valid', StudyEvent
 
-  it 'is valid with valid attributes' do
-    expect(subject).to be_valid
-  end
-  
   describe '#respond_to?' do
     include_context 'shared attributes'
   
-    it { expect(subject.respond_to?(:arm)).to be_truthy }
-    it { expect(subject.respond_to?(:schedule)).to be_truthy }
     it { expect(subject.respond_to?(:study_event_instruments)).to be_truthy }
     it { expect(subject.respond_to?(:instruments)).to be_truthy }
-    
+   
+    include_examples 'attribute?', :arm
+    include_examples 'attribute?', :schedule
     include_examples 'attribute?', :study
-    include_examples 'name'
+    include_examples 'attribute?', :name
     include_examples 'common attributes'
   end
 

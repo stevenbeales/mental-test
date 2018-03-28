@@ -6,13 +6,7 @@ RSpec.describe Arm, type: :model do
   let!(:study) { TestFactory.test_study }
   let!(:study_event) { TestFactory.test_study_event }
 
-  it 'is an instance of Arm' do
-    expect(subject).to be_an Arm
-  end
-
-  it 'is valid with valid attributes' do
-    expect(subject).to be_valid
-  end
+  include_examples 'valid', Arm
 
   describe '#respond_to?' do
     include_context 'shared attributes'
@@ -30,7 +24,7 @@ RSpec.describe Arm, type: :model do
       it { expect(subject.respond_to?(:study_events)).to be_truthy }
     end
  
-    include_examples 'name'
+    include_examples 'attribute?', :name
     include_examples 'common attributes'
   end
 

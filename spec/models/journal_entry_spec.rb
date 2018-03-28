@@ -4,13 +4,7 @@ RSpec.describe JournalEntry, type: :model do
   subject { TestFactory.test_journal_entry }
   let!(:journal) { TestFactory.test_journal }
 
-  it 'is an instance of JournalEntry' do
-    expect(subject).to be_an JournalEntry
-  end
-
-  it 'is valid with valid attributes' do
-    expect(subject).to be_valid
-  end
+  include_examples 'valid', JournalEntry
 
   describe '#respond_to?' do
     include_context 'shared attributes'

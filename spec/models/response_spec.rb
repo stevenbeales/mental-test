@@ -9,13 +9,7 @@ RSpec.describe Response, type: :model do
   let!(:choice) { TestFactory.test_choice }
   let!(:scale) { InstrumentTestFactory.test_response_scale }
   
-  it 'is an instance of Response' do
-    expect(subject).to be_an Response
-  end
-
-  it 'is valid with valid attributes' do
-    expect(subject).to be_valid
-  end
+  include_examples 'valid', Response
 
   describe '#respond_to?' do
     include_context 'shared attributes'

@@ -4,20 +4,14 @@ RSpec.describe Journal, type: :model do
   subject { TestFactory.test_journal }
   let!(:participant) { TestFactory.test_participant }
 
-  it 'is an instance of Journal' do
-    expect(subject).to be_an Journal
-  end
-
-  it 'is valid with valid attributes' do
-    expect(subject).to be_valid
-  end
+  include_examples 'valid', Journal
 
   describe '#respond_to?' do    
     include_context 'shared attributes'
 
     include_examples 'attribute?', :journal_entries
     include_examples 'attribute?', :participant
-    include_examples 'name'
+    include_examples 'attribute?', :name
     include_examples 'common attributes'
   end
 
@@ -67,7 +61,7 @@ RSpec.describe Journal, type: :model do
     context '1 character name' do
       it do 
         expect do
-          described_class.create! name: 'a', participant: participant
+          Journal.create! name: 'a', participant: participant
         end.to raise_error ActiveRecord::RecordInvalid 
       end
     end
@@ -75,19 +69,19 @@ RSpec.describe Journal, type: :model do
     context '2+ character name and title' do
       it do
         expect do
-          described_class.find_or_create_by! name: 'as', 
-                                             participant: participant 
+          Journal.find_or_create_by! name: 'as', 
+                                     participant: participant 
         end.to_not raise_error 
-        described_class.find_by(name: 'as', participant: participant).destroy!
+        Journal.find_by(name: 'as', participant: participant).destroy!
       end
     end
 
     context 'unique name' do
       it do
-        another_object = described_class.create! name: 'a12', 
+        another_object = described_class.create! name: 'a14', 
                                                  participant: participant
         expect do 
-          described_class.create! name: 'a12', 
+          described_class.create! name: 'a14', 
                                   participant: participant 
         end.to raise_error ActiveRecord::RecordInvalid
         another_object.destroy!

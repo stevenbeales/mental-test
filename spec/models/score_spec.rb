@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 RSpec.describe Score, type: :model do
-  subject { described_class.create_with(score: 1).find_or_create_by! assessment: ass, name: 'total' }
+  subject { Score.create_with(score: 1).find_or_create_by! assessment: ass, name: 'total' }
   let(:ass) { TestFactory.test_assessment }
   let!(:sy) { TestFactory.test_survey }
   let!(:ur) { TestFactory.test_user }
@@ -9,13 +9,7 @@ RSpec.describe Score, type: :model do
   let!(:choice) { TestFactory.test_choice }
   let!(:scale) { InstrumentTestFactory.test_response_scale }
 
-  it 'is an instance of Score' do
-    expect(subject).to be_an Score
-  end
-
-  it 'is valid with valid attributes' do
-    expect(subject).to be_valid
-  end
+  include_examples 'valid', Score
 
   describe '#respond_to?' do
     include_context 'shared attributes'
@@ -25,7 +19,7 @@ RSpec.describe Score, type: :model do
     include_examples 'attribute?', :visit
     include_examples 'attribute?', :score
     include_examples 'attribute?', :assessment
-    include_examples 'name'
+    include_examples 'attribute?', :name
     include_examples 'common attributes'
   end
   

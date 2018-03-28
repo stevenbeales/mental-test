@@ -4,13 +4,7 @@ RSpec.describe Schedule, type: :model do
   subject { TestFactory.test_schedule }
   let!(:study) { TestFactory.test_study }
 
-  it 'is an instance of Schedule' do
-    expect(subject).to be_an Schedule
-  end
-
-  it 'is valid with valid attributes' do
-    expect(subject).to be_valid
-  end
+  include_examples 'valid', Schedule
 
   describe '#respond_to?' do
     include_context 'shared attributes'
@@ -42,24 +36,24 @@ RSpec.describe Schedule, type: :model do
 
   describe '.create!' do
     context 'without name or study' do
-      it { expect { described_class.create! }.to raise_error ActiveRecord::RecordInvalid }
+      it { expect { Schedule.create! }.to raise_error ActiveRecord::RecordInvalid }
     end  
 
     context '1 character name' do
-      it { expect { described_class.create! name: 'a', study: study }.to raise_error ActiveRecord::RecordInvalid }
+      it { expect { Schedule.create! name: 'a', study: study }.to raise_error ActiveRecord::RecordInvalid }
     end
     
     context '2+ character name and title' do
       it do
-        expect { described_class.find_or_create_by! name: 'as', study: study }.to_not raise_error 
-        described_class.find_by(name: 'as', study: study).destroy!
+        expect { Schedule.find_or_create_by! name: 'as', study: study }.to_not raise_error 
+        Schedule.find_by(name: 'as', study: study).destroy!
       end
     end
 
     context 'unique name' do
       it do
-        another_object = described_class.create! name: 'a12', study: study
-        expect { described_class.create! name: 'a12', study: study }.to raise_error ActiveRecord::RecordInvalid
+        another_object = Schedule.create! name: 'a13', study: study
+        expect { Schedule.create! name: 'a13', study: study }.to raise_error ActiveRecord::RecordInvalid
         another_object.destroy!
       end
     end

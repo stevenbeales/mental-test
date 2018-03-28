@@ -4,13 +4,7 @@ RSpec.describe Choice, type: :model do
   subject { TestFactory.test_choice }
   let!(:scale) { InstrumentTestFactory.test_response_scale }
 
-  it 'is an instance of Choice' do
-    expect(subject).to be_a Choice
-  end
-
-  it 'is valid with valid attributes' do
-    expect(subject).to be_valid
-  end
+  include_examples 'valid', Choice
 
   describe '#respond_to?' do
     include_context 'shared attributes'

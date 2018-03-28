@@ -8,14 +8,8 @@ RSpec.describe Assessment, type: :model do
   let!(:assessment2) { TestFactory.test_assessment2 }
   let!(:instrument) { InstrumentTestFactory.test_instrument }
   let!(:assessment_from_db) { Assessment.find_or_create_by! visit: visit }
-   
-  it 'is an instance of Assessment' do
-    expect(subject).to be_an Assessment
-  end
-
-  it 'is valid with valid attributes' do
-    expect(subject).to be_valid
-  end
+  
+  include_examples 'valid', Assessment
   
   describe '#respond_to?' do
     include_context 'shared attributes'

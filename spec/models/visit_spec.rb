@@ -6,13 +6,7 @@ RSpec.describe Visit, type: :model do
   let!(:user) { TestFactory.test_user }
   let!(:assessment) { TestFactory.test_assessment }
     
-  it 'is an instance of Visit' do
-    expect(subject).to be_a Visit
-  end
-
-  it 'is valid with valid attributes' do
-    expect(subject).to be_valid
-  end
+  include_examples 'valid', Visit
 
   describe '#respond_to?' do
     include_context 'shared attributes'

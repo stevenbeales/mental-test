@@ -5,13 +5,7 @@ RSpec.describe Study, type: :model do
   let!(:test_study2) { TestFactory.test_study2 }
   let!(:schedule) { TestFactory.test_schedule }
   
-  it 'is an instance of Study' do
-    expect(subject).to be_an Study
-  end
-
-  it 'is valid with valid attributes' do
-    expect(subject).to be_valid
-  end
+  include_examples 'valid', Study
 
   describe '#respond_to?' do
     include_context 'shared attributes'
@@ -19,7 +13,7 @@ RSpec.describe Study, type: :model do
     include_examples 'attribute?', :study_participants
     include_examples 'attribute?', :participants
     include_examples 'attribute?', :schedule
-    include_examples 'name'
+    include_examples 'attribute?', :name
     include_examples 'common attributes'
   end
 

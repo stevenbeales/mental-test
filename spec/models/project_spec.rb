@@ -4,13 +4,7 @@ RSpec.describe Project, type: :model do
   subject { ProjectTestFactory.test_project }
   let!(:folder1) { ProjectTestFactory.test_folder }
 
-  it 'is an instance of Project' do
-    expect(subject).to be_an Project
-  end
-
-  it 'is valid with valid attributes' do
-    expect(subject).to be_valid
-  end
+  include_examples 'valid', Project
   
   describe '#respond_to?' do
     include_context 'shared attributes'
@@ -18,7 +12,7 @@ RSpec.describe Project, type: :model do
     include_examples 'attribute?', :title
     include_examples 'attribute?', :folder
     include_examples 'attribute?', :status
-    include_examples 'name'
+    include_examples 'attribute?', :name
     include_examples 'common attributes'
   end
 

@@ -11,8 +11,7 @@ RSpec.shared_context 'shared attributes', a: :b do
 
   # checks that we have timestamps and a non-existent attribute does not give false positive
   def timestamps?
-    subject.respond_to?(:updated_at) && subject.respond_to?(:created_at) \
-      && !subject.respond_to?(:not_attribute)
+    subject.respond_to?(:updated_at) && subject.respond_to?(:created_at)
   end
 end
 

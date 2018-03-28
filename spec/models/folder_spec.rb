@@ -5,22 +5,13 @@ RSpec.describe Folder, type: :model do
   let!(:project1) { ProjectTestFactory.test_project }
   let!(:project2) { ProjectTestFactory.test_project2 } 
   
-  it 'is an instance of Folder' do
-    expect(subject).to be_a Folder
-  end
-
-  it 'is valid with valid attributes' do
-    expect(subject).to be_valid
-  end
+  include_examples 'valid', Folder
 
   describe '#respond_to?' do
     include_context 'shared attributes'
     
-    context '#projects' do
-      it { expect(attribute?(:projects)).to be_truthy }
-    end
-
-    include_examples 'name'
+    include_examples 'attribute?', :projects
+    include_examples 'attribute?', :name
     include_examples 'common attributes'
   end
 

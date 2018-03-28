@@ -3,13 +3,7 @@
 RSpec.describe Survey do
   subject { TestFactory.test_survey }
 
-  it 'is an instance of Survey' do
-    expect(subject).to be_a Survey
-  end
-
-  it 'is valid with valid attributes' do
-    expect(subject).to be_valid
-  end
+  include_examples 'valid', Survey
     
   describe '#respond_to?' do
     include_context 'shared attributes'
@@ -20,7 +14,7 @@ RSpec.describe Survey do
     it { expect(subject.respond_to?(:assessments)).to be_truthy }
     it { expect(subject.respond_to?(:is_active)).to be_truthy }
    
-    include_examples 'name'
+    include_examples 'attribute?', :name
     include_examples 'common attributes'
   end
   

@@ -3,13 +3,7 @@
 RSpec.describe Participant, type: :model do
   subject { TestFactory.test_participant }
 
-  it 'is an instance of Participant' do
-    expect(subject).to be_an Participant
-  end
-
-  it 'is valid with valid attributes' do
-    expect(subject).to be_valid
-  end
+  include_examples 'valid', Participant
 
   describe '#respond_to?' do
     include_context 'shared attributes'

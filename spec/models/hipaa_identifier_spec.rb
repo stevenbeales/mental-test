@@ -3,18 +3,12 @@
 RSpec.describe HipaaIdentifier, type: :model do
   subject { TestFactory.test_hipaa_identifier }
  
-  it 'is an instance of HipaaIdentifier' do
-    expect(subject).to be_a HipaaIdentifier
-  end
-
-  it 'is valid with valid attributes' do
-    expect(subject).to be_valid
-  end
+  include_examples 'valid', HipaaIdentifier
 
   describe '#respond_to?' do
     include_context 'shared attributes'
 
-    include_examples 'name'
+    include_examples 'attribute?', :name
     it { expect(subject.respond_to?(:not_attribute)).not_to be_truthy }
   end
 

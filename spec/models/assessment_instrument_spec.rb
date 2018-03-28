@@ -5,13 +5,7 @@ RSpec.describe AssessmentInstrument, type: :model do
   let!(:instrument) { InstrumentTestFactory.test_instrument }
   let!(:assess) { TestFactory.test_assessment }
   
-  it 'is an instance of AssessmentInstrument' do
-    expect(subject).to be_an AssessmentInstrument
-  end
-
-  it 'is valid with valid attributes' do
-    expect(subject).to be_valid
-  end
+  include_examples 'valid', AssessmentInstrument
 
   describe '#respond_to?' do
     include_context 'shared attributes'

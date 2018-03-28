@@ -3,13 +3,7 @@
 RSpec.describe ResponseScale, type: :model do
   subject { InstrumentTestFactory.test_response_scale }
   
-  it 'is an instance of ResponseScale' do
-    expect(subject).to be_an ResponseScale
-  end
-
-  it 'is valid with valid attributes' do
-    expect(subject).to be_valid
-  end
+  include_examples 'valid', ResponseScale
 
   describe '#name' do
     include_context 'restore attributes'
@@ -49,7 +43,7 @@ RSpec.describe ResponseScale, type: :model do
     it { expect(subject.respond_to?(:items)).to be_truthy }
     it { expect(subject.respond_to?(:choices)).to be_truthy }
 
-    include_examples 'name'
+    include_examples 'attribute?', :name
     include_examples 'common attributes'
   end
 
