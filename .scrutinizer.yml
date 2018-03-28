@@ -10,4 +10,12 @@ build:
      
         # Various pre-installed services that can be configured.
         postgresql: true
-     
+    tests:
+        override:
+            -
+                command: 'bundle exec rspec spec'
+                environment:
+                    'SCRUTINIZER_CC_FILE': 'my-coverage'
+                coverage:
+                    file: 'my-coverage'
+                    format: 'rb-cc'

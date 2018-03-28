@@ -18,6 +18,7 @@ require 'coveralls'
 Coveralls.wear!
 
 require 'simplecov'
+require 'simplecov-console'
 
 SimpleCov.profiles.define 'app' do
   add_group 'Models', 'app/models'
@@ -43,7 +44,19 @@ SimpleCov.profiles.define 'app' do
   add_filter 'app/secrets'
 end
 
-SimpleCov.formatter = Coveralls::SimpleCov::Formatter
+require 'scrutinizer/ocular'
+require 'scrutinizer/ocular/formatter'
+
+Scrutinizer::Ocular.watch! 'app'
+
+SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new(
+  [
+    SimpleCov::Formatter::Console,
+    SimpleCov::Formatter::HTMLFormatter,
+    Coveralls::SimpleCov::Formatter,
+    Scrutinizer::Ocular::UploadingFormatter
+  ]
+)
 
 SimpleCov.start 'app' do
   track_files 'app.rb'

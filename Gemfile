@@ -41,7 +41,9 @@ group :test do
   gem 'rspec', '>= 3.7.0', require: false # for behavioral driven testing
   gem 'rubocop', '>= 0.54.0', require: false # syntax checking
   gem 'ruby_audit', '>= 1.2.0', require: false # complements bundler-audit
+  gem 'scrutinizer-ocular', '>= 1.0.1', require: false # scrutinizer code coverage
   gem 'simplecov', '>= 0.16.1', require: false # for code coverage
+  gem 'simplecov-console', '>= 0.4.2', require: false # code coverage to console
   gem 'timecop', '>= 0.9.1', require: false # testing time dependent
   gem 'travis', '>= 1.8.8', require: false # for continuous integrations
   gem 'travis_check_rubies', '>= 0.2.5', require: false # check ruby versions on Travis
