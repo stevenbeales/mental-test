@@ -7,10 +7,7 @@ build:
     environment:
         # Any environment variables we should set for you.
         variables:
-            DB_DATABASE=mentalhealth
-            DB_USERNAME=mentalhealth@mentalhealth
-            DB_HOST=mentalhealth.postgres.database.azure.com
-
+   
         # Languages
         ruby:                     "2.3.1"
      
