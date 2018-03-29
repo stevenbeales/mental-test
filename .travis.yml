@@ -24,9 +24,9 @@ before_script:
 
 
 before_install:
+  - gem update --system # update ruby gem version to fix rake error
   - gem update bundler # ensure bundler up to date
   - "echo 'gem: --no-ri --no-rdoc' > ~/.gemrc" # ensure bundle does not install docs
-  - gem install rake
   - cp -p Gemfile.lock Gemfile.lock.org 
   - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
   - chmod +x ./cc-test-reporter
