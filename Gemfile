@@ -49,8 +49,11 @@ group :test do
   gem 'travis_check_rubies', '>= 0.2.5', require: false # check ruby versions on Travis
 end
 
-group :development do
+group :development, :test do
   gem 'better_errors', '>= 2.4.0', require: false
+end
+
+group :development do
   gem 'guard', '>= 2.14.2', require: false # watch for changed files 
   gem 'guard-rspec', '>= 4.7.3', require: false # run rspec on change
 end
