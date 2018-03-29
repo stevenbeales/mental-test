@@ -2,7 +2,7 @@ sudo: false
 language: ruby
 rvm:
   - 2.5.1
-  - 2.4.3
+  - 2.4.4
 
 addons:
   postgresql: "9.6"
@@ -24,6 +24,7 @@ before_script:
 
 
 before_install:
+  - bash -c "yes | gem uninstall -i /home/travis/.rvm/gems/ruby-2.5.0@global rake"
   - gem update --system # update ruby gem version to fix rake error
   - gem update bundler # ensure bundler up to date
   - "echo 'gem: --no-ri --no-rdoc' > ~/.gemrc" # ensure bundle does not install docs
