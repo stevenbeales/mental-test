@@ -118,6 +118,14 @@ RSpec.shared_examples 'number specs' do
   end
 end
 
+RSpec.shared_examples '#to_s' do |text, comparator|
+  describe '#to_s' do
+    context text do
+      it { expect(subject.to_s).to eq comparator }
+    end
+  end
+end
+
 # Tests for valid object creation
 RSpec.shared_examples 'valid object creation' do |klass|
   it "is an instance of #{klass}" do

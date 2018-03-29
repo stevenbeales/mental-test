@@ -82,10 +82,8 @@ RSpec.describe Journal, type: :model do
       end
     end
 
-    describe '#to_s' do
-      it { expect(subject.to_s).to eq TestConstants::TEST_JOURNAL }
-    end
-
+    include_examples '#to_s', 'Name', TestConstants::TEST_JOURNAL 
+    
     describe '#create_entry_for_today' do
       it { expect(subject.journal_entries.size).to be > 0 }
     end

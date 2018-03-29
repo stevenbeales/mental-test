@@ -1,17 +1,25 @@
-### Expected behavior
-*[Insert details on expected behaviour]*
+# Issue Template
 
-### Observed behavior
-*[Insert details on observed behaviour]*
+## Expected behavior
 
-### Steps to reproduce
-*[Insert reproduction steps (if known)]*
+### Insert details on expected behaviour *
 
-### Version
-*[Insert version information]*
+## Observed behavior
 
-### Additional information
-*[Insert any additional information]*
+### Insert details on observed behaviour *
 
-#### Can't comment on Issues?
+## Steps to reproduce
+
+### Insert reproduction steps (if known) *
+
+## Version
+
+### Insert version information *
+
+## Additional information
+
+### Insert any additional information *
+
+#### Can't comment on Issues
+
 Some users have been unable to comment on Github issues when an adblocker is enabled.We recommend temporarily disabling the extension, or if that fails, contacting stevenbeales@gmail.com.

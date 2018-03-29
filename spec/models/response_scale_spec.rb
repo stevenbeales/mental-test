@@ -25,9 +25,7 @@ RSpec.describe ResponseScale, type: :model do
 
   include_examples 'create!_with_name', 'without a name', TestConstants::TEST_RESPONSE_SCALE 
     
-  describe '#to_s' do
-    it { expect(subject.to_s).to eq TestConstants::TEST_RESPONSE_SCALE }
-  end
+  include_examples '#to_s', 'Name', TestConstants::TEST_RESPONSE_SCALE 
 
   describe '#destroy!' do
     context 'destroys choices' do 

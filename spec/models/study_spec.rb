@@ -28,9 +28,7 @@ RSpec.describe Study, type: :model do
 
   include_examples 'create!_with_name', 'without a name', TestConstants::TEST_STUDY 
 
-  describe '#to_s' do
-    it { expect(subject.to_s).to eq TestConstants::TEST_STUDY }
-  end
+  include_examples '#to_s', 'name', TestConstants::TEST_STUDY 
 
   describe '#destroy' do
     it do

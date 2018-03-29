@@ -36,8 +36,6 @@ RSpec.describe Folder, type: :model do
       end
     end
   end
-  
-  describe '#to_s' do
-    it { expect(subject.to_s).to eq TestConstants::TEST_FOLDER }
-  end
+
+  include_examples '#to_s', 'Name', TestConstants::TEST_FOLDER
 end

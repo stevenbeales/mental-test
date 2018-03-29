@@ -56,7 +56,5 @@ RSpec.describe Schedule, type: :model do
     end
   end
 
-  describe '#to_s' do
-    it { expect(subject.to_s).to eq TestConstants::TEST_SCHEDULE }
-  end
+  include_examples '#to_s', 'name', TestConstants::TEST_SCHEDULE
 end
