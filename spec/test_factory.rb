@@ -10,10 +10,6 @@ class TestFactory
     @test_assessment ||= FactoryBot.create(:test_assessment)
   end
 
-  def self.test_assessment2
-    @test_assessment2 ||= FactoryBot.create(:test_assessment2)
-  end
-
   def self.test_assessment_instrument
     @test_assessment_instrument ||= 
       FactoryBot.create(:test_assessment_instrument)
@@ -37,10 +33,6 @@ class TestFactory
  
   def self.test_study
     @test_study ||= FactoryBot.create(:test_study)
-  end
-
-  def self.test_study2
-    @test_study2 ||= FactoryBot.create(:test_study2)
   end
 
   def self.test_study_event
@@ -101,9 +93,5 @@ class ProjectTestFactory
   
   def self.test_project
     @test_project ||= FactoryBot.create(:test_project)
-  end
-
-  def self.test_project2
-    @test_project2 ||= FactoryBot.create(:test_project2)
   end
 end

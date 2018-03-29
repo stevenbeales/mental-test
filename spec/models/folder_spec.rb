@@ -3,7 +3,6 @@
 RSpec.describe Folder, type: :model do
   subject { ProjectTestFactory.test_folder }
   let!(:project1) { ProjectTestFactory.test_project }
-  let!(:project2) { ProjectTestFactory.test_project2 } 
   
   include_examples 'valid object creation', Folder
 
@@ -29,6 +28,8 @@ RSpec.describe Folder, type: :model do
   describe '#destroy!' do
     context 'with projects' do 
       it do
+        project2 = Project.find_or_create_by! name: TestConstants::TEST_PROJECT2, 
+                                              title: TestConstants::TEST_PROJECT_TITLE2
         folder = Folder.create! name: 'a13'
         folder.projects.concat [project1, project2]
         folder.destroy! 

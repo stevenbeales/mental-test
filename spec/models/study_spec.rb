@@ -2,7 +2,6 @@
 
 RSpec.describe Study, type: :model do
   subject { TestFactory.test_study }
-  let!(:test_study2) { TestFactory.test_study2 }
   let!(:schedule) { TestFactory.test_schedule }
   
   include_examples 'valid object creation', Study
@@ -32,6 +31,7 @@ RSpec.describe Study, type: :model do
 
   describe '#destroy' do
     it do
+      test_study2 = Study.find_or_create_by! name: TestConstants::TEST_STUDY2
       sc = test_study2.schedule
       test_study2.destroy!
       expect(sc).to be_nil  

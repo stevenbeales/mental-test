@@ -46,15 +46,7 @@ class FactoryInitializer
     User.find_or_create_by! username: TestConstants::TEST_USER 
   end    
 
-  def self.test_user2
-    User.find_or_create_by! username: 'timmy'
-  end    
-
   def self.test_visit
     Visit.find_or_create_by!(name: TestConstants::TEST_VISIT, survey: test_survey, user: test_user)
-  end
-  
-  def self.test_visit2
-    Visit.find_or_create_by!(name: TestConstants::TEST_VISIT, survey: test_survey, user: test_user2)
   end
 end

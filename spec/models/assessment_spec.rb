@@ -5,7 +5,6 @@ RSpec.describe Assessment, type: :model do
   let!(:survey) { TestFactory.test_survey }
   let!(:user) { TestFactory.test_user }
   let!(:visit) { TestFactory.test_visit }
-  let!(:assessment2) { TestFactory.test_assessment2 }
   let!(:instrument) { InstrumentTestFactory.test_instrument }
   let!(:assessment_from_db) { Assessment.find_or_create_by! visit: visit }
   
@@ -104,6 +103,10 @@ RSpec.describe Assessment, type: :model do
 
   describe '#destroy!' do
     it do
+      user2 = User.find_or_create_by! username: 'timmy'
+      test_visit2 = Visit.find_or_create_by!(name: TestConstants::TEST_VISIT, 
+                                             survey: survey, user: user2)
+      assessment2 = Assessment.find_or_create_by! visit: test_visit2
       vis = assessment2.visit
       assessment2.destroy!
       expect(Visit.exists?(vis.id)).to be_truthy 

@@ -21,14 +21,6 @@ FactoryBot.define do
     end
   end
   
-  factory :test_assessment2, class: 'Assessment' do
-    association :visit, factory: :test_visit2
-    initialize_with do
-      test_visit2 = FactoryInitializer.test_visit2
-      Assessment.find_or_create_by! visit: test_visit2
-    end
-  end
-
   factory :test_assessment_instrument, class: 'AssessmentInstrument' do
     association :assessment, factory: :test_assessment
     association :instrument, factory: :test_instrument
@@ -95,15 +87,7 @@ FactoryBot.define do
       Project.find_or_create_by! name: TestConstants::TEST_PROJECT, title: TestConstants::TEST_PROJECT_TITLE
     end
   end
-  
-  factory :test_project2, class: 'Project' do
-    name TestConstants::TEST_PROJECT2
-    title TestConstants::TEST_PROJECT_TITLE2
-    initialize_with do
-      Project.find_or_create_by! name: TestConstants::TEST_PROJECT2, title: TestConstants::TEST_PROJECT_TITLE2
-    end
-  end
-
+ 
   factory :test_response_scale, class: 'ResponseScale' do
     name TestConstants::TEST_RESPONSE_SCALE
     initialize_with { ResponseScale.find_or_create_by! name: TestConstants::TEST_RESPONSE_SCALE }
@@ -123,11 +107,6 @@ FactoryBot.define do
     initialize_with { Study.find_or_create_by! name: TestConstants::TEST_STUDY }
   end
   
-  factory :test_study2, class: 'Study' do
-    name TestConstants::TEST_STUDY2
-    initialize_with { Study.find_or_create_by! name: TestConstants::TEST_STUDY2 }
-  end
-
   factory :test_study_event, class: 'StudyEvent' do
     name TestConstants::TEST_STUDY_EVENT
     association :arm, factory: :test_arm
@@ -191,17 +170,6 @@ FactoryBot.define do
       survey = FactoryInitializer.test_survey
       user = FactoryInitializer.test_user
       Visit.find_or_create_by!(name: TestConstants::TEST_VISIT, survey: survey, user: user)
-    end
-  end
-  
-  factory :test_visit2, class: 'Visit' do
-    name TestConstants::TEST_VISIT
-    association :user, factory: :timmy
-    association :survey, factory: :test_survey
-    initialize_with do
-      survey = FactoryInitializer.test_survey
-      user2 = FactoryInitializer.test_user2
-      Visit.find_or_create_by!(name: TestConstants::TEST_VISIT, survey: survey, user: user2)
     end
   end
 end
