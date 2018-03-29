@@ -38,14 +38,6 @@ class FactoryInitializer
     StudyEvent.find_or_create_by! name: TestConstants::TEST_STUDY_EVENT, arm: test_arm
   end
   
-  def self.test_study_participant
-    StudyParticipant.find_or_create_by! study: test_study, participant: test_participant
-  end
-
-  def self.test_survey_participant
-    SurveyParticipant.find_or_create_by! survey: test_survey, participant: test_participant
-  end
-
   def self.test_survey
     Survey.find_or_create_by! name: TestConstants::TEST_SURVEY 
   end    

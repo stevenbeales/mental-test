@@ -112,7 +112,6 @@ FactoryBot.define do
   factory :test_schedule, class: 'Schedule' do
     name TestConstants::TEST_SCHEDULE
     association :study, factory: :test_study
-    
     initialize_with do
       study = FactoryInitializer.test_study
       Schedule.find_or_create_by! name: TestConstants::TEST_SCHEDULE, study: study

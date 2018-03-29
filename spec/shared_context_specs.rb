@@ -8,11 +8,6 @@ RSpec.shared_context 'shared attributes', a: :b do
   def responds(attribute) 
     subject.respond_to?(attribute)
   end
-
-  # checks that we have timestamps and a non-existent attribute does not give false positive
-  def timestamps?
-    subject.respond_to?(:updated_at) && subject.respond_to?(:created_at)
-  end
 end
 
 RSpec.shared_context 'restore attributes' do

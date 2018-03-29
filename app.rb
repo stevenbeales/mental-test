@@ -45,7 +45,7 @@ class App < Sinatra::Base
     I18n.backend.load_translations
   end
 
-  configure :development do
+  configure :development, :test do
     require 'sinatra/reloader'
     register Sinatra::Reloader
 
