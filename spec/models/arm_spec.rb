@@ -103,21 +103,22 @@ RSpec.describe Arm, type: :model do
         another_object.destroy!
       end
     end
+  end
 
-    describe '#destroy!' do
-      it 'also removes study_events' do
-        another_object = TestFactory.test_arm2
-        events = another_object.study_events
-        another_object.destroy!
-        expect(events.size).to eq(0)
-      end
-    end
+  describe '#to_s' do
+    it 'prints study schedule name number' do
+      expect(subject.to_s).to eq "#{subject.study} #{subject.schedule} " \
+                                  + "#{subject.name} #{subject.number}" 
+    end  
+  end
 
-    describe '#to_s' do
-      it 'prints study schedule name number' do
-        expect(subject.to_s).to eq "#{subject.study} #{subject.schedule} " \
-                                   + "#{subject.name} #{subject.number}" 
-      end  
+  describe '#destroy!' do
+    it 'also removes study_events' do
+      another_object = Arm.find_or_create_by!(name: TestConstants::TEST_ARM2, schedule: schedule, 
+                                              number: 2)
+      events = another_object.study_events
+      another_object.destroy!
+      expect(events.size).to eq(0)
     end
   end
 end

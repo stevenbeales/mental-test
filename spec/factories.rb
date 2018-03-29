@@ -13,16 +13,6 @@ FactoryBot.define do
     end
   end
 
-  factory :test_arm2, class: 'Arm' do
-    name TestConstants::TEST_ARM2
-    number 2
-    association :schedule, factory: :test_schedule
-    initialize_with do
-      test_schedule = FactoryInitializer.test_schedule
-      Arm.find_or_create_by!(name: TestConstants::TEST_ARM2, schedule: test_schedule, number: 2)
-    end
-  end
-
   factory :test_assessment, class: 'Assessment' do
     association :visit, factory: :test_visit
     initialize_with do

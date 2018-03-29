@@ -72,11 +72,11 @@ RSpec.describe Journal, type: :model do
 
     context 'unique name' do
       it do
-        another_object = described_class.create! name: 'a14', 
-                                                 participant: participant
+        another_object = Journal.create! name: 'a14', 
+                                         participant: participant
         expect do 
-          described_class.create! name: 'a14', 
-                                  participant: participant 
+          Journal.create! name: 'a14', 
+                          participant: participant 
         end.to raise_error ActiveRecord::RecordInvalid
         another_object.destroy!
       end

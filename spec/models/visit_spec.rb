@@ -112,17 +112,17 @@ RSpec.describe Visit, type: :model do
       subject.assessments.each(&:destroy!)
       expect(subject.assessments.count.to_s).to eq '0' 
     end
-  end
-
-  describe '#assessments' do
-    it do
-      ass1 = Assessment.create! visit: subject, 
-                                order_number: 24
-      ass2 = Assessment.create! visit: subject, 
-                                order_number: 2
-      expect { subject.assessments.concat [ass1, ass2] }.to \
-        change { subject.assessments.size }.by(2)
-      subject.assessments.each(&:destroy!)
+ 
+    describe '#assessments' do
+      it do
+        ass1 = Assessment.create! visit: subject, 
+                                  order_number: 24
+        ass2 = Assessment.create! visit: subject, 
+                                  order_number: 2
+        expect { subject.assessments.concat [ass1, ass2] }.to \
+          change { subject.assessments.size }.by(2)
+        subject.assessments.each(&:destroy!)
+      end
     end
   end
 end

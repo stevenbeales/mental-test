@@ -54,9 +54,9 @@ RSpec.describe Schedule, type: :model do
         another_object.destroy!
       end
     end
+  end
 
-    describe '#to_s' do
-      it { expect(subject.to_s).to eq TestConstants::TEST_SCHEDULE }
-    end
+  describe '#to_s' do
+    it { expect(subject.to_s).to eq TestConstants::TEST_SCHEDULE }
   end
 end

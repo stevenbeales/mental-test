@@ -89,20 +89,20 @@ RSpec.describe Score, type: :model do
         expect(ass).not_to be_nil
       end
     end
-  end
     
-  describe 'destroys multiple scores' do
-    it do
-      ass.scores.each(&:destroy!)
-      expect(ass.scores.count.to_s).to eq '0' 
-    end
+    describe 'destroys multiple scores' do
+      it do
+        ass.scores.each(&:destroy!)
+        expect(ass.scores.count.to_s).to eq '0' 
+      end
 
-    it do
-      rep2 = described_class.create_with(score: 2).find_or_create_by! assessment: ass, name: 'Depression' 
-      rep3 = described_class.create_with(score: 5).find_or_create_by! assessment: ass, name: 'Anxiety' 
-      ass.scores.concat([rep2, rep3])
-      expect(subject.assessment.scores.count.to_s).to eq '3'     
-      ass.scores.each(&:destroy!)
+      it do
+        rep2 = described_class.create_with(score: 2).find_or_create_by! assessment: ass, name: 'Depression' 
+        rep3 = described_class.create_with(score: 5).find_or_create_by! assessment: ass, name: 'Anxiety' 
+        ass.scores.concat([rep2, rep3])
+        expect(subject.assessment.scores.count.to_s).to eq '3'     
+        ass.scores.each(&:destroy!)
+      end
     end
   end
 end

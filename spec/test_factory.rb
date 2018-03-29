@@ -6,10 +6,6 @@ class TestFactory
     @test_arm ||= FactoryBot.create(:test_arm)
   end 
 
-  def self.test_arm2
-    @test_arm2 ||= FactoryBot.create(:test_arm2)  
-  end 
-
   def self.test_assessment
     @test_assessment ||= FactoryBot.create(:test_assessment)
   end

@@ -3,7 +3,7 @@
 RSpec.describe AssessmentInstrument, type: :model do
   subject { TestFactory.test_assessment_instrument }
   let!(:instrument) { InstrumentTestFactory.test_instrument }
-  let!(:assess) { TestFactory.test_assessment }
+  let!(:assessment) { TestFactory.test_assessment }
   
   include_examples 'valid object creation', AssessmentInstrument
 
@@ -38,7 +38,7 @@ RSpec.describe AssessmentInstrument, type: :model do
     end
 
     it 'equals assessment' do
-      expect(subject.assessment.id).to eq(assess.id)
+      expect(subject.assessment.id).to eq(assessment.id)
     end
   end
 
@@ -48,7 +48,7 @@ RSpec.describe AssessmentInstrument, type: :model do
     context 'no instrument' do
       it do 
         expect do 
-          AssessmentInstrument.create! assessment: assess 
+          AssessmentInstrument.create! assessment: assessment 
         end.to raise_error ActiveRecord::RecordInvalid 
       end
     end
@@ -65,7 +65,7 @@ RSpec.describe AssessmentInstrument, type: :model do
       it do 
         expect do
           AssessmentInstrument.find_or_create_by instrument: instrument, 
-                                                 assessment: assess
+                                                 assessment: assessment
         end.not_to raise_error
       end
     end
@@ -73,17 +73,18 @@ RSpec.describe AssessmentInstrument, type: :model do
     context 'unique instrument and assessment' do
       it do 
         expect do
-          AssessmentInstrument.create!(instrument: instrument, assessment: assess)
+          AssessmentInstrument.create!(instrument: instrument,
+                                       assessment: assessment)
         end.to raise_error ActiveRecord::RecordInvalid   
       end
     end
   end
-  
+
   describe '#to_s' do
     it do 
-      expect(AssessmentInstrument.where(assessment: assess.id, 
-                                        instrument: instrument.id) \
-                                   .first.to_s).to eq("#{assess} #{instrument}")
+      expect(AssessmentInstrument.where(assessment: assessment.id, 
+                                        instrument: instrument.id) 
+                                  .first.to_s).to eq "#{assessment} #{instrument}"
     end
   end
 
@@ -91,6 +92,6 @@ RSpec.describe AssessmentInstrument, type: :model do
     include_context 'destroy subject'
 
     it { expect(Instrument.exists?(instrument.id)).to be_truthy }
-    it { expect(Assessment.exists?(assess.id)).to be_truthy }
+    it { expect(Assessment.exists?(assessment.id)).to be_truthy }
   end
 end

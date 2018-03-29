@@ -1,8 +1,7 @@
 checks:
       ruby:
         code_rating: true
-        duplicate_code: true
-        
+        duplicate_code: true    
 build:
     dependencies:
         before:
@@ -17,7 +16,7 @@ build:
     tests:
         override:
             -
-                command: 'bundle exec rspec spec'
+                command: 'bundle exec rake spec'
                 environment:
                     'SCRUTINIZER_CC_FILE': 'my-coverage'
                 coverage:
