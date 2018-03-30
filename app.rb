@@ -33,8 +33,9 @@ set :public_folder, File.dirname(__FILE__) + '/public'
 class App < Sinatra::Base
   # TODO: Enable Register PaperTrail when paper_trail gem in 9 and paper_trail-sinatra supports it 
   # to register Paper Trail auditing and version framework
-  # register PaperTrail::Sinatra
-  
+  # register PaperTrail::
+ 
+  # Register initializers a la Rails 
   register Sinatra::Initializers
 
   # Entry point for requests from Amazon Alexa. 

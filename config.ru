@@ -11,12 +11,8 @@ require 'rack-timeout'
 # Setting service_timeout is recommended. If omitted, defaults to 15 seconds.
 use Rack::Timeout, service_timeout: 5
 
-require 'dotenv'
-
-Dotenv.load(
-  File.expand_path("./.#{APP_ENV}.env", __dir__),
-  File.expand_path('./.env', __dir__)
-)
+# Compress responses
+use Rack::Deflater
 
 require './app'
 run App.new

@@ -50,7 +50,6 @@ group :test do
 end
 
 group :development, :test do
-  gem 'better_errors', '>= 2.4.0', require: false # better error pages in development
   gem 'guard', '>= 2.14.2', require: false # watch for changed files 
   gem 'guard-rspec', '>= 4.7.3', require: false # run rspec on code change
 end

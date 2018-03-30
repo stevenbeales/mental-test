@@ -4,6 +4,7 @@ require 'sinatra_logger'
 
 # Configure Sinatra logging
 configure :development, :production do
+  require './app/app_constants'
   enable :logging 
   LOGGER ||= SinatraLogger::Loggers.file_logger(AppConstants::LOG_FILE) 
   LOGGER ||= SinatraLogger::Loggers.stdout_logger 
