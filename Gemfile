@@ -15,6 +15,7 @@ gem 'pg_search', '>= 2.1.2', require: false # Postgres full text search
 gem 'puma', '>= 3.11.2', require: false # puma web server
 gem 'rack-contrib', '>= 2.0.1', require: false # browser localization
 gem 'rack-heartbeat', '>= 1.1.0', require: false # provide heartbeat URL
+gem 'rack-timeout', '>= 0.4.2', require: false # configure Rack timeout
 gem 'rake', '>= 12.3.1', require: false # so we can run Rake tasks
 gem 'ralyxa', '>= 1.7.0', require: false # ruby alexa framework
 gem 'rest-client', '>= 2.0.2', platform: :ruby, require: false # minimum version without security vulnerabilities 
@@ -24,6 +25,7 @@ gem 'sinatra-activerecord', '>= 2.0.13', require: false # for Active Record mode
 gem 'sinatra-contrib', '>= 2.0.1', require: false # hot reloading
 gem 'sinatra-initializers', '>= 0.1.4', require: false # config initializers for sinatra
 gem 'sinatra_logger', '>= 0.1.0', require: false # for logging
+gem 'strong_migrations', '>= 0.2.2', require: false # check migrations for unsafe production operations
 gem 'turnout', '>= 2.4.1', require: false # for maintenance mode with heartbeat URL
 gem 'valid_email2', '>= 2.2.2', require: false # validates email format
 

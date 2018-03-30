@@ -21,3 +21,7 @@ production:
   username: mentalhealth@mentalhealth
   password: Aviva173248
   host: mentalhealth.postgres.database.azure.com
+  connect_timeout: 1
+  checkout_timeout: 5
+  variables:
+    statement_timeout: 5000 # ms

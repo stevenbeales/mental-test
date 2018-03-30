@@ -8,6 +8,8 @@
 #
 threads_count = ENV.fetch('SINATRA_MAX_THREADS') { 5 }.to_i
 threads threads_count, threads_count
+worker_timeout 15
+worker_shutdown_timeout 8
 
 # Specifies the `port` that Puma will listen on to receive requests, default is 3000.
 #
