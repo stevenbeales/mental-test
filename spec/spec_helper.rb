@@ -19,31 +19,6 @@ Coveralls.wear!
 
 require 'simplecov'
 require 'simplecov-console'
-
-SimpleCov.profiles.define 'app' do
-  add_group 'Models', 'app/models'
-  add_group 'Services', 'app/services'
-  add_group 'Intents', 'intents'
-  add_group 'Lib', 'lib'
-  add_group 'Config', 'config'
-  add_group 'Db', 'db'
-  add_group 'Spec', 'spec'
-  
-  add_filter '/.bundle/'
-  add_filter '/.vscode/'
-  add_filter '/bin/'
-  add_filter '/coverage/'
-  add_filter '/doc/'
-  add_filter '/tmp/'
-  add_filter '/public/'
-  add_filter '/vendor/'
-  add_filter '/log/'
-  add_filter ['Gemfile.lock', 'README.md', 'todo.txt', '.gitignore', '.rspec', \
-              '.travis.yml', '.rubocop.yml', 'config/database.yml', \
-              'Guardfile', 'Rakefile'] 
-  add_filter 'app/secrets'
-end
-
 require 'scrutinizer/ocular'
 require 'scrutinizer/ocular/formatter'
 
@@ -78,6 +53,8 @@ require_relative 'test_factory'
 require './app/services/init'
 require './app/models/init'
 require './intents/init'
+
+ActiveRecord::Migrator.migrate(File.join('../', 'db/migrate'))
 
 # Sinatra testing
 module RSpecMixin

@@ -15,7 +15,7 @@ build:
         postgresql: true
     tests:
         override:
-            -
+            -   rubocop-run
                 command: 'bundle exec rake spec'
                 environment:
                     'SCRUTINIZER_CC_FILE': 'my-coverage'

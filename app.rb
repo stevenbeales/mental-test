@@ -37,58 +37,6 @@ class App < Sinatra::Base
   
   register Sinatra::Initializers
 
-  configure :development, :test do
-    require 'sinatra/reloader'
-    register Sinatra::Reloader
-
-    require 'better_errors'
-    use BetterErrors::Middleware
-    # you need to set the application root in order to abbreviate filenames
-    # within the application:
-    BetterErrors.application_root = File.expand_path(__dir__)
-  end
-
-  configure :development, :production do
-    require 'sinatra_logger'  
-    enable :logging
-    LOGGER ||= SinatraLogger::Loggers.file_logger('./log/sinatra.log')
-    LOGGER ||= SinatraLogger::Loggers.stdout_logger
-    use Rack::CommonLogger, LOGGER
-
-    require 'rack/contrib' # use browser locales
-    use Rack::Locale
-
-    # maintenance support
-    require 'rack/turnout'
-    use Rack::Turnout
-    
-    # report errors to bugsnag.com
-    require 'bugsnag'
-    Bugsnag.configure do |config|
-      config.api_key = 'b27cf77d548381f51613fb5c142ae212'
-      config.app_version = '1.0'
-      config.auto_capture_sessions = true
-      config.project_root = '/var/www/mental-test'
-      config.send_environment = true
-    end
-    use Bugsnag::Rack
-    set :raise_errors, true
-    set :show_exceptions, false
-  end
-
-  configure :production do
-    require 'rack/ssl'
-    use Rack::SSL
-  end 
- 
-  AlexaVerifier.configure do |config|
-    config.enabled            = false # Disables all checks, even though we enable them individually below
-    config.verify_uri         = true
-    config.verify_timeliness  = true
-    config.verify_certificate = false
-    config.verify_signature   = false
-  end
-
   # Entry point for requests from Amazon Alexa. 
   # The incoming requests are dispatched to intents in the intents folder by Ralyxa.
   post '/' do
