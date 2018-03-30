@@ -1,10 +1,13 @@
 # frozen_string_literal: true
 
-require 'acts-as-taggable-array-on'
-
 # Represents a psychometric instrument
 # Similar to a survey or questionnaire
 class Instrument < ApplicationRecord
+  include PgSearch
+  multisearchable against: %i[json_content csv_content]
+  pg_search_scope :search_json, against: :json_content
+  pg_search_scope :search_csv, against: :csv_content
+  
   # has_paper_trail
   acts_as_taggable_array_on :tags
 

@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
+require 'acts-as-taggable-array-on'
 require 'jsonb_accessor'
+require 'pg_search'
 require 'validates_email_format_of'
 
 require_relative 'application_record'

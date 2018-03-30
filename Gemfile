@@ -13,6 +13,7 @@ gem 'mobility', '>= 0.5.1', require: false # translations
 gem 'multi_json', '>= 1.13.1', require: false # common interface to load json
 gem 'oj', '>= 3.5.0', require: false # faster json parsing
 gem 'pg', '>= 1.0.0', platform: :ruby, require: false # for Postgres
+gem 'pg_search', '>= 2.1.2', require: false # Postgres full text search
 gem 'puma', '>= 3.11.2', require: false # puma web server
 gem 'rack-cache', '>= 1.7.1', require: false # http caching
 gem 'rack-contrib', '>= 2.0.1', require: false # browser localization
