@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180322010326) do
+ActiveRecord::Schema.define(version: 20180329174231) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -77,12 +77,15 @@ ActiveRecord::Schema.define(version: 20180322010326) do
   create_table "instruments", force: :cascade do |t|
     t.string "name", null: false
     t.string "version_number", default: "1.0", null: false
-    t.jsonb "content", default: "{}", null: false
+    t.string "instrument_type", default: "json", null: false
+    t.jsonb "json_content", default: "{}", null: false
+    t.text "csv_content", default: "", null: false
+    t.text "instructions", default: "", null: false
     t.datetime "created_at", default: -> { "CURRENT_TIMESTAMP" }, null: false
     t.datetime "updated_at", default: -> { "CURRENT_TIMESTAMP" }, null: false
     t.string "tags", default: [], array: true
-    t.text "instructions", default: ""
-    t.index ["content"], name: "instrument_content", using: :gin
+    t.index ["csv_content"], name: "index_instruments_on_csv_content"
+    t.index ["json_content"], name: "instrument_json_content", using: :gin
     t.index ["name"], name: "index_instruments_on_name"
     t.index ["tags"], name: "instrument_tags", using: :gin
   end
@@ -129,6 +132,15 @@ ActiveRecord::Schema.define(version: 20180322010326) do
     t.index ["email"], name: "index_participants_on_email"
     t.index ["identifier"], name: "index_participants_on_identifier"
     t.index ["user_id"], name: "index_participants_on_user_id"
+  end
+
+  create_table "pg_search_documents", force: :cascade do |t|
+    t.text "content"
+    t.string "searchable_type"
+    t.bigint "searchable_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["searchable_type", "searchable_id"], name: "index_pg_search_documents_on_searchable_type_and_searchable_id"
   end
 
   create_table "projects", force: :cascade do |t|

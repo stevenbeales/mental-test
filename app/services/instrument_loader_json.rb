@@ -8,18 +8,28 @@ class InstrumentLoaderJson < InstrumentLoader
   # Loads attributes, an array of Items, and rating scale that represent the questions in an instrument.
   def load!(instrument:)
     @instrument = instrument
-    load_attributes
-    load_elements
+    load_content!
+    load_attributes!
+    load_elements!
     @instrument
   end
 
   private
- 
-  def load_attributes
+  
+  def load_content!
+    check_valid_instrument_name 
+
+    filename = "#{AppConstants::INSTRUMENTS_FOLDER}#{@instrument.name}.json" 
+    json_data = File.read(filename)
+    @instrument.json_content = MultiJson.load(json_data)
+  end
+
+  def load_attributes!
+    @instrument.instrument_type = :json
     @instrument.instructions = @instrument.pages[0]['title']
   end
 
-  def load_elements 
+  def load_elements!
     elements = []
     @instrument.pages.each { |p| elements += p['elements'] }
     load_response_scale!(elements: elements, name: instrument.name)

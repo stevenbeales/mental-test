@@ -12,7 +12,8 @@ RSpec.describe Instrument, type: :model do
     include_examples 'responds', :study_event_instruments
     include_examples 'responds', :study_events
     include_examples 'responds', :instructions
-    include_examples 'responds', :content
+    include_examples 'responds', :csv_content
+    include_examples 'responds', :json_content
     include_examples 'responds', :title
     include_examples 'responds', :pages
     include_examples 'responds', :items

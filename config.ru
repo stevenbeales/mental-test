@@ -9,7 +9,11 @@ require 'rack/protection'
 use Rack::Protection
 
 require 'dotenv'
-Dotenv.load # load environment variables from .env configuration file
+
+Dotenv.load(
+  File.expand_path("../.#{APP_ENV}.env", __dir__),
+  File.expand_path('../.env', __dir__)
+)
 
 require './app'
 run App.new

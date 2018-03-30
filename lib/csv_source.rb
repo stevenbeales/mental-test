@@ -14,4 +14,15 @@ class CsvSource
       yield row.to_hash
     end
   end
+
+  # returns an array of arrays containing file contents
+  def read
+    @arrays = CSV.read(@file)
+  end
+
+  # returns a line delimited single string
+  def to_s
+    read unless @arrays
+    @arrays.map(&:join).join("\n")
+  end
 end

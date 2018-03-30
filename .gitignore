@@ -8,12 +8,11 @@
 todo.txt
 ## Visual Studio code
 ./.vscode
-
-#environment files
+## environment files
 .env
-
-# logs
+## logs
 /log/
-
+## temp files
 /tmp/
+## Ruby gems
 /vendor/

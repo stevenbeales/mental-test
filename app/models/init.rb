@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+require 'jsonb_accessor'
 require 'validates_email_format_of'
 
 require_relative 'application_record'

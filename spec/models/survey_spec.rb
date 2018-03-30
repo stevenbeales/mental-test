@@ -45,13 +45,7 @@ RSpec.describe Survey do
     end 
   end
 
-  describe '#to_s' do
-    it do
-      survey = described_class.find_or_create_by! name: 'Welcome!1'
-      expect(survey.to_s).to eq 'Welcome!1'
-      survey.destroy!
-    end
-  end 
+  include_examples '#to_s', 'name', TestConstants::TEST_SURVEY 
 
   describe '#destroy!' do
     it 'destroys assessments' do

@@ -14,6 +14,7 @@ ENV['RACK_ENV'] ||= 'development'
 
 require 'sinatra'
 require 'ralyxa'
+require 'sinatra-initializers'
 
 # require 'paper_trail'
 # require 'paper_trail-sinatra'
@@ -33,17 +34,8 @@ class App < Sinatra::Base
   # TODO: Enable Register PaperTrail when paper_trail gem in 9 and paper_trail-sinatra supports it 
   # to register Paper Trail auditing and version framework
   # register PaperTrail::Sinatra
-  require 'route_downcaser'
-  use RouteDowncaser::DowncaseRouteMiddleware # case insensitive URLs
-
-  require 'i18n'
-  require 'i18n/backend/fallbacks'
-
-  configure do
-    I18n::Backend::Simple.send(:include, I18n::Backend::Fallbacks)
-    I18n.load_path += Dir[File.join(settings.root, 'locales', '*.yml')]
-    I18n.backend.load_translations
-  end
+  
+  register Sinatra::Initializers
 
   configure :development, :test do
     require 'sinatra/reloader'

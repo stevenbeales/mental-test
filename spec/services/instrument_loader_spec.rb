@@ -15,18 +15,9 @@ RSpec.describe InstrumentLoader do
   end
 
   context '#load existing instrument' do
-    context 'overwrite false' do
-      it do 
-        expect { subject.load(instrument: instrument) }.to \
-          raise_error(RuntimeError)
-      end
-    end
-
-    context '#load overwrite true' do
-      it do 
-        expect(subject.load(instrument: instrument, overwrite: true).name).to \
-          eq(instrument.name)
-      end
+    it do 
+      expect { subject.load(instrument: instrument) }.to \
+        raise_error ActiveRecord::RecordInvalid
     end
   end
 

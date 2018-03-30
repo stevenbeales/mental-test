@@ -2,11 +2,15 @@
 
 # Load cesd-r if not already loaded
 unless Instrument.find_by_name(AppConstants::DEFAULT_INSTRUMENT)
-  json_data = File.read('./db/files/cesdr.json')
-  json_hash = MultiJson.load(json_data)
-  instrument = Instrument.new(name: AppConstants::DEFAULT_INSTRUMENT, content: json_hash)
-  InstrumentLoader.instance.load(instrument: instrument, overwrite: true)
+  instrument = Instrument.new(name: AppConstants::DEFAULT_INSTRUMENT)
+  InstrumentLoader.instance.load(instrument: instrument, type: :json)
 end
+
+# Load HAM-D if not already loaded
+# unless Instrument.find_by_name(AppConstants::DEFAULT_CSV_INSTRUMENT)
+# instrument = InstrumentCsv.new(name: AppConstants::DEFAULT_CSV_INSTRUMENT)
+# InstrumentLoader.instance.load(instrument: instrument, type: :csv)
+# end
 
 unless HipaaIdentifier.count == 18 
   HipaaIdentifier.delete_all
