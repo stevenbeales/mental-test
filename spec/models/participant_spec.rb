@@ -23,8 +23,32 @@ RSpec.describe Participant, type: :model do
       subject.valid?
       expect(subject.errors[:email].size).to eq(1)
     end
-  end
+  
+    context 'when the email address is valid' do
+      let(:email) { Faker::Internet.email }
 
+      it 'allows the input' do
+        subject.email = email
+        expect(subject).to be_valid
+      end
+    end
+
+    context 'when the email address is invalid' do
+      let(:invalid_message) { 'is invalid' }
+
+      it 'invalidates the input' do
+        subject.email = 'not_valid@'
+        expect(subject).not_to be_valid
+      end
+
+      it 'alerts the consumer' do
+        subject.email = 'notvalid'
+        subject.valid?
+        expect(subject.errors[:email]).to include(invalid_message)
+      end
+    end
+  end
+  
   describe '#journal' do
     include_context 'restore attributes'
     

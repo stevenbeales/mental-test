@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 require 'singleton'
-require 'facets/kernel/blank'
 
 # Singleton template class for loading either CSV or json instruments 
 class InstrumentLoader

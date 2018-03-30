@@ -3,7 +3,7 @@
 # Model to represent survey participants
 class Participant < ApplicationRecord
   belongs_to :user, optional: true
-  validates_email_format_of :email, message: 'is not a valid email'
+  validates :email, presence: true, 'valid_email_2/email': true
   has_one :journal, inverse_of: :participant, dependent: :destroy
   has_many :survey_participants, inverse_of: :participant, dependent: :destroy
   has_many :surveys, through: :survey_participants

@@ -49,6 +49,7 @@ require 'database_cleaner'
 require 'ralyxa'
 require 'factory_bot'
 require 'test_constants'
+require 'faker'
 require_relative 'test_factory'
 require './app/services/init'
 require './app/models/init'
@@ -73,6 +74,10 @@ RSpec.configure do |config|
     DatabaseCleaner.strategy = :transaction
     DatabaseCleaner.clean_with(:truncation)
     require './db/seeds'
+  end
+
+  config.before(:each) do
+    allow_any_instance_of(ValidEmail2::Address).to receive(:valid_mx?) { true }
   end
 
   config.before :each, timecop: :freeze do

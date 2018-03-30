@@ -28,8 +28,7 @@ before_install:
   - cp -p Gemfile.lock Gemfile.lock.org 
   - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
   - chmod +x ./cc-test-reporter
-  - touch sinatra.log
-
+ 
 script:
   - RACK_ENV=test bundle exec rake db:migrate
   - RACK_ENV=test bundle exec rake spec

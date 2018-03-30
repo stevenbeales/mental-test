@@ -3,7 +3,7 @@
 require 'acts-as-taggable-array-on'
 require 'jsonb_accessor'
 require 'pg_search'
-require 'validates_email_format_of'
+require 'valid_email2'
 
 require_relative 'application_record'
 require_relative 'arm'

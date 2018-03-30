@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# Configure ralyxa for Alexa communication
 AlexaVerifier.configure do |config|
   config.enabled            = false # Disables all checks, even though we enable them individually below
   config.verify_uri         = true
