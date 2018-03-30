@@ -22,6 +22,10 @@ class Journal < ApplicationRecord
   def read_entry(day)
     JournalEntry.where(entry_date: day.beginning_of_day..day.end_of_day)
   end
+  
+  def read_last(last_n: 1)
+    JournalEntry.order('ID DESC').limit(last_n)
+  end
 
   def to_s
     name

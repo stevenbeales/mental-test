@@ -40,11 +40,11 @@ class AlexaService
     user.journal.list_entries(limit: 4)
   end
 
-  def self.read_entry(day:)
+  def read_entry(day:)
     user.journal.read_entry(day)
   end
 
-  def self.read_last(last_n: 1)
-    # TODO
+  def read_last(last_n: 1)
+    user.journal.read_last(last_n)
   end
 end
