@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 source 'https://rubygems.org'
-ruby '2.4.3'
 
 gem 'activerecord', '>= 5.1.5' # ORM
 gem 'acts-as-taggable-array-on', '>= 0.4.0', require: false # adds tags
