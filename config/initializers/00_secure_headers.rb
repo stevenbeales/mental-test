@@ -36,3 +36,6 @@ SecureHeaders::Configuration.default do |config|
   config_x_headers(config)
   config_report(config)
 end
+
+# Secure headers
+use SecureHeaders::Middleware

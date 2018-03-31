@@ -11,9 +11,6 @@ require 'rack-timeout'
 # Setting service_timeout is recommended. If omitted, defaults to 15 seconds.
 use Rack::Timeout, service_timeout: 5
 
-# Secure headers
-use SecureHeaders::Middleware
-
 # Compress responses
 use Rack::Deflater
 
