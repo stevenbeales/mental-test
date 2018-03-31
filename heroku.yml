@@ -6,6 +6,6 @@ build:
 release:
   command:
     - gem update bundler
-    - rake db:migrate
+    - bundle exec rake db:migrate
 run:
   web: bundle exec puma -C config/puma.rb
