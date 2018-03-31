@@ -5,6 +5,7 @@ build:
     - RACK_ENV: production
 release:
   command:
+    - gem update bundler
     - rake db:migrate
 run:
   web: bundle exec puma -C config/puma.rb
