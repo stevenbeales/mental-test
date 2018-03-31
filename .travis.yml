@@ -25,7 +25,6 @@ before_script:
 before_install:
   - gem update bundler # ensure bundler up to date
   - "echo 'gem: --no-ri --no-rdoc' > ~/.gemrc" # ensure bundle does not install docs
-  - cp -p Gemfile.lock Gemfile.lock.org 
   - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
   - chmod +x ./cc-test-reporter
  
@@ -35,7 +34,6 @@ script:
   - bundle exec rake bundle:audit
   - bundle exec rubocop 
   - bundle exec ruby-audit check
-  - cp -p Gemfile.lock.org Gemfile.lock
   
 after_script:
   - ./cc-test-reporter format-coverage -t simplecov -o coverage/codeclimate.backend.json coverage/backend/.resultset.json # Format backend coverage

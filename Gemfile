@@ -20,6 +20,7 @@ gem 'rake', '>= 12.3.1', require: false # so we can run Rake tasks
 gem 'ralyxa', '>= 1.7.0', require: false # ruby alexa framework
 gem 'rest-client', '>= 2.0.2', platform: :ruby, require: false # minimum version without security vulnerabilities 
 gem 'route_downcaser', '>= 1.2.1', require: false # case insensitive URLs
+gem 'secure_headers', '>= 5.0.5', require: false # secure headers from Twitter
 gem 'sinatra', '>= 2.0.1', require: false # Web server
 gem 'sinatra-activerecord', '>= 2.0.13', require: false # for Active Record models
 gem 'sinatra-contrib', '>= 2.0.1', require: false # hot reloading
