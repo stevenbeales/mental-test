@@ -16,3 +16,5 @@ todo.txt
 /tmp/
 ## Ruby gems
 /vendor/
+## Bundler config contains local state 
+.bundle/config
