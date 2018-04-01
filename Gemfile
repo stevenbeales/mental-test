@@ -4,6 +4,7 @@ source 'https://rubygems.org'
 
 gem 'activerecord', '>= 5.1.5' # ORM
 gem 'acts-as-taggable-array-on', '>= 0.4.0', require: false # adds tags
+gem 'audited', '>= 4.7.0', require: false # adds table auiting support
 gem 'bugsnag', '>= 6.6', require: false # online bug reporting
 gem 'dotenv', '>= 2.2.1', require: false # adds environment variables from .env files
 gem 'i18n', '>= 0.9.5', require: false # internationalization support
@@ -51,6 +52,8 @@ group :test do
 end
 
 group :development, :test do
+  # Call 'byebug' anywhere in the code to stop execution and get a debugger console
+  gem 'byebug', '>=10.0.2', platforms: %i[mri mingw x64_mingw]
   gem 'guard', '>= 2.14.2', require: false # watch for changed files 
   gem 'guard-rspec', '>= 4.7.3', require: false # run rspec on code change
 end
@@ -64,6 +67,8 @@ group :production do
 end
 
 group :windows do
+  # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
+  gem 'tzinfo-data', require: false if Gem.win_platform?
   gem 'wdm', '>= 0.1.0', require: false if Gem.win_platform? # supports Guard watching files on Windows OS.
   gem 'win32console', '>= 1.3.2 ', require: false if Gem.win_platform? # color code coverage
 end

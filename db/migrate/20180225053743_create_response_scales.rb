@@ -1,13 +1,12 @@
 # frozen_string_literal: true
 
-# Creates table for rating scales
+require './lib/shared_migration'
+
+# Creates table to hold response scales
 class CreateResponseScales < ActiveRecord::Migration[5.1]
+  include SharedMigration
+
   def change
-    create_table :response_scales do |t|
-      t.string :name, null: false
-      t.timestamps null: false, default: -> { 'CURRENT_TIMESTAMP' }
-    end
- 
-    add_index :response_scales, :name, unique: true, name: 'index_by_response_scale_name'
+    create_name_table table_name: :response_scales
   end
 end

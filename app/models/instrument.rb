@@ -8,7 +8,6 @@ class Instrument < ApplicationRecord
   pg_search_scope :search_json, against: :json_content
   pg_search_scope :search_csv, against: :csv_content
   
-  # has_paper_trail
   acts_as_taggable_array_on :tags
 
   has_many :assessment_instruments, inverse_of: :instrument, dependent: :destroy

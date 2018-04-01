@@ -22,6 +22,10 @@ TODO - The application will direct you to a physician or clinical trial that spe
 
 Disclaimer. These statements have not been validated by the FDA. This skill is not intended to diagnose or treat any condition.
 
+Ruby Version
+
+2.4.1 or higher
+
 To install dependencies -
 
 1) Install Postgres 9.4 or higher. This skill uses Postgres jsonb columns to store indexed unstructured data.

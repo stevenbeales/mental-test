@@ -15,9 +15,6 @@ ENV['RACK_ENV'] ||= 'development'
 require 'sinatra'
 require 'ralyxa'
 require 'sinatra-initializers'
-
-# require 'paper_trail'
-# require 'paper_trail-sinatra'
 require_relative 'config/db'
 require_relative 'app/services/init'
 require_relative 'app/models/init'
@@ -31,10 +28,6 @@ set :public_folder, File.dirname(__FILE__) + '/public'
 # Takes an incoming Alexa requests and dispatches
 # to a matching intent in intents folder
 class App < Sinatra::Base
-  # TODO: Enable Register PaperTrail when paper_trail gem in 9 and paper_trail-sinatra supports it 
-  # to register Paper Trail auditing and version framework
-  # register PaperTrail::
- 
   # Register initializers a la Rails 
   register Sinatra::Initializers
 

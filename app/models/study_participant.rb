@@ -1,18 +1,7 @@
 # frozen_string_literal: true
 
-# == Schema Information
-#
-# Table name: study_participants
-#
-#  id        :integer          not null, primary key
-#  participant_id   :integer          not null
-#  study_id :integer          not null
-#
-
 # Association class between participants and studies
 class StudyParticipant < ApplicationRecord
-  # has_paper_trail
-
   belongs_to :participant, inverse_of: :study_participants
   belongs_to :study, inverse_of: :study_participants
   validates :participant, presence: true

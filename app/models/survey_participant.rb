@@ -1,18 +1,7 @@
 # frozen_string_literal: true
 
-# == Schema Information
-#
-# Table name: survey_participants
-#
-#  id        :integer          not null, primary key
-#  participant_id   :integer          not null
-#  survey_id :integer          not null
-#
-
 # Association class between participants and surveys
 class SurveyParticipant < ApplicationRecord
-  # has_paper_trail
-
   belongs_to :participant, inverse_of: :survey_participants
   belongs_to :survey, inverse_of: :survey_participants
 

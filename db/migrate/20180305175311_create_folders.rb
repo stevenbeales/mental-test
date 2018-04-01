@@ -1,12 +1,13 @@
 # frozen_string_literal: true
 
+require './lib/shared_migration'
+
 # Migration to create folders table
 # Folders are used to organize projects
 class CreateFolders < ActiveRecord::Migration[5.1]
+  include SharedMigration
+
   def change
-    create_table :folders do |t|
-      t.string :name, null: false, unique: true, index: true
-      t.timestamps null: false, default: -> { 'CURRENT_TIMESTAMP' }
-    end
+    create_name_table table_name: :folders
   end
 end

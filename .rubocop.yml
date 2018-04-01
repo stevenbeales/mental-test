@@ -9,7 +9,9 @@ AllCops:
 Metrics/LineLength:
   Max: 120
 Metrics/MethodLength:
-  Max: 15
+  Max: 20
+Metrics/AbcSize:
+  Max: 20
 Layout/ClassStructure:
   Description: 'Enforces a configured order of definitions within a class body.'
   StyleGuide: 'https://github.com/bbatsov/ruby-style-guide#consistent-classes'
