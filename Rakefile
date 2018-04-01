@@ -5,15 +5,13 @@ require 'sinatra/activerecord/rake'
 begin
   require 'rspec/core/rake_task'
   RSpec::Core::RakeTask.new(:spec)
+  task default: :spec # set the default task to spec for Travis CI 
 rescue LoadError
   puts 'ignoring rspec in production'
 end
 require 'turnout/rake_tasks' # rake maintenance:start, rake maintenance:end
 
 Dir.glob('lib/tasks/*.rake').each { |r| load r }
-
-RSpec::Core::RakeTask.new
-task default: :spec # set the default task to spec for Travis CI 
 
 require 'bundler/audit/task'
 Bundler::Audit::Task.new
