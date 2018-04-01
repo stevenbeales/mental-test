@@ -8,5 +8,5 @@ module AppConstants
   DEFAULT_CSV_INSTRUMENT = 'HAM-D'
   PLACEHOLDER_EMAIL = 'placeholder@email.com'
   INSTRUMENTS_FOLDER = './db/files/'
-  LOG_FILE = './log/sinatra.log'
+  LOG_FILE = '/log/mental.log'
 end
