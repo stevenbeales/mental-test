@@ -6,6 +6,11 @@ rvm:
 
 addons:
   postgresql: "9.6"
+  apt:
+    sources:
+    - heroku
+    packages:
+    - heroku-toolbelt
 
 bundler_args: 
   --without development production
@@ -49,9 +54,3 @@ notifications:
     on_success: never
     on_failure: change
 
-addons:
-  apt:
-    sources:
-    - heroku
-    packages:
-    - heroku-toolbelt
