@@ -6,6 +6,7 @@ gem 'activerecord', '>= 5.1.5' # ORM
 gem 'acts-as-taggable-array-on', '>= 0.4.0', require: false # adds tags
 gem 'audited', '>= 4.7.0', require: false # adds table auiting support
 gem 'bugsnag', '>= 6.6', require: false # online bug reporting
+gem 'bundler-audit', '>= 0.6.0', require: false # check gems for security issues
 gem 'dotenv', '>= 2.2.1', require: false # adds environment variables from .env files
 gem 'i18n', '>= 0.9.5', require: false # internationalization support
 gem 'jsonb_accessor', '>= 1.0.0', require: false # adds methods to access Jsonb fields
@@ -32,7 +33,6 @@ gem 'turnout', '>= 2.4.1', require: false # for maintenance mode with heartbeat 
 gem 'valid_email2', '>= 2.2.2', require: false # validates email format
 
 group :test do
-  gem 'bundler-audit', '>= 0.6.0', require: false # check gems for security issues
   gem 'coveralls', '>= 0.7.1', require: false # code coverage
   gem 'database_cleaner', '=1.6.1', require: false # for test database cleaning
   gem 'factory_bot', '>= 4.0', require: false # for test data setup
