@@ -18,10 +18,7 @@ test:
 
 production:
   <<: *default
-  database: mentalhealth
-  username: mentalhealth
-  password: <%= ENV['DATABASE_PAZSSWORD'] %>
-  url: <%= ENV['DATABASE_URL'] %>
+  pool: 5
   connect_timeout: 1
   checkout_timeout: 5
   variables:
