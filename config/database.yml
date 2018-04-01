@@ -1,26 +1,27 @@
-development:
+default: &default
   adapter: postgresql
   encoding: unicode
+
+development:
+  <<: *default
   database: mental_health
   pool: 2
   username: mental
   password: health
 
 test:
-  adapter: postgresql
-  encoding: unicode
+  <<: *default
   database: mental_health_test
   pool: 2
   username: mental
   password: health
 
 production:
-  adapter: postgresql
-  encoding: unicode
+  <<: *default
   database: mentalhealth
-  username: mentalhealth@mentalhealth
-  password: Aviva173248
-  host: mentalhealth.postgres.database.azure.com
+  username: mentalhealth
+  password: <%= ENV['DATABASE_PAZSSWORD'] %>
+  url: <%= ENV['DATABASE_URL'] %>
   connect_timeout: 1
   checkout_timeout: 5
   variables:
