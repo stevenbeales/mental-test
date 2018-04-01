@@ -5,7 +5,7 @@ AllCops:
     - '.git/**/*'
     - 'db/schema.rb'
     - 'bin/**/*'
-  TargetRubyVersion: 2.4
+  TargetRubyVersion: 2.5
 Metrics/LineLength:
   Max: 120
 Metrics/MethodLength:
@@ -26,6 +26,8 @@ Style/ReturnNil:
 Style/StringMethods:
   Description: 'Checks if configured preferred methods are used over non-preferred.'
   Enabled: true
+Style/HashSyntax:
+  EnforcedStyle: ruby19_no_mixed_keys
 Layout/TrailingWhitespace:
   Description: 'Avoid trailing whitespace.'
   StyleGuide: '#no-trailing-whitespace'

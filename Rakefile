@@ -2,7 +2,12 @@
 
 require 'sinatra/activerecord'
 require 'sinatra/activerecord/rake'
-require 'rspec/core/rake_task'
+begin
+  require 'rspec/core/rake_task'
+  RSpec::Core::RakeTask.new(:spec)
+rescue LoadError
+  puts 'ignoring rspec in production'
+end
 require 'turnout/rake_tasks' # rake maintenance:start, rake maintenance:end
 
 Dir.glob('lib/tasks/*.rake').each { |r| load r }
