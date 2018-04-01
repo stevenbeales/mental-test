@@ -4,7 +4,6 @@ source 'https://rubygems.org'
 ruby ENV['CUSTOM_RUBY_VERSION'] || '2.4.3'
 
 gem 'activerecord', '>= 5.1.5' # ORM
-gem 'acts-as-taggable-array-on', '>= 0.4.0', require: false # adds tags
 gem 'audited', '>= 4.7.0', require: false # adds table auiting support
 gem 'bugsnag', '>= 6.6', require: false # online bug reporting
 gem 'bundler-audit', '>= 0.6.0', require: false # check gems for security issues

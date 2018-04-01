@@ -8,8 +8,6 @@ class Instrument < ApplicationRecord
   pg_search_scope :search_json, against: :json_content
   pg_search_scope :search_csv, against: :csv_content
   
-  acts_as_taggable_array_on :tags
-
   has_many :assessment_instruments, inverse_of: :instrument, dependent: :destroy
   has_many :study_event_instruments, inverse_of: :instrument, dependent: :destroy
   has_many :assessments, inverse_of: :instrument, through: :assessment_instruments

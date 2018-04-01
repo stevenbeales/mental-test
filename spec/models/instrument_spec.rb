@@ -65,34 +65,6 @@ RSpec.describe Instrument, type: :model do
     it { expect(subject.version_number).to eq('1.0') }
   end
 
-  describe '#tags' do
-    it do
-      subject.tags = %w[Depression Anxiety] 
-      subject.tags -= %w[Depression]
-      subject.tags += %w[Schizophrenia]
-      expect(subject.tags).to eq %w[Anxiety Schizophrenia] 
-    end
-  end
-
-  describe '#with_any_tags' do
-    context 'present' do
-      it do
-        subject.tags = %w[Depression Anxiety] 
-        subject.tags -= %w[Depression]
-        subject.tags += %w[Schizophrenia]
-        subject.save!
-        expect(described_class.with_any_tags('Anxiety')&.first&.name).to \
-          eq subject.name
-      end
-    end
-
-    context 'absent' do
-      it do
-        expect(described_class.with_any_tags('Depression')&.first).to be_nil
-      end
-    end
-  end
-
   describe '#instructions' do
     it { expect(subject.instructions).to include 'felt or behaved' }
   end

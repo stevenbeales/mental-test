@@ -1,6 +1,5 @@
 # frozen_string_literal: true
 
-require 'acts-as-taggable-array-on'
 require 'audited'
 require 'jsonb_accessor'
 require 'pg_search'
