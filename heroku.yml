@@ -1,8 +1,8 @@
 build: 
-  config: 
-    - RACK_ENV: production
   languages: 
     - ruby
+  config: 
+    - RACK_ENV: production
 release: 
   command: 
     - gem update bundler
