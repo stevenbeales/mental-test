@@ -2,21 +2,19 @@
 
 # Loads instruments from json  
 class InstrumentLoaderJson < InstrumentLoader
-  attr_accessor :instrument
-  attr_accessor :response_scale
- 
+  
   # Loads attributes, an array of Items, and rating scale that represent the questions in an instrument.
   def load!(instrument:)
     @instrument = instrument
-    load_content!
-    load_attributes!
-    load_elements!
+    load_content
+    load_attributes
+    load_elements
     @instrument
   end
 
   private
   
-  def load_content!
+  def load_content
     check_valid_instrument_name 
 
     filename = "#{AppConstants::INSTRUMENTS_FOLDER}#{@instrument.name}.json" 
@@ -24,35 +22,35 @@ class InstrumentLoaderJson < InstrumentLoader
     @instrument.json_content = MultiJson.load(json_data)
   end
 
-  def load_attributes!
+  def load_attributes
     @instrument.instrument_type = :json
     @instrument.instructions = @instrument.pages[0]['title']
   end
 
-  def load_elements!
+  def load_elements
     elements = []
     @instrument.pages.each { |p| elements += p['elements'] }
-    load_response_scale!(elements: elements, name: instrument.name)
-    load_items!(elements)
+    load_response_scale(elements: elements, name: instrument.name)
+    load_items(elements)
   end
 
-  def load_response_scale!(elements:, name:)
+  def load_response_scale(elements:, name:)
     @response_scale = ResponseScale.find_or_create_by!(name: name)
     elements.each do |el| 
       el['choices'].map do |ch| 
-        choice = load_choice!(ch)
+        choice = load_choice(ch)
         @response_scale.choices.concat(choice) 
       end 
     end
     @response_scale
   end
 
-  def load_choice!(choice)
+  def load_choice(choice)
     Choice.create_with(description: choice['text']) \
           .find_or_create_by(response_scale: @response_scale, value: choice['value'])
   end
 
-  def load_items!(elements)
+  def load_items(elements)
     elements.map do |e| 
       item = Item.create!(instrument: @instrument, name: e['name'], \
                           item_type: e['type'], is_required: e['isRequired'], \

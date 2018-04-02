@@ -5,8 +5,8 @@ require 'singleton'
 # Singleton template class for loading either CSV or json instruments 
 class InstrumentLoader
   include Singleton
-  attr_accessor :instrument
-  attr_accessor :response_scale
+  attr_reader :instrument
+  attr_reader :response_scale
 
   
   # load method saves an instrument to DB from either CSV or json
