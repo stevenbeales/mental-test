@@ -1,0 +1,15 @@
+build:
+  languages:
+    - ruby
+  packages:
+    - postgresql-server-dev-10
+  config:
+    - RACK_ENV: production
+  pre:
+    - gem update bundler
+    - "echo 'gem: --no-ri --no-rdoc' > ~/.gemrc" 
+release:
+  command:
+    - bundle exec rake db:migrate
+run:
+  web: bundle exec puma -C config/puma.rb
