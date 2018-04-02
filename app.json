@@ -1,0 +1,20 @@
+{
+  "name": "Mental Health",
+  "description":
+    "Mental Health Tests",
+  "website": "https://mental-test1.herokuapp.com",
+  "repository": "https://github.com/stevenbeales/mental-test",
+  "logo":
+    "https://mental-test1.herokuapp.com/aperture.svg",
+  "scripts": {
+    "postdeploy": "bundle exec rake db:migrate"
+  },
+  "env": {
+    "RACK_ENV": "production",
+    "SETUP_BY": {
+      "description": "Steven Beales",
+      "required": false
+    }
+  },
+  "addons": ["heroku-postgresql:hobby-dev"]
+}

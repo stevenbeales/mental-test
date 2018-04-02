@@ -383,7 +383,7 @@ JournalEntry
     unique entry date
 [32m      {:timecop=>:freeze}[0m
     #to_s
-[32m      should eq "2018-04-02 17:40:29 UTC "[0m
+[32m      should eq "2018-04-02 19:09:12 UTC "[0m
 
 Journal
 [32m  is an instance of Journal[0m
@@ -404,7 +404,7 @@ Journal
 [32m      should not be truthy[0m
   #list_entries
     defaults to last 4
-[32m      should eq "2018-04-02 17:40:29 UTC  2012-12-12 00:00:00 UTC "[0m
+[32m      should eq "2018-04-02 19:09:12 UTC  2012-12-12 00:00:00 UTC "[0m
   #read_entry
 [32m    should be > 0[0m
   #name
@@ -1008,7 +1008,7 @@ AlexaService
 [32m    should eq "    Cannot find instrument blah. Please try again.\n"[0m
 [32m    should eq "Below is a list of the ways you might have felt or behaved. Please check the boxes to tell me how often you have felt this way in the past week or so."[0m
   #read_all
-[32m    should eq "2018-04-02 17:40:27 UTC "[0m
+[32m    should eq "2018-04-02 19:09:10 UTC "[0m
 [32m    should not be nil[0m
 
 InstrumentLoaderCsv
@@ -1039,6 +1039,6 @@ InstrumentLoader
   missing instrument
 [32m    should raise RuntimeError[0m
 
-Finished in 9.58 seconds (files took 8.83 seconds to load)
+Finished in 10.76 seconds (files took 10.28 seconds to load)
 [32m511 examples, 0 failures[0m
 
