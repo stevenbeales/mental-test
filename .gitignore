@@ -2,6 +2,7 @@
 /doc/
 ## test results
 /spec/examples.txt
+spec/reports
 ## code coverage
 /coverage/
 ## TODO
@@ -12,5 +13,10 @@ todo.txt
 /tmp/
 ## Ruby gems
 /vendor/
+*.gem
+*.rbc
 ## Bundler config contains local state 
-.bundle/config
+.bundle
+.config
+
+

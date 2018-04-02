@@ -1,8 +1,6 @@
 # frozen_string_literal: true
 
 require './lib/csv_source'
-require './lib/rename_field'
-require './lib/verify_fields_presence'
 
 # Loads instruments from csv  
 class InstrumentLoaderCsv < InstrumentLoader
