@@ -7,10 +7,10 @@ build:
     - RACK_ENV: production
   pre:
     - gem update bundler
-    - "echo 'gem: --no-ri --no-rdoc' > ~/.gemrc" 
+    - "echo 'gem: --no-ri --no-rdoc' > ~/.gemrc"
 release:
   command:
     - bundle exec rake db:migrate
 run:
-  web: 
+  web:
     - bundle exec puma -C config/puma.rb
