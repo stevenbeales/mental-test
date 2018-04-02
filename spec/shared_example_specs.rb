@@ -32,6 +32,10 @@ RSpec.shared_examples 'responds' do |attribute|
   end
 end
 
+RSpec.shared_examples 'respond' do |attributes|
+  attributes.each { |a| include_examples 'responds', a }
+end
+
 # Tests if an object is invalid with default constructor
 RSpec.shared_examples 'invalid create' do |text|
   describe '.create!' do

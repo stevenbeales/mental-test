@@ -7,12 +7,8 @@ RSpec.describe Survey do
     
   describe '#respond_to?' do
     include_context 'shared attributes'   
-    include_examples 'responds', :survey_participants
-    include_examples 'responds', :participants
-    include_examples 'responds', :visits
-    include_examples 'responds', :assessments
-    include_examples 'responds', :is_active
-    include_examples 'responds', :name
+    include_examples 'respond', %i[survey_participants participants visits]
+    include_examples 'respond', %i[assessments is_active name]
     include_examples 'common attributes'
   end
   

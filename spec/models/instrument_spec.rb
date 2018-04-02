@@ -7,17 +7,9 @@ RSpec.describe Instrument, type: :model do
   
   describe '#respond_to?' do
     include_context 'shared attributes'
-    include_examples 'responds', :assessment_instruments
-    include_examples 'responds', :assessments
-    include_examples 'responds', :study_event_instruments
-    include_examples 'responds', :study_events
-    include_examples 'responds', :instructions
-    include_examples 'responds', :csv_content
-    include_examples 'responds', :json_content
-    include_examples 'responds', :title
-    include_examples 'responds', :pages
-    include_examples 'responds', :items
-    include_examples 'responds', :name
+    include_examples 'respond', %i[assessment_instruments assessments study_event_instruments]
+    include_examples 'respond', %i[study_events instructions csv_content json_content]
+    include_examples 'respond', %i[title pages items name] 
     include_examples 'common attributes'
   end
 

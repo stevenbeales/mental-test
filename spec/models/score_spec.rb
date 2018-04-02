@@ -13,12 +13,8 @@ RSpec.describe Score, type: :model do
 
   describe '#respond_to?' do
     include_context 'shared attributes'
-    include_examples 'responds', :survey
-    include_examples 'responds', :participant
-    include_examples 'responds', :visit
-    include_examples 'responds', :score
-    include_examples 'responds', :assessment
-    include_examples 'responds', :name
+    include_examples 'respond', %i[survey participant visit]
+    include_examples 'respond', %i[score assessment name]
     include_examples 'common attributes'
   end
   
