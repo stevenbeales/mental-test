@@ -25,6 +25,8 @@ PreCommit:
     enabled: true
   Reek:
     enabled: true
+  RailsSchemaUpToDate:
+    enabled: true
 #  TrailingWhitespace:
 #    enabled: true
 #    exclude:

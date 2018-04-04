@@ -17,14 +17,12 @@
 An Alexa skill for validated Mental Health Self-Assessments, written in Ruby using the Sinatra and Ralyxa frameworks.
 
 The application supports importing Surveys and Instruments from SurveyJS.io and REDCap.
-TODO - The application supports automated scoring of Instruments where applicable.
-TODO - The application will direct you to a physician or clinical trial that specializes in your assessed conditions.
 
 Disclaimer. These statements have not been validated by the FDA. This skill is not intended to diagnose or treat any condition.
 
 Ruby Version
 
-2.4.1 or higher
+2.4.4 or higher
 
 To install dependencies -
 
@@ -33,7 +31,7 @@ To install dependencies -
 3) bundle exec rake db:setup - To generate test and development databases and seed the databases with test data
 4) Supports Travis Continuous Integration if you have linked Travis CI and Github accounts.
 
-TO run the test suite -
+To run the test suite -
 
 1) bundle exec rake spec
 2) bundle exec rubocop (checks code conforms to style guide)
