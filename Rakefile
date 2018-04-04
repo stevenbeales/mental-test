@@ -9,7 +9,6 @@ begin
 rescue LoadError
   puts 'ignoring rspec in production'
 end
-require 'turnout/rake_tasks' # rake maintenance:start, rake maintenance:end
 
 Dir.glob('lib/tasks/*.rake').each { |r| load r }
 

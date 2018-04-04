@@ -36,3 +36,22 @@ class User < ApplicationRecord
     username
   end
 end
+
+# == Schema Information
+#
+# Table name: users
+#
+#  id           :integer          not null, primary key
+#  username     :string           not null
+#  firstname    :string
+#  lastname     :string
+#  access_token :text             default(""), not null
+#  preferences  :jsonb            not null
+#  created_at   :datetime         not null
+#  updated_at   :datetime         not null
+#
+# Indexes
+#
+#  preferences  (preferences)
+#  username     (username) UNIQUE
+#

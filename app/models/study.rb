@@ -17,3 +17,17 @@ class Study < ApplicationRecord
     name
   end
 end
+
+# == Schema Information
+#
+# Table name: studies
+#
+#  id         :integer          not null, primary key
+#  name       :string           not null
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#
+# Indexes
+#
+#  index_studies_on_name  (name)
+#

@@ -6,8 +6,15 @@
 #
 #  id            :integer          not null, primary key
 #  assessment_id :integer          not null
-#  score         :integer          default(-1), not null
+#  choice_id     :integer
 #  value         :string           default(""), not null
+#  created_at    :datetime         not null
+#  updated_at    :datetime         not null
+#
+# Indexes
+#
+#  index_responses_on_assessment_id  (assessment_id)
+#  index_responses_on_choice_id      (choice_id)
 #
 
 # Model to represent a response to an item

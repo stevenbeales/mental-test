@@ -8,7 +8,7 @@ gem 'audited', '>= 4.7.0', require: false # adds table auiting support
 gem 'bugsnag', '>= 6.6', require: false # online bug reporting
 gem 'bundler-audit', '>= 0.6.0', require: false # check gems for security issues
 gem 'dotenv', '>= 2.2.1', require: false # adds environment variables from .env files
-gem 'i18n', '>= 0.9.5', require: false # internationalization support
+gem 'i18n', '>= 1.0.0', require: false # internationalization support
 gem 'jsonb_accessor', '>= 1.0.0', require: false # adds methods to access Jsonb fields
 gem 'multi_json', '>= 1.13.1', require: false # common interface to load json
 gem 'oj', '>= 3.5.0', require: false # faster json parsing
@@ -29,7 +29,6 @@ gem 'sinatra-contrib', '>= 2.0.1', require: false # hot reloading
 gem 'sinatra-initializers', '>= 0.1.4', require: false # config initializers for sinatra
 gem 'sinatra_logger', '>= 0.1.0', require: false # for logging
 gem 'strong_migrations', '>= 0.2.2', require: false # check migrations for unsafe production operations
-gem 'turnout', '>= 2.4.1', require: false # for maintenance mode with heartbeat URL
 gem 'valid_email2', '>= 2.2.2', require: false # validates email format
 
 group :test do
@@ -52,8 +51,9 @@ group :test do
 end
 
 group :development, :test do
+  gem 'annotate', '>= 2.7.2', require: false # annotate models
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
-  gem 'byebug', '>=10.0.2', platforms: %i[mri mingw x64_mingw]
+  gem 'byebug', '>= 10.0.2', platforms: %i[mri mingw x64_mingw]
   gem 'guard', '>= 2.14.2', require: false # watch for changed files 
   gem 'guard-rspec', '>= 4.7.3', require: false # run rspec on code change
 end

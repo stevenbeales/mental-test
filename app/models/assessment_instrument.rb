@@ -15,3 +15,20 @@ class AssessmentInstrument < ApplicationRecord
     "#{assessment} #{instrument}"
   end
 end
+
+# == Schema Information
+#
+# Table name: assessment_instruments
+#
+#  id            :integer          not null, primary key
+#  assessment_id :integer          not null
+#  instrument_id :integer          not null
+#  created_at    :datetime         not null
+#  updated_at    :datetime         not null
+#
+# Indexes
+#
+#  index_assessment_instruments_on_assessment_id  (assessment_id)
+#  index_assessment_instruments_on_instrument_id  (instrument_id)
+#  index_by_assessment_instrument                 (assessment_id,instrument_id) UNIQUE
+#

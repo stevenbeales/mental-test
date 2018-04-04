@@ -1,6 +1,25 @@
 # frozen_string_literal: true
 
 # == Schema Information
+#
+# Table name: items
+#
+#  id                :integer          not null, primary key
+#  instrument_id     :integer          not null
+#  name              :string           not null
+#  item_type         :string           not null
+#  title             :string           not null
+#  response_scale_id :integer
+#  is_required       :boolean          default(TRUE), not null
+#  created_at        :datetime         not null
+#  updated_at        :datetime         not null
+#
+# Indexes
+#
+#  index_by_item_name                (name) UNIQUE
+#  index_items_on_instrument_id      (instrument_id)
+#  index_items_on_response_scale_id  (response_scale_id)
+#
 
 # Table name: items
 

@@ -33,3 +33,26 @@ class Instrument < ApplicationRecord
     name
   end
 end
+
+# == Schema Information
+#
+# Table name: instruments
+#
+#  id              :integer          not null, primary key
+#  name            :string           not null
+#  version_number  :string           default("1.0"), not null
+#  instrument_type :string           default("json"), not null
+#  json_content    :jsonb            not null
+#  csv_content     :text             default(""), not null
+#  instructions    :text             default(""), not null
+#  created_at      :datetime         not null
+#  updated_at      :datetime         not null
+#  tags            :string           default([]), is an Array
+#
+# Indexes
+#
+#  index_instruments_on_csv_content  (csv_content)
+#  index_instruments_on_name         (name)
+#  instrument_json_content           (json_content)
+#  instrument_tags                   (tags)
+#

@@ -17,3 +17,19 @@ class Schedule < ApplicationRecord
     name
   end
 end
+
+# == Schema Information
+#
+# Table name: schedules
+#
+#  id         :integer          not null, primary key
+#  name       :string           not null
+#  study_id   :integer          not null
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#
+# Indexes
+#
+#  index_schedules_on_name      (name)
+#  index_schedules_on_study_id  (study_id)
+#

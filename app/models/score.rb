@@ -17,3 +17,21 @@ class Score < ApplicationRecord
     "#{assessment} #{name}: #{score}"
   end
 end
+
+# == Schema Information
+#
+# Table name: scores
+#
+#  id            :integer          not null, primary key
+#  assessment_id :integer          not null
+#  name          :string           not null
+#  score         :integer          default(0), not null
+#  created_at    :datetime         not null
+#  updated_at    :datetime         not null
+#
+# Indexes
+#
+#  index_by_assessment_name       (assessment_id,name) UNIQUE
+#  index_scores_on_assessment_id  (assessment_id)
+#  index_scores_on_name           (name)
+#

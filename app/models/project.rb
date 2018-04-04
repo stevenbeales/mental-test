@@ -24,3 +24,26 @@ class Project < ApplicationRecord
     name
   end
 end
+
+# == Schema Information
+#
+# Table name: projects
+#
+#  id           :integer          not null, primary key
+#  name         :string           not null
+#  folder_id    :integer
+#  title        :string           not null
+#  purpose      :text
+#  irb_number   :string
+#  grant_number :string
+#  pi_firstname :string
+#  pi_lastname  :string
+#  created_at   :datetime         not null
+#  updated_at   :datetime         not null
+#  status       :integer          default("development")
+#
+# Indexes
+#
+#  index_projects_on_folder_id  (folder_id)
+#  index_projects_on_name       (name)
+#

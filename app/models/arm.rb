@@ -24,3 +24,23 @@ class Arm < ApplicationRecord
     self.name ||= 'arm ' + number.to_s
   end
 end
+
+# == Schema Information
+#
+# Table name: arms
+#
+#  id          :integer          not null, primary key
+#  name        :string           not null
+#  number      :integer          not null
+#  schedule_id :integer          not null
+#  created_at  :datetime         not null
+#  updated_at  :datetime         not null
+#
+# Indexes
+#
+#  index_arms_on_name         (name)
+#  index_arms_on_number       (number)
+#  index_arms_on_schedule_id  (schedule_id)
+#  index_by_schedule_name     (schedule_id,id,name) UNIQUE
+#  index_by_schedule_number   (schedule_id,id,number) UNIQUE
+#

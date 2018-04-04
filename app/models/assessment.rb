@@ -25,3 +25,21 @@ class Assessment < ApplicationRecord
     scores.each(&:destroy!)
   end
 end
+
+# == Schema Information
+#
+# Table name: assessments
+#
+#  id           :integer          not null, primary key
+#  visit_id     :integer          not null
+#  order_number :integer          default(1), not null
+#  content      :jsonb            not null
+#  created_at   :datetime         not null
+#  updated_at   :datetime         not null
+#
+# Indexes
+#
+#  assessment_content             (content)
+#  index_assessments_on_visit_id  (visit_id)
+#  index_by_visit_order_number    (visit_id,order_number) UNIQUE
+#

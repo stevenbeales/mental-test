@@ -13,3 +13,17 @@ class HipaaIdentifier < ApplicationRecord
     name
   end
 end
+
+# == Schema Information
+#
+# Table name: hipaa_identifiers
+#
+#  id         :integer          not null, primary key
+#  name       :string           not null
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#
+# Indexes
+#
+#  index_hipaa_identifiers_on_name  (name)
+#

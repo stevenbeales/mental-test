@@ -14,3 +14,17 @@ class Folder < ApplicationRecord
     name
   end
 end
+
+# == Schema Information
+#
+# Table name: folders
+#
+#  id         :integer          not null, primary key
+#  name       :string           not null
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#
+# Indexes
+#
+#  index_folders_on_name  (name)
+#

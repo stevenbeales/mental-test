@@ -1,6 +1,18 @@
 # frozen_string_literal: true
 
 # == Schema Information
+#
+# Table name: response_scales
+#
+#  id         :integer          not null, primary key
+#  name       :string           not null
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#
+# Indexes
+#
+#  index_response_scales_on_name  (name)
+#
 
 # Table name: response_scales
 #

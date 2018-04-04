@@ -37,3 +37,19 @@ class Journal < ApplicationRecord
     journal_entries.concat(JournalEntry.new(journal: self)) if new_record?
   end
 end
+
+# == Schema Information
+#
+# Table name: journals
+#
+#  id             :integer          not null, primary key
+#  name           :string           not null
+#  participant_id :integer          not null
+#  created_at     :datetime         not null
+#  updated_at     :datetime         not null
+#
+# Indexes
+#
+#  index_journals_on_name            (name)
+#  index_journals_on_participant_id  (participant_id)
+#

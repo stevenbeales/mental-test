@@ -28,3 +28,19 @@ class Survey < ApplicationRecord
     name
   end
 end
+
+# == Schema Information
+#
+# Table name: surveys
+#
+#  id           :integer          not null, primary key
+#  name         :string           not null
+#  is_active    :boolean          default(TRUE), not null
+#  max_attempts :integer          default(0), not null
+#  created_at   :datetime         not null
+#  updated_at   :datetime         not null
+#
+# Indexes
+#
+#  index_by_survey_name  (name) UNIQUE
+#

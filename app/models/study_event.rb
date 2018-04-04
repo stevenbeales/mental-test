@@ -22,3 +22,23 @@ class StudyEvent < ApplicationRecord
     "#{study} #{arm} #{name}"
   end
 end
+
+# == Schema Information
+#
+# Table name: study_events
+#
+#  id         :integer          not null, primary key
+#  name       :string           not null
+#  order      :integer          default(1), not null
+#  arm_id     :integer          not null
+#  event_date :datetime         not null
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#
+# Indexes
+#
+#  index_by_arm_name             (arm_id,name) UNIQUE
+#  index_study_events_on_arm_id  (arm_id)
+#  index_study_events_on_name    (name)
+#  index_study_events_on_order   (order)
+#

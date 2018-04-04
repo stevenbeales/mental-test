@@ -1,6 +1,22 @@
 # frozen_string_literal: true
 
 # == Schema Information
+#
+# Table name: choices
+#
+#  id                :integer          not null, primary key
+#  response_scale_id :integer          not null
+#  value             :string           not null
+#  score             :integer          default(-1), not null
+#  description       :string           not null
+#  created_at        :datetime         not null
+#  updated_at        :datetime         not null
+#
+# Indexes
+#
+#  index_by_response_scale_value       (response_scale_id,value) UNIQUE
+#  index_choices_on_response_scale_id  (response_scale_id)
+#
 
 # Table name: choices
 #

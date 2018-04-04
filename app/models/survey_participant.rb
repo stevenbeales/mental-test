@@ -15,3 +15,20 @@ class SurveyParticipant < ApplicationRecord
     "#{participant} #{survey}"
   end
 end
+
+# == Schema Information
+#
+# Table name: survey_participants
+#
+#  id             :integer          not null, primary key
+#  participant_id :integer          not null
+#  survey_id      :integer          not null
+#  created_at     :datetime         not null
+#  updated_at     :datetime         not null
+#
+# Indexes
+#
+#  index_by_participant_survey                  (participant_id,survey_id) UNIQUE
+#  index_survey_participants_on_participant_id  (participant_id)
+#  index_survey_participants_on_survey_id       (survey_id)
+#

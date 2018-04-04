@@ -23,3 +23,20 @@ class JournalEntry < ApplicationRecord
     self.entry ||= ''
   end
 end
+
+# == Schema Information
+#
+# Table name: journal_entries
+#
+#  id         :integer          not null, primary key
+#  journal_id :integer          not null
+#  entry_date :datetime         not null
+#  entry      :text             default(""), not null
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#
+# Indexes
+#
+#  index_journal_entries_on_entry_date  (entry_date)
+#  index_journal_entries_on_journal_id  (journal_id)
+#

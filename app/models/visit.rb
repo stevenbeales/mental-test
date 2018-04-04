@@ -5,12 +5,19 @@
 # Table name: visits
 #
 #  id         :integer          not null, primary key
-#  survey_id         :integer   not null
+#  survey_id  :integer          not null
 #  user_id    :integer          not null
-#  name       :string           default("2018-02-26 15:05:06.484447"), not null
-#  visit_date :datetime         default(2018-02-26 15:05:06 UTC), not null
-#  created_at :datetime         default(2018-02-26 15:05:06 UTC), not null
-#  updated_at :datetime         default(2018-02-26 15:05:06 UTC), not null
+#  name       :string
+#  number     :integer          default(1), not null
+#  visit_date :datetime         not null
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#
+# Indexes
+#
+#  index_by_survey_user_number  (survey_id,user_id,number) UNIQUE
+#  index_visits_on_survey_id    (survey_id)
+#  index_visits_on_user_id      (user_id)
 #
 
 # Model to represent a user visit or an attempt in a self assessment
