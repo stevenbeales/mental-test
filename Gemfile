@@ -70,7 +70,7 @@ group :doc do
   gem 'sdoc', '>= 1.0.0', require: false # static documentation
 end
 
-group :production do
+group :production, :test do
   gem 'rack-ssl', '>= 1.4.1', require: false # ssl for rack in production
 end
 

@@ -4,7 +4,7 @@ set :raise_errors, true
 set :show_exceptions, false
 
 # report errors to bugsnag.com
-configure :development, :production do
+configure do
   require 'bugsnag'
   Bugsnag.configure do |config|
     config.api_key = 'b27cf77d548381f51613fb5c142ae212'
