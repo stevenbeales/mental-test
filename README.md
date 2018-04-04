@@ -50,16 +50,22 @@ To generate the skill documentation -
 
 See the [Contribution Guidelines](https://github.com/stevenbeales/mental-test/blob/master/CONTRIBUTING.md)
 
-Please install Overcommit (gem install overcommit).
+This project is intended to be a space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
 
-Overcommit Git hooks exist to check check-in comments and to check code against:
+Please install Overcommit (gem install overcommit) before committing any code.
 
-Reek (check for code smells - see ./config.reek for configuration)
-Bundle-audit (check for security vulnerabilities)
-Rubocop (lint code - see ./rubocop.yml for configuration)
-Fasterer (performance checks - see ./fasterer.yml for configuration)
+Overcommit Git hooks exist to check check-in comments and to verify code against:
+
+1) Reek (check for code smells - see ./config.reek for configuration)
+2) Bundle-audit (check for security vulnerabilities)
+3) Rubocop (lint code - see ./rubocop.yml for configuration)
+4) Fasterer (performance checks - see ./fasterer.yml for configuration)
 
 See ./overcommit.yml for Overcommit configuration
+
+## Deployment
+
+The project may be deployed to Heroku. Full details of this deployment are beyond the scope of this README. The ./Procfile, ./heroku.yml and ./app.json configuration files exist to support the 3 different kinds of Heroku deployment (Heroku16, Container and API).
 
 ### Resources
 

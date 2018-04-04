@@ -2,7 +2,9 @@
 
 require 'sinatra/activerecord'
 require 'sinatra/activerecord/rake'
-begin
+
+# Heroku advises us to wrap Rspec tasks in a rescue block so rake does not throw error in production
+begin 
   require 'rspec/core/rake_task'
   RSpec::Core::RakeTask.new(:spec)
   task default: :spec # set the default task to spec for Travis CI 
