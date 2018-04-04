@@ -8,8 +8,12 @@ gem 'audited', '>= 4.7.0', require: false # adds table auiting support
 gem 'bugsnag', '>= 6.6', require: false # online bug reporting
 gem 'bundler-audit', '>= 0.6.0', require: false # check gems for security issues
 gem 'dotenv', '>= 2.2.1', require: false # adds environment variables from .env files
+gem 'fast_blank', '>= 1.0.0', platform: :ruby, require: false # faster implementation of blank? 
+gem 'fast_stack', '>= 0.2.0', platform: :ruby, require: false # stack profiler
+gem 'flamegraph', '>= 0.9.5', require: false # rack profiling
 gem 'i18n', '>= 1.0.0', require: false # internationalization support
 gem 'jsonb_accessor', '>= 1.0.0', require: false # adds methods to access Jsonb fields
+gem 'memory_profiler', '>= 0.9.10', platform: :ruby, require: false # memory profiler
 gem 'multi_json', '>= 1.13.1', require: false # common interface to load json
 gem 'oj', '>= 3.5.0', require: false # faster json parsing
 gem 'pg', '>= 1.0.0', platform: :ruby, require: false # for Postgres
@@ -17,6 +21,7 @@ gem 'pg_search', '>= 2.1.2', require: false # Postgres full text search
 gem 'puma', '>= 3.11.2', require: false # puma web server
 gem 'rack-contrib', '>= 2.0.1', require: false # browser localization
 gem 'rack-heartbeat', '>= 1.1.0', require: false # provide heartbeat URL
+gem 'rack-mini-profiler', '>= 1.0.0', require: false # profiling Rack apps
 gem 'rack-timeout', '>= 0.4.2', require: false # configure Rack timeout
 gem 'rake', '>= 12.3.1', require: false # so we can run Rake tasks
 gem 'ralyxa', '>= 1.7.0', require: false # ruby alexa framework
@@ -45,7 +50,6 @@ group :test do
   gem 'scrutinizer-ocular', '>= 1.0.1', require: false # scrutinizer code coverage
   gem 'simplecov', '>= 0.16.1', require: false # for code coverage
   gem 'simplecov-console', '>= 0.4.2', require: false # code coverage to console
-  gem 'timecop', '>= 0.9.1', require: false # testing time dependent
   gem 'travis', '>= 1.8.8', require: false # for continuous integrations
   gem 'travis_check_rubies', '>= 0.2.5', require: false # check ruby versions on Travis
 end
@@ -57,6 +61,8 @@ group :development, :test do
   gem 'guard', '>= 2.14.2', require: false # watch for changed files 
   gem 'guard-rspec', '>= 4.7.3', require: false # run rspec on code change
   gem 'overcommit', require: false # git hooks
+  gem 'ruby-prof', platform: :ruby, require: false
+  gem 'timecop', '>= 0.9.1', require: false # testing time dependent
 end
 
 group :doc do
