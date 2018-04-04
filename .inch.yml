@@ -2,12 +2,13 @@
 files:
   # define files included in the analysis (defaults to ["{app,lib}/**/*.rb"])
   included:
-    - models/**/*.rb
-    - services/**/*.rb
+    - app/**/*.rb
+    - lib/**/*.rb
     - intents/**/*.rb
     - db/**/*.rb
     - config/**/*.rb
     - /*.rb
+    - script/**/*.rb
     
   # define files excluded from the analysis (defaults to [])
   excluded:

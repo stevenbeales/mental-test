@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require 'multi_json'
+
 # Loads instruments from json  
 class InstrumentLoaderJson < InstrumentLoader
   attr_reader :instrument

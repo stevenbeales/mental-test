@@ -35,16 +35,10 @@ class App < Sinatra::Base
   # Entry point for requests from Amazon Alexa. 
   # The incoming requests are dispatched to intents in the intents folder by Ralyxa.
   post '/' do
-    # store user id in settings
-    set_user(request.user_id) 
-    Ralyxa::Skill.handle(request)
-  end
-
-  private
- 
-  # Authenticate user. If user doesn't exist, still authenticate user and add them to database
-  def set_user
-    user = User.authenticate(request.user_id)
-    set :userid, user.id
+    begin
+      Ralyxa::Skill.handle(request)
+    rescue StandardError => exception
+      Bugsnag.notify(exception)
+    end
   end
 end
