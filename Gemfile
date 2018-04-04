@@ -56,6 +56,7 @@ group :development, :test do
   gem 'byebug', '>= 10.0.2', platforms: %i[mri mingw x64_mingw]
   gem 'guard', '>= 2.14.2', require: false # watch for changed files 
   gem 'guard-rspec', '>= 4.7.3', require: false # run rspec on code change
+  gem 'overcommit', require: false # git hooks
 end
 
 group :doc do
