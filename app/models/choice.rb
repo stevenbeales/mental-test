@@ -38,6 +38,11 @@ class Choice < ApplicationRecord
   validates_uniqueness_of :value, scope: :response_scale 
   validates_numericality_of :score, message: 'is not a number'
 
+  def self.load_choice(response_scale, choice)
+    Choice.create_with(description: choice['text']) \
+          .find_or_create_by(response_scale: response_scale, value: choice['value'])
+  end
+
   def to_s
     "#{response_scale} #{value} #{description}"  
   end

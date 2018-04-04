@@ -6,9 +6,7 @@ require 'singleton'
 class InstrumentLoader
   include Singleton
   attr_reader :instrument
-  attr_reader :response_scale
-
-  
+   
   # load method saves an instrument to DB from either CSV or json
   def load(instrument:, type: :json)
     raise AppConstants::LOADER_NIL_INSTRUMENT unless instrument 
@@ -22,14 +20,14 @@ class InstrumentLoader
   protected 
 
   def check_valid_instrument_name
-    raise 'Instrument name is missing' if @instrument.name.blank?
+    raise 'Instrument name is missing' if instrument.name.blank?
   end
 
   # delegates loading to either Json Loader or CSV Loader
   def load!(type: :json)
     loader = get_loader_instance(type: type)
-    loader.load!(instrument: @instrument)
-    @instrument.save!
+    loader.load_instrument(instrument: instrument)
+    instrument.save!
   end
   
   private

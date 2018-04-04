@@ -8,7 +8,6 @@ gem 'audited', '>= 4.7.0', require: false # adds table auiting support
 gem 'bugsnag', '>= 6.6', require: false # online bug reporting
 gem 'bundler-audit', '>= 0.6.0', require: false # check gems for security issues
 gem 'dotenv', '>= 2.2.1', require: false # adds environment variables from .env files
-gem 'fast_blank', '>= 1.0.0', platform: :ruby, require: false # faster implementation of blank? 
 gem 'fast_stack', '>= 0.2.0', platform: :ruby, require: false # stack profiler
 gem 'flamegraph', '>= 0.9.5', require: false # rack profiling
 gem 'i18n', '>= 1.0.0', require: false # internationalization support
@@ -58,9 +57,11 @@ group :development, :test do
   gem 'annotate', '>= 2.7.2', require: false # annotate models
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', '>= 10.0.2', platforms: %i[mri mingw x64_mingw]
+  gem 'fasterer', require: false # find slow code 
   gem 'guard', '>= 2.14.2', require: false # watch for changed files 
   gem 'guard-rspec', '>= 4.7.3', require: false # run rspec on code change
   gem 'overcommit', require: false # git hooks
+  gem 'reek', require: false # find code smells
   gem 'ruby-prof', platform: :ruby, require: false
   gem 'timecop', '>= 0.9.1', require: false # testing time dependent
 end

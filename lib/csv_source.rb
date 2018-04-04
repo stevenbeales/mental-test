@@ -4,6 +4,8 @@ require 'csv'
 
 # Helper class to process CSV files
 class CsvSource
+  attr_reader :arrays
+  
   def initialize(file, options)
     @file = file
     @options = options
@@ -22,7 +24,7 @@ class CsvSource
 
   # returns a line delimited single string
   def to_s
-    read unless @arrays
-    @arrays.map(&:join).join("\n")
+    read unless arrays
+    arrays.map(&:join).join("\n")
   end
 end

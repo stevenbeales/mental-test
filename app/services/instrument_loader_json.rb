@@ -2,14 +2,16 @@
 
 # Loads instruments from json  
 class InstrumentLoaderJson < InstrumentLoader
+  attr_reader :instrument
+  attr_reader :response_scale
   
   # Loads attributes, an array of Items, and rating scale that represent the questions in an instrument.
-  def load!(instrument:)
+  def load_instrument(instrument:)
     @instrument = instrument
     load_content
     load_attributes
     load_elements
-    @instrument
+    instrument
   end
 
   private
@@ -17,19 +19,19 @@ class InstrumentLoaderJson < InstrumentLoader
   def load_content
     check_valid_instrument_name 
 
-    filename = "#{AppConstants::INSTRUMENTS_FOLDER}#{@instrument.name}.json" 
+    filename = "#{AppConstants::INSTRUMENTS_FOLDER}#{instrument.name}.json" 
     json_data = File.read(filename)
-    @instrument.json_content = MultiJson.load(json_data)
+    instrument.json_content = MultiJson.load(json_data)
   end
 
   def load_attributes
-    @instrument.instrument_type = :json
-    @instrument.instructions = @instrument.pages[0]['title']
+    instrument.instrument_type = :json
+    instrument.instructions = instrument.pages[0]['title']
   end
 
   def load_elements
     elements = []
-    @instrument.pages.each { |p| elements += p['elements'] }
+    instrument.pages.each { |page| elements += page['elements'] }
     load_response_scale(elements: elements, name: instrument.name)
     load_items(elements)
   end
@@ -38,25 +40,21 @@ class InstrumentLoaderJson < InstrumentLoader
     @response_scale = ResponseScale.find_or_create_by!(name: name)
     elements.each do |el| 
       el['choices'].map do |ch| 
-        choice = load_choice(ch)
-        @response_scale.choices.concat(choice) 
+        choice = Choice.load_choice(response_scale, ch)
+        response_scale.choices.concat(choice) 
       end 
     end
-    @response_scale
-  end
-
-  def load_choice(choice)
-    Choice.create_with(description: choice['text']) \
-          .find_or_create_by(response_scale: @response_scale, value: choice['value'])
+    response_scale
   end
 
   def load_items(elements)
-    elements.map do |e| 
-      item = Item.create!(instrument: @instrument, name: e['name'], \
-                          item_type: e['type'], is_required: e['isRequired'], \
-                          response_scale: @response_scale, title: e['title'])
-      @instrument.items.concat(item)
+    items = instrument.items
+    elements.map do |element| 
+      item = Item.create!(instrument: instrument, name: element['name'], \
+                          item_type: element['type'], is_required: element['isRequired'], \
+                          response_scale: response_scale, title: element['title'])
+      items.concat(item)
     end
-    @instrument.items
+    items
   end
 end

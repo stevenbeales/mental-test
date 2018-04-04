@@ -54,6 +54,7 @@ Layout/CaseIndentation:
   Enabled: true
 
 Metrics/BlockLength:
+  Max: 30
   Exclude:
     - 'Rakefile'
     - '**/*.rake'

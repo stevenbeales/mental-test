@@ -20,7 +20,7 @@ guard :rspec, cmd: 'bundle exec rspec' do
   ruby = dsl.ruby
   dsl.watch_spec_files_for(ruby.lib_files)
 
-  %w[models config db services intents bin public].select do |d| 
+  %w[app/models config db app/services intents bin public].select do |d| 
     Dir.exist?(d) ? d : UI.warning("Directory #{d} does not exist")
   end
 end

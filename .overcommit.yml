@@ -19,7 +19,12 @@ PreCommit:
   RuboCop:
     enabled: true
     on_warn: fail # Treat all warnings as failures
-#
+  Fasterer:
+    enabled: true
+  BundleAudit:
+    enabled: true
+  Reek:
+    enabled: true
 #  TrailingWhitespace:
 #    enabled: true
 #    exclude:
