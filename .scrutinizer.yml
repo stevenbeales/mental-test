@@ -22,3 +22,14 @@ build:
                 coverage:
                     file: 'my-coverage'
                     format: 'rb-cc'
+filter:
+    excluded_paths:
+        - "script/" 
+        - "public/" 
+        - "bin/" 
+        - "log/"
+        - "tmp/"
+        - "coverage/" 
+        - "vendor/" 
+        - ".bundle/" 
+        - ".vscode/" 
