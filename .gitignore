@@ -142,3 +142,4 @@ vendor/bundle/*
 /package-lock.json
 
 
+vim.exe.stackdump

@@ -7,7 +7,7 @@ files:
     - intents/**/*.rb
     - db/**/*.rb
     - config/**/*.rb
-    - *.rb
+    - /*.rb
     
   # define files excluded from the analysis (defaults to [])
   excluded:

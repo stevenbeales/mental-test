@@ -9,7 +9,7 @@ build:
             - export PGPASSWORD=scrutinizer; psql -h 127.0.0.1 -d mental_health_test -c "CREATE USER mental WITH PASSWORD 'health';" -U scrutinizer
     environment:
         # Languages
-        ruby: 2.4.2
+        ruby: 2.4.4
      
         # Various pre-installed services that can be configured.
         postgresql: true
