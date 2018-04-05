@@ -29,6 +29,16 @@ RSpec.describe Journal, type: :model do
     end
   end
 
+  describe '#read_last' do
+    it do
+      expect(subject.read_last.size).to eq 1
+    end
+
+    it do
+      expect(subject.read_last(last_n: 2).size).to eq 2
+    end
+  end
+
   describe '#name' do
     include_context 'restore attributes'
 

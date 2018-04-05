@@ -388,7 +388,7 @@ JournalEntry
     unique entry date
 [32m      {:timecop=>:freeze}[0m
     #to_s
-[32m      should eq "2018-04-05 04:36:14 UTC "[0m
+[32m      should eq "2018-04-05 04:54:06 UTC "[0m
 
 Journal
 [32m  is an instance of Journal[0m
@@ -409,9 +409,12 @@ Journal
 [32m      should not be truthy[0m
   #list_entries
     defaults to last 4
-[32m      should eq "2018-04-05 04:36:14 UTC  2012-12-12 00:00:00 UTC "[0m
+[32m      should eq "2018-04-05 04:54:06 UTC  2012-12-12 00:00:00 UTC "[0m
   #read_entry
 [32m    should be > 0[0m
+  #read_last
+[32m    should eq 1[0m
+[32m    should eq 2[0m
   #name
 [32m    is required[0m
   #participant
@@ -1013,10 +1016,12 @@ AlexaService
 [32m    should eq "    Cannot find instrument blah. Please try again.\n"[0m
 [32m    should eq "Below is a list of the ways you might have felt or behaved. Please check the boxes to tell me how often you have felt this way in the past week or so."[0m
   #read_all
-[32m    should eq "2018-04-05 04:36:13 UTC "[0m
+[32m    should eq "2018-04-05 04:54:05 UTC "[0m
 [32m    should not be nil[0m
   #read_entry
 [32m    {:timecop=>:freeze}[0m
+  #read_last
+[32m    should eq #<ActiveRecord::Relation [#<JournalEntry id: 9, journal_id: 7, entry_date: "2018-04-05 04:54:08", ent...-12-12 00:00:00", entry: "", created_at: "2018-04-05 04:54:06", updated_at: "2018-04-05 04:54:06">]>[0m
 
 InstrumentLoaderCsv
 [32m  is an instance of InstrumentLoaderCsv[0m
@@ -1048,6 +1053,6 @@ InstrumentLoader
   invalid type
 [32m    should raise RuntimeError[0m
 
-Finished in 9.19 seconds (files took 6.78 seconds to load)
-[32m516 examples, 0 failures[0m
+Finished in 9.5 seconds (files took 6.79 seconds to load)
+[32m519 examples, 0 failures[0m
 

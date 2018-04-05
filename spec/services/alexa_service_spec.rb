@@ -85,4 +85,11 @@ RSpec.describe AlexaService do
       expect(subject.read_entry(day: Date.today)).to eq(entries)
     end
   end
+
+  describe '#read_last' do
+    it do
+      entries = user.journal&.read_last(last_n: 3)
+      expect(subject.read_last(last_n: 3)).to eq(entries)
+    end
+  end
 end

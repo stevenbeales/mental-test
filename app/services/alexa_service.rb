@@ -45,6 +45,6 @@ class AlexaService
   end
 
   def read_last(last_n: 1)
-    user.journal.read_last(last_n)
+    user.journal.read_last(last_n: last_n)
   end
 end
