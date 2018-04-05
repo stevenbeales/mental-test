@@ -10,6 +10,10 @@ Ralyxa::Skill
 Launch Intent
 [32m  accepts alexa launch request object[0m
 
+CsvSource
+[32m  should be a kind of CsvSource[0m
+[32m  should eq ""[0m
+
 ApplicationRecord
   is an abstract class
 [32m    should raise NotImplementedError[0m
@@ -384,7 +388,7 @@ JournalEntry
     unique entry date
 [32m      {:timecop=>:freeze}[0m
     #to_s
-[32m      should eq "2018-04-04 20:52:20 UTC "[0m
+[32m      should eq "2018-04-05 04:36:14 UTC "[0m
 
 Journal
 [32m  is an instance of Journal[0m
@@ -405,7 +409,7 @@ Journal
 [32m      should not be truthy[0m
   #list_entries
     defaults to last 4
-[32m      should eq "2018-04-04 20:52:20 UTC  2012-12-12 00:00:00 UTC "[0m
+[32m      should eq "2018-04-05 04:36:14 UTC  2012-12-12 00:00:00 UTC "[0m
   #read_entry
 [32m    should be > 0[0m
   #name
@@ -1009,8 +1013,10 @@ AlexaService
 [32m    should eq "    Cannot find instrument blah. Please try again.\n"[0m
 [32m    should eq "Below is a list of the ways you might have felt or behaved. Please check the boxes to tell me how often you have felt this way in the past week or so."[0m
   #read_all
-[32m    should eq "2018-04-04 20:52:18 UTC "[0m
+[32m    should eq "2018-04-05 04:36:13 UTC "[0m
 [32m    should not be nil[0m
+  #read_entry
+[32m    {:timecop=>:freeze}[0m
 
 InstrumentLoaderCsv
 [32m  is an instance of InstrumentLoaderCsv[0m
@@ -1039,7 +1045,9 @@ InstrumentLoader
 [32m    should raise ActiveRecord::RecordInvalid[0m
   missing instrument
 [32m    should raise RuntimeError[0m
+  invalid type
+[32m    should raise RuntimeError[0m
 
-Finished in 9.42 seconds (files took 7.05 seconds to load)
-[32m512 examples, 0 failures[0m
+Finished in 9.19 seconds (files took 6.78 seconds to load)
+[32m516 examples, 0 failures[0m
 

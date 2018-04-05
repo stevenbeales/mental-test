@@ -25,7 +25,7 @@ RSpec.describe Journal, type: :model do
 
   describe '#read_entry' do
     it do
-      expect(subject.read_entry(Date.today).size).to be > 0
+      expect(subject.read_entry(day: Date.today).size).to be > 0
     end
   end
 

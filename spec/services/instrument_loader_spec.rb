@@ -28,4 +28,13 @@ RSpec.describe InstrumentLoader do
       end.to raise_error(RuntimeError)
     end
   end
+
+  context 'invalid type' do
+    it do
+      instrument2 = Instrument.new(name: 'Testing')
+      expect do
+        subject.load(instrument: instrument2, type: :fake) 
+      end.to raise_error(RuntimeError)
+    end
+  end
 end

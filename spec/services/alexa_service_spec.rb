@@ -78,4 +78,11 @@ RSpec.describe AlexaService do
       expect(subject.read_all).not_to be_nil 
     end
   end
+
+  describe '#read_entry' do
+    it timecop: :freeze do
+      entries = user.journal&.read_entry(day: Date.today)
+      expect(subject.read_entry(day: Date.today)).to eq(entries)
+    end
+  end
 end
