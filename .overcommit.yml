@@ -55,7 +55,7 @@ CommitMsg:
   BundleCheck:
     enabled: true
 
-  PrePush:
-    RSpec:
-      enabled: true
+PrePush:
+  RSpec:
+    enabled: true
   
