@@ -2,6 +2,7 @@
 
 # This module contains all constants used in tests
 module TestConstants
+  FIXTURES_FOLDER = './db/fixtures/' 
   TEST_ARM = 'Test Arm'
   TEST_ARM2 = 'Test Arm 2'
   TEST_FOLDER = 'Test Folder'

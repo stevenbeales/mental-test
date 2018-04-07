@@ -12,4 +12,19 @@ RSpec.describe InstrumentLoaderCsv do
     include_examples 'responds', :load
     include_examples 'missing attribute'
   end
+  
+  it 'when missing instrument' do
+    instrument2 = Instrument.new(name: 'Testing')
+    expect do
+      subject.load(instrument: instrument2, type: :csv) 
+    end.to raise_exception
+  end
+
+  it 'when empty instrument' do
+    instrument2 = Instrument.new(name: 'empty')
+    expect do
+      subject.folder = TestConstants::FIXTURES_FOLDER
+      subject.load(instrument: instrument2, type: :csv) 
+    end.not_to raise_exception(RuntimeError)
+  end
 end

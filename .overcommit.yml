@@ -15,6 +15,9 @@
 #
 # Uncomment the following lines to make the configuration take effect.
 
+# TO avoid resigning overcommit on every configuration change  
+verify_signatures: false
+
 PreCommit:
   RuboCop:
     enabled: true
@@ -27,6 +30,11 @@ PreCommit:
     enabled: true
   RailsSchemaUpToDate:
     enabled: true
+  ImageOptim:
+    enabled: true
+  Mdl:
+    enabled: true
+    
 #  TrailingWhitespace:
 #    enabled: true
 #    exclude:
@@ -38,3 +46,16 @@ PreCommit:
 #
 IndexTags:
   enabled: true # Generate a tags file with `ctags` each time HEAD changes
+
+CommitMsg:
+  RussianNovel:
+    enabled: true
+  Spellcheck:
+    enabled: true
+  BundleCheck:
+    enabled: true
+
+  PrePush:
+    RSpec:
+      enabled: true
+  

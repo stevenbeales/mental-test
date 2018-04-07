@@ -6,17 +6,10 @@ require 'csv'
 class CsvSource
   attr_reader :arrays
   
-  def initialize(file, options)
+  def initialize(file)
     @file = file
-    @options = options
   end
   
-  def each
-    CSV.foreach(@file, @options) do |row|
-      yield row.to_hash
-    end
-  end
-
   # returns an array of arrays containing file contents
   def read
     @arrays = CSV.read(@file)

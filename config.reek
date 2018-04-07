@@ -4,7 +4,7 @@ exclude_paths:
   - public
   - db/migrate
 Attribute:
-  enabled: true
+  enabled: false
   exclude: []
 BooleanParameter:
   enabled: true
