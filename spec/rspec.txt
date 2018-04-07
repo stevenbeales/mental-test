@@ -388,7 +388,7 @@ JournalEntry
     unique entry date
 [32m      {:timecop=>:freeze}[0m
     #to_s
-[32m      should eq "2018-04-05 04:54:06 UTC "[0m
+[32m      should eq "2018-04-07 05:29:58 UTC "[0m
 
 Journal
 [32m  is an instance of Journal[0m
@@ -409,7 +409,7 @@ Journal
 [32m      should not be truthy[0m
   #list_entries
     defaults to last 4
-[32m      should eq "2018-04-05 04:54:06 UTC  2012-12-12 00:00:00 UTC "[0m
+[32m      should eq "2018-04-07 05:29:58 UTC  2012-12-12 00:00:00 UTC "[0m
   #read_entry
 [32m    should be > 0[0m
   #read_last
@@ -1000,28 +1000,30 @@ Visit
 AlexaService
 [32m  should be a kind of AlexaService[0m
   .help_response
-[32m    should eq "    Alexa can only process a few seconds of speech at a time, so after each sentence, \n    pause for a breath while your sentence is saved, then continue speaking when you hear the prompt.\n"[0m
+[32m    should eq "Alexa can only process a few seconds of speech at a time, so after each sentence, \n    pause for a breath while your sentence is saved, then continue speaking when you hear the prompt."[0m
   .launch_response
-[32m    should eq "    What would you like to do? Say tests to list tests. Say start Depression to start a Depression test. \n    Say help for more help.\n"[0m
+[32m    should eq "What would you like to do? Say tests to list tests. \n    Say start Depression to start a Depression test. Say help for more help."[0m
   .start_over_response
-[32m    should eq "    'What would you like to do?'\n"[0m
+[32m    should eq "What would you like to do now?"[0m
   .goodbye_response
 [32m    should eq "Goodbye."[0m
+  .cancel_response
+[32m    should eq "Ok, canceling. What would you like to do now?"[0m
   .testname_slot
 [32m    should eq "testname"[0m
   .list_tests
 [32m    should include "as Cesd-r Instrument 2"[0m
 [32m    should include "3"[0m
   .start_test
-[32m    should eq "    Cannot find instrument blah. Please try again.\n"[0m
+[32m    should eq "Cannot find instrument blah. Please try again."[0m
 [32m    should eq "Below is a list of the ways you might have felt or behaved. Please check the boxes to tell me how often you have felt this way in the past week or so."[0m
   #read_all
-[32m    should eq "2018-04-05 04:54:05 UTC "[0m
+[32m    should eq "2018-04-07 05:29:56 UTC "[0m
 [32m    should not be nil[0m
   #read_entry
 [32m    {:timecop=>:freeze}[0m
   #read_last
-[32m    should eq #<ActiveRecord::Relation [#<JournalEntry id: 9, journal_id: 7, entry_date: "2018-04-05 04:54:08", ent...-12-12 00:00:00", entry: "", created_at: "2018-04-05 04:54:06", updated_at: "2018-04-05 04:54:06">]>[0m
+[32m    should eq #<ActiveRecord::Relation [#<JournalEntry id: 10, journal_id: 8, entry_date: "2018-04-07 05:30:02", en...-12-12 00:00:00", entry: "", created_at: "2018-04-07 05:29:59", updated_at: "2018-04-07 05:29:59">]>[0m
 
 InstrumentLoaderCsv
 [32m  is an instance of InstrumentLoaderCsv[0m
@@ -1052,7 +1054,9 @@ InstrumentLoader
 [32m    should raise RuntimeError[0m
   invalid type
 [32m    should raise RuntimeError[0m
+  CSV type
+[32m    should raise Exception[0m
 
-Finished in 9.5 seconds (files took 6.79 seconds to load)
-[32m519 examples, 0 failures[0m
+Finished in 14.64 seconds (files took 14.12 seconds to load)
+[32m521 examples, 0 failures[0m
 

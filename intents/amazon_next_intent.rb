@@ -1,5 +1,5 @@
 # frozen_string_literal: true
 
 Ralyxa::Skill.intent 'AMAZON.NextIntent' do
-  respond('TBD Next')
+  # TODO: respond('TBD Next')
 end

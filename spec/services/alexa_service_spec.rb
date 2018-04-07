@@ -34,6 +34,13 @@ RSpec.describe AlexaService do
     end
   end
 
+  describe '.cancel_response' do
+    it do
+      expect(AlexaService.cancel_response).to \
+        eq(AlexaConstants::CANCEL_RESPONSE) 
+    end
+  end
+
   describe '.testname_slot' do
     it do
       expect(AlexaService::TESTNAME_SLOT).to \

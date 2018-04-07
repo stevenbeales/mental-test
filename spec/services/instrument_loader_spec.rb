@@ -37,4 +37,13 @@ RSpec.describe InstrumentLoader do
       end.to raise_error(RuntimeError)
     end
   end
+  
+  context 'CSV type' do
+    it do
+      instrument2 = Instrument.new(name: 'Testing')
+      expect do
+        subject.load(instrument: instrument2, type: :csv) 
+      end.to raise_exception
+    end
+  end
 end

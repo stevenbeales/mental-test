@@ -19,7 +19,11 @@ class AlexaService
   end
   
   def self.start_over_response
-    START_OVER_RESPONSE
+    START_OVER_RESPONSE 
+  end
+  
+  def self.cancel_response
+    CANCEL_RESPONSE
   end
 
   def self.list_tests
