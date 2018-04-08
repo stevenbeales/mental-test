@@ -9,29 +9,19 @@ AllCops:
     - 'script/**/*'
   TargetRubyVersion: 2.5
 
-Metrics/BlockLength:
-  Max: 30
-  Exclude:
-    - 'Rakefile'
-    - '**/*.rake'
-    - 'spec/**/*.rb'
+Layout/AlignHash:
+  Enabled: true
 
-Metrics/LineLength:
-  Max: 120
-
-Metrics/MethodLength:
-  Max: 20
-
-Metrics/AbcSize:
-  Max: 20
-
-Layout/ClassStructure:
-  Description: 'Enforces a configured order of definitions within a class body.'
-  StyleGuide: 'https://github.com/bbatsov/ruby-style-guide#consistent-classes'
+Layout/BlockAlignment:
   Enabled: true
 
 # Align `when` with `case`.
 Layout/CaseIndentation:
+  Enabled: true
+
+Layout/ClassStructure:
+  Description: 'Enforces a configured order of definitions within a class body.'
+  StyleGuide: 'https://github.com/bbatsov/ruby-style-guide#consistent-classes'
   Enabled: true
 
 # Align comments with method definitions.
@@ -64,7 +54,6 @@ Layout/SpaceAroundOperators:
 Layout/SpaceBeforeFirstArg:
     Enabled: true
 
-    
 # Use `foo {}` not `foo{}`.
 Layout/SpaceBeforeBlockBraces:
   Enabled: true
@@ -86,8 +75,6 @@ Layout/Tab:
 
 Lint/Debugger:
   Enabled: true
-Layout/BlockAlignment:
-  Enabled: true
 
 # Align `end` with the matching keyword or starting expression except for
 # assignments, where it should be aligned with the LHS.
@@ -95,13 +82,26 @@ Layout/EndAlignment:
   Enabled: true
   EnforcedStyleAlignWith: variable
 
-Layout/AlignHash:
-  Enabled: true
-
 Layout/TrailingWhitespace:
   Description: 'Avoid trailing whitespace.'
   StyleGuide: '#no-trailing-whitespace'
   Enabled: false
+
+Metrics/BlockLength:
+  Max: 30
+  Exclude:
+    - 'Rakefile'
+    - '**/*.rake'
+    - 'spec/**/*.rb'
+
+Metrics/LineLength:
+  Max: 120
+
+Metrics/MethodLength:
+  Max: 20
+
+Metrics/AbcSize:
+  Max: 20
 
 # Prefer &&/|| over and/or.
 Style/AndOr:
@@ -120,6 +120,7 @@ Style/HashSyntax:
 
 Style/RedundantBegin:
   Enabled: false
+
 Style/ReturnNil:
   Description: 'Use return instead of return nil.'
   Enabled: true
@@ -127,6 +128,7 @@ Style/ReturnNil:
 Style/StringMethods:
   Description: 'Checks if configured preferred methods are used over non-preferred.'
   Enabled: true
+
 Style/StringLiterals:
   Enabled: false
 

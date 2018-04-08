@@ -7,7 +7,7 @@ namespace :metrics do
     total_codelines = 0
     lines = 0
     codelines = 0
-    FileList['lib/**/*.rb', 'models/**/*.rb', 'services/**/*.rb', 'spec/**/*.rb'].each do |file_name|
+    FileList['lib/**/*.rb', 'app/models/**/*.rb', 'app/services/**/*.rb', 'spec/**/*.rb'].each do |file_name|
       f = File.open(file_name)
       while (line = f.gets)
         lines += 1

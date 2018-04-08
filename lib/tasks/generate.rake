@@ -9,7 +9,7 @@ task :generate do
   system "cp -R * #{ENV['dir']}"
 
   # Remove waste from the generated project
-  system %(cd #{ENV['dir']}; rm -Rf .bundle .git .sass-cache 
+  system %(cd #{ENV['dir']}; rm -Rf .bundle .git
           #{File.join('tasks', 'generate.rake')} Gemfile.lock readme.md
 )
 

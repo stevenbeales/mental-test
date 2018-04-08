@@ -1,5 +1,5 @@
 checks:
-      ruby:
+    ruby:
         code_rating: true
         duplicate_code: true    
 build:
@@ -10,7 +10,6 @@ build:
     environment:
         # Languages
         ruby: 2.4.4
-     
         # Various pre-installed services that can be configured.
         postgresql: true
     tests:

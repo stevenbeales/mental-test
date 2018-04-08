@@ -13,14 +13,15 @@ SimpleCov.profiles.define 'app' do
   add_filter '/coverage/'
   add_filter '/doc/'
   add_filter '/tmp/'
+  add_filter '/script/'
   add_filter '/public/'
   add_filter '/vendor/'
   add_filter '/log/'
-  add_filter ['Gemfile.lock', 'README.md', 'todo.txt', '.gitignore', '.rspec', 
-              '.travis.yml', '.rubocop.yml', 'config/database.yml', 
-              'Guardfile', 'Rakefile', '_config.yml', '.coveralls.yml', '.env',
-              '.scrutinizer.yml', '.ruby-version', '.test.env', 'CODE_OF_CONDUCT.md',
-              'AUTHORS', '.rdoc_options', '.inch.yml', 'CONTRIBUTING.md', 'issue_template.md',
-              'LICENSE', 'Gemfile'
+  add_filter ['_config.yml', '.codeclimate.yml', '.coveralls.yml', '.env', '.fasterer.yml', '.gitattributes',
+              '.gitignore', '.inch.yml', '.overcommit.yml', '.rdoc_options',  '.rspec', '.rubocop.yml',
+              '.ruby-version', '.scrutinizer.yml', '.simplecov', '.test.env', '.travis.yml', 'app.json',
+              'AUTHORS', 'CODE_OF_CONDUCT.md', 'config.reek', 'CONTRIBUTING.md', '.development.env', 'Gemfile',
+              'Gemfile.lock', 'Guardfile', 'heroku.yml', 'issue_template.md', 'LICENSE', 'Procfile', '.production.env',
+               'Rakefile', 'README.md', 'todo.txt', 'VERSION', 'config/database.yml'
             ] 
 end
