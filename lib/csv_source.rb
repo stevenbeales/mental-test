@@ -5,6 +5,7 @@ require 'csv'
 # Helper class to process CSV files
 class CsvSource
   attr_reader :arrays
+  attr_reader :file
   
   def initialize(file)
     @file = file
@@ -12,7 +13,8 @@ class CsvSource
   
   # returns an array of arrays containing file contents
   def read
-    @arrays = CSV.read(@file)
+    raise FileNotFoundException.new 'File not found' unless File.exist? file 
+    @arrays = CSV.read(file)
   end
 
   # returns a line delimited single string

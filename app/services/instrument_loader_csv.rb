@@ -1,21 +1,15 @@
 # frozen_string_literal: true
 
 require './lib/csv_source'
+require './lib/custom_exceptions'
 
 # Loads instruments from csv  
 class InstrumentLoaderCsv < InstrumentLoader
+  @folder = AppConstants::INSTRUMENTS_FOLDER
   attr_reader :instrument
   attr_reader :response_scale
-  attr_accessor :folder
-   
-  def self.instance
-    @instance ||= new
-  end
-
-  def intialize
-    @folder = AppConstants::INSTRUMENTS_FOLDER
-  end
-
+  attr_reader :folder 
+ 
   # Returns an array of Items that represent the questions in an instrument.
   def load_instrument(instrument:)
     @instrument = instrument
@@ -26,10 +20,16 @@ class InstrumentLoaderCsv < InstrumentLoader
     instrument
   end
 
+  def use_folder(folder: AppConstants::INSTRUMENTS_FOLDER)
+    @folder = folder
+  end
+
   private
 
   def load_content
-    csv_source = CsvSource.new("#{folder}#{instrument.name}.csv")
+    filename = "#{folder}#{instrument.name}.csv"
+    raise FileNotFoundException.new unless File.exist?(filename)
+    csv_source = CsvSource.new(filename)
     instrument.csv_content = csv_source.to_s
   end
 

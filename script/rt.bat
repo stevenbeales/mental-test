@@ -1,1 +1,1 @@
-be rake spec
+be rake spec %1
