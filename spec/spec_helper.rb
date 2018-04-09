@@ -44,6 +44,8 @@ require 'rspec'
 require_relative 'shared_context_specs'
 require_relative 'shared_example_specs'
 require './app/app_constants'
+require 'active_record'
+require 'bullet'
 require './config/db'
 require 'database_cleaner'
 require 'ralyxa'
@@ -67,6 +69,10 @@ end
 
 RSpec.configure { |c| c.include RSpecMixin }
 
+Bullet.enable = true
+Bullet.bullet_logger = true
+Bullet.raise = false # raise an error if n+1 query occurs
+  
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
 RSpec.configure do |config|
   # cleanup database and reload seeds
@@ -74,6 +80,15 @@ RSpec.configure do |config|
     DatabaseCleaner.strategy = :transaction
     DatabaseCleaner.clean_with(:truncation)
     require './db/seeds'
+  end
+
+  config.before(:each) do
+    Bullet.start_request
+  end
+
+  config.after(:each) do
+    Bullet.perform_out_of_channel_notifications if Bullet.notification?
+    Bullet.end_request
   end
 
   config.before(:each) do
@@ -95,7 +110,7 @@ RSpec.configure do |config|
       c.validate_requests = false
     end
   end
-  
+
   config.expect_with :rspec do |c|
     c.syntax = :expect
   end

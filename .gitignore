@@ -144,3 +144,4 @@ vendor/bundle/*
 
 vim.exe.stackdump
 spec/rspec.txt
+log/bullet.log

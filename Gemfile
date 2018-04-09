@@ -60,6 +60,7 @@ group :development, :test do
   gem 'better_errors', '>= 2.4.0', require: false # better error logging 
   gem 'binding_of_caller', '>= 0.8.0', require: false # helps better_errors provide more detailed debugging
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
+  gem 'bullet', '>= 5.7.5', require: false # find slow ActiveRecord queries
   gem 'byebug', '>= 10.0.2', platforms: %i[mri mingw x64_mingw]
   gem 'fasterer', require: false # find slow code 
   gem 'guard', '>= 2.14.2', require: false # watch for changed files 
