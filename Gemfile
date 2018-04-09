@@ -7,6 +7,7 @@ gem 'activerecord', '>= 5.1.5' # ORM
 gem 'audited', '>= 4.7.0', require: false # adds table auiting support
 gem 'bugsnag', '>= 6.6', require: false # online bug reporting
 gem 'bundler-audit', '>= 0.6.0', require: false # check gems for security issues
+gem 'discard', '>= 1.0.0', require: false # soft deletes
 gem 'dotenv', '>= 2.2.1', require: false # adds environment variables from .env files
 gem 'fast_stack', '>= 0.2.0', platform: :ruby, require: false # stack profiler
 gem 'flamegraph', '>= 0.9.5', require: false # rack profiling

@@ -102,4 +102,30 @@ RSpec.describe User, type: :model do
       expect(user.to_s).to eq(user.username) 
     end
   end
+
+  describe '#discard' do
+    let!(:user) { build(:timmy) }
+    before :each do
+      user.discard
+    end
+
+    context 'does not delete' do
+      it timecop: :freeze do
+        expect(user.discarded_at.change(usec: 0)).to eq Time.now.change(usec: 0)
+      end
+
+      it do
+        expect(user.discarded?).to eq true    
+      end
+
+      it do
+        discarded = User.discarded.first
+        expect(discarded.id).to eq user.id
+      end
+
+      it do
+        expect(User.kept.include?(user)).to be_falsey
+      end
+    end
+  end
 end

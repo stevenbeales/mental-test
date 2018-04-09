@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require 'audited'
+require 'discard'
 require 'jsonb_accessor'
 require 'pg_search'
 require 'valid_email2'

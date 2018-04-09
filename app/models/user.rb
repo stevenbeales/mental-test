@@ -4,6 +4,7 @@
 # Users are linked to Alexa users using Alexa session request.user_id
 class User < ApplicationRecord
   audited except: :password
+  include Discard::Model
   has_many :visits, inverse_of: :user, dependent: :destroy
   has_many :assessments, through: :visits
   has_one :participant, dependent: :destroy

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180401040204) do
+ActiveRecord::Schema.define(version: 20180408205532) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -285,6 +285,8 @@ ActiveRecord::Schema.define(version: 20180401040204) do
     t.jsonb "preferences", default: "{}", null: false
     t.datetime "created_at", default: -> { "CURRENT_TIMESTAMP" }, null: false
     t.datetime "updated_at", default: -> { "CURRENT_TIMESTAMP" }, null: false
+    t.datetime "discarded_at"
+    t.index ["discarded_at"], name: "index_users_on_discarded_at"
     t.index ["preferences"], name: "preferences", using: :gin
     t.index ["username"], name: "username", unique: true
   end
