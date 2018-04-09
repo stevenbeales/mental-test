@@ -2,7 +2,7 @@
 
 # Model to represent visit schedules
 class Schedule < ApplicationRecord
-  belongs_to :study
+  belongs_to :study, touch: true
   has_many :arms, inverse_of: :schedule
 
   validates :name, presence: true

@@ -3,10 +3,10 @@
 require './lib/shared_migration'
 
 # Add soft delete to users table
-class AddDiscardToUsers < ActiveRecord::Migration[5.1]
+class AddDiscardToInstruments < ActiveRecord::Migration[5.1]
   include SharedMigration
   
   def change
-    add_discard table_name: :users
+    add_discard table_name: :instruments
   end
 end

@@ -4,6 +4,7 @@ source 'https://rubygems.org'
 ruby ENV['CUSTOM_RUBY_VERSION'] || '2.4.4'
 
 gem 'activerecord', '>= 5.1.5' # ORM
+gem 'activerecord-delay_touching', '>= 1.0.1' # Batch Touching Calls
 gem 'audited', '>= 4.7.0', require: false # adds table auiting support
 gem 'bugsnag', '>= 6.6', require: false # online bug reporting
 gem 'bundler-audit', '>= 0.6.0', require: false # check gems for security issues
@@ -56,6 +57,8 @@ end
 
 group :development, :test do
   gem 'annotate', '>= 2.7.2', require: false # annotate models
+  gem 'better_errors', '>= 2.4.0', require: false # better error logging 
+  gem 'binding_of_caller', '>= 0.8.0', require: false # helps better_errors provide more detailed debugging
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', '>= 10.0.2', platforms: %i[mri mingw x64_mingw]
   gem 'fasterer', require: false # find slow code 

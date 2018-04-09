@@ -6,7 +6,6 @@ module TestConstants
   TEST_ARM = 'Test Arm'
   TEST_ARM2 = 'Test Arm 2'
   TEST_FOLDER = 'Test Folder'
-  TEST_HIPAA_IDENTIFIER = 'Test Hipaa Identifier'
   TEST_INSTRUMENT = 'Cesd-r'
   TEST_JOURNAL = 'Test Journal'
   TEST_PARTICIPANT_EMAIL = 'test_participant@test.com'

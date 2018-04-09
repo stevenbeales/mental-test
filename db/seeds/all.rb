@@ -11,25 +11,3 @@ end
 # instrument = InstrumentCsv.new(name: AppConstants::DEFAULT_CSV_INSTRUMENT)
 # InstrumentLoader.instance.load(instrument: instrument, type: :csv)
 # end
-
-unless HipaaIdentifier.count == 18 
-  HipaaIdentifier.delete_all
-  HipaaIdentifier.create! name: 'Name'
-  HipaaIdentifier.create! name: 'Fax number'
-  HipaaIdentifier.create! name: 'Phone number'
-  HipaaIdentifier.create! name: 'E-mail address'
-  HipaaIdentifier.create! name: 'Account numbers'
-  HipaaIdentifier.create! name: 'Social Security number'
-  HipaaIdentifier.create! name: 'Medical Record number'
-  HipaaIdentifier.create! name: 'Health Plan number'
-  HipaaIdentifier.create! name: 'Certificate/license numbers'
-  HipaaIdentifier.create! name: 'URL'
-  HipaaIdentifier.create! name: 'IP address'
-  HipaaIdentifier.create! name: 'Vehicle identifiers'
-  HipaaIdentifier.create! name: 'Device ID'
-  HipaaIdentifier.create! name: 'Biometric ID'
-  HipaaIdentifier.create! name: 'Full face/identifying photo'
-  HipaaIdentifier.create! name: 'Other unique identifying number, characteristic, or code'
-  HipaaIdentifier.create! name: 'Postal address (geographic subdivisions smaller than state)'
-  HipaaIdentifier.create! name: 'Date precision beyond year'
-end

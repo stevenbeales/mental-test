@@ -46,11 +46,6 @@ FactoryBot.define do
     initialize_with { Folder.find_or_create_by! name: TestConstants::TEST_FOLDER }
   end
 
-  factory :test_hipaa_identifier, class: 'HipaaIdentifier' do
-    name TestConstants::TEST_HIPAA_IDENTIFIER
-    initialize_with { HipaaIdentifier.find_or_create_by! name: TestConstants::TEST_HIPAA_IDENTIFIER }
-  end
-
   factory :test_instrument, class: 'Instrument' do
     name TestConstants::TEST_INSTRUMENT
     initialize_with { Instrument.find_or_create_by! name: TestConstants::TEST_INSTRUMENT }

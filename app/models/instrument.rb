@@ -4,6 +4,7 @@
 # Similar to a survey or questionnaire
 class Instrument < ApplicationRecord
   include PgSearch
+  include Discard::Model
   multisearchable against: %i[json_content csv_content]
   pg_search_scope :search_json, against: :json_content
   pg_search_scope :search_csv, against: :csv_content

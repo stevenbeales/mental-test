@@ -35,7 +35,7 @@
 # Represents a psychometric item
 # Similar to a question with metadata
 class Item < ApplicationRecord
-  belongs_to :instrument, inverse_of: :items
+  belongs_to :instrument, inverse_of: :items, touch: true
   belongs_to :response_scale, inverse_of: :items, optional: true
   has_many :choices, through: :response_scale  
   validates :name, presence: true

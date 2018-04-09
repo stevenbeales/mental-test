@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180408205532) do
+ActiveRecord::Schema.define(version: 20180409004310) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -106,7 +106,9 @@ ActiveRecord::Schema.define(version: 20180408205532) do
     t.datetime "created_at", default: -> { "CURRENT_TIMESTAMP" }, null: false
     t.datetime "updated_at", default: -> { "CURRENT_TIMESTAMP" }, null: false
     t.string "tags", default: [], array: true
+    t.datetime "discarded_at"
     t.index ["csv_content"], name: "index_instruments_on_csv_content"
+    t.index ["discarded_at"], name: "index_instruments_on_discarded_at"
     t.index ["json_content"], name: "instrument_json_content", using: :gin
     t.index ["name"], name: "index_instruments_on_name"
     t.index ["tags"], name: "instrument_tags", using: :gin

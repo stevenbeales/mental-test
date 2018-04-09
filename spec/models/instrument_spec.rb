@@ -36,7 +36,7 @@ RSpec.describe Instrument, type: :model do
   describe '#items' do
     context 'has no items' do 
       it do
-        ins2 = described_class.find_or_create_by! name: 'Instrument 2'
+        ins2 = Instrument.find_or_create_by! name: 'Instrument 2'
         expect(ins2.items.count).to eq 0 
       end
     end
@@ -44,7 +44,7 @@ RSpec.describe Instrument, type: :model do
 
   describe '.list_tests' do
     it 'should return a list of instrument names' do
-      expect(described_class.list_tests(limit: 10)).to \
+      expect(Instrument.list_tests(limit: 10)).to \
         include(TestConstants::TEST_INSTRUMENT)
     end
   end
@@ -59,5 +59,31 @@ RSpec.describe Instrument, type: :model do
 
   describe '#instructions' do
     it { expect(subject.instructions).to include 'felt or behaved' }
+  end
+  
+  describe '#discard' do
+    let!(:ins2) { Instrument.find_or_create_by! name: 'Instrument 2' }
+    before :each do
+      ins2.discard
+    end
+
+    context 'does not delete' do
+      it timecop: :freeze do
+        expect(ins2.discarded_at.change(usec: 0)).to eq Time.now.change(usec: 0)
+      end
+
+      it do
+        expect(ins2.discarded?).to eq true    
+      end
+
+      it do
+        discarded = Instrument.discarded.first
+        expect(discarded.id).to eq ins2.id
+      end
+
+      it do
+        expect(Instrument.kept.include?(ins2)).to be_falsey
+      end
+    end
   end
 end

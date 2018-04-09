@@ -29,7 +29,7 @@
 
 # Model to represent choices in a rating scale
 class Choice < ApplicationRecord
-  belongs_to :response_scale, inverse_of: :choices
+  belongs_to :response_scale, inverse_of: :choices, touch: true
   has_many :responses, inverse_of: :choice
 
   validates :response_scale, presence: true
