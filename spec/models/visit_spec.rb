@@ -109,7 +109,7 @@ RSpec.describe Visit, type: :model do
     end
 
     it 'assessments' do
-      subject.assessments.each(&:destroy!)
+      subject.assessments.delete_all
       expect(subject.assessments.count.to_s).to eq '0' 
     end
  
@@ -121,7 +121,7 @@ RSpec.describe Visit, type: :model do
                                   order_number: 2
         expect { subject.assessments.concat [ass1, ass2] }.to \
           change { subject.assessments.size }.by(2)
-        subject.assessments.each(&:destroy!)
+        subject.assessments.delete_all
       end
     end
   end

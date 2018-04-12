@@ -3,6 +3,7 @@
 RSpec.describe AlexaService do
   subject { described_class.new(user) }
   let!(:user) { TestFactory.test_user }
+ 
     
   it { expect(subject).to be_an AlexaService }
   
@@ -75,28 +76,33 @@ RSpec.describe AlexaService do
     end
   end
 
-  describe '#read_all' do
-    it do
-      entries = user.journal&.list_entries(limit: 4)
-      expect(subject.read_all).to eq(entries)
+  
+  describe '#read' do
+    let!(:eager_user) { User.includes(participant: :journal).where(username: TestConstants::TEST_USER).first }
+ 
+    context '#read_all' do
+      it do
+        entries = eager_user.journal&.list_entries(limit: 4)
+        expect(subject.read_all).to eq(entries)
+      end
+      
+      it do
+        expect(subject.read_all).not_to be_nil 
+      end
     end
     
-    it do
-      expect(subject.read_all).not_to be_nil 
+    context '#read_entry' do
+      it timecop: :freeze do
+        entries = eager_user.journal&.read_entry(day: Date.today)
+        expect(subject.read_entry(day: Date.today)).to eq(entries)
+      end
     end
-  end
-
-  describe '#read_entry' do
-    it timecop: :freeze do
-      entries = user.journal&.read_entry(day: Date.today)
-      expect(subject.read_entry(day: Date.today)).to eq(entries)
-    end
-  end
-
-  describe '#read_last' do
-    it do
-      entries = user.journal&.read_last(last_n: 3)
-      expect(subject.read_last(last_n: 3)).to eq(entries)
+  
+    context '#read_last' do
+      it do
+        entries = eager_user.journal&.read_last(last_n: 3)
+        expect(subject.read_last(last_n: 3)).to eq(entries)
+      end
     end
   end
 end

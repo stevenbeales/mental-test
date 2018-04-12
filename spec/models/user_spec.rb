@@ -110,10 +110,6 @@ RSpec.describe User, type: :model do
     end
 
     context 'does not delete' do
-      it timecop: :freeze do
-        expect(user.discarded_at.change(usec: 0)).to eq Time.now.change(usec: 0)
-      end
-
       it do
         expect(user.discarded?).to eq true    
       end

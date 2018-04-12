@@ -78,11 +78,9 @@ RSpec.describe Assessment, type: :model do
 
   describe '#responses' do
     it do
-      rep2 = Response.create_with(score: 2)
-                     .find_or_create_by! assessment: subject, 
+      rep2 = Response.find_or_create_by! assessment: subject, 
                                          value: '2' 
-      rep3 = Response.create_with(score: 5)
-                     .find_or_create_by! assessment: subject, 
+      rep3 = Response.find_or_create_by! assessment: subject, 
                                          value: '3' 
       subject.responses.concat([rep2, rep3])
       expect(subject.responses.count).to eq(2)     

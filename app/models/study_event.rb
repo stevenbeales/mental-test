@@ -19,7 +19,7 @@ class StudyEvent < ApplicationRecord
 
  
   def to_s
-    "#{study} #{arm} #{name}"
+    "#{arm} #{name}"
   end
 end
 

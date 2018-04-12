@@ -50,6 +50,11 @@ RSpec.describe StudyEvent, type: :model do
   end
 
   describe '#to_s' do
-    it { expect(subject.to_s).to eq "#{study} #{arm} #{TestConstants::TEST_STUDY_EVENT}" }
+    it do
+      eager_subject = StudyEvent.includes(arm: { schedule: :study })
+                                .where(name: TestConstants::TEST_STUDY_EVENT, arm: arm)
+                                .first
+      expect(eager_subject.to_s).to eq "#{arm} #{TestConstants::TEST_STUDY_EVENT}"
+    end
   end
 end

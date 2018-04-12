@@ -2,7 +2,7 @@
 
 require 'bullet'
 
-configure :development do
+configure :development, :test do
   Bullet.enable = true
   Bullet.bullet_logger = true
   use Bullet::Rack

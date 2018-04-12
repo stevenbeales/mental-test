@@ -14,6 +14,10 @@
 # the additional setup, and require it from the spec files that actually need
 # it.
 #
+require 'warning'
+Warning.ignore(%i[method_redefined not_reached missing_ivar unused_var])
+Warning.ignore(/mismatched indentation/)
+
 require 'coveralls'
 Coveralls.wear!
 
@@ -51,13 +55,12 @@ require 'database_cleaner'
 require 'ralyxa'
 require 'factory_bot'
 require 'test_constants'
+require 'timecop'
 require 'faker'
 require_relative 'test_factory'
 require './app/services/init'
 require './app/models/init'
 require './intents/init'
-
-ActiveRecord::Migrator.migrate(File.join('../', 'db/migrate'))
 
 # Sinatra testing
 module RSpecMixin
@@ -66,12 +69,12 @@ module RSpecMixin
     described_class 
   end
 end
-
 RSpec.configure { |c| c.include RSpecMixin }
 
+# Find n+1 queries
 Bullet.enable = true
 Bullet.bullet_logger = true
-Bullet.raise = false # raise an error if n+1 query occurs
+Bullet.raise = true # raise an error if n+1 query occurs
   
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
 RSpec.configure do |config|
@@ -91,10 +94,12 @@ RSpec.configure do |config|
     Bullet.end_request
   end
 
+  # allow email validation to bypass MX lookups so email validation works offline
   config.before(:each) do
     allow_any_instance_of(ValidEmail2::Address).to receive(:valid_mx?) { true }
   end
 
+  # use Timecop to allow date and time based specs
   config.before :each, timecop: :freeze do
     Timecop.freeze
   end

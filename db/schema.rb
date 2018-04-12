@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180409004310) do
+ActiveRecord::Schema.define(version: 2018_04_09_004310) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -89,13 +89,6 @@ ActiveRecord::Schema.define(version: 20180409004310) do
     t.index ["name"], name: "index_folders_on_name"
   end
 
-  create_table "hipaa_identifiers", force: :cascade do |t|
-    t.string "name", null: false
-    t.datetime "created_at", default: -> { "CURRENT_TIMESTAMP" }, null: false
-    t.datetime "updated_at", default: -> { "CURRENT_TIMESTAMP" }, null: false
-    t.index ["name"], name: "index_hipaa_identifiers_on_name"
-  end
-
   create_table "instruments", force: :cascade do |t|
     t.string "name", null: false
     t.string "version_number", default: "1.0", null: false
@@ -105,13 +98,11 @@ ActiveRecord::Schema.define(version: 20180409004310) do
     t.text "instructions", default: "", null: false
     t.datetime "created_at", default: -> { "CURRENT_TIMESTAMP" }, null: false
     t.datetime "updated_at", default: -> { "CURRENT_TIMESTAMP" }, null: false
-    t.string "tags", default: [], array: true
     t.datetime "discarded_at"
     t.index ["csv_content"], name: "index_instruments_on_csv_content"
     t.index ["discarded_at"], name: "index_instruments_on_discarded_at"
     t.index ["json_content"], name: "instrument_json_content", using: :gin
     t.index ["name"], name: "index_instruments_on_name"
-    t.index ["tags"], name: "instrument_tags", using: :gin
   end
 
   create_table "items", force: :cascade do |t|
@@ -291,16 +282,6 @@ ActiveRecord::Schema.define(version: 20180409004310) do
     t.index ["discarded_at"], name: "index_users_on_discarded_at"
     t.index ["preferences"], name: "preferences", using: :gin
     t.index ["username"], name: "username", unique: true
-  end
-
-  create_table "versions", force: :cascade do |t|
-    t.string "item_type"
-    t.integer "item_id", null: false
-    t.string "event", null: false
-    t.string "whodunnit"
-    t.text "object"
-    t.datetime "created_at", default: -> { "CURRENT_TIMESTAMP" }
-    t.index ["item_type", "item_id"], name: "index_by_itemtype_item"
   end
 
   create_table "visits", force: :cascade do |t|
