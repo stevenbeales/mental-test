@@ -49,7 +49,6 @@ group :test do
   gem 'simplecov', '>= 0.16.1', require: false # for code coverage
   gem 'simplecov-console', '>= 0.4.2', require: false # code coverage to console
   gem 'travis', '>= 1.8.8', require: false # for continuous integrations
-  gem 'travis_check_rubies', '>= 0.2.5', require: false # check ruby versions on Travis
 end
 
 group :development, :test do

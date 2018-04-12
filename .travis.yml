@@ -42,7 +42,6 @@ script:
   - bundle exec rake bundle:audit
   - bundle exec rubocop
   - bundle exec ruby-audit check
-  - bundle exec travis_check_rubies
   
 after_script:
   - ./cc-test-reporter format-coverage -t simplecov -o coverage/codeclimate.backend.json coverage/backend/.resultset.json # Format backend coverage
