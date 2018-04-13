@@ -3,13 +3,19 @@
 RSpec.describe Instrument, type: :model do
   subject { Instrument.find_or_create_by! name: TestConstants::TEST_INSTRUMENT }
   
+  describe '.list_tests' do
+    it 'should return a list of instrument names' do
+      expect(Instrument.list_tests(limit: 10)).to include(TestConstants::TEST_INSTRUMENT)
+    end
+  end
+
   include_examples 'valid object creation', Instrument
   
   describe '#respond_to?' do
     include_context 'shared attributes'
     include_examples 'respond', %i[assessment_instruments assessments study_event_instruments]
     include_examples 'respond', %i[study_events instructions csv_content json_content]
-    include_examples 'respond', %i[title pages items name] 
+    include_examples 'respond', %i[title pages items name instrument_type version_number] 
     include_examples 'common attributes'
   end
 
@@ -23,7 +29,7 @@ RSpec.describe Instrument, type: :model do
     end
   end
   
-  describe 'test instrument #items' do
+  describe '#items for test instrument' do
     it 'is not empty' do
       expect(subject.items).not_to be_empty
     end
@@ -33,19 +39,17 @@ RSpec.describe Instrument, type: :model do
     end
   end
 
+  describe '#content for test instrument' do
+    # it { expect(subject.json_content.length).to be > 1000 }
+    it { expect(subject.csv_content.length).to eq 0 }
+  end
+
   describe '#items' do
     context 'has no items' do 
       it do
         ins2 = Instrument.find_or_create_by! name: 'Instrument 2'
         expect(ins2.items.count).to eq 0 
       end
-    end
-  end
-
-  describe '.list_tests' do
-    it 'should return a list of instrument names' do
-      expect(Instrument.list_tests(limit: 10)).to \
-        include(TestConstants::TEST_INSTRUMENT)
     end
   end
 

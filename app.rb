@@ -18,6 +18,7 @@ require 'sinatra-initializers'
 require_relative 'config/db'
 require_relative 'app/services/init'
 require_relative 'app/models/init'
+require_relative 'lib/init'
 
 configure { set :server, :puma }
 set :app_file, __FILE__

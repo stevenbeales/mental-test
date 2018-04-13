@@ -8,7 +8,7 @@ RSpec.describe Assessment, type: :model do
   let!(:instrument) { InstrumentTestFactory.test_instrument }
   let!(:assessment_from_db) { Assessment.find_or_create_by! visit: visit }
   
-  include_examples 'valid object creation', Assessment
+  include_examples 'valid object creation', described_class
   
   describe '#respond_to?' do
     include_context 'shared attributes'
@@ -54,8 +54,7 @@ RSpec.describe Assessment, type: :model do
   describe '.create!' do
     context 'with visit' do
       it do
-        expect { described_class.find_or_create_by! visit: visit }.not_to \
-          raise_error
+        expect { Assessment.find_or_create_by! visit: visit }.not_to raise_error
       end
     end
 
@@ -89,7 +88,7 @@ RSpec.describe Assessment, type: :model do
 
   describe '#to_s' do
     it do 
-      expect(described_class.where(visit: visit).first.to_s).to eq(visit.to_s)
+      expect(Assessment.where(visit: visit).first.to_s).to eq(visit.to_s)
     end
   end
 

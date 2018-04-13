@@ -1,0 +1,10 @@
+en:
+  unknown_instrument_type: "Unknown Instrument Type"
+  instrument_name_missing: "Instrument name is missing"
+  loader_nil_instrument: "Error: no instrument was passed. Please create your instrument before loading contents."
+  file_not_found: "File not found"
+  missing_table_name: "Missing Table Name"
+  help_response: "Alexa can only process a few seconds of speech at a time, so after each sentence, pause for a breath while your sentence is saved, then continue speaking when you hear the prompt."
+  goodbye_response: "Goodbye."
+  start_over_response: "What would you like to do now?"
+  launch_response: "What would you like to do? Say tests to list tests. Say start Depression to start a Depression test. Say help for more help."

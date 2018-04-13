@@ -13,7 +13,7 @@ class CsvSource
   
   # returns an array of arrays containing file contents
   def read
-    raise FileNotFoundException.new 'File not found' unless File.exist? file 
+    raise FileNotFoundException.new I18n.t :file_not_found unless File.exist? file 
     @arrays = CSV.read(file)
   end
 

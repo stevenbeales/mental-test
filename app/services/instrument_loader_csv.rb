@@ -28,7 +28,7 @@ class InstrumentLoaderCsv < InstrumentLoader
 
   def load_content
     filename = "#{folder}#{instrument.name}.csv"
-    raise FileNotFoundException.new unless File.exist?(filename)
+    raise FileNotFoundException.new filename unless File.exist?(filename)
     csv_source = CsvSource.new(filename)
     instrument.csv_content = csv_source.to_s
   end

@@ -9,7 +9,7 @@ class InstrumentLoader
    
   # load method saves an instrument to DB from either CSV or json
   def load(instrument:, type: :json)
-    raise AppConstants::LOADER_NIL_INSTRUMENT unless instrument 
+    raise I18n.t :loader_nil_instrument unless instrument 
    
     @instrument = instrument
     # A json instrument will have its json representation stored in content 
@@ -20,7 +20,7 @@ class InstrumentLoader
   protected 
 
   def check_valid_instrument_name
-    raise 'Instrument name is missing' if instrument.name.blank?
+    raise I18n.t :instrument_name_missing if instrument.name.blank?
   end
 
   # delegates loading to either Json Loader or CSV Loader
@@ -40,7 +40,7 @@ class InstrumentLoader
     when :csv 
       InstrumentLoaderCsv.instance
     else
-      raise 'Unknown Instrument Type'
+      raise I18n.t :unknown_instrument_type
     end
   end
 end

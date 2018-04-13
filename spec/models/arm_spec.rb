@@ -79,8 +79,7 @@ RSpec.describe Arm, type: :model do
     context '1 character name' do
       it do
         expect do 
-          described_class.create! name: 'a', 
-                                  schedule: schedule 
+          Arm.create! name: 'a', schedule: schedule 
         end.to raise_error ActiveRecord::RecordInvalid
       end
     end

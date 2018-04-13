@@ -20,8 +20,9 @@ class InstrumentLoaderJson < InstrumentLoader
   
   def load_content
     check_valid_instrument_name 
-
     filename = "#{AppConstants::INSTRUMENTS_FOLDER}#{instrument.name}.json" 
+    raise FileNotFoundException.new filename unless File.exist?(filename)
+
     json_data = File.read(filename)
     instrument.json_content = MultiJson.load(json_data)
   end

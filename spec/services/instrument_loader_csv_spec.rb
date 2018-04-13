@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-require './lib/custom_exceptions'
-
 RSpec.describe InstrumentLoaderCsv do
   subject { described_class.instance }
   
@@ -17,9 +15,7 @@ RSpec.describe InstrumentLoaderCsv do
   
   it 'when missing instrument' do
     instrument2 = Instrument.new(name: 'Testing')
-    expect do
-      subject.load(instrument: instrument2, type: :csv) 
-    end.to raise_exception(FileNotFoundException)
+    expect { subject.load(instrument: instrument2, type: :csv).to raise_exception(FileNotFoundException) }
   end
 
   it 'when empty instrument' do

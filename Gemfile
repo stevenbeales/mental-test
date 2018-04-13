@@ -3,7 +3,7 @@
 source 'https://rubygems.org'
 ruby ENV['CUSTOM_RUBY_VERSION'] || '2.4.4'
 
-gem 'activerecord', '>= 5.1.5' # ORM
+gem 'activerecord', '>= 5.2.0' # ORM
 gem 'activerecord-delay_touching', '>= 1.0.1' # Batch Touching Calls
 gem 'audited', '>= 4.7.0', require: false # adds table auiting support
 gem 'bugsnag', '>= 6.6', require: false # online bug reporting
@@ -17,13 +17,11 @@ gem 'oj', '>= 3.5.0', require: false # faster json parsing
 gem 'pg', '>= 1.0.0', platform: :ruby, require: false # for Postgres
 gem 'pg_search', '>= 2.1.2', require: false # Postgres full text search
 gem 'puma', '>= 3.11.2', require: false # puma web server
-gem 'rack-contrib', '>= 2.0.1', require: false # browser localization
 gem 'rack-heartbeat', '>= 1.1.0', require: false # provide heartbeat URL
 gem 'rack-timeout', '>= 0.4.2', require: false # configure Rack timeout
 gem 'rake', '>= 12.3.1', require: false # so we can run Rake tasks
 gem 'ralyxa', '>= 1.7.0', require: false # ruby alexa framework
 gem 'rest-client', '>= 2.0.2', platform: :ruby, require: false # minimum version without security vulnerabilities 
-gem 'route_downcaser', '>= 1.2.1', require: false # case insensitive URLs
 gem 'secure_headers', '>= 5.0.5', require: false # secure headers from Twitter
 gem 'sinatra', '>= 2.0.1', require: false # Web server
 gem 'sinatra-activerecord', '>= 2.0.13', require: false # for Active Record models
@@ -38,7 +36,6 @@ group :test do
   gem 'coveralls', '>= 0.7.1', require: false # code coverage
   gem 'database_cleaner', '=1.6.1', require: false # for test database cleaning
   gem 'factory_bot', '>= 4.0', require: false # for test data setup
-  gem 'faker', '>= 1.8.7', require: false # generate random test data
   gem 'fuubar', '>= 2.3.1', require: false # rspec formatter
   gem 'rack-protection', '>= 2.0.1', require: false # protect against web attacks
   gem 'rack-test', '>= 1.0.0', require: false # for testing rake servers

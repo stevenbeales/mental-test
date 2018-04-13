@@ -3,76 +3,64 @@
 RSpec.describe AlexaService do
   subject { described_class.new(user) }
   let!(:user) { TestFactory.test_user }
- 
-    
+     
   it { expect(subject).to be_an AlexaService }
   
   describe '.help_response' do
     it do 
-      expect(AlexaService.help_response).to \
-        eq(AlexaConstants::HELP_RESPONSE) 
+      expect(AlexaService.help_response).to eq(I18n.t(:help_response)) 
     end
   end
 
   describe '.launch_response' do
     it do
-      expect(AlexaService.launch_response).to \
-        eq(AlexaConstants::LAUNCH_RESPONSE)
+      expect(AlexaService.launch_response).to eq(I18n.t(:launch_response))
     end
   end
   
   describe '.start_over_response' do
     it do
-      expect(AlexaService.start_over_response).to \
-        eq(AlexaConstants::START_OVER_RESPONSE) 
+      expect(AlexaService.start_over_response).to eq(I18n.t(:start_over_response)) 
     end
   end
   
   describe '.goodbye_response' do
     it do
-      expect(AlexaService.goodbye_response).to \
-        eq(AlexaConstants::GOODBYE_RESPONSE) 
+      expect(AlexaService.goodbye_response).to eq(I18n.t(:goodbye_response))
     end
   end
 
   describe '.cancel_response' do
     it do
-      expect(AlexaService.cancel_response).to \
-        eq(AlexaConstants::CANCEL_RESPONSE) 
+      expect(AlexaService.cancel_response).to eq(I18n.t(:cancel_response)) 
     end
   end
 
   describe '.testname_slot' do
     it do
-      expect(AlexaService::TESTNAME_SLOT).to \
-        eq(AlexaConstants::TESTNAME_SLOT)
+      expect(AlexaService::TESTNAME_SLOT).to eq(AlexaConstants::TESTNAME_SLOT)
     end
   end
 
   describe '.list_tests' do
     it do 
-      expect(AlexaService.list_tests).to \
-        include(Instrument.list_tests(limit: 4)) 
+      expect(AlexaService.list_tests).to include(Instrument.list_tests(limit: 4)) 
     end
 
     it do 
-      expect(AlexaService.list_tests).to \
-        include(Instrument.count.to_s) 
+      expect(AlexaService.list_tests).to include(Instrument.count.to_s) 
     end
   end
 
   describe '.start_test' do
     it do
       expect(AlexaService.start_test(testname: 'blah')).to \
-        eq format(AlexaConstants::CANNOT_FIND_INSTRUMENT_ERROR, \
-                  instrument: 'blah')
+        eq format(AlexaConstants::CANNOT_FIND_INSTRUMENT_ERROR, instrument: 'blah')
     end
 
     it do
-      expect(AlexaService.start_test(testname: \
-        AppConstants::DEFAULT_INSTRUMENT)).to \
-          eq(Instrument.find_by(name: \
-            AppConstants::DEFAULT_INSTRUMENT).instructions)
+      expect(AlexaService.start_test(testname: AppConstants::DEFAULT_INSTRUMENT)).to \
+        eq(Instrument.find_by(name: AppConstants::DEFAULT_INSTRUMENT).instructions)
     end
   end
 

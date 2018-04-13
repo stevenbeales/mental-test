@@ -25,7 +25,7 @@ RSpec.describe Participant, type: :model do
     end
   
     context 'when the email address is valid' do
-      let(:email) { Faker::Internet.email }
+      let(:email) { 'stevenbeales@hotmail.com' }
 
       it 'allows the input' do
         subject.email = email

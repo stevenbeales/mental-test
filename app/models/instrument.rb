@@ -33,6 +33,11 @@ class Instrument < ApplicationRecord
   def to_s
     name
   end
+
+  def first_question_and_instructions
+    instructions
+    # TODO
+  end
 end
 
 # == Schema Information

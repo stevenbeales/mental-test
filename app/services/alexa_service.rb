@@ -7,23 +7,23 @@ class AlexaService
   attr_reader :user
 
   def self.goodbye_response
-    GOODBYE_RESPONSE
+    I18n.t :goodbye_response
   end
   
   def self.help_response
-    HELP_RESPONSE
+    I18n.t :help_response
   end
 
   def self.launch_response
-    LAUNCH_RESPONSE
+    I18n.t :launch_response
   end
   
   def self.start_over_response
-    START_OVER_RESPONSE 
+    I18n.t :start_over_response 
   end
   
   def self.cancel_response
-    CANCEL_RESPONSE
+    I18n.t :cancel_response
   end
 
   def self.list_tests
@@ -33,7 +33,7 @@ class AlexaService
   def self.start_test(testname: AppConstants::DEFAULT_INSTRUMENT)
     instrument = Instrument.find_by(name: testname)
     return format(AlexaConstants::CANNOT_FIND_INSTRUMENT_ERROR, instrument: testname) unless instrument
-    instrument.instructions
+    instrument.first_question_and_instructions
   end
 
   def initialize(user)
