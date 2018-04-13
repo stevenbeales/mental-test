@@ -30,9 +30,12 @@ RSpec.describe Folder, type: :model do
         project2 = Project.find_or_create_by! name: TestConstants::TEST_PROJECT2, 
                                               title: TestConstants::TEST_PROJECT_TITLE2
         folder = Folder.create! name: 'a13'
-        folder.projects.concat [project1, project2]
-        folder.destroy! 
-        expect(project1).not_to be_nil 
+        begin
+          folder.projects.concat [project1, project2]
+        ensure
+          folder.destroy! 
+          expect(project1).not_to be_nil
+        end
       end
     end
   end

@@ -50,8 +50,11 @@ RSpec.describe Schedule, type: :model do
     context 'unique name' do
       it do
         another_object = Schedule.create! name: 'a13', study: study
-        expect { Schedule.create! name: 'a13', study: study }.to raise_error ActiveRecord::RecordInvalid
-        another_object.destroy!
+        begin
+          expect { Schedule.create! name: 'a13', study: study }.to raise_error ActiveRecord::RecordInvalid
+        ensure
+          another_object.destroy!
+        end
       end
     end
   end

@@ -98,9 +98,12 @@ RSpec.describe Assessment, type: :model do
       test_visit2 = Visit.find_or_create_by!(name: TestConstants::TEST_VISIT, 
                                              survey: survey, user: user2)
       assessment2 = Assessment.find_or_create_by! visit: test_visit2
-      vis = assessment2.visit
-      assessment2.destroy!
-      expect(Visit.exists?(vis.id)).to be_truthy 
+      begin
+        vis = assessment2.visit
+      ensure
+        assessment2.destroy!
+        expect(Visit.exists?(vis.id)).to be_truthy
+      end 
     end
   end
 end

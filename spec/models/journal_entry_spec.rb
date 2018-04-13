@@ -81,11 +81,14 @@ RSpec.describe JournalEntry, type: :model do
       it timecop: :freeze do
         another_object = described_class.create! journal: journal, 
                                                  entry_date: Date.today.to_date
-        expect do 
-          described_class.create! journal: journal, 
-                                  entry_date: Date.today.to_date
-        end.to raise_error ActiveRecord::RecordInvalid
-        another_object.destroy!
+        begin                                         
+          expect do 
+            described_class.create! journal: journal, 
+                                    entry_date: Date.today.to_date
+          end.to raise_error ActiveRecord::RecordInvalid
+        ensure
+          another_object.destroy!
+        end
       end
     end
 

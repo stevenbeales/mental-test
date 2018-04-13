@@ -43,8 +43,11 @@ RSpec.describe StudyEvent, type: :model do
     context 'has unique name' do
       it do
         rs = described_class.create! name: 'a12', arm: arm
-        expect { described_class.create! name: 'a12', arm: arm }.to raise_error ActiveRecord::RecordInvalid
-        rs.destroy!
+        begin
+          expect { described_class.create! name: 'a12', arm: arm }.to raise_error ActiveRecord::RecordInvalid
+        ensure
+          rs.destroy!
+        end
       end
     end
   end

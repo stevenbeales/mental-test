@@ -30,12 +30,15 @@ RSpec.describe ResponseScale, type: :model do
   describe '#destroy!' do
     context 'destroys choices' do 
       rsubject = described_class.create! name: 'a13'
-      c = Choice.create! response_scale: rsubject, value: 'val', description: 'text'
-      c2 = Choice.create! response_scale: rsubject, value: 'val2', description: 'text2'
-      c3 = Choice.create! response_scale: rsubject, value: 'val3', description: 'text3'
-      rsubject.choices.concat [c, c2, c3]   
-      rsubject.destroy! 
-      it { expect(Choice.where(response_scale_id: rsubject.id, value: 'val', description: 'text').first).to be_nil } 
+      begin
+        c = Choice.create! response_scale: rsubject, value: 'val', description: 'text'
+        c2 = Choice.create! response_scale: rsubject, value: 'val2', description: 'text2'
+        c3 = Choice.create! response_scale: rsubject, value: 'val3', description: 'text3'
+        rsubject.choices.concat [c, c2, c3]  
+      ensure 
+        rsubject.destroy! 
+        it { expect(Choice.where(response_scale_id: rsubject.id, value: 'val', description: 'text').first).to be_nil } 
+      end
     end
   end
 end

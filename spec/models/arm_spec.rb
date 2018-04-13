@@ -87,9 +87,9 @@ RSpec.describe Arm, type: :model do
     context '2+ character name and title' do
       it do 
         expect do 
-          described_class.find_or_create_by! name: 'as', 
-                                             schedule: schedule, 
-                                             number: 2 
+          Arm.find_or_create_by! name: 'as', 
+                                 schedule: schedule, 
+                                 number: 2 
         end.to_not raise_error 
       end
     end
@@ -97,9 +97,12 @@ RSpec.describe Arm, type: :model do
     context 'unique name' do
       it do
         another_object = described_class.create! schedule: schedule, number: 3
-        expect { described_class.create! schedule: schedule, number: 3 }.to \
-          raise_error ActiveRecord::RecordInvalid
-        another_object.destroy!
+        begin
+          expect { described_class.create! schedule: schedule, number: 3 }.to \
+            raise_error ActiveRecord::RecordInvalid
+        ensure
+          another_object.destroy!
+        end
       end
     end
   end
@@ -115,9 +118,12 @@ RSpec.describe Arm, type: :model do
     it 'also removes study_events' do
       another_object = Arm.find_or_create_by!(name: TestConstants::TEST_ARM2, schedule: schedule, 
                                               number: 2)
-      events = another_object.study_events
-      another_object.destroy!
-      expect(events.size).to eq(0)
+      begin                                        
+        events = another_object.study_events
+      ensure
+        another_object.destroy!
+        expect(events.size).to eq(0)
+      end
     end
   end
 end

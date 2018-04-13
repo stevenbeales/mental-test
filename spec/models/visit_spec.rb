@@ -82,15 +82,18 @@ RSpec.describe Visit, type: :model do
     context 'user, survey and name' do
       ur = User.find_or_create_by! username: 'user compare'
       sy = Survey.find_or_create_by! name: 'survey compare'
-      v1 = described_class.create! user: ur,
-                                   name: 'visit 1', 
-                                   survey: sy
-      v2 = described_class.where(user_id: v1.user.id,
-                                 name: v1.name, 
-                                 survey_id: v1.survey.id).first
-      it { expect(v1.id).to eq(v2.id) }
-      ur.destroy!
-      sy.destroy!
+      begin
+        v1 = described_class.create! user: ur,
+                                     name: 'visit 1', 
+                                     survey: sy
+        v2 = described_class.where(user_id: v1.user.id,
+                                   name: v1.name, 
+                                   survey_id: v1.survey.id).first
+        it { expect(v1.id).to eq(v2.id) }
+      ensure
+        ur.destroy!
+        sy.destroy!
+      end
     end
   end
 
@@ -101,11 +104,13 @@ RSpec.describe Visit, type: :model do
                                               name: 'visit 1', 
                                               survey: survey, 
                                               number: 2
-      v1.assessments.concat(assessment)
-      assessment.destroy!
-      v1.destroy!
-      expect { Assessment.find(cached_id) }.to \
-        raise_error(ActiveRecord::RecordNotFound)
+      begin
+        v1.assessments.concat(assessment)
+      ensure
+        assessment.destroy!
+        v1.destroy!
+        expect { Assessment.find(cached_id) }.to raise_error(ActiveRecord::RecordNotFound)
+      end
     end
 
     it 'assessments' do
@@ -119,9 +124,12 @@ RSpec.describe Visit, type: :model do
                                   order_number: 24
         ass2 = Assessment.create! visit: subject, 
                                   order_number: 2
-        expect { subject.assessments.concat [ass1, ass2] }.to \
-          change { subject.assessments.size }.by(2)
-        subject.assessments.delete_all
+        begin
+          expect { subject.assessments.concat [ass1, ass2] }.to \
+            change { subject.assessments.size }.by(2)
+        ensure
+          subject.assessments.delete_all
+        end
       end
     end
   end

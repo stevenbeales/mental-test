@@ -40,7 +40,7 @@ RSpec.describe Item, type: :model do
 
   describe '#to_s' do
     it do
-      item = described_class.new(name: 'Time')
+      item = Item.new(name: 'Time')
       expect(item.to_s).to eq(item.name) 
     end
   end

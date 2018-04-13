@@ -84,11 +84,14 @@ RSpec.describe Journal, type: :model do
       it do
         another_object = Journal.create! name: 'a14', 
                                          participant: participant
-        expect do 
-          Journal.create! name: 'a14', 
-                          participant: participant 
-        end.to raise_error ActiveRecord::RecordInvalid
-        another_object.destroy!
+        begin
+          expect do 
+            Journal.create! name: 'a14', 
+                            participant: participant 
+          end.to raise_error ActiveRecord::RecordInvalid
+        ensure  
+          another_object.destroy!
+        end
       end
     end
 

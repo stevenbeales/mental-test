@@ -58,14 +58,18 @@ RSpec.describe Choice, type: :model do
     end
     
     it 'with response scale, value and description' do
-      expect do
-        Choice.find_or_create_by! response_scale: scale, value: 'val', description: 'text' 
-      end.not_to raise_error
-      c = Choice.find_by response_scale_id: scale.id, value: 'val'
-      c.destroy!
+      begin
+        expect do
+          begin
+            c = Choice.find_or_create_by! response_scale: scale, value: 'val', description: 'text' 
+          ensure
+            c.destroy!
+          end
+        end.not_to raise_error
+      end
     end
   end
-
+  
   describe '#to_s' do
     it do
       c = subject
@@ -76,10 +80,13 @@ RSpec.describe Choice, type: :model do
   describe '#destroy!' do
     it do
       c = TestFactory.test_choice
-      scale.choices.concat(c)
-      c.destroy!
-      scale.save!
-      expect(scale.choices.count.to_s).to eq '0'
+      begin
+        scale.choices.concat(c)
+      ensure
+        c.destroy!
+        scale.save!
+        expect(scale.choices.count.to_s).to eq '0'
+      end
     end    
   end
 end
