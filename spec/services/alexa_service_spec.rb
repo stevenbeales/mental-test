@@ -55,7 +55,7 @@ RSpec.describe AlexaService do
   describe '.start_test' do
     it do
       expect(AlexaService.start_test(testname: 'blah')).to \
-        eq format(AlexaConstants::CANNOT_FIND_INSTRUMENT_ERROR, instrument: 'blah')
+        eq format(I18n.t(:cannot_find_instrument, instrument: 'blah'))
     end
 
     it do

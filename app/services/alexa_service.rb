@@ -27,12 +27,12 @@ class AlexaService
   end
 
   def self.list_tests
-    format(LIST_TEST_RESPONSE, count: Instrument.count, list: Instrument.list_tests(limit: 4))
+    format(I18n.t(:list_test_response), count: Instrument.count, list: Instrument.list_tests(limit: 4))
   end
 
   def self.start_test(testname: AppConstants::DEFAULT_INSTRUMENT)
     instrument = Instrument.find_by(name: testname)
-    return format(AlexaConstants::CANNOT_FIND_INSTRUMENT_ERROR, instrument: testname) unless instrument
+    return format(I18n.t(:cannot_find_instrument), instrument: testname) unless instrument
     instrument.first_question_and_instructions
   end
 
