@@ -21,8 +21,6 @@ PreCommit:
     enabled: true
   Reek:
     enabled: true
-  RailsSchemaUpToDate:
-    enabled: true
   ImageOptim:
     enabled: true
   Mdl:

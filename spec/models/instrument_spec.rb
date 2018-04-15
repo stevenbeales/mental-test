@@ -66,28 +66,7 @@ RSpec.describe Instrument, type: :model do
   end
   
   describe '#discard' do
-    let!(:ins2) { Instrument.find_or_create_by! name: 'Instrument 2' }
-    before :each do
-      ins2.discard
-    end
-
-    context 'does not delete' do
-      it timecop: :freeze do
-        expect(ins2.discarded_at.change(usec: 0)).to eq Time.now.change(usec: 0)
-      end
-
-      it do
-        expect(ins2.discarded?).to eq true    
-      end
-
-      it do
-        discarded = Instrument.discarded.first
-        expect(discarded.id).to eq ins2.id
-      end
-
-      it do
-        expect(Instrument.kept.include?(ins2)).to be_falsey
-      end
-    end
+    ins2 = Instrument.find_or_create_by! name: 'Instrument 2'
+    include_examples 'discards', ins2
   end
 end

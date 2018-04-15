@@ -25,4 +25,21 @@ RSpec.describe SharedMigration do
       end
     end
   end
+
+  describe '#add_discard' do
+    context "when name missing" do
+      it { expect { subject.add_discard(table_name: '') }.to raise_error(MissingTableNameException) }
+    end
+    
+    context "when valid" do
+      it do 
+        begin  
+          subject.create_name_table(table_name: 'test')
+          expect { subject.add_discard(table_name: 'test') }.not_to raise_error
+        ensure
+          subject.drop_table :test
+        end
+      end
+    end
+  end
 end

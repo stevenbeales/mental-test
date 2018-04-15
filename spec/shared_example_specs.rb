@@ -148,3 +148,20 @@ RSpec.shared_examples 'valid object creation' do |klass|
     end
   end
 end
+
+RSpec.shared_examples 'discards' do |item|
+  before :each do
+    item.discard
+    item.save!
+  end
+
+  context 'does not delete' do
+    it do
+      expect(item.discarded?).to eq true    
+    end
+
+    it do
+      expect(item.class.kept.include?(item)).to be_falsey
+    end
+  end
+end

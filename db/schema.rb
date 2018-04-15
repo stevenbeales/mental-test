@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_04_09_004310) do
+ActiveRecord::Schema.define(version: 2018_04_14_231847) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -114,6 +114,8 @@ ActiveRecord::Schema.define(version: 2018_04_09_004310) do
     t.boolean "is_required", default: true, null: false
     t.datetime "created_at", default: -> { "CURRENT_TIMESTAMP" }, null: false
     t.datetime "updated_at", default: -> { "CURRENT_TIMESTAMP" }, null: false
+    t.datetime "discarded_at"
+    t.index ["discarded_at"], name: "index_items_on_discarded_at"
     t.index ["instrument_id"], name: "index_items_on_instrument_id"
     t.index ["name"], name: "index_by_item_name", unique: true
     t.index ["response_scale_id"], name: "index_items_on_response_scale_id"

@@ -71,17 +71,17 @@ RSpec.describe Project, type: :model do
    
   describe '.create!' do
     context '1 character name and title' do
-      it { expect { described_class.create! name: 'a', title: 'title' }.to raise_error ActiveRecord::RecordInvalid }
+      it { expect { Project.create! name: 'a', title: 'title' }.to raise_error ActiveRecord::RecordInvalid }
     end
     
     context '2+ character name and title' do
-      it { expect { described_class.find_or_create_by! name: 'as', title: 'title' }.to_not raise_error }
+      it { expect { Project.find_or_create_by! name: 'as', title: 'title' }.to_not raise_error }
     end
 
     context 'unique name' do
       it do
-        rs = described_class.create! name: 'a12', title: 'irrelevant'
-        expect { described_class.create! name: 'a12', title: 'irrelevant' }.to raise_error ActiveRecord::RecordInvalid
+        rs = Project.create! name: 'a12', title: 'irrelevant'
+        expect { Project.create! name: 'a12', title: 'irrelevant' }.to raise_error ActiveRecord::RecordInvalid
         rs.destroy!
       end
     end
@@ -89,9 +89,9 @@ RSpec.describe Project, type: :model do
 
   describe 'active projects' do
     it do
-      described_class.find_or_create_by! name: 'Test Project Active', title: 'title', status: :production
-      described_class.find_or_create_by! name: 'Test Archived', title: 'title', status: :archived
-      expect(described_class.list_active_projects).not_to include 'Archived '
+      Project.find_or_create_by! name: 'Test Project Active', title: 'title', status: :production
+      Project.find_or_create_by! name: 'Test Archived', title: 'title', status: :archived
+      expect(Project.list_active_projects).not_to include 'Archived '
     end 
   end
   

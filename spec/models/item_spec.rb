@@ -3,7 +3,7 @@
 RSpec.describe Item, type: :model do
   subject { Item.find_or_create_by! name: 'Appetite1' }
   let!(:instrument) { InstrumentTestFactory.test_instrument }
-
+  
   include_examples 'valid object creation', Item
 
   describe '#respond_to?' do
@@ -12,6 +12,7 @@ RSpec.describe Item, type: :model do
     include_examples 'responds', :instrument
     include_examples 'responds', :response_scale
     include_examples 'responds', :name
+    include_examples 'responds', :item_type
     include_examples 'common attributes'
   end
 
@@ -25,17 +26,23 @@ RSpec.describe Item, type: :model do
     end
   end
 
-  describe 'test item #choices' do
-    it 'has 5 choices' do
-      expect(subject.choices.count).to eq(5)
+  describe 'test item' do
+    context '#choices' do
+      it 'has 5 choices' do
+        expect(subject.choices.count).to eq(5)
+      end
+    end
+
+    context '#find_choice_by_value' do
+      it 'has choice eq 0' do
+        choice = subject.find_choice_by_value('0')
+        expect(choice.value).to eq('0')
+      end
     end
   end
 
-  describe 'test item #find_choice_by_value' do
-    it 'has choice eq 0' do
-      choice = subject.find_choice_by_value('0')
-      expect(choice.value).to eq('0')
-    end
+  describe '#item_type' do
+    it { expect(subject.item_type).to eq 'radiogroup' }
   end
 
   describe '#to_s' do
@@ -55,5 +62,11 @@ RSpec.describe Item, type: :model do
     it do
       expect(subject.instrument.id).to eq(instrument.id)
     end
+  end
+
+  describe '#discard' do
+    item2 = Item.find_or_create_by! name: 'Item 2', instrument: InstrumentTestFactory.test_instrument, 
+                                    item_type: 'radiogroup', title: 'abc'
+    include_examples 'discards', item2
   end
 end
