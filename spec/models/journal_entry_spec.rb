@@ -71,20 +71,17 @@ RSpec.describe JournalEntry, type: :model do
     context 'with journal and date ' do
       it do
         expect do
-          JournalEntry.find_or_create_by! journal: journal, 
-                                          entry_date: '12/12/2012'
+          JournalEntry.find_or_create_by! journal: journal, entry_date: '12/12/2012'
         end.to_not raise_error 
       end
     end
 
     context 'unique entry date' do
       it timecop: :freeze do
-        another_object = described_class.create! journal: journal, 
-                                                 entry_date: Date.today.to_date
+        another_object = described_class.create! journal: journal, entry_date: Date.today.to_date
         begin                                         
           expect do 
-            described_class.create! journal: journal, 
-                                    entry_date: Date.today.to_date
+            described_class.create! journal: journal, entry_date: Date.today.to_date
           end.to raise_error ActiveRecord::RecordInvalid
         ensure
           another_object.destroy!

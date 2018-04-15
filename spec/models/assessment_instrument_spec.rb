@@ -64,8 +64,7 @@ RSpec.describe AssessmentInstrument, type: :model do
     context 'with assessment and instrument' do
       it do 
         expect do
-          AssessmentInstrument.find_or_create_by instrument: instrument, 
-                                                 assessment: assessment
+          AssessmentInstrument.find_or_create_by instrument: instrument, assessment: assessment
         end.not_to raise_error
       end
     end
@@ -73,8 +72,7 @@ RSpec.describe AssessmentInstrument, type: :model do
     context 'unique instrument and assessment' do
       it do 
         expect do
-          AssessmentInstrument.create!(instrument: instrument,
-                                       assessment: assessment)
+          AssessmentInstrument.create! instrument: instrument, assessment: assessment
         end.to raise_error ActiveRecord::RecordInvalid   
       end
     end

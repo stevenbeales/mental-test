@@ -120,13 +120,10 @@ RSpec.describe Visit, type: :model do
  
     describe '#assessments' do
       it do
-        ass1 = Assessment.create! visit: subject, 
-                                  order_number: 24
-        ass2 = Assessment.create! visit: subject, 
-                                  order_number: 2
+        ass1 = Assessment.create! visit: subject, order_number: 24
+        ass2 = Assessment.create! visit: subject, order_number: 2
         begin
-          expect { subject.assessments.concat [ass1, ass2] }.to \
-            change { subject.assessments.size }.by(2)
+          expect { subject.assessments.concat [ass1, ass2] }.to change { subject.assessments.size }.by(2)
         ensure
           subject.assessments.delete_all
         end

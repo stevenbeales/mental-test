@@ -41,16 +41,13 @@ RSpec.describe StudyParticipant, type: :model do
 
     context 'no participant' do
       it do
-        expect { StudyParticipant.create! participant: participant }.to \
-          raise_error ActiveRecord::RecordInvalid
+        expect { StudyParticipant.create! participant: participant }.to raise_error ActiveRecord::RecordInvalid
       end
     end
 
     context 'no study' do
       it do
-        expect do
-          StudyParticipant.create! study: study 
-        end.to raise_error ActiveRecord::RecordInvalid
+        expect { StudyParticipant.create! study: study }.to raise_error ActiveRecord::RecordInvalid
       end
     end
  

@@ -39,23 +39,20 @@ RSpec.describe SurveyParticipant, type: :model do
   describe '.create!' do
     context 'no participant' do
       it do
-        expect { SurveyParticipant.create! participant: participant }.to \
-          raise_error ActiveRecord::RecordInvalid
+        expect { SurveyParticipant.create! participant: participant }.to raise_error ActiveRecord::RecordInvalid
       end
     end
 
     context 'no survey' do
       it do
-        expect { SurveyParticipant.create! survey: survey }.to raise_error \
-          ActiveRecord::RecordInvalid
+        expect { SurveyParticipant.create! survey: survey }.to raise_error ActiveRecord::RecordInvalid
       end
     end
  
     context 'survey and participant' do
       it do 
         expect do
-          SurveyParticipant.find_or_create_by! participant: participant, 
-                                               survey: survey 
+          SurveyParticipant.find_or_create_by! participant: participant, survey: survey 
         end.not_to raise_error
       end
     end
@@ -71,10 +68,8 @@ RSpec.describe SurveyParticipant, type: :model do
 
   describe '#to_s' do
     it do
-      expect(described_class.where(participant: participant, 
-                                   survey: survey).first.to_s).to \
-                                     eq(TestConstants::TEST_PARTICIPANT_EMAIL \
-                                       + ' ' + TestConstants::TEST_SURVEY)
+      expect(described_class.where(participant: participant, survey: survey).first.to_s).to \
+        eq("#{TestConstants::TEST_PARTICIPANT_EMAIL} #{TestConstants::TEST_SURVEY}")
     end
   end
   

@@ -11,8 +11,7 @@ class TestFactory
   end
 
   def self.test_assessment_instrument
-    @test_assessment_instrument ||= 
-      FactoryBot.create(:test_assessment_instrument)
+    @test_assessment_instrument ||= FactoryBot.create(:test_assessment_instrument)
   end
 
   def self.test_choice
@@ -44,8 +43,7 @@ class TestFactory
   end 
     
   def self.test_study_event_instrument
-    @test_study_event_instrument ||= 
-      FactoryBot.create(:test_study_event_instrument)
+    @test_study_event_instrument ||= FactoryBot.create(:test_study_event_instrument)
   end
 
   def self.test_journal
@@ -72,8 +70,7 @@ end
 # Factory to create or return instrument related test objects
 class InstrumentTestFactory
   def self.test_instrument
-    @test_instrument ||= 
-      Instrument.find_by(name: TestConstants::TEST_INSTRUMENT) 
+    @test_instrument ||= Instrument.find_by(name: TestConstants::TEST_INSTRUMENT) 
   end
   
   def self.test_response_scale

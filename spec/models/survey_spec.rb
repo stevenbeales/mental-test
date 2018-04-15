@@ -36,8 +36,7 @@ RSpec.describe Survey do
     it do
       described_class.find_or_create_by! name: 'Test Survey active'
       described_class.find_or_create_by! name: 'Test inactive', is_active: false
-      expect(described_class.list_active_tests).to \
-        include 'Test Survey Test Test Survey active'
+      expect(described_class.list_active_tests).to include 'Test Survey Test Test Survey active'
     end 
   end
 
@@ -52,8 +51,7 @@ RSpec.describe Survey do
         assessment = Assessment.find_or_create_by! visit: vt 
         another_assessment = Assessment.create! visit: vt, order_number: 2
         survey.visits.concat(vt)
-        vt.assessments.concat(assessment)
-        vt.assessments.concat(another_assessment)
+        vt.assessments.concat([assessment, another_assessment])
         expect(survey.assessments.count).to eq(2)  
       ensure
         survey.destroy!

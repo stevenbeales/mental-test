@@ -43,28 +43,22 @@ RSpec.describe User, type: :model do
 
   describe '.authenticate' do
     it 'creates a user if one does not exist' do
-      expect { described_class.authenticate('Strangely') }.to \
-        change { User.count }.by(1)
+      expect { described_class.authenticate('Strangely') }.to change { User.count }.by(1)
     end
 
     it 'retrieves a user if name and access token exists' do
       timmy = create(:timmy)
-      expect { described_class.authenticate(timmy.username) }.not_to(change \
-        { described_class.count })
-      expect(described_class.authenticate(timmy.username).username).to \
-        eq timmy.username
-      expect(described_class.authenticate(timmy.username).access_token).to \
-        eq timmy.access_token
+      expect { described_class.authenticate(timmy.username) }.not_to(change { described_class.count })
+      expect(described_class.authenticate(timmy.username).username).to eq timmy.username
+      expect(described_class.authenticate(timmy.username).access_token).to eq timmy.access_token
     end
 
     it 'does not create a user without a username' do
-      expect { described_class.authenticate('') }.to \
-        change { described_class.count }.by(0)
+      expect { described_class.authenticate('') }.to change { described_class.count }.by(0)
     end
 
     it 'does not create a user with a name shorter than 5 characters' do
-      expect { described_class.authenticate('Lisa') }.to change \
-        { described_class.count }.by(0)
+      expect { described_class.authenticate('Lisa') }.to change { described_class.count }.by(0)
     end
   end
 
@@ -86,8 +80,7 @@ RSpec.describe User, type: :model do
     end
 
     it 'has unique name' do
-      expect { described_class.authenticate('Timmy') }.to \
-        change { described_class.count }.by(0)
+      expect { described_class.authenticate('Timmy') }.to change { described_class.count }.by(0)
     end
 
     it 'is a participant' do

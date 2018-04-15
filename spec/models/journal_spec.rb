@@ -73,8 +73,7 @@ RSpec.describe Journal, type: :model do
     context '2+ character name and title' do
       it do
         expect do
-          Journal.find_or_create_by! name: 'as', 
-                                     participant: participant 
+          Journal.find_or_create_by! name: 'as', participant: participant 
         end.to_not raise_error 
         Journal.find_by(name: 'as', participant: participant).destroy!
       end
@@ -82,12 +81,10 @@ RSpec.describe Journal, type: :model do
 
     context 'unique name' do
       it do
-        another_object = Journal.create! name: 'a14', 
-                                         participant: participant
+        another_object = Journal.create! name: 'a14', participant: participant
         begin
           expect do 
-            Journal.create! name: 'a14', 
-                            participant: participant 
+            Journal.create! name: 'a14', participant: participant 
           end.to raise_error ActiveRecord::RecordInvalid
         ensure  
           another_object.destroy!

@@ -61,18 +61,15 @@ RSpec.shared_examples 'create!_with_name' do |text, dup|
     end
    
     it '1 character name' do
-      expect { described_class.create!(name: 'a') }.to raise_error \
-        ActiveRecord::RecordInvalid
+      expect { described_class.create!(name: 'a') }.to raise_error ActiveRecord::RecordInvalid
     end
 
     it '2+ character name' do
-      expect { described_class.find_or_create_by!(name: 'as') }.not_to \
-        raise_error
+      expect { described_class.find_or_create_by!(name: 'as') }.not_to raise_error
     end
 
     it 'with duplicate name' do
-      expect { described_class.create!(name: dup) }.to \
-        raise_error ActiveRecord::RecordInvalid
+      expect { described_class.create!(name: dup) }.to raise_error ActiveRecord::RecordInvalid
     end
   end
 end

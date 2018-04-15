@@ -26,7 +26,31 @@ RSpec.describe Item, type: :model do
     end
   end
 
+  describe '#item_type' do
+    include_context 'restore attributes'
+    
+    it 'is required' do
+      subject.item_type = nil
+      subject.valid?
+      expect(subject.errors[:item_type].size).to eq(2)
+    end
+
+    it 'must not be shorter than 3 character' do
+      subject.item_type = 'as'
+      subject.valid?
+      expect(subject.errors[:item_type].size).to eq(1)
+    end
+    
+    it 'must be at least 3 characters' do
+      subject.item_type = 'abc'
+      subject.valid?
+      expect(subject.errors[:item_type].size).to eq(0)
+    end
+  end
+
   describe 'test item' do
+    it { expect(subject.item_type).to eq 'radiogroup' }
+  
     context '#choices' do
       it 'has 5 choices' do
         expect(subject.choices.count).to eq(5)
@@ -39,10 +63,6 @@ RSpec.describe Item, type: :model do
         expect(choice.value).to eq('0')
       end
     end
-  end
-
-  describe '#item_type' do
-    it { expect(subject.item_type).to eq 'radiogroup' }
   end
 
   describe '#to_s' do
@@ -65,7 +85,8 @@ RSpec.describe Item, type: :model do
   end
 
   describe '#discard' do
-    item2 = Item.find_or_create_by! name: 'Item 2', instrument: InstrumentTestFactory.test_instrument, 
+    instrument2 = Instrument.find_by(name: AppConstants::DEFAULT_INSTRUMENT)
+    item2 = Item.find_or_create_by! name: 'Item 2', instrument: instrument2, 
                                     item_type: 'radiogroup', title: 'abc'
     include_examples 'discards', item2
   end

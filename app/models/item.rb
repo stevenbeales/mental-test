@@ -46,6 +46,11 @@ class Item < ApplicationRecord
                       within: 2..20, \
                       too_long: 'pick a shorter name', \
                       too_short: 'pick a longer name'
+  validates :item_type, presence: true
+  validates_length_of :item_type, \
+                      within: 3..20, \
+                      too_long: 'pick a shorter item type', \
+                      too_short: 'pick a longer item type'
   
   def find_choice_by_value(value)
     choices.find_by(response_scale: response_scale, value: value)

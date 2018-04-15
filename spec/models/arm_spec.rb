@@ -87,9 +87,7 @@ RSpec.describe Arm, type: :model do
     context '2+ character name and title' do
       it do 
         expect do 
-          Arm.find_or_create_by! name: 'as', 
-                                 schedule: schedule, 
-                                 number: 2 
+          Arm.find_or_create_by! name: 'as', schedule: schedule, number: 2 
         end.to_not raise_error 
       end
     end
@@ -109,8 +107,7 @@ RSpec.describe Arm, type: :model do
 
   describe '#to_s' do
     it 'prints study schedule name number' do
-      expect(subject.to_s).to eq "#{subject.study} #{subject.schedule} " \
-                                  + "#{subject.name} #{subject.number}" 
+      expect(subject.to_s).to eq "#{subject.study} #{subject.schedule} #{subject.name} #{subject.number}" 
     end  
   end
 
