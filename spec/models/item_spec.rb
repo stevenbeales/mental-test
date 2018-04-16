@@ -85,9 +85,9 @@ RSpec.describe Item, type: :model do
   end
 
   describe '#discard' do
-    instrument2 = Instrument.find_or_initialize_by(name: AppConstants::DEFAULT_INSTRUMENT)
-    item2 = Item.find_or_initialize_by name: 'Item 2', instrument: instrument2, 
-                                       item_type: 'radiogroup', title: 'abc'
+    instrument2 = Instrument.find_or_create_by!(name: 'instrument 3')
+    item2 = Item.find_or_create_by! name: 'Item 2', instrument: instrument2, 
+                                    item_type: 'radiogroup', title: 'abc'
     include_examples 'discards', item2
   end
 end
