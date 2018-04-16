@@ -149,7 +149,6 @@ end
 RSpec.shared_examples 'discards' do |item|
   before :each do
     item.discard
-    item.save!
   end
 
   context 'does not delete' do
