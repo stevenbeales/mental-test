@@ -22,12 +22,14 @@ end
 #  id             :integer          not null, primary key
 #  participant_id :integer          not null
 #  study_id       :integer          not null
+#  subject_number :string        
 #  created_at     :datetime         not null
 #  updated_at     :datetime         not null
 #
 # Indexes
 #
-#  index_by_participant_study                  (participant_id,study_id) UNIQUE
+#  index_participant_study                     (participant_id,study_id) UNIQUE
 #  index_study_participants_on_participant_id  (participant_id)
 #  index_study_participants_on_study_id        (study_id)
+#  index_study_subject_number                  (study_id, subject_number)
 #

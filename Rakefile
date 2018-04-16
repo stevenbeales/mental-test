@@ -2,6 +2,7 @@
 
 require 'sinatra/activerecord'
 require 'sinatra/activerecord/rake'
+require 'pg_search'
 
 # Heroku advises us to wrap Rspec tasks in a rescue block so rake does not throw error in production
 begin 
@@ -17,3 +18,6 @@ Dir.glob('lib/tasks/*.rake').each { |r| load r }
 require 'bundler/audit/task'
 Bundler::Audit::Task.new
 task default: 'bundle:audit' # enable Travis CI to run a check for security vulnerabilities
+
+# PgSearch index rebuild tasks
+load "pg_search/tasks.rb"

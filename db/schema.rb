@@ -246,10 +246,12 @@ ActiveRecord::Schema.define(version: 2018_04_14_231847) do
   create_table "study_participants", force: :cascade do |t|
     t.bigint "participant_id", null: false
     t.bigint "study_id", null: false
+    t.string "subject_number"
     t.datetime "created_at", default: -> { "CURRENT_TIMESTAMP" }, null: false
     t.datetime "updated_at", default: -> { "CURRENT_TIMESTAMP" }, null: false
-    t.index ["participant_id", "study_id"], name: "index_by_participant_study", unique: true
+    t.index ["participant_id", "study_id"], name: "index_participant_study", unique: true
     t.index ["participant_id"], name: "index_study_participants_on_participant_id"
+    t.index ["study_id", "subject_number"], name: "index_study_subject_number"
     t.index ["study_id"], name: "index_study_participants_on_study_id"
   end
 

@@ -12,6 +12,15 @@
 verify_signatures: false
 
 PreCommit:
+  ALL:
+    problem_on_unmodified_line: warn
+    exclude: &default_excludes
+      - 'node_modules/**/*'
+      - 'vendor/**/*'
+      - 'db/migrate/*'
+    MyHook:
+      exclude:
+        - *default_excludes
   RuboCop:
     enabled: true
     on_warn: fail # Treat all warnings as failures
@@ -40,4 +49,3 @@ CommitMsg:
 PrePush:
   RSpec:
     enabled: true
-  
