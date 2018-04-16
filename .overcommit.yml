@@ -14,6 +14,7 @@ verify_signatures: false
 PreCommit:
   ALL:
     problem_on_unmodified_line: warn
+    quiet: false
     exclude: &default_excludes
       - 'node_modules/**/*'
       - 'vendor/**/*'
@@ -33,6 +34,14 @@ PreCommit:
   ImageOptim:
     enabled: true
   Mdl:
+    enabled: true
+  TravisLint:
+    enabled: true
+  JsonSyntax:
+    enabled: true
+  LocalPathsInGemfile:
+    enabled: true
+  Fixme:
     enabled: true
   
 IndexTags:
