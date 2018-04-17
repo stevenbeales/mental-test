@@ -9,6 +9,34 @@ RSpec.describe Instrument, type: :model do
     end
   end
 
+  describe 'search' do
+    context '.search_json' do
+      it 'should find pages in default instrument' do
+        expect(Instrument.search_json("pages")&.first&.id).to eq(subject.id)
+      end
+
+      it 'should not find zzz in json in any instrument' do
+        expect(Instrument.search_json("zzz")&.first).to be_nil
+      end
+    end
+
+    context '.search_csv' do
+      it 'should not find default instrument in CSV' do
+        expect(Instrument.search_csv("pages")&.first).to be_nil
+      end
+    end
+
+    context '.multisearch' do
+      it do
+        expect(PgSearch.multisearch("pages")&.first&.id).to eq(subject.id)
+      end
+
+      it do
+        expect(PgSearch.multisearch("zzz")&.first).to be_nil
+      end
+    end
+  end
+
   include_examples 'valid object creation', Instrument
   
   describe '#respond_to?' do

@@ -9,5 +9,5 @@ exclude_paths:
  - "lib/tasks/*"
  - "public/*"
  - "script/*"
- - "db/*"
+ - "db//*/*"
  - "vendor/*"
