@@ -39,15 +39,8 @@ RSpec.describe Journal, type: :model do
     end
   end
 
-  describe '#name' do
-    include_context 'restore attributes'
-
-    it 'is required' do
-      subject.name = nil
-      subject.valid?
-      expect(subject.errors[:name].size).to eq(2)
-    end
-  end
+  include_examples 'required attribute', 'name', 2
+  
   
   describe '#participant' do
     include_context 'restore attributes'

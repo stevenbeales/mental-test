@@ -25,7 +25,12 @@ class Instrument < ApplicationRecord
                       within: 2..50, \
                       too_long: 'pick a shorter name', \
                       too_short: 'pick a longer name'
- 
+  validates :version_number, presence: true
+  validates :instrument_type, presence: true
+  validates :instructions, presence: true, allow_blank: true
+  validates :json_content, presence: true
+  validates :csv_content, presence: true, allow_blank: true
+  
   def self.list_tests(limit: 4)
     Instrument.order(:name).limit(limit).join(' ')
   end

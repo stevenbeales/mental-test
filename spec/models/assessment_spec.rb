@@ -26,16 +26,8 @@ RSpec.describe Assessment, type: :model do
     end
   end
   
-  describe '#order_number' do
-    include_context 'restore attributes'
-    
-    it 'is required' do
-      subject.order_number = nil
-      subject.valid?
-      expect(subject.errors[:order_number].size).to eq(1)
-    end
-  end
-
+  include_examples 'required attribute', 'order_number', 1
+  
   describe '#assessment_instruments' do
     it do
       expect(subject.assessment_instruments.size).to eq 0

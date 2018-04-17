@@ -12,6 +12,7 @@ class Arm < ApplicationRecord
   validates :number, presence: true, allow_blank: false
   validates :number, numericality: { only_integer: true, greater_than_or_equal_to: 1, less_than_or_equal_to: 10_000 }
 
+  after_initialize :set_default_number
   before_validation :add_name_if_missing
 
   def to_s
@@ -22,6 +23,10 @@ class Arm < ApplicationRecord
 
   def add_name_if_missing
     self.name ||= 'arm ' + number.to_s
+  end
+
+  def set_default_number
+    self.number ||= 1
   end
 end
 

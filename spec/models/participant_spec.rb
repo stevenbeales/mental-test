@@ -11,15 +11,11 @@ RSpec.describe Participant, type: :model do
     include_examples 'common attributes'
   end
 
+  include_examples 'required attribute', 'email', 1
+  
   describe '#email' do
     include_context 'restore attributes'
-    
-    it 'is required' do
-      subject.email = nil
-      subject.valid?
-      expect(subject.errors[:email].size).to eq(1)
-    end
-  
+      
     context 'when the email address is valid' do
       let(:email) { 'stevenbeales@hotmail.com' }
 

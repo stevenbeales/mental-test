@@ -13,16 +13,8 @@ RSpec.describe ResponseScale, type: :model do
     include_examples 'common attributes'
   end
 
-  describe '#name' do
-    include_context 'restore attributes'
-        
-    it 'is required' do
-      subject.name = nil
-      subject.valid?
-      expect(subject.errors[:name].size).to eq(2)
-    end
-  end
-
+  include_examples 'required attribute', 'name', 2
+  
   include_examples 'create!_with_name', 'without a name', TestConstants::TEST_RESPONSE_SCALE 
     
   include_examples '#to_s', 'Name', TestConstants::TEST_RESPONSE_SCALE 

@@ -17,16 +17,12 @@ RSpec.describe Score, type: :model do
     include_examples 'respond', %i[score assessment name]
     include_examples 'common attributes'
   end
+ 
+  include_examples 'required attribute', 'name', 1
   
   describe '#score' do
     include_context 'restore attributes'
-    
-    it 'is required' do
-      subject.score = nil
-      subject.valid?
-      expect(subject.errors[:score].size).to eq(1)
-    end
- 
+     
     context 'must be an integer' do
       it do
         subject.score = 1.5

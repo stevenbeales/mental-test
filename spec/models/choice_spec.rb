@@ -23,16 +23,8 @@ RSpec.describe Choice, type: :model do
     end
   end
   
-  describe '#value' do
-    include_context 'restore attributes'
-    
-    it 'is required' do
-      subject.value = nil
-      subject.valid?
-      expect(subject.errors[:value].size).to eq(1)
-    end
-  end
-
+  include_examples 'required attribute', 'value', 1
+  
   describe '#description' do
     include_context 'restore attributes'
     

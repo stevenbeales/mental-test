@@ -11,17 +11,9 @@ RSpec.describe JournalEntry, type: :model do
     include_examples 'respond', %i[entry_date entry journal]
     include_examples 'common attributes'
   end
-
-  describe '#entry_date' do
-    include_context 'restore attributes'
-
-    it 'is required' do
-      subject.entry_date = nil
-      subject.valid?
-      expect(subject.errors[:entry_date].size).to eq(1)
-    end
-  end
   
+  include_examples 'required attribute', 'entry_date', 1
+    
   describe '#entry' do
     include_context 'restore attributes'
 

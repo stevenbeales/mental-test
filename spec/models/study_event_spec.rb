@@ -19,16 +19,8 @@ RSpec.describe StudyEvent, type: :model do
     include_examples 'common attributes'
   end
 
-  describe '#name' do
-    include_context 'restore attributes'
-
-    it 'is required' do
-      subject.name = nil
-      subject.valid?
-      expect(subject.errors[:name].size).to eq(2)
-    end
-  end
-
+  include_examples 'required attribute', 'name', 2
+  
   include_examples 'invalid create', 'without name or arm'
   
   describe '.create!' do

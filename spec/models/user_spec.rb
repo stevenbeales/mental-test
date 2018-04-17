@@ -16,16 +16,8 @@ RSpec.describe User, type: :model do
     include_examples 'common attributes'
   end
   
-  describe '#username' do
-    include_context 'restore attributes'
-    
-    it 'is required' do
-      subject.username = nil
-      subject.valid?
-      expect(subject.errors[:username].size).to eq(2)
-    end
-  end
-
+  include_examples 'required attribute', 'username', 2
+ 
   describe '#locale' do
     include_context 'restore attributes'
     

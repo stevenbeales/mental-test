@@ -29,15 +29,11 @@ RSpec.describe Visit, type: :model do
     end
   end
   
+  include_examples 'required attribute', 'visit_date', 2
+ 
   describe '#visit_date' do
     include_context 'restore attributes'
     
-    it 'is required' do
-      subject.visit_date = nil
-      subject.valid?
-      expect(subject.errors[:visit_date].size).to be > 0
-    end
-
     it 'must be a date' do
       subject.visit_date = '13/13/13'
       subject.valid?

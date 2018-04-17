@@ -17,7 +17,7 @@ ActiveRecord::Schema.define(version: 2018_04_14_231847) do
 
   create_table "arms", force: :cascade do |t|
     t.string "name", null: false
-    t.integer "number", null: false
+    t.integer "number", default: 1, null: false
     t.bigint "schedule_id", null: false
     t.datetime "created_at", default: -> { "CURRENT_TIMESTAMP" }, null: false
     t.datetime "updated_at", default: -> { "CURRENT_TIMESTAMP" }, null: false

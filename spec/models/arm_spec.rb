@@ -18,6 +18,9 @@ RSpec.describe Arm, type: :model do
     include_examples 'common attributes'
   end
 
+  include_examples 'required attribute', 'number', 2
+  include_examples 'default attribute', 'number', 1
+    
   describe '#name' do
     include_context 'restore attributes'
    
@@ -77,10 +80,10 @@ RSpec.describe Arm, type: :model do
   include_examples 'invalid create', 'no name or schedule' 
   
   describe '.create!' do
-    context '1 character name' do
+    context 'blank name' do
       it do
         expect do 
-          Arm.create! name: 'a', schedule: schedule 
+          Arm.create! name: '', schedule: schedule 
         end.to raise_error ActiveRecord::RecordInvalid
       end
     end

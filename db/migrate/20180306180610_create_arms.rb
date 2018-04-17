@@ -5,7 +5,7 @@ class CreateArms < ActiveRecord::Migration[5.1]
   def change
     create_table :arms do |t|
       t.string :name, null: false, index: true
-      t.integer :number, null: false, index: true
+      t.integer :number, null: false, index: true, default: 1
       t.references :schedule, null: false, foreign_key: true, index: true 
       t.timestamps null: false, default: -> { 'CURRENT_TIMESTAMP' }
     end

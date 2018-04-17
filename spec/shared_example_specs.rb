@@ -81,6 +81,31 @@ RSpec.shared_examples 'create!_with_name' do |text, dup|
   end
 end
 
+# required attribute shared example
+# usage 'required attribute', 'name', 1 
+RSpec.shared_examples 'required attribute' do |attribute, error_count|
+  describe "##{attribute}" do
+    include_context 'restore attributes'
+
+    it 'is required' do
+      subject.send('write_attribute', attribute, nil)   
+      subject.valid?
+      expect(subject.errors[attribute.to_sym].size).to eq(error_count)
+    end
+  end
+end
+
+RSpec.shared_examples 'default attribute' do |attribute, default|
+  describe "##{attribute}" do
+    include_context 'restore attributes'
+
+    it 'is is defaulted' do
+      subject.send('write_attribute', attribute, default)   
+      expect(subject.send(attribute.to_sym)).to eq(default)
+    end
+  end
+end
+
 # Tests numeric values
 RSpec.shared_examples 'number specs' do
   it 'is required' do
