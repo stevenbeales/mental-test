@@ -6,7 +6,6 @@ RSpec.describe Assessment, type: :model do
   let!(:user) { TestFactory.test_user }
   let!(:visit) { TestFactory.test_visit }
   let!(:instrument) { InstrumentTestFactory.test_instrument }
-  let!(:assessment_from_db) { Assessment.find_or_create_by! visit: visit }
   
   include_examples 'valid object creation', described_class
   
@@ -77,10 +76,8 @@ RSpec.describe Assessment, type: :model do
 
   describe '#responses' do
     it do
-      rep2 = Response.find_or_create_by! assessment: subject, 
-                                         value: '2' 
-      rep3 = Response.find_or_create_by! assessment: subject, 
-                                         value: '3' 
+      rep2 = Response.find_or_create_by! assessment: subject, value: '2' 
+      rep3 = Response.find_or_create_by! assessment: subject, value: '3' 
       subject.responses.concat([rep2, rep3])
       expect(subject.responses.count).to eq(2)     
     end
@@ -95,14 +92,14 @@ RSpec.describe Assessment, type: :model do
   describe '#destroy!' do
     it do
       user2 = User.find_or_create_by! username: 'timmy'
-      test_visit2 = Visit.find_or_create_by!(name: TestConstants::TEST_VISIT, 
-                                             survey: survey, user: user2)
+      test_visit2 = Visit.find_or_create_by! name: TestConstants::TEST_VISIT, 
+                                             survey: survey, user: user2
       assessment2 = Assessment.find_or_create_by! visit: test_visit2
       begin
-        vis = assessment2.visit
+        visit2 = assessment2.visit
       ensure
         assessment2.destroy!
-        expect(Visit.exists?(vis.id)).to be_truthy
+        expect(Visit.exists?(visit2.id)).to be_truthy
       end 
     end
   end

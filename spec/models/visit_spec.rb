@@ -10,10 +10,7 @@ RSpec.describe Visit, type: :model do
 
   describe '#respond_to?' do
     include_context 'shared attributes'
-    include_examples 'responds', :user
-    include_examples 'responds', :survey
-    include_examples 'responds', :assessments
-    include_examples 'responds', :number
+    include_examples 'respond', %i[user survey assessments number visit_date]
     include_examples 'common attributes'
   end
 
@@ -32,6 +29,22 @@ RSpec.describe Visit, type: :model do
     end
   end
   
+  describe '#visit_date' do
+    include_context 'restore attributes'
+    
+    it 'is required' do
+      subject.visit_date = nil
+      subject.valid?
+      expect(subject.errors[:visit_date].size).to be > 0
+    end
+
+    it 'must be a date' do
+      subject.visit_date = '13/13/13'
+      subject.valid?
+      expect(subject.errors[:visit_date].size).to be > 0
+    end
+  end
+  
   describe '#survey' do
     include_context 'restore attributes'
     
@@ -47,25 +60,13 @@ RSpec.describe Visit, type: :model do
   describe '.create!' do
     context 'no user' do
       it do
-        expect do
-          described_class.create! survey: survey
-        end.to raise_error ActiveRecord::RecordInvalid
+        expect { Visit.create! survey: survey }.to raise_error ActiveRecord::RecordInvalid
       end  
     end
   
     context 'no survey' do
       it do
-        expect do
-          described_class.create! user: user 
-        end.to raise_error ActiveRecord::RecordInvalid 
-      end
-    end
-
-    context 'with user and survey' do
-      it do 
-        expect do
-          described_class.find_or_create_by! user: user, survey: survey 
-        end.not_to raise_error
+        expect { Visit.find_or_create_by! user: user, survey: survey }.not_to raise_error
       end
     end
   end
@@ -73,7 +74,7 @@ RSpec.describe Visit, type: :model do
   describe '#to_s' do
     it do
       ur = User.find_or_create_by! username: 'bernie'
-      v = described_class.find_or_create_by! user: ur, number: 1, survey: survey
+      v = Visit.find_or_create_by! user: ur, number: 1, survey: survey
       expect(v.to_s).to eq("bernie #{survey.name} #{v.number}")
     end
   end
@@ -83,12 +84,9 @@ RSpec.describe Visit, type: :model do
       ur = User.find_or_create_by! username: 'user compare'
       sy = Survey.find_or_create_by! name: 'survey compare'
       begin
-        v1 = described_class.create! user: ur,
-                                     name: 'visit 1', 
-                                     survey: sy
-        v2 = described_class.where(user_id: v1.user.id,
-                                   name: v1.name, 
-                                   survey_id: v1.survey.id).first
+        v1 = Visit.create! user: ur, name: 'visit 1', survey: sy
+        v2 = Visit.where(user_id: v1.user.id, name: v1.name, 
+                         survey_id: v1.survey.id).first
         it { expect(v1.id).to eq(v2.id) }
       ensure
         ur.destroy!
@@ -100,10 +98,7 @@ RSpec.describe Visit, type: :model do
   describe '#destroy!' do
     it 'assessment' do
       cached_id = assessment.id
-      v1 = described_class.find_or_create_by! user: user, 
-                                              name: 'visit 1', 
-                                              survey: survey, 
-                                              number: 2
+      v1 = Visit.find_or_create_by! user: user, name: 'visit 1', survey: survey, number: 2
       begin
         v1.assessments.concat(assessment)
       ensure

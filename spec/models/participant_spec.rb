@@ -7,11 +7,7 @@ RSpec.describe Participant, type: :model do
 
   describe '#respond_to?' do
     include_context 'shared attributes'
-    include_examples 'responds', :journal
-    include_examples 'responds', :survey_participants
-    include_examples 'responds', :surveys
-    include_examples 'responds', :user
-    include_examples 'responds', :email
+    include_examples 'respond', %i[journal survey_participants surveys user email]
     include_examples 'common attributes'
   end
 

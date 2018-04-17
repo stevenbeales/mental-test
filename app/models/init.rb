@@ -5,6 +5,7 @@ require 'discard'
 require 'jsonb_accessor'
 require 'pg_search'
 require 'valid_email2'
+require 'validates_timeliness'
 
 require_relative 'application_record'
 require_relative 'arm'

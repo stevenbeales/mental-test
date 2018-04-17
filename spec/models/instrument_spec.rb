@@ -16,6 +16,7 @@ RSpec.describe Instrument, type: :model do
     include_examples 'respond', %i[assessment_instruments assessments study_event_instruments]
     include_examples 'respond', %i[study_events instructions csv_content json_content]
     include_examples 'respond', %i[title pages items name instrument_type version_number] 
+    include_examples 'discard attribute'
     include_examples 'common attributes'
   end
 
@@ -66,7 +67,7 @@ RSpec.describe Instrument, type: :model do
   end
   
   describe '#discard' do
-    ins2 = Instrument.find_or_create_by! name: 'Instrument 2'
-    include_examples 'discards', ins2
+    instrument2 = Instrument.find_or_create_by! name: 'Instrument 2'
+    include_examples 'discards', instrument2
   end
 end

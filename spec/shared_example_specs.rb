@@ -25,6 +25,13 @@ RSpec.shared_examples 'common attributes' do
   include_examples 'missing attribute'
 end
 
+# Tests that class has discard attribute
+RSpec.shared_examples 'discard attribute' do
+  context 'discarded' do
+    it { expect(responds(:discarded_at)).to be_truthy }
+  end
+end
+
 # Tests if an object responds to method
 RSpec.shared_examples 'responds' do |attribute|
   context "##{attribute}" do

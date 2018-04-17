@@ -13,9 +13,7 @@ RSpec.describe Response, type: :model do
 
   describe '#respond_to?' do
     include_context 'shared attributes'
-    include_examples 'responds', :value   
-    include_examples 'responds', :assessment    
-    include_examples 'responds', :choice
+    include_examples 'respond', %i[value assessment choice]
     include_examples 'common attributes'
   end
 

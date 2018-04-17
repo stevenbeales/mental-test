@@ -9,8 +9,7 @@ RSpec.describe AssessmentInstrument, type: :model do
 
   describe '#respond_to?' do
     include_context 'shared attributes'
-    include_examples 'responds', :assessment
-    include_examples 'responds', :instrument
+    include_examples 'respond', %i[assessment instrument]
     include_examples 'common attributes'
   end
 
@@ -47,24 +46,20 @@ RSpec.describe AssessmentInstrument, type: :model do
   describe '.create!' do
     context 'no instrument' do
       it do 
-        expect do 
-          AssessmentInstrument.create! assessment: assessment 
-        end.to raise_error ActiveRecord::RecordInvalid 
+        expect { AssessmentInstrument.create! assessment: assessment }.to raise_error ActiveRecord::RecordInvalid 
       end
     end
 
     context 'no assessment' do
       it do 
-        expect do 
-          AssessmentInstrument.create! instrument: instrument 
-        end.to raise_error ActiveRecord::RecordInvalid
+        expect { AssessmentInstrument.create! instrument: instrument }.to raise_error ActiveRecord::RecordInvalid
       end
     end
  
     context 'with assessment and instrument' do
       it do 
         expect do
-          AssessmentInstrument.find_or_create_by instrument: instrument, assessment: assessment
+          AssessmentInstrument.find_or_create_by! instrument: instrument, assessment: assessment
         end.not_to raise_error
       end
     end
@@ -82,7 +77,7 @@ RSpec.describe AssessmentInstrument, type: :model do
     it do 
       expect(AssessmentInstrument.where(assessment: assessment.id, 
                                         instrument: instrument.id) 
-                                  .first.to_s).to eq "#{assessment} #{instrument}"
+                                 .first.to_s).to eq "#{assessment} #{instrument}"
     end
   end
 

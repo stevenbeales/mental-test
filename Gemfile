@@ -30,6 +30,7 @@ gem 'sinatra-initializers', '>= 0.1.4', require: false # config initializers for
 gem 'sinatra_logger', '>= 0.1.0', require: false # for logging
 gem 'strong_migrations', '>= 0.2.2', require: false # check migrations for unsafe production operations
 gem 'valid_email2', '>= 2.2.2', require: false # validates email format
+gem 'validates_timeliness', '>= 4.0.2', require: false # validate dates and times
 gem 'warning', '>= 0.10.1', require: false # customize warnings
 
 group :test do

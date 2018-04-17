@@ -9,14 +9,10 @@ RSpec.describe User, type: :model do
 
   describe '#respond_to?' do
     include_context 'shared attributes'   
-    include_examples 'responds', :username
-    include_examples 'responds', :survey_participants
-    include_examples 'responds', :surveys
-    include_examples 'responds', :visits
-    include_examples 'responds', :assessments
-    include_examples 'responds', :participant
-    include_examples 'responds', :preferences
-    include_examples 'responds', :locale
+    include_examples 'respond', %i[username survey_participants surveys visits]
+    include_examples 'respond', %i[assessments participant preferences locale]
+    include_examples 'respond', %i[journal]
+    include_examples 'discard attribute'
     include_examples 'common attributes'
   end
   
@@ -43,29 +39,29 @@ RSpec.describe User, type: :model do
 
   describe '.authenticate' do
     it 'creates a user if one does not exist' do
-      expect { described_class.authenticate('Strangely') }.to change { User.count }.by(1)
+      expect { User.authenticate('Strangely') }.to change { User.count }.by(1)
     end
 
     it 'retrieves a user if name and access token exists' do
       timmy = create(:timmy)
-      expect { described_class.authenticate(timmy.username) }.not_to(change { described_class.count })
-      expect(described_class.authenticate(timmy.username).username).to eq timmy.username
-      expect(described_class.authenticate(timmy.username).access_token).to eq timmy.access_token
+      expect { User.authenticate(timmy.username) }.not_to(change { User.count })
+      expect(User.authenticate(timmy.username).username).to eq timmy.username
+      expect(User.authenticate(timmy.username).access_token).to eq timmy.access_token
     end
 
     it 'does not create a user without a username' do
-      expect { described_class.authenticate('') }.to change { described_class.count }.by(0)
+      expect { User.authenticate('') }.to change { User.count }.by(0)
     end
 
     it 'does not create a user with a name shorter than 5 characters' do
-      expect { described_class.authenticate('Lisa') }.to change { described_class.count }.by(0)
+      expect { User.authenticate('Lisa') }.to change { User.count }.by(0)
     end
   end
 
   describe 'Saving to a database' do
   
     it 'starts out unpersisted' do
-      user = described_class.new
+      user = User.new
       expect(user.id).to be_nil
     end
 
@@ -73,14 +69,14 @@ RSpec.describe User, type: :model do
       user = build(:timmy)
       user.save!
 
-      persisted_user = described_class.find_by_username 'Timmy'
+      persisted_user = User.find_by_username 'Timmy'
       expect(persisted_user.id).not_to be_nil
       expect(persisted_user.username).to eq 'Timmy'
       expect(persisted_user.access_token).to eq 'AccessToken'
     end
 
     it 'has unique name' do
-      expect { described_class.authenticate('Timmy') }.to change { described_class.count }.by(0)
+      expect { User.authenticate('Timmy') }.to change { User.count }.by(0)
     end
 
     it 'is a participant' do

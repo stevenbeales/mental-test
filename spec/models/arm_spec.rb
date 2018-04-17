@@ -19,12 +19,13 @@ RSpec.describe Arm, type: :model do
   end
 
   describe '#name' do
+    include_context 'restore attributes'
+   
     context 'when missing' do
       it 'set to "arm1"' do
         subject.name = nil
         subject.valid?
         expect(subject.name).to eq('arm ' + subject.number.to_s)
-        subject.restore_attributes
       end
     end
   end
@@ -113,8 +114,7 @@ RSpec.describe Arm, type: :model do
 
   describe '#destroy!' do
     it 'also removes study_events' do
-      another_object = Arm.find_or_create_by!(name: TestConstants::TEST_ARM2, schedule: schedule, 
-                                              number: 2)
+      another_object = Arm.find_or_create_by!(name: TestConstants::TEST_ARM2, schedule: schedule, number: 2)
       begin                                        
         events = another_object.study_events
       ensure

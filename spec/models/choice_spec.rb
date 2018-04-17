@@ -8,11 +8,8 @@ RSpec.describe Choice, type: :model do
 
   describe '#respond_to?' do
     include_context 'shared attributes'
-    include_examples 'responds', :response_scale
-    include_examples 'responds', :responses
-    include_examples 'responds', :description
-    include_examples 'responds', :score
-    include_examples 'responds', :value
+    include_examples 'respond', %i[response_scale responses description]
+    include_examples 'respond', %i[score value]
     include_examples 'common attributes'
   end
  
@@ -61,9 +58,9 @@ RSpec.describe Choice, type: :model do
       begin
         expect do
           begin
-            c = Choice.find_or_create_by! response_scale: scale, value: 'val', description: 'text' 
+            choice = Choice.find_or_create_by! response_scale: scale, value: 'val', description: 'text' 
           ensure
-            c.destroy!
+            choice.destroy!
           end
         end.not_to raise_error
       end
@@ -72,18 +69,18 @@ RSpec.describe Choice, type: :model do
   
   describe '#to_s' do
     it do
-      c = subject
-      expect(c.to_s).to eq("#{scale} val text") 
+      choice = subject
+      expect(choice.to_s).to eq("#{scale} val text") 
     end
   end
 
   describe '#destroy!' do
     it do
-      c = TestFactory.test_choice
+      choice = TestFactory.test_choice
       begin
-        scale.choices.concat(c)
+        scale.choices.concat(choice)
       ensure
-        c.destroy!
+        choice.destroy!
         scale.save!
         expect(scale.choices.count.to_s).to eq '0'
       end

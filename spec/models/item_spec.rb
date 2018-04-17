@@ -8,11 +8,8 @@ RSpec.describe Item, type: :model do
 
   describe '#respond_to?' do
     include_context 'shared attributes'
-    include_examples 'responds', :choices
-    include_examples 'responds', :instrument
-    include_examples 'responds', :response_scale
-    include_examples 'responds', :name
-    include_examples 'responds', :item_type
+    include_examples 'respond', %i[choices instrument response_scale name item_type]
+    include_examples 'discard attribute'
     include_examples 'common attributes'
   end
 

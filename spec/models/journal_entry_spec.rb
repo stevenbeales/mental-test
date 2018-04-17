@@ -8,9 +8,7 @@ RSpec.describe JournalEntry, type: :model do
 
   describe '#respond_to?' do
     include_context 'shared attributes'
-    include_examples 'responds', :entry_date
-    include_examples 'responds', :entry
-    include_examples 'responds', :journal
+    include_examples 'respond', %i[entry_date entry journal]
     include_examples 'common attributes'
   end
 
@@ -54,17 +52,13 @@ RSpec.describe JournalEntry, type: :model do
   describe '.create!' do
     context 'without journal' do
       it do 
-        expect do
-          described_class.create! entry_date: Date.today
-        end.to raise_error ActiveRecord::RecordInvalid 
+        expect { described_class.create! entry_date: Date.today }.to raise_error ActiveRecord::RecordInvalid 
       end
     end
 
     context 'without date' do
       it do 
-        expect do
-          described_class.find_or_create_by! journal: journal
-        end.to_not raise_error 
+        expect { described_class.find_or_create_by! journal: journal }.to_not raise_error 
       end
     end
     
