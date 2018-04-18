@@ -70,7 +70,7 @@ RSpec.describe Arm, type: :model do
 
   describe '#number' do
     include_context 'restore attributes'
-    include_examples 'number specs'
+    include_examples 'number specs', 'number'
   end
 
   describe '#study_events' do

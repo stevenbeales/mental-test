@@ -11,9 +11,14 @@ class Assessment < ApplicationRecord
   has_many :scores, inverse_of: :assessment, dependent: :destroy
   
   validates :visit, presence: true
-  validates :order_number, presence: true
-
+  validates :order_number, presence: true, allow_blank: false
+  validates :order_number, numericality: { only_integer: true, 
+                                           greater_than_or_equal_to: 1, 
+                                           less_than_or_equal_to: 10_000 }
+  validates_uniqueness_of :order_number, on: :create, message: 'must be unique', scope: :visit
+ 
   before_destroy :destroy_scores
+  after_initialize :set_order_number
 
   def to_s
     visit.to_s
@@ -22,7 +27,11 @@ class Assessment < ApplicationRecord
   private
 
   def destroy_scores
-    scores.each(&:destroy!)
+    scores.destroy_all
+  end
+
+  def set_order_number
+    self.order_number ||= 1
   end
 end
 

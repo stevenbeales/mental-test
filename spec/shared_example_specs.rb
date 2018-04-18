@@ -47,9 +47,7 @@ end
 RSpec.shared_examples 'invalid create' do |text|
   describe '.create!' do
     context text do 
-      it do
-        expect { described_class.create! }.to raise_error ActiveRecord::RecordInvalid
-      end
+      it { expect { described_class.create! }.to raise_error ActiveRecord::RecordInvalid }
     end
   end
 end
@@ -107,28 +105,28 @@ RSpec.shared_examples 'default attribute' do |attribute, default|
 end
 
 # Tests numeric values
-RSpec.shared_examples 'number specs' do
+RSpec.shared_examples 'number specs' do |number|
   it 'is required' do
-    subject.number = nil
+    subject.send(:write_attribute, number, nil)
     subject.valid?
-    expect(subject.errors[:number].size).to eq(2)
+    expect(subject.errors[number.to_sym].size).to eq(2)
   end
 
   it 'is not negative' do
-    subject.number = -1
+    subject.send(:write_attribute, number, -1)
     subject.valid?
-    expect(subject.errors[:number].size).to eq(1)
+    expect(subject.errors[number.to_sym].size).to eq(1)
   end
 
   context 'is < 10001' do
     it do
-      subject.number = 10_001
+      subject.send(:write_attribute, number, 10_001)
       subject.valid?
-      expect(subject.errors[:number].size).to eq(1)
+      expect(subject.errors[number.to_sym].size).to eq(1)
     end
 
     it 'may equal 10000' do
-      subject.number = 10_000
+      subject.send(:write_attribute, number, 10_000)
       subject.valid?
       expect(subject.errors[:number].size).to eq(0)
     end
@@ -136,17 +134,17 @@ RSpec.shared_examples 'number specs' do
 
   context 'is positive' do
     it do
-      subject.number = 0
+      subject.send(:write_attribute, number, 0)
       subject.valid?
-      expect(subject.errors[:number].size).to eq(1)
+      expect(subject.errors[number.to_sym].size).to eq(1)
     end
   end
 
   context 'is integer' do
     it do
-      subject.number = 1.5
+      subject.send(:write_attribute, number, 1.5)
       subject.valid?
-      expect(subject.errors[:number].size).to eq(1)
+      expect(subject.errors[number.to_sym].size).to eq(1)
     end
   end
 end
@@ -184,12 +182,8 @@ RSpec.shared_examples 'discards' do |item|
   end
 
   context 'does not delete' do
-    it do
-      expect(item.discarded?).to eq true    
-    end
+    it { expect(item.discarded?).to eq true }   
 
-    it do
-      expect(item.class.kept.include?(item)).to be_falsey
-    end
+    it { expect(item.class.kept.include?(item)).to be_falsey }
   end
 end

@@ -57,15 +57,11 @@ RSpec.describe Item, type: :model do
   end
 
   describe '#find_by_name' do
-    it do
-      expect(subject.name).to eq('Appetite1')
-    end
+    it { expect(subject.name).to eq('Appetite1') }
   end
 
   describe '#instrument' do
-    it do
-      expect(subject.instrument.id).to eq(instrument.id)
-    end
+    it { expect(subject.instrument.id).to eq(instrument.id) }
   end
 
   describe '#discard' do

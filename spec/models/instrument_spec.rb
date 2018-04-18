@@ -27,13 +27,9 @@ RSpec.describe Instrument, type: :model do
     end
 
     context '.multisearch' do
-      it do
-        expect(PgSearch.multisearch("pages")&.first&.id).to eq(subject.id)
-      end
+      it { expect(PgSearch.multisearch("pages")&.first&.id).to eq(subject.id) }
 
-      it do
-        expect(PgSearch.multisearch("zzz")&.first).to be_nil
-      end
+      it { expect(PgSearch.multisearch("zzz")&.first).to be_nil }
     end
   end
 
@@ -67,7 +63,6 @@ RSpec.describe Instrument, type: :model do
   end
 
   describe '#content for test instrument' do
-    # it { expect(subject.json_content.length).to be > 1000 }
     it { expect(subject.csv_content.length).to eq 0 }
   end
 

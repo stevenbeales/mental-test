@@ -13,15 +13,10 @@ RSpec.describe JournalEntry, type: :model do
   end
   
   include_examples 'required attribute', 'entry_date', 1
-    
+  include_examples 'required attribute', 'entry', 1
+
   describe '#entry' do
     include_context 'restore attributes'
-
-    it 'is required' do
-      subject.entry = nil
-      subject.valid?
-      expect(subject.errors[:entry].size).to eq(1)
-    end
 
     it 'is valid if blank' do
       subject.entry = ''

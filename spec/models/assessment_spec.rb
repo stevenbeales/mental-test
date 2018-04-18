@@ -25,8 +25,14 @@ RSpec.describe Assessment, type: :model do
       expect(subject.errors[:visit].size).to eq(1)
     end
   end
+
+  describe '#order_number' do
+    include_context 'restore attributes'
+    include_examples 'number specs', 'order_number'
+  end
   
-  include_examples 'required attribute', 'order_number', 1
+  include_examples 'required attribute', 'order_number', 2
+  include_examples 'default attribute', 'order_number', 1
   
   describe '#assessment_instruments' do
     it do
@@ -44,9 +50,7 @@ RSpec.describe Assessment, type: :model do
   
   describe '.create!' do
     context 'with visit' do
-      it do
-        expect { Assessment.find_or_create_by! visit: visit }.not_to raise_error
-      end
+      it { expect { Assessment.find_or_create_by! visit: visit }.not_to raise_error }
     end
 
     context 'with default order_number' do
@@ -55,15 +59,11 @@ RSpec.describe Assessment, type: :model do
   end
   
   describe '#user' do
-    it do
-      expect(subject.user.id).to eq(user.id) 
-    end
+    it { expect(subject.user.id).to eq(user.id) }
   end 
 
   describe '#survey' do
-    it do
-      expect(subject.survey.id).to eq(survey.id) 
-    end
+    it { expect(subject.survey.id).to eq(survey.id) }
   end 
 
   describe '#responses' do
@@ -76,8 +76,18 @@ RSpec.describe Assessment, type: :model do
   end
 
   describe '#to_s' do
-    it do 
-      expect(Assessment.where(visit: visit).first.to_s).to eq(visit.to_s)
+    it { expect(Assessment.where(visit: visit).first.to_s).to eq(visit.to_s) }
+  end
+
+  describe '#order_number' do
+    it do
+      user2 = User.find_or_create_by! username: 'timmy'
+      test_visit2 = Visit.find_or_create_by! name: TestConstants::TEST_VISIT, 
+                                             survey: survey, user: user2
+      Assessment.find_or_create_by! visit: test_visit2, order_number: 1
+      assessment2 = Assessment.find_or_create_by! visit: test_visit2, order_number: 2
+      assessment2.order_number = 1
+      expect { assessment2.save! }.to raise_error(ActiveRecord::RecordNotUnique) 
     end
   end
 

@@ -24,25 +24,14 @@ RSpec.describe Choice, type: :model do
   end
   
   include_examples 'required attribute', 'value', 1
+  include_examples 'required attribute', 'description', 1
   
-  describe '#description' do
-    include_context 'restore attributes'
-    
-    it do
-      subject.description = nil
-      subject.valid?
-      expect(subject.errors[:description].size).to eq(1)
-    end
-  end
-
   include_examples 'invalid create', 'without response scale or description' 
   
   describe '.create!' do
     context 'without response scale' do
       it do 
-        expect do
-          described_class.create! value: 'val', description: 'text'
-        end.to raise_error ActiveRecord::RecordInvalid
+        expect { Choice.create! value: 'val', description: 'text' }.to raise_error ActiveRecord::RecordInvalid
       end
     end
     

@@ -8,7 +8,6 @@ class StudyEvent < ApplicationRecord
   has_many :study_event_instruments
   has_many :instruments, through: :study_event_instruments
     
-  validates :name, presence: true
   validates :arm, presence: true
   validates :name, presence: true
   validates_uniqueness_of :name
