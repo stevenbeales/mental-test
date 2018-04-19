@@ -3,7 +3,7 @@
 # Creates table for visits
 class CreateVisits < ActiveRecord::Migration[5.1]
   def change
-    create_table :visits do |t|
+    create_table :visits, comment: 'Visits table' do |t|
       t.references :survey, null: false, index: true
       t.references :user, null: false, index: true
       t.string :name, null: true

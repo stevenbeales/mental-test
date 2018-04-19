@@ -4,7 +4,7 @@
 # Stores users' assessments/results
 class CreateAssessments < ActiveRecord::Migration[5.1]
   def change
-    create_table :assessments do |t|
+    create_table :assessments, comment: 'Assessments table' do |t|
       t.references :visit, null: false, index: true
       t.integer :order_number, null: false, default: 1
       t.jsonb :content, null: false, default: '{}'

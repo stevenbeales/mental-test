@@ -3,7 +3,7 @@
 # Migration to create instruments table
 class CreateInstruments < ActiveRecord::Migration[5.1]
   def change
-    create_table :instruments do |t|
+    create_table :instruments, comment: 'Instruments table' do |t|
       t.string :name, null: false, unique: true, index: true
       t.string :version_number, null: false, default: '1.0'
       t.string :instrument_type, null: false, default: 'json'

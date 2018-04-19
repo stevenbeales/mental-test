@@ -3,7 +3,7 @@
 # Migration to add assessment scores table
 class CreateScores < ActiveRecord::Migration[5.1]
   def change
-    create_table :scores do |t|
+    create_table :scores, comment: 'Scores table' do |t|
       t.references :assessment, null: false, index: true
       t.string :name, null: false, index: true
       t.integer :score, null: false, default: 0

@@ -3,7 +3,7 @@
 # Table to represent study arms
 class CreateArms < ActiveRecord::Migration[5.1]
   def change
-    create_table :arms do |t|
+    create_table :arms, comment: 'Arms table' do |t|
       t.string :name, null: false, index: true
       t.integer :number, null: false, index: true, default: 1
       t.references :schedule, null: false, foreign_key: true, index: true 

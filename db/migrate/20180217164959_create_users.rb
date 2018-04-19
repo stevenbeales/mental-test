@@ -4,7 +4,7 @@
 # Users are linked to Alexa users via Account Linking
 class CreateUsers < ActiveRecord::Migration[5.1]
   def change
-    create_table :users do |t|
+    create_table :users, comment: 'Users table' do |t|
       t.string :username, null: false
       t.string :firstname, null: true
       t.string :lastname, null: true

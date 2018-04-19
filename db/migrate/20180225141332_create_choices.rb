@@ -3,7 +3,7 @@
 # Creates table for choices in a rating scale
 class CreateChoices < ActiveRecord::Migration[5.1]
   def change
-    create_table :choices do |t|
+    create_table :choices, comment: 'Choices table' do |t|
       t.references :response_scale, null: false
       t.string :value, null: false
       t.integer :score, null: false, default: -1

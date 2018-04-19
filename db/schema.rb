@@ -15,7 +15,7 @@ ActiveRecord::Schema.define(version: 2018_04_14_231847) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "arms", force: :cascade do |t|
+  create_table "arms", comment: "Arms table", force: :cascade do |t|
     t.string "name", null: false
     t.integer "number", default: 1, null: false
     t.bigint "schedule_id", null: false
@@ -38,7 +38,7 @@ ActiveRecord::Schema.define(version: 2018_04_14_231847) do
     t.index ["instrument_id"], name: "index_assessment_instruments_on_instrument_id"
   end
 
-  create_table "assessments", force: :cascade do |t|
+  create_table "assessments", comment: "Assessments table", force: :cascade do |t|
     t.bigint "visit_id", null: false
     t.integer "order_number", default: 1, null: false
     t.jsonb "content", default: "{}", null: false
@@ -71,7 +71,7 @@ ActiveRecord::Schema.define(version: 2018_04_14_231847) do
     t.index ["user_id", "user_type"], name: "user_index"
   end
 
-  create_table "choices", force: :cascade do |t|
+  create_table "choices", comment: "Choices table", force: :cascade do |t|
     t.bigint "response_scale_id", null: false
     t.string "value", null: false
     t.integer "score", default: -1, null: false
@@ -89,7 +89,7 @@ ActiveRecord::Schema.define(version: 2018_04_14_231847) do
     t.index ["name"], name: "index_folders_on_name"
   end
 
-  create_table "instruments", force: :cascade do |t|
+  create_table "instruments", comment: "Instruments table", force: :cascade do |t|
     t.string "name", null: false
     t.string "version_number", default: "1.0", null: false
     t.string "instrument_type", default: "json", null: false
@@ -105,7 +105,7 @@ ActiveRecord::Schema.define(version: 2018_04_14_231847) do
     t.index ["name"], name: "index_instruments_on_name"
   end
 
-  create_table "items", force: :cascade do |t|
+  create_table "items", comment: "Items table", force: :cascade do |t|
     t.bigint "instrument_id", null: false
     t.string "name", null: false
     t.string "item_type", null: false
@@ -131,7 +131,7 @@ ActiveRecord::Schema.define(version: 2018_04_14_231847) do
     t.index ["journal_id"], name: "index_journal_entries_on_journal_id"
   end
 
-  create_table "journals", force: :cascade do |t|
+  create_table "journals", comment: "Journals table", force: :cascade do |t|
     t.string "name", null: false
     t.bigint "participant_id", null: false
     t.datetime "created_at", default: -> { "CURRENT_TIMESTAMP" }, null: false
@@ -140,7 +140,7 @@ ActiveRecord::Schema.define(version: 2018_04_14_231847) do
     t.index ["participant_id"], name: "index_journals_on_participant_id"
   end
 
-  create_table "participants", force: :cascade do |t|
+  create_table "participants", comment: "Participants table", force: :cascade do |t|
     t.string "email", null: false
     t.string "identifier"
     t.bigint "user_id"
@@ -160,7 +160,7 @@ ActiveRecord::Schema.define(version: 2018_04_14_231847) do
     t.index ["searchable_type", "searchable_id"], name: "index_pg_search_documents_on_searchable_type_and_searchable_id"
   end
 
-  create_table "projects", force: :cascade do |t|
+  create_table "projects", comment: "Projects table", force: :cascade do |t|
     t.string "name", null: false
     t.bigint "folder_id"
     t.string "title", null: false
@@ -183,7 +183,7 @@ ActiveRecord::Schema.define(version: 2018_04_14_231847) do
     t.index ["name"], name: "index_response_scales_on_name"
   end
 
-  create_table "responses", force: :cascade do |t|
+  create_table "responses", comment: "Responses table", force: :cascade do |t|
     t.bigint "assessment_id", null: false
     t.bigint "choice_id"
     t.string "value", default: "", null: false
@@ -193,7 +193,7 @@ ActiveRecord::Schema.define(version: 2018_04_14_231847) do
     t.index ["choice_id"], name: "index_responses_on_choice_id"
   end
 
-  create_table "schedules", force: :cascade do |t|
+  create_table "schedules", comment: "Schedules table", force: :cascade do |t|
     t.string "name", null: false
     t.bigint "study_id", null: false
     t.datetime "created_at", default: -> { "CURRENT_TIMESTAMP" }, null: false
@@ -202,7 +202,7 @@ ActiveRecord::Schema.define(version: 2018_04_14_231847) do
     t.index ["study_id"], name: "index_schedules_on_study_id"
   end
 
-  create_table "scores", force: :cascade do |t|
+  create_table "scores", comment: "Scores table", force: :cascade do |t|
     t.bigint "assessment_id", null: false
     t.string "name", null: false
     t.integer "score", default: 0, null: false
@@ -213,7 +213,7 @@ ActiveRecord::Schema.define(version: 2018_04_14_231847) do
     t.index ["name"], name: "index_scores_on_name"
   end
 
-  create_table "studies", force: :cascade do |t|
+  create_table "studies", comment: "Studies table", force: :cascade do |t|
     t.string "name", null: false
     t.datetime "created_at", default: -> { "CURRENT_TIMESTAMP" }, null: false
     t.datetime "updated_at", default: -> { "CURRENT_TIMESTAMP" }, null: false
@@ -265,7 +265,7 @@ ActiveRecord::Schema.define(version: 2018_04_14_231847) do
     t.index ["survey_id"], name: "index_survey_participants_on_survey_id"
   end
 
-  create_table "surveys", force: :cascade do |t|
+  create_table "surveys", comment: "Surveys table", force: :cascade do |t|
     t.string "name", null: false
     t.boolean "is_active", default: true, null: false
     t.integer "max_attempts", default: 0, null: false
@@ -274,7 +274,7 @@ ActiveRecord::Schema.define(version: 2018_04_14_231847) do
     t.index ["name"], name: "index_by_survey_name", unique: true
   end
 
-  create_table "users", force: :cascade do |t|
+  create_table "users", comment: "Users table", force: :cascade do |t|
     t.string "username", null: false
     t.string "firstname"
     t.string "lastname"
@@ -288,7 +288,7 @@ ActiveRecord::Schema.define(version: 2018_04_14_231847) do
     t.index ["username"], name: "username", unique: true
   end
 
-  create_table "visits", force: :cascade do |t|
+  create_table "visits", comment: "Visits table", force: :cascade do |t|
     t.bigint "survey_id", null: false
     t.bigint "user_id", null: false
     t.string "name"

@@ -4,7 +4,7 @@
 # Projects are the development and production phase of a study
 class CreateProjects < ActiveRecord::Migration[5.1]
   def change
-    create_table :projects do |t|
+    create_table :projects, comment: 'Projects table' do |t|
       t.string :name, null: false, unique: true, index: true
       t.references :folder, null: true, optional: true
       t.string :title, null: false

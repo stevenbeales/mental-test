@@ -3,7 +3,7 @@
 # Creates table for items/questions in an instrument
 class CreateItems < ActiveRecord::Migration[5.1]
   def change
-    create_table :items do |t|
+    create_table :items, comment: 'Items table' do |t|
       t.references :instrument, null: false, index: true
       t.string :name, null: false
       t.string :item_type, null: false
