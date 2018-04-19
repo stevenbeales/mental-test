@@ -38,11 +38,14 @@ before_install:
   - "echo 'gem: --no-ri --no-rdoc' > ~/.gemrc" # ensure bundle does not install docs
 
 script:
+  - bundle exec rake --version
   - RACK_ENV=test bundle exec rake db:migrate
   - RACK_ENV=test bundle exec rake spec
   - bundle exec rake bundle:audit
   - bundle exec rubocop
   - bundle exec ruby-audit check
+  # fail build if db/schema.rb update is not committed
+  - git diff --exit-code db/schema.rb
   
 after_script:
   - ./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT
