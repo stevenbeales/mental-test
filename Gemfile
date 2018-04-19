@@ -8,6 +8,7 @@ gem 'activerecord-delay_touching', '>= 1.0.1' # Batch Touching Calls
 gem 'audited', '>= 4.7.0', require: false # adds table auiting support
 gem 'bugsnag', '>= 6.6', require: false # online bug reporting
 gem 'bundler-audit', '>= 0.6.0', require: false # check gems for security issues
+gem 'default_value_for', '>= 3.0.0', require: false # set default values
 gem 'discard', '>= 1.0.0', require: false # soft deletes
 gem 'dotenv', '>= 2.2.1', require: false # adds environment variables from .env files
 gem 'goldiloader', '>= 2.1.0', require: false # automatic eager loading

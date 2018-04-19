@@ -26,6 +26,8 @@ class Visit < ApplicationRecord
   belongs_to :user, inverse_of: :visits 
   belongs_to :survey, inverse_of: :visits 
   has_many :assessments, dependent: :destroy
+
+  default_value_for :visit_date, Date.today
   
   validates :user, presence: true
   validates :survey, presence: true
@@ -35,15 +37,7 @@ class Visit < ApplicationRecord
   validates :number, numericality: { only_integer: true, greater_than_or_equal_to: 1, less_than_or_equal_to: 10_000 }
   validates_datetime :visit_date 
 
-  after_initialize :set_visit_date
-
   def to_s
     "#{user} #{survey} #{number}"
-  end
-
-  private
-
-  def set_visit_date
-    self.visit_date ||= Date.today
   end
 end
