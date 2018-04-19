@@ -44,9 +44,7 @@ script:
   - bundle exec rake bundle:audit
   - bundle exec rubocop
   - bundle exec ruby-audit check
-  # fail build if db/schema.rb update is not committed
-  - git diff --exit-code db/schema.rb
-  
+   
 after_script:
   - ./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT
   - ./cc-test-reporter format-coverage -t simplecov -o coverage/codeclimate.backend.json coverage/backend/.resultset.json # Format backend coverage
