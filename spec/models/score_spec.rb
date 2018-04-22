@@ -13,13 +13,15 @@ RSpec.describe Score, type: :model do
 
   describe '#respond_to?' do
     include_context 'shared attributes'
-    include_examples 'respond', %i[survey participant visit]
+    include_examples 'respond', %i[survey participant visit user]
     include_examples 'respond', %i[score assessment name]
     include_examples 'common attributes'
   end
  
   include_examples 'required attribute', 'name', 1
-  
+  include_examples 'required attribute', 'score', 2
+  include_examples 'default attribute', 'score', 0
+
   describe '#score' do
     include_context 'restore attributes'
      
@@ -29,6 +31,16 @@ RSpec.describe Score, type: :model do
         subject.valid?
         expect(subject.errors[:score].size).to eq(1)
       end
+    end
+  end
+  
+  describe '#assessmemt' do
+    include_context 'restore attributes'
+    
+    it 'is required' do
+      subject.assessment = nil
+      subject.valid?
+      expect(subject.errors[:assessment].size).to eq(1)
     end
   end
 

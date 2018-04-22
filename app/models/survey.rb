@@ -2,6 +2,7 @@
 
 # Model to represent a survey/campaign
 class Survey < ApplicationRecord
+  audited
   has_many :survey_participants, inverse_of: :survey, dependent: :destroy
   has_many :visits, inverse_of: :survey, dependent: :destroy
   has_many :assessments, through: :visits

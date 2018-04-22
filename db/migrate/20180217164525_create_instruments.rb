@@ -14,5 +14,6 @@ class CreateInstruments < ActiveRecord::Migration[5.1]
     end
 
     add_index :instruments, :json_content, using: :gin, name: 'instrument_json_content'
+    add_index :instruments, %i[name version_number], unique: true
   end
 end

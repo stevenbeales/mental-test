@@ -7,9 +7,11 @@ class Score < ApplicationRecord
   delegate :survey, to: :visit, allow_nil: true
   delegate :participant, to: :survey, allow_nil: true
   delegate :user, to: :participant, allow_nil: true
+  default_value_for :score, 0
 
   validates :name, presence: true
   validates :assessment, presence: true
+  validates :score, presence: true
   validates_uniqueness_of :name, on: :create, message: 'must be unique', scope: :assessment
   validates :score, numericality: { only_integer: true, message: 'is not a number' }
 

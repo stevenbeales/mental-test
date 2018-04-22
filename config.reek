@@ -59,7 +59,7 @@ NestedIterators:
   - tap
 NilCheck:
   enabled: true
-  exclude: []
+  exclude: [unique_order_number]
 PrimaDonnaMethod:
   enabled: true
   exclude: []

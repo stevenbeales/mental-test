@@ -10,11 +10,7 @@ RSpec.describe Arm, type: :model do
 
   describe '#respond_to?' do
     include_context 'shared attributes'
-    include_examples 'responds', :schedule
-    include_examples 'responds', :study
-    include_examples 'responds', :study_events
-    include_examples 'responds', :number
-    include_examples 'responds', :name
+    include_examples 'respond', %i[schedule study study_events number name]
     include_examples 'common attributes'
   end
 

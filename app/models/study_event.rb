@@ -7,7 +7,9 @@ class StudyEvent < ApplicationRecord
   delegate :study, to: :schedule, allow_nil: true
   has_many :study_event_instruments
   has_many :instruments, through: :study_event_instruments
-    
+  
+  default_value_for :order, 1
+  default_value_for :event_date, Date.today
   validates :arm, presence: true
   validates :name, presence: true
   validates_uniqueness_of :name
@@ -15,10 +17,22 @@ class StudyEvent < ApplicationRecord
                       within: 2..50, \
                       too_long: 'pick a shorter name', \
                       too_short: 'pick a longer name'
+  validates_uniqueness_of :order, scope: %i[arm]
+  validates :order, numericality: { only_integer: true, greater_than_or_equal_to: 1, less_than_or_equal_to: 10_000 }
+  validates :order, presence: true
+  validates_datetime :event_date
 
- 
+  before_create :unique_order_number
+
   def to_s
     "#{arm} #{name}"
+  end
+
+  private
+
+  def unique_order_number
+    last_order = StudyEvent.order(:arm_id, order: :desc)&.first&.order || 1
+    self.order = last_order + 1
   end
 end
 

@@ -15,6 +15,7 @@ gem 'goldiloader', '>= 2.1.0', require: false # automatic eager loading
 gem 'i18n', '>= 1.0.0', require: false # internationalization support
 gem 'jsonb_accessor', '>= 1.0.0', require: false # adds methods to access Jsonb fields
 gem 'multi_json', '>= 1.13.1', require: false # common interface to load json
+gem 'nondestructive_migrations', '>= 1.3', require: false # data only migrations
 gem 'oj', '>= 3.5.0', require: false # faster json parsing
 gem 'pg', '>= 1.0.0', platform: :ruby, require: false # for Postgres
 gem 'pg_search', '>= 2.1.2', require: false # Postgres full text search

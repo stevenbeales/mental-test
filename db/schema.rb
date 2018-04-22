@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_04_14_231847) do
+ActiveRecord::Schema.define(version: 2018_04_22_022448) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -82,6 +82,10 @@ ActiveRecord::Schema.define(version: 2018_04_14_231847) do
     t.index ["response_scale_id"], name: "index_choices_on_response_scale_id"
   end
 
+  create_table "data_migrations", force: :cascade do |t|
+    t.string "version"
+  end
+
   create_table "folders", force: :cascade do |t|
     t.string "name", null: false
     t.datetime "created_at", default: -> { "CURRENT_TIMESTAMP" }, null: false
@@ -102,6 +106,7 @@ ActiveRecord::Schema.define(version: 2018_04_14_231847) do
     t.index ["csv_content"], name: "index_instruments_on_csv_content"
     t.index ["discarded_at"], name: "index_instruments_on_discarded_at"
     t.index ["json_content"], name: "instrument_json_content", using: :gin
+    t.index ["name", "version_number"], name: "index_instruments_on_name_and_version_number", unique: true
     t.index ["name"], name: "index_instruments_on_name"
   end
 

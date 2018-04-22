@@ -8,10 +8,7 @@ RSpec.describe Project, type: :model do
   
   describe '#respond_to?' do
     include_context 'shared attributes'
-    include_examples 'responds', :title
-    include_examples 'responds', :folder
-    include_examples 'responds', :status
-    include_examples 'responds', :name
+    include_examples 'respond', %i[title folder status name]
     include_examples 'common attributes'
   end
 

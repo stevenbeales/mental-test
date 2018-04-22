@@ -10,16 +10,19 @@ RSpec.describe StudyEvent, type: :model do
 
   describe '#respond_to?' do
     include_context 'shared attributes'
-    include_examples 'responds', :study_event_instruments
-    include_examples 'responds', :instruments
-    include_examples 'responds', :arm
-    include_examples 'responds', :schedule
-    include_examples 'responds', :study
-    include_examples 'responds', :name
+    include_examples 'respond', %i[arm schedule study name]
+    include_examples 'respond', %i[order study_event_instruments instruments]
     include_examples 'common attributes'
   end
 
   include_examples 'required attribute', 'name', 2
+  include_examples 'required attribute', 'order', 2
+  include_examples 'default attribute', 'order', 1
+  
+  describe '#order' do
+    include_context 'restore attributes'
+    include_examples 'number specs', 'order'
+  end
   
   include_examples 'invalid create', 'without name or arm'
   

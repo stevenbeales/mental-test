@@ -18,17 +18,17 @@ RSpec.describe Survey do
   
   describe '.list_tests' do
     it do
-      described_class.find_or_create_by! name: 'Test Survey'
-      described_class.find_or_create_by! name: 'Test'
-      expect(described_class.list_tests).to include 'Test Survey Test'
+      Survey.find_or_create_by! name: 'Test Survey'
+      Survey.find_or_create_by! name: 'Test'
+      expect(Survey.list_tests).to include 'Test Survey Test'
     end 
   end
 
   describe '.list_active_tests' do
     it do
-      described_class.find_or_create_by! name: 'Test Survey active'
-      described_class.find_or_create_by! name: 'Test inactive', is_active: false
-      expect(described_class.list_active_tests).to include 'Test Survey Test Test Survey active'
+      Survey.find_or_create_by! name: 'Test Survey active'
+      Survey.find_or_create_by! name: 'Test inactive', is_active: false
+      expect(Survey.list_active_tests).to include 'Test Survey Test Test Survey active'
     end 
   end
 
@@ -36,7 +36,7 @@ RSpec.describe Survey do
 
   describe '#destroy!' do
     it 'destroys assessments' do
-      survey = described_class.find_or_create_by!(name: '!P@ssword2')
+      survey = Survey.find_or_create_by!(name: '!P@ssword2')
       begin
         user = User.find_or_create_by! username: 'Randomly'
         vt = Visit.find_or_create_by! user: user, name: 'Visit 27', survey: survey

@@ -3,12 +3,16 @@
 # Represents a psychometric instrument
 # Similar to a survey or questionnaire
 class Instrument < ApplicationRecord
+  audited
   include PgSearch
   include Discard::Model
   multisearchable against: %i[json_content csv_content]
   pg_search_scope :search_json, against: :json_content
   pg_search_scope :search_csv, against: :csv_content
   
+  default_value_for :version_number, '1.0'
+  default_value_for :instrument_type, 'json'
+ 
   has_many :assessment_instruments, inverse_of: :instrument, dependent: :destroy
   has_many :study_event_instruments, inverse_of: :instrument, dependent: :destroy
   has_many :assessments, inverse_of: :instrument, through: :assessment_instruments
@@ -26,6 +30,8 @@ class Instrument < ApplicationRecord
                       too_long: 'pick a shorter name', \
                       too_short: 'pick a longer name'
   validates :version_number, presence: true
+  validates_uniqueness_of :version_number, scope: :name 
+ 
   validates :instrument_type, presence: true
   validates :instructions, presence: true, allow_blank: true
   validates :json_content, presence: true
