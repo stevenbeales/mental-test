@@ -46,8 +46,7 @@ class Instrument < ApplicationRecord
   end
 
   def first_question_and_instructions
-    instructions
-    # TODO
+    %(#{instructions} #{items.first.title})
   end
 end
 

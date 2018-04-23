@@ -66,6 +66,11 @@ RSpec.describe Instrument, type: :model do
     it { expect(subject.csv_content.length).to eq 0 }
   end
 
+  describe '#first_question_and_instructions for test instrument' do
+    it { expect(subject.first_question_and_instructions).to include 'felt or behaved' }
+    it { expect(subject.first_question_and_instructions).to include 'appetite' }
+  end
+
   describe '#items' do
     context 'has no items' do 
       it do

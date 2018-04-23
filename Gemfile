@@ -38,7 +38,7 @@ gem 'warning', '>= 0.10.1', require: false # customize warnings
 
 group :test do
   gem 'coveralls', '>= 0.7.1', require: false # code coverage
-  gem 'database_cleaner', '=1.6.1', require: false # for test database cleaning
+  gem 'database_cleaner', '>=1.6.1', require: false # for test database cleaning
   gem 'factory_bot', '>= 4.0', require: false # for test data setup
   gem 'fuubar', '>= 2.3.1', require: false # rspec formatter
   gem 'rack-protection', '>= 2.0.1', require: false # protect against web attacks
@@ -56,14 +56,15 @@ group :development, :test do
   gem 'annotate', '>= 2.7.2', require: false # annotate models
   gem 'better_errors', '>= 2.4.0', require: false # better error logging 
   gem 'binding_of_caller', '>= 0.8.0', require: false # helps better_errors provide more detailed debugging
-  # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'bullet', '>= 5.7.5', require: false # find slow ActiveRecord queries
+  # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', '>= 10.0.2', platforms: %i[mri mingw x64_mingw]
   gem 'fasterer', require: false # find slow code 
   gem 'guard', '>= 2.14.2', require: false # watch for changed files 
   gem 'guard-rspec', '>= 4.7.3', require: false # run rspec on code change
   gem 'overcommit', require: false # git hooks
   gem 'reek', require: false # find code smells
+  gem 'solargraph', require: false # ruby editor code completion
   gem 'timecop', '>= 0.9.1', require: false # testing time dependent
 end
 

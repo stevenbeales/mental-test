@@ -60,7 +60,7 @@ RSpec.describe AlexaService do
 
     it do
       expect(AlexaService.start_test(testname: AppConstants::DEFAULT_INSTRUMENT)).to \
-        eq(Instrument.find_by(name: AppConstants::DEFAULT_INSTRUMENT).instructions)
+        include(Instrument.find_by(name: AppConstants::DEFAULT_INSTRUMENT).instructions)
     end
   end
 
