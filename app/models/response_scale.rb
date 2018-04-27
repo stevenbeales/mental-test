@@ -11,13 +11,7 @@
 #
 # Indexes
 #
-#  index_response_scales_on_name  (name)
-#
-
-# Table name: response_scales
-#
-#  id   :integer          not null, primary key
-#  name :string           not null
+#  index_response_scales_on_name  (name) UNIQUE
 #
 
 # Model to represent a response to an item

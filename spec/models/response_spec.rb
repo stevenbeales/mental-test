@@ -3,12 +3,8 @@
 RSpec.describe Response, type: :model do
   subject { described_class.find_or_create_by! assessment: ass, value: 'something' }
   let(:ass) { TestFactory.test_assessment }
-  let!(:sy) { TestFactory.test_survey }
-  let!(:ur) { TestFactory.test_user }
-  let!(:vt) { TestFactory.test_visit }
   let!(:choice) { TestFactory.test_choice }
-  let!(:scale) { InstrumentTestFactory.test_response_scale }
-  
+
   include_examples 'valid object creation', Response
 
   describe '#respond_to?' do
@@ -26,7 +22,7 @@ RSpec.describe Response, type: :model do
       expect(subject.errors[:assessment].size).to eq(1)
     end
   end
-  
+
   describe '#value' do
     include_context 'restore attributes'
 
@@ -37,13 +33,13 @@ RSpec.describe Response, type: :model do
     end
   end
 
-  include_examples 'invalid create', 'without assessment' 
-   
+  include_examples 'invalid create', 'without assessment'
+
   describe '.create!' do
     context 'without value' do
       it { expect { described_class.create! assessment: ass }.to raise_error ActiveRecord::RecordInvalid }
     end
-  
+
     context 'with value and assessment' do
       it { expect { described_class.find_or_create_by!(assessment: ass, value: 'something') }.not_to raise_error }
     end

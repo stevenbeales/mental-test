@@ -15,10 +15,10 @@ class Project < ApplicationRecord
                       within: 2..50, \
                       too_long: 'pick a shorter name', \
                       too_short: 'pick a longer name'
-  
+
   def self.list_active_projects
     Project.active.join(' ')
-  end                 
+  end
 
   def to_s
     name
@@ -45,5 +45,5 @@ end
 # Indexes
 #
 #  index_projects_on_folder_id  (folder_id)
-#  index_projects_on_name       (name)
+#  index_projects_on_name       (name) UNIQUE
 #

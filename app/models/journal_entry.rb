@@ -9,9 +9,10 @@ class JournalEntry < ApplicationRecord
   validates :entry_date, presence: true
   validates_uniqueness_of :entry_date, scope: :journal
   validates :journal, presence: true
+  validates_datetime :entry_date
 
   def to_s
-    "#{entry_date} #{entry}"
+    %(#{entry_date} #{entry})
   end
 end
 

@@ -4,7 +4,7 @@
 class CreateInstruments < ActiveRecord::Migration[5.1]
   def change
     create_table :instruments, comment: 'Instruments table' do |t|
-      t.string :name, null: false, unique: true, index: true
+      t.string :name, null: false
       t.string :version_number, null: false, default: '1.0'
       t.string :instrument_type, null: false, default: 'json'
       t.jsonb :json_content, null: false, default: '{}'
@@ -15,5 +15,6 @@ class CreateInstruments < ActiveRecord::Migration[5.1]
 
     add_index :instruments, :json_content, using: :gin, name: 'instrument_json_content'
     add_index :instruments, %i[name version_number], unique: true
+    add_index :instruments, :name, unique: true
   end
 end

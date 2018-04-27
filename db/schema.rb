@@ -90,7 +90,7 @@ ActiveRecord::Schema.define(version: 2018_04_22_022448) do
     t.string "name", null: false
     t.datetime "created_at", default: -> { "CURRENT_TIMESTAMP" }, null: false
     t.datetime "updated_at", default: -> { "CURRENT_TIMESTAMP" }, null: false
-    t.index ["name"], name: "index_folders_on_name"
+    t.index ["name"], name: "index_by_folders", unique: true
   end
 
   create_table "instruments", comment: "Instruments table", force: :cascade do |t|
@@ -107,7 +107,7 @@ ActiveRecord::Schema.define(version: 2018_04_22_022448) do
     t.index ["discarded_at"], name: "index_instruments_on_discarded_at"
     t.index ["json_content"], name: "instrument_json_content", using: :gin
     t.index ["name", "version_number"], name: "index_instruments_on_name_and_version_number", unique: true
-    t.index ["name"], name: "index_instruments_on_name"
+    t.index ["name"], name: "index_instruments_on_name", unique: true
   end
 
   create_table "items", comment: "Items table", force: :cascade do |t|
@@ -141,7 +141,7 @@ ActiveRecord::Schema.define(version: 2018_04_22_022448) do
     t.bigint "participant_id", null: false
     t.datetime "created_at", default: -> { "CURRENT_TIMESTAMP" }, null: false
     t.datetime "updated_at", default: -> { "CURRENT_TIMESTAMP" }, null: false
-    t.index ["name"], name: "index_journals_on_name"
+    t.index ["name"], name: "index_journals_on_name", unique: true
     t.index ["participant_id"], name: "index_journals_on_participant_id"
   end
 
@@ -178,14 +178,14 @@ ActiveRecord::Schema.define(version: 2018_04_22_022448) do
     t.datetime "updated_at", default: -> { "CURRENT_TIMESTAMP" }, null: false
     t.integer "status", default: 0
     t.index ["folder_id"], name: "index_projects_on_folder_id"
-    t.index ["name"], name: "index_projects_on_name"
+    t.index ["name"], name: "index_projects_on_name", unique: true
   end
 
   create_table "response_scales", force: :cascade do |t|
     t.string "name", null: false
     t.datetime "created_at", default: -> { "CURRENT_TIMESTAMP" }, null: false
     t.datetime "updated_at", default: -> { "CURRENT_TIMESTAMP" }, null: false
-    t.index ["name"], name: "index_response_scales_on_name"
+    t.index ["name"], name: "index_by_response_scales", unique: true
   end
 
   create_table "responses", comment: "Responses table", force: :cascade do |t|
@@ -203,7 +203,7 @@ ActiveRecord::Schema.define(version: 2018_04_22_022448) do
     t.bigint "study_id", null: false
     t.datetime "created_at", default: -> { "CURRENT_TIMESTAMP" }, null: false
     t.datetime "updated_at", default: -> { "CURRENT_TIMESTAMP" }, null: false
-    t.index ["name"], name: "index_schedules_on_name"
+    t.index ["name"], name: "index_schedules_on_name", unique: true
     t.index ["study_id"], name: "index_schedules_on_study_id"
   end
 
@@ -222,7 +222,7 @@ ActiveRecord::Schema.define(version: 2018_04_22_022448) do
     t.string "name", null: false
     t.datetime "created_at", default: -> { "CURRENT_TIMESTAMP" }, null: false
     t.datetime "updated_at", default: -> { "CURRENT_TIMESTAMP" }, null: false
-    t.index ["name"], name: "index_studies_on_name"
+    t.index ["name"], name: "index_studies_on_name", unique: true
   end
 
   create_table "study_event_instruments", force: :cascade do |t|
@@ -244,7 +244,7 @@ ActiveRecord::Schema.define(version: 2018_04_22_022448) do
     t.datetime "updated_at", default: -> { "CURRENT_TIMESTAMP" }, null: false
     t.index ["arm_id", "name"], name: "index_by_arm_name", unique: true
     t.index ["arm_id"], name: "index_study_events_on_arm_id"
-    t.index ["name"], name: "index_study_events_on_name"
+    t.index ["name"], name: "index_study_events_on_name", unique: true
     t.index ["order"], name: "index_study_events_on_order"
   end
 

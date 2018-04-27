@@ -12,10 +12,10 @@ RSpec.describe Participant, type: :model do
   end
 
   include_examples 'required attribute', 'email', 1
-  
+
   describe '#email' do
     include_context 'restore attributes'
-      
+
     context 'when the email address is valid' do
       let(:email) { 'stevenbeales@hotmail.com' }
 
@@ -40,10 +40,10 @@ RSpec.describe Participant, type: :model do
       end
     end
   end
-  
+
   describe '#journal' do
     include_context 'restore attributes'
-    
+
     it 'is required' do
       subject.journal = nil
       subject.valid?
@@ -52,10 +52,10 @@ RSpec.describe Participant, type: :model do
   end
 
   include_examples 'invalid create', 'does not create a participant without an email'
- 
+
   describe '#to_s' do
     it do
-      to_s = "#{subject.identifier} #{subject.email}".strip
+      to_s = %(#{subject.identifier} #{subject.email}).strip
       expect(subject.to_s).to eq to_s
     end
   end

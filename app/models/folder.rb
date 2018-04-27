@@ -26,5 +26,5 @@ end
 #
 # Indexes
 #
-#  index_folders_on_name  (name)
+#  index_folders_on_name  (name) UNIQUE
 #

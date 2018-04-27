@@ -4,13 +4,12 @@ RSpec.describe StudyParticipant, type: :model do
   subject { TestFactory.test_study_participant }
   let!(:study) { TestFactory.test_study }
   let!(:participant) { TestFactory.test_participant }
-  
+
   include_examples 'valid object creation', StudyParticipant
-  
+
   describe '#respond_to?' do
     include_context 'shared attributes'
-    include_examples 'responds', :study
-    include_examples 'responds', :participant
+    include_examples 'respond', %i[study participant]
     include_examples 'common attributes'
   end
 
@@ -23,7 +22,7 @@ RSpec.describe StudyParticipant, type: :model do
       expect(subject.errors[:study].size).to eq(1)
     end
   end
-  
+
   describe '#participant' do
     include_context 'restore attributes'
 
@@ -33,10 +32,10 @@ RSpec.describe StudyParticipant, type: :model do
       expect(subject.errors[:participant].size).to eq(1)
     end
   end
-  
+
   describe '.create!' do
     context 'no participant or study' do
-      include_examples 'invalid create' 
+      include_examples 'invalid create'
     end
 
     context 'no participant' do
@@ -50,20 +49,20 @@ RSpec.describe StudyParticipant, type: :model do
         expect { StudyParticipant.create! study: study }.to raise_error ActiveRecord::RecordInvalid
       end
     end
- 
+
     context 'study and participant' do
-      it do 
+      it do
         expect do
           StudyParticipant.find_or_create_by! participant: participant, study: study
         end.not_to raise_error
       end
     end
-    
+
     context 'unique study and participant' do
-      it do 
+      it do
         expect do
           StudyParticipant.create!(participant: participant, study: study)
-        end.to raise_error ActiveRecord::RecordInvalid   
+        end.to raise_error ActiveRecord::RecordInvalid
       end
     end
   end
@@ -74,7 +73,7 @@ RSpec.describe StudyParticipant, type: :model do
         eq("#{TestConstants::TEST_PARTICIPANT_EMAIL} #{TestConstants::TEST_STUDY}")
     end
   end
-  
+
   describe '#destroy!' do
     include_context 'destroy subject'
 

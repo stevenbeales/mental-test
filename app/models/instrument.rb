@@ -9,16 +9,16 @@ class Instrument < ApplicationRecord
   multisearchable against: %i[json_content csv_content]
   pg_search_scope :search_json, against: :json_content
   pg_search_scope :search_csv, against: :csv_content
-  
+
   default_value_for :version_number, '1.0'
   default_value_for :instrument_type, 'json'
- 
+
   has_many :assessment_instruments, inverse_of: :instrument, dependent: :destroy
   has_many :study_event_instruments, inverse_of: :instrument, dependent: :destroy
   has_many :assessments, inverse_of: :instrument, through: :assessment_instruments
   has_many :study_events, inverse_of: :instrument, through: :study_event_instruments
   has_many :items, inverse_of: :instrument, dependent: :destroy
-  
+
   jsonb_accessor :json_content,
                  title: [:string, default: 'Untitled'],
                  pages: [:jsonb, array: true, default: []]
@@ -30,13 +30,13 @@ class Instrument < ApplicationRecord
                       too_long: 'pick a shorter name', \
                       too_short: 'pick a longer name'
   validates :version_number, presence: true
-  validates_uniqueness_of :version_number, scope: :name 
- 
+  validates_uniqueness_of :version_number, scope: :name
+
   validates :instrument_type, presence: true
   validates :instructions, presence: true, allow_blank: true
   validates :json_content, presence: true
   validates :csv_content, presence: true, allow_blank: true
-  
+
   def self.list_tests(limit: 4)
     Instrument.order(:name).limit(limit).join(' ')
   end
@@ -68,7 +68,7 @@ end
 # Indexes
 #
 #  index_instruments_on_csv_content  (csv_content)
-#  index_instruments_on_name         (name)
+#  index_instruments_on_name         (name) UNIQUE
 #  instrument_json_content           (json_content)
 #  instrument_tags                   (tags)
 #

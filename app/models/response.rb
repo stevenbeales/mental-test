@@ -22,10 +22,11 @@ class Response < ApplicationRecord
   belongs_to :assessment, inverse_of: :responses
   belongs_to :choice, optional: true
 
+  default_value_for :value, ''
   validates :assessment, presence: true
   validates :value, presence: true
 
-  def to_s 
-    "#{assessment} #{value}"
+  def to_s
+    %(#{assessment} #{value})
   end
 end

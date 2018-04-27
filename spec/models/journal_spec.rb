@@ -6,11 +6,9 @@ RSpec.describe Journal, type: :model do
 
   include_examples 'valid object creation', Journal
 
-  describe '#respond_to?' do    
+  describe '#respond_to?' do
     include_context 'shared attributes'
-    include_examples 'responds', :journal_entries
-    include_examples 'responds', :participant
-    include_examples 'responds', :name
+    include_examples 'respond', %i[journal_entries participant name]
     include_examples 'common attributes'
   end
 
@@ -18,7 +16,7 @@ RSpec.describe Journal, type: :model do
     context 'defaults to last 4' do
       it do
         expect(subject.list_entries).to eq subject.journal_entries \
-          .order('entry_date DESC').limit(4).join(' ') 
+          .order('entry_date DESC').limit(4).join(' ')
       end
     end
   end
@@ -40,11 +38,10 @@ RSpec.describe Journal, type: :model do
   end
 
   include_examples 'required attribute', 'name', 2
-  
-  
+
   describe '#participant' do
     include_context 'restore attributes'
-     
+
     it 'is required' do
       subject.participant = nil
       subject.valid?
@@ -52,22 +49,22 @@ RSpec.describe Journal, type: :model do
     end
   end
 
-  include_examples 'invalid create', 'without name or study' 
+  include_examples 'invalid create', 'without name or study'
 
   describe '.create!' do
     context '1 character name' do
-      it do 
+      it do
         expect do
           Journal.create! name: 'a', participant: participant
-        end.to raise_error ActiveRecord::RecordInvalid 
+        end.to raise_error ActiveRecord::RecordInvalid
       end
     end
-    
+
     context '2+ character name and title' do
       it do
         expect do
-          Journal.find_or_create_by! name: 'as', participant: participant 
-        end.to_not raise_error 
+          Journal.find_or_create_by! name: 'as', participant: participant
+        end.to_not raise_error
         Journal.find_by(name: 'as', participant: participant).destroy!
       end
     end
@@ -76,17 +73,17 @@ RSpec.describe Journal, type: :model do
       it do
         another_object = Journal.create! name: 'a14', participant: participant
         begin
-          expect do 
-            Journal.create! name: 'a14', participant: participant 
+          expect do
+            Journal.create! name: 'a14', participant: participant
           end.to raise_error ActiveRecord::RecordInvalid
-        ensure  
+        ensure
           another_object.destroy!
         end
       end
     end
 
-    include_examples '#to_s', 'Name', TestConstants::TEST_JOURNAL 
-    
+    include_examples '#to_s', 'Name', TestConstants::TEST_JOURNAL
+
     describe '#create_entry_for_today' do
       it { expect(subject.journal_entries.size).to be > 0 }
     end

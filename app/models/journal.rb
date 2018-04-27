@@ -13,7 +13,7 @@ class Journal < ApplicationRecord
                       too_short: 'pick a longer name'
 
   after_initialize :create_entry_for_today
-  
+
   def list_entries(limit: 4)
     entries = journal_entries.order('entry_date DESC').limit(limit)
     entries.join(' ')
@@ -22,7 +22,7 @@ class Journal < ApplicationRecord
   def read_entry(day: Date.today)
     JournalEntry.where(entry_date: day.beginning_of_day..day.end_of_day)
   end
-  
+
   def read_last(last_n: 1)
     JournalEntry.order('ID DESC').limit(last_n)
   end
@@ -50,6 +50,6 @@ end
 #
 # Indexes
 #
-#  index_journals_on_name            (name)
+#  index_journals_on_name            (name) UNIQUE
 #  index_journals_on_participant_id  (participant_id)
 #

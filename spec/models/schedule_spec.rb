@@ -8,16 +8,15 @@ RSpec.describe Schedule, type: :model do
 
   describe '#respond_to?' do
     include_context 'shared attributes'
-    include_examples 'responds', :arms
-    include_examples 'responds', :study
+    include_examples 'respond', %i[arms study]
     include_examples 'common attributes'
   end
 
   include_examples 'required attribute', 'name', 2
-    
+
   describe '#study' do
     include_context 'restore attributes'
-    
+
     it do
       subject.study = nil
       subject.valid?
@@ -25,16 +24,16 @@ RSpec.describe Schedule, type: :model do
     end
   end
 
-  include_examples 'invalid create', 'without name or study' 
+  include_examples 'invalid create', 'without name or study'
 
   describe '.create!' do
     context '1 character name' do
       it { expect { Schedule.create! name: 'a', study: study }.to raise_error ActiveRecord::RecordInvalid }
     end
-    
+
     context '2+ character name and title' do
       it do
-        expect { Schedule.find_or_create_by! name: 'as', study: study }.to_not raise_error 
+        expect { Schedule.find_or_create_by! name: 'as', study: study }.to_not raise_error
         Schedule.find_by(name: 'as', study: study).destroy!
       end
     end
