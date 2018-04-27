@@ -8,19 +8,18 @@ RSpec.describe User, type: :model do
   include_examples 'valid object creation', User
 
   describe '#respond_to?' do
-    include_context 'shared attributes'   
+    include_context 'shared attributes'
     include_examples 'respond', %i[username survey_participants surveys visits]
-    include_examples 'respond', %i[assessments participant preferences locale]
-    include_examples 'respond', %i[journal]
+    include_examples 'respond', %i[assessments participant preferences locale journal]
     include_examples 'discard attribute'
     include_examples 'common attributes'
   end
-  
+
   include_examples 'required attribute', 'username', 2
- 
+
   describe '#locale' do
     include_context 'restore attributes'
-    
+
     it { expect(subject.locale).to eq('en-US') }
 
     it do
@@ -51,7 +50,6 @@ RSpec.describe User, type: :model do
   end
 
   describe 'Saving to a database' do
-  
     it 'starts out unpersisted' do
       user = User.new
       expect(user.id).to be_nil
@@ -80,7 +78,7 @@ RSpec.describe User, type: :model do
   describe '#to_s' do
     it 'prints username' do
       user = build(:timmy)
-      expect(user.to_s).to eq(user.username) 
+      expect(user.to_s).to eq(user.username)
     end
   end
 
@@ -92,7 +90,7 @@ RSpec.describe User, type: :model do
 
     context 'does not delete' do
       it do
-        expect(user.discarded?).to eq true    
+        expect(user.discarded?).to eq true
       end
 
       it do

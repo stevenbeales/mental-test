@@ -2,7 +2,7 @@
 
 # Assessment scores and sub scores
 class Score < ApplicationRecord
-  belongs_to :assessment, inverse_of: :scores 
+  belongs_to :assessment, inverse_of: :scores, touch: true
   delegate :visit, to: :assessment, allow_nil: true
   delegate :survey, to: :visit, allow_nil: true
   delegate :participant, to: :survey, allow_nil: true
@@ -16,7 +16,7 @@ class Score < ApplicationRecord
   validates :score, numericality: { only_integer: true, message: 'is not a number' }
 
   def to_s
-    "#{assessment} #{name}: #{score}"
+    %(#{assessment} #{name}: #{score})
   end
 end
 

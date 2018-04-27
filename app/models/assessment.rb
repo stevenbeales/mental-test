@@ -5,21 +5,21 @@ class Assessment < ApplicationRecord
   belongs_to :visit, inverse_of: :assessments
   has_one :survey, through: :visit
   has_one :user, through: :visit
-  has_many :assessment_instruments, inverse_of: :assessment, dependent: :destroy 
+  has_many :assessment_instruments, inverse_of: :assessment, dependent: :destroy
   has_many :instruments, through: :assessment_instruments
   has_many :responses, inverse_of: :assessment, dependent: :destroy
   has_many :scores, inverse_of: :assessment, dependent: :destroy
- 
+
   default_value_for :order_number, 1
   validates :visit, presence: true
   validates :order_number, presence: true, allow_blank: false
-  validates :order_number, numericality: { only_integer: true, 
-                                           greater_than_or_equal_to: 1, 
+  validates :order_number, numericality: { only_integer: true,
+                                           greater_than_or_equal_to: 1,
                                            less_than_or_equal_to: 10_000 }
   validates_uniqueness_of :order_number, on: :create, message: 'must be unique', scope: :visit
- 
+
   before_destroy :destroy_scores
- 
+
   def to_s
     visit.to_s
   end

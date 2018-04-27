@@ -14,11 +14,11 @@ class Participant < ApplicationRecord
   after_initialize :create_journal
 
   def to_s
-    "#{identifier} #{email}".strip
+    %(#{identifier} #{email}).strip
   end
 
-  private 
-  
+  private
+
   def create_journal
     self.journal ||= Journal.new(participant: self, name: Time.now.to_s) if new_record?
   end

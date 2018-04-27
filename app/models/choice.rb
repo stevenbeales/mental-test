@@ -35,7 +35,7 @@ class Choice < ApplicationRecord
   validates :response_scale, presence: true
   validates :value, presence: true
   validates :description, presence: true
-  validates_uniqueness_of :value, scope: :response_scale 
+  validates_uniqueness_of :value, scope: :response_scale
   validates_numericality_of :score, message: 'is not a number'
 
   def self.load_choice(response_scale, choice)
@@ -44,6 +44,6 @@ class Choice < ApplicationRecord
   end
 
   def to_s
-    "#{response_scale} #{value} #{description}"  
+    %(#{response_scale} #{value} #{description})
   end
 end

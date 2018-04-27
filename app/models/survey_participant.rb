@@ -2,17 +2,17 @@
 
 # Association class between participants and surveys
 class SurveyParticipant < ApplicationRecord
-  belongs_to :participant, inverse_of: :survey_participants
-  belongs_to :survey, inverse_of: :survey_participants
+  belongs_to :participant, inverse_of: :survey_participants, touch: true
+  belongs_to :survey, inverse_of: :survey_participants, touch: true
 
   validates :participant, presence: true
   validates :survey, presence: true
 
   validates_uniqueness_of :survey, scope: :participant
   validates_uniqueness_of :participant, scope: :survey
-  
+
   def to_s
-    "#{participant} #{survey}"
+    %(#{participant} #{survey})
   end
 end
 

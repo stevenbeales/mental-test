@@ -23,21 +23,21 @@
 # Model to represent a user visit or an attempt in a self assessment
 class Visit < ApplicationRecord
   audited
-  belongs_to :user, inverse_of: :visits 
-  belongs_to :survey, inverse_of: :visits 
+  belongs_to :user, inverse_of: :visits
+  belongs_to :survey, inverse_of: :visits
   has_many :assessments, dependent: :destroy
 
   default_value_for :visit_date, Date.today
-  
+
   validates :user, presence: true
   validates :survey, presence: true
   validates :visit_date, presence: true
-  validates_uniqueness_of :number, scope: %i[survey user] 
+  validates_uniqueness_of :number, scope: %i[survey user]
   validates :number, presence: true, allow_blank: false
   validates :number, numericality: { only_integer: true, greater_than_or_equal_to: 1, less_than_or_equal_to: 10_000 }
-  validates_datetime :visit_date 
+  validates_datetime :visit_date
 
   def to_s
-    "#{user} #{survey} #{number}"
+    %(#{user} #{survey} #{number})
   end
 end

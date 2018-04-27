@@ -16,10 +16,10 @@ RSpec.describe Arm, type: :model do
 
   include_examples 'required attribute', 'number', 2
   include_examples 'default attribute', 'number', 1
-    
+
   describe '#name' do
     include_context 'restore attributes'
-   
+
     context 'when missing' do
       it 'set to "arm1"' do
         subject.name = nil
@@ -31,7 +31,7 @@ RSpec.describe Arm, type: :model do
 
   describe '#schedule' do
     include_context 'restore attributes'
-    
+
     it 'is required' do
       subject.schedule = nil
       subject.valid?
@@ -48,12 +48,12 @@ RSpec.describe Arm, type: :model do
     context '#arms' do
       it 'includes arm' do
         subject.schedule.arms.concat(subject)
-        expect(subject.schedule.arms).to include(subject) 
+        expect(subject.schedule.arms).to include(subject)
       end
-      
+
       it do
         subject.schedule.arms.concat(subject)
-        expect(subject.schedule.arms).not_to be_empty 
+        expect(subject.schedule.arms).not_to be_empty
       end
     end
   end
@@ -73,22 +73,22 @@ RSpec.describe Arm, type: :model do
     it { expect(subject.study_events.count).to eq(1) }
   end
 
-  include_examples 'invalid create', 'no name or schedule' 
-  
+  include_examples 'invalid create', 'no name or schedule'
+
   describe '.create!' do
     context 'blank name' do
       it do
-        expect do 
-          Arm.create! name: '', schedule: schedule 
+        expect do
+          Arm.create! name: '', schedule: schedule
         end.to raise_error ActiveRecord::RecordInvalid
       end
     end
 
     context '2+ character name and title' do
-      it do 
-        expect do 
-          Arm.find_or_create_by! name: 'as', schedule: schedule, number: 2 
-        end.to_not raise_error 
+      it do
+        expect do
+          Arm.find_or_create_by! name: 'as', schedule: schedule, number: 2
+        end.to_not raise_error
       end
     end
 
@@ -107,14 +107,14 @@ RSpec.describe Arm, type: :model do
 
   describe '#to_s' do
     it 'prints study schedule name number' do
-      expect(subject.to_s).to eq "#{subject.study} #{subject.schedule} #{subject.name} #{subject.number}" 
-    end  
+      expect(subject.to_s).to eq "#{subject.study} #{subject.schedule} #{subject.name} #{subject.number}"
+    end
   end
 
   describe '#destroy!' do
     it 'also removes study_events' do
       another_object = Arm.find_or_create_by!(name: TestConstants::TEST_ARM2, schedule: schedule, number: 2)
-      begin                                        
+      begin
         events = another_object.study_events
       ensure
         another_object.destroy!

@@ -2,12 +2,12 @@
 
 # Model to represent study events
 class StudyEvent < ApplicationRecord
-  belongs_to :arm, inverse_of: :study_events 
+  belongs_to :arm, inverse_of: :study_events
   delegate :schedule, to: :arm, allow_nil: true
   delegate :study, to: :schedule, allow_nil: true
   has_many :study_event_instruments
   has_many :instruments, through: :study_event_instruments
-  
+
   default_value_for :order, 1
   default_value_for :event_date, Date.today
   validates :arm, presence: true
