@@ -12,14 +12,14 @@ class User < ApplicationRecord
   has_many :surveys, through: :survey_participants
   jsonb_accessor :preferences,
                  locale: [:string, default: 'en-US']
-    
+
   validates :username, presence: true
   validates_uniqueness_of :username
   validates_length_of :username, \
                       within: 5..20, \
                       too_long: 'pick a shorter name', \
                       too_short: 'pick a longer name'
-    
+
   delegate :journal, to: :participant, allow_nil: true
 
   after_initialize :create_participant
@@ -29,8 +29,8 @@ class User < ApplicationRecord
     user
   end
 
-  def create_participant 
-    self.participant ||= Participant.create!(user: self, email: AppConstants::PLACEHOLDER_EMAIL) if new_record?
+  def create_participant
+    self.participant ||= Participant.create!(user: self, email: '') if new_record?
   end
 
   def to_s

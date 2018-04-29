@@ -3,13 +3,16 @@
 # Model to represent survey participants
 class Participant < ApplicationRecord
   belongs_to :user, optional: true
-  validates :email, presence: true, 'valid_email_2/email': true
+  validates :email, 'valid_email_2/email': true, exclusion: { in: [nil] } # allow '' but not nil
+  validates :identifier, presence: true, allow_blank: true
   has_one :journal, inverse_of: :participant, dependent: :destroy
   has_many :survey_participants, inverse_of: :participant, dependent: :destroy
   has_many :surveys, through: :survey_participants
   has_many :study_participants, inverse_of: :participant, dependent: :destroy
   has_many :studies, through: :study_participants
   validates :journal, presence: true
+  validates_uniqueness_of :email, allow_blank: true
+  validates_uniqueness_of :identifier, allow_blank: true
 
   after_initialize :create_journal
 

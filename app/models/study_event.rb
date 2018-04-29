@@ -25,7 +25,7 @@ class StudyEvent < ApplicationRecord
   before_create :unique_order_number
 
   def to_s
-    "#{arm} #{name}"
+    %(#{arm} #{name})
   end
 
   private

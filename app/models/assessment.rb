@@ -12,7 +12,7 @@ class Assessment < ApplicationRecord
 
   default_value_for :order_number, 1
   validates :visit, presence: true
-  validates :order_number, presence: true, allow_blank: false
+  validates :order_number, presence: true
   validates :order_number, numericality: { only_integer: true,
                                            greater_than_or_equal_to: 1,
                                            less_than_or_equal_to: 10_000 }

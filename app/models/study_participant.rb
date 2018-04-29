@@ -11,7 +11,7 @@ class StudyParticipant < ApplicationRecord
   validates_uniqueness_of :participant, scope: :study
 
   def to_s
-    "#{participant} #{study}"
+    %(#{participant} #{study})
   end
 end
 
