@@ -12,6 +12,7 @@ RSpec.describe Participant, type: :model do
   end
 
   include_examples 'required attribute', 'email', 1
+  include_examples 'required attribute', 'identifier', 1
 
   describe '#email' do
     include_context 'restore attributes'
@@ -50,8 +51,6 @@ RSpec.describe Participant, type: :model do
       expect(subject.errors[:journal].size).to eq(1)
     end
   end
-
-  include_examples 'invalid create', 'does not create a participant without an email'
 
   describe '#to_s' do
     it do

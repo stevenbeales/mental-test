@@ -23,7 +23,6 @@ gem 'rack-heartbeat', '>= 1.1', require: false # provide heartbeat URL
 gem 'rack-timeout', '>= 0.4', require: false # configure Rack timeout
 gem 'rake', '>= 12.3', require: false # so we can run Rake tasks
 gem 'ralyxa', '>= 1.7', require: false # ruby alexa framework
-gem 'secure_headers', '>= 5.0', require: false # secure headers from Twitter
 gem 'sinatra', '>= 2.0', require: false # Web server
 gem 'sinatra-activerecord', '>= 2.0', require: false # for Active Record models
 gem 'sinatra-initializers', '>= 0.1', require: false # config initializers for sinatra

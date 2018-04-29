@@ -146,8 +146,8 @@ ActiveRecord::Schema.define(version: 2018_04_22_022448) do
   end
 
   create_table "participants", comment: "Participants table", force: :cascade do |t|
-    t.string "email", null: false
-    t.string "identifier"
+    t.string "email", default: "", null: false
+    t.string "identifier", default: "", null: false
     t.bigint "user_id"
     t.datetime "created_at", default: -> { "CURRENT_TIMESTAMP" }, null: false
     t.datetime "updated_at", default: -> { "CURRENT_TIMESTAMP" }, null: false

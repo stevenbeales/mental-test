@@ -5,6 +5,9 @@ require 'rubygems'
 require 'bundler/setup'
 Bundler.require(:default, ENV['RACK_ENV'].to_sym)
 
+require 'rack/protection'
+use Rack::Protection
+
 require 'rack-timeout'
 
 # Call as early as possible so rack-timeout runs before all other middleware.

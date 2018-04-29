@@ -4,7 +4,9 @@
 class Participant < ApplicationRecord
   belongs_to :user, optional: true
   validates :email, 'valid_email_2/email': true, exclusion: { in: [nil] } # allow '' but not nil
-  validates :identifier, presence: true, allow_blank: true
+  validates :identifier, exclusion: { in: [nil] } # allow '' but not nil
+  default_value_for :email, ''
+  default_value_for :identifier, ''
   has_one :journal, inverse_of: :participant, dependent: :destroy
   has_many :survey_participants, inverse_of: :participant, dependent: :destroy
   has_many :surveys, through: :survey_participants

@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-# Note: file cannot be renamed to shared_spec because of rspec bug that double loads 
+# Note: file cannot be renamed to shared_spec because of rspec bug that double loads
 # shared spec files ending in _spec.rb https://github.com/rspec/rspec-core/issues/82
 
 # Tests timestamps existence - common to multiple classes
@@ -18,7 +18,7 @@ RSpec.shared_examples 'missing attribute' do
   end
 end
 
-# Tests common to multiple classes - existence of timestamps 
+# Tests common to multiple classes - existence of timestamps
 # and non-existence of missing attributes
 RSpec.shared_examples 'common attributes' do
   include_examples 'timestamps?'
@@ -46,25 +46,25 @@ end
 # Tests if an object is invalid with default constructor
 RSpec.shared_examples 'invalid create' do |text|
   describe '.create!' do
-    context text do 
+    context text do
       it { expect { described_class.create! }.to raise_error ActiveRecord::RecordInvalid }
     end
   end
 end
 
-# Tests object creation - 
-#   with missing name 
+# Tests object creation -
+#   with missing name
 #   1 character name
 #   longer than 1 character
-#   duplicate names 
+#   duplicate names
 RSpec.shared_examples 'create!_with_name' do |text, dup|
   describe '.create!' do
-    context text do 
+    context text do
       it do
         expect { described_class.create! }.to raise_error ActiveRecord::RecordInvalid
       end
     end
-   
+
     it '1 character name' do
       expect { described_class.create!(name: 'a') }.to raise_error ActiveRecord::RecordInvalid
     end
@@ -80,13 +80,13 @@ RSpec.shared_examples 'create!_with_name' do |text, dup|
 end
 
 # required attribute shared example
-# usage 'required attribute', 'name', 1 
+# usage 'required attribute', 'name', 1
 RSpec.shared_examples 'required attribute' do |attribute, error_count|
   describe "##{attribute}" do
     include_context 'restore attributes'
 
     it 'is required' do
-      subject.send('write_attribute', attribute, nil)   
+      subject.send('write_attribute', attribute, nil)
       subject.valid?
       expect(subject.errors[attribute.to_sym].size).to eq(error_count)
     end
@@ -98,7 +98,7 @@ RSpec.shared_examples 'default attribute' do |attribute, default|
     include_context 'restore attributes'
 
     it 'is is defaulted' do
-      subject.send('write_attribute', attribute, default)   
+      subject.send('write_attribute', attribute, default)
       expect(subject.send(attribute.to_sym)).to eq(default)
     end
   end
@@ -168,7 +168,7 @@ RSpec.shared_examples 'valid object creation' do |klass|
   end
 
   describe '#created_at today' do
-    # expect record to be created within the last 
+    # expect record to be created within the last
     # 5 minutes to check timestamp works
     it 'is created less than 5 minutes ago', timecop: :freeze do
       expect(Time.now - subject.created_at).to be < 300
@@ -182,7 +182,7 @@ RSpec.shared_examples 'discards' do |item|
   end
 
   context 'does not delete' do
-    it { expect(item.discarded?).to eq true }   
+    it { expect(item.discarded?).to eq true }
 
     it { expect(item.class.kept.include?(item)).to be_falsey }
   end
