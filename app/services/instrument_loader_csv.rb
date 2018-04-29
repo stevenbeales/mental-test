@@ -2,14 +2,15 @@
 
 require './lib/csv_source'
 require './lib/custom_exceptions'
+require './app/app_constants'
 
-# Loads instruments from csv  
+# Loads instruments from csv
 class InstrumentLoaderCsv < InstrumentLoader
   @folder = AppConstants::INSTRUMENTS_FOLDER
   attr_reader :instrument
   attr_reader :response_scale
-  attr_reader :folder 
- 
+  attr_reader :folder
+
   # Returns an array of Items that represent the questions in an instrument.
   def load_instrument(instrument:)
     @instrument = instrument
@@ -37,7 +38,7 @@ class InstrumentLoaderCsv < InstrumentLoader
     instrument.instrument_type = :csv
     instrument.instructions = ''
   end
-  
+
   def load_response_scale(name:)
     @response_scale = ResponseScale.find_or_create_by!(name: name)
   end

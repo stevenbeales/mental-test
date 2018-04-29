@@ -47,7 +47,6 @@ require 'rack/test'
 require 'rspec'
 require_relative 'shared_context_specs'
 require_relative 'shared_example_specs'
-require './app/app_constants'
 require 'active_record'
 require 'bullet'
 require './config/db'
@@ -65,7 +64,7 @@ require './intents/init'
 module RSpecMixin
   include Rack::Test::Methods
   def app
-    described_class 
+    described_class
   end
 end
 RSpec.configure { |c| c.include RSpecMixin }
@@ -74,7 +73,7 @@ RSpec.configure { |c| c.include RSpecMixin }
 Bullet.enable = true
 Bullet.bullet_logger = true
 Bullet.raise = true # raise an error if n+1 query occurs
-  
+
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
 RSpec.configure do |config|
   # cleanup database and reload seeds
@@ -107,7 +106,7 @@ RSpec.configure do |config|
     Timecop.return
   end
 
-  # Disable validation of Alexa requests as 
+  # Disable validation of Alexa requests as
   # these will fail when running under rspec
   config.before :each do
     Ralyxa.configure do |c|
@@ -144,7 +143,7 @@ RSpec.configure do |config|
     # a real object. This is generally recommended, and will default to
     # `true` in RSpec 4.
     mocks.verify_partial_doubles = true
-   
+
     # This option should be set when all dependencies are being loaded
     # before a spec run, as is the case in a typical spec helper. It will
     # cause any verifying double instantiation for a class that does not
