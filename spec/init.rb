@@ -1,0 +1,17 @@
+# frozen_string_literal: true
+
+require 'ralyxa'
+require 'rack/test'
+require 'rspec'
+require_relative 'shared_context_specs'
+require_relative 'shared_example_specs'
+require './config/db'
+require 'bullet'
+require 'database_cleaner'
+require 'factory_bot'
+require 'test_constants'
+require 'timecop'
+require_relative 'test_factory'
+require './app/services/init'
+require './app/models/init'
+require './intents/init'

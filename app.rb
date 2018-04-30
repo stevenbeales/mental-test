@@ -10,8 +10,9 @@
 # Copyright:: Copyright (c) 2018 Ardint
 # License::   MIT
 
-require 'sinatra'
 require 'ralyxa'
+require 'sinatra'
+require 'sinatra/activerecord'
 require 'sinatra-initializers'
 require_relative 'config/db'
 require_relative 'app/services/init'
@@ -31,6 +32,8 @@ class App < Sinatra::Base
 
   # Register initializers a la Rails
   register Sinatra::Initializers
+
+  register Sinatra::ActiveRecordExtension
 
   # Entry point for requests from Amazon Alexa.
   # The incoming requests are dispatched to intents in the intents folder by Ralyxa.

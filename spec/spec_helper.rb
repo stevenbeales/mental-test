@@ -7,58 +7,15 @@
 # files.
 #
 # Given that it is always loaded, you are encouraged to keep this file as
-# light-weight as possible. Requiring heavyweight dependencies from this file
-# will add to the boot time of your test suite on EVERY test run, even for an
-# individual file that may not need all of that loaded. Instead, consider making
-# a separate helper file that requires the additional dependencies and performs
-# the additional setup, and require it from the spec files that actually need
-# it.
+# light-weight as possible.
 #
+ENV['RACK_ENV'] = 'test'
 require 'warning'
+require_relative 'coverage_init'
+require_relative 'init'
+
 Warning.ignore(%i[method_redefined not_reached missing_ivar unused_var])
 Warning.ignore(/mismatched indentation/)
-
-require 'coveralls'
-Coveralls.wear!
-
-require 'simplecov'
-require 'simplecov-console'
-require 'scrutinizer/ocular'
-require 'scrutinizer/ocular/formatter'
-
-Scrutinizer::Ocular.watch! 'app'
-
-SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new(
-  [
-    SimpleCov::Formatter::Console,
-    SimpleCov::Formatter::HTMLFormatter,
-    Coveralls::SimpleCov::Formatter,
-    Scrutinizer::Ocular::UploadingFormatter
-  ]
-)
-
-SimpleCov.start 'app' do
-  track_files 'app.rb'
-end
-
-ENV['RACK_ENV'] = 'test'
-
-require 'rack/test'
-require 'rspec'
-require_relative 'shared_context_specs'
-require_relative 'shared_example_specs'
-require 'active_record'
-require 'bullet'
-require './config/db'
-require 'database_cleaner'
-require 'ralyxa'
-require 'factory_bot'
-require 'test_constants'
-require 'timecop'
-require_relative 'test_factory'
-require './app/services/init'
-require './app/models/init'
-require './intents/init'
 
 # Sinatra testing
 module RSpecMixin
@@ -70,8 +27,6 @@ end
 RSpec.configure { |c| c.include RSpecMixin }
 
 # Find n+1 queries
-Bullet.enable = true
-Bullet.bullet_logger = true
 Bullet.raise = true # raise an error if n+1 query occurs
 
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
@@ -85,16 +40,20 @@ RSpec.configure do |config|
 
   config.before(:each) do
     Bullet.start_request
+
+    # allow email validation to bypass MX lookups so email validation works offline
+    allow_any_instance_of(ValidEmail2::Address).to receive(:valid_mx?) { true }
+
+    # Disable validation of Alexa requests as
+    # these will fail when running under rspec
+    Ralyxa.configure do |c|
+      c.validate_requests = false
+    end
   end
 
   config.after(:each) do
     Bullet.perform_out_of_channel_notifications if Bullet.notification?
     Bullet.end_request
-  end
-
-  # allow email validation to bypass MX lookups so email validation works offline
-  config.before(:each) do
-    allow_any_instance_of(ValidEmail2::Address).to receive(:valid_mx?) { true }
   end
 
   # use Timecop to allow date and time based specs
@@ -104,14 +63,6 @@ RSpec.configure do |config|
 
   config.after :each, timecop: :freeze do
     Timecop.return
-  end
-
-  # Disable validation of Alexa requests as
-  # these will fail when running under rspec
-  config.before :each do
-    Ralyxa.configure do |c|
-      c.validate_requests = false
-    end
   end
 
   config.expect_with :rspec do |c|
@@ -206,5 +157,5 @@ RSpec.configure do |config|
   # Setting this allows you to use `--seed` to deterministically reproduce
   # test failures related to randomization by passing the same `--seed` value
   # as the one that triggered the failure.
-  Kernel.srand config.seed
+  # Kernel.srand config.seed
 end
