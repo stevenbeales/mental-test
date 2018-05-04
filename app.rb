@@ -18,11 +18,13 @@ require_relative 'config/db'
 require_relative 'app/services/init'
 require_relative 'app/models/init'
 require_relative 'lib/init'
+require_relative 'app/app_constants'
 
 configure { set :server, :puma }
 set :app_file, __FILE__
 set :root, File.dirname(__FILE__)
 set :public_folder, File.dirname(__FILE__) + '/public'
+set :log_file, File.dirname(__FILE__) + AppConstants::LOG_FILE
 
 # This class is the main entry point to Application.
 # Takes an incoming Alexa requests and dispatches
