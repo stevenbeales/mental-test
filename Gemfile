@@ -7,6 +7,7 @@ gem 'activerecord', '>= 5.2' # ORM
 gem 'activerecord-delay_touching', '>= 1.0' # Batch Touching Calls
 gem 'audited', '>= 4.7', require: false # adds table auiting support
 gem 'bugsnag', '>= 6.6', require: false # online bug reporting
+gem 'bundler-audit', '>= 0.6', require: false # check gems for security issues
 gem 'default_value_for', '>= 3.0', require: false # set default values
 gem 'discard', '>= 1.0', require: false # soft deletes
 gem 'dotenv', '>= 2.2', require: false # adds environment variables from .env files
@@ -51,7 +52,6 @@ group :development, :test do
   gem 'better_errors', '>= 2.4', require: false # better error logging
   gem 'binding_of_caller', '>= 0.8', require: false # helps better_errors provide more detailed debugging
   gem 'bullet', '>= 5.7', require: false # find slow ActiveRecord queries
-  gem 'bundler-audit', '>= 0.6', require: false # check gems for security issues
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', '>= 10.0', platforms: %i[mri mingw x64_mingw]
   gem 'fasterer', '>= 0.4', require: false # find slow code

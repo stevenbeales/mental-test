@@ -3,9 +3,9 @@
 namespace :app do
   desc 'Run development web server'
   task :run do
-    sh %( ruby app.rb)
+    sh %( bundle exec rackup)
   end
-  
+
   desc 'push to git'
   task :push do
     sh %( git push -u origin master )
@@ -13,6 +13,6 @@ namespace :app do
 
   desc 'run rubocop'
   task :cop do
-    sh %( 'rubocop' ) 
+    sh %( 'rubocop' )
   end
 end
