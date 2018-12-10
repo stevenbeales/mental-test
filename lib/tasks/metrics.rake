@@ -12,7 +12,9 @@ namespace :metrics do
       while (line = f.gets)
         lines += 1
         next if line =~ /^\s*$/
+
         next if line =~ /^\s*#/
+        
         codelines += 1
       end
       puts "L: #{format('%4d', lines)}, LOC #{format('%4d', codelines)} | #{file_name}"
