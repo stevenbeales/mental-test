@@ -14,36 +14,21 @@ todo.txt
 ## Ruby gems
 /vendor/
 *.gem
-*.rbc
+
 ## Bundler config contains local state
 .config
 
-.DS_Store
-._.DS_Store
-dump.rdb
-
-bin/*
-
 data/
 
-.sass-cache/*
 public/csv/*
-public/plugins/*
-public/tombstone/*
 
 # Ignore bundler config
 /.bundle
-/.vagrant
-/.vagrantfile
 /cache
 /coverage/*
 
 /public/assets/*
-/public/tombstone/*
 /bundle/*
-
-config/discourse.pill
-config/discourse.conf
 
 # Ignore the default SQLite database and db dumps
 *.sql
@@ -52,62 +37,8 @@ config/discourse.conf
 /db/structure.sql
 /db/schema.rb
 
-# Ignore all logfiles and tempfiles.
-/logfile
-bootsnap-load-path-cache
-bootsnap-compile-cache/
-
-# Ignore plugins except for the bundled ones.
-/plugins/*
-!/plugins/emoji/
-!/plugins/lazyYT/
-!/plugins/poll/
-!/plugins/discourse-details/
-!/plugins/discourse-nginx-performance-report
-!/plugins/discourse-narrative-bot
-!/plugins/discourse-presence
-/plugins/*/auto_generated/
-
-/spec/fixtures/plugins/my_plugin/auto_generated
-
-# Ignore Eclipse .project file
-/.project
-
-# Ignore Eclipse .buildpath file
-/.buildpath
-
 # Ignore byebug history
 /.byebug_history
-
-# Ignore RubyMine settings
-/.idea
-
-# Ignore gem that is copied in
-MiniProfiler/Ruby/rack-mini-profiler-2.0.1a.gem
-
-discourse.sublime-workspace
-
-# Vim temp files
-*~
-*.swp
-*.swo
-
-# don't check in multisite config
-config/multisite.yml
-# don't check in my renamed multisite config as well :)
-config/multisite1.yml
-config/fog_credentials.yml
-
-/public/uploads
-/public/backups
-/public/stylesheet-cache/*
-
-# Scripts used for downloading/refreshing db
-script/download_db
-script/refresh_db
-
-# temp directory for chef (used to configure vagrant VM)
-chef/tmp/*
 
 # .procfile
 .procfile
@@ -125,18 +56,10 @@ bundler_stubs/*
 vendor/bundle/*
 *.db
 
-# ignore jetbrains ide file
-*.iml
-
-# vim swap
-*.swn
-
 # ignore nodejs files
 /node_modules
 /package-lock.json
 
-
-vim.exe.stackdump
 spec/rspec.txt
 log/bullet.log
 .vscode/launch.json

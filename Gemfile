@@ -56,7 +56,6 @@ group :development, :test do
   gem 'guard-rspec', '>= 4.7', require: false # run rspec on code change
   gem 'overcommit', '>= 0.4', require: false # git hooks
   gem 'reek', '>= 4.8', require: false # find code smells
-  gem 'solargraph', '>= 0.2', require: false # ruby editor code completion
   gem 'timecop', '>= 0.9', require: false # testing time dependent
 end
 
