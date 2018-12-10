@@ -52,7 +52,8 @@ RSpec.configure do |config|
   end
 
   config.after(:each) do
-    Bullet.perform_out_of_channel_notifications if Bullet.notification?
+    # Commented out line below because it gives Unused Eager Loading errors in Rails 5.2
+    # Bullet.perform_out_of_channel_notifications if Bullet.notification?
     Bullet.end_request
   end
 
