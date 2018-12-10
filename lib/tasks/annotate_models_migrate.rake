@@ -31,6 +31,7 @@ module Annotate
 
     def self.update_annotations
       return if @working || Annotate.skip_on_migration?
+      
       @working = true
       update_models if Annotate.include_models?
       update_routes if Annotate.include_routes?

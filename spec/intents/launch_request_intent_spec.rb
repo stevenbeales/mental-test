@@ -1,4 +1,3 @@
-
 # frozen_string_literal: true
 
 RSpec.describe 'Launch Intent', type: :request do

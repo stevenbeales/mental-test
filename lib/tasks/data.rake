@@ -21,6 +21,7 @@ namespace :data do
     task up: :data_migration_dependencies do
       version = ENV["VERSION"] ? ENV["VERSION"].to_i : nil
       raise "VERSION is required" unless version
+
       NondestructiveMigrator.run(:up, MIGRATIONS_PATH, version)
     end
 
@@ -28,6 +29,7 @@ namespace :data do
     task down: :data_migration_dependencies do
       version = ENV["VERSION"] ? ENV["VERSION"].to_i : nil
       raise "VERSION is required" unless version
+      
       NondestructiveMigrator.run(:down, MIGRATIONS_PATH, version)
     end
   end

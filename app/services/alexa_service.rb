@@ -33,6 +33,7 @@ class AlexaService
   def self.start_test(testname: AppConstants::DEFAULT_INSTRUMENT)
     instrument = Instrument.find_by(name: testname)
     return format(I18n.t(:cannot_find_instrument), instrument: testname) unless instrument
+    
     instrument.first_question_and_instructions
   end
 

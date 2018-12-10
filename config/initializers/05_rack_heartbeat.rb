@@ -1,4 +1,3 @@
-
 # frozen_string_literal: true
 
 # Adds /heartbeat route to keep alive route in production 
